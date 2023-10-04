@@ -1,5 +1,5 @@
 {
-  "homepage": "http://JijaLoqie.github.io/GVG",
+  "homepage": "https://JijaLoqie.github.io/GVG",
   "name": "main-gvg-app",
   "version": "1.0.0",
   "description": "",
@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "bun build ./src/index.js --outdir ../static/frontend --watch",
     "predeploy": "bun run build",
-    "deploy": "gh-pages -d build",
+    "deploy": "gh-pages -d ../templates/frontend",
     "build": "bun build ./src/index.js --outdir ../static/frontend"
   },
   "keywords": [],

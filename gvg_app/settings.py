@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-k32_+_ha=-2y)%-^g!=yun_#9=cmp+%tea-v=*nb56=vr=^rl8
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['gvgtechsolutions.ru', 'www.gvgtechsolutions.ru']
 
 
 # Application definition
@@ -76,11 +76,13 @@ WSGI_APPLICATION = 'gvg_app.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'u2274872_default',
+        'USER': 'u2274872_default',
+        'PASSWORD': 'lOJd12NJqL7Ii6ja',
+        'HOST': 'localhost',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -119,6 +121,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = 'static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

@@ -26,6 +26,7 @@ import {
   bindTrigger,
   bindMenu,
 } from "material-ui-popup-state/hooks";
+import { useNavigate } from 'react-router-dom';
 
 const themed = createTheme({
   palette: {
@@ -43,7 +44,10 @@ export default CustomBarPC = () => {
   const [selected, setSelected] = useState(0);
   const handleSelect = (target, newSelected) => {
     setSelected(newSelected);
+	navigate(`${actions[newSelected].path}`);
   };
+
+  const navigate = useNavigate();
 
   const popupState = usePopupState({ variant: "popover", popupId: "demoMenu" });
 
@@ -80,7 +84,7 @@ export default CustomBarPC = () => {
           </ButtonGroup>
           <Stack direction="row-reverse" marginLeft="auto">
             <CustomSearch />
-            <Typography variant="body1" sx={{ alignSelf: "center" }}>
+            <Typography variant="body1" sx={{ color:"#ffffff", alignSelf: "center" }}>
               +7 (985) 146-04-77
             </Typography>
           </Stack>

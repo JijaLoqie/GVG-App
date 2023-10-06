@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // import CatchingPokemonIcon from "@mui/icons-material/CatchingPokemon";
@@ -19,9 +19,12 @@ import {
   Box,
   AppBar,
   Toolbar,
-  IconButton,
-  Link,
+  MenuItem,
+  Menu,
+  Tab,
+  Tabs,
 } from "@mui/material";
+import Fade from "@mui/material/Fade";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -67,6 +70,20 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 
 export default App = () => {
+	const [selected, setSelected] = useState(0)
+
+	const [anchorEl, setAnchorEl] = React.useState(null);
+	const open = Boolean(anchorEl);
+	const handleClick = (event) => {
+		setAnchorEl(event.currentTarget);
+	};
+	const handleClose = () => {
+		setAnchorEl(null);
+	};
+
+	const handleSelect = (target, newSelected) => {
+		setSelected(newSelected)
+	}
   return (
     <Box
       sx={{
@@ -80,41 +97,61 @@ export default App = () => {
         <Toolbar
           sx={{
             bgcolor: "#000000",
-            borderBottom: 1,
-            borderColor: "primary.main",
           }}
         >
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="logo"
-          >
+          <Button sx={{ color: "#ffffff" }}>
             <CatchingPokemonIcon />
-          </IconButton>
-          <Typography variant="h4" sx={{ color: "#ffffff", flexGrow: 1 }}>
-            GVG
-          </Typography>
-          <ButtonGroup variant="outlined">
-            <Button component={Link} sx={{ color: "#ffffff" }}>
-              Главная
-            </Button>
-            <Button component={Link} sx={{ color: "#ffffff" }}>
-              Услуги
-            </Button>
-            <Button sx={{ color: "#ffffff" }}>О нас</Button>
-            <Button sx={{ color: "#ffffff" }}>Способы доставки</Button>
-          </ButtonGroup>
-          <Search>
-            <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase
-              placeholder="Search…"
-              color="#ffffff"
-              inputProps={{ "aria-label": "search" }}
+            <Typography variant="h4">GVG</Typography>
+          </Button>
+          <Tabs textColor="#ffffff" value={selected} onChange={handleSelect}>
+            <Tab label="Главная" />
+            <Tab
+              label={
+                <>
+                  <Typography
+                    id="fade-button"
+                    aria-controls={open ? "fade-menu" : undefined}
+                    aria-haspopup="true"
+                    aria-expanded={open ? "true" : undefined}
+                    onClick={handleClick}
+                  >
+                    Услуги
+                  </Typography>
+                  <Menu
+                    id="fade-menu"
+                    MenuListProps={{
+                      "aria-labelledby": "fade-button",
+                    }}
+                    anchorEl={anchorEl}
+                    open={open}
+                    onClose={handleClose}
+                    TransitionComponent={Fade}
+                  >
+                    <MenuItem onClick={handleClose}>Сборки</MenuItem>
+                    <MenuItem onClick={handleClose}>Комплектующие</MenuItem>
+                    <MenuItem onClick={handleClose}>Мне повезёт!</MenuItem>
+                  </Menu>
+                </>
+              }
             />
-          </Search>
+            <Tab label="Доставка" />
+            <Tab label="О нас" />
+          </Tabs>
+          <Stack direction="row-reverse" marginLeft="auto">
+            <Search>
+              <SearchIconWrapper>
+                <SearchIcon />
+              </SearchIconWrapper>
+              <StyledInputBase
+                placeholder="Search…"
+                color="#ffffff"
+                inputProps={{ "aria-label": "search" }}
+              />
+            </Search>
+            <Typography variant="body1" sx={{ alignSelf: "center" }}>
+              +7 (985)-146-04-77
+            </Typography>
+          </Stack>
         </Toolbar>
       </AppBar>
       <Box padding={4}>

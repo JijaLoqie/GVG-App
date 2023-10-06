@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-k32_+_ha=-2y)%-^g!=yun_#9=cmp+%tea-v=*nb56=vr=^rl8
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['gvgtechsolutions.ru', 'www.gvgtechsolutions.ru']
+ALLOWED_HOSTS = ['localhost', 'gvgtechsolutions.ru', 'www.gvgtechsolutions.ru']
 
 
 # Application definition
@@ -74,15 +74,15 @@ WSGI_APPLICATION = 'gvg_app.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'u2274872_default',
-        'USER': 'u2274872_default',
-        'PASSWORD': 'lOJd12NJqL7Ii6ja',
-        'HOST': 'localhost',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'u2274872_default',
+#         'USER': 'u2274872_default',
+#         'PASSWORD': 'lOJd12NJqL7Ii6ja',
+#         'HOST': 'localhost',
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators

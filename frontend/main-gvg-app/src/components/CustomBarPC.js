@@ -33,7 +33,6 @@ const themed = createTheme({
     primary: {
       main: "#ffffff",
     },
-    secondary: purple,
   },
 });
 
@@ -103,12 +102,13 @@ export default CustomBarPC = () => {
             </Menu>
 			*/}
           </ButtonGroup>
-          <Stack direction="row-reverse" marginLeft="auto">
+          <Stack
+            direction="row-reverse"
+            marginLeft="auto"
+            sx={{ alignItems: "center", color: "#ffffff" }}
+          >
             <CustomSearch />
-            <Typography
-              variant="body1"
-              sx={{ color: "#ffffff", alignSelf: "center" }}
-            >
+            <Typography variant="body1" sx={{ alignSelf: "center" }}>
               +7 (985) 146-04-77
             </Typography>
           </Stack>

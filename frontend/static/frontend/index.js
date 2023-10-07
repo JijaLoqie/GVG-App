@@ -24957,6 +24957,7 @@ var purple = {
   A700: "#aa00ff"
 };
 var purple_default = purple;
+
 // node_modules/@mui/material/colors/blue.js
 var blue = {
   50: "#e3f2fd",
@@ -35427,7 +35428,6 @@ var Search = styled_default2("div")(({ theme }) => ({
   "&:hover": {
     backgroundColor: alpha(theme.palette.common.white, 0.25)
   },
-  marginLeft: theme.spacing(1),
   width: "100%",
   [theme.breakpoints.up("sm")]: {
     marginLeft: theme.spacing(1),
@@ -35779,8 +35779,7 @@ var themed = createTheme_default2({
   palette: {
     primary: {
       main: "#ffffff"
-    },
-    secondary: purple_default
+    }
   }
 });
 var actions = [
@@ -35835,11 +35834,12 @@ var CustomBarPC_default = CustomBarPC = () => {
           jsx_dev_runtime6.jsxDEV(Stack_default, {
             direction: "row-reverse",
             marginLeft: "auto",
+            sx: { alignItems: "center", color: "#ffffff" },
             children: [
               jsx_dev_runtime6.jsxDEV(CustomSearch_default, {}, undefined, false, undefined, this),
               jsx_dev_runtime6.jsxDEV(Typography_default, {
                 variant: "body1",
-                sx: { color: "#ffffff", alignSelf: "center" },
+                sx: { alignSelf: "center" },
                 children: "+7 (985) 146-04-77"
               }, undefined, false, undefined, this)
             ]

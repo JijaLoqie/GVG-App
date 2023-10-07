@@ -9,7 +9,9 @@ import {
 } from "@mui/icons-material";
 import { lime, purple } from "@mui/material/colors";
 
-import Fade from "@mui/material/Fade";
+import Popover from "@mui/material/Popover";
+import PopupState, { bindTrigger, bindPopover } from "material-ui-popup-state";
+
 import CustomSearch from "./CustomSearch";
 
 import {
@@ -28,23 +30,12 @@ import {
   ThemeProvider,
   BottomNavigation,
   BottomNavigationAction,
+  Tooltip,
+  SpeedDial,
+  IconButton,
 } from "@mui/material";
 
-import {
-  usePopupState,
-  bindTrigger,
-  bindMenu,
-} from "material-ui-popup-state/hooks";
 import { useNavigate } from 'react-router-dom';
-
-const themed = createTheme({
-  palette: {
-    primary: {
-      main: "#ffffff",
-    },
-    secondary: purple,
-  },
-});
 
 const actions = [
   {
@@ -82,8 +73,10 @@ export default CustomBarMobile = () => {
     <>
       <AppBar position="static">
         <Toolbar
-		  direction="row"
+          direction="row"
           sx={{
+            borderBottom: 1,
+            borderColor: "#ffffff",
             bgcolor: "#000000",
           }}
         >
@@ -91,9 +84,36 @@ export default CustomBarMobile = () => {
             <CatchingPokemonIcon />
             <Typography variant="h4">GVG</Typography>
           </Button>
-          <Stack direction="row-reverse" marginLeft="auto" sx={{ alignItems: 'center'}}>
+          <Stack
+            direction="row-reverse"
+            marginLeft="auto"
+            sx={{ alignItems: "center" }}
+          >
             <CustomSearch />
-            <PhoneIcon />
+            <PopupState variant="popover" popupId="demo-popup-popover">
+              {(popupState) => (
+                <div>
+                  <IconButton sx={{color: "#ffffff"}} {...bindTrigger(popupState)}>
+                    <PhoneIcon />
+                  </IconButton>
+                  <Popover
+                    {...bindPopover(popupState)}
+                    anchorOrigin={{
+                      vertical: "bottom",
+                      horizontal: "center",
+                    }}
+                    transformOrigin={{
+                      vertical: "top",
+                      horizontal: "center",
+                    }}
+                  >
+                    <Typography sx={{ p: 2 }}>
+                      +7 (985) 146-04-77
+                    </Typography>
+                  </Popover>
+                </div>
+              )}
+            </PopupState>
           </Stack>
         </Toolbar>
       </AppBar>
@@ -106,11 +126,16 @@ export default CustomBarMobile = () => {
         }}
         value={selected}
         onChange={handleSelect}
-		showLabels
+        showLabels
       >
-		{actions.map((action) => (
-			<BottomNavigationAction label={action.title} icon={action.icon} />
-		))}
+        {actions.map((action, index) => (
+          <BottomNavigationAction
+            key={index}
+            label={action.title}
+            icon={action.icon}
+			onClick={() => console.log(action.title)}
+          />
+        ))}
       </BottomNavigation>
     </>
   );

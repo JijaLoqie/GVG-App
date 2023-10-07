@@ -5,9 +5,9 @@ from .views import index
 urlpatterns = [
         path('', index),
         path('home/', index),
-        path('create/', index),
-        path('update/', index),
-        path('resume/<str:code>/', index),
+        path('offers/', index),
+        path('delivery/', index),
+        path('about/', index),
 ]
 
 

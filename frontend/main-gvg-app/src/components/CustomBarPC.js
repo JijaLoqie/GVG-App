@@ -26,36 +26,44 @@ import {
   bindTrigger,
   bindMenu,
 } from "material-ui-popup-state/hooks";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 const themed = createTheme({
   palette: {
-	primary: {
-		main: "#ffffff",
-	},
-	secondary: purple,
+    primary: {
+      main: "#ffffff",
+    },
+    secondary: purple,
   },
 });
 
-
-
+const actions = [
+  {
+    title: "Главная",
+    path: "/home",
+  },
+  {
+    title: "Услуги",
+    path: "/offers",
+  },
+  {
+    title: "Доставка",
+    path: "/delivery",
+  },
+  {
+    title: "О нас",
+    path: "/about",
+  },
+];
 
 export default CustomBarPC = () => {
-  const [selected, setSelected] = useState(0);
-  const handleSelect = (target, newSelected) => {
-    setSelected(newSelected);
-	navigate(`${actions[newSelected].path}`);
-  };
-
-  const navigate = useNavigate();
-
-  const popupState = usePopupState({ variant: "popover", popupId: "demoMenu" });
-
   return (
     <ThemeProvider theme={themed}>
       <AppBar position="static">
         <Toolbar
           sx={{
+            borderBottom: 1,
+            borderColor: "primary.main",
             bgcolor: "#000000",
           }}
         >
@@ -64,9 +72,23 @@ export default CustomBarPC = () => {
             <Typography variant="h4">GVG</Typography>
           </Button>
 
-          <ButtonGroup variant="text">
-            <Button>Главная</Button>
-            <Button {...bindTrigger(popupState)}>Услуги</Button>
+          <ButtonGroup
+            variant="text"
+            sx={{ minHeight: "50px", paddingInline: "20px" }}
+          >
+            {actions.map((action, index) => (
+              <Button
+                key={index}
+                sx={{ paddingInline: "20px" }}
+                href={`${action.path}`}
+              >
+                {action.title}
+              </Button>
+            ))}
+            {/*
+            <Button sx={{ paddingInline: "20px" }} {...bindTrigger(popupState)}>
+              Услуги
+            </Button>
             <Menu
               id="fade-menu"
               MenuListProps={{
@@ -79,12 +101,14 @@ export default CustomBarPC = () => {
               <MenuItem onClick={popupState.close}>Комплектующие</MenuItem>
               <MenuItem onClick={popupState.close}>Мне повезёт!</MenuItem>
             </Menu>
-            <Button>Доставка</Button>
-            <Button>О нас</Button>
+			*/}
           </ButtonGroup>
           <Stack direction="row-reverse" marginLeft="auto">
             <CustomSearch />
-            <Typography variant="body1" sx={{ color:"#ffffff", alignSelf: "center" }}>
+            <Typography
+              variant="body1"
+              sx={{ color: "#ffffff", alignSelf: "center" }}
+            >
               +7 (985) 146-04-77
             </Typography>
           </Stack>

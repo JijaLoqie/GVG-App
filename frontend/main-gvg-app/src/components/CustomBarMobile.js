@@ -81,7 +81,7 @@ export default CustomBarMobile = () => {
           }}
         >
           <Button sx={{ color: "#ffffff" }}>
-            <CatchingPokemonIcon />
+            <CatchingPokemonIcon sx={{ marginRight: 1 }} />
             <Typography variant="h4">GVG</Typography>
           </Button>
           <Stack
@@ -93,7 +93,10 @@ export default CustomBarMobile = () => {
             <PopupState variant="popover" popupId="demo-popup-popover">
               {(popupState) => (
                 <div>
-                  <IconButton sx={{color: "#ffffff"}} {...bindTrigger(popupState)}>
+                  <IconButton
+                    sx={{ color: "#ffffff" }}
+                    {...bindTrigger(popupState)}
+                  >
                     <PhoneIcon />
                   </IconButton>
                   <Popover
@@ -108,7 +111,9 @@ export default CustomBarMobile = () => {
                     }}
                   >
                     <Typography sx={{ p: 2 }}>
-                      +7 (985) 146-04-77
+                      <Link to="tel:9851460477" underline="none">
+                        +7 (985) 146-04-77
+                      </Link>
                     </Typography>
                   </Popover>
                 </div>
@@ -133,7 +138,7 @@ export default CustomBarMobile = () => {
             key={index}
             label={action.title}
             icon={action.icon}
-			onClick={() => console.log(action.title)}
+            onClick={() => console.log(action.title)}
           />
         ))}
       </BottomNavigation>

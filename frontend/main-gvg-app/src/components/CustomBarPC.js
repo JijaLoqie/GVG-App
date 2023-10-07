@@ -109,7 +109,9 @@ export default CustomBarPC = () => {
           >
             <CustomSearch />
             <Typography variant="body1" sx={{ alignSelf: "center" }}>
-              +7 (985) 146-04-77
+              <Link to="tel:9851460477" underline="none">
+                +7 (985) 146-04-77
+              </Link>
             </Typography>
           </Stack>
         </Toolbar>

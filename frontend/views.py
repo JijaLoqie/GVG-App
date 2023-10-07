@@ -1,6 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
-# Create your views here.
+
+
+def redirect_index(request, *args, **kwargs):
+	return redirect('/home/')
 
 
 def index(request, *args, **kwargs):

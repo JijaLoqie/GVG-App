@@ -30,7 +30,7 @@ const Item = styled(Paper)(({ theme }) => ({
 
 export default AboutUsPage = () => {
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box sx={{ flexGrow: 1, marginBottom: "100px" }}>
       <Grid container spacing={2}>
         <Grid item xs={12} md={6}>
           <Typography fontSize="1.5rem">Кто мы?</Typography>

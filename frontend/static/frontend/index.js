@@ -36075,7 +36075,7 @@ var Item = styled_default2(Paper_default)(({ theme }) => ({
 }));
 var AboutUsPage_default = AboutUsPage = () => {
   return jsx_dev_runtime4.jsxDEV(Box_default, {
-    sx: { flexGrow: 1 },
+    sx: { flexGrow: 1, marginBottom: "100px" },
     children: jsx_dev_runtime4.jsxDEV(Grid_default, {
       container: true,
       spacing: 2,

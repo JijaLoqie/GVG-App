@@ -36,7 +36,6 @@ export default AboutUsPage = () => {
           <Typography fontSize="1.5rem">Кто мы?</Typography>
         </Grid>
         <Grid item xs={12} md={12}>
-          <Typography variant="body2" gutterBottom>
             <Typography paragraph>
               Мы динамичная компания, предлагающая более 10 профессиональных
               сборок компьютеров для любых задач. Наша команда состоит из
@@ -60,7 +59,6 @@ export default AboutUsPage = () => {
               ваш идеальный выбор! Оставьте свои заявки сейчас, и наша команда
               приступит к работе над вашим идеальным компьютером. 💪
             </Typography>
-          </Typography>
         </Grid>
 
         <Grid item xs={12} md={12}>
@@ -80,7 +78,7 @@ export default AboutUsPage = () => {
           <EmailIcon sx={{ marginRight: 2 }} />
           <Box>kraskovskiydm@gmail.com</Box>
         </Grid>
-        <Grid item xs={12} md={12}>
+        <Grid item xs={12} md={12} marginBottom={12}>
           <TelegramIcon sx={{ marginRight: 2 }} />
           <InstagramIcon sx={{ marginRight: 2 }} />
         </Grid>

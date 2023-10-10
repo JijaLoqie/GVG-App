@@ -12,7 +12,7 @@ import { lime, purple } from "@mui/material/colors";
 import Popover from "@mui/material/Popover";
 import PopupState, { bindTrigger, bindPopover } from "material-ui-popup-state";
 
-import CustomSearch from "./CustomSearch";
+import CustomSearch from "../common/CustomSearch";
 
 import {
   Button,

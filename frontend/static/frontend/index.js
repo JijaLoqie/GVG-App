@@ -24877,7 +24877,7 @@ var DataRouterStateHook2;
 var SCROLL_RESTORATION_STORAGE_KEY = "react-router-scroll-positions";
 var savedScrollPositions = {};
 
-// src/components/OffersPage.js
+// src/components/offers/OffersPage.js
 var import_react = __toESM(require_react(), 1);
 var jsx_dev_runtime = __toESM(require_jsx_dev_runtime(), 1);
 var OffersPage_default = OffersPage = (props) => {
@@ -24886,7 +24886,7 @@ var OffersPage_default = OffersPage = (props) => {
   }, undefined, false, undefined, this);
 };
 
-// src/components/HomePage.js
+// src/components/home/HomePage.js
 var import_react2 = __toESM(require_react(), 1);
 var jsx_dev_runtime2 = __toESM(require_jsx_dev_runtime(), 1);
 var HomePage_default = HomePage = () => {
@@ -24895,7 +24895,7 @@ var HomePage_default = HomePage = () => {
   }, undefined, false, undefined, this);
 };
 
-// src/components/DeliveryPage.js
+// src/components/delivery/DeliveryPage.js
 var import_react11 = __toESM(require_react(), 1);
 
 // node_modules/@pbe/react-yandex-maps/dist/react-yandex-maps.esm.js
@@ -36461,7 +36461,7 @@ Toolbar.propTypes = {
   variant: import_prop_types40.default.oneOfType([import_prop_types40.default.oneOf(["dense", "regular"]), import_prop_types40.default.string])
 };
 var Toolbar_default = Toolbar;
-// src/components/DeliveryPage.js
+// src/components/delivery/DeliveryPage.js
 var jsx_dev_runtime3 = __toESM(require_jsx_dev_runtime(), 1);
 var pointerCoords = [55.8, 37.8];
 var mapState = { center: [55.8, 37.8], zoom: 20 };
@@ -36494,7 +36494,7 @@ var DeliveryPage_default = DeliveryPage = () => {
   }, undefined, true, undefined, this);
 };
 
-// src/components/AboutUsPage.js
+// src/components/about/AboutUsPage.js
 var import_react12 = __toESM(require_react(), 1);
 // node_modules/@mui/icons-material/esm/AccessTime.js
 var jsx_runtime42 = __toESM(require_jsx_runtime(), 1);
@@ -36557,7 +36557,7 @@ var jsx_runtime52 = __toESM(require_jsx_runtime(), 1);
 var Telegram_default = createSvgIcon(jsx_runtime52.jsx("path", {
   d: "M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"
 }), "Telegram");
-// src/components/AboutUsPage.js
+// src/components/about/AboutUsPage.js
 var jsx_dev_runtime4 = __toESM(require_jsx_dev_runtime(), 1);
 var Item = styled_default2(Paper_default)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -36678,7 +36678,7 @@ var AboutUsPage_default = AboutUsPage = () => {
   }, undefined, false, undefined, this);
 };
 
-// src/components/UseCheckMobileScreen.js
+// src/components/common/hooks/UseCheckMobileScreen.js
 var import_react13 = __toESM(require_react(), 1);
 var UseCheckMobileScreen_default = useCheckMobileScreen = () => {
   const [width2, setWidth] = import_react13.useState(window.innerWidth);
@@ -36694,10 +36694,10 @@ var UseCheckMobileScreen_default = useCheckMobileScreen = () => {
   return width2 <= 768;
 };
 
-// src/components/CustomBarPC.js
+// src/components/navbars/CustomBarPC.js
 var import_react15 = __toESM(require_react(), 1);
 
-// src/components/CustomSearch.js
+// src/components/common/CustomSearch.js
 var jsx_dev_runtime5 = __toESM(require_jsx_dev_runtime(), 1);
 var Search = styled_default2("div")(({ theme }) => ({
   position: "relative",
@@ -37051,7 +37051,7 @@ var initCoreState = {
   _deferNextClose: false
 };
 
-// src/components/CustomBarPC.js
+// src/components/navbars/CustomBarPC.js
 var jsx_dev_runtime6 = __toESM(require_jsx_dev_runtime(), 1);
 var themed = createTheme_default2({
   palette: {
@@ -37132,7 +37132,7 @@ var CustomBarPC_default = CustomBarPC = () => {
   }, undefined, false, undefined, this);
 };
 
-// src/components/CustomBarMobile.js
+// src/components/navbars/CustomBarMobile.js
 var import_react16 = __toESM(require_react(), 1);
 
 // node_modules/material-ui-popup-state/es/index.mjs
@@ -37161,7 +37161,7 @@ PopupState.propTypes = {
   disableAutoFocus: import_prop_types41.default.bool
 };
 
-// src/components/CustomBarMobile.js
+// src/components/navbars/CustomBarMobile.js
 var jsx_dev_runtime7 = __toESM(require_jsx_dev_runtime(), 1);
 var actions2 = [
   {

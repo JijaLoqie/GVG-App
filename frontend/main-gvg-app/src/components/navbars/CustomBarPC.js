@@ -3,7 +3,7 @@ import { CatchingPokemon as CatchingPokemonIcon } from "@mui/icons-material";
 import { lime, purple } from "@mui/material/colors";
 
 import Fade from "@mui/material/Fade";
-import CustomSearch from "./CustomSearch";
+import CustomSearch from "../common/CustomSearch";
 
 import {
   Button,

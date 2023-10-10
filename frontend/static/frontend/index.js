@@ -37704,7 +37704,9 @@ var CustomBarMobile_default = CustomBarMobile = () => {
           backgroundColor: "#ffffff",
           width: "100%",
           position: "absolute",
-          bottom: 0
+          bottom: 0,
+          marginBottom: 0,
+          zIndex: 12345
         },
         value: selected,
         onChange: handleSelect,

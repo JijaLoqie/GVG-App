@@ -36775,58 +36775,53 @@ var AccessTime_default = createSvgIcon([jsx_runtime45.jsx("path", {
 }, "0"), jsx_runtime45.jsx("path", {
   d: "M12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z"
 }, "1")], "AccessTime");
-// node_modules/@mui/icons-material/esm/CatchingPokemon.js
-var jsx_runtime46 = __toESM(require_jsx_runtime(), 1);
-var CatchingPokemon_default = createSvgIcon(jsx_runtime46.jsx("path", {
-  d: "M14.5 12c0 1.38-1.12 2.5-2.5 2.5S9.5 13.38 9.5 12s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5zm7.5 0c0 5.52-4.48 10-10 10S2 17.52 2 12 6.48 2 12 2s10 4.48 10 10zm-2 0h-4c0-2.21-1.79-4-4-4s-4 1.79-4 4H4c0 4.41 3.59 8 8 8s8-3.59 8-8z"
-}), "CatchingPokemon");
 // node_modules/@mui/icons-material/esm/Computer.js
-var jsx_runtime47 = __toESM(require_jsx_runtime(), 1);
-var Computer_default = createSvgIcon(jsx_runtime47.jsx("path", {
+var jsx_runtime46 = __toESM(require_jsx_runtime(), 1);
+var Computer_default = createSvgIcon(jsx_runtime46.jsx("path", {
   d: "M20 18c1.1 0 1.99-.9 1.99-2L22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2H0v2h24v-2h-4zM4 6h16v10H4V6z"
 }), "Computer");
 // node_modules/@mui/icons-material/esm/DeliveryDining.js
-var jsx_runtime48 = __toESM(require_jsx_runtime(), 1);
-var DeliveryDining_default = createSvgIcon([jsx_runtime48.jsx("path", {
+var jsx_runtime47 = __toESM(require_jsx_runtime(), 1);
+var DeliveryDining_default = createSvgIcon([jsx_runtime47.jsx("path", {
   d: "M19 7c0-1.1-.9-2-2-2h-3v2h3v2.65L13.52 14H10V9H6c-2.21 0-4 1.79-4 4v3h2c0 1.66 1.34 3 3 3s3-1.34 3-3h4.48L19 10.35V7zM7 17c-.55 0-1-.45-1-1h2c0 .55-.45 1-1 1z"
-}, "0"), jsx_runtime48.jsx("path", {
+}, "0"), jsx_runtime47.jsx("path", {
   d: "M5 6h5v2H5zm14 7c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3zm0 4c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1z"
 }, "1")], "DeliveryDining");
 // node_modules/@mui/icons-material/esm/Email.js
-var jsx_runtime49 = __toESM(require_jsx_runtime(), 1);
-var Email_default = createSvgIcon(jsx_runtime49.jsx("path", {
+var jsx_runtime48 = __toESM(require_jsx_runtime(), 1);
+var Email_default = createSvgIcon(jsx_runtime48.jsx("path", {
   d: "M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"
 }), "Email");
 // node_modules/@mui/icons-material/esm/Home.js
-var jsx_runtime50 = __toESM(require_jsx_runtime(), 1);
-var Home_default = createSvgIcon(jsx_runtime50.jsx("path", {
+var jsx_runtime49 = __toESM(require_jsx_runtime(), 1);
+var Home_default = createSvgIcon(jsx_runtime49.jsx("path", {
   d: "M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"
 }), "Home");
 // node_modules/@mui/icons-material/esm/Info.js
-var jsx_runtime51 = __toESM(require_jsx_runtime(), 1);
-var Info_default = createSvgIcon(jsx_runtime51.jsx("path", {
+var jsx_runtime50 = __toESM(require_jsx_runtime(), 1);
+var Info_default = createSvgIcon(jsx_runtime50.jsx("path", {
   d: "M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"
 }), "Info");
 // node_modules/@mui/icons-material/esm/Instagram.js
 var React64 = __toESM(require_react(), 1);
-var jsx_runtime52 = __toESM(require_jsx_runtime(), 1);
-var Instagram_default = createSvgIcon(jsx_runtime52.jsx("path", {
+var jsx_runtime51 = __toESM(require_jsx_runtime(), 1);
+var Instagram_default = createSvgIcon(jsx_runtime51.jsx("path", {
   d: "M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"
 }), "Instagram");
 // node_modules/@mui/icons-material/esm/Phone.js
-var jsx_runtime53 = __toESM(require_jsx_runtime(), 1);
-var Phone_default = createSvgIcon(jsx_runtime53.jsx("path", {
+var jsx_runtime52 = __toESM(require_jsx_runtime(), 1);
+var Phone_default = createSvgIcon(jsx_runtime52.jsx("path", {
   d: "M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"
 }), "Phone");
 // node_modules/@mui/icons-material/esm/Search.js
-var jsx_runtime54 = __toESM(require_jsx_runtime(), 1);
-var Search_default = createSvgIcon(jsx_runtime54.jsx("path", {
+var jsx_runtime53 = __toESM(require_jsx_runtime(), 1);
+var Search_default = createSvgIcon(jsx_runtime53.jsx("path", {
   d: "M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
 }), "Search");
 // node_modules/@mui/icons-material/esm/Telegram.js
 var React65 = __toESM(require_react(), 1);
-var jsx_runtime55 = __toESM(require_jsx_runtime(), 1);
-var Telegram_default = createSvgIcon(jsx_runtime55.jsx("path", {
+var jsx_runtime54 = __toESM(require_jsx_runtime(), 1);
+var Telegram_default = createSvgIcon(jsx_runtime54.jsx("path", {
   d: "M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"
 }), "Telegram");
 // src/components/delivery/DeliveryPage.js
@@ -37135,7 +37130,7 @@ var UseCheckMobileScreen_default = useCheckMobileScreen = () => {
 };
 
 // src/components/navbars/CustomBarPC.js
-var import_react16 = __toESM(require_react(), 1);
+var import_react15 = __toESM(require_react(), 1);
 
 // src/components/common/CustomSearch.js
 var jsx_dev_runtime6 = __toESM(require_jsx_dev_runtime(), 1);
@@ -37191,20 +37186,119 @@ var CustomSearch_default = CustomSearch = () => {
   }, undefined, true, undefined, this);
 };
 
+// src/components/navbars/CustomBarPC.js
+var jsx_dev_runtime7 = __toESM(require_jsx_dev_runtime(), 1);
+var themed = createTheme_default2({
+  palette: {
+    primary: {
+      main: "#ffffff"
+    }
+  }
+});
+var actions = [
+  {
+    title: "\u0413\u043B\u0430\u0432\u043D\u0430\u044F",
+    path: "/home"
+  },
+  {
+    title: "\u0423\u0441\u043B\u0443\u0433\u0438",
+    path: "/offers"
+  },
+  {
+    title: "\u0414\u043E\u0441\u0442\u0430\u0432\u043A\u0430",
+    path: "/delivery"
+  },
+  {
+    title: "\u041E \u043D\u0430\u0441",
+    path: "/about"
+  }
+];
+var CustomBarPC_default = CustomBarPC = () => {
+  return jsx_dev_runtime7.jsxDEV(ThemeProvider5, {
+    theme: themed,
+    children: jsx_dev_runtime7.jsxDEV(AppBar_default, {
+      position: "static",
+      children: jsx_dev_runtime7.jsxDEV(Toolbar_default, {
+        sx: {
+          borderBottom: 1,
+          borderColor: "primary.main",
+          bgcolor: "#0D0D0D"
+        },
+        children: [
+          jsx_dev_runtime7.jsxDEV(Button_default, {
+            sx: { color: "#ffffff" },
+            children: [
+              jsx_dev_runtime7.jsxDEV(Box_default, {
+                component: "img",
+                sx: {
+                  maxHeight: 81,
+                  maxWidth: 61
+                },
+                alt: "The house from the offer.",
+                src: "/static/logo.png"
+              }, undefined, false, undefined, this),
+              jsx_dev_runtime7.jsxDEV(Box_default, {
+                component: "img",
+                sx: {
+                  height: "35px",
+                  width: "79px"
+                },
+                src: "/static/gvg.png"
+              }, undefined, false, undefined, this)
+            ]
+          }, undefined, true, undefined, this),
+          jsx_dev_runtime7.jsxDEV(ButtonGroup_default, {
+            variant: "text",
+            sx: { minHeight: "50px", paddingInline: "20px" },
+            children: actions.map((action, index) => jsx_dev_runtime7.jsxDEV(Button_default, {
+              sx: { paddingInline: "20px" },
+              href: `${action.path}`,
+              children: action.title
+            }, index, false, undefined, this))
+          }, undefined, false, undefined, this),
+          jsx_dev_runtime7.jsxDEV(Stack_default, {
+            direction: "row-reverse",
+            marginLeft: "auto",
+            sx: { alignItems: "center", color: "#ffffff" },
+            children: [
+              jsx_dev_runtime7.jsxDEV(CustomSearch_default, {}, undefined, false, undefined, this),
+              jsx_dev_runtime7.jsxDEV(Typography_default, {
+                variant: "body1",
+                sx: { alignSelf: "center" },
+                children: jsx_dev_runtime7.jsxDEV(Link_default, {
+                  to: "tel:9851460477",
+                  underline: "none",
+                  children: "+7 (985) 146-04-77"
+                }, undefined, false, undefined, this)
+              }, undefined, false, undefined, this)
+            ]
+          }, undefined, true, undefined, this)
+        ]
+      }, undefined, true, undefined, this)
+    }, undefined, false, undefined, this)
+  }, undefined, false, undefined, this);
+};
+
+// src/components/navbars/CustomBarMobile.js
+var import_react17 = __toESM(require_react(), 1);
+
+// node_modules/material-ui-popup-state/es/index.mjs
+var import_prop_types43 = __toESM(require_prop_types(), 1);
+
 // node_modules/material-ui-popup-state/es/hooks.mjs
-var import_react15 = __toESM(require_react(), 1);
+var import_react16 = __toESM(require_react(), 1);
 
 // node_modules/material-ui-popup-state/es/useEvent.mjs
-var React69 = __toESM(require_react(), 1);
+var React70 = __toESM(require_react(), 1);
 function useEvent(handler) {
   if (typeof window === "undefined") {
     return handler;
   }
-  const handlerRef = React69.useRef(null);
-  React69.useLayoutEffect(() => {
+  const handlerRef = React70.useRef(null);
+  React70.useLayoutEffect(() => {
     handlerRef.current = handler;
   });
-  return React69.useCallback((...args) => {
+  return React70.useCallback((...args) => {
     var _handlerRef$current;
     (_handlerRef$current = handlerRef.current) === null || _handlerRef$current === undefined || _handlerRef$current.call(handlerRef, ...args);
   }, []);
@@ -37223,19 +37317,19 @@ function usePopupState({
   variant,
   disableAutoFocus
 }) {
-  const isMounted = import_react15.useRef(true);
-  import_react15.useEffect(() => {
+  const isMounted = import_react16.useRef(true);
+  import_react16.useEffect(() => {
     isMounted.current = true;
     return () => {
       isMounted.current = false;
     };
   }, []);
-  const [state, _setState] = import_react15.useState(initCoreState);
-  const setState = import_react15.useCallback((state2) => {
+  const [state, _setState] = import_react16.useState(initCoreState);
+  const setState = import_react16.useCallback((state2) => {
     if (isMounted.current)
       _setState(state2);
   }, []);
-  const setAnchorEl = import_react15.useCallback((anchorEl) => setState((state2) => ({
+  const setAnchorEl = import_react16.useCallback((anchorEl) => setState((state2) => ({
     ...state2,
     setAnchorElUsed: true,
     anchorEl: anchorEl !== null && anchorEl !== undefined ? anchorEl : undefined
@@ -37337,7 +37431,7 @@ function usePopupState({
       }
     });
   });
-  const setOpen = import_react15.useCallback((nextOpen, eventOrAnchorEl) => {
+  const setOpen = import_react16.useCallback((nextOpen, eventOrAnchorEl) => {
     if (nextOpen) {
       open(eventOrAnchorEl);
     } else {
@@ -37382,7 +37476,7 @@ function usePopupState({
       return state2;
     });
   });
-  const _setChildPopupState = import_react15.useCallback((_childPopupState) => setState((state2) => ({
+  const _setChildPopupState = import_react16.useCallback((_childPopupState) => setState((state2) => ({
     ...state2,
     _childPopupState
   })), []);
@@ -37491,92 +37585,7 @@ var initCoreState = {
   _deferNextClose: false
 };
 
-// src/components/navbars/CustomBarPC.js
-var jsx_dev_runtime7 = __toESM(require_jsx_dev_runtime(), 1);
-var themed = createTheme_default2({
-  palette: {
-    primary: {
-      main: "#ffffff"
-    }
-  }
-});
-var actions = [
-  {
-    title: "\u0413\u043B\u0430\u0432\u043D\u0430\u044F",
-    path: "/home"
-  },
-  {
-    title: "\u0423\u0441\u043B\u0443\u0433\u0438",
-    path: "/offers"
-  },
-  {
-    title: "\u0414\u043E\u0441\u0442\u0430\u0432\u043A\u0430",
-    path: "/delivery"
-  },
-  {
-    title: "\u041E \u043D\u0430\u0441",
-    path: "/about"
-  }
-];
-var CustomBarPC_default = CustomBarPC = () => {
-  return jsx_dev_runtime7.jsxDEV(ThemeProvider5, {
-    theme: themed,
-    children: jsx_dev_runtime7.jsxDEV(AppBar_default, {
-      position: "static",
-      children: jsx_dev_runtime7.jsxDEV(Toolbar_default, {
-        sx: {
-          borderBottom: 1,
-          borderColor: "primary.main",
-          bgcolor: "#000000"
-        },
-        children: [
-          jsx_dev_runtime7.jsxDEV(Button_default, {
-            sx: { color: "#ffffff" },
-            children: [
-              jsx_dev_runtime7.jsxDEV(CatchingPokemon_default, {}, undefined, false, undefined, this),
-              jsx_dev_runtime7.jsxDEV(Typography_default, {
-                variant: "h4",
-                children: "GVG"
-              }, undefined, false, undefined, this)
-            ]
-          }, undefined, true, undefined, this),
-          jsx_dev_runtime7.jsxDEV(ButtonGroup_default, {
-            variant: "text",
-            sx: { minHeight: "50px", paddingInline: "20px" },
-            children: actions.map((action, index) => jsx_dev_runtime7.jsxDEV(Button_default, {
-              sx: { paddingInline: "20px" },
-              href: `${action.path}`,
-              children: action.title
-            }, index, false, undefined, this))
-          }, undefined, false, undefined, this),
-          jsx_dev_runtime7.jsxDEV(Stack_default, {
-            direction: "row-reverse",
-            marginLeft: "auto",
-            sx: { alignItems: "center", color: "#ffffff" },
-            children: [
-              jsx_dev_runtime7.jsxDEV(CustomSearch_default, {}, undefined, false, undefined, this),
-              jsx_dev_runtime7.jsxDEV(Typography_default, {
-                variant: "body1",
-                sx: { alignSelf: "center" },
-                children: jsx_dev_runtime7.jsxDEV(Link_default, {
-                  to: "tel:9851460477",
-                  underline: "none",
-                  children: "+7 (985) 146-04-77"
-                }, undefined, false, undefined, this)
-              }, undefined, false, undefined, this)
-            ]
-          }, undefined, true, undefined, this)
-        ]
-      }, undefined, true, undefined, this)
-    }, undefined, false, undefined, this)
-  }, undefined, false, undefined, this);
-};
-
-// src/components/navbars/CustomBarMobile.js
-var import_react17 = __toESM(require_react(), 1);
-
 // node_modules/material-ui-popup-state/es/index.mjs
-var import_prop_types43 = __toESM(require_prop_types(), 1);
 function PopupState({
   children,
   popupId,
@@ -37637,29 +37646,43 @@ var CustomBarMobile_default = CustomBarMobile = () => {
       jsx_dev_runtime8.jsxDEV(AppBar_default, {
         position: "static",
         children: jsx_dev_runtime8.jsxDEV(Toolbar_default, {
-          direction: "row",
           sx: {
             borderBottom: 1,
             borderColor: "#ffffff",
-            bgcolor: "#000000"
+            bgcolor: "#0D0D0D",
+            display: "flex",
+            flexWrap: { xs: "wrap", sm: "nowrap" }
           },
           children: [
             jsx_dev_runtime8.jsxDEV(Button_default, {
-              sx: { color: "#ffffff" },
+              sx: {
+                color: "#ffffff",
+                marginInline: { xs: "auto", sm: "0" }
+              },
               children: [
-                jsx_dev_runtime8.jsxDEV(CatchingPokemon_default, {
-                  sx: { marginRight: 1 }
+                jsx_dev_runtime8.jsxDEV(Box_default, {
+                  component: "img",
+                  sx: {
+                    maxHeight: 81,
+                    maxWidth: 61
+                  },
+                  alt: "The house from the offer.",
+                  src: "/static/logo.png"
                 }, undefined, false, undefined, this),
-                jsx_dev_runtime8.jsxDEV(Typography_default, {
-                  variant: "h4",
-                  children: "GVG"
+                jsx_dev_runtime8.jsxDEV(Box_default, {
+                  component: "img",
+                  sx: {
+                    height: "35px",
+                    width: "79px"
+                  },
+                  src: "/static/gvg.png"
                 }, undefined, false, undefined, this)
               ]
             }, undefined, true, undefined, this),
             jsx_dev_runtime8.jsxDEV(Stack_default, {
               direction: "row-reverse",
               marginLeft: "auto",
-              sx: { alignItems: "center" },
+              sx: { alignItems: "center", marginInline: { xs: "auto", sm: "0" } },
               children: [
                 jsx_dev_runtime8.jsxDEV(CustomSearch_default, {}, undefined, false, undefined, this),
                 jsx_dev_runtime8.jsxDEV(PopupState, {

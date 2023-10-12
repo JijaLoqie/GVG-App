@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import {
-  CatchingPokemon as CatchingPokemonIcon,
   Phone as PhoneIcon,
   Home as HomeIcon,
   Computer as ComputerIcon,
@@ -20,18 +19,10 @@ import {
   Typography,
   AppBar,
   Toolbar,
-  MenuItem,
-  Menu,
-  Tab,
-  Tabs,
+  Box,
   Link,
-  ButtonGroup,
-  createTheme,
-  ThemeProvider,
   BottomNavigation,
   BottomNavigationAction,
-  Tooltip,
-  SpeedDial,
   IconButton,
 } from "@mui/material";
 
@@ -73,21 +64,43 @@ export default CustomBarMobile = () => {
     <>
       <AppBar position="static">
         <Toolbar
-          direction="row"
           sx={{
             borderBottom: 1,
             borderColor: "#ffffff",
-            bgcolor: "#000000",
+            bgcolor: "#0D0D0D",
+            display: "flex",
+            flexWrap: { xs: "wrap", sm: "nowrap" },
           }}
         >
-          <Button sx={{ color: "#ffffff" }}>
-            <CatchingPokemonIcon sx={{ marginRight: 1 }} />
-            <Typography variant="h4">GVG</Typography>
+          <Button
+            sx={{
+              color: "#ffffff",
+              marginInline: { xs: "auto", sm: "0" },
+            }}
+          >
+            <Box
+              component="img"
+              sx={{
+                maxHeight: 81,
+                maxWidth: 61,
+              }}
+              alt="The house from the offer."
+              src="/static/logo.png"
+            />
+            <Box
+              component="img"
+              sx={{
+                height: "35px",
+                width: "79px",
+              }}
+              src="/static/gvg.png"
+            />
           </Button>
           <Stack
             direction="row-reverse"
             marginLeft="auto"
-            sx={{ alignItems: "center" }}
+            sx={{ alignItems: "center", marginInline: { xs: "auto", sm: "0" }, }}
+			
           >
             <CustomSearch />
             <PopupState variant="popover" popupId="demo-popup-popover">
@@ -128,8 +141,8 @@ export default CustomBarMobile = () => {
           width: "100%",
           position: "absolute",
           bottom: 0,
-		  marginBottom: 0,
-		  zIndex: 12345,
+          marginBottom: 0,
+          zIndex: 12345,
         }}
         value={selected}
         onChange={handleSelect}

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { CatchingPokemon as CatchingPokemonIcon } from "@mui/icons-material";
+// import { CatchingPokemon as CatchingPokemonIcon } from "@mui/icons-material";
+
 import { lime, purple } from "@mui/material/colors";
 
 import Fade from "@mui/material/Fade";
@@ -7,26 +8,17 @@ import CustomSearch from "../common/CustomSearch";
 
 import {
   Button,
+  Box,
   Stack,
   Typography,
   AppBar,
   Toolbar,
-  MenuItem,
-  Menu,
-  Tab,
-  Tabs,
   Link,
   ButtonGroup,
   createTheme,
   ThemeProvider,
 } from "@mui/material";
 
-import {
-  usePopupState,
-  bindTrigger,
-  bindMenu,
-} from "material-ui-popup-state/hooks";
-import { useNavigate } from "react-router-dom";
 
 const themed = createTheme({
   palette: {
@@ -63,12 +55,27 @@ export default CustomBarPC = () => {
           sx={{
             borderBottom: 1,
             borderColor: "primary.main",
-            bgcolor: "#000000",
+            bgcolor: "#0D0D0D",
           }}
         >
           <Button sx={{ color: "#ffffff" }}>
-            <CatchingPokemonIcon />
-            <Typography variant="h4">GVG</Typography>
+            <Box
+              component="img"
+              sx={{
+                maxHeight: 81,
+                maxWidth: 61,
+              }}
+              alt="The house from the offer."
+              src="/static/logo.png"
+            />
+            <Box
+              component="img"
+              sx={{
+                height: "35px",
+                width: "79px",
+              }}
+              src="/static/gvg.png"
+            />
           </Button>
 
           <ButtonGroup
@@ -84,23 +91,6 @@ export default CustomBarPC = () => {
                 {action.title}
               </Button>
             ))}
-            {/*
-            <Button sx={{ paddingInline: "20px" }} {...bindTrigger(popupState)}>
-              Услуги
-            </Button>
-            <Menu
-              id="fade-menu"
-              MenuListProps={{
-                "aria-labelledby": "fade-button",
-              }}
-              TransitionComponent={Fade}
-              {...bindMenu(popupState)}
-            >
-              <MenuItem onClick={popupState.close}>Сборки</MenuItem>
-              <MenuItem onClick={popupState.close}>Комплектующие</MenuItem>
-              <MenuItem onClick={popupState.close}>Мне повезёт!</MenuItem>
-            </Menu>
-			*/}
           </ButtonGroup>
           <Stack
             direction="row-reverse"

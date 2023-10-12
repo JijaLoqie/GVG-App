@@ -32,7 +32,7 @@ export default App = () => {
       >
         {isMobile ? <CustomBarMobile /> : <CustomBarPC />}
 
-        <Box padding={4}>
+        <Box>
           <Routes>
             <Route path="home" element={<HomePage />} />
             <Route path="offers" element={<OffersPage />} />

@@ -54,7 +54,13 @@ const adresses = [
 export default DeliveryPage = () => {
 	const [selected, setSelected] = useState(adresses[0])
   return (
-    <Grid container justifyItems="center" rowGap="30px" marginBlockEnd="100px">
+    <Grid
+      container
+      justifyItems="center"
+      rowGap="30px"
+      marginBlockEnd="100px"
+      padding={4}
+    >
       <Grid item xs={12} md={12}>
         <Typography fontSize="1.5rem">Самовывоз</Typography>
       </Grid>
@@ -85,7 +91,8 @@ export default DeliveryPage = () => {
             <ListItemButton
               key={index}
               sx={{
-				bgcolor: selected == adress ? alpha("#ffffff", 0.15) : "#000000",
+                bgcolor:
+                  selected == adress ? alpha("#ffffff", 0.15) : "#000000",
                 "&: hover": {
                   bgcolor: alpha("#ffffff", 0.15),
                 },

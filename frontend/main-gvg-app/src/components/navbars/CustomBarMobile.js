@@ -68,16 +68,9 @@ export default CustomBarMobile = () => {
             borderBottom: 1,
             borderColor: "#ffffff",
             bgcolor: "#0D0D0D",
-            display: "flex",
-            flexWrap: { xs: "wrap", sm: "nowrap" },
           }}
         >
-          <Button
-            sx={{
-              color: "#ffffff",
-              marginInline: { xs: "auto", sm: "0" },
-            }}
-          >
+          <Button sx={{ color: "#ffffff" }}>
             <Box
               component="img"
               sx={{
@@ -99,8 +92,7 @@ export default CustomBarMobile = () => {
           <Stack
             direction="row-reverse"
             marginLeft="auto"
-            sx={{ alignItems: "center", marginInline: { xs: "auto", sm: "0" }, }}
-			
+            sx={{ alignItems: "center" }}
           >
             <CustomSearch />
             <PopupState variant="popover" popupId="demo-popup-popover">

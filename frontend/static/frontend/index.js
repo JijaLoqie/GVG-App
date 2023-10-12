@@ -37162,7 +37162,7 @@ var StyledInputBase = styled_default2(InputBase_default)(({ theme }) => ({
     padding: theme.spacing(1, 1, 1, 0),
     paddingLeft: `calc(1em + ${theme.spacing(4)})`,
     transition: theme.transitions.create("width"),
-    width: "100%",
+    width: "12ch",
     [theme.breakpoints.up("sm")]: {
       width: "12ch",
       "&:focus": {
@@ -37649,16 +37649,11 @@ var CustomBarMobile_default = CustomBarMobile = () => {
           sx: {
             borderBottom: 1,
             borderColor: "#ffffff",
-            bgcolor: "#0D0D0D",
-            display: "flex",
-            flexWrap: { xs: "wrap", sm: "nowrap" }
+            bgcolor: "#0D0D0D"
           },
           children: [
             jsx_dev_runtime8.jsxDEV(Button_default, {
-              sx: {
-                color: "#ffffff",
-                marginInline: { xs: "auto", sm: "0" }
-              },
+              sx: { color: "#ffffff" },
               children: [
                 jsx_dev_runtime8.jsxDEV(Box_default, {
                   component: "img",
@@ -37682,7 +37677,7 @@ var CustomBarMobile_default = CustomBarMobile = () => {
             jsx_dev_runtime8.jsxDEV(Stack_default, {
               direction: "row-reverse",
               marginLeft: "auto",
-              sx: { alignItems: "center", marginInline: { xs: "auto", sm: "0" } },
+              sx: { alignItems: "center" },
               children: [
                 jsx_dev_runtime8.jsxDEV(CustomSearch_default, {}, undefined, false, undefined, this),
                 jsx_dev_runtime8.jsxDEV(PopupState, {

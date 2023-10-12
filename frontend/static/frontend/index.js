@@ -37226,7 +37226,7 @@ var CustomBarPC_default = CustomBarPC = () => {
         },
         children: [
           jsx_dev_runtime7.jsxDEV(Button_default, {
-            sx: { color: "#ffffff" },
+            sx: { alignItems: "end", color: "#ffffff", paddingTop: 0 },
             children: [
               jsx_dev_runtime7.jsxDEV(Box_default, {
                 component: "img",
@@ -37234,7 +37234,6 @@ var CustomBarPC_default = CustomBarPC = () => {
                   maxHeight: 81,
                   maxWidth: 61
                 },
-                alt: "The house from the offer.",
                 src: "/static/logo.png"
               }, undefined, false, undefined, this),
               jsx_dev_runtime7.jsxDEV(Box_default, {
@@ -37653,7 +37652,7 @@ var CustomBarMobile_default = CustomBarMobile = () => {
           },
           children: [
             jsx_dev_runtime8.jsxDEV(Button_default, {
-              sx: { color: "#ffffff" },
+              sx: { alignItems: "end", color: "#ffffff", paddingTop: 0 },
               children: [
                 jsx_dev_runtime8.jsxDEV(Box_default, {
                   component: "img",

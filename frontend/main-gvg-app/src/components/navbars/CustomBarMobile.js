@@ -70,7 +70,7 @@ export default CustomBarMobile = () => {
             bgcolor: "#0D0D0D",
           }}
         >
-          <Button sx={{ color: "#ffffff" }}>
+          <Button sx={{ alignItems: "end", color: "#ffffff", paddingTop: 0 }}>
             <Box
               component="img"
               sx={{

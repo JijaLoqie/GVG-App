@@ -58,14 +58,13 @@ export default CustomBarPC = () => {
             bgcolor: "#0D0D0D",
           }}
         >
-          <Button sx={{ color: "#ffffff" }}>
+          <Button sx={{ alignItems: "end", color: "#ffffff", paddingTop: 0 }}>
             <Box
               component="img"
               sx={{
                 maxHeight: 81,
                 maxWidth: 61,
               }}
-              alt="The house from the offer."
               src="/static/logo.png"
             />
             <Box

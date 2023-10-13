@@ -1,13 +1,16 @@
 import React from "react";
-import HeaderSection from './HeaderSection/HeaderSection';
-import { Box } from '@mui/material';
+import { Box, Typography } from "@mui/material";
+
+import HeaderSection from "./HeaderSection/HeaderSection";
+import ChooseSection from "./ChooseSection/ChooseSection";
+import ReviewSection from './ReviewSection/ReviewSection';
 
 export default HomePage = () => {
   return (
-    <Box xs={{
-		margin: 0
-	}}>
+    <Box marginBottom="200px">
       <HeaderSection />
+      <ChooseSection />
+      <ReviewSection />
     </Box>
   );
 };

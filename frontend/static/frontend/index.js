@@ -2,6 +2,7 @@ var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getProtoOf = Object.getPrototypeOf;
 var __getOwnPropNames = Object.getOwnPropertyNames;
+var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
 var __hasOwnProp = Object.prototype.hasOwnProperty;
 var __toESM = (mod, isNodeMode, target) => {
   target = mod != null ? __create(__getProtoOf(mod)) : {};
@@ -14,7 +15,26 @@ var __toESM = (mod, isNodeMode, target) => {
       });
   return to;
 };
+var __toCommonJS = (from) => {
+  const moduleCache = __toCommonJS.moduleCache ??= new WeakMap;
+  var cached = moduleCache.get(from);
+  if (cached)
+    return cached;
+  var to = __defProp({}, "__esModule", { value: true });
+  var desc = { enumerable: false };
+  if (from && typeof from === "object" || typeof from === "function") {
+    for (let key of __getOwnPropNames(from))
+      if (!__hasOwnProp.call(to, key))
+        __defProp(to, key, {
+          get: () => from[key],
+          enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable
+        });
+  }
+  moduleCache.set(from, to);
+  return to;
+};
 var __commonJS = (cb, mod) => () => (mod || cb((mod = { exports: {} }).exports, mod), mod.exports);
+var __esm = (fn, res) => () => (fn && (res = fn(fn = 0)), res);
 
 // node_modules/object-assign/index.js
 var require_object_assign = __commonJS((exports, module) => {
@@ -21467,7 +21487,7 @@ var require_hoist_non_react_statics_cjs = __commonJS((exports, module) => {
 
 // node_modules/react/cjs/react-jsx-runtime.development.js
 var require_react_jsx_runtime_development = __commonJS((exports) => {
-  var React12 = __toESM(require_react(), 1);
+  var React13 = __toESM(require_react(), 1);
   if (true) {
     (function() {
       var _assign = require_object_assign();
@@ -21526,7 +21546,7 @@ var require_react_jsx_runtime_development = __commonJS((exports) => {
         }
         return null;
       }
-      var ReactSharedInternals = React12.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+      var ReactSharedInternals = React13.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
       function error(format) {
         {
           for (var _len2 = arguments.length, args = new Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1;_key2 < _len2; _key2++) {
@@ -22091,7 +22111,7 @@ var require_react_jsx_runtime_development = __commonJS((exports) => {
       {
         propTypesMisspellWarningShown = false;
       }
-      function isValidElement3(object) {
+      function isValidElement4(object) {
         {
           return typeof object === "object" && object !== null && object.$$typeof === REACT_ELEMENT_TYPE;
         }
@@ -22158,11 +22178,11 @@ var require_react_jsx_runtime_development = __commonJS((exports) => {
           if (Array.isArray(node2)) {
             for (var i = 0;i < node2.length; i++) {
               var child = node2[i];
-              if (isValidElement3(child)) {
+              if (isValidElement4(child)) {
                 validateExplicitKey(child, parentType);
               }
             }
-          } else if (isValidElement3(node2)) {
+          } else if (isValidElement4(node2)) {
             if (node2._store) {
               node2._store.validated = true;
             }
@@ -22173,7 +22193,7 @@ var require_react_jsx_runtime_development = __commonJS((exports) => {
                 var iterator = iteratorFn.call(node2);
                 var step;
                 while (!(step = iterator.next()).done) {
-                  if (isValidElement3(step.value)) {
+                  if (isValidElement4(step.value)) {
                     validateExplicitKey(step.value, parentType);
                   }
                 }
@@ -22314,7 +22334,7 @@ var require_jsx_runtime = __commonJS((exports, module) => {
 
 // node_modules/react/cjs/react-jsx-dev-runtime.development.js
 var require_react_jsx_dev_runtime_development = __commonJS((exports) => {
-  var React61 = __toESM(require_react(), 1);
+  var React66 = __toESM(require_react(), 1);
   if (true) {
     (function() {
       var _assign = require_object_assign();
@@ -22373,7 +22393,7 @@ var require_react_jsx_dev_runtime_development = __commonJS((exports) => {
         }
         return null;
       }
-      var ReactSharedInternals = React61.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+      var ReactSharedInternals = React66.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
       function error(format) {
         {
           for (var _len2 = arguments.length, args = new Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1;_key2 < _len2; _key2++) {
@@ -22938,7 +22958,7 @@ var require_react_jsx_dev_runtime_development = __commonJS((exports) => {
       {
         propTypesMisspellWarningShown = false;
       }
-      function isValidElement8(object) {
+      function isValidElement10(object) {
         {
           return typeof object === "object" && object !== null && object.$$typeof === REACT_ELEMENT_TYPE;
         }
@@ -23005,11 +23025,11 @@ var require_react_jsx_dev_runtime_development = __commonJS((exports) => {
           if (Array.isArray(node2)) {
             for (var i = 0;i < node2.length; i++) {
               var child = node2[i];
-              if (isValidElement8(child)) {
+              if (isValidElement10(child)) {
                 validateExplicitKey(child, parentType);
               }
             }
-          } else if (isValidElement8(node2)) {
+          } else if (isValidElement10(node2)) {
             if (node2._store) {
               node2._store.validated = true;
             }
@@ -23020,7 +23040,7 @@ var require_react_jsx_dev_runtime_development = __commonJS((exports) => {
                 var iterator = iteratorFn.call(node2);
                 var step;
                 while (!(step = iterator.next()).done) {
-                  if (isValidElement8(step.value)) {
+                  if (isValidElement10(step.value)) {
                     validateExplicitKey(step.value, parentType);
                   }
                 }
@@ -23147,12 +23167,2050 @@ var require_jsx_dev_runtime = __commonJS((exports, module) => {
   }
 });
 
+// node_modules/react-easy-swipe/lib/react-swipe.js
+var require_react_swipe = __commonJS((exports) => {
+  var import_react = __toESM(require_react(), 1);
+  (function(global2, factory) {
+    if (typeof define === "function" && define.amd) {
+      define(["exports", "react", "prop-types"], factory);
+    } else if (typeof exports !== "undefined") {
+      factory(exports, import_react, require_prop_types());
+    } else {
+      var mod = {
+        exports: {}
+      };
+      factory(mod.exports, global2.react, global2.propTypes);
+      global2.reactSwipe = mod.exports;
+    }
+  })(exports, function(exports2, _react, _propTypes) {
+    Object.defineProperty(exports2, "__esModule", {
+      value: true
+    });
+    exports2.setHasSupportToCaptureOption = setHasSupportToCaptureOption;
+    var _react2 = _interopRequireDefault(_react);
+    var _propTypes2 = _interopRequireDefault(_propTypes);
+    function _interopRequireDefault(obj) {
+      return obj && obj.__esModule ? obj : {
+        default: obj
+      };
+    }
+    var _extends5 = Object.assign || function(target) {
+      for (var i = 1;i < arguments.length; i++) {
+        var source = arguments[i];
+        for (var key in source) {
+          if (Object.prototype.hasOwnProperty.call(source, key)) {
+            target[key] = source[key];
+          }
+        }
+      }
+      return target;
+    };
+    function _objectWithoutProperties(obj, keys) {
+      var target = {};
+      for (var i in obj) {
+        if (keys.indexOf(i) >= 0)
+          continue;
+        if (!Object.prototype.hasOwnProperty.call(obj, i))
+          continue;
+        target[i] = obj[i];
+      }
+      return target;
+    }
+    function _classCallCheck(instance, Constructor) {
+      if (!(instance instanceof Constructor)) {
+        throw new TypeError("Cannot call a class as a function");
+      }
+    }
+    var _createClass = function() {
+      function defineProperties(target, props) {
+        for (var i = 0;i < props.length; i++) {
+          var descriptor = props[i];
+          descriptor.enumerable = descriptor.enumerable || false;
+          descriptor.configurable = true;
+          if ("value" in descriptor)
+            descriptor.writable = true;
+          Object.defineProperty(target, descriptor.key, descriptor);
+        }
+      }
+      return function(Constructor, protoProps, staticProps) {
+        if (protoProps)
+          defineProperties(Constructor.prototype, protoProps);
+        if (staticProps)
+          defineProperties(Constructor, staticProps);
+        return Constructor;
+      };
+    }();
+    function _possibleConstructorReturn(self, call) {
+      if (!self) {
+        throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+      }
+      return call && (typeof call === "object" || typeof call === "function") ? call : self;
+    }
+    function _inherits(subClass, superClass) {
+      if (typeof superClass !== "function" && superClass !== null) {
+        throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
+      }
+      subClass.prototype = Object.create(superClass && superClass.prototype, {
+        constructor: {
+          value: subClass,
+          enumerable: false,
+          writable: true,
+          configurable: true
+        }
+      });
+      if (superClass)
+        Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+    }
+    var supportsCaptureOption = false;
+    function setHasSupportToCaptureOption(hasSupport) {
+      supportsCaptureOption = hasSupport;
+    }
+    try {
+      addEventListener("test", null, Object.defineProperty({}, "capture", { get: function get() {
+        setHasSupportToCaptureOption(true);
+      } }));
+    } catch (e) {
+    }
+    function getSafeEventHandlerOpts() {
+      var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : { capture: true };
+      return supportsCaptureOption ? options : options.capture;
+    }
+    function getPosition(event) {
+      if ("touches" in event) {
+        var _event$touches$ = event.touches[0], pageX = _event$touches$.pageX, pageY = _event$touches$.pageY;
+        return { x: pageX, y: pageY };
+      }
+      var { screenX, screenY } = event;
+      return { x: screenX, y: screenY };
+    }
+    var ReactSwipe = function(_Component) {
+      _inherits(ReactSwipe2, _Component);
+      function ReactSwipe2() {
+        var _ref;
+        _classCallCheck(this, ReactSwipe2);
+        for (var _len = arguments.length, args = Array(_len), _key = 0;_key < _len; _key++) {
+          args[_key] = arguments[_key];
+        }
+        var _this = _possibleConstructorReturn(this, (_ref = ReactSwipe2.__proto__ || Object.getPrototypeOf(ReactSwipe2)).call.apply(_ref, [this].concat(args)));
+        _this._handleSwipeStart = _this._handleSwipeStart.bind(_this);
+        _this._handleSwipeMove = _this._handleSwipeMove.bind(_this);
+        _this._handleSwipeEnd = _this._handleSwipeEnd.bind(_this);
+        _this._onMouseDown = _this._onMouseDown.bind(_this);
+        _this._onMouseMove = _this._onMouseMove.bind(_this);
+        _this._onMouseUp = _this._onMouseUp.bind(_this);
+        _this._setSwiperRef = _this._setSwiperRef.bind(_this);
+        return _this;
+      }
+      _createClass(ReactSwipe2, [{
+        key: "componentDidMount",
+        value: function componentDidMount() {
+          if (this.swiper) {
+            this.swiper.addEventListener("touchmove", this._handleSwipeMove, getSafeEventHandlerOpts({
+              capture: true,
+              passive: false
+            }));
+          }
+        }
+      }, {
+        key: "componentWillUnmount",
+        value: function componentWillUnmount() {
+          if (this.swiper) {
+            this.swiper.removeEventListener("touchmove", this._handleSwipeMove, getSafeEventHandlerOpts({
+              capture: true,
+              passive: false
+            }));
+          }
+        }
+      }, {
+        key: "_onMouseDown",
+        value: function _onMouseDown(event) {
+          if (!this.props.allowMouseEvents) {
+            return;
+          }
+          this.mouseDown = true;
+          document.addEventListener("mouseup", this._onMouseUp);
+          document.addEventListener("mousemove", this._onMouseMove);
+          this._handleSwipeStart(event);
+        }
+      }, {
+        key: "_onMouseMove",
+        value: function _onMouseMove(event) {
+          if (!this.mouseDown) {
+            return;
+          }
+          this._handleSwipeMove(event);
+        }
+      }, {
+        key: "_onMouseUp",
+        value: function _onMouseUp(event) {
+          this.mouseDown = false;
+          document.removeEventListener("mouseup", this._onMouseUp);
+          document.removeEventListener("mousemove", this._onMouseMove);
+          this._handleSwipeEnd(event);
+        }
+      }, {
+        key: "_handleSwipeStart",
+        value: function _handleSwipeStart(event) {
+          var _getPosition = getPosition(event), x = _getPosition.x, y = _getPosition.y;
+          this.moveStart = { x, y };
+          this.props.onSwipeStart(event);
+        }
+      }, {
+        key: "_handleSwipeMove",
+        value: function _handleSwipeMove(event) {
+          if (!this.moveStart) {
+            return;
+          }
+          var _getPosition2 = getPosition(event), x = _getPosition2.x, y = _getPosition2.y;
+          var deltaX = x - this.moveStart.x;
+          var deltaY = y - this.moveStart.y;
+          this.moving = true;
+          var shouldPreventDefault = this.props.onSwipeMove({
+            x: deltaX,
+            y: deltaY
+          }, event);
+          if (shouldPreventDefault && event.cancelable) {
+            event.preventDefault();
+          }
+          this.movePosition = { deltaX, deltaY };
+        }
+      }, {
+        key: "_handleSwipeEnd",
+        value: function _handleSwipeEnd(event) {
+          this.props.onSwipeEnd(event);
+          var tolerance = this.props.tolerance;
+          if (this.moving && this.movePosition) {
+            if (this.movePosition.deltaX < -tolerance) {
+              this.props.onSwipeLeft(1, event);
+            } else if (this.movePosition.deltaX > tolerance) {
+              this.props.onSwipeRight(1, event);
+            }
+            if (this.movePosition.deltaY < -tolerance) {
+              this.props.onSwipeUp(1, event);
+            } else if (this.movePosition.deltaY > tolerance) {
+              this.props.onSwipeDown(1, event);
+            }
+          }
+          this.moveStart = null;
+          this.moving = false;
+          this.movePosition = null;
+        }
+      }, {
+        key: "_setSwiperRef",
+        value: function _setSwiperRef(node2) {
+          this.swiper = node2;
+          this.props.innerRef(node2);
+        }
+      }, {
+        key: "render",
+        value: function render() {
+          var _props = this.props, tagName = _props.tagName, className2 = _props.className, style10 = _props.style, children = _props.children, allowMouseEvents = _props.allowMouseEvents, onSwipeUp = _props.onSwipeUp, onSwipeDown = _props.onSwipeDown, onSwipeLeft = _props.onSwipeLeft, onSwipeRight = _props.onSwipeRight, onSwipeStart = _props.onSwipeStart, onSwipeMove = _props.onSwipeMove, onSwipeEnd = _props.onSwipeEnd, innerRef = _props.innerRef, tolerance = _props.tolerance, props = _objectWithoutProperties(_props, ["tagName", "className", "style", "children", "allowMouseEvents", "onSwipeUp", "onSwipeDown", "onSwipeLeft", "onSwipeRight", "onSwipeStart", "onSwipeMove", "onSwipeEnd", "innerRef", "tolerance"]);
+          return _react2.default.createElement(this.props.tagName, _extends5({
+            ref: this._setSwiperRef,
+            onMouseDown: this._onMouseDown,
+            onTouchStart: this._handleSwipeStart,
+            onTouchEnd: this._handleSwipeEnd,
+            className: className2,
+            style: style10
+          }, props), children);
+        }
+      }]);
+      return ReactSwipe2;
+    }(_react.Component);
+    ReactSwipe.displayName = "ReactSwipe";
+    ReactSwipe.propTypes = {
+      tagName: _propTypes2.default.string,
+      className: _propTypes2.default.string,
+      style: _propTypes2.default.object,
+      children: _propTypes2.default.node,
+      allowMouseEvents: _propTypes2.default.bool,
+      onSwipeUp: _propTypes2.default.func,
+      onSwipeDown: _propTypes2.default.func,
+      onSwipeLeft: _propTypes2.default.func,
+      onSwipeRight: _propTypes2.default.func,
+      onSwipeStart: _propTypes2.default.func,
+      onSwipeMove: _propTypes2.default.func,
+      onSwipeEnd: _propTypes2.default.func,
+      innerRef: _propTypes2.default.func,
+      tolerance: _propTypes2.default.number.isRequired
+    };
+    ReactSwipe.defaultProps = {
+      tagName: "div",
+      allowMouseEvents: false,
+      onSwipeUp: function onSwipeUp() {
+      },
+      onSwipeDown: function onSwipeDown() {
+      },
+      onSwipeLeft: function onSwipeLeft() {
+      },
+      onSwipeRight: function onSwipeRight() {
+      },
+      onSwipeStart: function onSwipeStart() {
+      },
+      onSwipeMove: function onSwipeMove() {
+      },
+      onSwipeEnd: function onSwipeEnd() {
+      },
+      innerRef: function innerRef() {
+      },
+      tolerance: 0
+    };
+    exports2.default = ReactSwipe;
+  });
+});
+
+// node_modules/react-easy-swipe/lib/index.js
+var require_lib = __commonJS((exports) => {
+  (function(global2, factory) {
+    if (typeof define === "function" && define.amd) {
+      define(["exports", "./react-swipe"], factory);
+    } else if (typeof exports !== "undefined") {
+      factory(exports, require_react_swipe());
+    } else {
+      var mod = {
+        exports: {}
+      };
+      factory(mod.exports, global2.reactSwipe);
+      global2.index = mod.exports;
+    }
+  })(exports, function(exports2, _reactSwipe) {
+    Object.defineProperty(exports2, "__esModule", {
+      value: true
+    });
+    var _reactSwipe2 = _interopRequireDefault(_reactSwipe);
+    function _interopRequireDefault(obj) {
+      return obj && obj.__esModule ? obj : {
+        default: obj
+      };
+    }
+    exports2.default = _reactSwipe2.default;
+  });
+});
+
+// node_modules/classnames/index.js
+var require_classnames = __commonJS((exports, module) => {
+  /*!
+  	Copyright (c) 2018 Jed Watson.
+  	Licensed under the MIT License (MIT), see
+  	http://jedwatson.github.io/classnames
+  */
+  (function() {
+    var hasOwn = {}.hasOwnProperty;
+    var nativeCodeString = "[native code]";
+    function classNames() {
+      var classes = [];
+      for (var i = 0;i < arguments.length; i++) {
+        var arg = arguments[i];
+        if (!arg)
+          continue;
+        var argType = typeof arg;
+        if (argType === "string" || argType === "number") {
+          classes.push(arg);
+        } else if (Array.isArray(arg)) {
+          if (arg.length) {
+            var inner = classNames.apply(null, arg);
+            if (inner) {
+              classes.push(inner);
+            }
+          }
+        } else if (argType === "object") {
+          if (arg.toString !== Object.prototype.toString && !arg.toString.toString().includes("[native code]")) {
+            classes.push(arg.toString());
+            continue;
+          }
+          for (var key in arg) {
+            if (hasOwn.call(arg, key) && arg[key]) {
+              classes.push(key);
+            }
+          }
+        }
+      }
+      return classes.join(" ");
+    }
+    if (typeof module !== "undefined" && exports) {
+      classNames.default = classNames;
+      module.exports = classNames;
+    } else if (typeof define === "function" && typeof define.amd === "object" && define.amd) {
+      define("classnames", [], function() {
+        return classNames;
+      });
+    } else {
+      window.classNames = classNames;
+    }
+  })();
+});
+
+// node_modules/react-responsive-carousel/lib/js/cssClasses.js
+var require_cssClasses = __commonJS((exports) => {
+  var _interopRequireDefault = function(obj) {
+    return obj && obj.__esModule ? obj : { default: obj };
+  };
+  var _defineProperty = function(obj, key, value) {
+    if (key in obj) {
+      Object.defineProperty(obj, key, { value, enumerable: true, configurable: true, writable: true });
+    } else {
+      obj[key] = value;
+    }
+    return obj;
+  };
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.default = undefined;
+  var _classnames = _interopRequireDefault(require_classnames());
+  var _default = {
+    ROOT: function ROOT(customClassName) {
+      return (0, _classnames.default)(_defineProperty({
+        "carousel-root": true
+      }, customClassName || "", !!customClassName));
+    },
+    CAROUSEL: function CAROUSEL(isSlider) {
+      return (0, _classnames.default)({
+        carousel: true,
+        "carousel-slider": isSlider
+      });
+    },
+    WRAPPER: function WRAPPER(isSlider, axis) {
+      return (0, _classnames.default)({
+        "thumbs-wrapper": !isSlider,
+        "slider-wrapper": isSlider,
+        "axis-horizontal": axis === "horizontal",
+        "axis-vertical": axis !== "horizontal"
+      });
+    },
+    SLIDER: function SLIDER(isSlider, isSwiping) {
+      return (0, _classnames.default)({
+        thumbs: !isSlider,
+        slider: isSlider,
+        animated: !isSwiping
+      });
+    },
+    ITEM: function ITEM(isSlider, selected, previous) {
+      return (0, _classnames.default)({
+        thumb: !isSlider,
+        slide: isSlider,
+        selected,
+        previous
+      });
+    },
+    ARROW_PREV: function ARROW_PREV(disabled) {
+      return (0, _classnames.default)({
+        "control-arrow control-prev": true,
+        "control-disabled": disabled
+      });
+    },
+    ARROW_NEXT: function ARROW_NEXT(disabled) {
+      return (0, _classnames.default)({
+        "control-arrow control-next": true,
+        "control-disabled": disabled
+      });
+    },
+    DOT: function DOT(selected) {
+      return (0, _classnames.default)({
+        dot: true,
+        selected
+      });
+    }
+  };
+  exports.default = _default;
+});
+
+// node_modules/react-responsive-carousel/lib/js/dimensions.js
+var require_dimensions = __commonJS((exports) => {
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.outerWidth = undefined;
+  var outerWidth = function outerWidth(el) {
+    var width2 = el.offsetWidth;
+    var style10 = getComputedStyle(el);
+    width2 += parseInt(style10.marginLeft) + parseInt(style10.marginRight);
+    return width2;
+  };
+  exports.outerWidth = outerWidth;
+});
+
+// node_modules/react-responsive-carousel/lib/js/CSSTranslate.js
+var require_CSSTranslate = __commonJS((exports) => {
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.default = undefined;
+  var _default = function _default(position2, metric, axis) {
+    var positionPercent = position2 === 0 ? position2 : position2 + metric;
+    var positionCss = axis === "horizontal" ? [positionPercent, 0, 0] : [0, positionPercent, 0];
+    var transitionProp = "translate3d";
+    var translatedPosition = "(" + positionCss.join(",") + ")";
+    return transitionProp + translatedPosition;
+  };
+  exports.default = _default;
+});
+
+// node_modules/react-responsive-carousel/lib/js/shims/window.js
+var require_window = __commonJS((exports) => {
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.default = undefined;
+  var _default = function _default() {
+    return window;
+  };
+  exports.default = _default;
+});
+
+// node_modules/react-responsive-carousel/lib/js/components/Thumbs.js
+var require_Thumbs = __commonJS((exports) => {
+  var import_react = __toESM(require_react(), 1);
+  var _interopRequireDefault = function(obj) {
+    return obj && obj.__esModule ? obj : { default: obj };
+  };
+  var _getRequireWildcardCache = function() {
+    if (typeof WeakMap !== "function")
+      return null;
+    var cache3 = new WeakMap;
+    _getRequireWildcardCache = function _getRequireWildcardCache() {
+      return cache3;
+    };
+    return cache3;
+  };
+  var _interopRequireWildcard = function(obj) {
+    if (obj && obj.__esModule) {
+      return obj;
+    }
+    if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") {
+      return { default: obj };
+    }
+    var cache3 = _getRequireWildcardCache();
+    if (cache3 && cache3.has(obj)) {
+      return cache3.get(obj);
+    }
+    var newObj = {};
+    var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor;
+    for (var key in obj) {
+      if (Object.prototype.hasOwnProperty.call(obj, key)) {
+        var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null;
+        if (desc && (desc.get || desc.set)) {
+          Object.defineProperty(newObj, key, desc);
+        } else {
+          newObj[key] = obj[key];
+        }
+      }
+    }
+    newObj.default = obj;
+    if (cache3) {
+      cache3.set(obj, newObj);
+    }
+    return newObj;
+  };
+  var _typeof = function(obj) {
+    if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
+      _typeof = function _typeof(obj2) {
+        return typeof obj2;
+      };
+    } else {
+      _typeof = function _typeof(obj2) {
+        return obj2 && typeof Symbol === "function" && obj2.constructor === Symbol && obj2 !== Symbol.prototype ? "symbol" : typeof obj2;
+      };
+    }
+    return _typeof(obj);
+  };
+  var _extends5 = function() {
+    _extends5 = Object.assign || function(target) {
+      for (var i = 1;i < arguments.length; i++) {
+        var source = arguments[i];
+        for (var key in source) {
+          if (Object.prototype.hasOwnProperty.call(source, key)) {
+            target[key] = source[key];
+          }
+        }
+      }
+      return target;
+    };
+    return _extends5.apply(this, arguments);
+  };
+  var _classCallCheck = function(instance, Constructor) {
+    if (!(instance instanceof Constructor)) {
+      throw new TypeError("Cannot call a class as a function");
+    }
+  };
+  var _defineProperties = function(target, props) {
+    for (var i = 0;i < props.length; i++) {
+      var descriptor = props[i];
+      descriptor.enumerable = descriptor.enumerable || false;
+      descriptor.configurable = true;
+      if ("value" in descriptor)
+        descriptor.writable = true;
+      Object.defineProperty(target, descriptor.key, descriptor);
+    }
+  };
+  var _createClass = function(Constructor, protoProps, staticProps) {
+    if (protoProps)
+      _defineProperties(Constructor.prototype, protoProps);
+    if (staticProps)
+      _defineProperties(Constructor, staticProps);
+    return Constructor;
+  };
+  var _inherits = function(subClass, superClass) {
+    if (typeof superClass !== "function" && superClass !== null) {
+      throw new TypeError("Super expression must either be null or a function");
+    }
+    subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } });
+    if (superClass)
+      _setPrototypeOf2(subClass, superClass);
+  };
+  var _setPrototypeOf2 = function(o, p) {
+    _setPrototypeOf2 = Object.setPrototypeOf || function _setPrototypeOf(o2, p2) {
+      o2.__proto__ = p2;
+      return o2;
+    };
+    return _setPrototypeOf2(o, p);
+  };
+  var _createSuper = function(Derived) {
+    var hasNativeReflectConstruct = _isNativeReflectConstruct();
+    return function _createSuperInternal() {
+      var Super = _getPrototypeOf(Derived), result;
+      if (hasNativeReflectConstruct) {
+        var NewTarget = _getPrototypeOf(this).constructor;
+        result = Reflect.construct(Super, arguments, NewTarget);
+      } else {
+        result = Super.apply(this, arguments);
+      }
+      return _possibleConstructorReturn(this, result);
+    };
+  };
+  var _possibleConstructorReturn = function(self, call) {
+    if (call && (_typeof(call) === "object" || typeof call === "function")) {
+      return call;
+    }
+    return _assertThisInitialized2(self);
+  };
+  var _assertThisInitialized2 = function(self) {
+    if (self === undefined) {
+      throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+    }
+    return self;
+  };
+  var _isNativeReflectConstruct = function() {
+    if (typeof Reflect === "undefined" || !Reflect.construct)
+      return false;
+    if (Reflect.construct.sham)
+      return false;
+    if (typeof Proxy === "function")
+      return true;
+    try {
+      Date.prototype.toString.call(Reflect.construct(Date, [], function() {
+      }));
+      return true;
+    } catch (e) {
+      return false;
+    }
+  };
+  var _getPrototypeOf = function(o) {
+    _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o2) {
+      return o2.__proto__ || Object.getPrototypeOf(o2);
+    };
+    return _getPrototypeOf(o);
+  };
+  var _defineProperty = function(obj, key, value) {
+    if (key in obj) {
+      Object.defineProperty(obj, key, { value, enumerable: true, configurable: true, writable: true });
+    } else {
+      obj[key] = value;
+    }
+    return obj;
+  };
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.default = undefined;
+  var _react = _interopRequireWildcard(import_react);
+  var _cssClasses = _interopRequireDefault(require_cssClasses());
+  var _dimensions = require_dimensions();
+  var _CSSTranslate = _interopRequireDefault(require_CSSTranslate());
+  var _reactEasySwipe = _interopRequireDefault(require_lib());
+  var _window = _interopRequireDefault(require_window());
+  var isKeyboardEvent = function isKeyboardEvent(e) {
+    return e.hasOwnProperty("key");
+  };
+  var Thumbs = function(_Component) {
+    _inherits(Thumbs2, _Component);
+    var _super = _createSuper(Thumbs2);
+    function Thumbs2(_props) {
+      var _this;
+      _classCallCheck(this, Thumbs2);
+      _this = _super.call(this, _props);
+      _defineProperty(_assertThisInitialized2(_this), "itemsWrapperRef", undefined);
+      _defineProperty(_assertThisInitialized2(_this), "itemsListRef", undefined);
+      _defineProperty(_assertThisInitialized2(_this), "thumbsRef", undefined);
+      _defineProperty(_assertThisInitialized2(_this), "setItemsWrapperRef", function(node2) {
+        _this.itemsWrapperRef = node2;
+      });
+      _defineProperty(_assertThisInitialized2(_this), "setItemsListRef", function(node2) {
+        _this.itemsListRef = node2;
+      });
+      _defineProperty(_assertThisInitialized2(_this), "setThumbsRef", function(node2, index) {
+        if (!_this.thumbsRef) {
+          _this.thumbsRef = [];
+        }
+        _this.thumbsRef[index] = node2;
+      });
+      _defineProperty(_assertThisInitialized2(_this), "updateSizes", function() {
+        if (!_this.props.children || !_this.itemsWrapperRef || !_this.thumbsRef) {
+          return;
+        }
+        var total = _react.Children.count(_this.props.children);
+        var wrapperSize = _this.itemsWrapperRef.clientWidth;
+        var itemSize = _this.props.thumbWidth ? _this.props.thumbWidth : (0, _dimensions.outerWidth)(_this.thumbsRef[0]);
+        var visibleItems = Math.floor(wrapperSize / itemSize);
+        var showArrows = visibleItems < total;
+        var lastPosition = showArrows ? total - visibleItems : 0;
+        _this.setState(function(_state, props) {
+          return {
+            itemSize,
+            visibleItems,
+            firstItem: showArrows ? _this.getFirstItem(props.selectedItem) : 0,
+            lastPosition,
+            showArrows
+          };
+        });
+      });
+      _defineProperty(_assertThisInitialized2(_this), "handleClickItem", function(index, item, e) {
+        if (!isKeyboardEvent(e) || e.key === "Enter") {
+          var handler = _this.props.onSelectItem;
+          if (typeof handler === "function") {
+            handler(index, item);
+          }
+        }
+      });
+      _defineProperty(_assertThisInitialized2(_this), "onSwipeStart", function() {
+        _this.setState({
+          swiping: true
+        });
+      });
+      _defineProperty(_assertThisInitialized2(_this), "onSwipeEnd", function() {
+        _this.setState({
+          swiping: false
+        });
+      });
+      _defineProperty(_assertThisInitialized2(_this), "onSwipeMove", function(delta) {
+        var deltaX = delta.x;
+        if (!_this.state.itemSize || !_this.itemsWrapperRef || !_this.state.visibleItems) {
+          return false;
+        }
+        var leftBoundary = 0;
+        var childrenLength = _react.Children.count(_this.props.children);
+        var currentPosition = -(_this.state.firstItem * 100) / _this.state.visibleItems;
+        var lastLeftItem = Math.max(childrenLength - _this.state.visibleItems, 0);
+        var lastLeftBoundary = -lastLeftItem * 100 / _this.state.visibleItems;
+        if (currentPosition === leftBoundary && deltaX > 0) {
+          deltaX = 0;
+        }
+        if (currentPosition === lastLeftBoundary && deltaX < 0) {
+          deltaX = 0;
+        }
+        var wrapperSize = _this.itemsWrapperRef.clientWidth;
+        var position2 = currentPosition + 100 / (wrapperSize / deltaX);
+        if (_this.itemsListRef) {
+          ["WebkitTransform", "MozTransform", "MsTransform", "OTransform", "transform", "msTransform"].forEach(function(prop) {
+            _this.itemsListRef.style[prop] = (0, _CSSTranslate.default)(position2, "%", _this.props.axis);
+          });
+        }
+        return true;
+      });
+      _defineProperty(_assertThisInitialized2(_this), "slideRight", function(positions2) {
+        _this.moveTo(_this.state.firstItem - (typeof positions2 === "number" ? positions2 : 1));
+      });
+      _defineProperty(_assertThisInitialized2(_this), "slideLeft", function(positions2) {
+        _this.moveTo(_this.state.firstItem + (typeof positions2 === "number" ? positions2 : 1));
+      });
+      _defineProperty(_assertThisInitialized2(_this), "moveTo", function(position2) {
+        position2 = position2 < 0 ? 0 : position2;
+        position2 = position2 >= _this.state.lastPosition ? _this.state.lastPosition : position2;
+        _this.setState({
+          firstItem: position2
+        });
+      });
+      _this.state = {
+        selectedItem: _props.selectedItem,
+        swiping: false,
+        showArrows: false,
+        firstItem: 0,
+        visibleItems: 0,
+        lastPosition: 0
+      };
+      return _this;
+    }
+    _createClass(Thumbs2, [{
+      key: "componentDidMount",
+      value: function componentDidMount() {
+        this.setupThumbs();
+      }
+    }, {
+      key: "componentDidUpdate",
+      value: function componentDidUpdate(prevProps) {
+        if (this.props.selectedItem !== this.state.selectedItem) {
+          this.setState({
+            selectedItem: this.props.selectedItem,
+            firstItem: this.getFirstItem(this.props.selectedItem)
+          });
+        }
+        if (this.props.children === prevProps.children) {
+          return;
+        }
+        this.updateSizes();
+      }
+    }, {
+      key: "componentWillUnmount",
+      value: function componentWillUnmount() {
+        this.destroyThumbs();
+      }
+    }, {
+      key: "setupThumbs",
+      value: function setupThumbs() {
+        (0, _window.default)().addEventListener("resize", this.updateSizes);
+        (0, _window.default)().addEventListener("DOMContentLoaded", this.updateSizes);
+        this.updateSizes();
+      }
+    }, {
+      key: "destroyThumbs",
+      value: function destroyThumbs() {
+        (0, _window.default)().removeEventListener("resize", this.updateSizes);
+        (0, _window.default)().removeEventListener("DOMContentLoaded", this.updateSizes);
+      }
+    }, {
+      key: "getFirstItem",
+      value: function getFirstItem(selectedItem) {
+        var firstItem = selectedItem;
+        if (selectedItem >= this.state.lastPosition) {
+          firstItem = this.state.lastPosition;
+        }
+        if (selectedItem < this.state.firstItem + this.state.visibleItems) {
+          firstItem = this.state.firstItem;
+        }
+        if (selectedItem < this.state.firstItem) {
+          firstItem = selectedItem;
+        }
+        return firstItem;
+      }
+    }, {
+      key: "renderItems",
+      value: function renderItems() {
+        var _this2 = this;
+        return this.props.children.map(function(img, index) {
+          var itemClass = _cssClasses.default.ITEM(false, index === _this2.state.selectedItem);
+          var thumbProps = {
+            key: index,
+            ref: function ref(e) {
+              return _this2.setThumbsRef(e, index);
+            },
+            className: itemClass,
+            onClick: _this2.handleClickItem.bind(_this2, index, _this2.props.children[index]),
+            onKeyDown: _this2.handleClickItem.bind(_this2, index, _this2.props.children[index]),
+            "aria-label": "".concat(_this2.props.labels.item, " ").concat(index + 1),
+            style: {
+              width: _this2.props.thumbWidth
+            }
+          };
+          return _react.default.createElement("li", _extends5({}, thumbProps, {
+            role: "button",
+            tabIndex: 0
+          }), img);
+        });
+      }
+    }, {
+      key: "render",
+      value: function render() {
+        var _this3 = this;
+        if (!this.props.children) {
+          return null;
+        }
+        var isSwipeable = _react.Children.count(this.props.children) > 1;
+        var hasPrev = this.state.showArrows && this.state.firstItem > 0;
+        var hasNext = this.state.showArrows && this.state.firstItem < this.state.lastPosition;
+        var itemListStyles = {};
+        var currentPosition = -this.state.firstItem * (this.state.itemSize || 0);
+        var transformProp = (0, _CSSTranslate.default)(currentPosition, "px", this.props.axis);
+        var transitionTime = this.props.transitionTime + "ms";
+        itemListStyles = {
+          WebkitTransform: transformProp,
+          MozTransform: transformProp,
+          MsTransform: transformProp,
+          OTransform: transformProp,
+          transform: transformProp,
+          msTransform: transformProp,
+          WebkitTransitionDuration: transitionTime,
+          MozTransitionDuration: transitionTime,
+          MsTransitionDuration: transitionTime,
+          OTransitionDuration: transitionTime,
+          transitionDuration: transitionTime,
+          msTransitionDuration: transitionTime
+        };
+        return _react.default.createElement("div", {
+          className: _cssClasses.default.CAROUSEL(false)
+        }, _react.default.createElement("div", {
+          className: _cssClasses.default.WRAPPER(false),
+          ref: this.setItemsWrapperRef
+        }, _react.default.createElement("button", {
+          type: "button",
+          className: _cssClasses.default.ARROW_PREV(!hasPrev),
+          onClick: function onClick() {
+            return _this3.slideRight();
+          },
+          "aria-label": this.props.labels.leftArrow
+        }), isSwipeable ? _react.default.createElement(_reactEasySwipe.default, {
+          tagName: "ul",
+          className: _cssClasses.default.SLIDER(false, this.state.swiping),
+          onSwipeLeft: this.slideLeft,
+          onSwipeRight: this.slideRight,
+          onSwipeMove: this.onSwipeMove,
+          onSwipeStart: this.onSwipeStart,
+          onSwipeEnd: this.onSwipeEnd,
+          style: itemListStyles,
+          innerRef: this.setItemsListRef,
+          allowMouseEvents: this.props.emulateTouch
+        }, this.renderItems()) : _react.default.createElement("ul", {
+          className: _cssClasses.default.SLIDER(false, this.state.swiping),
+          ref: function ref(node2) {
+            return _this3.setItemsListRef(node2);
+          },
+          style: itemListStyles
+        }, this.renderItems()), _react.default.createElement("button", {
+          type: "button",
+          className: _cssClasses.default.ARROW_NEXT(!hasNext),
+          onClick: function onClick() {
+            return _this3.slideLeft();
+          },
+          "aria-label": this.props.labels.rightArrow
+        })));
+      }
+    }]);
+    return Thumbs2;
+  }(_react.Component);
+  exports.default = Thumbs;
+  _defineProperty(Thumbs, "displayName", "Thumbs");
+  _defineProperty(Thumbs, "defaultProps", {
+    axis: "horizontal",
+    labels: {
+      leftArrow: "previous slide / item",
+      rightArrow: "next slide / item",
+      item: "slide item"
+    },
+    selectedItem: 0,
+    thumbWidth: 80,
+    transitionTime: 350
+  });
+});
+
+// node_modules/react-responsive-carousel/lib/js/shims/document.js
+var require_document = __commonJS((exports) => {
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.default = undefined;
+  var _default = function _default() {
+    return document;
+  };
+  exports.default = _default;
+});
+
+// node_modules/react-responsive-carousel/lib/js/components/Carousel/utils.js
+var require_utils = __commonJS((exports) => {
+  var _react = __toESM(require_react(), 1);
+  var _interopRequireDefault = function(obj) {
+    return obj && obj.__esModule ? obj : { default: obj };
+  };
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.setPosition = exports.getPosition = exports.isKeyboardEvent = exports.defaultStatusFormatter = exports.noop = undefined;
+  var _CSSTranslate = _interopRequireDefault(require_CSSTranslate());
+  var noop2 = function noop() {
+  };
+  exports.noop = noop2;
+  var defaultStatusFormatter = function defaultStatusFormatter(current, total) {
+    return "".concat(current, " of ").concat(total);
+  };
+  exports.defaultStatusFormatter = defaultStatusFormatter;
+  var isKeyboardEvent = function isKeyboardEvent(e) {
+    return e ? e.hasOwnProperty("key") : false;
+  };
+  exports.isKeyboardEvent = isKeyboardEvent;
+  var getPosition = function getPosition(index, props) {
+    if (props.infiniteLoop) {
+      ++index;
+    }
+    if (index === 0) {
+      return 0;
+    }
+    var childrenLength = _react.Children.count(props.children);
+    if (props.centerMode && props.axis === "horizontal") {
+      var currentPosition = -index * props.centerSlidePercentage;
+      var lastPosition = childrenLength - 1;
+      if (index && (index !== lastPosition || props.infiniteLoop)) {
+        currentPosition += (100 - props.centerSlidePercentage) / 2;
+      } else if (index === lastPosition) {
+        currentPosition += 100 - props.centerSlidePercentage;
+      }
+      return currentPosition;
+    }
+    return -index * 100;
+  };
+  exports.getPosition = getPosition;
+  var setPosition = function setPosition(position2, axis) {
+    var style10 = {};
+    ["WebkitTransform", "MozTransform", "MsTransform", "OTransform", "transform", "msTransform"].forEach(function(prop) {
+      style10[prop] = (0, _CSSTranslate.default)(position2, "%", axis);
+    });
+    return style10;
+  };
+  exports.setPosition = setPosition;
+});
+
+// node_modules/react-responsive-carousel/lib/js/components/Carousel/animations.js
+var require_animations = __commonJS((exports) => {
+  var _react = __toESM(require_react(), 1);
+  var _interopRequireDefault = function(obj) {
+    return obj && obj.__esModule ? obj : { default: obj };
+  };
+  var ownKeys = function(object, enumerableOnly) {
+    var keys = Object.keys(object);
+    if (Object.getOwnPropertySymbols) {
+      var symbols = Object.getOwnPropertySymbols(object);
+      if (enumerableOnly)
+        symbols = symbols.filter(function(sym) {
+          return Object.getOwnPropertyDescriptor(object, sym).enumerable;
+        });
+      keys.push.apply(keys, symbols);
+    }
+    return keys;
+  };
+  var _objectSpread = function(target) {
+    for (var i = 1;i < arguments.length; i++) {
+      var source = arguments[i] != null ? arguments[i] : {};
+      if (i % 2) {
+        ownKeys(Object(source), true).forEach(function(key) {
+          _defineProperty(target, key, source[key]);
+        });
+      } else if (Object.getOwnPropertyDescriptors) {
+        Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));
+      } else {
+        ownKeys(Object(source)).forEach(function(key) {
+          Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
+        });
+      }
+    }
+    return target;
+  };
+  var _defineProperty = function(obj, key, value) {
+    if (key in obj) {
+      Object.defineProperty(obj, key, { value, enumerable: true, configurable: true, writable: true });
+    } else {
+      obj[key] = value;
+    }
+    return obj;
+  };
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.fadeAnimationHandler = exports.slideStopSwipingHandler = exports.slideSwipeAnimationHandler = exports.slideAnimationHandler = undefined;
+  var _CSSTranslate = _interopRequireDefault(require_CSSTranslate());
+  var _utils = require_utils();
+  var slideAnimationHandler = function slideAnimationHandler(props, state) {
+    var returnStyles = {};
+    var selectedItem = state.selectedItem;
+    var previousItem = selectedItem;
+    var lastPosition = _react.Children.count(props.children) - 1;
+    var needClonedSlide = props.infiniteLoop && (selectedItem < 0 || selectedItem > lastPosition);
+    if (needClonedSlide) {
+      if (previousItem < 0) {
+        if (props.centerMode && props.centerSlidePercentage && props.axis === "horizontal") {
+          returnStyles.itemListStyle = (0, _utils.setPosition)(-(lastPosition + 2) * props.centerSlidePercentage - (100 - props.centerSlidePercentage) / 2, props.axis);
+        } else {
+          returnStyles.itemListStyle = (0, _utils.setPosition)(-(lastPosition + 2) * 100, props.axis);
+        }
+      } else if (previousItem > lastPosition) {
+        returnStyles.itemListStyle = (0, _utils.setPosition)(0, props.axis);
+      }
+      return returnStyles;
+    }
+    var currentPosition = (0, _utils.getPosition)(selectedItem, props);
+    var transformProp = (0, _CSSTranslate.default)(currentPosition, "%", props.axis);
+    var transitionTime = props.transitionTime + "ms";
+    returnStyles.itemListStyle = {
+      WebkitTransform: transformProp,
+      msTransform: transformProp,
+      OTransform: transformProp,
+      transform: transformProp
+    };
+    if (!state.swiping) {
+      returnStyles.itemListStyle = _objectSpread(_objectSpread({}, returnStyles.itemListStyle), {}, {
+        WebkitTransitionDuration: transitionTime,
+        MozTransitionDuration: transitionTime,
+        OTransitionDuration: transitionTime,
+        transitionDuration: transitionTime,
+        msTransitionDuration: transitionTime
+      });
+    }
+    return returnStyles;
+  };
+  exports.slideAnimationHandler = slideAnimationHandler;
+  var slideSwipeAnimationHandler = function slideSwipeAnimationHandler(delta, props, state, setState) {
+    var returnStyles = {};
+    var isHorizontal = props.axis === "horizontal";
+    var childrenLength = _react.Children.count(props.children);
+    var initialBoundry = 0;
+    var currentPosition = (0, _utils.getPosition)(state.selectedItem, props);
+    var finalBoundry = props.infiniteLoop ? (0, _utils.getPosition)(childrenLength - 1, props) - 100 : (0, _utils.getPosition)(childrenLength - 1, props);
+    var axisDelta = isHorizontal ? delta.x : delta.y;
+    var handledDelta = axisDelta;
+    if (currentPosition === initialBoundry && axisDelta > 0) {
+      handledDelta = 0;
+    }
+    if (currentPosition === finalBoundry && axisDelta < 0) {
+      handledDelta = 0;
+    }
+    var position2 = currentPosition + 100 / (state.itemSize / handledDelta);
+    var hasMoved = Math.abs(axisDelta) > props.swipeScrollTolerance;
+    if (props.infiniteLoop && hasMoved) {
+      if (state.selectedItem === 0 && position2 > -100) {
+        position2 -= childrenLength * 100;
+      } else if (state.selectedItem === childrenLength - 1 && position2 < -childrenLength * 100) {
+        position2 += childrenLength * 100;
+      }
+    }
+    if (!props.preventMovementUntilSwipeScrollTolerance || hasMoved || state.swipeMovementStarted) {
+      if (!state.swipeMovementStarted) {
+        setState({
+          swipeMovementStarted: true
+        });
+      }
+      returnStyles.itemListStyle = (0, _utils.setPosition)(position2, props.axis);
+    }
+    if (hasMoved && !state.cancelClick) {
+      setState({
+        cancelClick: true
+      });
+    }
+    return returnStyles;
+  };
+  exports.slideSwipeAnimationHandler = slideSwipeAnimationHandler;
+  var slideStopSwipingHandler = function slideStopSwipingHandler(props, state) {
+    var currentPosition = (0, _utils.getPosition)(state.selectedItem, props);
+    var itemListStyle = (0, _utils.setPosition)(currentPosition, props.axis);
+    return {
+      itemListStyle
+    };
+  };
+  exports.slideStopSwipingHandler = slideStopSwipingHandler;
+  var fadeAnimationHandler = function fadeAnimationHandler(props, state) {
+    var transitionTime = props.transitionTime + "ms";
+    var transitionTimingFunction = "ease-in-out";
+    var slideStyle = {
+      position: "absolute",
+      display: "block",
+      zIndex: -2,
+      minHeight: "100%",
+      opacity: 0,
+      top: 0,
+      right: 0,
+      left: 0,
+      bottom: 0,
+      transitionTimingFunction,
+      msTransitionTimingFunction: transitionTimingFunction,
+      MozTransitionTimingFunction: transitionTimingFunction,
+      WebkitTransitionTimingFunction: transitionTimingFunction,
+      OTransitionTimingFunction: transitionTimingFunction
+    };
+    if (!state.swiping) {
+      slideStyle = _objectSpread(_objectSpread({}, slideStyle), {}, {
+        WebkitTransitionDuration: transitionTime,
+        MozTransitionDuration: transitionTime,
+        OTransitionDuration: transitionTime,
+        transitionDuration: transitionTime,
+        msTransitionDuration: transitionTime
+      });
+    }
+    return {
+      slideStyle,
+      selectedStyle: _objectSpread(_objectSpread({}, slideStyle), {}, {
+        opacity: 1,
+        position: "relative"
+      }),
+      prevStyle: _objectSpread({}, slideStyle)
+    };
+  };
+  exports.fadeAnimationHandler = fadeAnimationHandler;
+});
+
+// node_modules/react-responsive-carousel/lib/js/components/Carousel/index.js
+var require_Carousel = __commonJS((exports) => {
+  var import_react = __toESM(require_react(), 1);
+  var _interopRequireDefault = function(obj) {
+    return obj && obj.__esModule ? obj : { default: obj };
+  };
+  var _getRequireWildcardCache = function() {
+    if (typeof WeakMap !== "function")
+      return null;
+    var cache3 = new WeakMap;
+    _getRequireWildcardCache = function _getRequireWildcardCache() {
+      return cache3;
+    };
+    return cache3;
+  };
+  var _interopRequireWildcard = function(obj) {
+    if (obj && obj.__esModule) {
+      return obj;
+    }
+    if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") {
+      return { default: obj };
+    }
+    var cache3 = _getRequireWildcardCache();
+    if (cache3 && cache3.has(obj)) {
+      return cache3.get(obj);
+    }
+    var newObj = {};
+    var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor;
+    for (var key in obj) {
+      if (Object.prototype.hasOwnProperty.call(obj, key)) {
+        var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null;
+        if (desc && (desc.get || desc.set)) {
+          Object.defineProperty(newObj, key, desc);
+        } else {
+          newObj[key] = obj[key];
+        }
+      }
+    }
+    newObj.default = obj;
+    if (cache3) {
+      cache3.set(obj, newObj);
+    }
+    return newObj;
+  };
+  var _typeof = function(obj) {
+    if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
+      _typeof = function _typeof(obj2) {
+        return typeof obj2;
+      };
+    } else {
+      _typeof = function _typeof(obj2) {
+        return obj2 && typeof Symbol === "function" && obj2.constructor === Symbol && obj2 !== Symbol.prototype ? "symbol" : typeof obj2;
+      };
+    }
+    return _typeof(obj);
+  };
+  var _extends5 = function() {
+    _extends5 = Object.assign || function(target) {
+      for (var i = 1;i < arguments.length; i++) {
+        var source = arguments[i];
+        for (var key in source) {
+          if (Object.prototype.hasOwnProperty.call(source, key)) {
+            target[key] = source[key];
+          }
+        }
+      }
+      return target;
+    };
+    return _extends5.apply(this, arguments);
+  };
+  var ownKeys = function(object, enumerableOnly) {
+    var keys = Object.keys(object);
+    if (Object.getOwnPropertySymbols) {
+      var symbols = Object.getOwnPropertySymbols(object);
+      if (enumerableOnly)
+        symbols = symbols.filter(function(sym) {
+          return Object.getOwnPropertyDescriptor(object, sym).enumerable;
+        });
+      keys.push.apply(keys, symbols);
+    }
+    return keys;
+  };
+  var _objectSpread = function(target) {
+    for (var i = 1;i < arguments.length; i++) {
+      var source = arguments[i] != null ? arguments[i] : {};
+      if (i % 2) {
+        ownKeys(Object(source), true).forEach(function(key) {
+          _defineProperty(target, key, source[key]);
+        });
+      } else if (Object.getOwnPropertyDescriptors) {
+        Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));
+      } else {
+        ownKeys(Object(source)).forEach(function(key) {
+          Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
+        });
+      }
+    }
+    return target;
+  };
+  var _classCallCheck = function(instance, Constructor) {
+    if (!(instance instanceof Constructor)) {
+      throw new TypeError("Cannot call a class as a function");
+    }
+  };
+  var _defineProperties = function(target, props) {
+    for (var i = 0;i < props.length; i++) {
+      var descriptor = props[i];
+      descriptor.enumerable = descriptor.enumerable || false;
+      descriptor.configurable = true;
+      if ("value" in descriptor)
+        descriptor.writable = true;
+      Object.defineProperty(target, descriptor.key, descriptor);
+    }
+  };
+  var _createClass = function(Constructor, protoProps, staticProps) {
+    if (protoProps)
+      _defineProperties(Constructor.prototype, protoProps);
+    if (staticProps)
+      _defineProperties(Constructor, staticProps);
+    return Constructor;
+  };
+  var _inherits = function(subClass, superClass) {
+    if (typeof superClass !== "function" && superClass !== null) {
+      throw new TypeError("Super expression must either be null or a function");
+    }
+    subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } });
+    if (superClass)
+      _setPrototypeOf2(subClass, superClass);
+  };
+  var _setPrototypeOf2 = function(o, p) {
+    _setPrototypeOf2 = Object.setPrototypeOf || function _setPrototypeOf(o2, p2) {
+      o2.__proto__ = p2;
+      return o2;
+    };
+    return _setPrototypeOf2(o, p);
+  };
+  var _createSuper = function(Derived) {
+    var hasNativeReflectConstruct = _isNativeReflectConstruct();
+    return function _createSuperInternal() {
+      var Super = _getPrototypeOf(Derived), result;
+      if (hasNativeReflectConstruct) {
+        var NewTarget = _getPrototypeOf(this).constructor;
+        result = Reflect.construct(Super, arguments, NewTarget);
+      } else {
+        result = Super.apply(this, arguments);
+      }
+      return _possibleConstructorReturn(this, result);
+    };
+  };
+  var _possibleConstructorReturn = function(self, call) {
+    if (call && (_typeof(call) === "object" || typeof call === "function")) {
+      return call;
+    }
+    return _assertThisInitialized2(self);
+  };
+  var _assertThisInitialized2 = function(self) {
+    if (self === undefined) {
+      throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+    }
+    return self;
+  };
+  var _isNativeReflectConstruct = function() {
+    if (typeof Reflect === "undefined" || !Reflect.construct)
+      return false;
+    if (Reflect.construct.sham)
+      return false;
+    if (typeof Proxy === "function")
+      return true;
+    try {
+      Date.prototype.toString.call(Reflect.construct(Date, [], function() {
+      }));
+      return true;
+    } catch (e) {
+      return false;
+    }
+  };
+  var _getPrototypeOf = function(o) {
+    _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o2) {
+      return o2.__proto__ || Object.getPrototypeOf(o2);
+    };
+    return _getPrototypeOf(o);
+  };
+  var _defineProperty = function(obj, key, value) {
+    if (key in obj) {
+      Object.defineProperty(obj, key, { value, enumerable: true, configurable: true, writable: true });
+    } else {
+      obj[key] = value;
+    }
+    return obj;
+  };
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.default = undefined;
+  var _react = _interopRequireWildcard(import_react);
+  var _reactEasySwipe = _interopRequireDefault(require_lib());
+  var _cssClasses = _interopRequireDefault(require_cssClasses());
+  var _Thumbs = _interopRequireDefault(require_Thumbs());
+  var _document = _interopRequireDefault(require_document());
+  var _window = _interopRequireDefault(require_window());
+  var _utils = require_utils();
+  var _animations = require_animations();
+  var Carousel = function(_React$Component) {
+    _inherits(Carousel2, _React$Component);
+    var _super = _createSuper(Carousel2);
+    function Carousel2(props) {
+      var _this;
+      _classCallCheck(this, Carousel2);
+      _this = _super.call(this, props);
+      _defineProperty(_assertThisInitialized2(_this), "thumbsRef", undefined);
+      _defineProperty(_assertThisInitialized2(_this), "carouselWrapperRef", undefined);
+      _defineProperty(_assertThisInitialized2(_this), "listRef", undefined);
+      _defineProperty(_assertThisInitialized2(_this), "itemsRef", undefined);
+      _defineProperty(_assertThisInitialized2(_this), "timer", undefined);
+      _defineProperty(_assertThisInitialized2(_this), "animationHandler", undefined);
+      _defineProperty(_assertThisInitialized2(_this), "setThumbsRef", function(node2) {
+        _this.thumbsRef = node2;
+      });
+      _defineProperty(_assertThisInitialized2(_this), "setCarouselWrapperRef", function(node2) {
+        _this.carouselWrapperRef = node2;
+      });
+      _defineProperty(_assertThisInitialized2(_this), "setListRef", function(node2) {
+        _this.listRef = node2;
+      });
+      _defineProperty(_assertThisInitialized2(_this), "setItemsRef", function(node2, index) {
+        if (!_this.itemsRef) {
+          _this.itemsRef = [];
+        }
+        _this.itemsRef[index] = node2;
+      });
+      _defineProperty(_assertThisInitialized2(_this), "autoPlay", function() {
+        if (_react.Children.count(_this.props.children) <= 1) {
+          return;
+        }
+        _this.clearAutoPlay();
+        if (!_this.props.autoPlay) {
+          return;
+        }
+        _this.timer = setTimeout(function() {
+          _this.increment();
+        }, _this.props.interval);
+      });
+      _defineProperty(_assertThisInitialized2(_this), "clearAutoPlay", function() {
+        if (_this.timer)
+          clearTimeout(_this.timer);
+      });
+      _defineProperty(_assertThisInitialized2(_this), "resetAutoPlay", function() {
+        _this.clearAutoPlay();
+        _this.autoPlay();
+      });
+      _defineProperty(_assertThisInitialized2(_this), "stopOnHover", function() {
+        _this.setState({
+          isMouseEntered: true
+        }, _this.clearAutoPlay);
+      });
+      _defineProperty(_assertThisInitialized2(_this), "startOnLeave", function() {
+        _this.setState({
+          isMouseEntered: false
+        }, _this.autoPlay);
+      });
+      _defineProperty(_assertThisInitialized2(_this), "isFocusWithinTheCarousel", function() {
+        if (!_this.carouselWrapperRef) {
+          return false;
+        }
+        if ((0, _document.default)().activeElement === _this.carouselWrapperRef || _this.carouselWrapperRef.contains((0, _document.default)().activeElement)) {
+          return true;
+        }
+        return false;
+      });
+      _defineProperty(_assertThisInitialized2(_this), "navigateWithKeyboard", function(e) {
+        if (!_this.isFocusWithinTheCarousel()) {
+          return;
+        }
+        var axis = _this.props.axis;
+        var isHorizontal = axis === "horizontal";
+        var keyNames = {
+          ArrowUp: 38,
+          ArrowRight: 39,
+          ArrowDown: 40,
+          ArrowLeft: 37
+        };
+        var nextKey = isHorizontal ? keyNames.ArrowRight : keyNames.ArrowDown;
+        var prevKey = isHorizontal ? keyNames.ArrowLeft : keyNames.ArrowUp;
+        if (nextKey === e.keyCode) {
+          _this.increment();
+        } else if (prevKey === e.keyCode) {
+          _this.decrement();
+        }
+      });
+      _defineProperty(_assertThisInitialized2(_this), "updateSizes", function() {
+        if (!_this.state.initialized || !_this.itemsRef || _this.itemsRef.length === 0) {
+          return;
+        }
+        var isHorizontal = _this.props.axis === "horizontal";
+        var firstItem = _this.itemsRef[0];
+        if (!firstItem) {
+          return;
+        }
+        var itemSize = isHorizontal ? firstItem.clientWidth : firstItem.clientHeight;
+        _this.setState({
+          itemSize
+        });
+        if (_this.thumbsRef) {
+          _this.thumbsRef.updateSizes();
+        }
+      });
+      _defineProperty(_assertThisInitialized2(_this), "setMountState", function() {
+        _this.setState({
+          hasMount: true
+        });
+        _this.updateSizes();
+      });
+      _defineProperty(_assertThisInitialized2(_this), "handleClickItem", function(index, item) {
+        if (_react.Children.count(_this.props.children) === 0) {
+          return;
+        }
+        if (_this.state.cancelClick) {
+          _this.setState({
+            cancelClick: false
+          });
+          return;
+        }
+        _this.props.onClickItem(index, item);
+        if (index !== _this.state.selectedItem) {
+          _this.setState({
+            selectedItem: index
+          });
+        }
+      });
+      _defineProperty(_assertThisInitialized2(_this), "handleOnChange", function(index, item) {
+        if (_react.Children.count(_this.props.children) <= 1) {
+          return;
+        }
+        _this.props.onChange(index, item);
+      });
+      _defineProperty(_assertThisInitialized2(_this), "handleClickThumb", function(index, item) {
+        _this.props.onClickThumb(index, item);
+        _this.moveTo(index);
+      });
+      _defineProperty(_assertThisInitialized2(_this), "onSwipeStart", function(event) {
+        _this.setState({
+          swiping: true
+        });
+        _this.props.onSwipeStart(event);
+      });
+      _defineProperty(_assertThisInitialized2(_this), "onSwipeEnd", function(event) {
+        _this.setState({
+          swiping: false,
+          cancelClick: false,
+          swipeMovementStarted: false
+        });
+        _this.props.onSwipeEnd(event);
+        _this.clearAutoPlay();
+        if (_this.state.autoPlay) {
+          _this.autoPlay();
+        }
+      });
+      _defineProperty(_assertThisInitialized2(_this), "onSwipeMove", function(delta, event) {
+        _this.props.onSwipeMove(event);
+        var animationHandlerResponse = _this.props.swipeAnimationHandler(delta, _this.props, _this.state, _this.setState.bind(_assertThisInitialized2(_this)));
+        _this.setState(_objectSpread({}, animationHandlerResponse));
+        return !!Object.keys(animationHandlerResponse).length;
+      });
+      _defineProperty(_assertThisInitialized2(_this), "decrement", function() {
+        var positions2 = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
+        _this.moveTo(_this.state.selectedItem - (typeof positions2 === "number" ? positions2 : 1));
+      });
+      _defineProperty(_assertThisInitialized2(_this), "increment", function() {
+        var positions2 = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
+        _this.moveTo(_this.state.selectedItem + (typeof positions2 === "number" ? positions2 : 1));
+      });
+      _defineProperty(_assertThisInitialized2(_this), "moveTo", function(position2) {
+        if (typeof position2 !== "number") {
+          return;
+        }
+        var lastPosition = _react.Children.count(_this.props.children) - 1;
+        if (position2 < 0) {
+          position2 = _this.props.infiniteLoop ? lastPosition : 0;
+        }
+        if (position2 > lastPosition) {
+          position2 = _this.props.infiniteLoop ? 0 : lastPosition;
+        }
+        _this.selectItem({
+          selectedItem: position2
+        });
+        if (_this.state.autoPlay && _this.state.isMouseEntered === false) {
+          _this.resetAutoPlay();
+        }
+      });
+      _defineProperty(_assertThisInitialized2(_this), "onClickNext", function() {
+        _this.increment(1);
+      });
+      _defineProperty(_assertThisInitialized2(_this), "onClickPrev", function() {
+        _this.decrement(1);
+      });
+      _defineProperty(_assertThisInitialized2(_this), "onSwipeForward", function() {
+        _this.increment(1);
+        if (_this.props.emulateTouch) {
+          _this.setState({
+            cancelClick: true
+          });
+        }
+      });
+      _defineProperty(_assertThisInitialized2(_this), "onSwipeBackwards", function() {
+        _this.decrement(1);
+        if (_this.props.emulateTouch) {
+          _this.setState({
+            cancelClick: true
+          });
+        }
+      });
+      _defineProperty(_assertThisInitialized2(_this), "changeItem", function(newIndex) {
+        return function(e) {
+          if (!(0, _utils.isKeyboardEvent)(e) || e.key === "Enter") {
+            _this.moveTo(newIndex);
+          }
+        };
+      });
+      _defineProperty(_assertThisInitialized2(_this), "selectItem", function(state) {
+        _this.setState(_objectSpread({
+          previousItem: _this.state.selectedItem
+        }, state), function() {
+          _this.setState(_this.animationHandler(_this.props, _this.state));
+        });
+        _this.handleOnChange(state.selectedItem, _react.Children.toArray(_this.props.children)[state.selectedItem]);
+      });
+      _defineProperty(_assertThisInitialized2(_this), "getInitialImage", function() {
+        var selectedItem = _this.props.selectedItem;
+        var item = _this.itemsRef && _this.itemsRef[selectedItem];
+        var images = item && item.getElementsByTagName("img") || [];
+        return images[0];
+      });
+      _defineProperty(_assertThisInitialized2(_this), "getVariableItemHeight", function(position2) {
+        var item = _this.itemsRef && _this.itemsRef[position2];
+        if (_this.state.hasMount && item && item.children.length) {
+          var slideImages = item.children[0].getElementsByTagName("img") || [];
+          if (slideImages.length > 0) {
+            var image = slideImages[0];
+            if (!image.complete) {
+              var onImageLoad = function onImageLoad() {
+                _this.forceUpdate();
+                image.removeEventListener("load", onImageLoad);
+              };
+              image.addEventListener("load", onImageLoad);
+            }
+          }
+          var displayItem = slideImages[0] || item.children[0];
+          var height2 = displayItem.clientHeight;
+          return height2 > 0 ? height2 : null;
+        }
+        return null;
+      });
+      var initState = {
+        initialized: false,
+        previousItem: props.selectedItem,
+        selectedItem: props.selectedItem,
+        hasMount: false,
+        isMouseEntered: false,
+        autoPlay: props.autoPlay,
+        swiping: false,
+        swipeMovementStarted: false,
+        cancelClick: false,
+        itemSize: 1,
+        itemListStyle: {},
+        slideStyle: {},
+        selectedStyle: {},
+        prevStyle: {}
+      };
+      _this.animationHandler = typeof props.animationHandler === "function" && props.animationHandler || props.animationHandler === "fade" && _animations.fadeAnimationHandler || _animations.slideAnimationHandler;
+      _this.state = _objectSpread(_objectSpread({}, initState), _this.animationHandler(props, initState));
+      return _this;
+    }
+    _createClass(Carousel2, [{
+      key: "componentDidMount",
+      value: function componentDidMount() {
+        if (!this.props.children) {
+          return;
+        }
+        this.setupCarousel();
+      }
+    }, {
+      key: "componentDidUpdate",
+      value: function componentDidUpdate(prevProps, prevState) {
+        if (!prevProps.children && this.props.children && !this.state.initialized) {
+          this.setupCarousel();
+        }
+        if (!prevProps.autoFocus && this.props.autoFocus) {
+          this.forceFocus();
+        }
+        if (prevState.swiping && !this.state.swiping) {
+          this.setState(_objectSpread({}, this.props.stopSwipingHandler(this.props, this.state)));
+        }
+        if (prevProps.selectedItem !== this.props.selectedItem || prevProps.centerMode !== this.props.centerMode) {
+          this.updateSizes();
+          this.moveTo(this.props.selectedItem);
+        }
+        if (prevProps.autoPlay !== this.props.autoPlay) {
+          if (this.props.autoPlay) {
+            this.setupAutoPlay();
+          } else {
+            this.destroyAutoPlay();
+          }
+          this.setState({
+            autoPlay: this.props.autoPlay
+          });
+        }
+      }
+    }, {
+      key: "componentWillUnmount",
+      value: function componentWillUnmount() {
+        this.destroyCarousel();
+      }
+    }, {
+      key: "setupCarousel",
+      value: function setupCarousel() {
+        var _this2 = this;
+        this.bindEvents();
+        if (this.state.autoPlay && _react.Children.count(this.props.children) > 1) {
+          this.setupAutoPlay();
+        }
+        if (this.props.autoFocus) {
+          this.forceFocus();
+        }
+        this.setState({
+          initialized: true
+        }, function() {
+          var initialImage = _this2.getInitialImage();
+          if (initialImage && !initialImage.complete) {
+            initialImage.addEventListener("load", _this2.setMountState);
+          } else {
+            _this2.setMountState();
+          }
+        });
+      }
+    }, {
+      key: "destroyCarousel",
+      value: function destroyCarousel() {
+        if (this.state.initialized) {
+          this.unbindEvents();
+          this.destroyAutoPlay();
+        }
+      }
+    }, {
+      key: "setupAutoPlay",
+      value: function setupAutoPlay() {
+        this.autoPlay();
+        var carouselWrapper = this.carouselWrapperRef;
+        if (this.props.stopOnHover && carouselWrapper) {
+          carouselWrapper.addEventListener("mouseenter", this.stopOnHover);
+          carouselWrapper.addEventListener("mouseleave", this.startOnLeave);
+        }
+      }
+    }, {
+      key: "destroyAutoPlay",
+      value: function destroyAutoPlay() {
+        this.clearAutoPlay();
+        var carouselWrapper = this.carouselWrapperRef;
+        if (this.props.stopOnHover && carouselWrapper) {
+          carouselWrapper.removeEventListener("mouseenter", this.stopOnHover);
+          carouselWrapper.removeEventListener("mouseleave", this.startOnLeave);
+        }
+      }
+    }, {
+      key: "bindEvents",
+      value: function bindEvents() {
+        (0, _window.default)().addEventListener("resize", this.updateSizes);
+        (0, _window.default)().addEventListener("DOMContentLoaded", this.updateSizes);
+        if (this.props.useKeyboardArrows) {
+          (0, _document.default)().addEventListener("keydown", this.navigateWithKeyboard);
+        }
+      }
+    }, {
+      key: "unbindEvents",
+      value: function unbindEvents() {
+        (0, _window.default)().removeEventListener("resize", this.updateSizes);
+        (0, _window.default)().removeEventListener("DOMContentLoaded", this.updateSizes);
+        var initialImage = this.getInitialImage();
+        if (initialImage) {
+          initialImage.removeEventListener("load", this.setMountState);
+        }
+        if (this.props.useKeyboardArrows) {
+          (0, _document.default)().removeEventListener("keydown", this.navigateWithKeyboard);
+        }
+      }
+    }, {
+      key: "forceFocus",
+      value: function forceFocus() {
+        var _this$carouselWrapper;
+        (_this$carouselWrapper = this.carouselWrapperRef) === null || _this$carouselWrapper === undefined || _this$carouselWrapper.focus();
+      }
+    }, {
+      key: "renderItems",
+      value: function renderItems(isClone) {
+        var _this3 = this;
+        if (!this.props.children) {
+          return [];
+        }
+        return _react.Children.map(this.props.children, function(item, index) {
+          var isSelected = index === _this3.state.selectedItem;
+          var isPrevious = index === _this3.state.previousItem;
+          var style10 = isSelected && _this3.state.selectedStyle || isPrevious && _this3.state.prevStyle || _this3.state.slideStyle || {};
+          if (_this3.props.centerMode && _this3.props.axis === "horizontal") {
+            style10 = _objectSpread(_objectSpread({}, style10), {}, {
+              minWidth: _this3.props.centerSlidePercentage + "%"
+            });
+          }
+          if (_this3.state.swiping && _this3.state.swipeMovementStarted) {
+            style10 = _objectSpread(_objectSpread({}, style10), {}, {
+              pointerEvents: "none"
+            });
+          }
+          var slideProps = {
+            ref: function ref(e) {
+              return _this3.setItemsRef(e, index);
+            },
+            key: "itemKey" + index + (isClone ? "clone" : ""),
+            className: _cssClasses.default.ITEM(true, index === _this3.state.selectedItem, index === _this3.state.previousItem),
+            onClick: _this3.handleClickItem.bind(_this3, index, item),
+            style: style10
+          };
+          return _react.default.createElement("li", slideProps, _this3.props.renderItem(item, {
+            isSelected: index === _this3.state.selectedItem,
+            isPrevious: index === _this3.state.previousItem
+          }));
+        });
+      }
+    }, {
+      key: "renderControls",
+      value: function renderControls() {
+        var _this4 = this;
+        var _this$props = this.props, showIndicators = _this$props.showIndicators, labels = _this$props.labels, renderIndicator = _this$props.renderIndicator, children = _this$props.children;
+        if (!showIndicators) {
+          return null;
+        }
+        return _react.default.createElement("ul", {
+          className: "control-dots"
+        }, _react.Children.map(children, function(_2, index) {
+          return renderIndicator && renderIndicator(_this4.changeItem(index), index === _this4.state.selectedItem, index, labels.item);
+        }));
+      }
+    }, {
+      key: "renderStatus",
+      value: function renderStatus() {
+        if (!this.props.showStatus) {
+          return null;
+        }
+        return _react.default.createElement("p", {
+          className: "carousel-status"
+        }, this.props.statusFormatter(this.state.selectedItem + 1, _react.Children.count(this.props.children)));
+      }
+    }, {
+      key: "renderThumbs",
+      value: function renderThumbs() {
+        if (!this.props.showThumbs || !this.props.children || _react.Children.count(this.props.children) === 0) {
+          return null;
+        }
+        return _react.default.createElement(_Thumbs.default, {
+          ref: this.setThumbsRef,
+          onSelectItem: this.handleClickThumb,
+          selectedItem: this.state.selectedItem,
+          transitionTime: this.props.transitionTime,
+          thumbWidth: this.props.thumbWidth,
+          labels: this.props.labels,
+          emulateTouch: this.props.emulateTouch
+        }, this.props.renderThumbs(this.props.children));
+      }
+    }, {
+      key: "render",
+      value: function render() {
+        var _this5 = this;
+        if (!this.props.children || _react.Children.count(this.props.children) === 0) {
+          return null;
+        }
+        var isSwipeable = this.props.swipeable && _react.Children.count(this.props.children) > 1;
+        var isHorizontal = this.props.axis === "horizontal";
+        var canShowArrows = this.props.showArrows && _react.Children.count(this.props.children) > 1;
+        var hasPrev = canShowArrows && (this.state.selectedItem > 0 || this.props.infiniteLoop) || false;
+        var hasNext = canShowArrows && (this.state.selectedItem < _react.Children.count(this.props.children) - 1 || this.props.infiniteLoop) || false;
+        var itemsClone = this.renderItems(true);
+        var firstClone = itemsClone.shift();
+        var lastClone = itemsClone.pop();
+        var swiperProps = {
+          className: _cssClasses.default.SLIDER(true, this.state.swiping),
+          onSwipeMove: this.onSwipeMove,
+          onSwipeStart: this.onSwipeStart,
+          onSwipeEnd: this.onSwipeEnd,
+          style: this.state.itemListStyle,
+          tolerance: this.props.swipeScrollTolerance
+        };
+        var containerStyles = {};
+        if (isHorizontal) {
+          swiperProps.onSwipeLeft = this.onSwipeForward;
+          swiperProps.onSwipeRight = this.onSwipeBackwards;
+          if (this.props.dynamicHeight) {
+            var itemHeight = this.getVariableItemHeight(this.state.selectedItem);
+            containerStyles.height = itemHeight || "auto";
+          }
+        } else {
+          swiperProps.onSwipeUp = this.props.verticalSwipe === "natural" ? this.onSwipeBackwards : this.onSwipeForward;
+          swiperProps.onSwipeDown = this.props.verticalSwipe === "natural" ? this.onSwipeForward : this.onSwipeBackwards;
+          swiperProps.style = _objectSpread(_objectSpread({}, swiperProps.style), {}, {
+            height: this.state.itemSize
+          });
+          containerStyles.height = this.state.itemSize;
+        }
+        return _react.default.createElement("div", {
+          "aria-label": this.props.ariaLabel,
+          className: _cssClasses.default.ROOT(this.props.className),
+          ref: this.setCarouselWrapperRef,
+          tabIndex: this.props.useKeyboardArrows ? 0 : undefined
+        }, _react.default.createElement("div", {
+          className: _cssClasses.default.CAROUSEL(true),
+          style: {
+            width: this.props.width
+          }
+        }, this.renderControls(), this.props.renderArrowPrev(this.onClickPrev, hasPrev, this.props.labels.leftArrow), _react.default.createElement("div", {
+          className: _cssClasses.default.WRAPPER(true, this.props.axis),
+          style: containerStyles
+        }, isSwipeable ? _react.default.createElement(_reactEasySwipe.default, _extends5({
+          tagName: "ul",
+          innerRef: this.setListRef
+        }, swiperProps, {
+          allowMouseEvents: this.props.emulateTouch
+        }), this.props.infiniteLoop && lastClone, this.renderItems(), this.props.infiniteLoop && firstClone) : _react.default.createElement("ul", {
+          className: _cssClasses.default.SLIDER(true, this.state.swiping),
+          ref: function ref(node2) {
+            return _this5.setListRef(node2);
+          },
+          style: this.state.itemListStyle || {}
+        }, this.props.infiniteLoop && lastClone, this.renderItems(), this.props.infiniteLoop && firstClone)), this.props.renderArrowNext(this.onClickNext, hasNext, this.props.labels.rightArrow), this.renderStatus()), this.renderThumbs());
+      }
+    }]);
+    return Carousel2;
+  }(_react.default.Component);
+  exports.default = Carousel;
+  _defineProperty(Carousel, "displayName", "Carousel");
+  _defineProperty(Carousel, "defaultProps", {
+    ariaLabel: undefined,
+    axis: "horizontal",
+    centerSlidePercentage: 80,
+    interval: 3000,
+    labels: {
+      leftArrow: "previous slide / item",
+      rightArrow: "next slide / item",
+      item: "slide item"
+    },
+    onClickItem: _utils.noop,
+    onClickThumb: _utils.noop,
+    onChange: _utils.noop,
+    onSwipeStart: function onSwipeStart() {
+    },
+    onSwipeEnd: function onSwipeEnd() {
+    },
+    onSwipeMove: function onSwipeMove() {
+      return false;
+    },
+    preventMovementUntilSwipeScrollTolerance: false,
+    renderArrowPrev: function renderArrowPrev(onClickHandler, hasPrev, label) {
+      return _react.default.createElement("button", {
+        type: "button",
+        "aria-label": label,
+        className: _cssClasses.default.ARROW_PREV(!hasPrev),
+        onClick: onClickHandler
+      });
+    },
+    renderArrowNext: function renderArrowNext(onClickHandler, hasNext, label) {
+      return _react.default.createElement("button", {
+        type: "button",
+        "aria-label": label,
+        className: _cssClasses.default.ARROW_NEXT(!hasNext),
+        onClick: onClickHandler
+      });
+    },
+    renderIndicator: function renderIndicator(onClickHandler, isSelected, index, label) {
+      return _react.default.createElement("li", {
+        className: _cssClasses.default.DOT(isSelected),
+        onClick: onClickHandler,
+        onKeyDown: onClickHandler,
+        value: index,
+        key: index,
+        role: "button",
+        tabIndex: 0,
+        "aria-label": "".concat(label, " ").concat(index + 1)
+      });
+    },
+    renderItem: function renderItem(item) {
+      return item;
+    },
+    renderThumbs: function renderThumbs(children) {
+      var images = _react.Children.map(children, function(item) {
+        var img = item;
+        if (item.type !== "img") {
+          img = _react.Children.toArray(item.props.children).find(function(children2) {
+            return children2.type === "img";
+          });
+        }
+        if (!img) {
+          return;
+        }
+        return img;
+      });
+      if (images.filter(function(image) {
+        return image;
+      }).length === 0) {
+        console.warn("No images found! Can't build the thumb list without images. If you don't need thumbs, set showThumbs={false} in the Carousel. Note that it's not possible to get images rendered inside custom components. More info at https://github.com/leandrowd/react-responsive-carousel/blob/master/TROUBLESHOOTING.md");
+        return [];
+      }
+      return images;
+    },
+    statusFormatter: _utils.defaultStatusFormatter,
+    selectedItem: 0,
+    showArrows: true,
+    showIndicators: true,
+    showStatus: true,
+    showThumbs: true,
+    stopOnHover: true,
+    swipeScrollTolerance: 5,
+    swipeable: true,
+    transitionTime: 350,
+    verticalSwipe: "standard",
+    width: "100%",
+    animationHandler: "slide",
+    swipeAnimationHandler: _animations.slideSwipeAnimationHandler,
+    stopSwipingHandler: _animations.slideStopSwipingHandler
+  });
+});
+
+// node_modules/react-responsive-carousel/lib/js/components/Carousel/types.js
+var exports_types = {};
+var init_types = __esm(() => {
+});
+
+// node_modules/react-responsive-carousel/lib/js/index.js
+var require_js = __commonJS((exports) => {
+  var _interopRequireDefault = function(obj) {
+    return obj && obj.__esModule ? obj : { default: obj };
+  };
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  Object.defineProperty(exports, "Carousel", {
+    enumerable: true,
+    get: function get() {
+      return _Carousel.default;
+    }
+  });
+  Object.defineProperty(exports, "CarouselProps", {
+    enumerable: true,
+    get: function get() {
+      return _types.CarouselProps;
+    }
+  });
+  Object.defineProperty(exports, "Thumbs", {
+    enumerable: true,
+    get: function get() {
+      return _Thumbs.default;
+    }
+  });
+  var _Carousel = _interopRequireDefault(require_Carousel());
+  var _types = (init_types(), __toCommonJS(exports_types));
+  var _Thumbs = _interopRequireDefault(require_Thumbs());
+});
+
 // src/index.js
-var import_react20 = __toESM(require_react(), 1);
+var import_react22 = __toESM(require_react(), 1);
 var import_react_dom2 = __toESM(require_react_dom(), 1);
 
 // src/components/App.js
-var import_react19 = __toESM(require_react(), 1);
+var import_react21 = __toESM(require_react(), 1);
 
 // node_modules/react-router-dom/dist/index.js
 var React2 = __toESM(require_react(), 1);
@@ -25231,6 +27289,12 @@ function debounce(func, wait = 166) {
   };
   return debounced;
 }
+// node_modules/@mui/utils/esm/isMuiElement.js
+var React3 = __toESM(require_react(), 1);
+function isMuiElement(element, muiNames) {
+  var _muiName, _element$type;
+  return React3.isValidElement(element) && muiNames.indexOf((_muiName = element.type.muiName) != null ? _muiName : (_element$type = element.type) == null || (_element$type = _element$type._payload) == null || (_element$type = _element$type.value) == null ? undefined : _element$type.muiName) !== -1;
+}
 // node_modules/@mui/utils/esm/ownerDocument/ownerDocument.js
 function ownerDocument(node) {
   return node && node.ownerDocument || document;
@@ -25270,8 +27334,8 @@ function setRef(ref, value) {
   }
 }
 // node_modules/@mui/utils/esm/useEnhancedEffect/useEnhancedEffect.js
-var React3 = __toESM(require_react(), 1);
-var useEnhancedEffect = typeof window !== "undefined" ? React3.useLayoutEffect : React3.useEffect;
+var React4 = __toESM(require_react(), 1);
+var useEnhancedEffect = typeof window !== "undefined" ? React4.useLayoutEffect : React4.useEffect;
 var useEnhancedEffect_default = useEnhancedEffect;
 // node_modules/@mui/utils/esm/unsupportedProp.js
 function unsupportedProp(props, propName, componentName, location, propFullName) {
@@ -25284,19 +27348,19 @@ function unsupportedProp(props, propName, componentName, location, propFullName)
   return null;
 }
 // node_modules/@mui/utils/esm/useEventCallback/useEventCallback.js
-var React4 = __toESM(require_react(), 1);
+var React5 = __toESM(require_react(), 1);
 var useEventCallback = function(fn) {
-  const ref = React4.useRef(fn);
+  const ref = React5.useRef(fn);
   useEnhancedEffect_default(() => {
     ref.current = fn;
   });
-  return React4.useCallback((...args) => (0, ref.current)(...args), []);
+  return React5.useCallback((...args) => (0, ref.current)(...args), []);
 };
 var useEventCallback_default = useEventCallback;
 // node_modules/@mui/utils/esm/useForkRef/useForkRef.js
-var React5 = __toESM(require_react(), 1);
+var React6 = __toESM(require_react(), 1);
 function useForkRef(...refs) {
-  return React5.useMemo(() => {
+  return React6.useMemo(() => {
     if (refs.every((ref) => ref == null)) {
       return null;
     }
@@ -25308,7 +27372,7 @@ function useForkRef(...refs) {
   }, refs);
 }
 // node_modules/@mui/utils/esm/useIsFocusVisible.js
-var React6 = __toESM(require_react(), 1);
+var React7 = __toESM(require_react(), 1);
 var focusTriggersKeyboardModality = function(node) {
   const {
     type,
@@ -25377,12 +27441,12 @@ var inputTypesWhitelist = {
   "datetime-local": true
 };
 function useIsFocusVisible() {
-  const ref = React6.useCallback((node) => {
+  const ref = React7.useCallback((node) => {
     if (node != null) {
       prepare(node.ownerDocument);
     }
   }, []);
-  const isFocusVisibleRef = React6.useRef(false);
+  const isFocusVisibleRef = React7.useRef(false);
   function handleBlurVisible() {
     if (isFocusVisibleRef.current) {
       hadFocusVisibleRecently = true;
@@ -25415,9 +27479,9 @@ function getScrollbarSize(doc) {
   return Math.abs(window.innerWidth - documentWidth);
 }
 // node_modules/@mui/utils/esm/getValidReactChildren.js
-var React7 = __toESM(require_react(), 1);
+var React8 = __toESM(require_react(), 1);
 function getValidReactChildren(children) {
-  return React7.Children.toArray(children).filter((child) => React7.isValidElement(child));
+  return React8.Children.toArray(children).filter((child) => React8.isValidElement(child));
 }
 // node_modules/@mui/utils/esm/integerPropType.js
 function getTypeByValue(value) {
@@ -25578,7 +27642,7 @@ function _objectWithoutPropertiesLoose2(source, excluded) {
 }
 
 // node_modules/@emotion/styled/base/dist/emotion-styled-base.browser.esm.js
-var React11 = __toESM(require_react(), 1);
+var React12 = __toESM(require_react(), 1);
 
 // node_modules/@emotion/memoize/dist/emotion-memoize.esm.js
 var memoize = function(fn) {
@@ -25597,7 +27661,7 @@ var isPropValid = memoize(function(prop) {
 });
 
 // node_modules/@emotion/react/dist/emotion-element-c39617d8.browser.esm.js
-var React9 = __toESM(require_react(), 1);
+var React10 = __toESM(require_react(), 1);
 var import_react = __toESM(require_react(), 1);
 
 // node_modules/@emotion/sheet/dist/emotion-sheet.browser.esm.js
@@ -26778,18 +28842,18 @@ var serializeStyles = function serializeStyles2(args, registered, mergedProps) {
 };
 
 // node_modules/@emotion/use-insertion-effect-with-fallbacks/dist/emotion-use-insertion-effect-with-fallbacks.browser.esm.js
-var React8 = __toESM(require_react(), 1);
+var React9 = __toESM(require_react(), 1);
 var syncFallback = function syncFallback2(create) {
   return create();
 };
-var useInsertionEffect2 = React8.useInsertionEffect ? React8.useInsertionEffect : false;
+var useInsertionEffect2 = React9.useInsertionEffect ? React9.useInsertionEffect : false;
 var useInsertionEffectAlwaysWithSyncFallback = useInsertionEffect2 || syncFallback;
-var useInsertionEffectWithLayoutFallback = useInsertionEffect2 || React8.useLayoutEffect;
+var useInsertionEffectWithLayoutFallback = useInsertionEffect2 || React9.useLayoutEffect;
 
 // node_modules/@emotion/react/dist/emotion-element-c39617d8.browser.esm.js
 var isBrowser3 = true;
 var hasOwnProperty = {}.hasOwnProperty;
-var EmotionCacheContext = React9.createContext(typeof HTMLElement !== "undefined" ? createCache({
+var EmotionCacheContext = React10.createContext(typeof HTMLElement !== "undefined" ? createCache({
   key: "css"
 }) : null);
 if (true) {
@@ -26810,7 +28874,7 @@ if (!isBrowser3) {
         cache2 = createCache({
           key: "css"
         });
-        return React9.createElement(EmotionCacheContext.Provider, {
+        return React10.createElement(EmotionCacheContext.Provider, {
           value: cache2
         }, func(props, cache2));
       } else {
@@ -26819,7 +28883,7 @@ if (!isBrowser3) {
     };
   };
 }
-var ThemeContext = React9.createContext({});
+var ThemeContext = React10.createContext({});
 if (true) {
   ThemeContext.displayName = "EmotionThemeContext";
 }
@@ -26846,7 +28910,7 @@ var Emotion = withEmotionCache(function(props, cache2, ref) {
   } else if (props.className != null) {
     className = props.className + " ";
   }
-  var serialized = serializeStyles(registeredStyles, undefined, React9.useContext(ThemeContext));
+  var serialized = serializeStyles(registeredStyles, undefined, React10.useContext(ThemeContext));
   if (serialized.name.indexOf("-") === -1) {
     var labelFromStack = props[labelPropName];
     if (labelFromStack) {
@@ -26862,18 +28926,18 @@ var Emotion = withEmotionCache(function(props, cache2, ref) {
   }
   newProps.ref = ref;
   newProps.className = className;
-  return React9.createElement(React9.Fragment, null, React9.createElement(Insertion, {
+  return React10.createElement(React10.Fragment, null, React10.createElement(Insertion, {
     cache: cache2,
     serialized,
     isStringTag: typeof WrappedComponent === "string"
-  }), React9.createElement(WrappedComponent, newProps));
+  }), React10.createElement(WrappedComponent, newProps));
 });
 if (true) {
   Emotion.displayName = "EmotionCssPropInternal";
 }
 
 // node_modules/@emotion/react/dist/emotion-react.browser.esm.js
-var React10 = __toESM(require_react(), 1);
+var React11 = __toESM(require_react(), 1);
 var import_hoist_non_react_statics = __toESM(require_hoist_non_react_statics_cjs(), 1);
 var css = function() {
   for (var _len = arguments.length, args = new Array(_len), _key = 0;_key < _len; _key++) {
@@ -27027,7 +29091,7 @@ var Global = withEmotionCache(function(props, cache3) {
     warnedAboutCssPropForGlobal = true;
   }
   var styles = props.styles;
-  var serialized = serializeStyles([styles], undefined, React10.useContext(ThemeContext));
+  var serialized = serializeStyles([styles], undefined, React11.useContext(ThemeContext));
   if (!isBrowser3) {
     var _ref;
     var serializedNames = serialized.name;
@@ -27046,11 +29110,11 @@ var Global = withEmotionCache(function(props, cache3) {
     if (shouldCache) {
       return null;
     }
-    return React10.createElement("style", (_ref = {}, _ref["data-emotion"] = cache3.key + "-global " + serializedNames, _ref.dangerouslySetInnerHTML = {
+    return React11.createElement("style", (_ref = {}, _ref["data-emotion"] = cache3.key + "-global " + serializedNames, _ref.dangerouslySetInnerHTML = {
       __html: rules
     }, _ref.nonce = cache3.sheet.nonce, _ref));
   }
-  var sheetRef = React10.useRef();
+  var sheetRef = React11.useRef();
   useInsertionEffectWithLayoutFallback(function() {
     var key = cache3.key + "-global";
     var sheet2 = new cache3.sheet.constructor({
@@ -27184,11 +29248,11 @@ var ClassNames = withEmotionCache(function(props, cache3) {
   var content = {
     css: css2,
     cx,
-    theme: React10.useContext(ThemeContext)
+    theme: React11.useContext(ThemeContext)
   };
   var ele = props.children(content);
   hasRendered = true;
-  return React10.createElement(React10.Fragment, null, React10.createElement(Insertion3, {
+  return React11.createElement(React11.Fragment, null, React11.createElement(Insertion3, {
     cache: cache3,
     serializedArr
   }), ele);
@@ -27292,7 +29356,7 @@ var createStyled = function createStyled2(tag, options) {
         for (var key in props) {
           mergedProps[key] = props[key];
         }
-        mergedProps.theme = React11.useContext(ThemeContext);
+        mergedProps.theme = React12.useContext(ThemeContext);
       }
       if (typeof props.className === "string") {
         className = getRegisteredStyles(cache3.registered, classInterpolations, props.className);
@@ -27315,11 +29379,11 @@ var createStyled = function createStyled2(tag, options) {
       }
       newProps.className = className;
       newProps.ref = ref;
-      return React11.createElement(React11.Fragment, null, React11.createElement(Insertion5, {
+      return React12.createElement(React12.Fragment, null, React12.createElement(Insertion5, {
         cache: cache3,
         serialized,
         isStringTag: typeof FinalTag === "string"
-      }), React11.createElement(FinalTag, newProps));
+      }), React12.createElement(FinalTag, newProps));
     });
     Styled.displayName = identifierName !== undefined ? identifierName : "Styled(" + (typeof baseTag === "string" ? baseTag : baseTag.displayName || baseTag.name || "Component") + ")";
     Styled.defaultProps = tag.defaultProps;
@@ -27487,7 +29551,7 @@ tags.forEach(function(tagName) {
   newStyled[tagName] = newStyled(tagName);
 });
 // node_modules/@mui/styled-engine/GlobalStyles/GlobalStyles.js
-var React12 = __toESM(require_react(), 1);
+var React13 = __toESM(require_react(), 1);
 var import_prop_types4 = __toESM(require_prop_types(), 1);
 var jsx_runtime = __toESM(require_jsx_runtime(), 1);
 var isEmpty = function(obj) {
@@ -27529,7 +29593,7 @@ var internal_processStyles = (tag, processor) => {
   }
 };
 // node_modules/@mui/system/esm/GlobalStyles/GlobalStyles.js
-var React14 = __toESM(require_react(), 1);
+var React15 = __toESM(require_react(), 1);
 var import_prop_types6 = __toESM(require_prop_types(), 1);
 
 // node_modules/@mui/system/esm/createTheme/createBreakpoints.js
@@ -28635,12 +30699,12 @@ var createTheme = function(options = {}, ...args) {
 var _excluded6 = ["breakpoints", "palette", "spacing", "shape"];
 var createTheme_default = createTheme;
 // node_modules/@mui/system/esm/useThemeWithoutDefault.js
-var React13 = __toESM(require_react(), 1);
+var React14 = __toESM(require_react(), 1);
 var isObjectEmpty = function(obj) {
   return Object.keys(obj).length === 0;
 };
 var useTheme2 = function(defaultTheme = null) {
-  const contextTheme = React13.useContext(ThemeContext);
+  const contextTheme = React14.useContext(ThemeContext);
   return !contextTheme || isObjectEmpty(contextTheme) ? defaultTheme : contextTheme;
 };
 var useThemeWithoutDefault_default = useTheme2;
@@ -28716,7 +30780,7 @@ function extendSxProp(props) {
   });
 }
 // node_modules/@mui/system/esm/createBox.js
-var React15 = __toESM(require_react(), 1);
+var React16 = __toESM(require_react(), 1);
 
 // node_modules/clsx/dist/clsx.mjs
 var r = function(e) {
@@ -28752,7 +30816,7 @@ function createBox(options = {}) {
   const BoxRoot = styled2("div", {
     shouldForwardProp: (prop) => prop !== "theme" && prop !== "sx" && prop !== "as"
   })(styleFunctionSx_default);
-  const Box = React15.forwardRef(function Box(inProps, ref) {
+  const Box = React16.forwardRef(function Box(inProps, ref) {
     const theme = useTheme_default(defaultTheme);
     const _extendSxProp = extendSxProp(inProps), {
       className,
@@ -29234,27 +31298,27 @@ function lighten(color2, coefficient) {
   return recomposeColor(color2);
 }
 // node_modules/@mui/system/esm/ThemeProvider/ThemeProvider.js
-var React19 = __toESM(require_react(), 1);
+var React20 = __toESM(require_react(), 1);
 var import_prop_types8 = __toESM(require_prop_types(), 1);
 
 // node_modules/@mui/private-theming/ThemeProvider/ThemeProvider.js
-var React18 = __toESM(require_react(), 1);
+var React19 = __toESM(require_react(), 1);
 var import_prop_types7 = __toESM(require_prop_types(), 1);
 
 // node_modules/@mui/private-theming/useTheme/ThemeContext.js
-var React16 = __toESM(require_react(), 1);
-var ThemeContext2 = React16.createContext(null);
+var React17 = __toESM(require_react(), 1);
+var ThemeContext2 = React17.createContext(null);
 if (true) {
   ThemeContext2.displayName = "ThemeContext";
 }
 var ThemeContext_default = ThemeContext2;
 
 // node_modules/@mui/private-theming/useTheme/useTheme.js
-var React17 = __toESM(require_react(), 1);
+var React18 = __toESM(require_react(), 1);
 function useTheme7() {
-  const theme = React17.useContext(ThemeContext_default);
+  const theme = React18.useContext(ThemeContext_default);
   if (true) {
-    React17.useDebugValue(theme);
+    React18.useDebugValue(theme);
   }
   return theme;
 }
@@ -29287,7 +31351,7 @@ var ThemeProvider2 = function(props) {
       console.error(["MUI: You are providing a theme function prop to the ThemeProvider component:", "<ThemeProvider theme={outerTheme => outerTheme} />", "", "However, no outer theme is present.", "Make sure a theme is already injected higher in the React tree or provide a theme object."].join("\n"));
     }
   }
-  const theme = React18.useMemo(() => {
+  const theme = React19.useMemo(() => {
     const output = outerTheme === null ? localTheme : mergeOuterLocalTheme(outerTheme, localTheme);
     if (output != null) {
       output[nested_default] = outerTheme !== null;
@@ -29310,7 +31374,7 @@ var ThemeProvider_default = ThemeProvider2;
 // node_modules/@mui/system/esm/ThemeProvider/ThemeProvider.js
 var jsx_runtime5 = __toESM(require_jsx_runtime(), 1);
 var useThemeScoping = function(themeId, upperTheme, localTheme, isPrivate = false) {
-  return React19.useMemo(() => {
+  return React20.useMemo(() => {
     const resolvedTheme = themeId ? upperTheme[themeId] || upperTheme : upperTheme;
     if (typeof localTheme === "function") {
       const mergedTheme = localTheme(resolvedTheme);
@@ -29361,7 +31425,7 @@ if (true) {
 }
 var ThemeProvider_default2 = ThemeProvider4;
 // node_modules/@mui/system/esm/Stack/createStack.js
-var React20 = __toESM(require_react(), 1);
+var React21 = __toESM(require_react(), 1);
 var import_prop_types9 = __toESM(require_prop_types(), 1);
 var jsx_runtime6 = __toESM(require_jsx_runtime(), 1);
 var useThemePropsDefault = function(props) {
@@ -29372,11 +31436,11 @@ var useThemePropsDefault = function(props) {
   });
 };
 var joinChildren = function(children, separator) {
-  const childrenArray = React20.Children.toArray(children).filter(Boolean);
+  const childrenArray = React21.Children.toArray(children).filter(Boolean);
   return childrenArray.reduce((output, child, index) => {
     output.push(child);
     if (index < childrenArray.length - 1) {
-      output.push(React20.cloneElement(separator, {
+      output.push(React21.cloneElement(separator, {
         key: `separator-${index}`
       }));
     }
@@ -29473,7 +31537,7 @@ function createStack(options = {}) {
     return composeClasses(slots, (slot) => generateUtilityClass(componentName, slot), {});
   };
   const StackRoot = createStyledComponent(style9);
-  const Stack = React20.forwardRef(function Grid(inProps, ref) {
+  const Stack = React21.forwardRef(function Grid(inProps, ref) {
     const themeProps = useThemeProps3(inProps);
     const props = extendSxProp(themeProps);
     const {
@@ -30013,7 +32077,7 @@ Please use another name.`);
 var _excluded15 = ["breakpoints", "mixins", "spacing", "palette", "transitions", "typography", "shape"];
 var createTheme_default2 = createTheme5;
 // node_modules/@mui/material/styles/useTheme.js
-var React21 = __toESM(require_react(), 1);
+var React22 = __toESM(require_react(), 1);
 
 // node_modules/@mui/material/styles/defaultTheme.js
 var defaultTheme2 = createTheme_default2();
@@ -30023,7 +32087,7 @@ var defaultTheme_default = defaultTheme2;
 function useTheme9() {
   const theme = useTheme_default(defaultTheme_default);
   if (true) {
-    React21.useDebugValue(theme);
+    React22.useDebugValue(theme);
   }
   return theme[identifier_default] || theme;
 }
@@ -30050,7 +32114,7 @@ var styled5 = createStyled3({
 });
 var styled_default2 = styled5;
 // node_modules/@mui/material/styles/ThemeProvider.js
-var React22 = __toESM(require_react(), 1);
+var React23 = __toESM(require_react(), 1);
 var import_prop_types10 = __toESM(require_prop_types(), 1);
 var jsx_runtime7 = __toESM(require_jsx_runtime(), 1);
 var _excluded16 = ["theme"];
@@ -30083,10 +32147,10 @@ var getOverlayAlpha_default = getOverlayAlpha;
 var capitalize_default = capitalize;
 
 // node_modules/@mui/material/utils/createSvgIcon.js
-var React24 = __toESM(require_react(), 1);
+var React25 = __toESM(require_react(), 1);
 
 // node_modules/@mui/material/SvgIcon/SvgIcon.js
-var React23 = __toESM(require_react(), 1);
+var React24 = __toESM(require_react(), 1);
 var import_prop_types11 = __toESM(require_prop_types(), 1);
 // node_modules/@mui/material/SvgIcon/svgIconClasses.js
 function getSvgIconUtilityClass(slot) {
@@ -30146,7 +32210,7 @@ var SvgIconRoot = styled_default2("svg", {
     }[ownerState.color]
   };
 });
-var SvgIcon = React23.forwardRef(function SvgIcon2(inProps, ref) {
+var SvgIcon = React24.forwardRef(function SvgIcon2(inProps, ref) {
   const props = useThemeProps3({
     props: inProps,
     name: "MuiSvgIcon"
@@ -30162,7 +32226,7 @@ var SvgIcon = React23.forwardRef(function SvgIcon2(inProps, ref) {
     titleAccess,
     viewBox = "0 0 24 24"
   } = props, other = _objectWithoutPropertiesLoose2(props, _excluded17);
-  const hasSvgAsChild = React23.isValidElement(children) && children.type === "svg";
+  const hasSvgAsChild = React24.isValidElement(children) && children.type === "svg";
   const ownerState = _extends4({}, props, {
     color: color2,
     component,
@@ -30223,10 +32287,13 @@ function createSvgIcon(path, displayName) {
     Component2.displayName = `${displayName}Icon`;
   }
   Component2.muiName = SvgIcon_default.muiName;
-  return React24.memo(React24.forwardRef(Component2));
+  return React25.memo(React25.forwardRef(Component2));
 }
 // node_modules/@mui/material/utils/debounce.js
 var debounce_default = debounce;
+
+// node_modules/@mui/material/utils/isMuiElement.js
+var isMuiElement_default = isMuiElement;
 
 // node_modules/@mui/material/utils/ownerDocument.js
 var ownerDocument_default = ownerDocument;
@@ -30791,7 +32858,7 @@ function getTransitionProps(props, options) {
 var reflow2 = (node2) => node2.scrollTop;
 
 // node_modules/@mui/material/Paper/Paper.js
-var React28 = __toESM(require_react(), 1);
+var React29 = __toESM(require_react(), 1);
 var import_prop_types15 = __toESM(require_prop_types(), 1);
 
 // node_modules/@mui/material/Paper/paperClasses.js
@@ -30845,7 +32912,7 @@ var PaperRoot = styled_default2("div", {
     backgroundImage: (_theme$vars$overlays = theme.vars.overlays) == null ? undefined : _theme$vars$overlays[ownerState.elevation]
   }));
 });
-var Paper = React28.forwardRef(function Paper2(inProps, ref) {
+var Paper = React29.forwardRef(function Paper2(inProps, ref) {
   const props = useThemeProps3({
     props: inProps,
     name: "MuiPaper"
@@ -30898,15 +32965,15 @@ Paper.propTypes = {
 };
 var Paper_default = Paper;
 // node_modules/@mui/material/ButtonBase/ButtonBase.js
-var React31 = __toESM(require_react(), 1);
+var React32 = __toESM(require_react(), 1);
 var import_prop_types18 = __toESM(require_prop_types(), 1);
 
 // node_modules/@mui/material/ButtonBase/TouchRipple.js
-var React30 = __toESM(require_react(), 1);
+var React31 = __toESM(require_react(), 1);
 var import_prop_types17 = __toESM(require_prop_types(), 1);
 
 // node_modules/@mui/material/ButtonBase/Ripple.js
-var React29 = __toESM(require_react(), 1);
+var React30 = __toESM(require_react(), 1);
 var import_prop_types16 = __toESM(require_prop_types(), 1);
 var jsx_runtime12 = __toESM(require_jsx_runtime(), 1);
 var Ripple = function(props) {
@@ -30921,7 +32988,7 @@ var Ripple = function(props) {
     onExited,
     timeout: timeout2
   } = props;
-  const [leaving, setLeaving] = React29.useState(false);
+  const [leaving, setLeaving] = React30.useState(false);
   const rippleClassName = clsx_default(className, classes.ripple, classes.rippleVisible, pulsate && classes.ripplePulsate);
   const rippleStyles = {
     width: rippleSize,
@@ -30933,7 +33000,7 @@ var Ripple = function(props) {
   if (!inProp && !leaving) {
     setLeaving(true);
   }
-  React29.useEffect(() => {
+  React30.useEffect(() => {
     if (!inProp && onExited != null) {
       const timeoutId = setTimeout(onExited, timeout2);
       return () => {
@@ -31079,7 +33146,7 @@ var TouchRippleRipple = styled_default2(Ripple_default, {
 }) => theme.transitions.easing.easeInOut, touchRippleClasses_default.childPulsate, pulsateKeyframe, ({
   theme
 }) => theme.transitions.easing.easeInOut);
-var TouchRipple = React30.forwardRef(function TouchRipple2(inProps, ref) {
+var TouchRipple = React31.forwardRef(function TouchRipple2(inProps, ref) {
   const props = useThemeProps3({
     props: inProps,
     name: "MuiTouchRipple"
@@ -31089,27 +33156,27 @@ var TouchRipple = React30.forwardRef(function TouchRipple2(inProps, ref) {
     classes = {},
     className
   } = props, other = _objectWithoutPropertiesLoose2(props, _excluded19);
-  const [ripples, setRipples] = React30.useState([]);
-  const nextKey = React30.useRef(0);
-  const rippleCallback = React30.useRef(null);
-  React30.useEffect(() => {
+  const [ripples, setRipples] = React31.useState([]);
+  const nextKey = React31.useRef(0);
+  const rippleCallback = React31.useRef(null);
+  React31.useEffect(() => {
     if (rippleCallback.current) {
       rippleCallback.current();
       rippleCallback.current = null;
     }
   }, [ripples]);
-  const ignoringMouseDown = React30.useRef(false);
-  const startTimer = React30.useRef(0);
-  const startTimerCommit = React30.useRef(null);
-  const container = React30.useRef(null);
-  React30.useEffect(() => {
+  const ignoringMouseDown = React31.useRef(false);
+  const startTimer = React31.useRef(0);
+  const startTimerCommit = React31.useRef(null);
+  const container = React31.useRef(null);
+  React31.useEffect(() => {
     return () => {
       if (startTimer.current) {
         clearTimeout(startTimer.current);
       }
     };
   }, []);
-  const startCommit = React30.useCallback((params) => {
+  const startCommit = React31.useCallback((params) => {
     const {
       pulsate: pulsate2,
       rippleX,
@@ -31135,7 +33202,7 @@ var TouchRipple = React30.forwardRef(function TouchRipple2(inProps, ref) {
     nextKey.current += 1;
     rippleCallback.current = cb;
   }, [classes]);
-  const start = React30.useCallback((event = {}, options = {}, cb = () => {
+  const start = React31.useCallback((event = {}, options = {}, cb = () => {
   }) => {
     const {
       pulsate: pulsate2 = false,
@@ -31208,12 +33275,12 @@ var TouchRipple = React30.forwardRef(function TouchRipple2(inProps, ref) {
       });
     }
   }, [centerProp, startCommit]);
-  const pulsate = React30.useCallback(() => {
+  const pulsate = React31.useCallback(() => {
     start({}, {
       pulsate: true
     });
   }, [start]);
-  const stop = React30.useCallback((event, cb) => {
+  const stop = React31.useCallback((event, cb) => {
     clearTimeout(startTimer.current);
     if ((event == null ? undefined : event.type) === "touchend" && startTimerCommit.current) {
       startTimerCommit.current();
@@ -31232,7 +33299,7 @@ var TouchRipple = React30.forwardRef(function TouchRipple2(inProps, ref) {
     });
     rippleCallback.current = cb;
   }, []);
-  React30.useImperativeHandle(ref, () => ({
+  React31.useImperativeHandle(ref, () => ({
     pulsate,
     start,
     stop
@@ -31317,7 +33384,7 @@ var ButtonBaseRoot = styled_default2("button", {
     colorAdjust: "exact"
   }
 });
-var ButtonBase = React31.forwardRef(function ButtonBase2(inProps, ref) {
+var ButtonBase = React32.forwardRef(function ButtonBase2(inProps, ref) {
   const props = useThemeProps3({
     props: inProps,
     name: "MuiButtonBase"
@@ -31352,8 +33419,8 @@ var ButtonBase = React31.forwardRef(function ButtonBase2(inProps, ref) {
     touchRippleRef,
     type
   } = props, other = _objectWithoutPropertiesLoose2(props, _excluded20);
-  const buttonRef = React31.useRef(null);
-  const rippleRef = React31.useRef(null);
+  const buttonRef = React32.useRef(null);
+  const rippleRef = React32.useRef(null);
   const handleRippleRef = useForkRef_default(rippleRef, touchRippleRef);
   const {
     isFocusVisibleRef,
@@ -31361,22 +33428,22 @@ var ButtonBase = React31.forwardRef(function ButtonBase2(inProps, ref) {
     onBlur: handleBlurVisible,
     ref: focusVisibleRef
   } = useIsFocusVisible_default();
-  const [focusVisible, setFocusVisible] = React31.useState(false);
+  const [focusVisible, setFocusVisible] = React32.useState(false);
   if (disabled && focusVisible) {
     setFocusVisible(false);
   }
-  React31.useImperativeHandle(action, () => ({
+  React32.useImperativeHandle(action, () => ({
     focusVisible: () => {
       setFocusVisible(true);
       buttonRef.current.focus();
     }
   }), []);
-  const [mountedState, setMountedState] = React31.useState(false);
-  React31.useEffect(() => {
+  const [mountedState, setMountedState] = React32.useState(false);
+  React32.useEffect(() => {
     setMountedState(true);
   }, []);
   const enableTouchRipple = mountedState && !disableRipple && !disabled;
-  React31.useEffect(() => {
+  React32.useEffect(() => {
     if (focusVisible && focusRipple && !disableRipple && mountedState) {
       rippleRef.current.pulsate();
     }
@@ -31436,7 +33503,7 @@ var ButtonBase = React31.forwardRef(function ButtonBase2(inProps, ref) {
     const button = buttonRef.current;
     return component && component !== "button" && !(button.tagName === "A" && button.href);
   };
-  const keydownRef = React31.useRef(false);
+  const keydownRef = React32.useRef(false);
   const handleKeyDown2 = useEventCallback_default2((event) => {
     if (focusRipple && !keydownRef.current && focusVisible && rippleRef.current && event.key === " ") {
       keydownRef.current = true;
@@ -31489,7 +33556,7 @@ var ButtonBase = React31.forwardRef(function ButtonBase2(inProps, ref) {
   }
   const handleRef = useForkRef_default(ref, focusVisibleRef, buttonRef);
   if (true) {
-    React31.useEffect(() => {
+    React32.useEffect(() => {
       if (enableTouchRipple && !rippleRef.current) {
         console.error(["MUI: The `component` prop provided to ButtonBase is invalid.", "Please make sure the children prop is rendered in this custom component."].join("\n"));
       }
@@ -31575,7 +33642,7 @@ ButtonBase.propTypes = {
 };
 var ButtonBase_default = ButtonBase;
 // node_modules/@mui/material/IconButton/IconButton.js
-var React32 = __toESM(require_react(), 1);
+var React33 = __toESM(require_react(), 1);
 var import_prop_types19 = __toESM(require_prop_types(), 1);
 
 // node_modules/@mui/material/IconButton/iconButtonClasses.js
@@ -31666,7 +33733,7 @@ var IconButtonRoot = styled_default2(ButtonBase_default, {
     }
   });
 });
-var IconButton = React32.forwardRef(function IconButton2(inProps, ref) {
+var IconButton = React33.forwardRef(function IconButton2(inProps, ref) {
   const props = useThemeProps3({
     props: inProps,
     name: "MuiIconButton"
@@ -31701,7 +33768,7 @@ var IconButton = React32.forwardRef(function IconButton2(inProps, ref) {
 });
 IconButton.propTypes = {
   children: chainPropTypes(import_prop_types19.default.node, (props) => {
-    const found = React32.Children.toArray(props.children).some((child) => React32.isValidElement(child) && child.props.onClick);
+    const found = React33.Children.toArray(props.children).some((child) => React33.isValidElement(child) && child.props.onClick);
     if (found) {
       return new Error(["MUI: You are providing an onClick event listener to a child of a button element.", "Prefer applying it to the IconButton directly.", "This guarantees that the whole <button> will be responsive to click events."].join("\n"));
     }
@@ -31719,7 +33786,7 @@ IconButton.propTypes = {
 };
 var IconButton_default = IconButton;
 // node_modules/@mui/material/Typography/Typography.js
-var React33 = __toESM(require_react(), 1);
+var React34 = __toESM(require_react(), 1);
 var import_prop_types20 = __toESM(require_prop_types(), 1);
 
 // node_modules/@mui/material/Typography/typographyClasses.js
@@ -31795,7 +33862,7 @@ var colorTransformations = {
 var transformDeprecatedColors = (color2) => {
   return colorTransformations[color2] || color2;
 };
-var Typography = React33.forwardRef(function Typography2(inProps, ref) {
+var Typography = React34.forwardRef(function Typography2(inProps, ref) {
   const themeProps = useThemeProps3({
     props: inProps,
     name: "MuiTypography"
@@ -31849,7 +33916,7 @@ Typography.propTypes = {
 };
 var Typography_default = Typography;
 // node_modules/@mui/material/AppBar/AppBar.js
-var React34 = __toESM(require_react(), 1);
+var React35 = __toESM(require_react(), 1);
 var import_prop_types21 = __toESM(require_prop_types(), 1);
 
 // node_modules/@mui/material/AppBar/appBarClasses.js
@@ -31949,7 +34016,7 @@ var AppBarRoot = styled_default2(Paper_default, {
     color: "inherit"
   }));
 });
-var AppBar = React34.forwardRef(function AppBar2(inProps, ref) {
+var AppBar = React35.forwardRef(function AppBar2(inProps, ref) {
   const props = useThemeProps3({
     props: inProps,
     name: "MuiAppBar"
@@ -32098,7 +34165,7 @@ function useSlotProps(parameters) {
 }
 var _excluded24 = ["elementType", "externalSlotProps", "ownerState", "skipResolvingSlotProps"];
 // node_modules/@mui/base/FocusTrap/FocusTrap.js
-var React35 = __toESM(require_react(), 1);
+var React36 = __toESM(require_react(), 1);
 var import_prop_types22 = __toESM(require_prop_types(), 1);
 var jsx_runtime19 = __toESM(require_jsx_runtime(), 1);
 var jsx_runtime20 = __toESM(require_jsx_runtime(), 1);
@@ -32165,22 +34232,22 @@ var FocusTrap = function(props) {
     isEnabled = defaultIsEnabled,
     open
   } = props;
-  const ignoreNextEnforceFocus = React35.useRef(false);
-  const sentinelStart = React35.useRef(null);
-  const sentinelEnd = React35.useRef(null);
-  const nodeToRestore = React35.useRef(null);
-  const reactFocusEventTarget = React35.useRef(null);
-  const activated = React35.useRef(false);
-  const rootRef = React35.useRef(null);
+  const ignoreNextEnforceFocus = React36.useRef(false);
+  const sentinelStart = React36.useRef(null);
+  const sentinelEnd = React36.useRef(null);
+  const nodeToRestore = React36.useRef(null);
+  const reactFocusEventTarget = React36.useRef(null);
+  const activated = React36.useRef(false);
+  const rootRef = React36.useRef(null);
   const handleRef = useForkRef(children.ref, rootRef);
-  const lastKeydown = React35.useRef(null);
-  React35.useEffect(() => {
+  const lastKeydown = React36.useRef(null);
+  React36.useEffect(() => {
     if (!open || !rootRef.current) {
       return;
     }
     activated.current = !disableAutoFocus;
   }, [disableAutoFocus, open]);
-  React35.useEffect(() => {
+  React36.useEffect(() => {
     if (!open || !rootRef.current) {
       return;
     }
@@ -32206,7 +34273,7 @@ var FocusTrap = function(props) {
       }
     };
   }, [open]);
-  React35.useEffect(() => {
+  React36.useEffect(() => {
     if (!open || !rootRef.current) {
       return;
     }
@@ -32296,13 +34363,13 @@ var FocusTrap = function(props) {
     }
     activated.current = true;
   };
-  return jsx_runtime20.jsxs(React35.Fragment, {
+  return jsx_runtime20.jsxs(React36.Fragment, {
     children: [jsx_runtime19.jsx("div", {
       tabIndex: open ? 0 : -1,
       onFocus: handleFocusSentinel,
       ref: sentinelStart,
       "data-testid": "sentinelStart"
-    }), React35.cloneElement(children, {
+    }), React36.cloneElement(children, {
       ref: handleRef,
       onFocus
     }), jsx_runtime19.jsx("div", {
@@ -32327,21 +34394,21 @@ if (true) {
   FocusTrap["propTypes"] = exactProp(FocusTrap.propTypes);
 }
 // node_modules/@mui/base/Portal/Portal.js
-var React36 = __toESM(require_react(), 1);
+var React37 = __toESM(require_react(), 1);
 var ReactDOM2 = __toESM(require_react_dom(), 1);
 var import_prop_types23 = __toESM(require_prop_types(), 1);
 var jsx_runtime21 = __toESM(require_jsx_runtime(), 1);
 var getContainer = function(container) {
   return typeof container === "function" ? container() : container;
 };
-var Portal = React36.forwardRef(function Portal2(props, forwardedRef) {
+var Portal = React37.forwardRef(function Portal2(props, forwardedRef) {
   const {
     children,
     container,
     disablePortal = false
   } = props;
-  const [mountNode, setMountNode] = React36.useState(null);
-  const handleRef = useForkRef(React36.isValidElement(children) ? children.ref : null, forwardedRef);
+  const [mountNode, setMountNode] = React37.useState(null);
+  const handleRef = useForkRef(React37.isValidElement(children) ? children.ref : null, forwardedRef);
   useEnhancedEffect_default(() => {
     if (!disablePortal) {
       setMountNode(getContainer(container) || document.body);
@@ -32357,17 +34424,17 @@ var Portal = React36.forwardRef(function Portal2(props, forwardedRef) {
     return;
   }, [forwardedRef, mountNode, disablePortal]);
   if (disablePortal) {
-    if (React36.isValidElement(children)) {
+    if (React37.isValidElement(children)) {
       const newProps = {
         ref: handleRef
       };
-      return React36.cloneElement(children, newProps);
+      return React37.cloneElement(children, newProps);
     }
-    return jsx_runtime21.jsx(React36.Fragment, {
+    return jsx_runtime21.jsx(React37.Fragment, {
       children
     });
   }
-  return jsx_runtime21.jsx(React36.Fragment, {
+  return jsx_runtime21.jsx(React37.Fragment, {
     children: mountNode ? ReactDOM2.createPortal(children, mountNode) : mountNode
   });
 });
@@ -32380,7 +34447,7 @@ if (true) {
   Portal["propTypes"] = exactProp(Portal.propTypes);
 }
 // node_modules/@mui/base/unstable_useModal/useModal.js
-var React37 = __toESM(require_react(), 1);
+var React38 = __toESM(require_react(), 1);
 
 // node_modules/@mui/base/unstable_useModal/ModalManager.js
 var isOverflowing = function(container) {
@@ -32588,11 +34655,11 @@ function useModal(parameters) {
     open,
     rootRef
   } = parameters;
-  const modal = React37.useRef({});
-  const mountNodeRef = React37.useRef(null);
-  const modalRef = React37.useRef(null);
+  const modal = React38.useRef({});
+  const mountNodeRef = React38.useRef(null);
+  const modalRef = React38.useRef(null);
   const handleRef = useForkRef(modalRef, rootRef);
-  const [exited, setExited] = React37.useState(!open);
+  const [exited, setExited] = React38.useState(!open);
   const hasTransition = getHasTransition(children);
   let ariaHiddenProp = true;
   if (parameters["aria-hidden"] === "false" || parameters["aria-hidden"] === false) {
@@ -32619,7 +34686,7 @@ function useModal(parameters) {
       handleMounted();
     }
   });
-  const isTopModal = React37.useCallback(() => manager.isTopModal(getModal()), [manager]);
+  const isTopModal = React38.useCallback(() => manager.isTopModal(getModal()), [manager]);
   const handlePortalRef = useEventCallback_default((node2) => {
     mountNodeRef.current = node2;
     if (!node2) {
@@ -32631,15 +34698,15 @@ function useModal(parameters) {
       ariaHidden(modalRef.current, ariaHiddenProp);
     }
   });
-  const handleClose = React37.useCallback(() => {
+  const handleClose = React38.useCallback(() => {
     manager.remove(getModal(), ariaHiddenProp);
   }, [ariaHiddenProp, manager]);
-  React37.useEffect(() => {
+  React38.useEffect(() => {
     return () => {
       handleClose();
     };
   }, [handleClose]);
-  React37.useEffect(() => {
+  React38.useEffect(() => {
     if (open) {
       handleOpen();
     } else if (!hasTransition || !closeAfterTransition) {
@@ -32724,7 +34791,7 @@ function useModal(parameters) {
 }
 var defaultManager = new ModalManager;
 // node_modules/@mui/base/TextareaAutosize/TextareaAutosize.js
-var React38 = __toESM(require_react(), 1);
+var React39 = __toESM(require_react(), 1);
 var import_prop_types24 = __toESM(require_prop_types(), 1);
 var ReactDOM3 = __toESM(require_react_dom(), 1);
 var jsx_runtime22 = __toESM(require_jsx_runtime(), 1);
@@ -32747,7 +34814,7 @@ var styles = {
     transform: "translateZ(0)"
   }
 };
-var TextareaAutosize = React38.forwardRef(function TextareaAutosize2(props, forwardedRef) {
+var TextareaAutosize = React39.forwardRef(function TextareaAutosize2(props, forwardedRef) {
   const {
     onChange,
     maxRows,
@@ -32757,15 +34824,15 @@ var TextareaAutosize = React38.forwardRef(function TextareaAutosize2(props, forw
   } = props, other = _objectWithoutPropertiesLoose2(props, _excluded25);
   const {
     current: isControlled
-  } = React38.useRef(value != null);
-  const inputRef = React38.useRef(null);
+  } = React39.useRef(value != null);
+  const inputRef = React39.useRef(null);
   const handleRef = useForkRef(forwardedRef, inputRef);
-  const shadowRef = React38.useRef(null);
-  const renders = React38.useRef(0);
-  const [state, setState] = React38.useState({
+  const shadowRef = React39.useRef(null);
+  const renders = React39.useRef(0);
+  const [state, setState] = React39.useState({
     outerHeightStyle: 0
   });
-  const getUpdatedState = React38.useCallback(() => {
+  const getUpdatedState = React39.useCallback(() => {
     const input = inputRef.current;
     const containerWindow = ownerWindow(input);
     const computedStyle = containerWindow.getComputedStyle(input);
@@ -32820,7 +34887,7 @@ var TextareaAutosize = React38.forwardRef(function TextareaAutosize2(props, forw
     }
     return prevState;
   };
-  const syncHeight = React38.useCallback(() => {
+  const syncHeight = React39.useCallback(() => {
     const newState = getUpdatedState();
     if (isEmpty4(newState)) {
       return;
@@ -32869,7 +34936,7 @@ var TextareaAutosize = React38.forwardRef(function TextareaAutosize2(props, forw
   useEnhancedEffect_default(() => {
     syncHeight();
   });
-  React38.useEffect(() => {
+  React39.useEffect(() => {
     renders.current = 0;
   }, [value]);
   const handleChange = (event) => {
@@ -32881,7 +34948,7 @@ var TextareaAutosize = React38.forwardRef(function TextareaAutosize2(props, forw
       onChange(event);
     }
   };
-  return jsx_runtime23.jsxs(React38.Fragment, {
+  return jsx_runtime23.jsxs(React39.Fragment, {
     children: [jsx_runtime22.jsx("textarea", _extends4({
       value,
       onChange: handleChange,
@@ -32914,7 +34981,7 @@ TextareaAutosize.propTypes = {
   value: import_prop_types24.default.oneOfType([import_prop_types24.default.arrayOf(import_prop_types24.default.string), import_prop_types24.default.number, import_prop_types24.default.string])
 };
 // node_modules/@mui/material/InputBase/InputBase.js
-var React42 = __toESM(require_react(), 1);
+var React43 = __toESM(require_react(), 1);
 var import_prop_types26 = __toESM(require_prop_types(), 1);
 
 // node_modules/@mui/material/FormControl/formControlState.js
@@ -32935,21 +35002,21 @@ function formControlState({
 }
 
 // node_modules/@mui/material/FormControl/FormControlContext.js
-var React39 = __toESM(require_react(), 1);
-var FormControlContext = React39.createContext(undefined);
+var React40 = __toESM(require_react(), 1);
+var FormControlContext = React40.createContext(undefined);
 if (true) {
   FormControlContext.displayName = "FormControlContext";
 }
 var FormControlContext_default = FormControlContext;
 
 // node_modules/@mui/material/FormControl/useFormControl.js
-var React40 = __toESM(require_react(), 1);
+var React41 = __toESM(require_react(), 1);
 function useFormControl() {
-  return React40.useContext(FormControlContext_default);
+  return React41.useContext(FormControlContext_default);
 }
 
 // node_modules/@mui/material/GlobalStyles/GlobalStyles.js
-var React41 = __toESM(require_react(), 1);
+var React42 = __toESM(require_react(), 1);
 var import_prop_types25 = __toESM(require_prop_types(), 1);
 var jsx_runtime24 = __toESM(require_jsx_runtime(), 1);
 var GlobalStyles4 = function(props) {
@@ -33142,7 +35209,7 @@ var inputGlobalStyles = jsx_runtime25.jsx(GlobalStyles_default2, {
     }
   }
 });
-var InputBase = React42.forwardRef(function InputBase2(inProps, ref) {
+var InputBase = React43.forwardRef(function InputBase2(inProps, ref) {
   var _slotProps$input;
   const props = useThemeProps3({
     props: inProps,
@@ -33187,9 +35254,9 @@ var InputBase = React42.forwardRef(function InputBase2(inProps, ref) {
   const value = inputPropsProp.value != null ? inputPropsProp.value : valueProp;
   const {
     current: isControlled
-  } = React42.useRef(value != null);
-  const inputRef = React42.useRef();
-  const handleInputRefWarning = React42.useCallback((instance) => {
+  } = React43.useRef(value != null);
+  const inputRef = React43.useRef();
+  const handleInputRefWarning = React43.useCallback((instance) => {
     if (true) {
       if (instance && instance.nodeName !== "INPUT" && !instance.focus) {
         console.error(["MUI: You have provided a `inputComponent` to the input component", "that does not correctly handle the `ref` prop.", "Make sure the `ref` prop is called with a HTMLInputElement."].join("\n"));
@@ -33197,10 +35264,10 @@ var InputBase = React42.forwardRef(function InputBase2(inProps, ref) {
     }
   }, []);
   const handleInputRef = useForkRef_default(inputRef, inputRefProp, inputPropsProp.ref, handleInputRefWarning);
-  const [focused, setFocused] = React42.useState(false);
+  const [focused, setFocused] = React43.useState(false);
   const muiFormControl = useFormControl();
   if (true) {
-    React42.useEffect(() => {
+    React43.useEffect(() => {
       if (muiFormControl) {
         return muiFormControl.registerEffect();
       }
@@ -33213,7 +35280,7 @@ var InputBase = React42.forwardRef(function InputBase2(inProps, ref) {
     states: ["color", "disabled", "error", "hiddenLabel", "size", "required", "filled"]
   });
   fcs.focused = muiFormControl ? muiFormControl.focused : focused;
-  React42.useEffect(() => {
+  React43.useEffect(() => {
     if (!muiFormControl && disabled && focused) {
       setFocused(false);
       if (onBlur) {
@@ -33223,7 +35290,7 @@ var InputBase = React42.forwardRef(function InputBase2(inProps, ref) {
   }, [muiFormControl, disabled, focused, onBlur]);
   const onFilled = muiFormControl && muiFormControl.onFilled;
   const onEmpty = muiFormControl && muiFormControl.onEmpty;
-  const checkDirty = React42.useCallback((obj) => {
+  const checkDirty = React43.useCallback((obj) => {
     if (isFilled(obj)) {
       if (onFilled) {
         onFilled();
@@ -33286,7 +35353,7 @@ var InputBase = React42.forwardRef(function InputBase2(inProps, ref) {
       onChange(event, ...args);
     }
   };
-  React42.useEffect(() => {
+  React43.useEffect(() => {
     checkDirty(inputRef.current);
   }, []);
   const handleClick = (event) => {
@@ -33325,7 +35392,7 @@ var InputBase = React42.forwardRef(function InputBase2(inProps, ref) {
       value: "x"
     });
   };
-  React42.useEffect(() => {
+  React43.useEffect(() => {
     if (muiFormControl) {
       muiFormControl.setAdornedStart(Boolean(startAdornment));
     }
@@ -33349,7 +35416,7 @@ var InputBase = React42.forwardRef(function InputBase2(inProps, ref) {
   const rootProps = slotProps.root || componentsProps.root || {};
   const Input2 = slots.input || components.Input || InputBaseComponent;
   inputProps = _extends4({}, inputProps, (_slotProps$input = slotProps.input) != null ? _slotProps$input : componentsProps.input);
-  return jsx_runtime26.jsxs(React42.Fragment, {
+  return jsx_runtime26.jsxs(React43.Fragment, {
     children: [!disableInjectingGlobalStyles && inputGlobalStyles, jsx_runtime26.jsxs(Root, _extends4({}, rootProps, !isHostComponent(Root) && {
       ownerState: _extends4({}, ownerState, rootProps.ownerState)
     }, {
@@ -33452,11 +35519,11 @@ InputBase.propTypes = {
 };
 var InputBase_default = InputBase;
 // node_modules/@mui/material/Backdrop/Backdrop.js
-var React44 = __toESM(require_react(), 1);
+var React45 = __toESM(require_react(), 1);
 var import_prop_types28 = __toESM(require_prop_types(), 1);
 
 // node_modules/@mui/material/Fade/Fade.js
-var React43 = __toESM(require_react(), 1);
+var React44 = __toESM(require_react(), 1);
 var import_prop_types27 = __toESM(require_prop_types(), 1);
 var jsx_runtime27 = __toESM(require_jsx_runtime(), 1);
 var _excluded27 = ["addEndListener", "appear", "children", "easing", "in", "onEnter", "onEntered", "onEntering", "onExit", "onExited", "onExiting", "style", "timeout", "TransitionComponent"];
@@ -33468,7 +35535,7 @@ var styles2 = {
     opacity: 1
   }
 };
-var Fade = React43.forwardRef(function Fade2(props, ref) {
+var Fade = React44.forwardRef(function Fade2(props, ref) {
   const theme = useTheme9();
   const defaultTimeout = {
     enter: theme.transitions.duration.enteringScreen,
@@ -33491,7 +35558,7 @@ var Fade = React43.forwardRef(function Fade2(props, ref) {
     TransitionComponent = Transition_default
   } = props, other = _objectWithoutPropertiesLoose2(props, _excluded27);
   const enableStrictModeCompat = true;
-  const nodeRef = React43.useRef(null);
+  const nodeRef = React44.useRef(null);
   const handleRef = useForkRef_default(nodeRef, children.ref, ref);
   const normalizedTransitionCallback = (callback) => (maybeIsAppearing) => {
     if (callback) {
@@ -33555,7 +35622,7 @@ var Fade = React43.forwardRef(function Fade2(props, ref) {
     timeout: timeout2
   }, other, {
     children: (state, childProps) => {
-      return React43.cloneElement(children, _extends4({
+      return React44.cloneElement(children, _extends4({
         style: _extends4({
           opacity: 0,
           visibility: state === "exited" && !inProp ? "hidden" : undefined
@@ -33632,7 +35699,7 @@ var BackdropRoot = styled_default2("div", {
 }, ownerState.invisible && {
   backgroundColor: "transparent"
 }));
-var Backdrop = React44.forwardRef(function Backdrop2(inProps, ref) {
+var Backdrop = React45.forwardRef(function Backdrop2(inProps, ref) {
   var _slotProps$root, _ref, _slots$root;
   const props = useThemeProps3({
     props: inProps,
@@ -33702,7 +35769,7 @@ Backdrop.propTypes = {
 };
 var Backdrop_default = Backdrop;
 // node_modules/@mui/material/BottomNavigation/BottomNavigation.js
-var React45 = __toESM(require_react(), 1);
+var React46 = __toESM(require_react(), 1);
 var import_react_is2 = __toESM(require_react_is2(), 1);
 var import_prop_types29 = __toESM(require_prop_types(), 1);
 
@@ -33736,7 +35803,7 @@ var BottomNavigationRoot = styled_default2("div", {
   height: 56,
   backgroundColor: (theme.vars || theme).palette.background.paper
 }));
-var BottomNavigation = React45.forwardRef(function BottomNavigation2(inProps, ref) {
+var BottomNavigation = React46.forwardRef(function BottomNavigation2(inProps, ref) {
   const props = useThemeProps3({
     props: inProps,
     name: "MuiBottomNavigation"
@@ -33760,8 +35827,8 @@ var BottomNavigation = React45.forwardRef(function BottomNavigation2(inProps, re
     ref,
     ownerState
   }, other, {
-    children: React45.Children.map(children, (child, childIndex) => {
-      if (!React45.isValidElement(child)) {
+    children: React46.Children.map(children, (child, childIndex) => {
+      if (!React46.isValidElement(child)) {
         return null;
       }
       if (true) {
@@ -33770,7 +35837,7 @@ var BottomNavigation = React45.forwardRef(function BottomNavigation2(inProps, re
         }
       }
       const childValue = child.props.value === undefined ? childIndex : child.props.value;
-      return React45.cloneElement(child, {
+      return React46.cloneElement(child, {
         selected: childValue === value,
         showLabel: child.props.showLabel !== undefined ? child.props.showLabel : showLabels,
         value: childValue,
@@ -33791,7 +35858,7 @@ BottomNavigation.propTypes = {
 };
 var BottomNavigation_default = BottomNavigation;
 // node_modules/@mui/material/BottomNavigationAction/BottomNavigationAction.js
-var React46 = __toESM(require_react(), 1);
+var React47 = __toESM(require_react(), 1);
 var import_prop_types30 = __toESM(require_prop_types(), 1);
 
 // node_modules/@mui/material/BottomNavigationAction/bottomNavigationActionClasses.js
@@ -33869,7 +35936,7 @@ var BottomNavigationActionLabel = styled_default2("span", {
     fontSize: theme.typography.pxToRem(14)
   }
 }));
-var BottomNavigationAction = React46.forwardRef(function BottomNavigationAction2(inProps, ref) {
+var BottomNavigationAction = React47.forwardRef(function BottomNavigationAction2(inProps, ref) {
   const props = useThemeProps3({
     props: inProps,
     name: "MuiBottomNavigationAction"
@@ -33935,7 +36002,7 @@ Box.propTypes = {
 };
 var Box_default = Box;
 // node_modules/@mui/material/Button/Button.js
-var React49 = __toESM(require_react(), 1);
+var React50 = __toESM(require_react(), 1);
 var import_prop_types32 = __toESM(require_prop_types(), 1);
 
 // node_modules/@mui/material/Button/buttonClasses.js
@@ -33946,16 +36013,16 @@ var buttonClasses = generateUtilityClasses("MuiButton", ["root", "text", "textIn
 var buttonClasses_default = buttonClasses;
 
 // node_modules/@mui/material/ButtonGroup/ButtonGroupContext.js
-var React47 = __toESM(require_react(), 1);
-var ButtonGroupContext = React47.createContext({});
+var React48 = __toESM(require_react(), 1);
+var ButtonGroupContext = React48.createContext({});
 if (true) {
   ButtonGroupContext.displayName = "ButtonGroupContext";
 }
 var ButtonGroupContext_default = ButtonGroupContext;
 
 // node_modules/@mui/material/ButtonGroup/ButtonGroupButtonContext.js
-var React48 = __toESM(require_react(), 1);
-var ButtonGroupButtonContext = React48.createContext(undefined);
+var React49 = __toESM(require_react(), 1);
+var ButtonGroupButtonContext = React49.createContext(undefined);
 if (true) {
   ButtonGroupButtonContext.displayName = "ButtonGroupButtonContext";
 }
@@ -34159,9 +36226,9 @@ var ButtonEndIcon = styled_default2("span", {
 }, ownerState.size === "small" && {
   marginRight: -2
 }, commonIconStyles(ownerState)));
-var Button2 = React49.forwardRef(function Button3(inProps, ref) {
-  const contextProps = React49.useContext(ButtonGroupContext_default);
-  const buttonGroupButtonContextPositionClassName = React49.useContext(ButtonGroupButtonContext_default);
+var Button2 = React50.forwardRef(function Button3(inProps, ref) {
+  const contextProps = React50.useContext(ButtonGroupContext_default);
+  const buttonGroupButtonContextPositionClassName = React50.useContext(ButtonGroupButtonContext_default);
   const resolvedProps = resolveProps(contextProps, inProps);
   const props = useThemeProps3({
     props: resolvedProps,
@@ -34242,7 +36309,7 @@ Button2.propTypes = {
 };
 var Button_default = Button2;
 // node_modules/@mui/material/ButtonGroup/ButtonGroup.js
-var React50 = __toESM(require_react(), 1);
+var React51 = __toESM(require_react(), 1);
 var import_prop_types33 = __toESM(require_prop_types(), 1);
 
 // node_modules/@mui/material/ButtonGroup/buttonGroupClasses.js
@@ -34376,7 +36443,7 @@ var ButtonGroupRoot = styled_default2("div", {
     marginTop: -1
   })
 }));
-var ButtonGroup = React50.forwardRef(function ButtonGroup2(inProps, ref) {
+var ButtonGroup = React51.forwardRef(function ButtonGroup2(inProps, ref) {
   const props = useThemeProps3({
     props: inProps,
     name: "MuiButtonGroup"
@@ -34408,7 +36475,7 @@ var ButtonGroup = React50.forwardRef(function ButtonGroup2(inProps, ref) {
     variant
   });
   const classes = useUtilityClasses12(ownerState);
-  const context = React50.useMemo(() => ({
+  const context = React51.useMemo(() => ({
     className: classes.grouped,
     color: color2,
     disabled,
@@ -34471,7 +36538,7 @@ ButtonGroup.propTypes = {
 };
 var ButtonGroup_default = ButtonGroup;
 // node_modules/@mui/material/Modal/Modal.js
-var React51 = __toESM(require_react(), 1);
+var React52 = __toESM(require_react(), 1);
 var import_prop_types34 = __toESM(require_prop_types(), 1);
 // node_modules/@mui/material/Modal/modalClasses.js
 function getModalUtilityClass(slot) {
@@ -34526,7 +36593,7 @@ var ModalBackdrop = styled_default2(Backdrop_default, {
 })({
   zIndex: -1
 });
-var Modal2 = React51.forwardRef(function Modal3(inProps, ref) {
+var Modal2 = React52.forwardRef(function Modal3(inProps, ref) {
   var _ref, _slots$root, _ref2, _slots$backdrop, _slotProps$root, _slotProps$backdrop;
   const props = useThemeProps3({
     name: "MuiModal",
@@ -34642,7 +36709,7 @@ var Modal2 = React51.forwardRef(function Modal3(inProps, ref) {
         disableRestoreFocus,
         isEnabled: isTopModal,
         open,
-        children: React51.cloneElement(children, childProps)
+        children: React52.cloneElement(children, childProps)
       })]
     }))
   });
@@ -34712,12 +36779,12 @@ Stack2.propTypes = {
 };
 var Stack_default = Stack2;
 // node_modules/@mui/material/Grid/Grid.js
-var React53 = __toESM(require_react(), 1);
+var React54 = __toESM(require_react(), 1);
 var import_prop_types36 = __toESM(require_prop_types(), 1);
 
 // node_modules/@mui/material/Grid/GridContext.js
-var React52 = __toESM(require_react(), 1);
-var GridContext = React52.createContext();
+var React53 = __toESM(require_react(), 1);
+var GridContext = React53.createContext();
 if (true) {
   GridContext.displayName = "GridContext";
 }
@@ -35056,7 +37123,7 @@ var useUtilityClasses14 = (ownerState) => {
   };
   return composeClasses(slots, getGridUtilityClass, classes);
 };
-var Grid = React53.forwardRef(function Grid2(inProps, ref) {
+var Grid = React54.forwardRef(function Grid2(inProps, ref) {
   const themeProps = useThemeProps3({
     props: inProps,
     name: "MuiGrid"
@@ -35080,7 +37147,7 @@ var Grid = React53.forwardRef(function Grid2(inProps, ref) {
   } = props, other = _objectWithoutPropertiesLoose2(props, _excluded34);
   const rowSpacing = rowSpacingProp || spacing8;
   const columnSpacing = columnSpacingProp || spacing8;
-  const columnsContext = React53.useContext(GridContext_default);
+  const columnsContext = React54.useContext(GridContext_default);
   const columns = container ? columnsProp || 12 : columnsContext;
   const breakpointsValues = {};
   const otherFiltered = _extends4({}, other);
@@ -35150,7 +37217,7 @@ if (true) {
 }
 var Grid_default = Grid;
 // node_modules/@mui/material/Grow/Grow.js
-var React54 = __toESM(require_react(), 1);
+var React55 = __toESM(require_react(), 1);
 var import_prop_types37 = __toESM(require_prop_types(), 1);
 var jsx_runtime38 = __toESM(require_jsx_runtime(), 1);
 var getScale = function(value) {
@@ -35168,7 +37235,7 @@ var styles4 = {
   }
 };
 var isWebKit154 = typeof navigator !== "undefined" && /^((?!chrome|android).)*(safari|mobile)/i.test(navigator.userAgent) && /(os |version\/)15(.|_)4/i.test(navigator.userAgent);
-var Grow = React54.forwardRef(function Grow2(props, ref) {
+var Grow = React55.forwardRef(function Grow2(props, ref) {
   const {
     addEndListener,
     appear = true,
@@ -35185,10 +37252,10 @@ var Grow = React54.forwardRef(function Grow2(props, ref) {
     timeout: timeout2 = "auto",
     TransitionComponent = Transition_default
   } = props, other = _objectWithoutPropertiesLoose2(props, _excluded35);
-  const timer = React54.useRef();
-  const autoTimeout = React54.useRef();
+  const timer = React55.useRef();
+  const autoTimeout = React55.useRef();
   const theme = useTheme9();
-  const nodeRef = React54.useRef(null);
+  const nodeRef = React55.useRef(null);
   const handleRef = useForkRef_default(nodeRef, children.ref, ref);
   const normalizedTransitionCallback = (callback) => (maybeIsAppearing) => {
     if (callback) {
@@ -35277,7 +37344,7 @@ var Grow = React54.forwardRef(function Grow2(props, ref) {
       addEndListener(nodeRef.current, next2);
     }
   };
-  React54.useEffect(() => {
+  React55.useEffect(() => {
     return () => {
       clearTimeout(timer.current);
     };
@@ -35296,7 +37363,7 @@ var Grow = React54.forwardRef(function Grow2(props, ref) {
     timeout: timeout2 === "auto" ? null : timeout2
   }, other, {
     children: (state, childProps) => {
-      return React54.cloneElement(children, _extends4({
+      return React55.cloneElement(children, _extends4({
         style: _extends4({
           opacity: 0,
           transform: getScale(0.75),
@@ -35331,9 +37398,452 @@ Grow.propTypes = {
 };
 Grow.muiSupportAuto = true;
 var Grow_default = Grow;
-// node_modules/@mui/material/Link/Link.js
-var React55 = __toESM(require_react(), 1);
+// node_modules/@mui/material/ImageList/ImageList.js
 var import_prop_types38 = __toESM(require_prop_types(), 1);
+var React57 = __toESM(require_react(), 1);
+
+// node_modules/@mui/material/ImageList/imageListClasses.js
+function getImageListUtilityClass(slot) {
+  return generateUtilityClass("MuiImageList", slot);
+}
+var imageListClasses = generateUtilityClasses("MuiImageList", ["root", "masonry", "quilted", "standard", "woven"]);
+
+// node_modules/@mui/material/ImageList/ImageListContext.js
+var React56 = __toESM(require_react(), 1);
+var ImageListContext = React56.createContext({});
+if (true) {
+  ImageListContext.displayName = "ImageListContext";
+}
+var ImageListContext_default = ImageListContext;
+
+// node_modules/@mui/material/ImageList/ImageList.js
+var jsx_runtime39 = __toESM(require_jsx_runtime(), 1);
+var _excluded36 = ["children", "className", "cols", "component", "rowHeight", "gap", "style", "variant"];
+var useUtilityClasses15 = (ownerState) => {
+  const {
+    classes,
+    variant
+  } = ownerState;
+  const slots = {
+    root: ["root", variant]
+  };
+  return composeClasses(slots, getImageListUtilityClass, classes);
+};
+var ImageListRoot = styled_default2("ul", {
+  name: "MuiImageList",
+  slot: "Root",
+  overridesResolver: (props, styles5) => {
+    const {
+      ownerState
+    } = props;
+    return [styles5.root, styles5[ownerState.variant]];
+  }
+})(({
+  ownerState
+}) => {
+  return _extends4({
+    display: "grid",
+    overflowY: "auto",
+    listStyle: "none",
+    padding: 0,
+    WebkitOverflowScrolling: "touch"
+  }, ownerState.variant === "masonry" && {
+    display: "block"
+  });
+});
+var ImageList = React57.forwardRef(function ImageList2(inProps, ref) {
+  const props = useThemeProps3({
+    props: inProps,
+    name: "MuiImageList"
+  });
+  const {
+    children,
+    className: className2,
+    cols = 2,
+    component = "ul",
+    rowHeight = "auto",
+    gap: gap2 = 4,
+    style: styleProp,
+    variant = "standard"
+  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded36);
+  const contextValue = React57.useMemo(() => ({
+    rowHeight,
+    gap: gap2,
+    variant
+  }), [rowHeight, gap2, variant]);
+  React57.useEffect(() => {
+    if (true) {
+      if (document !== undefined && ("objectFit" in document.documentElement.style) === false) {
+        console.error(["MUI: ImageList v5+ no longer natively supports Internet Explorer.", "Use v4 of this component instead, or polyfill CSS object-fit."].join("\n"));
+      }
+    }
+  }, []);
+  const style10 = variant === "masonry" ? _extends4({
+    columnCount: cols,
+    columnGap: gap2
+  }, styleProp) : _extends4({
+    gridTemplateColumns: `repeat(${cols}, 1fr)`,
+    gap: gap2
+  }, styleProp);
+  const ownerState = _extends4({}, props, {
+    component,
+    gap: gap2,
+    rowHeight,
+    variant
+  });
+  const classes = useUtilityClasses15(ownerState);
+  return jsx_runtime39.jsx(ImageListRoot, _extends4({
+    as: component,
+    className: clsx_default(classes.root, classes[variant], className2),
+    ref,
+    style: style10,
+    ownerState
+  }, other, {
+    children: jsx_runtime39.jsx(ImageListContext_default.Provider, {
+      value: contextValue,
+      children
+    })
+  }));
+});
+ImageList.propTypes = {
+  children: import_prop_types38.default.node.isRequired,
+  classes: import_prop_types38.default.object,
+  className: import_prop_types38.default.string,
+  cols: integerPropType_default,
+  component: import_prop_types38.default.elementType,
+  gap: import_prop_types38.default.number,
+  rowHeight: import_prop_types38.default.oneOfType([import_prop_types38.default.oneOf(["auto"]), import_prop_types38.default.number]),
+  style: import_prop_types38.default.object,
+  sx: import_prop_types38.default.oneOfType([import_prop_types38.default.arrayOf(import_prop_types38.default.oneOfType([import_prop_types38.default.func, import_prop_types38.default.object, import_prop_types38.default.bool])), import_prop_types38.default.func, import_prop_types38.default.object]),
+  variant: import_prop_types38.default.oneOfType([import_prop_types38.default.oneOf(["masonry", "quilted", "standard", "woven"]), import_prop_types38.default.string])
+};
+var ImageList_default = ImageList;
+// node_modules/@mui/material/ImageListItem/ImageListItem.js
+var import_prop_types39 = __toESM(require_prop_types(), 1);
+var React58 = __toESM(require_react(), 1);
+var import_react_is3 = __toESM(require_react_is2(), 1);
+
+// node_modules/@mui/material/ImageListItem/imageListItemClasses.js
+function getImageListItemUtilityClass(slot) {
+  return generateUtilityClass("MuiImageListItem", slot);
+}
+var imageListItemClasses = generateUtilityClasses("MuiImageListItem", ["root", "img", "standard", "woven", "masonry", "quilted"]);
+var imageListItemClasses_default = imageListItemClasses;
+
+// node_modules/@mui/material/ImageListItem/ImageListItem.js
+var jsx_runtime40 = __toESM(require_jsx_runtime(), 1);
+var _excluded37 = ["children", "className", "cols", "component", "rows", "style"];
+var useUtilityClasses16 = (ownerState) => {
+  const {
+    classes,
+    variant
+  } = ownerState;
+  const slots = {
+    root: ["root", variant],
+    img: ["img"]
+  };
+  return composeClasses(slots, getImageListItemUtilityClass, classes);
+};
+var ImageListItemRoot = styled_default2("li", {
+  name: "MuiImageListItem",
+  slot: "Root",
+  overridesResolver: (props, styles5) => {
+    const {
+      ownerState
+    } = props;
+    return [{
+      [`& .${imageListItemClasses_default.img}`]: styles5.img
+    }, styles5.root, styles5[ownerState.variant]];
+  }
+})(({
+  ownerState
+}) => _extends4({
+  display: "block",
+  position: "relative"
+}, ownerState.variant === "standard" && {
+  display: "flex",
+  flexDirection: "column"
+}, ownerState.variant === "woven" && {
+  height: "100%",
+  alignSelf: "center",
+  "&:nth-of-type(even)": {
+    height: "70%"
+  }
+}, {
+  [`& .${imageListItemClasses_default.img}`]: _extends4({
+    objectFit: "cover",
+    width: "100%",
+    height: "100%",
+    display: "block"
+  }, ownerState.variant === "standard" && {
+    height: "auto",
+    flexGrow: 1
+  })
+}));
+var ImageListItem = React58.forwardRef(function ImageListItem2(inProps, ref) {
+  const props = useThemeProps3({
+    props: inProps,
+    name: "MuiImageListItem"
+  });
+  const {
+    children,
+    className: className2,
+    cols = 1,
+    component = "li",
+    rows = 1,
+    style: style10
+  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded37);
+  const {
+    rowHeight = "auto",
+    gap: gap2,
+    variant
+  } = React58.useContext(ImageListContext_default);
+  let height2 = "auto";
+  if (variant === "woven") {
+    height2 = undefined;
+  } else if (rowHeight !== "auto") {
+    height2 = rowHeight * rows + gap2 * (rows - 1);
+  }
+  const ownerState = _extends4({}, props, {
+    cols,
+    component,
+    gap: gap2,
+    rowHeight,
+    rows,
+    variant
+  });
+  const classes = useUtilityClasses16(ownerState);
+  return jsx_runtime40.jsx(ImageListItemRoot, _extends4({
+    as: component,
+    className: clsx_default(classes.root, classes[variant], className2),
+    ref,
+    style: _extends4({
+      height: height2,
+      gridColumnEnd: variant !== "masonry" ? `span ${cols}` : undefined,
+      gridRowEnd: variant !== "masonry" ? `span ${rows}` : undefined,
+      marginBottom: variant === "masonry" ? gap2 : undefined,
+      breakInside: variant === "masonry" ? "avoid" : undefined
+    }, style10),
+    ownerState
+  }, other, {
+    children: React58.Children.map(children, (child) => {
+      if (!React58.isValidElement(child)) {
+        return null;
+      }
+      if (true) {
+        if (import_react_is3.isFragment(child)) {
+          console.error(["MUI: The ImageListItem component doesn't accept a Fragment as a child.", "Consider providing an array instead."].join("\n"));
+        }
+      }
+      if (child.type === "img" || isMuiElement_default(child, ["Image"])) {
+        return React58.cloneElement(child, {
+          className: clsx_default(classes.img, child.props.className)
+        });
+      }
+      return child;
+    })
+  }));
+});
+ImageListItem.propTypes = {
+  children: import_prop_types39.default.node,
+  classes: import_prop_types39.default.object,
+  className: import_prop_types39.default.string,
+  cols: integerPropType_default,
+  component: import_prop_types39.default.elementType,
+  rows: integerPropType_default,
+  style: import_prop_types39.default.object,
+  sx: import_prop_types39.default.oneOfType([import_prop_types39.default.arrayOf(import_prop_types39.default.oneOfType([import_prop_types39.default.func, import_prop_types39.default.object, import_prop_types39.default.bool])), import_prop_types39.default.func, import_prop_types39.default.object])
+};
+var ImageListItem_default = ImageListItem;
+// node_modules/@mui/material/ImageListItemBar/ImageListItemBar.js
+var import_prop_types40 = __toESM(require_prop_types(), 1);
+var React59 = __toESM(require_react(), 1);
+
+// node_modules/@mui/material/ImageListItemBar/imageListItemBarClasses.js
+function getImageListItemBarUtilityClass(slot) {
+  return generateUtilityClass("MuiImageListItemBar", slot);
+}
+var imageListItemBarClasses = generateUtilityClasses("MuiImageListItemBar", ["root", "positionBottom", "positionTop", "positionBelow", "titleWrap", "titleWrapBottom", "titleWrapTop", "titleWrapBelow", "titleWrapActionPosLeft", "titleWrapActionPosRight", "title", "subtitle", "actionIcon", "actionIconActionPosLeft", "actionIconActionPosRight"]);
+
+// node_modules/@mui/material/ImageListItemBar/ImageListItemBar.js
+var jsx_runtime41 = __toESM(require_jsx_runtime(), 1);
+var jsx_runtime42 = __toESM(require_jsx_runtime(), 1);
+var _excluded38 = ["actionIcon", "actionPosition", "className", "subtitle", "title", "position"];
+var useUtilityClasses17 = (ownerState) => {
+  const {
+    classes,
+    position: position2,
+    actionIcon,
+    actionPosition
+  } = ownerState;
+  const slots = {
+    root: ["root", `position${capitalize_default(position2)}`],
+    titleWrap: ["titleWrap", `titleWrap${capitalize_default(position2)}`, actionIcon && `titleWrapActionPos${capitalize_default(actionPosition)}`],
+    title: ["title"],
+    subtitle: ["subtitle"],
+    actionIcon: ["actionIcon", `actionIconActionPos${capitalize_default(actionPosition)}`]
+  };
+  return composeClasses(slots, getImageListItemBarUtilityClass, classes);
+};
+var ImageListItemBarRoot = styled_default2("div", {
+  name: "MuiImageListItemBar",
+  slot: "Root",
+  overridesResolver: (props, styles5) => {
+    const {
+      ownerState
+    } = props;
+    return [styles5.root, styles5[`position${capitalize_default(ownerState.position)}`]];
+  }
+})(({
+  theme,
+  ownerState
+}) => {
+  return _extends4({
+    position: "absolute",
+    left: 0,
+    right: 0,
+    background: "rgba(0, 0, 0, 0.5)",
+    display: "flex",
+    alignItems: "center",
+    fontFamily: theme.typography.fontFamily
+  }, ownerState.position === "bottom" && {
+    bottom: 0
+  }, ownerState.position === "top" && {
+    top: 0
+  }, ownerState.position === "below" && {
+    position: "relative",
+    background: "transparent",
+    alignItems: "normal"
+  });
+});
+var ImageListItemBarTitleWrap = styled_default2("div", {
+  name: "MuiImageListItemBar",
+  slot: "TitleWrap",
+  overridesResolver: (props, styles5) => {
+    const {
+      ownerState
+    } = props;
+    return [styles5.titleWrap, styles5[`titleWrap${capitalize_default(ownerState.position)}`], ownerState.actionIcon && styles5[`titleWrapActionPos${capitalize_default(ownerState.actionPosition)}`]];
+  }
+})(({
+  theme,
+  ownerState
+}) => {
+  return _extends4({
+    flexGrow: 1,
+    padding: "12px 16px",
+    color: (theme.vars || theme).palette.common.white,
+    overflow: "hidden"
+  }, ownerState.position === "below" && {
+    padding: "6px 0 12px",
+    color: "inherit"
+  }, ownerState.actionIcon && ownerState.actionPosition === "left" && {
+    paddingLeft: 0
+  }, ownerState.actionIcon && ownerState.actionPosition === "right" && {
+    paddingRight: 0
+  });
+});
+var ImageListItemBarTitle = styled_default2("div", {
+  name: "MuiImageListItemBar",
+  slot: "Title",
+  overridesResolver: (props, styles5) => styles5.title
+})(({
+  theme
+}) => {
+  return {
+    fontSize: theme.typography.pxToRem(16),
+    lineHeight: "24px",
+    textOverflow: "ellipsis",
+    overflow: "hidden",
+    whiteSpace: "nowrap"
+  };
+});
+var ImageListItemBarSubtitle = styled_default2("div", {
+  name: "MuiImageListItemBar",
+  slot: "Subtitle",
+  overridesResolver: (props, styles5) => styles5.subtitle
+})(({
+  theme
+}) => {
+  return {
+    fontSize: theme.typography.pxToRem(12),
+    lineHeight: 1,
+    textOverflow: "ellipsis",
+    overflow: "hidden",
+    whiteSpace: "nowrap"
+  };
+});
+var ImageListItemBarActionIcon = styled_default2("div", {
+  name: "MuiImageListItemBar",
+  slot: "ActionIcon",
+  overridesResolver: (props, styles5) => {
+    const {
+      ownerState
+    } = props;
+    return [styles5.actionIcon, styles5[`actionIconActionPos${capitalize_default(ownerState.actionPosition)}`]];
+  }
+})(({
+  ownerState
+}) => {
+  return _extends4({}, ownerState.actionPosition === "left" && {
+    order: -1
+  });
+});
+var ImageListItemBar = React59.forwardRef(function ImageListItemBar2(inProps, ref) {
+  const props = useThemeProps3({
+    props: inProps,
+    name: "MuiImageListItemBar"
+  });
+  const {
+    actionIcon,
+    actionPosition = "right",
+    className: className2,
+    subtitle,
+    title,
+    position: position2 = "bottom"
+  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded38);
+  const ownerState = _extends4({}, props, {
+    position: position2,
+    actionPosition
+  });
+  const classes = useUtilityClasses17(ownerState);
+  return jsx_runtime42.jsxs(ImageListItemBarRoot, _extends4({
+    ownerState,
+    className: clsx_default(classes.root, className2),
+    ref
+  }, other, {
+    children: [jsx_runtime42.jsxs(ImageListItemBarTitleWrap, {
+      ownerState,
+      className: classes.titleWrap,
+      children: [jsx_runtime41.jsx(ImageListItemBarTitle, {
+        className: classes.title,
+        children: title
+      }), subtitle ? jsx_runtime41.jsx(ImageListItemBarSubtitle, {
+        className: classes.subtitle,
+        children: subtitle
+      }) : null]
+    }), actionIcon ? jsx_runtime41.jsx(ImageListItemBarActionIcon, {
+      ownerState,
+      className: classes.actionIcon,
+      children: actionIcon
+    }) : null]
+  }));
+});
+ImageListItemBar.propTypes = {
+  actionIcon: import_prop_types40.default.node,
+  actionPosition: import_prop_types40.default.oneOf(["left", "right"]),
+  children: import_prop_types40.default.node,
+  classes: import_prop_types40.default.object,
+  className: import_prop_types40.default.string,
+  position: import_prop_types40.default.oneOf(["below", "bottom", "top"]),
+  subtitle: import_prop_types40.default.node,
+  sx: import_prop_types40.default.oneOfType([import_prop_types40.default.arrayOf(import_prop_types40.default.oneOfType([import_prop_types40.default.func, import_prop_types40.default.object, import_prop_types40.default.bool])), import_prop_types40.default.func, import_prop_types40.default.object]),
+  title: import_prop_types40.default.node
+};
+var ImageListItemBar_default = ImageListItemBar;
+// node_modules/@mui/material/Link/Link.js
+var React60 = __toESM(require_react(), 1);
+var import_prop_types41 = __toESM(require_prop_types(), 1);
 
 // node_modules/@mui/material/Link/linkClasses.js
 function getLinkUtilityClass(slot) {
@@ -35368,9 +37878,9 @@ var getTextDecoration = ({
 var getTextDecoration_default = getTextDecoration;
 
 // node_modules/@mui/material/Link/Link.js
-var jsx_runtime39 = __toESM(require_jsx_runtime(), 1);
-var _excluded36 = ["className", "color", "component", "onBlur", "onFocus", "TypographyClasses", "underline", "variant", "sx"];
-var useUtilityClasses15 = (ownerState) => {
+var jsx_runtime43 = __toESM(require_jsx_runtime(), 1);
+var _excluded39 = ["className", "color", "component", "onBlur", "onFocus", "TypographyClasses", "underline", "variant", "sx"];
+var useUtilityClasses18 = (ownerState) => {
   const {
     classes,
     component,
@@ -35435,7 +37945,7 @@ var LinkRoot = styled_default2(Typography_default, {
     }
   });
 });
-var Link2 = React55.forwardRef(function Link3(inProps, ref) {
+var Link2 = React60.forwardRef(function Link3(inProps, ref) {
   const props = useThemeProps3({
     props: inProps,
     name: "MuiLink"
@@ -35450,14 +37960,14 @@ var Link2 = React55.forwardRef(function Link3(inProps, ref) {
     underline = "always",
     variant = "inherit",
     sx
-  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded36);
+  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded39);
   const {
     isFocusVisibleRef,
     onBlur: handleBlurVisible,
     onFocus: handleFocusVisible,
     ref: focusVisibleRef
   } = useIsFocusVisible_default();
-  const [focusVisible, setFocusVisible] = React55.useState(false);
+  const [focusVisible, setFocusVisible] = React60.useState(false);
   const handlerRef = useForkRef_default(ref, focusVisibleRef);
   const handleBlur = (event) => {
     handleBlurVisible(event);
@@ -35484,8 +37994,8 @@ var Link2 = React55.forwardRef(function Link3(inProps, ref) {
     underline,
     variant
   });
-  const classes = useUtilityClasses15(ownerState);
-  return jsx_runtime39.jsx(LinkRoot, _extends4({
+  const classes = useUtilityClasses18(ownerState);
+  return jsx_runtime43.jsx(LinkRoot, _extends4({
     color: color2,
     className: clsx_default(classes.root, className2),
     classes: TypographyClasses,
@@ -35501,26 +38011,26 @@ var Link2 = React55.forwardRef(function Link3(inProps, ref) {
   }, other));
 });
 Link2.propTypes = {
-  children: import_prop_types38.default.node,
-  classes: import_prop_types38.default.object,
-  className: import_prop_types38.default.string,
-  color: import_prop_types38.default.any,
+  children: import_prop_types41.default.node,
+  classes: import_prop_types41.default.object,
+  className: import_prop_types41.default.string,
+  color: import_prop_types41.default.any,
   component: elementTypeAcceptingRef_default,
-  onBlur: import_prop_types38.default.func,
-  onFocus: import_prop_types38.default.func,
-  sx: import_prop_types38.default.oneOfType([import_prop_types38.default.arrayOf(import_prop_types38.default.oneOfType([import_prop_types38.default.func, import_prop_types38.default.object, import_prop_types38.default.bool])), import_prop_types38.default.func, import_prop_types38.default.object]),
-  TypographyClasses: import_prop_types38.default.object,
-  underline: import_prop_types38.default.oneOf(["always", "hover", "none"]),
-  variant: import_prop_types38.default.oneOfType([import_prop_types38.default.oneOf(["body1", "body2", "button", "caption", "h1", "h2", "h3", "h4", "h5", "h6", "inherit", "overline", "subtitle1", "subtitle2"]), import_prop_types38.default.string])
+  onBlur: import_prop_types41.default.func,
+  onFocus: import_prop_types41.default.func,
+  sx: import_prop_types41.default.oneOfType([import_prop_types41.default.arrayOf(import_prop_types41.default.oneOfType([import_prop_types41.default.func, import_prop_types41.default.object, import_prop_types41.default.bool])), import_prop_types41.default.func, import_prop_types41.default.object]),
+  TypographyClasses: import_prop_types41.default.object,
+  underline: import_prop_types41.default.oneOf(["always", "hover", "none"]),
+  variant: import_prop_types41.default.oneOfType([import_prop_types41.default.oneOf(["body1", "body2", "button", "caption", "h1", "h2", "h3", "h4", "h5", "h6", "inherit", "overline", "subtitle1", "subtitle2"]), import_prop_types41.default.string])
 };
 var Link_default = Link2;
 // node_modules/@mui/material/List/List.js
-var React57 = __toESM(require_react(), 1);
-var import_prop_types39 = __toESM(require_prop_types(), 1);
+var React62 = __toESM(require_react(), 1);
+var import_prop_types42 = __toESM(require_prop_types(), 1);
 
 // node_modules/@mui/material/List/ListContext.js
-var React56 = __toESM(require_react(), 1);
-var ListContext = React56.createContext({});
+var React61 = __toESM(require_react(), 1);
+var ListContext = React61.createContext({});
 if (true) {
   ListContext.displayName = "ListContext";
 }
@@ -35533,10 +38043,10 @@ function getListUtilityClass(slot) {
 var listClasses = generateUtilityClasses("MuiList", ["root", "padding", "dense", "subheader"]);
 
 // node_modules/@mui/material/List/List.js
-var jsx_runtime40 = __toESM(require_jsx_runtime(), 1);
-var jsx_runtime41 = __toESM(require_jsx_runtime(), 1);
-var _excluded37 = ["children", "className", "component", "dense", "disablePadding", "subheader"];
-var useUtilityClasses16 = (ownerState) => {
+var jsx_runtime44 = __toESM(require_jsx_runtime(), 1);
+var jsx_runtime45 = __toESM(require_jsx_runtime(), 1);
+var _excluded40 = ["children", "className", "component", "dense", "disablePadding", "subheader"];
+var useUtilityClasses19 = (ownerState) => {
   const {
     classes,
     disablePadding,
@@ -35570,7 +38080,7 @@ var ListRoot = styled_default2("ul", {
 }, ownerState.subheader && {
   paddingTop: 0
 }));
-var List = React57.forwardRef(function List2(inProps, ref) {
+var List = React62.forwardRef(function List2(inProps, ref) {
   const props = useThemeProps3({
     props: inProps,
     name: "MuiList"
@@ -35582,8 +38092,8 @@ var List = React57.forwardRef(function List2(inProps, ref) {
     dense = false,
     disablePadding = false,
     subheader
-  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded37);
-  const context = React57.useMemo(() => ({
+  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded40);
+  const context = React62.useMemo(() => ({
     dense
   }), [dense]);
   const ownerState = _extends4({}, props, {
@@ -35591,10 +38101,10 @@ var List = React57.forwardRef(function List2(inProps, ref) {
     dense,
     disablePadding
   });
-  const classes = useUtilityClasses16(ownerState);
-  return jsx_runtime41.jsx(ListContext_default.Provider, {
+  const classes = useUtilityClasses19(ownerState);
+  return jsx_runtime45.jsx(ListContext_default.Provider, {
     value: context,
-    children: jsx_runtime40.jsxs(ListRoot, _extends4({
+    children: jsx_runtime44.jsxs(ListRoot, _extends4({
       as: component,
       className: clsx_default(classes.root, className2),
       ref,
@@ -35605,19 +38115,19 @@ var List = React57.forwardRef(function List2(inProps, ref) {
   });
 });
 List.propTypes = {
-  children: import_prop_types39.default.node,
-  classes: import_prop_types39.default.object,
-  className: import_prop_types39.default.string,
-  component: import_prop_types39.default.elementType,
-  dense: import_prop_types39.default.bool,
-  disablePadding: import_prop_types39.default.bool,
-  subheader: import_prop_types39.default.node,
-  sx: import_prop_types39.default.oneOfType([import_prop_types39.default.arrayOf(import_prop_types39.default.oneOfType([import_prop_types39.default.func, import_prop_types39.default.object, import_prop_types39.default.bool])), import_prop_types39.default.func, import_prop_types39.default.object])
+  children: import_prop_types42.default.node,
+  classes: import_prop_types42.default.object,
+  className: import_prop_types42.default.string,
+  component: import_prop_types42.default.elementType,
+  dense: import_prop_types42.default.bool,
+  disablePadding: import_prop_types42.default.bool,
+  subheader: import_prop_types42.default.node,
+  sx: import_prop_types42.default.oneOfType([import_prop_types42.default.arrayOf(import_prop_types42.default.oneOfType([import_prop_types42.default.func, import_prop_types42.default.object, import_prop_types42.default.bool])), import_prop_types42.default.func, import_prop_types42.default.object])
 };
 var List_default = List;
 // node_modules/@mui/material/ListItemButton/ListItemButton.js
-var React58 = __toESM(require_react(), 1);
-var import_prop_types40 = __toESM(require_prop_types(), 1);
+var React63 = __toESM(require_react(), 1);
+var import_prop_types43 = __toESM(require_prop_types(), 1);
 
 // node_modules/@mui/material/ListItemButton/listItemButtonClasses.js
 function getListItemButtonUtilityClass(slot) {
@@ -35627,15 +38137,15 @@ var listItemButtonClasses = generateUtilityClasses("MuiListItemButton", ["root",
 var listItemButtonClasses_default = listItemButtonClasses;
 
 // node_modules/@mui/material/ListItemButton/ListItemButton.js
-var jsx_runtime42 = __toESM(require_jsx_runtime(), 1);
-var _excluded38 = ["alignItems", "autoFocus", "component", "children", "dense", "disableGutters", "divider", "focusVisibleClassName", "selected", "className"];
+var jsx_runtime46 = __toESM(require_jsx_runtime(), 1);
+var _excluded41 = ["alignItems", "autoFocus", "component", "children", "dense", "disableGutters", "divider", "focusVisibleClassName", "selected", "className"];
 var overridesResolver2 = (props, styles5) => {
   const {
     ownerState
   } = props;
   return [styles5.root, ownerState.dense && styles5.dense, ownerState.alignItems === "flex-start" && styles5.alignItemsFlexStart, ownerState.divider && styles5.divider, !ownerState.disableGutters && styles5.gutters];
 };
-var useUtilityClasses17 = (ownerState) => {
+var useUtilityClasses20 = (ownerState) => {
   const {
     alignItems,
     classes,
@@ -35711,7 +38221,7 @@ var ListItemButtonRoot = styled_default2(ButtonBase_default, {
   paddingTop: 4,
   paddingBottom: 4
 }));
-var ListItemButton = React58.forwardRef(function ListItemButton2(inProps, ref) {
+var ListItemButton = React63.forwardRef(function ListItemButton2(inProps, ref) {
   const props = useThemeProps3({
     props: inProps,
     name: "MuiListItemButton"
@@ -35727,14 +38237,14 @@ var ListItemButton = React58.forwardRef(function ListItemButton2(inProps, ref) {
     focusVisibleClassName,
     selected = false,
     className: className2
-  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded38);
-  const context = React58.useContext(ListContext_default);
-  const childContext = React58.useMemo(() => ({
+  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded41);
+  const context = React63.useContext(ListContext_default);
+  const childContext = React63.useMemo(() => ({
     dense: dense || context.dense || false,
     alignItems,
     disableGutters
   }), [alignItems, context.dense, dense, disableGutters]);
-  const listItemRef = React58.useRef(null);
+  const listItemRef = React63.useRef(null);
   useEnhancedEffect_default2(() => {
     if (autoFocus) {
       if (listItemRef.current) {
@@ -35751,11 +38261,11 @@ var ListItemButton = React58.forwardRef(function ListItemButton2(inProps, ref) {
     divider,
     selected
   });
-  const classes = useUtilityClasses17(ownerState);
+  const classes = useUtilityClasses20(ownerState);
   const handleRef = useForkRef_default(listItemRef, ref);
-  return jsx_runtime42.jsx(ListContext_default.Provider, {
+  return jsx_runtime46.jsx(ListContext_default.Provider, {
     value: childContext,
-    children: jsx_runtime42.jsx(ListItemButtonRoot, _extends4({
+    children: jsx_runtime46.jsx(ListItemButtonRoot, _extends4({
       ref: handleRef,
       href: other.href || other.to,
       component: (other.href || other.to) && component === "div" ? "button" : component,
@@ -35769,25 +38279,25 @@ var ListItemButton = React58.forwardRef(function ListItemButton2(inProps, ref) {
   });
 });
 ListItemButton.propTypes = {
-  alignItems: import_prop_types40.default.oneOf(["center", "flex-start"]),
-  autoFocus: import_prop_types40.default.bool,
-  children: import_prop_types40.default.node,
-  classes: import_prop_types40.default.object,
-  className: import_prop_types40.default.string,
-  component: import_prop_types40.default.elementType,
-  dense: import_prop_types40.default.bool,
-  disabled: import_prop_types40.default.bool,
-  disableGutters: import_prop_types40.default.bool,
-  divider: import_prop_types40.default.bool,
-  focusVisibleClassName: import_prop_types40.default.string,
-  href: import_prop_types40.default.string,
-  selected: import_prop_types40.default.bool,
-  sx: import_prop_types40.default.oneOfType([import_prop_types40.default.arrayOf(import_prop_types40.default.oneOfType([import_prop_types40.default.func, import_prop_types40.default.object, import_prop_types40.default.bool])), import_prop_types40.default.func, import_prop_types40.default.object])
+  alignItems: import_prop_types43.default.oneOf(["center", "flex-start"]),
+  autoFocus: import_prop_types43.default.bool,
+  children: import_prop_types43.default.node,
+  classes: import_prop_types43.default.object,
+  className: import_prop_types43.default.string,
+  component: import_prop_types43.default.elementType,
+  dense: import_prop_types43.default.bool,
+  disabled: import_prop_types43.default.bool,
+  disableGutters: import_prop_types43.default.bool,
+  divider: import_prop_types43.default.bool,
+  focusVisibleClassName: import_prop_types43.default.string,
+  href: import_prop_types43.default.string,
+  selected: import_prop_types43.default.bool,
+  sx: import_prop_types43.default.oneOfType([import_prop_types43.default.arrayOf(import_prop_types43.default.oneOfType([import_prop_types43.default.func, import_prop_types43.default.object, import_prop_types43.default.bool])), import_prop_types43.default.func, import_prop_types43.default.object])
 };
 var ListItemButton_default = ListItemButton;
 // node_modules/@mui/material/Popover/Popover.js
-var React59 = __toESM(require_react(), 1);
-var import_prop_types41 = __toESM(require_prop_types(), 1);
+var React64 = __toESM(require_react(), 1);
+var import_prop_types44 = __toESM(require_prop_types(), 1);
 
 // node_modules/@mui/material/Popover/popoverClasses.js
 function getPopoverUtilityClass(slot) {
@@ -35796,7 +38306,7 @@ function getPopoverUtilityClass(slot) {
 var popoverClasses = generateUtilityClasses("MuiPopover", ["root", "paper"]);
 
 // node_modules/@mui/material/Popover/Popover.js
-var jsx_runtime43 = __toESM(require_jsx_runtime(), 1);
+var jsx_runtime47 = __toESM(require_jsx_runtime(), 1);
 function getOffsetTop(rect, vertical) {
   let offset = 0;
   if (typeof vertical === "number") {
@@ -35825,10 +38335,10 @@ var getTransformOriginValue = function(transformOrigin) {
 var resolveAnchorEl = function(anchorEl) {
   return typeof anchorEl === "function" ? anchorEl() : anchorEl;
 };
-var _excluded39 = ["onEntering"];
+var _excluded42 = ["onEntering"];
 var _excluded210 = ["action", "anchorEl", "anchorOrigin", "anchorPosition", "anchorReference", "children", "className", "container", "elevation", "marginThreshold", "open", "PaperProps", "slots", "slotProps", "transformOrigin", "TransitionComponent", "transitionDuration", "TransitionProps", "disableScrollLock"];
 var _excluded310 = ["slotProps"];
-var useUtilityClasses18 = (ownerState) => {
+var useUtilityClasses21 = (ownerState) => {
   const {
     classes
   } = ownerState;
@@ -35857,7 +38367,7 @@ var PopoverPaper = styled_default2(Paper_default, {
   maxHeight: "calc(100% - 32px)",
   outline: 0
 });
-var Popover = React59.forwardRef(function Popover2(inProps, ref) {
+var Popover = React64.forwardRef(function Popover2(inProps, ref) {
   var _slotProps$paper, _slots$root, _slots$paper;
   const props = useThemeProps3({
     props: inProps,
@@ -35891,9 +38401,9 @@ var Popover = React59.forwardRef(function Popover2(inProps, ref) {
       onEntering
     } = {},
     disableScrollLock = false
-  } = props, TransitionProps = _objectWithoutPropertiesLoose2(props.TransitionProps, _excluded39), other = _objectWithoutPropertiesLoose2(props, _excluded210);
+  } = props, TransitionProps = _objectWithoutPropertiesLoose2(props.TransitionProps, _excluded42), other = _objectWithoutPropertiesLoose2(props, _excluded210);
   const externalPaperSlotProps = (_slotProps$paper = slotProps == null ? undefined : slotProps.paper) != null ? _slotProps$paper : PaperPropsProp;
-  const paperRef = React59.useRef();
+  const paperRef = React64.useRef();
   const handlePaperRef = useForkRef_default(paperRef, externalPaperSlotProps.ref);
   const ownerState = _extends4({}, props, {
     anchorOrigin,
@@ -35906,8 +38416,8 @@ var Popover = React59.forwardRef(function Popover2(inProps, ref) {
     transitionDuration: transitionDurationProp,
     TransitionProps
   });
-  const classes = useUtilityClasses18(ownerState);
-  const getAnchorOffset = React59.useCallback(() => {
+  const classes = useUtilityClasses21(ownerState);
+  const getAnchorOffset = React64.useCallback(() => {
     if (anchorReference === "anchorPosition") {
       if (true) {
         if (!anchorPosition) {
@@ -35930,13 +38440,13 @@ var Popover = React59.forwardRef(function Popover2(inProps, ref) {
       left: anchorRect.left + getOffsetLeft(anchorRect, anchorOrigin.horizontal)
     };
   }, [anchorEl, anchorOrigin.horizontal, anchorOrigin.vertical, anchorPosition, anchorReference]);
-  const getTransformOrigin = React59.useCallback((elemRect) => {
+  const getTransformOrigin = React64.useCallback((elemRect) => {
     return {
       vertical: getOffsetTop(elemRect, transformOrigin.vertical),
       horizontal: getOffsetLeft(elemRect, transformOrigin.horizontal)
     };
   }, [transformOrigin.horizontal, transformOrigin.vertical]);
-  const getPositioningStyle = React59.useCallback((element) => {
+  const getPositioningStyle = React64.useCallback((element) => {
     const elemRect = {
       width: element.offsetWidth,
       height: element.offsetHeight
@@ -35986,8 +38496,8 @@ var Popover = React59.forwardRef(function Popover2(inProps, ref) {
       transformOrigin: getTransformOriginValue(elemTransformOrigin)
     };
   }, [anchorEl, anchorReference, getAnchorOffset, getTransformOrigin, marginThreshold]);
-  const [isPositioned, setIsPositioned] = React59.useState(open);
-  const setPositioningStyles = React59.useCallback(() => {
+  const [isPositioned, setIsPositioned] = React64.useState(open);
+  const setPositioningStyles = React64.useCallback(() => {
     const element = paperRef.current;
     if (!element) {
       return;
@@ -36002,7 +38512,7 @@ var Popover = React59.forwardRef(function Popover2(inProps, ref) {
     element.style.transformOrigin = positioning.transformOrigin;
     setIsPositioned(true);
   }, [getPositioningStyle]);
-  React59.useEffect(() => {
+  React64.useEffect(() => {
     if (disableScrollLock) {
       window.addEventListener("scroll", setPositioningStyles);
     }
@@ -36017,17 +38527,17 @@ var Popover = React59.forwardRef(function Popover2(inProps, ref) {
   const handleExited = () => {
     setIsPositioned(false);
   };
-  React59.useEffect(() => {
+  React64.useEffect(() => {
     if (open) {
       setPositioningStyles();
     }
   });
-  React59.useImperativeHandle(action, () => open ? {
+  React64.useImperativeHandle(action, () => open ? {
     updatePosition: () => {
       setPositioningStyles();
     }
   } : null, [open, setPositioningStyles]);
-  React59.useEffect(() => {
+  React64.useEffect(() => {
     if (!open) {
       return;
     }
@@ -36081,18 +38591,18 @@ var Popover = React59.forwardRef(function Popover2(inProps, ref) {
   }), {
     slotProps: rootSlotPropsProp
   } = _useSlotProps, rootProps = _objectWithoutPropertiesLoose2(_useSlotProps, _excluded310);
-  return jsx_runtime43.jsx(RootSlot, _extends4({}, rootProps, !isHostComponent(RootSlot) && {
+  return jsx_runtime47.jsx(RootSlot, _extends4({}, rootProps, !isHostComponent(RootSlot) && {
     slotProps: rootSlotPropsProp,
     disableScrollLock
   }, {
-    children: jsx_runtime43.jsx(TransitionComponent, _extends4({
+    children: jsx_runtime47.jsx(TransitionComponent, _extends4({
       appear: true,
       in: open,
       onEntering: handleEntering,
       onExited: handleExited,
       timeout: transitionDuration
     }, TransitionProps, {
-      children: jsx_runtime43.jsx(PaperSlot, _extends4({}, paperProps, {
+      children: jsx_runtime47.jsx(PaperSlot, _extends4({}, paperProps, {
         children
       }))
     }))
@@ -36100,7 +38610,7 @@ var Popover = React59.forwardRef(function Popover2(inProps, ref) {
 });
 Popover.propTypes = {
   action: refType_default,
-  anchorEl: chainPropTypes(import_prop_types41.default.oneOfType([HTMLElementType, import_prop_types41.default.func]), (props) => {
+  anchorEl: chainPropTypes(import_prop_types44.default.oneOfType([HTMLElementType, import_prop_types44.default.func]), (props) => {
     if (props.open && (!props.anchorReference || props.anchorReference === "anchorEl")) {
       const resolvedAnchorEl = resolveAnchorEl(props.anchorEl);
       if (resolvedAnchorEl && resolvedAnchorEl.nodeType === 1) {
@@ -36114,52 +38624,52 @@ Popover.propTypes = {
     }
     return null;
   }),
-  anchorOrigin: import_prop_types41.default.shape({
-    horizontal: import_prop_types41.default.oneOfType([import_prop_types41.default.oneOf(["center", "left", "right"]), import_prop_types41.default.number]).isRequired,
-    vertical: import_prop_types41.default.oneOfType([import_prop_types41.default.oneOf(["bottom", "center", "top"]), import_prop_types41.default.number]).isRequired
+  anchorOrigin: import_prop_types44.default.shape({
+    horizontal: import_prop_types44.default.oneOfType([import_prop_types44.default.oneOf(["center", "left", "right"]), import_prop_types44.default.number]).isRequired,
+    vertical: import_prop_types44.default.oneOfType([import_prop_types44.default.oneOf(["bottom", "center", "top"]), import_prop_types44.default.number]).isRequired
   }),
-  anchorPosition: import_prop_types41.default.shape({
-    left: import_prop_types41.default.number.isRequired,
-    top: import_prop_types41.default.number.isRequired
+  anchorPosition: import_prop_types44.default.shape({
+    left: import_prop_types44.default.number.isRequired,
+    top: import_prop_types44.default.number.isRequired
   }),
-  anchorReference: import_prop_types41.default.oneOf(["anchorEl", "anchorPosition", "none"]),
-  children: import_prop_types41.default.node,
-  classes: import_prop_types41.default.object,
-  className: import_prop_types41.default.string,
-  container: import_prop_types41.default.oneOfType([HTMLElementType, import_prop_types41.default.func]),
-  disableScrollLock: import_prop_types41.default.bool,
+  anchorReference: import_prop_types44.default.oneOf(["anchorEl", "anchorPosition", "none"]),
+  children: import_prop_types44.default.node,
+  classes: import_prop_types44.default.object,
+  className: import_prop_types44.default.string,
+  container: import_prop_types44.default.oneOfType([HTMLElementType, import_prop_types44.default.func]),
+  disableScrollLock: import_prop_types44.default.bool,
   elevation: integerPropType_default,
-  marginThreshold: import_prop_types41.default.number,
-  onClose: import_prop_types41.default.func,
-  open: import_prop_types41.default.bool.isRequired,
-  PaperProps: import_prop_types41.default.shape({
+  marginThreshold: import_prop_types44.default.number,
+  onClose: import_prop_types44.default.func,
+  open: import_prop_types44.default.bool.isRequired,
+  PaperProps: import_prop_types44.default.shape({
     component: elementTypeAcceptingRef_default
   }),
-  slotProps: import_prop_types41.default.shape({
-    paper: import_prop_types41.default.oneOfType([import_prop_types41.default.func, import_prop_types41.default.object]),
-    root: import_prop_types41.default.oneOfType([import_prop_types41.default.func, import_prop_types41.default.object])
+  slotProps: import_prop_types44.default.shape({
+    paper: import_prop_types44.default.oneOfType([import_prop_types44.default.func, import_prop_types44.default.object]),
+    root: import_prop_types44.default.oneOfType([import_prop_types44.default.func, import_prop_types44.default.object])
   }),
-  slots: import_prop_types41.default.shape({
-    paper: import_prop_types41.default.elementType,
-    root: import_prop_types41.default.elementType
+  slots: import_prop_types44.default.shape({
+    paper: import_prop_types44.default.elementType,
+    root: import_prop_types44.default.elementType
   }),
-  sx: import_prop_types41.default.oneOfType([import_prop_types41.default.arrayOf(import_prop_types41.default.oneOfType([import_prop_types41.default.func, import_prop_types41.default.object, import_prop_types41.default.bool])), import_prop_types41.default.func, import_prop_types41.default.object]),
-  transformOrigin: import_prop_types41.default.shape({
-    horizontal: import_prop_types41.default.oneOfType([import_prop_types41.default.oneOf(["center", "left", "right"]), import_prop_types41.default.number]).isRequired,
-    vertical: import_prop_types41.default.oneOfType([import_prop_types41.default.oneOf(["bottom", "center", "top"]), import_prop_types41.default.number]).isRequired
+  sx: import_prop_types44.default.oneOfType([import_prop_types44.default.arrayOf(import_prop_types44.default.oneOfType([import_prop_types44.default.func, import_prop_types44.default.object, import_prop_types44.default.bool])), import_prop_types44.default.func, import_prop_types44.default.object]),
+  transformOrigin: import_prop_types44.default.shape({
+    horizontal: import_prop_types44.default.oneOfType([import_prop_types44.default.oneOf(["center", "left", "right"]), import_prop_types44.default.number]).isRequired,
+    vertical: import_prop_types44.default.oneOfType([import_prop_types44.default.oneOf(["bottom", "center", "top"]), import_prop_types44.default.number]).isRequired
   }),
-  TransitionComponent: import_prop_types41.default.elementType,
-  transitionDuration: import_prop_types41.default.oneOfType([import_prop_types41.default.oneOf(["auto"]), import_prop_types41.default.number, import_prop_types41.default.shape({
-    appear: import_prop_types41.default.number,
-    enter: import_prop_types41.default.number,
-    exit: import_prop_types41.default.number
+  TransitionComponent: import_prop_types44.default.elementType,
+  transitionDuration: import_prop_types44.default.oneOfType([import_prop_types44.default.oneOf(["auto"]), import_prop_types44.default.number, import_prop_types44.default.shape({
+    appear: import_prop_types44.default.number,
+    enter: import_prop_types44.default.number,
+    exit: import_prop_types44.default.number
   })]),
-  TransitionProps: import_prop_types41.default.object
+  TransitionProps: import_prop_types44.default.object
 };
 var Popover_default = Popover;
 // node_modules/@mui/material/Toolbar/Toolbar.js
-var React60 = __toESM(require_react(), 1);
-var import_prop_types42 = __toESM(require_prop_types(), 1);
+var React65 = __toESM(require_react(), 1);
+var import_prop_types45 = __toESM(require_prop_types(), 1);
 
 // node_modules/@mui/material/Toolbar/toolbarClasses.js
 function getToolbarUtilityClass(slot) {
@@ -36168,9 +38678,9 @@ function getToolbarUtilityClass(slot) {
 var toolbarClasses = generateUtilityClasses("MuiToolbar", ["root", "gutters", "regular", "dense"]);
 
 // node_modules/@mui/material/Toolbar/Toolbar.js
-var jsx_runtime44 = __toESM(require_jsx_runtime(), 1);
-var _excluded40 = ["className", "component", "disableGutters", "variant"];
-var useUtilityClasses19 = (ownerState) => {
+var jsx_runtime48 = __toESM(require_jsx_runtime(), 1);
+var _excluded43 = ["className", "component", "disableGutters", "variant"];
+var useUtilityClasses22 = (ownerState) => {
   const {
     classes,
     disableGutters,
@@ -36210,7 +38720,7 @@ var ToolbarRoot = styled_default2("div", {
   theme,
   ownerState
 }) => ownerState.variant === "regular" && theme.mixins.toolbar);
-var Toolbar = React60.forwardRef(function Toolbar2(inProps, ref) {
+var Toolbar = React65.forwardRef(function Toolbar2(inProps, ref) {
   const props = useThemeProps3({
     props: inProps,
     name: "MuiToolbar"
@@ -36220,14 +38730,14 @@ var Toolbar = React60.forwardRef(function Toolbar2(inProps, ref) {
     component = "div",
     disableGutters = false,
     variant = "regular"
-  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded40);
+  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded43);
   const ownerState = _extends4({}, props, {
     component,
     disableGutters,
     variant
   });
-  const classes = useUtilityClasses19(ownerState);
-  return jsx_runtime44.jsx(ToolbarRoot, _extends4({
+  const classes = useUtilityClasses22(ownerState);
+  return jsx_runtime48.jsx(ToolbarRoot, _extends4({
     as: component,
     className: clsx_default(classes.root, className2),
     ref,
@@ -36235,13 +38745,13 @@ var Toolbar = React60.forwardRef(function Toolbar2(inProps, ref) {
   }, other));
 });
 Toolbar.propTypes = {
-  children: import_prop_types42.default.node,
-  classes: import_prop_types42.default.object,
-  className: import_prop_types42.default.string,
-  component: import_prop_types42.default.elementType,
-  disableGutters: import_prop_types42.default.bool,
-  sx: import_prop_types42.default.oneOfType([import_prop_types42.default.arrayOf(import_prop_types42.default.oneOfType([import_prop_types42.default.func, import_prop_types42.default.object, import_prop_types42.default.bool])), import_prop_types42.default.func, import_prop_types42.default.object]),
-  variant: import_prop_types42.default.oneOfType([import_prop_types42.default.oneOf(["dense", "regular"]), import_prop_types42.default.string])
+  children: import_prop_types45.default.node,
+  classes: import_prop_types45.default.object,
+  className: import_prop_types45.default.string,
+  component: import_prop_types45.default.elementType,
+  disableGutters: import_prop_types45.default.bool,
+  sx: import_prop_types45.default.oneOfType([import_prop_types45.default.arrayOf(import_prop_types45.default.oneOfType([import_prop_types45.default.func, import_prop_types45.default.object, import_prop_types45.default.bool])), import_prop_types45.default.func, import_prop_types45.default.object]),
+  variant: import_prop_types45.default.oneOfType([import_prop_types45.default.oneOf(["dense", "regular"]), import_prop_types45.default.string])
 };
 var Toolbar_default = Toolbar;
 // src/components/offers/OffersPage.js
@@ -36255,41 +38765,451 @@ var OffersPage_default = OffersPage = (props) => {
 };
 
 // src/components/home/HomePage.js
-var import_react10 = __toESM(require_react(), 1);
+var import_react12 = __toESM(require_react(), 1);
 
 // src/components/home/HeaderSection/HeaderSection.js
+var import_react10 = __toESM(require_react(), 1);
+
+// src/components/home/HeaderSection/header_items.json
+var header_items_default = [
+  {
+    name: "Random Name #1",
+    description: "Probably the most random thing you have ever seen!",
+    url: "/static/backgrounds/background5.jpg"
+  },
+  {
+    name: "Random Name #2",
+    description: "Probably the most random thing you have ever seen!",
+    url: "/static/backgrounds/background2.png"
+  },
+  {
+    name: "Random Name #3",
+    description: "Probably the most random thing you have ever seen!",
+    url: "/static/backgrounds/background3.jpg"
+  }
+];
+
+// src/components/home/HeaderSection/HeaderSection.js
+var import_react_responsive_carousel = __toESM(require_js(), 1);
+
+// src/components/home/HeaderSection/ImageSlider.js
 var import_react9 = __toESM(require_react(), 1);
+// node_modules/@mui/icons-material/esm/AccessTime.js
+var jsx_runtime49 = __toESM(require_jsx_runtime(), 1);
+var AccessTime_default = createSvgIcon([jsx_runtime49.jsx("path", {
+  d: "M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"
+}, "0"), jsx_runtime49.jsx("path", {
+  d: "M12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z"
+}, "1")], "AccessTime");
+// node_modules/@mui/icons-material/esm/Circle.js
+var jsx_runtime50 = __toESM(require_jsx_runtime(), 1);
+var Circle_default = createSvgIcon(jsx_runtime50.jsx("path", {
+  d: "M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2z"
+}), "Circle");
+// node_modules/@mui/icons-material/esm/CircleOutlined.js
+var jsx_runtime51 = __toESM(require_jsx_runtime(), 1);
+var CircleOutlined_default = createSvgIcon(jsx_runtime51.jsx("path", {
+  d: "M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"
+}), "CircleOutlined");
+// node_modules/@mui/icons-material/esm/Computer.js
+var jsx_runtime52 = __toESM(require_jsx_runtime(), 1);
+var Computer_default = createSvgIcon(jsx_runtime52.jsx("path", {
+  d: "M20 18c1.1 0 1.99-.9 1.99-2L22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2H0v2h24v-2h-4zM4 6h16v10H4V6z"
+}), "Computer");
+// node_modules/@mui/icons-material/esm/DeliveryDining.js
+var jsx_runtime53 = __toESM(require_jsx_runtime(), 1);
+var DeliveryDining_default = createSvgIcon([jsx_runtime53.jsx("path", {
+  d: "M19 7c0-1.1-.9-2-2-2h-3v2h3v2.65L13.52 14H10V9H6c-2.21 0-4 1.79-4 4v3h2c0 1.66 1.34 3 3 3s3-1.34 3-3h4.48L19 10.35V7zM7 17c-.55 0-1-.45-1-1h2c0 .55-.45 1-1 1z"
+}, "0"), jsx_runtime53.jsx("path", {
+  d: "M5 6h5v2H5zm14 7c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3zm0 4c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1z"
+}, "1")], "DeliveryDining");
+// node_modules/@mui/icons-material/esm/Email.js
+var jsx_runtime54 = __toESM(require_jsx_runtime(), 1);
+var Email_default = createSvgIcon(jsx_runtime54.jsx("path", {
+  d: "M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"
+}), "Email");
+// node_modules/@mui/icons-material/esm/Home.js
+var jsx_runtime55 = __toESM(require_jsx_runtime(), 1);
+var Home_default = createSvgIcon(jsx_runtime55.jsx("path", {
+  d: "M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"
+}), "Home");
+// node_modules/@mui/icons-material/esm/Info.js
+var jsx_runtime56 = __toESM(require_jsx_runtime(), 1);
+var Info_default = createSvgIcon(jsx_runtime56.jsx("path", {
+  d: "M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"
+}), "Info");
+// node_modules/@mui/icons-material/esm/Instagram.js
+var React67 = __toESM(require_react(), 1);
+var jsx_runtime57 = __toESM(require_jsx_runtime(), 1);
+var Instagram_default = createSvgIcon(jsx_runtime57.jsx("path", {
+  d: "M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"
+}), "Instagram");
+// node_modules/@mui/icons-material/esm/KeyboardArrowLeft.js
+var jsx_runtime58 = __toESM(require_jsx_runtime(), 1);
+var KeyboardArrowLeft_default = createSvgIcon(jsx_runtime58.jsx("path", {
+  d: "M15.41 16.59 10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"
+}), "KeyboardArrowLeft");
+// node_modules/@mui/icons-material/esm/KeyboardArrowRight.js
+var jsx_runtime59 = __toESM(require_jsx_runtime(), 1);
+var KeyboardArrowRight_default = createSvgIcon(jsx_runtime59.jsx("path", {
+  d: "M8.59 16.59 13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"
+}), "KeyboardArrowRight");
+// node_modules/@mui/icons-material/esm/Phone.js
+var jsx_runtime60 = __toESM(require_jsx_runtime(), 1);
+var Phone_default = createSvgIcon(jsx_runtime60.jsx("path", {
+  d: "M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"
+}), "Phone");
+// node_modules/@mui/icons-material/esm/Search.js
+var jsx_runtime61 = __toESM(require_jsx_runtime(), 1);
+var Search_default = createSvgIcon(jsx_runtime61.jsx("path", {
+  d: "M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+}), "Search");
+// node_modules/@mui/icons-material/esm/Telegram.js
+var React68 = __toESM(require_react(), 1);
+var jsx_runtime62 = __toESM(require_jsx_runtime(), 1);
+var Telegram_default = createSvgIcon(jsx_runtime62.jsx("path", {
+  d: "M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"
+}), "Telegram");
+// src/components/home/HeaderSection/ImageSlider.js
 var jsx_dev_runtime2 = __toESM(require_jsx_dev_runtime(), 1);
-var HeaderSection_default = HeaderSection = () => {
+var slideStyles = {
+  width: "100%",
+  height: "100%",
+  borderRadius: "10px",
+  backgroundSize: "cover",
+  backgroundPosition: "center",
+  transition: (theme) => theme.transitions.create("background", {
+    duration: theme.transitions.duration.standard
+  })
+};
+var rightArrowStyles = {
+  position: "absolute",
+  top: "50%",
+  transform: "translate(0, -50%)",
+  right: "32px",
+  fontSize: "45px",
+  color: "#fff",
+  zIndex: 1,
+  cursor: "pointer"
+};
+var leftArrowStyles = {
+  position: "absolute",
+  top: "50%",
+  transform: "translate(0, -50%)",
+  left: "32px",
+  fontSize: "45px",
+  color: "#fff",
+  zIndex: 1,
+  cursor: "pointer"
+};
+var sliderStyles = {
+  position: "relative",
+  height: "100%"
+};
+var dotsContainerStyles = {
+  position: "relative",
+  top: "55vh",
+  display: "flex",
+  justifyContent: "center",
+  flexDirection: "row"
+};
+var dotStyle = {
+  margin: "0 3px",
+  cursor: "pointer",
+  fontSize: "20px"
+};
+var ImageSlider = ({ items }) => {
+  const [currentIndex, setCurrentIndex] = import_react9.useState(0);
+  const goToPrevious = () => {
+    const isFirstSlide = currentIndex === 0;
+    const newIndex = isFirstSlide ? items.length - 1 : currentIndex - 1;
+    setCurrentIndex(newIndex);
+  };
+  const goToNext = () => {
+    const isLastSlide = currentIndex === items.length - 1;
+    const newIndex = isLastSlide ? 0 : currentIndex + 1;
+    setCurrentIndex(newIndex);
+  };
+  const goToSlide = (slideIndex) => {
+    setCurrentIndex(slideIndex);
+  };
+  const slideStylesWidthBackground = {
+    ...slideStyles,
+    backgroundImage: `url(${items[currentIndex].url})`
+  };
   return jsx_dev_runtime2.jsxDEV(Box_default, {
-    padding: 4,
-    sx: { backgroundImage: "/static/background.jpg" },
-    children: jsx_dev_runtime2.jsxDEV(Typography_default, {
+    sx: sliderStyles,
+    children: [
+      jsx_dev_runtime2.jsxDEV(Box_default, {
+        className: "arrows",
+        children: [
+          jsx_dev_runtime2.jsxDEV(Box_default, {
+            onClick: goToPrevious,
+            sx: leftArrowStyles,
+            children: jsx_dev_runtime2.jsxDEV(KeyboardArrowLeft_default, {}, undefined, false, undefined, this)
+          }, undefined, false, undefined, this),
+          jsx_dev_runtime2.jsxDEV(Box_default, {
+            onClick: goToNext,
+            sx: rightArrowStyles,
+            children: jsx_dev_runtime2.jsxDEV(KeyboardArrowRight_default, {}, undefined, false, undefined, this)
+          }, undefined, false, undefined, this)
+        ]
+      }, undefined, true, undefined, this),
+      jsx_dev_runtime2.jsxDEV(Box_default, {
+        sx: slideStylesWidthBackground,
+        children: [
+          jsx_dev_runtime2.jsxDEV(Box_default, {
+            sx: { padding: 4 },
+            children: items[currentIndex].name
+          }, undefined, false, undefined, this),
+          jsx_dev_runtime2.jsxDEV(Box_default, {
+            sx: dotsContainerStyles,
+            children: items.map((slide, slideIndex) => jsx_dev_runtime2.jsxDEV(Box_default, {
+              style: dotStyle,
+              onClick: () => goToSlide(slideIndex),
+              children: currentIndex == slideIndex ? jsx_dev_runtime2.jsxDEV(Circle_default, {}, undefined, false, undefined, this) : jsx_dev_runtime2.jsxDEV(CircleOutlined_default, {}, undefined, false, undefined, this)
+            }, slideIndex, false, undefined, this))
+          }, undefined, false, undefined, this)
+        ]
+      }, undefined, true, undefined, this)
+    ]
+  }, undefined, true, undefined, this);
+};
+var ImageSlider_default = ImageSlider;
+
+// src/components/home/HeaderSection/HeaderSection.js
+var jsx_dev_runtime3 = __toESM(require_jsx_dev_runtime(), 1);
+var containerStyles = {
+  width: "100%",
+  height: "70vh",
+  margin: "0 auto"
+};
+var HeaderSection_default = HeaderSection = () => {
+  return jsx_dev_runtime3.jsxDEV(Box_default, {
+    children: jsx_dev_runtime3.jsxDEV(Box_default, {
+      sx: containerStyles,
+      children: jsx_dev_runtime3.jsxDEV(ImageSlider_default, {
+        items: header_items_default
+      }, undefined, false, undefined, this)
+    }, undefined, false, undefined, this)
+  }, undefined, false, undefined, this);
+};
+
+// src/components/home/ChooseSection/ChooseSection.js
+var import_react11 = __toESM(require_react(), 1);
+var jsx_dev_runtime4 = __toESM(require_jsx_dev_runtime(), 1);
+var games = [
+  {
+    img: "/static/games/dota2.jpg",
+    title: "Dota 2",
+    author: "swabdesign"
+  },
+  {
+    img: "/static/games/worldoftanks.jpg",
+    title: "World of tanks",
+    author: "Pavel Nekoranec"
+  },
+  {
+    img: "/static/games/warface.jpg",
+    title: "Warface",
+    author: "Jen P."
+  },
+  {
+    img: "/static/games/fortnite.png",
+    title: "Fortnite",
+    author: "Taylor Simpson"
+  },
+  {
+    img: "/static/games/escapefromtarkov.jpg",
+    title: "Escape From Tarkov",
+    author: "Hutomo Abrianto"
+  },
+  {
+    img: "/static/games/pubg.jpg",
+    title: "PUBG",
+    author: "Christian Mackie"
+  },
+  {
+    img: "/static/games/rust.jpg",
+    title: "Rust",
+    author: "Ben Kolde"
+  },
+  {
+    img: "/static/games/cyberpank.jpg",
+    title: "Cyberpunk 2077",
+    author: "Philipp Berndt"
+  },
+  {
+    img: "/static/games/csgo.jpg",
+    title: "CS:GO",
+    author: "Charles Deluvio"
+  },
+  {
+    img: "/static/games/apexlegend.webp",
+    title: "Apex Legend",
+    author: "Fi Bell"
+  },
+  {
+    img: "/static/games/overwatch2.jpeg",
+    title: "Overwatch",
+    author: "Douglas Sheppard"
+  },
+  {
+    img: "/static/games/minecraft.webp",
+    title: "Minecraft",
+    author: "Darren Richardson"
+  }
+];
+var builds = [
+  {
+    img: "/static/builds/build1.jpg",
+    title: "\u0421\u0443\u043F\u0435\u0440 \u043A\u043E\u043C\u043F\u044C\u044E\u0442\u0435\u0440",
+    author: "swabdesign"
+  },
+  {
+    img: "/static/builds/build2.jpg",
+    title: "\u041A\u043E\u043C\u043F\u044C\u044E\u0442\u0435\u0440 \u043A\u043B\u0430\u043D\u0430 \u0410\u043A\u0430\u0446\u043A\u0438",
+    author: "swabdesign"
+  },
+  {
+    img: "/static/builds/build3.jpg",
+    title: "\u0421\u043E\u0440\u0442\u043A\u0430\u0440 \u0437\u0432\u0435\u0440\u044C",
+    author: "swabdesign"
+  }
+];
+var ChooseSection_default = ChooseSection = () => {
+  const [selectedGames, setSelectedGames] = import_react11.useState([]);
+  const handleSelectGame = (index) => {
+    if (selectedGames.includes(index)) {
+      setSelectedGames(selectedGames.filter((gameIndex) => gameIndex !== index));
+    } else {
+      setSelectedGames([...selectedGames, index]);
+    }
+  };
+  return jsx_dev_runtime4.jsxDEV(Grid_default, {
+    container: true,
+    sx: {
+      padding: { md: 4, xs: "0" },
+      height: "100vh",
+      justifyContent: "center"
+    },
+    columnGap: 10,
+    children: [
+      jsx_dev_runtime4.jsxDEV(Grid_default, {
+        item: true,
+        xs: 12,
+        md: 5,
+        children: [
+          jsx_dev_runtime4.jsxDEV(Typography_default, {
+            variant: "h4",
+            textAlign: "center",
+            children: "\u0412\u044B\u0431\u0435\u0440\u0438\u0442\u0435 \u0438\u0433\u0440\u044B"
+          }, undefined, false, undefined, this),
+          jsx_dev_runtime4.jsxDEV(Box_default, {
+            sx: {
+              height: { xs: "400px", md: "80vh" },
+              overflow: "auto",
+              border: { xs: 2, md: 0 },
+              borderColor: "#ffffff"
+            },
+            children: jsx_dev_runtime4.jsxDEV(ImageList_default, {
+              variant: "masonry",
+              cols: 3,
+              gap: 8,
+              children: games.map((game, index) => jsx_dev_runtime4.jsxDEV(ImageListItem_default, {
+                sx: {
+                  border: selectedGames.includes(index) ? 3 : 0,
+                  borderColor: "#ff0000"
+                },
+                onClick: () => handleSelectGame(index),
+                children: [
+                  jsx_dev_runtime4.jsxDEV("img", {
+                    srcSet: `${game.img}?w=248&fit=crop&auto=format&dpr=2 2x`,
+                    src: `${game.img}?w=248&fit=crop&auto=format`,
+                    alt: game.title,
+                    loading: "lazy"
+                  }, undefined, false, undefined, this),
+                  jsx_dev_runtime4.jsxDEV(ImageListItemBar_default, {
+                    position: "below",
+                    title: game.title
+                  }, undefined, false, undefined, this)
+                ]
+              }, game.img, true, undefined, this))
+            }, undefined, false, undefined, this)
+          }, undefined, false, undefined, this)
+        ]
+      }, undefined, true, undefined, this),
+      jsx_dev_runtime4.jsxDEV(Grid_default, {
+        item: true,
+        xs: 12,
+        md: 5,
+        children: [
+          jsx_dev_runtime4.jsxDEV(Typography_default, {
+            variant: "h4",
+            textAlign: "center",
+            children: "\u041C\u044B \u043F\u043E\u0434\u0431\u0438\u0440\u0430\u0435\u043C \u043B\u0443\u0447\u0448\u0435\u0435"
+          }, undefined, false, undefined, this),
+          jsx_dev_runtime4.jsxDEV(ImageList_default, {
+            variant: "masonry",
+            cols: 3,
+            gap: 8,
+            children: builds.map((item) => jsx_dev_runtime4.jsxDEV(ImageListItem_default, {
+              children: [
+                jsx_dev_runtime4.jsxDEV("img", {
+                  srcSet: `${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`,
+                  src: `${item.img}?w=248&fit=crop&auto=format`,
+                  alt: item.title,
+                  loading: "lazy"
+                }, undefined, false, undefined, this),
+                jsx_dev_runtime4.jsxDEV(ImageListItemBar_default, {
+                  position: "below",
+                  title: item.title
+                }, undefined, false, undefined, this)
+              ]
+            }, item.img, true, undefined, this))
+          }, undefined, false, undefined, this)
+        ]
+      }, undefined, true, undefined, this)
+    ]
+  }, undefined, true, undefined, this);
+};
+
+// src/components/home/ReviewSection/ReviewSection.js
+var jsx_dev_runtime5 = __toESM(require_jsx_dev_runtime(), 1);
+var ReviewSection_default = ReviewSection = () => {
+  return jsx_dev_runtime5.jsxDEV(Box_default, {
+    sx: { padding: 4, height: "50vh" },
+    children: jsx_dev_runtime5.jsxDEV(Typography_default, {
       variant: "h4",
-      children: "HELLO WORLD"
+      sx: {
+        textAlign: "center"
+      },
+      children: "\u0427\u0442\u043E \u0434\u0443\u043C\u0430\u044E\u0442 \u043D\u0430\u0448\u0438 \u043A\u043B\u0438\u0435\u043D\u0442\u044B"
     }, undefined, false, undefined, this)
   }, undefined, false, undefined, this);
 };
 
 // src/components/home/HomePage.js
-var jsx_dev_runtime3 = __toESM(require_jsx_dev_runtime(), 1);
+var jsx_dev_runtime6 = __toESM(require_jsx_dev_runtime(), 1);
 var HomePage_default = HomePage = () => {
-  return jsx_dev_runtime3.jsxDEV(Box_default, {
-    xs: {
-      margin: 0
-    },
-    children: jsx_dev_runtime3.jsxDEV(HeaderSection_default, {}, undefined, false, undefined, this)
-  }, undefined, false, undefined, this);
+  return jsx_dev_runtime6.jsxDEV(Box_default, {
+    marginBottom: "200px",
+    children: [
+      jsx_dev_runtime6.jsxDEV(HeaderSection_default, {}, undefined, false, undefined, this),
+      jsx_dev_runtime6.jsxDEV(ChooseSection_default, {}, undefined, false, undefined, this),
+      jsx_dev_runtime6.jsxDEV(ReviewSection_default, {}, undefined, false, undefined, this)
+    ]
+  }, undefined, true, undefined, this);
 };
 
 // src/components/delivery/DeliveryPage.js
-var import_react13 = __toESM(require_react(), 1);
+var import_react15 = __toESM(require_react(), 1);
 
 // src/components/delivery/CustomYandexMap.js
-var import_react12 = __toESM(require_react(), 1);
+var import_react14 = __toESM(require_react(), 1);
 
 // node_modules/@pbe/react-yandex-maps/dist/react-yandex-maps.esm.js
-var import_react11 = __toESM(require_react(), 1);
+var import_react13 = __toESM(require_react(), 1);
 var r2 = function() {
   return r2 = Object.assign ? Object.assign.bind() : function(t2) {
     for (var e2 = 1;e2 < arguments.length; e2++) {
@@ -36303,7 +39223,7 @@ var r2 = function() {
 var d = function(e2, n2 = false, o2 = []) {
   return (i) => {
     const { width: c, height: l, modules: d2 = [], onLoad: h = u } = i, f = p(o2.concat(d2)), y = !n2 || !!f, b = a(i, m);
-    return import_react11.useEffect(() => f ? h(f) : undefined, [f]), y ? import_react11.default.createElement(e2, r2({ ymaps: f }, b)) : import_react11.default.createElement("div", { style: { width: c, height: l } });
+    return import_react13.useEffect(() => f ? h(f) : undefined, [f]), y ? import_react13.default.createElement(e2, r2({ ymaps: f }, b)) : import_react13.default.createElement("div", { style: { width: c, height: l } });
   };
 };
 var v = function(t2) {
@@ -36350,17 +39270,17 @@ var a = (t2, e2) => {
     e2.indexOf(o2) === -1 && (n2[o2] = t2[o2]);
   return n2;
 };
-var i = import_react11.default.createContext(null);
-var c = import_react11.default.createContext(null);
-var l = (e2) => (n2) => import_react11.default.createElement(c.Consumer, null, (o2) => import_react11.default.createElement(e2, r2({ parent: o2 }, n2)));
+var i = import_react13.default.createContext(null);
+var c = import_react13.default.createContext(null);
+var l = (e2) => (n2) => import_react13.default.createElement(c.Consumer, null, (o2) => import_react13.default.createElement(e2, r2({ parent: o2 }, n2)));
 var p = (t2 = []) => {
-  const [r3, a2] = import_react11.useState(false), c2 = import_react11.useRef(t2), l2 = (() => {
-    const t3 = import_react11.useContext(i);
+  const [r3, a2] = import_react13.useState(false), c2 = import_react13.useRef(t2), l2 = (() => {
+    const t3 = import_react13.useContext(i);
     if (t3 === null)
       throw new Error("Couldn't find Yandex.Maps API in the context. Make sure that hook useYMaps is inside <YMaps /> provider");
     return t3;
   })(), p2 = l2.getApi();
-  return import_react11.useEffect(() => {
+  return import_react13.useEffect(() => {
     l2.load().then(() => Promise.all(c2.current.map(l2.loadModule))).then(() => a2(true));
   }, []), r3 && p2 ? p2 : null;
 };
@@ -36370,7 +39290,7 @@ var m = ["onLoad", "onError", "modules", "apiLoader"];
 var h = typeof window != "undefined";
 var f = { lang: "ru_RU", load: "", ns: "", mode: "release" };
 var y = (e2) => {
-  const { version: n2 = "2.1", enterprise: r3 = false, query: a2 = { lang: "ru_RU", load: "", ns: "" }, preload: c2 = false, children: l2 } = e2, p2 = import_react11.useRef(((t2) => {
+  const { version: n2 = "2.1", enterprise: r3 = false, query: a2 = { lang: "ru_RU", load: "", ns: "" }, preload: c2 = false, children: l2 } = e2, p2 = import_react13.useRef(((t2) => {
     const { query: e3 = f } = t2, n3 = Date.now().toString(32), o2 = e3.ns || "", s2 = "__yandex-maps-api-onload__$$" + n3, r4 = "__yandex-maps-api-onerror__$$" + n3, a3 = h ? window : {}, i2 = {};
     let c3;
     const l3 = () => o2 ? a3[o2] : c3, p3 = () => {
@@ -36409,14 +39329,14 @@ var y = (e2) => {
       }, n4);
     }) };
   })({ version: n2, enterprise: r3, query: a2, preload: c2 }));
-  return import_react11.useEffect(() => {
+  return import_react13.useEffect(() => {
     c2 && p2.current.load();
-  }, [p2.current]), import_react11.default.createElement(i.Provider, { value: p2.current }, l2);
+  }, [p2.current]), import_react13.default.createElement(i.Provider, { value: p2.current }, l2);
 };
 var b = /^on(?=[A-Z])/;
 var E = (t2) => "default" + t2.charAt(0).toUpperCase() + t2.slice(1);
 
-class P extends import_react11.default.Component {
+class P extends import_react13.default.Component {
   constructor(t2) {
     super(t2), this.state = { error: null, errorInfo: null };
   }
@@ -36429,9 +39349,9 @@ class P extends import_react11.default.Component {
     return this.state.error ? null : this.props.children;
   }
 }
-var x = (e2) => ({ onError: n2, ...o2 }) => import_react11.default.createElement(P, { onError: n2 }, import_react11.default.createElement(e2, o2));
+var x = (e2) => ({ onError: n2, ...o2 }) => import_react13.default.createElement(P, { onError: n2 }, import_react13.default.createElement(e2, o2));
 
-class M extends import_react11.default.Component {
+class M extends import_react13.default.Component {
   constructor() {
     super(), this.instance = null, this.state = { instance: null }, this._parentElement = null, this._getRef = (t2) => {
       this._parentElement = t2;
@@ -36448,7 +39368,7 @@ class M extends import_react11.default.Component {
   }
   render() {
     const e2 = w(this.props), n2 = v(this.props), o2 = a(n2, ["_events", "state", "defaultState", "options", "defaultOptions", "instanceRef", "ymaps", "children", "width", "height", "style", "className"]);
-    return import_react11.default.createElement(c.Provider, { value: this.state.instance }, import_react11.default.createElement("div", r2({ ref: this._getRef }, e2, o2), this.props.children));
+    return import_react13.default.createElement(c.Provider, { value: this.state.instance }, import_react13.default.createElement("div", r2({ ref: this._getRef }, e2, o2), this.props.children));
   }
   static mountObject(t2, e2, n2) {
     const { instanceRef: o2, _events: s2 } = v(n2), r3 = new e2(t2, _2(n2, "state"), _2(n2, "options"));
@@ -36474,7 +39394,7 @@ class M extends import_react11.default.Component {
 var k = x(d(M, true, ["Map"]));
 k.defaultProps = { width: 320, height: 240 };
 
-class S extends import_react11.default.Component {
+class S extends import_react13.default.Component {
   constructor() {
     super(), this.state = { instance: null }, this._parentElement = null, this._getRef = (t2) => {
       this._parentElement = t2;
@@ -36491,7 +39411,7 @@ class S extends import_react11.default.Component {
   }
   render() {
     const e2 = w(this.props);
-    return import_react11.default.createElement("div", r2({ ref: this._getRef }, e2));
+    return import_react13.default.createElement("div", r2({ ref: this._getRef }, e2));
   }
   static mountObject(t2, e2, n2) {
     const { instanceRef: o2, _events: s2 } = v(n2), r3 = _2(n2, "point"), a2 = _2(n2, "locateOptions"), i2 = _2(n2, "options");
@@ -36524,7 +39444,7 @@ class S extends import_react11.default.Component {
 var T = x(d(S, true, ["panorama.isSupported", "panorama.locate", "panorama.createPlayer", "panorama.Player"]));
 T.defaultProps = { width: 320, height: 240 };
 
-class U extends import_react11.default.Component {
+class U extends import_react13.default.Component {
   constructor() {
     super(), this.state = { instance: null }, this.instance = null;
   }
@@ -36539,7 +39459,7 @@ class U extends import_react11.default.Component {
     U.unmountControl(this.instance, this.props);
   }
   render() {
-    return import_react11.default.createElement(c.Provider, { value: this.state.instance }, this.props.children);
+    return import_react13.default.createElement(c.Provider, { value: this.state.instance }, this.props.children);
   }
   static mountControl(t2, e2) {
     const { instanceRef: n2, parent: o2, lazy: s2, _events: r3 } = v(e2), a2 = new t2({ data: _2(e2, "data"), options: _2(e2, "options"), state: _2(e2, "state"), mapTypes: _2(e2, "mapTypes"), lazy: s2 });
@@ -36577,21 +39497,21 @@ class U extends import_react11.default.Component {
     t2 !== null && (Object.keys(s2).forEach((e3) => O(t2, e3, s2[e3])), o2.controls && typeof o2.controls.remove == "function" ? o2.controls.remove(t2) : o2.remove && typeof o2.remove == "function" && o2.remove(t2), R(n2));
   }
 }
-var D = x(l(d((e2) => import_react11.default.createElement(U, r2({}, e2, { name: "Button" })), true, ["control.Button"])));
-var B = x(l(d((e2) => import_react11.default.createElement(U, r2({}, e2, { name: "FullscreenControl" })), true, ["control.FullscreenControl"])));
-var A = x(l(d((e2) => import_react11.default.createElement(U, r2({}, e2, { name: "GeolocationControl" })), true, ["control.GeolocationControl"])));
-var L = x(l(d((e2) => import_react11.default.createElement(U, r2({}, e2, { name: "ListBox" })), true, ["control.ListBox"])));
-var $ = x(l(d((e2) => import_react11.default.createElement(U, r2({}, e2, { name: "ListBoxItem" })), true, ["control.ListBoxItem"])));
-var N = x(l(d((e2) => import_react11.default.createElement(U, r2({}, e2, { name: "RouteButton" })), true, ["control.RouteButton"])));
-var Z = x(l(d((e2) => import_react11.default.createElement(U, r2({}, e2, { name: "RouteEditor" })), true, ["control.RouteEditor"])));
-var z = x(l(d((e2) => import_react11.default.createElement(U, r2({}, e2, { name: "RoutePanel" })), true, ["control.RoutePanel"])));
-var G = x(l(d((e2) => import_react11.default.createElement(U, r2({}, e2, { name: "RulerControl" })), true, ["control.RulerControl"])));
-var I = x(l(d((e2) => import_react11.default.createElement(U, r2({}, e2, { name: "SearchControl" })), true, ["control.SearchControl"])));
-var W = x(l(d((e2) => import_react11.default.createElement(U, r2({}, e2, { name: "TrafficControl" })), true, ["control.TrafficControl"])));
-var F = x(l(d((e2) => import_react11.default.createElement(U, r2({}, e2, { name: "TypeSelector" })), true, ["control.TypeSelector"])));
-var q = x(l(d((e2) => import_react11.default.createElement(U, r2({}, e2, { name: "ZoomControl" })), true, ["control.ZoomControl"])));
+var D = x(l(d((e2) => import_react13.default.createElement(U, r2({}, e2, { name: "Button" })), true, ["control.Button"])));
+var B = x(l(d((e2) => import_react13.default.createElement(U, r2({}, e2, { name: "FullscreenControl" })), true, ["control.FullscreenControl"])));
+var A = x(l(d((e2) => import_react13.default.createElement(U, r2({}, e2, { name: "GeolocationControl" })), true, ["control.GeolocationControl"])));
+var L = x(l(d((e2) => import_react13.default.createElement(U, r2({}, e2, { name: "ListBox" })), true, ["control.ListBox"])));
+var $ = x(l(d((e2) => import_react13.default.createElement(U, r2({}, e2, { name: "ListBoxItem" })), true, ["control.ListBoxItem"])));
+var N = x(l(d((e2) => import_react13.default.createElement(U, r2({}, e2, { name: "RouteButton" })), true, ["control.RouteButton"])));
+var Z = x(l(d((e2) => import_react13.default.createElement(U, r2({}, e2, { name: "RouteEditor" })), true, ["control.RouteEditor"])));
+var z = x(l(d((e2) => import_react13.default.createElement(U, r2({}, e2, { name: "RoutePanel" })), true, ["control.RoutePanel"])));
+var G = x(l(d((e2) => import_react13.default.createElement(U, r2({}, e2, { name: "RulerControl" })), true, ["control.RulerControl"])));
+var I = x(l(d((e2) => import_react13.default.createElement(U, r2({}, e2, { name: "SearchControl" })), true, ["control.SearchControl"])));
+var W = x(l(d((e2) => import_react13.default.createElement(U, r2({}, e2, { name: "TrafficControl" })), true, ["control.TrafficControl"])));
+var F = x(l(d((e2) => import_react13.default.createElement(U, r2({}, e2, { name: "TypeSelector" })), true, ["control.TypeSelector"])));
+var q = x(l(d((e2) => import_react13.default.createElement(U, r2({}, e2, { name: "ZoomControl" })), true, ["control.ZoomControl"])));
 
-class Y extends import_react11.default.Component {
+class Y extends import_react13.default.Component {
   constructor() {
     super(), this.state = { instance: null }, this.instance = null;
   }
@@ -36606,7 +39526,7 @@ class Y extends import_react11.default.Component {
     Y.unmountObject(this.instance, this.props);
   }
   render() {
-    return import_react11.default.createElement(c.Provider, { value: this.state.instance }, this.props.children);
+    return import_react13.default.createElement(c.Provider, { value: this.state.instance }, this.props.children);
   }
   static mountObject(t2, e2) {
     const { instanceRef: n2, parent: o2, _events: s2 } = v(e2), r3 = new t2(_2(e2, "options"));
@@ -36634,7 +39554,7 @@ class Y extends import_react11.default.Component {
 }
 var V = x(l(d(Y, true, ["Clusterer"])));
 
-class H extends import_react11.default.Component {
+class H extends import_react13.default.Component {
   constructor() {
     super(), this.state = { instance: null };
   }
@@ -36693,7 +39613,7 @@ class H extends import_react11.default.Component {
 }
 var J = x(l(d(H, true, ["ObjectManager"])));
 
-class K extends import_react11.default.Component {
+class K extends import_react13.default.Component {
   constructor() {
     super(), this.state = { instance: null }, this.instance = null;
   }
@@ -36748,24 +39668,24 @@ var Q = { modifyConstructor(t2) {
   }
   return e2.prototype = t2.prototype, e2;
 } };
-var X = x(l(d((e2) => import_react11.default.createElement(K, r2({}, e2, { name: "GeoObject", dangerZone: Q })), true, ["GeoObject"])));
-var tt = x(l(d((e2) => import_react11.default.createElement(K, r2({}, e2, { name: "Circle" })), true, ["Circle"])));
-var et = x(l(d((e2) => import_react11.default.createElement(K, r2({}, e2, { name: "Placemark" })), true, ["Placemark"])));
-var nt = x(l(d((e2) => import_react11.default.createElement(K, r2({}, e2, { name: "Polygon" })), true, ["Polygon"])));
-var ot = x(l(d((e2) => import_react11.default.createElement(K, r2({}, e2, { name: "Polyline" })), true, ["Polyline"])));
-var st = x(l(d((e2) => import_react11.default.createElement(K, r2({}, e2, { name: "Rectangle" })), true, ["Rectangle"])));
+var X = x(l(d((e2) => import_react13.default.createElement(K, r2({}, e2, { name: "GeoObject", dangerZone: Q })), true, ["GeoObject"])));
+var tt = x(l(d((e2) => import_react13.default.createElement(K, r2({}, e2, { name: "Circle" })), true, ["Circle"])));
+var et = x(l(d((e2) => import_react13.default.createElement(K, r2({}, e2, { name: "Placemark" })), true, ["Placemark"])));
+var nt = x(l(d((e2) => import_react13.default.createElement(K, r2({}, e2, { name: "Polygon" })), true, ["Polygon"])));
+var ot = x(l(d((e2) => import_react13.default.createElement(K, r2({}, e2, { name: "Polyline" })), true, ["Polyline"])));
+var st = x(l(d((e2) => import_react13.default.createElement(K, r2({}, e2, { name: "Rectangle" })), true, ["Rectangle"])));
 
 // src/components/delivery/CustomYandexMap.js
-var jsx_dev_runtime4 = __toESM(require_jsx_dev_runtime(), 1);
+var jsx_dev_runtime7 = __toESM(require_jsx_dev_runtime(), 1);
 var CustomYandexMap_default = CustomYandexMap = ({ selected }) => {
-  const [ymaps, setYmaps] = import_react12.useState();
-  const [coords, setCoords] = import_react12.useState([0, 0]);
-  return jsx_dev_runtime4.jsxDEV(y, {
+  const [ymaps, setYmaps] = import_react14.useState();
+  const [coords, setCoords] = import_react14.useState([0, 0]);
+  return jsx_dev_runtime7.jsxDEV(y, {
     onApiAvaliable: (ymaps2) => {
       console.log("setting ymaps");
       setYmaps(ymaps2);
     },
-    children: jsx_dev_runtime4.jsxDEV(k, {
+    children: jsx_dev_runtime7.jsxDEV(k, {
       state: {
         center: selected.coord,
         zoom: 9,
@@ -36778,7 +39698,7 @@ var CustomYandexMap_default = CustomYandexMap = ({ selected }) => {
       ],
       width: "100%",
       height: "100%",
-      children: jsx_dev_runtime4.jsxDEV(et, {
+      children: jsx_dev_runtime7.jsxDEV(et, {
         modules: ["geoObject.addon.balloon"],
         geometry: selected.coord,
         properties: {
@@ -36788,64 +39708,9 @@ var CustomYandexMap_default = CustomYandexMap = ({ selected }) => {
     }, undefined, false, undefined, this)
   }, undefined, false, undefined, this);
 };
-// node_modules/@mui/icons-material/esm/AccessTime.js
-var jsx_runtime45 = __toESM(require_jsx_runtime(), 1);
-var AccessTime_default = createSvgIcon([jsx_runtime45.jsx("path", {
-  d: "M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"
-}, "0"), jsx_runtime45.jsx("path", {
-  d: "M12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z"
-}, "1")], "AccessTime");
-// node_modules/@mui/icons-material/esm/Computer.js
-var jsx_runtime46 = __toESM(require_jsx_runtime(), 1);
-var Computer_default = createSvgIcon(jsx_runtime46.jsx("path", {
-  d: "M20 18c1.1 0 1.99-.9 1.99-2L22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2H0v2h24v-2h-4zM4 6h16v10H4V6z"
-}), "Computer");
-// node_modules/@mui/icons-material/esm/DeliveryDining.js
-var jsx_runtime47 = __toESM(require_jsx_runtime(), 1);
-var DeliveryDining_default = createSvgIcon([jsx_runtime47.jsx("path", {
-  d: "M19 7c0-1.1-.9-2-2-2h-3v2h3v2.65L13.52 14H10V9H6c-2.21 0-4 1.79-4 4v3h2c0 1.66 1.34 3 3 3s3-1.34 3-3h4.48L19 10.35V7zM7 17c-.55 0-1-.45-1-1h2c0 .55-.45 1-1 1z"
-}, "0"), jsx_runtime47.jsx("path", {
-  d: "M5 6h5v2H5zm14 7c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3zm0 4c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1z"
-}, "1")], "DeliveryDining");
-// node_modules/@mui/icons-material/esm/Email.js
-var jsx_runtime48 = __toESM(require_jsx_runtime(), 1);
-var Email_default = createSvgIcon(jsx_runtime48.jsx("path", {
-  d: "M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"
-}), "Email");
-// node_modules/@mui/icons-material/esm/Home.js
-var jsx_runtime49 = __toESM(require_jsx_runtime(), 1);
-var Home_default = createSvgIcon(jsx_runtime49.jsx("path", {
-  d: "M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"
-}), "Home");
-// node_modules/@mui/icons-material/esm/Info.js
-var jsx_runtime50 = __toESM(require_jsx_runtime(), 1);
-var Info_default = createSvgIcon(jsx_runtime50.jsx("path", {
-  d: "M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"
-}), "Info");
-// node_modules/@mui/icons-material/esm/Instagram.js
-var React65 = __toESM(require_react(), 1);
-var jsx_runtime51 = __toESM(require_jsx_runtime(), 1);
-var Instagram_default = createSvgIcon(jsx_runtime51.jsx("path", {
-  d: "M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"
-}), "Instagram");
-// node_modules/@mui/icons-material/esm/Phone.js
-var jsx_runtime52 = __toESM(require_jsx_runtime(), 1);
-var Phone_default = createSvgIcon(jsx_runtime52.jsx("path", {
-  d: "M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"
-}), "Phone");
-// node_modules/@mui/icons-material/esm/Search.js
-var jsx_runtime53 = __toESM(require_jsx_runtime(), 1);
-var Search_default = createSvgIcon(jsx_runtime53.jsx("path", {
-  d: "M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
-}), "Search");
-// node_modules/@mui/icons-material/esm/Telegram.js
-var React66 = __toESM(require_react(), 1);
-var jsx_runtime54 = __toESM(require_jsx_runtime(), 1);
-var Telegram_default = createSvgIcon(jsx_runtime54.jsx("path", {
-  d: "M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"
-}), "Telegram");
+
 // src/components/delivery/DeliveryPage.js
-var jsx_dev_runtime5 = __toESM(require_jsx_dev_runtime(), 1);
+var jsx_dev_runtime8 = __toESM(require_jsx_dev_runtime(), 1);
 var adresses = [
   {
     title: "595695, \u041E\u043C\u0441\u043A\u0430\u044F \u043E\u0431\u043B\u0430\u0441\u0442\u044C, \u0433\u043E\u0440\u043E\u0434 \u041A\u0430\u0448\u0438\u0440\u0430, \u043F\u0440\u043E\u0435\u0437\u0434 \u0427\u0435\u0445\u043E\u0432\u0430, 52",
@@ -36873,24 +39738,24 @@ var adresses = [
   }
 ];
 var DeliveryPage_default = DeliveryPage = () => {
-  const [selected, setSelected] = import_react13.useState(adresses[0]);
-  return jsx_dev_runtime5.jsxDEV(Grid_default, {
+  const [selected, setSelected] = import_react15.useState(adresses[0]);
+  return jsx_dev_runtime8.jsxDEV(Grid_default, {
     container: true,
     justifyItems: "center",
     rowGap: "30px",
     marginBlockEnd: "100px",
     padding: 4,
     children: [
-      jsx_dev_runtime5.jsxDEV(Grid_default, {
+      jsx_dev_runtime8.jsxDEV(Grid_default, {
         item: true,
         xs: 12,
         md: 12,
-        children: jsx_dev_runtime5.jsxDEV(Typography_default, {
+        children: jsx_dev_runtime8.jsxDEV(Typography_default, {
           fontSize: "1.5rem",
           children: "\u0421\u0430\u043C\u043E\u0432\u044B\u0432\u043E\u0437"
         }, undefined, false, undefined, this)
       }, undefined, false, undefined, this),
-      jsx_dev_runtime5.jsxDEV(Grid_default, {
+      jsx_dev_runtime8.jsxDEV(Grid_default, {
         item: true,
         xs: 12,
         md: 6,
@@ -36898,15 +39763,15 @@ var DeliveryPage_default = DeliveryPage = () => {
           width: { xs: "360px", md: "100%" },
           height: "360px"
         },
-        children: jsx_dev_runtime5.jsxDEV(CustomYandexMap_default, {
+        children: jsx_dev_runtime8.jsxDEV(CustomYandexMap_default, {
           selected
         }, undefined, false, undefined, this)
       }, undefined, false, undefined, this),
-      jsx_dev_runtime5.jsxDEV(Grid_default, {
+      jsx_dev_runtime8.jsxDEV(Grid_default, {
         item: true,
         xs: 12,
         md: 6,
-        children: jsx_dev_runtime5.jsxDEV(List_default, {
+        children: jsx_dev_runtime8.jsxDEV(List_default, {
           sx: {
             border: 1,
             borderColor: "#ffffff",
@@ -36916,7 +39781,7 @@ var DeliveryPage_default = DeliveryPage = () => {
             maxHeight: 360,
             "& ul": { padding: 0 }
           },
-          children: adresses.map((adress, index) => jsx_dev_runtime5.jsxDEV(ListItemButton_default, {
+          children: adresses.map((adress, index) => jsx_dev_runtime8.jsxDEV(ListItemButton_default, {
             sx: {
               bgcolor: selected == adress ? alpha("#ffffff", 0.15) : "#000000",
               "&: hover": {
@@ -36924,83 +39789,83 @@ var DeliveryPage_default = DeliveryPage = () => {
               }
             },
             onClick: () => setSelected(adresses[index]),
-            children: jsx_dev_runtime5.jsxDEV(Typography_default, {
+            children: jsx_dev_runtime8.jsxDEV(Typography_default, {
               children: adress.title
             }, undefined, false, undefined, this)
           }, index, false, undefined, this))
         }, undefined, false, undefined, this)
       }, undefined, false, undefined, this),
-      jsx_dev_runtime5.jsxDEV(Grid_default, {
+      jsx_dev_runtime8.jsxDEV(Grid_default, {
         item: true,
         xs: 12,
         md: 12,
-        children: jsx_dev_runtime5.jsxDEV(Typography_default, {
+        children: jsx_dev_runtime8.jsxDEV(Typography_default, {
           fontSize: "1.5rem",
           children: "\u0414\u043E\u0441\u0442\u0430\u0432\u043A\u0430 \u0434\u043E \u0434\u0432\u0435\u0440\u0438"
         }, undefined, false, undefined, this)
       }, undefined, false, undefined, this),
-      jsx_dev_runtime5.jsxDEV(Grid_default, {
+      jsx_dev_runtime8.jsxDEV(Grid_default, {
         item: true,
         xs: 12,
         md: 4,
         component: Stack_default,
         alignItems: "center",
-        children: jsx_dev_runtime5.jsxDEV(Typography_default, {
+        children: jsx_dev_runtime8.jsxDEV(Typography_default, {
           children: "\u041E\u0441\u0443\u0449\u0435\u0441\u0442\u0432\u043B\u044F\u0435\u0442\u0441\u044F \u042F\u043D\u0434\u0435\u043A\u0441 \u043A\u0443\u0440\u044C\u0435\u0440\u043E\u043C \u043F\u043E \u0432\u0441\u0435\u0439 \u041C\u043E\u0441\u043A\u0432\u0435"
         }, undefined, false, undefined, this)
       }, undefined, false, undefined, this),
-      jsx_dev_runtime5.jsxDEV(Grid_default, {
+      jsx_dev_runtime8.jsxDEV(Grid_default, {
         item: true,
         xs: 12,
         md: 12,
-        children: jsx_dev_runtime5.jsxDEV(Typography_default, {
+        children: jsx_dev_runtime8.jsxDEV(Typography_default, {
           fontSize: "1.5rem",
           children: "\u0421\u0432\u044F\u0436\u0438\u0442\u0435\u0441\u044C \u0441 \u043D\u0430\u043C\u0438"
         }, undefined, false, undefined, this)
       }, undefined, false, undefined, this),
-      jsx_dev_runtime5.jsxDEV(Grid_default, {
+      jsx_dev_runtime8.jsxDEV(Grid_default, {
         item: true,
         xs: 12,
         md: 12,
-        children: jsx_dev_runtime5.jsxDEV(Stack_default, {
+        children: jsx_dev_runtime8.jsxDEV(Stack_default, {
           direction: { xs: "column", md: "row" },
           spacing: 4,
           fontSize: "1rem",
           children: [
-            jsx_dev_runtime5.jsxDEV(Stack_default, {
+            jsx_dev_runtime8.jsxDEV(Stack_default, {
               alignItems: "center",
               direction: "row",
               children: [
-                jsx_dev_runtime5.jsxDEV(Phone_default, {
+                jsx_dev_runtime8.jsxDEV(Phone_default, {
                   sx: { marginRight: 2 }
                 }, undefined, false, undefined, this),
-                jsx_dev_runtime5.jsxDEV(Typography_default, {
+                jsx_dev_runtime8.jsxDEV(Typography_default, {
                   component: Link_default,
                   to: "tel:9851460477",
                   children: "+7 (985) 146-04-77"
                 }, undefined, false, undefined, this)
               ]
             }, undefined, true, undefined, this),
-            jsx_dev_runtime5.jsxDEV(Stack_default, {
+            jsx_dev_runtime8.jsxDEV(Stack_default, {
               alignItems: "center",
               direction: "row",
               children: [
-                jsx_dev_runtime5.jsxDEV(AccessTime_default, {
+                jsx_dev_runtime8.jsxDEV(AccessTime_default, {
                   sx: { marginRight: 2 }
                 }, undefined, false, undefined, this),
-                jsx_dev_runtime5.jsxDEV(Typography_default, {
+                jsx_dev_runtime8.jsxDEV(Typography_default, {
                   children: "\u0415\u0436\u0435\u0434\u043D\u0435\u0432\u043D\u043E \u0441 10:00 \u0434\u043E 20:00"
                 }, undefined, false, undefined, this)
               ]
             }, undefined, true, undefined, this),
-            jsx_dev_runtime5.jsxDEV(Stack_default, {
+            jsx_dev_runtime8.jsxDEV(Stack_default, {
               alignItems: "center",
               direction: "row",
               children: [
-                jsx_dev_runtime5.jsxDEV(Email_default, {
+                jsx_dev_runtime8.jsxDEV(Email_default, {
                   sx: { marginRight: 2 }
                 }, undefined, false, undefined, this),
-                jsx_dev_runtime5.jsxDEV(Typography_default, {
+                jsx_dev_runtime8.jsxDEV(Typography_default, {
                   children: "kraskovskiydm@gmail.com"
                 }, undefined, false, undefined, this)
               ]
@@ -37013,8 +39878,8 @@ var DeliveryPage_default = DeliveryPage = () => {
 };
 
 // src/components/about/AboutUsPage.js
-var import_react14 = __toESM(require_react(), 1);
-var jsx_dev_runtime6 = __toESM(require_jsx_dev_runtime(), 1);
+var import_react16 = __toESM(require_react(), 1);
+var jsx_dev_runtime9 = __toESM(require_jsx_dev_runtime(), 1);
 var Item = styled_default2(Paper_default)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
   ...theme.typography.body2,
@@ -37024,108 +39889,108 @@ var Item = styled_default2(Paper_default)(({ theme }) => ({
   alignItems: "center"
 }));
 var AboutUsPage_default = AboutUsPage = () => {
-  return jsx_dev_runtime6.jsxDEV(Box_default, {
+  return jsx_dev_runtime9.jsxDEV(Box_default, {
     sx: { flexGrow: 1, marginBottom: "100px" },
     padding: 4,
-    children: jsx_dev_runtime6.jsxDEV(Grid_default, {
+    children: jsx_dev_runtime9.jsxDEV(Grid_default, {
       container: true,
       spacing: 2,
       children: [
-        jsx_dev_runtime6.jsxDEV(Grid_default, {
+        jsx_dev_runtime9.jsxDEV(Grid_default, {
           item: true,
           xs: 12,
           md: 6,
-          children: jsx_dev_runtime6.jsxDEV(Typography_default, {
+          children: jsx_dev_runtime9.jsxDEV(Typography_default, {
             fontSize: "1.5rem",
             children: "\u041A\u0442\u043E \u043C\u044B?"
           }, undefined, false, undefined, this)
         }, undefined, false, undefined, this),
-        jsx_dev_runtime6.jsxDEV(Grid_default, {
+        jsx_dev_runtime9.jsxDEV(Grid_default, {
           item: true,
           xs: 12,
           md: 12,
           children: [
-            jsx_dev_runtime6.jsxDEV(Typography_default, {
+            jsx_dev_runtime9.jsxDEV(Typography_default, {
               paragraph: true,
               children: "\u041C\u044B \u0434\u0438\u043D\u0430\u043C\u0438\u0447\u043D\u0430\u044F \u043A\u043E\u043C\u043F\u0430\u043D\u0438\u044F, \u043F\u0440\u0435\u0434\u043B\u0430\u0433\u0430\u044E\u0449\u0430\u044F \u0431\u043E\u043B\u0435\u0435 10 \u043F\u0440\u043E\u0444\u0435\u0441\u0441\u0438\u043E\u043D\u0430\u043B\u044C\u043D\u044B\u0445 \u0441\u0431\u043E\u0440\u043E\u043A \u043A\u043E\u043C\u043F\u044C\u044E\u0442\u0435\u0440\u043E\u0432 \u0434\u043B\u044F \u043B\u044E\u0431\u044B\u0445 \u0437\u0430\u0434\u0430\u0447. \u041D\u0430\u0448\u0430 \u043A\u043E\u043C\u0430\u043D\u0434\u0430 \u0441\u043E\u0441\u0442\u043E\u0438\u0442 \u0438\u0437 \u043E\u043F\u044B\u0442\u043D\u044B\u0445 \u0441\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442\u043E\u0432, \u0433\u0430\u0440\u0430\u043D\u0442\u0438\u0440\u0443\u044E\u0449\u0438\u0445 \u043A\u0430\u0447\u0435\u0441\u0442\u0432\u0435\u043D\u043D\u0443\u044E \u0441\u0431\u043E\u0440\u043A\u0443 \u0432 \u043A\u0440\u0430\u0442\u0447\u0430\u0439\u0448\u0438\u0435 \u0441\u0440\u043E\u043A\u0438."
             }, undefined, false, undefined, this),
-            jsx_dev_runtime6.jsxDEV(Typography_default, {
+            jsx_dev_runtime9.jsxDEV(Typography_default, {
               paragraph: true,
               children: "\u041C\u044B \u043F\u043E\u043D\u0438\u043C\u0430\u0435\u043C, \u0447\u0442\u043E \u0432\u0430\u0448\u0435 \u0432\u0440\u0435\u043C\u044F \u0446\u0435\u043D\u043D\u043E, \u043F\u043E\u044D\u0442\u043E\u043C\u0443 \u043C\u044B \u0441\u0442\u0440\u0435\u043C\u0438\u043C\u0441\u044F \u043E\u0431\u0435\u0441\u043F\u0435\u0447\u0438\u0442\u044C \u043F\u0440\u044F\u043C\u0443\u044E \u0441\u0432\u044F\u0437\u044C \u0441 \u043D\u0430\u0448\u0435\u0439 \u043A\u043E\u043C\u043F\u0430\u043D\u0438\u0435\u0439. \u0423 \u043D\u0430\u0441 \u043D\u0435\u0442 \u043F\u043E\u0441\u0440\u0435\u0434\u043D\u0438\u043A\u043E\u0432, \u0442\u043E\u043B\u044C\u043A\u043E \u043D\u0435\u043F\u043E\u0441\u0440\u0435\u0434\u0441\u0442\u0432\u0435\u043D\u043D\u043E\u0435 \u043E\u0431\u0449\u0435\u043D\u0438\u0435 \u0441 \u043D\u0430\u0448\u0435\u0439 \u0434\u0440\u0443\u0436\u0435\u043B\u044E\u0431\u043D\u043E\u0439 \u043A\u043E\u043C\u0430\u043D\u0434\u043E\u0439, \u0433\u043E\u0442\u043E\u0432\u043E\u0439 \u043F\u043E\u043C\u043E\u0447\u044C \u0438 \u043E\u0442\u0432\u0435\u0442\u0438\u0442\u044C \u043D\u0430 \u0432\u0441\u0435 \u0432\u0430\u0448\u0438 \u0432\u043E\u043F\u0440\u043E\u0441\u044B."
             }, undefined, false, undefined, this),
-            jsx_dev_runtime6.jsxDEV(Typography_default, {
+            jsx_dev_runtime9.jsxDEV(Typography_default, {
               paragraph: true,
               children: "\u0415\u0441\u043B\u0438 \u0432\u0430\u043C \u043D\u0443\u0436\u043D\u0430 \u043D\u0430\u0434\u0435\u0436\u043D\u0430\u044F \u0441\u0431\u043E\u0440\u043A\u0430 \u043A\u043E\u043C\u043F\u044C\u044E\u0442\u0435\u0440\u0430, \u0442\u043E GVG Tech Solutions - \u0432\u0430\u0448 \u0438\u0434\u0435\u0430\u043B\u044C\u043D\u044B\u0439 \u0432\u044B\u0431\u043E\u0440! \u041E\u0441\u0442\u0430\u0432\u044C\u0442\u0435 \u0441\u0432\u043E\u0438 \u0437\u0430\u044F\u0432\u043A\u0438 \u0441\u0435\u0439\u0447\u0430\u0441, \u0438 \u043D\u0430\u0448\u0430 \u043A\u043E\u043C\u0430\u043D\u0434\u0430 \u043F\u0440\u0438\u0441\u0442\u0443\u043F\u0438\u0442 \u043A \u0440\u0430\u0431\u043E\u0442\u0435 \u043D\u0430\u0434 \u0432\u0430\u0448\u0438\u043C \u0438\u0434\u0435\u0430\u043B\u044C\u043D\u044B\u043C \u043A\u043E\u043C\u043F\u044C\u044E\u0442\u0435\u0440\u043E\u043C. \uD83D\uDCAA"
             }, undefined, false, undefined, this)
           ]
         }, undefined, true, undefined, this),
-        jsx_dev_runtime6.jsxDEV(Grid_default, {
+        jsx_dev_runtime9.jsxDEV(Grid_default, {
           item: true,
           xs: 12,
           md: 12,
-          children: jsx_dev_runtime6.jsxDEV(Typography_default, {
+          children: jsx_dev_runtime9.jsxDEV(Typography_default, {
             fontSize: "1.5rem",
             children: "\u041A\u043E\u043D\u0442\u0430\u043A\u0442\u044B"
           }, undefined, false, undefined, this)
         }, undefined, false, undefined, this),
-        jsx_dev_runtime6.jsxDEV(Grid_default, {
+        jsx_dev_runtime9.jsxDEV(Grid_default, {
           item: true,
           xs: 12,
           md: 4,
           component: Stack_default,
           alignItems: "center",
           children: [
-            jsx_dev_runtime6.jsxDEV(Phone_default, {
+            jsx_dev_runtime9.jsxDEV(Phone_default, {
               sx: { marginRight: 2 }
             }, undefined, false, undefined, this),
-            jsx_dev_runtime6.jsxDEV(Box_default, {
-              children: jsx_dev_runtime6.jsxDEV(Link_default, {
+            jsx_dev_runtime9.jsxDEV(Box_default, {
+              children: jsx_dev_runtime9.jsxDEV(Link_default, {
                 to: "tel:9851460477",
                 children: "+7 (985) 146-04-77"
               }, undefined, false, undefined, this)
             }, undefined, false, undefined, this)
           ]
         }, undefined, true, undefined, this),
-        jsx_dev_runtime6.jsxDEV(Grid_default, {
+        jsx_dev_runtime9.jsxDEV(Grid_default, {
           item: true,
           xs: 12,
           md: 4,
           component: Stack_default,
           alignItems: "center",
           children: [
-            jsx_dev_runtime6.jsxDEV(AccessTime_default, {
+            jsx_dev_runtime9.jsxDEV(AccessTime_default, {
               sx: { marginRight: 2 }
             }, undefined, false, undefined, this),
-            jsx_dev_runtime6.jsxDEV(Box_default, {
+            jsx_dev_runtime9.jsxDEV(Box_default, {
               children: "\u0415\u0436\u0435\u0434\u043D\u0435\u0432\u043D\u043E \u0441 10:00 \u0434\u043E 20:00"
             }, undefined, false, undefined, this)
           ]
         }, undefined, true, undefined, this),
-        jsx_dev_runtime6.jsxDEV(Grid_default, {
+        jsx_dev_runtime9.jsxDEV(Grid_default, {
           item: true,
           xs: 12,
           md: 4,
           component: Stack_default,
           alignItems: "center",
           children: [
-            jsx_dev_runtime6.jsxDEV(Email_default, {
+            jsx_dev_runtime9.jsxDEV(Email_default, {
               sx: { marginRight: 2 }
             }, undefined, false, undefined, this),
-            jsx_dev_runtime6.jsxDEV(Box_default, {
+            jsx_dev_runtime9.jsxDEV(Box_default, {
               children: "kraskovskiydm@gmail.com"
             }, undefined, false, undefined, this)
           ]
         }, undefined, true, undefined, this),
-        jsx_dev_runtime6.jsxDEV(Grid_default, {
+        jsx_dev_runtime9.jsxDEV(Grid_default, {
           item: true,
           xs: 12,
           md: 12,
           marginBottom: 12,
           children: [
-            jsx_dev_runtime6.jsxDEV(Telegram_default, {
+            jsx_dev_runtime9.jsxDEV(Telegram_default, {
               sx: { marginRight: 2 }
             }, undefined, false, undefined, this),
-            jsx_dev_runtime6.jsxDEV(Instagram_default, {
+            jsx_dev_runtime9.jsxDEV(Instagram_default, {
               sx: { marginRight: 2 }
             }, undefined, false, undefined, this)
           ]
@@ -37136,13 +40001,13 @@ var AboutUsPage_default = AboutUsPage = () => {
 };
 
 // src/components/common/hooks/UseCheckMobileScreen.js
-var import_react15 = __toESM(require_react(), 1);
+var import_react17 = __toESM(require_react(), 1);
 var UseCheckMobileScreen_default = useCheckMobileScreen = () => {
-  const [width2, setWidth] = import_react15.useState(window.innerWidth);
+  const [width2, setWidth] = import_react17.useState(window.innerWidth);
   const handleWindowSizeChange = () => {
     setWidth(window.innerWidth);
   };
-  import_react15.useEffect(() => {
+  import_react17.useEffect(() => {
     window.addEventListener("resize", handleWindowSizeChange);
     return () => {
       window.removeEventListener("resize", handleWindowSizeChange);
@@ -37152,10 +40017,10 @@ var UseCheckMobileScreen_default = useCheckMobileScreen = () => {
 };
 
 // src/components/navbars/CustomBarPC.js
-var import_react16 = __toESM(require_react(), 1);
+var import_react19 = __toESM(require_react(), 1);
 
 // src/components/common/CustomSearch.js
-var jsx_dev_runtime7 = __toESM(require_jsx_dev_runtime(), 1);
+var jsx_dev_runtime10 = __toESM(require_jsx_dev_runtime(), 1);
 var Search = styled_default2("div")(({ theme }) => ({
   position: "relative",
   borderRadius: theme.shape.borderRadius,
@@ -37194,12 +40059,12 @@ var StyledInputBase = styled_default2(InputBase_default)(({ theme }) => ({
   }
 }));
 var CustomSearch_default = CustomSearch = () => {
-  return jsx_dev_runtime7.jsxDEV(Search, {
+  return jsx_dev_runtime10.jsxDEV(Search, {
     children: [
-      jsx_dev_runtime7.jsxDEV(SearchIconWrapper, {
-        children: jsx_dev_runtime7.jsxDEV(Search_default, {}, undefined, false, undefined, this)
+      jsx_dev_runtime10.jsxDEV(SearchIconWrapper, {
+        children: jsx_dev_runtime10.jsxDEV(Search_default, {}, undefined, false, undefined, this)
       }, undefined, false, undefined, this),
-      jsx_dev_runtime7.jsxDEV(StyledInputBase, {
+      jsx_dev_runtime10.jsxDEV(StyledInputBase, {
         placeholder: "Search\u2026",
         color: "#ffffff",
         inputProps: { "aria-label": "search" }
@@ -37208,118 +40073,23 @@ var CustomSearch_default = CustomSearch = () => {
   }, undefined, true, undefined, this);
 };
 
-// src/components/navbars/CustomBarPC.js
-var jsx_dev_runtime8 = __toESM(require_jsx_dev_runtime(), 1);
-var themed = createTheme_default2({
-  palette: {
-    primary: {
-      main: "#ffffff"
-    }
-  }
-});
-var actions = [
-  {
-    title: "\u0413\u043B\u0430\u0432\u043D\u0430\u044F",
-    path: "/home"
-  },
-  {
-    title: "\u0423\u0441\u043B\u0443\u0433\u0438",
-    path: "/offers"
-  },
-  {
-    title: "\u0414\u043E\u0441\u0442\u0430\u0432\u043A\u0430",
-    path: "/delivery"
-  },
-  {
-    title: "\u041E \u043D\u0430\u0441",
-    path: "/about"
-  }
-];
-var CustomBarPC_default = CustomBarPC = () => {
-  return jsx_dev_runtime8.jsxDEV(ThemeProvider5, {
-    theme: themed,
-    children: jsx_dev_runtime8.jsxDEV(AppBar_default, {
-      position: "static",
-      children: jsx_dev_runtime8.jsxDEV(Toolbar_default, {
-        sx: {
-          borderBottom: 1,
-          borderColor: "primary.main",
-          bgcolor: "#0D0D0D"
-        },
-        children: [
-          jsx_dev_runtime8.jsxDEV(Button_default, {
-            sx: { alignItems: "end", color: "#ffffff", paddingTop: 0 },
-            children: [
-              jsx_dev_runtime8.jsxDEV(Box_default, {
-                component: "img",
-                sx: {
-                  maxHeight: 81,
-                  maxWidth: 61
-                },
-                src: "/static/logo.png"
-              }, undefined, false, undefined, this),
-              jsx_dev_runtime8.jsxDEV(Box_default, {
-                component: "img",
-                sx: {
-                  height: "35px",
-                  width: "79px"
-                },
-                src: "/static/gvg.png"
-              }, undefined, false, undefined, this)
-            ]
-          }, undefined, true, undefined, this),
-          jsx_dev_runtime8.jsxDEV(ButtonGroup_default, {
-            variant: "text",
-            sx: { minHeight: "50px", paddingInline: "20px" },
-            children: actions.map((action, index) => jsx_dev_runtime8.jsxDEV(Button_default, {
-              sx: { paddingInline: "20px" },
-              href: `${action.path}`,
-              children: action.title
-            }, index, false, undefined, this))
-          }, undefined, false, undefined, this),
-          jsx_dev_runtime8.jsxDEV(Stack_default, {
-            direction: "row-reverse",
-            marginLeft: "auto",
-            sx: { alignItems: "center", color: "#ffffff" },
-            children: [
-              jsx_dev_runtime8.jsxDEV(CustomSearch_default, {}, undefined, false, undefined, this),
-              jsx_dev_runtime8.jsxDEV(Typography_default, {
-                variant: "body1",
-                sx: { alignSelf: "center" },
-                children: jsx_dev_runtime8.jsxDEV(Link_default, {
-                  to: "tel:9851460477",
-                  underline: "none",
-                  children: "+7 (985) 146-04-77"
-                }, undefined, false, undefined, this)
-              }, undefined, false, undefined, this)
-            ]
-          }, undefined, true, undefined, this)
-        ]
-      }, undefined, true, undefined, this)
-    }, undefined, false, undefined, this)
-  }, undefined, false, undefined, this);
-};
-
-// src/components/navbars/CustomBarMobile.js
-var import_react18 = __toESM(require_react(), 1);
-
 // node_modules/material-ui-popup-state/es/index.mjs
-var import_prop_types43 = __toESM(require_prop_types(), 1);
+var import_prop_types46 = __toESM(require_prop_types(), 1);
 
 // node_modules/material-ui-popup-state/es/hooks.mjs
-var import_react17 = __toESM(require_react(), 1);
+var import_react18 = __toESM(require_react(), 1);
 
 // node_modules/material-ui-popup-state/es/useEvent.mjs
-var React71 = __toESM(require_react(), 1);
+var React75 = __toESM(require_react(), 1);
 function useEvent(handler) {
   if (typeof window === "undefined") {
     return handler;
   }
-  const handlerRef = React71.useRef(null);
-  React71.useLayoutEffect(() => {
+  const handlerRef = React75.useRef(null);
+  React75.useLayoutEffect(() => {
     handlerRef.current = handler;
   });
-  return React71.useCallback((...args) => {
+  return React75.useCallback((...args) => {
     var _handlerRef$current;
     (_handlerRef$current = handlerRef.current) === null || _handlerRef$current === undefined || _handlerRef$current.call(handlerRef, ...args);
   }, []);
@@ -37338,19 +40108,19 @@ function usePopupState({
   variant,
   disableAutoFocus
 }) {
-  const isMounted = import_react17.useRef(true);
-  import_react17.useEffect(() => {
+  const isMounted = import_react18.useRef(true);
+  import_react18.useEffect(() => {
     isMounted.current = true;
     return () => {
       isMounted.current = false;
     };
   }, []);
-  const [state, _setState] = import_react17.useState(initCoreState);
-  const setState = import_react17.useCallback((state2) => {
+  const [state, _setState] = import_react18.useState(initCoreState);
+  const setState = import_react18.useCallback((state2) => {
     if (isMounted.current)
       _setState(state2);
   }, []);
-  const setAnchorEl = import_react17.useCallback((anchorEl) => setState((state2) => ({
+  const setAnchorEl = import_react18.useCallback((anchorEl) => setState((state2) => ({
     ...state2,
     setAnchorElUsed: true,
     anchorEl: anchorEl !== null && anchorEl !== undefined ? anchorEl : undefined
@@ -37452,7 +40222,7 @@ function usePopupState({
       }
     });
   });
-  const setOpen = import_react17.useCallback((nextOpen, eventOrAnchorEl) => {
+  const setOpen = import_react18.useCallback((nextOpen, eventOrAnchorEl) => {
     if (nextOpen) {
       open(eventOrAnchorEl);
     } else {
@@ -37497,7 +40267,7 @@ function usePopupState({
       return state2;
     });
   });
-  const _setChildPopupState = import_react17.useCallback((_childPopupState) => setState((state2) => ({
+  const _setChildPopupState = import_react18.useCallback((_childPopupState) => setState((state2) => ({
     ...state2,
     _childPopupState
   })), []);
@@ -37624,94 +40394,111 @@ function PopupState({
   return result != null ? result : null;
 }
 PopupState.propTypes = {
-  children: import_prop_types43.default.func.isRequired,
-  popupId: import_prop_types43.default.string,
-  variant: import_prop_types43.default.oneOf(["popover", "popper"]).isRequired,
-  parentPopupState: import_prop_types43.default.object,
-  disableAutoFocus: import_prop_types43.default.bool
+  children: import_prop_types46.default.func.isRequired,
+  popupId: import_prop_types46.default.string,
+  variant: import_prop_types46.default.oneOf(["popover", "popper"]).isRequired,
+  parentPopupState: import_prop_types46.default.object,
+  disableAutoFocus: import_prop_types46.default.bool
 };
 
-// src/components/navbars/CustomBarMobile.js
-var jsx_dev_runtime9 = __toESM(require_jsx_dev_runtime(), 1);
-var actions2 = [
+// src/components/navbars/CustomBarPC.js
+var jsx_dev_runtime11 = __toESM(require_jsx_dev_runtime(), 1);
+var themed = createTheme_default2({
+  palette: {
+    primary: {
+      main: "#ffffff"
+    }
+  }
+});
+var actions = [
   {
     title: "\u0413\u043B\u0430\u0432\u043D\u0430\u044F",
-    path: "/home",
-    icon: jsx_dev_runtime9.jsxDEV(Home_default, {}, undefined, false, undefined, this)
+    path: "/home"
   },
   {
     title: "\u0423\u0441\u043B\u0443\u0433\u0438",
-    path: "/offers",
-    icon: jsx_dev_runtime9.jsxDEV(Computer_default, {}, undefined, false, undefined, this)
+    path: "/offers"
   },
   {
     title: "\u0414\u043E\u0441\u0442\u0430\u0432\u043A\u0430",
-    path: "/delivery",
-    icon: jsx_dev_runtime9.jsxDEV(DeliveryDining_default, {}, undefined, false, undefined, this)
+    path: "/delivery"
   },
   {
     title: "\u041E \u043D\u0430\u0441",
-    path: "/about",
-    icon: jsx_dev_runtime9.jsxDEV(Info_default, {}, undefined, false, undefined, this)
+    path: "/about"
   }
 ];
-var CustomBarMobile_default = CustomBarMobile = () => {
-  const [selected, setSelected] = import_react18.useState(0);
-  const handleSelect = (target, newSelected) => {
-    setSelected(newSelected);
-    navigate(`${actions2[newSelected].path}`);
-  };
-  const navigate = useNavigate();
-  return jsx_dev_runtime9.jsxDEV(jsx_dev_runtime9.Fragment, {
-    children: [
-      jsx_dev_runtime9.jsxDEV(AppBar_default, {
-        position: "static",
-        children: jsx_dev_runtime9.jsxDEV(Toolbar_default, {
-          sx: {
-            borderBottom: 1,
-            borderColor: "#ffffff",
-            bgcolor: "#0D0D0D"
-          },
-          children: [
-            jsx_dev_runtime9.jsxDEV(Button_default, {
-              sx: { alignItems: "end", color: "#ffffff", paddingTop: 0 },
-              children: [
-                jsx_dev_runtime9.jsxDEV(Box_default, {
-                  component: "img",
-                  sx: {
-                    maxHeight: 81,
-                    maxWidth: 61
-                  },
-                  alt: "The house from the offer.",
-                  src: "/static/logo.png"
-                }, undefined, false, undefined, this),
-                jsx_dev_runtime9.jsxDEV(Box_default, {
-                  component: "img",
-                  sx: {
-                    height: "35px",
-                    width: "79px"
-                  },
-                  src: "/static/gvg.png"
+var CustomBarPC_default = CustomBarPC = () => {
+  return jsx_dev_runtime11.jsxDEV(ThemeProvider5, {
+    theme: themed,
+    children: jsx_dev_runtime11.jsxDEV(AppBar_default, {
+      position: "static",
+      children: jsx_dev_runtime11.jsxDEV(Toolbar_default, {
+        sx: {
+          borderBottom: 1,
+          borderColor: "primary.main",
+          bgcolor: "#0D0D0D"
+        },
+        children: [
+          jsx_dev_runtime11.jsxDEV(Button_default, {
+            sx: { alignItems: "end", color: "#ffffff", paddingTop: 0 },
+            children: [
+              jsx_dev_runtime11.jsxDEV(Box_default, {
+                component: "img",
+                sx: {
+                  maxHeight: 81,
+                  maxWidth: 61
+                },
+                src: "/static/logos/icon.png"
+              }, undefined, false, undefined, this),
+              jsx_dev_runtime11.jsxDEV(Box_default, {
+                component: "img",
+                sx: {
+                  height: "35px",
+                  width: "79px"
+                },
+                src: "/static/logos/gvg.png"
+              }, undefined, false, undefined, this)
+            ]
+          }, undefined, true, undefined, this),
+          jsx_dev_runtime11.jsxDEV(ButtonGroup_default, {
+            variant: "text",
+            sx: { minHeight: "50px", paddingInline: "20px" },
+            children: actions.map((action, index) => jsx_dev_runtime11.jsxDEV(Button_default, {
+              sx: { paddingInline: "20px" },
+              href: `${action.path}`,
+              children: action.title
+            }, index, false, undefined, this))
+          }, undefined, false, undefined, this),
+          jsx_dev_runtime11.jsxDEV(Stack_default, {
+            direction: "row-reverse",
+            marginLeft: "auto",
+            sx: { alignItems: "center", color: "#ffffff" },
+            children: [
+              jsx_dev_runtime11.jsxDEV(CustomSearch_default, {}, undefined, false, undefined, this),
+              jsx_dev_runtime11.jsxDEV(Typography_default, {
+                variant: "body1",
+                sx: { alignSelf: "center" },
+                display: { xs: "none", lg: "flex" },
+                children: jsx_dev_runtime11.jsxDEV(Link_default, {
+                  to: "tel:9851460477",
+                  underline: "none",
+                  children: "+7 (985) 146-04-77"
                 }, undefined, false, undefined, this)
-              ]
-            }, undefined, true, undefined, this),
-            jsx_dev_runtime9.jsxDEV(Stack_default, {
-              direction: "row-reverse",
-              marginLeft: "auto",
-              sx: { alignItems: "center" },
-              children: [
-                jsx_dev_runtime9.jsxDEV(CustomSearch_default, {}, undefined, false, undefined, this),
-                jsx_dev_runtime9.jsxDEV(PopupState, {
+              }, undefined, false, undefined, this),
+              jsx_dev_runtime11.jsxDEV(Box_default, {
+                display: { xs: "flex", lg: "none" },
+                children: jsx_dev_runtime11.jsxDEV(PopupState, {
                   variant: "popover",
                   popupId: "demo-popup-popover",
-                  children: (popupState) => jsx_dev_runtime9.jsxDEV("div", {
+                  children: (popupState) => jsx_dev_runtime11.jsxDEV("div", {
                     children: [
-                      jsx_dev_runtime9.jsxDEV(IconButton_default, {
+                      jsx_dev_runtime11.jsxDEV(IconButton_default, {
                         sx: { color: "#ffffff" },
                         ...bindTrigger(popupState),
-                        children: jsx_dev_runtime9.jsxDEV(Phone_default, {}, undefined, false, undefined, this)
+                        children: jsx_dev_runtime11.jsxDEV(Phone_default, {}, undefined, false, undefined, this)
                       }, undefined, false, undefined, this),
-                      jsx_dev_runtime9.jsxDEV(Popover_default, {
+                      jsx_dev_runtime11.jsxDEV(Popover_default, {
                         ...bindPopover(popupState),
                         anchorOrigin: {
                           vertical: "bottom",
@@ -37721,9 +40508,123 @@ var CustomBarMobile_default = CustomBarMobile = () => {
                           vertical: "top",
                           horizontal: "center"
                         },
-                        children: jsx_dev_runtime9.jsxDEV(Typography_default, {
+                        children: jsx_dev_runtime11.jsxDEV(Typography_default, {
                           sx: { p: 2 },
-                          children: jsx_dev_runtime9.jsxDEV(Link_default, {
+                          children: jsx_dev_runtime11.jsxDEV(Link_default, {
+                            to: "tel:9851460477",
+                            underline: "none",
+                            xs: { color: "black" },
+                            color: "#000000",
+                            children: "+7 (985) 146-04-77"
+                          }, undefined, false, undefined, this)
+                        }, undefined, false, undefined, this)
+                      }, undefined, false, undefined, this)
+                    ]
+                  }, undefined, true, undefined, this)
+                }, undefined, false, undefined, this)
+              }, undefined, false, undefined, this)
+            ]
+          }, undefined, true, undefined, this)
+        ]
+      }, undefined, true, undefined, this)
+    }, undefined, false, undefined, this)
+  }, undefined, false, undefined, this);
+};
+
+// src/components/navbars/CustomBarMobile.js
+var import_react20 = __toESM(require_react(), 1);
+var jsx_dev_runtime12 = __toESM(require_jsx_dev_runtime(), 1);
+var actions2 = [
+  {
+    title: "\u0413\u043B\u0430\u0432\u043D\u0430\u044F",
+    path: "/home",
+    icon: jsx_dev_runtime12.jsxDEV(Home_default, {}, undefined, false, undefined, this)
+  },
+  {
+    title: "\u0423\u0441\u043B\u0443\u0433\u0438",
+    path: "/offers",
+    icon: jsx_dev_runtime12.jsxDEV(Computer_default, {}, undefined, false, undefined, this)
+  },
+  {
+    title: "\u0414\u043E\u0441\u0442\u0430\u0432\u043A\u0430",
+    path: "/delivery",
+    icon: jsx_dev_runtime12.jsxDEV(DeliveryDining_default, {}, undefined, false, undefined, this)
+  },
+  {
+    title: "\u041E \u043D\u0430\u0441",
+    path: "/about",
+    icon: jsx_dev_runtime12.jsxDEV(Info_default, {}, undefined, false, undefined, this)
+  }
+];
+var CustomBarMobile_default = CustomBarMobile = () => {
+  const [selected, setSelected] = import_react20.useState(0);
+  const handleSelect = (target, newSelected) => {
+    setSelected(newSelected);
+    navigate(`${actions2[newSelected].path}`);
+  };
+  const navigate = useNavigate();
+  return jsx_dev_runtime12.jsxDEV(jsx_dev_runtime12.Fragment, {
+    children: [
+      jsx_dev_runtime12.jsxDEV(AppBar_default, {
+        position: "static",
+        children: jsx_dev_runtime12.jsxDEV(Toolbar_default, {
+          sx: {
+            borderBottom: 1,
+            borderColor: "#ffffff",
+            bgcolor: "#0D0D0D"
+          },
+          children: [
+            jsx_dev_runtime12.jsxDEV(Button_default, {
+              sx: { alignItems: "end", color: "#ffffff", paddingTop: 0 },
+              children: [
+                jsx_dev_runtime12.jsxDEV(Box_default, {
+                  component: "img",
+                  sx: {
+                    maxHeight: 81,
+                    maxWidth: 61
+                  },
+                  alt: "The house from the offer.",
+                  src: "/static/logos/icon.png"
+                }, undefined, false, undefined, this),
+                jsx_dev_runtime12.jsxDEV(Box_default, {
+                  component: "img",
+                  sx: {
+                    height: "35px",
+                    width: "79px"
+                  },
+                  src: "/static/logos/gvg.png"
+                }, undefined, false, undefined, this)
+              ]
+            }, undefined, true, undefined, this),
+            jsx_dev_runtime12.jsxDEV(Stack_default, {
+              direction: "row-reverse",
+              marginLeft: "auto",
+              sx: { alignItems: "center" },
+              children: [
+                jsx_dev_runtime12.jsxDEV(CustomSearch_default, {}, undefined, false, undefined, this),
+                jsx_dev_runtime12.jsxDEV(PopupState, {
+                  variant: "popover",
+                  popupId: "demo-popup-popover",
+                  children: (popupState) => jsx_dev_runtime12.jsxDEV("div", {
+                    children: [
+                      jsx_dev_runtime12.jsxDEV(IconButton_default, {
+                        sx: { color: "#ffffff" },
+                        ...bindTrigger(popupState),
+                        children: jsx_dev_runtime12.jsxDEV(Phone_default, {}, undefined, false, undefined, this)
+                      }, undefined, false, undefined, this),
+                      jsx_dev_runtime12.jsxDEV(Popover_default, {
+                        ...bindPopover(popupState),
+                        anchorOrigin: {
+                          vertical: "bottom",
+                          horizontal: "center"
+                        },
+                        transformOrigin: {
+                          vertical: "top",
+                          horizontal: "center"
+                        },
+                        children: jsx_dev_runtime12.jsxDEV(Typography_default, {
+                          sx: { p: 2 },
+                          children: jsx_dev_runtime12.jsxDEV(Link_default, {
                             to: "tel:9851460477",
                             underline: "none",
                             children: "+7 (985) 146-04-77"
@@ -37738,7 +40639,7 @@ var CustomBarMobile_default = CustomBarMobile = () => {
           ]
         }, undefined, true, undefined, this)
       }, undefined, false, undefined, this),
-      jsx_dev_runtime9.jsxDEV(BottomNavigation_default, {
+      jsx_dev_runtime12.jsxDEV(BottomNavigation_default, {
         sx: {
           backgroundColor: "#ffffff",
           width: "100%",
@@ -37750,10 +40651,9 @@ var CustomBarMobile_default = CustomBarMobile = () => {
         value: selected,
         onChange: handleSelect,
         showLabels: true,
-        children: actions2.map((action, index) => jsx_dev_runtime9.jsxDEV(BottomNavigationAction_default, {
+        children: actions2.map((action, index) => jsx_dev_runtime12.jsxDEV(BottomNavigationAction_default, {
           label: action.title,
-          icon: action.icon,
-          onClick: () => console.log(action.title)
+          icon: action.icon
         }, index, false, undefined, this))
       }, undefined, false, undefined, this)
     ]
@@ -37761,15 +40661,15 @@ var CustomBarMobile_default = CustomBarMobile = () => {
 };
 
 // src/components/App.js
-var jsx_dev_runtime10 = __toESM(require_jsx_dev_runtime(), 1);
+var jsx_dev_runtime13 = __toESM(require_jsx_dev_runtime(), 1);
 var App_default = App = () => {
   const isMobile = UseCheckMobileScreen_default();
-  import_react19.useEffect(() => {
+  import_react21.useEffect(() => {
     console.log(`mobile: ${isMobile}`);
   }, [isMobile]);
-  return jsx_dev_runtime10.jsxDEV(BrowserRouter, {
+  return jsx_dev_runtime13.jsxDEV(BrowserRouter, {
     basename: "/",
-    children: jsx_dev_runtime10.jsxDEV(Box_default, {
+    children: jsx_dev_runtime13.jsxDEV(Box_default, {
       sx: {
         backgroundColor: "#000000",
         color: "#ffffff",
@@ -37777,25 +40677,25 @@ var App_default = App = () => {
         width: 1
       },
       children: [
-        isMobile ? jsx_dev_runtime10.jsxDEV(CustomBarMobile_default, {}, undefined, false, undefined, this) : jsx_dev_runtime10.jsxDEV(CustomBarPC_default, {}, undefined, false, undefined, this),
-        jsx_dev_runtime10.jsxDEV(Box_default, {
-          children: jsx_dev_runtime10.jsxDEV(Routes, {
+        isMobile ? jsx_dev_runtime13.jsxDEV(CustomBarMobile_default, {}, undefined, false, undefined, this) : jsx_dev_runtime13.jsxDEV(CustomBarPC_default, {}, undefined, false, undefined, this),
+        jsx_dev_runtime13.jsxDEV(Box_default, {
+          children: jsx_dev_runtime13.jsxDEV(Routes, {
             children: [
-              jsx_dev_runtime10.jsxDEV(Route, {
+              jsx_dev_runtime13.jsxDEV(Route, {
                 path: "home",
-                element: jsx_dev_runtime10.jsxDEV(HomePage_default, {}, undefined, false, undefined, this)
+                element: jsx_dev_runtime13.jsxDEV(HomePage_default, {}, undefined, false, undefined, this)
               }, undefined, false, undefined, this),
-              jsx_dev_runtime10.jsxDEV(Route, {
+              jsx_dev_runtime13.jsxDEV(Route, {
                 path: "offers",
-                element: jsx_dev_runtime10.jsxDEV(OffersPage_default, {}, undefined, false, undefined, this)
+                element: jsx_dev_runtime13.jsxDEV(OffersPage_default, {}, undefined, false, undefined, this)
               }, undefined, false, undefined, this),
-              jsx_dev_runtime10.jsxDEV(Route, {
+              jsx_dev_runtime13.jsxDEV(Route, {
                 path: "delivery",
-                element: jsx_dev_runtime10.jsxDEV(DeliveryPage_default, {}, undefined, false, undefined, this)
+                element: jsx_dev_runtime13.jsxDEV(DeliveryPage_default, {}, undefined, false, undefined, this)
               }, undefined, false, undefined, this),
-              jsx_dev_runtime10.jsxDEV(Route, {
+              jsx_dev_runtime13.jsxDEV(Route, {
                 path: "about",
-                element: jsx_dev_runtime10.jsxDEV(AboutUsPage_default, {}, undefined, false, undefined, this)
+                element: jsx_dev_runtime13.jsxDEV(AboutUsPage_default, {}, undefined, false, undefined, this)
               }, undefined, false, undefined, this)
             ]
           }, undefined, true, undefined, this)
@@ -37806,6 +40706,6 @@ var App_default = App = () => {
 };
 
 // src/index.js
-var jsx_dev_runtime11 = __toESM(require_jsx_dev_runtime(), 1);
+var jsx_dev_runtime14 = __toESM(require_jsx_dev_runtime(), 1);
 var appDiv = document.getElementById("app");
-import_react_dom2.render(jsx_dev_runtime11.jsxDEV(App_default, {}, undefined, false, undefined, this), appDiv);
+import_react_dom2.render(jsx_dev_runtime14.jsxDEV(App_default, {}, undefined, false, undefined, this), appDiv);

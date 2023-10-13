@@ -78,7 +78,7 @@ export default CustomBarMobile = () => {
                 maxWidth: 61,
               }}
               alt="The house from the offer."
-              src="/static/logo.png"
+              src="/static/logos/icon.png"
             />
             <Box
               component="img"
@@ -86,7 +86,7 @@ export default CustomBarMobile = () => {
                 height: "35px",
                 width: "79px",
               }}
-              src="/static/gvg.png"
+              src="/static/logos/gvg.png"
             />
           </Button>
           <Stack
@@ -145,7 +145,6 @@ export default CustomBarMobile = () => {
             key={index}
             label={action.title}
             icon={action.icon}
-            onClick={() => console.log(action.title)}
           />
         ))}
       </BottomNavigation>

@@ -1,11 +1,7 @@
 import React, { useEffect, useState } from "react";
-// import { CatchingPokemon as CatchingPokemonIcon } from "@mui/icons-material";
 
-import { lime, purple } from "@mui/material/colors";
-
-import Fade from "@mui/material/Fade";
 import CustomSearch from "../common/CustomSearch";
-
+import { Phone as PhoneIcon } from "@mui/icons-material";
 import {
   Button,
   Box,
@@ -17,8 +13,10 @@ import {
   ButtonGroup,
   createTheme,
   ThemeProvider,
+  Popover,
+  IconButton,
 } from "@mui/material";
-
+import PopupState, { bindPopover, bindTrigger } from "material-ui-popup-state";
 
 const themed = createTheme({
   palette: {
@@ -65,7 +63,7 @@ export default CustomBarPC = () => {
                 maxHeight: 81,
                 maxWidth: 61,
               }}
-              src="/static/logo.png"
+              src="/static/logos/icon.png"
             />
             <Box
               component="img"
@@ -73,7 +71,7 @@ export default CustomBarPC = () => {
                 height: "35px",
                 width: "79px",
               }}
-              src="/static/gvg.png"
+              src="/static/logos/gvg.png"
             />
           </Button>
 
@@ -97,11 +95,53 @@ export default CustomBarPC = () => {
             sx={{ alignItems: "center", color: "#ffffff" }}
           >
             <CustomSearch />
-            <Typography variant="body1" sx={{ alignSelf: "center" }}>
+			{/* CallText */}
+            <Typography
+              variant="body1"
+              sx={{ alignSelf: "center" }}
+              display={{ xs: "none", lg: "flex" }}
+            >
               <Link to="tel:9851460477" underline="none">
                 +7 (985) 146-04-77
               </Link>
             </Typography>
+			{/* CallButton */}
+            <Box display={{ xs: "flex", lg: "none" }}>
+              <PopupState variant="popover" popupId="demo-popup-popover">
+                {(popupState) => (
+                  <div>
+                    <IconButton
+                      sx={{ color: "#ffffff" }}
+                      {...bindTrigger(popupState)}
+                    >
+                      <PhoneIcon />
+                    </IconButton>
+                    <Popover
+                      {...bindPopover(popupState)}
+                      anchorOrigin={{
+                        vertical: "bottom",
+                        horizontal: "center",
+                      }}
+                      transformOrigin={{
+                        vertical: "top",
+                        horizontal: "center",
+                      }}
+                    >
+                      <Typography sx={{ p: 2 }}>
+                        <Link
+                          to="tel:9851460477"
+                          underline="none"
+                          xs={{ color: "black" }}
+                          color={"#000000"}
+                        >
+                          +7 (985) 146-04-77
+                        </Link>
+                      </Typography>
+                    </Popover>
+                  </div>
+                )}
+              </PopupState>
+            </Box>
           </Stack>
         </Toolbar>
       </AppBar>

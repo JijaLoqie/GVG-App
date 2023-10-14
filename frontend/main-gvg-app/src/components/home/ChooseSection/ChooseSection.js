@@ -147,11 +147,11 @@ export default ChooseSection = () => {
                   border: selectedGames.includes(index) ? 3 : 0,
                   borderColor: "#ff0000",
                   width: "200px",
-                  "&:hover": {
+                  "&:hover": {md: {
                     border: "1px solid #ffffff",
                     color: "gray",
                     backgroundColor: "lightblue",
-                  },
+                  }},
                 }}
                 key={game.img}
                 onClick={() => handleSelectGame(index)}

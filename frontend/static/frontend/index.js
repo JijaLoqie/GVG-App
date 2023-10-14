@@ -39060,23 +39060,6 @@ var games = [
     author: "Darren Richardson"
   }
 ];
-var builds = [
-  {
-    img: "/static/builds/build1.jpg",
-    title: "\u0421\u0443\u043F\u0435\u0440 \u043A\u043E\u043C\u043F\u044C\u044E\u0442\u0435\u0440",
-    author: "swabdesign"
-  },
-  {
-    img: "/static/builds/build2.jpg",
-    title: "\u041A\u043E\u043C\u043F\u044C\u044E\u0442\u0435\u0440 \u043A\u043B\u0430\u043D\u0430 \u0410\u043A\u0430\u0446\u043A\u0438",
-    author: "swabdesign"
-  },
-  {
-    img: "/static/builds/build3.jpg",
-    title: "\u0421\u043E\u0440\u0442\u043A\u0430\u0440 \u0437\u0432\u0435\u0440\u044C",
-    author: "swabdesign"
-  }
-];
 var ChooseSection_default = ChooseSection = () => {
   const [selectedGames, setSelectedGames] = import_react11.useState([]);
   const handleSelectGame = (index) => {
@@ -39089,89 +39072,70 @@ var ChooseSection_default = ChooseSection = () => {
   return jsx_dev_runtime4.jsxDEV(Grid_default, {
     container: true,
     sx: {
-      padding: { md: 4, xs: "0" },
       height: "100vh",
       justifyContent: "center"
     },
+    component: "div",
     columnGap: 10,
-    children: [
-      jsx_dev_runtime4.jsxDEV(Grid_default, {
-        item: true,
-        xs: 12,
-        md: 5,
-        children: [
-          jsx_dev_runtime4.jsxDEV(Typography_default, {
-            variant: "h4",
-            textAlign: "center",
-            children: "\u0412\u044B\u0431\u0435\u0440\u0438\u0442\u0435 \u0438\u0433\u0440\u044B"
-          }, undefined, false, undefined, this),
-          jsx_dev_runtime4.jsxDEV(Box_default, {
+    children: jsx_dev_runtime4.jsxDEV(Grid_default, {
+      item: true,
+      xs: 12,
+      md: 12,
+      sx: {
+        backgroundColor: "#000000",
+        padding: "10px 0",
+        boxShadow: "0 0 1em 1em black",
+        zIndex: "100"
+      },
+      children: [
+        jsx_dev_runtime4.jsxDEV(Typography_default, {
+          variant: "h4",
+          textAlign: "center",
+          children: "\u0412\u044B\u0431\u0435\u0440\u0438\u0442\u0435 \u0438\u0433\u0440\u044B"
+        }, undefined, false, undefined, this),
+        jsx_dev_runtime4.jsxDEV(Box_default, {
+          component: "div",
+          style: {
+            boxShadow: "inset 0px 22px 2em -20px blue, inset 0px -22px 2em -20px blue",
+            overflow: "hidden"
+          },
+          children: jsx_dev_runtime4.jsxDEV(ImageList_default, {
             sx: {
-              height: { xs: "400px", md: "80vh" },
-              overflow: "auto",
-              border: { xs: 2, md: 0 },
-              borderColor: "#ffffff"
+              padding: "20px"
             },
-            children: jsx_dev_runtime4.jsxDEV(ImageList_default, {
-              variant: "masonry",
-              cols: 3,
-              gap: 8,
-              children: games.map((game, index) => jsx_dev_runtime4.jsxDEV(ImageListItem_default, {
-                sx: {
-                  border: selectedGames.includes(index) ? 3 : 0,
-                  borderColor: "#ff0000"
-                },
-                onClick: () => handleSelectGame(index),
-                children: [
-                  jsx_dev_runtime4.jsxDEV("img", {
-                    srcSet: `${game.img}?w=248&fit=crop&auto=format&dpr=2 2x`,
-                    src: `${game.img}?w=248&fit=crop&auto=format`,
-                    alt: game.title,
-                    loading: "lazy"
-                  }, undefined, false, undefined, this),
-                  jsx_dev_runtime4.jsxDEV(ImageListItemBar_default, {
-                    position: "below",
-                    title: game.title
-                  }, undefined, false, undefined, this)
-                ]
-              }, game.img, true, undefined, this))
-            }, undefined, false, undefined, this)
-          }, undefined, false, undefined, this)
-        ]
-      }, undefined, true, undefined, this),
-      jsx_dev_runtime4.jsxDEV(Grid_default, {
-        item: true,
-        xs: 12,
-        md: 5,
-        children: [
-          jsx_dev_runtime4.jsxDEV(Typography_default, {
-            variant: "h4",
-            textAlign: "center",
-            children: "\u041C\u044B \u043F\u043E\u0434\u0431\u0438\u0440\u0430\u0435\u043C \u043B\u0443\u0447\u0448\u0435\u0435"
-          }, undefined, false, undefined, this),
-          jsx_dev_runtime4.jsxDEV(ImageList_default, {
-            variant: "masonry",
-            cols: 3,
+            variant: "standard",
+            cols: games.length,
             gap: 8,
-            children: builds.map((item) => jsx_dev_runtime4.jsxDEV(ImageListItem_default, {
+            children: games.map((game, index) => jsx_dev_runtime4.jsxDEV(ImageListItem_default, {
+              sx: {
+                border: selectedGames.includes(index) ? 3 : 0,
+                borderColor: "#ff0000",
+                width: "200px",
+                "&:hover": {
+                  border: "1px solid #ffffff",
+                  color: "gray",
+                  backgroundColor: "lightblue"
+                }
+              },
+              onClick: () => handleSelectGame(index),
               children: [
                 jsx_dev_runtime4.jsxDEV("img", {
-                  srcSet: `${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`,
-                  src: `${item.img}?w=248&fit=crop&auto=format`,
-                  alt: item.title,
+                  srcSet: `${game.img}`,
+                  src: `${game.img}`,
+                  alt: game.title,
                   loading: "lazy"
                 }, undefined, false, undefined, this),
                 jsx_dev_runtime4.jsxDEV(ImageListItemBar_default, {
                   position: "below",
-                  title: item.title
+                  title: game.title
                 }, undefined, false, undefined, this)
               ]
-            }, item.img, true, undefined, this))
+            }, game.img, true, undefined, this))
           }, undefined, false, undefined, this)
-        ]
-      }, undefined, true, undefined, this)
-    ]
-  }, undefined, true, undefined, this);
+        }, undefined, false, undefined, this)
+      ]
+    }, undefined, true, undefined, this)
+  }, undefined, false, undefined, this);
 };
 
 // src/components/home/ReviewSection/ReviewSection.js
@@ -39179,14 +39143,17 @@ var jsx_dev_runtime5 = __toESM(require_jsx_dev_runtime(), 1);
 var ReviewSection_default = ReviewSection = () => {
   return jsx_dev_runtime5.jsxDEV(Box_default, {
     sx: { padding: 4, height: "50vh" },
-    children: jsx_dev_runtime5.jsxDEV(Typography_default, {
-      variant: "h4",
-      sx: {
-        textAlign: "center"
-      },
-      children: "\u0427\u0442\u043E \u0434\u0443\u043C\u0430\u044E\u0442 \u043D\u0430\u0448\u0438 \u043A\u043B\u0438\u0435\u043D\u0442\u044B"
-    }, undefined, false, undefined, this)
-  }, undefined, false, undefined, this);
+    children: [
+      jsx_dev_runtime5.jsxDEV(Typography_default, {
+        variant: "h4",
+        sx: {
+          textAlign: "center"
+        },
+        children: "\u0427\u0442\u043E \u0434\u0443\u043C\u0430\u044E\u0442 \u043D\u0430\u0448\u0438 \u043A\u043B\u0438\u0435\u043D\u0442\u044B"
+      }, undefined, false, undefined, this),
+      jsx_dev_runtime5.jsxDEV(Box_default, {}, undefined, false, undefined, this)
+    ]
+  }, undefined, true, undefined, this);
 };
 
 // src/components/home/HomePage.js

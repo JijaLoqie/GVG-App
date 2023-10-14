@@ -103,3 +103,7 @@ body {
   100%{opacity: 1;}
 }
 
+::-webkit-scrollbar {
+  width: 0 !important;
+  height: 0 !important;
+}

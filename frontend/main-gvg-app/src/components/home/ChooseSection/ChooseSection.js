@@ -105,38 +105,60 @@ export default ChooseSection = () => {
     <Grid
       container
       sx={{
-        padding: { md: 4, xs: "0" },
         height: "100vh",
         justifyContent: "center",
       }}
+      component={"div"}
       columnGap={10}
     >
-      <Grid item xs={12} md={5}>
+      <Grid
+        item
+        xs={12}
+        md={12}
+        sx={{
+          backgroundColor: "#000000",
+          padding: "10px 0",
+          boxShadow: "0 0 1em 1em black",
+          zIndex: "100",
+        }}
+      >
         <Typography variant="h4" textAlign={"center"}>
           Выберите игры
         </Typography>
         <Box
-          sx={{
-            height: { xs: "400px", md: "80vh" },
-            // overflow: { xs: "auto", md: "hidden" },
-			overflow: "auto",
-            border: { xs: 2, md: 0 },
-            borderColor: "#ffffff",
+          component={"div"}
+          style={{
+            boxShadow:
+              "inset 0px 22px 2em -20px blue, inset 0px -22px 2em -20px blue",
+            overflow: "hidden",
           }}
         >
-          <ImageList variant="masonry" cols={3} gap={8}>
+          <ImageList
+            sx={{
+              padding: "20px",
+            }}
+            variant="standard"
+            cols={games.length}
+            gap={8}
+          >
             {games.map((game, index) => (
               <ImageListItem
                 sx={{
                   border: selectedGames.includes(index) ? 3 : 0,
                   borderColor: "#ff0000",
+                  width: "200px",
+                  "&:hover": {
+                    border: "1px solid #ffffff",
+                    color: "gray",
+                    backgroundColor: "lightblue",
+                  },
                 }}
                 key={game.img}
                 onClick={() => handleSelectGame(index)}
               >
                 <img
-                  srcSet={`${game.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
-                  src={`${game.img}?w=248&fit=crop&auto=format`}
+                  srcSet={`${game.img}`}
+                  src={`${game.img}`}
                   alt={game.title}
                   loading="lazy"
                 />
@@ -145,24 +167,6 @@ export default ChooseSection = () => {
             ))}
           </ImageList>
         </Box>
-      </Grid>
-      <Grid item xs={12} md={5}>
-        <Typography variant="h4" textAlign={"center"}>
-          Мы подбираем лучшее
-        </Typography>
-        <ImageList variant="masonry" cols={3} gap={8}>
-          {builds.map((item) => (
-            <ImageListItem key={item.img}>
-              <img
-                srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
-                src={`${item.img}?w=248&fit=crop&auto=format`}
-                alt={item.title}
-                loading="lazy"
-              />
-              <ImageListItemBar position="below" title={item.title} />
-            </ImageListItem>
-          ))}
-        </ImageList>
       </Grid>
     </Grid>
   );

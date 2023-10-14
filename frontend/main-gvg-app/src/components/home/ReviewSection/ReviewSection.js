@@ -11,7 +11,9 @@ export default ReviewSection = () => {
       >
         Что думают наши клиенты
       </Typography>
-	  
+	  <Box>
+		
+	  </Box>
     </Box>
   );
 };

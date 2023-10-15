@@ -40628,6 +40628,77 @@ PopupState.propTypes = {
   disableAutoFocus: import_prop_types46.default.bool
 };
 
+// node_modules/@material-ui/core/esm/styles/colorManipulator.js
+var clamp2 = function(value) {
+  var min = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+  var max = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 1;
+  if (true) {
+    if (value < min || value > max) {
+      console.error("Material-UI: The value provided ".concat(value, " is out of range [").concat(min, ", ").concat(max, "]."));
+    }
+  }
+  return Math.min(Math.max(min, value), max);
+};
+function hexToRgb2(color2) {
+  color2 = color2.substr(1);
+  var re = new RegExp(".{1,".concat(color2.length >= 6 ? 2 : 1, "}"), "g");
+  var colors = color2.match(re);
+  if (colors && colors[0].length === 1) {
+    colors = colors.map(function(n2) {
+      return n2 + n2;
+    });
+  }
+  return colors ? "rgb".concat(colors.length === 4 ? "a" : "", "(").concat(colors.map(function(n2, index) {
+    return index < 3 ? parseInt(n2, 16) : Math.round(parseInt(n2, 16) / 255 * 1000) / 1000;
+  }).join(", "), ")") : "";
+}
+function decomposeColor2(color2) {
+  if (color2.type) {
+    return color2;
+  }
+  if (color2.charAt(0) === "#") {
+    return decomposeColor2(hexToRgb2(color2));
+  }
+  var marker = color2.indexOf("(");
+  var type = color2.substring(0, marker);
+  if (["rgb", "rgba", "hsl", "hsla"].indexOf(type) === -1) {
+    throw new Error("Material-UI: Unsupported `".concat(color2, "` color.\nWe support the following formats: #nnn, #nnnnnn, rgb(), rgba(), hsl(), hsla()."));
+  }
+  var values3 = color2.substring(marker + 1, color2.length - 1).split(",");
+  values3 = values3.map(function(value) {
+    return parseFloat(value);
+  });
+  return {
+    type,
+    values: values3
+  };
+}
+function recomposeColor2(color2) {
+  var type = color2.type;
+  var values3 = color2.values;
+  if (type.indexOf("rgb") !== -1) {
+    values3 = values3.map(function(n2, i2) {
+      return i2 < 3 ? parseInt(n2, 10) : n2;
+    });
+  } else if (type.indexOf("hsl") !== -1) {
+    values3[1] = "".concat(values3[1], "%");
+    values3[2] = "".concat(values3[2], "%");
+  }
+  return "".concat(type, "(").concat(values3.join(", "), ")");
+}
+function darken2(color2, coefficient) {
+  color2 = decomposeColor2(color2);
+  coefficient = clamp2(coefficient);
+  if (color2.type.indexOf("hsl") !== -1) {
+    color2.values[2] *= 1 - coefficient;
+  } else if (color2.type.indexOf("rgb") !== -1) {
+    for (var i2 = 0;i2 < 3; i2 += 1) {
+      color2.values[i2] *= 1 - coefficient;
+    }
+  }
+  return recomposeColor2(color2);
+}
+
 // src/components/common/CustomPopup.js
 var jsx_dev_runtime11 = __toESM(require_jsx_dev_runtime(), 1);
 var CustomPopup_default = CustomPopupOptions = ({ setMouseOnPopup, actions }) => {
@@ -40648,13 +40719,12 @@ var CustomPopup_default = CustomPopupOptions = ({ setMouseOnPopup, actions }) =>
       position: "absolute",
       bottom: { xs: "56px", md: "auto" },
       top: { xs: "auto", md: "56px" },
-      left: { xs: "12.5vw", md: "25vw" },
+      left: { xs: "12.5vw", md: "12.5vw" },
       width: "50vw",
       minHeight: "50px",
       paddingInline: 0,
       transform: "skew(-10deg)",
-      zIndex: 1e4,
-      backgroundColor: { xs: "#ffffff", md: "#313131" }
+      zIndex: 1e4
     },
     onMouseEnter: handleEnter,
     onMouseLeave: handleLeave,
@@ -40664,11 +40734,22 @@ var CustomPopup_default = CustomPopupOptions = ({ setMouseOnPopup, actions }) =>
         minHeight: "50px"
       },
       children: actions.map((action, index) => jsx_dev_runtime11.jsxDEV(Button_default, {
-        color: "text",
         href: `${action.path}`,
+        sx: {
+          color: { xs: "#ff0000", md: "#ffffff" },
+          backgroundColor: { xs: "#ffffff", md: "#313131" },
+          "&:hover": {
+            backgroundColor: "#ffffff",
+            color: "#000000"
+          }
+        },
         children: jsx_dev_runtime11.jsxDEV(Typography_default, {
           variant: "p",
-          sx: { color: { xs: "#ff0000", md: "#ffffff" }, width: "100%", textAlign: "center", transform: "skew(10deg)" },
+          sx: {
+            width: "100%",
+            textAlign: "center",
+            transform: "skew(10deg)"
+          },
           children: action.title
         }, undefined, false, undefined, this)
       }, index, false, undefined, this))
@@ -42091,77 +42172,6 @@ var ut = function() {
 typeof navigator != "undefined" && navigator.product === "ReactNative" && console.warn("It looks like you've imported 'styled-components' on React Native.\nPerhaps you're looking to import 'styled-components/native'?\nRead more about this at https://www.styled-components.com/docs/basics#react-native");
 var dt = "__sc-".concat(f2, "__");
 typeof window != "undefined" && (window[dt] || (window[dt] = 0), window[dt] === 1 && console.warn("It looks like there are several instances of 'styled-components' initialized in this application. This may cause dynamic styles to not render properly, errors during the rehydration process, a missing theme prop, and makes your application bigger without good reason.\n\nSee https://s-c.sh/2BAXzed for more info."), window[dt] += 1);
-
-// node_modules/@material-ui/core/esm/styles/colorManipulator.js
-var clamp2 = function(value) {
-  var min = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
-  var max = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 1;
-  if (true) {
-    if (value < min || value > max) {
-      console.error("Material-UI: The value provided ".concat(value, " is out of range [").concat(min, ", ").concat(max, "]."));
-    }
-  }
-  return Math.min(Math.max(min, value), max);
-};
-function hexToRgb2(color2) {
-  color2 = color2.substr(1);
-  var re2 = new RegExp(".{1,".concat(color2.length >= 6 ? 2 : 1, "}"), "g");
-  var colors = color2.match(re2);
-  if (colors && colors[0].length === 1) {
-    colors = colors.map(function(n2) {
-      return n2 + n2;
-    });
-  }
-  return colors ? "rgb".concat(colors.length === 4 ? "a" : "", "(").concat(colors.map(function(n2, index) {
-    return index < 3 ? parseInt(n2, 16) : Math.round(parseInt(n2, 16) / 255 * 1000) / 1000;
-  }).join(", "), ")") : "";
-}
-function decomposeColor2(color2) {
-  if (color2.type) {
-    return color2;
-  }
-  if (color2.charAt(0) === "#") {
-    return decomposeColor2(hexToRgb2(color2));
-  }
-  var marker = color2.indexOf("(");
-  var type = color2.substring(0, marker);
-  if (["rgb", "rgba", "hsl", "hsla"].indexOf(type) === -1) {
-    throw new Error("Material-UI: Unsupported `".concat(color2, "` color.\nWe support the following formats: #nnn, #nnnnnn, rgb(), rgba(), hsl(), hsla()."));
-  }
-  var values3 = color2.substring(marker + 1, color2.length - 1).split(",");
-  values3 = values3.map(function(value) {
-    return parseFloat(value);
-  });
-  return {
-    type,
-    values: values3
-  };
-}
-function recomposeColor2(color2) {
-  var type = color2.type;
-  var values3 = color2.values;
-  if (type.indexOf("rgb") !== -1) {
-    values3 = values3.map(function(n2, i3) {
-      return i3 < 3 ? parseInt(n2, 10) : n2;
-    });
-  } else if (type.indexOf("hsl") !== -1) {
-    values3[1] = "".concat(values3[1], "%");
-    values3[2] = "".concat(values3[2], "%");
-  }
-  return "".concat(type, "(").concat(values3.join(", "), ")");
-}
-function darken2(color2, coefficient) {
-  color2 = decomposeColor2(color2);
-  coefficient = clamp2(coefficient);
-  if (color2.type.indexOf("hsl") !== -1) {
-    color2.values[2] *= 1 - coefficient;
-  } else if (color2.type.indexOf("rgb") !== -1) {
-    for (var i3 = 0;i3 < 3; i3 += 1) {
-      color2.values[i3] *= 1 - coefficient;
-    }
-  }
-  return recomposeColor2(color2);
-}
 
 // src/components/navbars/CustomBarMobile.js
 var jsx_dev_runtime13 = __toESM(require_jsx_dev_runtime(), 1);

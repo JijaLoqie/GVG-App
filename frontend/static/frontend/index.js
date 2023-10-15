@@ -39321,6 +39321,7 @@ var games = [
   }
 ];
 var ChooseSection_default = ChooseSection = () => {
+  const navigate = useNavigate();
   const [selectedGames, setSelectedGames] = import_react11.useState([]);
   const handleSelectGame = (index) => {
     if (selectedGames.includes(index)) {
@@ -39332,6 +39333,7 @@ var ChooseSection_default = ChooseSection = () => {
   return jsx_dev_runtime4.jsxDEV(Grid_default, {
     container: true,
     sx: {
+      backgroundColor: "#0d0d0d",
       height: "100vh",
       justifyContent: "center"
     },
@@ -39342,9 +39344,8 @@ var ChooseSection_default = ChooseSection = () => {
       xs: 12,
       md: 12,
       sx: {
-        backgroundColor: "#000000",
         padding: "10px 0",
-        boxShadow: "0 0 1em 1em black",
+        boxShadow: "0 0 1em 1em #0d0d0d",
         zIndex: "100"
       },
       children: [
@@ -39356,8 +39357,12 @@ var ChooseSection_default = ChooseSection = () => {
         jsx_dev_runtime4.jsxDEV(Box_default, {
           component: "div",
           style: {
-            boxShadow: "inset 0px 22px 2em -20px blue, inset 0px -22px 2em -20px blue",
-            overflow: "hidden"
+            boxShadow: "inset 0px 52px 4em -40px blue, inset 0px -52px 4em -40px blue"
+          },
+          sx: {
+            border: 2,
+            borderColor: "#000000",
+            backgroundColor: "#313131"
           },
           children: jsx_dev_runtime4.jsxDEV(ImageList_default, {
             sx: {
@@ -39368,14 +39373,15 @@ var ChooseSection_default = ChooseSection = () => {
             gap: 8,
             children: games.map((game, index) => jsx_dev_runtime4.jsxDEV(ImageListItem_default, {
               sx: {
-                border: selectedGames.includes(index) ? 3 : 0,
-                borderColor: "#ff0000",
+                boxShadow: `0 0 2em ${selectedGames.includes(index) ? "red" : "black"}`,
                 width: "200px",
-                "&:hover": { md: {
-                  border: "1px solid #ffffff",
-                  color: "gray",
-                  backgroundColor: "lightblue"
-                } }
+                "&:hover": {
+                  md: {
+                    border: "1px solid #ffffff",
+                    color: "gray",
+                    boxShadow: "0 0 2em #ffffff"
+                  }
+                }
               },
               onClick: () => handleSelectGame(index),
               children: [
@@ -39386,11 +39392,33 @@ var ChooseSection_default = ChooseSection = () => {
                   loading: "lazy"
                 }, undefined, false, undefined, this),
                 jsx_dev_runtime4.jsxDEV(ImageListItemBar_default, {
-                  position: "below",
+                  position: "bottom",
                   title: game.title
                 }, undefined, false, undefined, this)
               ]
             }, game.img, true, undefined, this))
+          }, undefined, false, undefined, this)
+        }, undefined, false, undefined, this),
+        selectedGames.length > 0 && jsx_dev_runtime4.jsxDEV(Box_default, {
+          sx: {
+            borderRadius: "10px",
+            backgroundColor: "gray",
+            marginInline: "auto",
+            "&:hover": {
+              border: "1px solid #ffffff",
+              backgroundColor: "lightblue",
+              boxShadow: "0 0 2em #ffffff",
+              color: "blue",
+              cursor: "pointer"
+            }
+          },
+          onClick: () => navigate("/offers/constructor"),
+          children: jsx_dev_runtime4.jsxDEV(Typography_default, {
+            sx: {
+              textAlign: "center",
+              padding: "10px"
+            },
+            children: "\u041F\u043E\u0441\u043C\u043E\u0442\u0440\u0435\u0442\u044C \u043B\u0443\u0447\u0448\u0438\u0435 \u043A\u043E\u043C\u043F\u044C\u044E\u0442\u0435\u0440\u044B \u0434\u043B\u044F \u044D\u0442\u0438\u0445 \u0438\u0433\u0440"
           }, undefined, false, undefined, this)
         }, undefined, false, undefined, this)
       ]
@@ -40831,6 +40859,7 @@ var CustomBarPC_default = CustomBarPC = () => {
         children: [
           jsx_dev_runtime12.jsxDEV(Button_default, {
             sx: { alignItems: "end", color: "#ffffff", paddingTop: 0 },
+            onClick: () => navigate("/home"),
             children: [
               jsx_dev_runtime12.jsxDEV(Box_default, {
                 component: "img",
@@ -42247,6 +42276,7 @@ var CustomBarMobile_default = CustomBarMobile = () => {
           children: [
             jsx_dev_runtime13.jsxDEV(Button_default, {
               sx: { alignItems: "end", color: "#ffffff", paddingTop: 0 },
+              onClick: () => navigate("/home"),
               children: [
                 jsx_dev_runtime13.jsxDEV(Box_default, {
                   component: "img",

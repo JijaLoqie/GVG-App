@@ -7,6 +7,7 @@ import {
   Grid,
 } from "@mui/material";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const games = [
   {
@@ -90,6 +91,7 @@ const builds = [
 ];
 
 export default ChooseSection = () => {
+  const navigate = useNavigate();
   const [selectedGames, setSelectedGames] = useState([]);
 
   const handleSelectGame = (index) => {
@@ -105,6 +107,7 @@ export default ChooseSection = () => {
     <Grid
       container
       sx={{
+        backgroundColor: "#0d0d0d",
         height: "100vh",
         justifyContent: "center",
       }}
@@ -116,9 +119,8 @@ export default ChooseSection = () => {
         xs={12}
         md={12}
         sx={{
-          backgroundColor: "#000000",
           padding: "10px 0",
-          boxShadow: "0 0 1em 1em black",
+          boxShadow: "0 0 1em 1em #0d0d0d",
           zIndex: "100",
         }}
       >
@@ -129,8 +131,13 @@ export default ChooseSection = () => {
           component={"div"}
           style={{
             boxShadow:
-              "inset 0px 22px 2em -20px blue, inset 0px -22px 2em -20px blue",
-            overflow: "hidden",
+              "inset 0px 52px 4em -40px blue, inset 0px -52px 4em -40px blue",
+            //   "inset 0px 22px 2em -20px blue, inset 0px -22px 2em -20px blue",
+          }}
+          sx={{
+            border: 2,
+            borderColor: "#000000",
+            backgroundColor: "#313131",
           }}
         >
           <ImageList
@@ -144,14 +151,17 @@ export default ChooseSection = () => {
             {games.map((game, index) => (
               <ImageListItem
                 sx={{
-                  border: selectedGames.includes(index) ? 3 : 0,
-                  borderColor: "#ff0000",
+                  boxShadow: `0 0 2em ${
+                    selectedGames.includes(index) ? "red" : "black"
+                  }`,
                   width: "200px",
-                  "&:hover": {md: {
-                    border: "1px solid #ffffff",
-                    color: "gray",
-                    backgroundColor: "lightblue",
-                  }},
+                  "&:hover": {
+                    md: {
+                      border: "1px solid #ffffff",
+                      color: "gray",
+                      boxShadow: "0 0 2em #ffffff",
+                    },
+                  },
                 }}
                 key={game.img}
                 onClick={() => handleSelectGame(index)}
@@ -162,11 +172,37 @@ export default ChooseSection = () => {
                   alt={game.title}
                   loading="lazy"
                 />
-                <ImageListItemBar position="below" title={game.title} />
+                <ImageListItemBar position="bottom" title={game.title} />
               </ImageListItem>
             ))}
           </ImageList>
         </Box>
+        {selectedGames.length > 0 && (
+          <Box
+            sx={{
+              borderRadius: "10px",
+              backgroundColor: "gray",
+              marginInline: "auto",
+              "&:hover": {
+                border: "1px solid #ffffff",
+                backgroundColor: "lightblue",
+                boxShadow: "0 0 2em #ffffff",
+                color: "blue",
+                cursor: "pointer",
+              },
+            }}
+            onClick={() => navigate("/offers/constructor")}
+          >
+            <Typography
+              sx={{
+                textAlign: "center",
+                padding: "10px",
+              }}
+            >
+              Посмотреть лучшие компьютеры для этих игр
+            </Typography>
+          </Box>
+        )}
       </Grid>
     </Grid>
   );

@@ -96,7 +96,10 @@ export default CustomBarPC = () => {
             bgcolor: "#0D0D0D",
           }}
         >
-          <Button sx={{ alignItems: "end", color: "#ffffff", paddingTop: 0 }}>
+          <Button
+            sx={{ alignItems: "end", color: "#ffffff", paddingTop: 0 }}
+            onClick={() => navigate("/home")}
+          >
             <Box
               component="img"
               sx={{

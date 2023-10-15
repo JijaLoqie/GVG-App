@@ -22517,7 +22517,7 @@ var require_react_is4 = __commonJS((exports, module) => {
 
 // node_modules/react/cjs/react-jsx-dev-runtime.development.js
 var require_react_jsx_dev_runtime_development = __commonJS((exports) => {
-  var React66 = __toESM(require_react(), 1);
+  var React65 = __toESM(require_react(), 1);
   if (true) {
     (function() {
       var _assign = require_object_assign();
@@ -22576,7 +22576,7 @@ var require_react_jsx_dev_runtime_development = __commonJS((exports) => {
         }
         return null;
       }
-      var ReactSharedInternals = React66.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+      var ReactSharedInternals = React65.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
       function error(format) {
         {
           for (var _len2 = arguments.length, args = new Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1;_key2 < _len2; _key2++) {
@@ -38101,196 +38101,13 @@ ImageListItemBar.propTypes = {
   title: import_prop_types40.default.node
 };
 var ImageListItemBar_default = ImageListItemBar;
-// node_modules/@mui/material/Link/Link.js
-var React60 = __toESM(require_react(), 1);
+// node_modules/@mui/material/List/List.js
+var React61 = __toESM(require_react(), 1);
 var import_prop_types41 = __toESM(require_prop_types(), 1);
 
-// node_modules/@mui/material/Link/linkClasses.js
-function getLinkUtilityClass(slot) {
-  return generateUtilityClass("MuiLink", slot);
-}
-var linkClasses = generateUtilityClasses("MuiLink", ["root", "underlineNone", "underlineHover", "underlineAlways", "button", "focusVisible"]);
-var linkClasses_default = linkClasses;
-
-// node_modules/@mui/material/Link/getTextDecoration.js
-var colorTransformations2 = {
-  primary: "primary.main",
-  textPrimary: "text.primary",
-  secondary: "secondary.main",
-  textSecondary: "text.secondary",
-  error: "error.main"
-};
-var transformDeprecatedColors2 = (color2) => {
-  return colorTransformations2[color2] || color2;
-};
-var getTextDecoration = ({
-  theme,
-  ownerState
-}) => {
-  const transformedColor = transformDeprecatedColors2(ownerState.color);
-  const color2 = getPath(theme, `palette.${transformedColor}`, false) || ownerState.color;
-  const channelColor = getPath(theme, `palette.${transformedColor}Channel`);
-  if (("vars" in theme) && channelColor) {
-    return `rgba(${channelColor} / 0.4)`;
-  }
-  return alpha(color2, 0.4);
-};
-var getTextDecoration_default = getTextDecoration;
-
-// node_modules/@mui/material/Link/Link.js
-var jsx_runtime43 = __toESM(require_jsx_runtime(), 1);
-var _excluded39 = ["className", "color", "component", "onBlur", "onFocus", "TypographyClasses", "underline", "variant", "sx"];
-var useUtilityClasses18 = (ownerState) => {
-  const {
-    classes,
-    component,
-    focusVisible,
-    underline
-  } = ownerState;
-  const slots = {
-    root: ["root", `underline${capitalize_default(underline)}`, component === "button" && "button", focusVisible && "focusVisible"]
-  };
-  return composeClasses(slots, getLinkUtilityClass, classes);
-};
-var LinkRoot = styled_default2(Typography_default, {
-  name: "MuiLink",
-  slot: "Root",
-  overridesResolver: (props, styles5) => {
-    const {
-      ownerState
-    } = props;
-    return [styles5.root, styles5[`underline${capitalize_default(ownerState.underline)}`], ownerState.component === "button" && styles5.button];
-  }
-})(({
-  theme,
-  ownerState
-}) => {
-  return _extends4({}, ownerState.underline === "none" && {
-    textDecoration: "none"
-  }, ownerState.underline === "hover" && {
-    textDecoration: "none",
-    "&:hover": {
-      textDecoration: "underline"
-    }
-  }, ownerState.underline === "always" && _extends4({
-    textDecoration: "underline"
-  }, ownerState.color !== "inherit" && {
-    textDecorationColor: getTextDecoration_default({
-      theme,
-      ownerState
-    })
-  }, {
-    "&:hover": {
-      textDecorationColor: "inherit"
-    }
-  }), ownerState.component === "button" && {
-    position: "relative",
-    WebkitTapHighlightColor: "transparent",
-    backgroundColor: "transparent",
-    outline: 0,
-    border: 0,
-    margin: 0,
-    borderRadius: 0,
-    padding: 0,
-    cursor: "pointer",
-    userSelect: "none",
-    verticalAlign: "middle",
-    MozAppearance: "none",
-    WebkitAppearance: "none",
-    "&::-moz-focus-inner": {
-      borderStyle: "none"
-    },
-    [`&.${linkClasses_default.focusVisible}`]: {
-      outline: "auto"
-    }
-  });
-});
-var Link2 = React60.forwardRef(function Link3(inProps, ref) {
-  const props = useThemeProps3({
-    props: inProps,
-    name: "MuiLink"
-  });
-  const {
-    className: className2,
-    color: color2 = "primary",
-    component = "a",
-    onBlur,
-    onFocus,
-    TypographyClasses,
-    underline = "always",
-    variant = "inherit",
-    sx
-  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded39);
-  const {
-    isFocusVisibleRef,
-    onBlur: handleBlurVisible,
-    onFocus: handleFocusVisible,
-    ref: focusVisibleRef
-  } = useIsFocusVisible_default();
-  const [focusVisible, setFocusVisible] = React60.useState(false);
-  const handlerRef = useForkRef_default(ref, focusVisibleRef);
-  const handleBlur = (event) => {
-    handleBlurVisible(event);
-    if (isFocusVisibleRef.current === false) {
-      setFocusVisible(false);
-    }
-    if (onBlur) {
-      onBlur(event);
-    }
-  };
-  const handleFocus = (event) => {
-    handleFocusVisible(event);
-    if (isFocusVisibleRef.current === true) {
-      setFocusVisible(true);
-    }
-    if (onFocus) {
-      onFocus(event);
-    }
-  };
-  const ownerState = _extends4({}, props, {
-    color: color2,
-    component,
-    focusVisible,
-    underline,
-    variant
-  });
-  const classes = useUtilityClasses18(ownerState);
-  return jsx_runtime43.jsx(LinkRoot, _extends4({
-    color: color2,
-    className: clsx_default2(classes.root, className2),
-    classes: TypographyClasses,
-    component,
-    onBlur: handleBlur,
-    onFocus: handleFocus,
-    ref: handlerRef,
-    ownerState,
-    variant,
-    sx: [...!Object.keys(colorTransformations2).includes(color2) ? [{
-      color: color2
-    }] : [], ...Array.isArray(sx) ? sx : [sx]]
-  }, other));
-});
-Link2.propTypes = {
-  children: import_prop_types41.default.node,
-  classes: import_prop_types41.default.object,
-  className: import_prop_types41.default.string,
-  color: import_prop_types41.default.any,
-  component: elementTypeAcceptingRef_default,
-  onBlur: import_prop_types41.default.func,
-  onFocus: import_prop_types41.default.func,
-  sx: import_prop_types41.default.oneOfType([import_prop_types41.default.arrayOf(import_prop_types41.default.oneOfType([import_prop_types41.default.func, import_prop_types41.default.object, import_prop_types41.default.bool])), import_prop_types41.default.func, import_prop_types41.default.object]),
-  TypographyClasses: import_prop_types41.default.object,
-  underline: import_prop_types41.default.oneOf(["always", "hover", "none"]),
-  variant: import_prop_types41.default.oneOfType([import_prop_types41.default.oneOf(["body1", "body2", "button", "caption", "h1", "h2", "h3", "h4", "h5", "h6", "inherit", "overline", "subtitle1", "subtitle2"]), import_prop_types41.default.string])
-};
-var Link_default = Link2;
-// node_modules/@mui/material/List/List.js
-var React62 = __toESM(require_react(), 1);
-var import_prop_types42 = __toESM(require_prop_types(), 1);
-
 // node_modules/@mui/material/List/ListContext.js
-var React61 = __toESM(require_react(), 1);
-var ListContext = React61.createContext({});
+var React60 = __toESM(require_react(), 1);
+var ListContext = React60.createContext({});
 if (true) {
   ListContext.displayName = "ListContext";
 }
@@ -38303,10 +38120,10 @@ function getListUtilityClass(slot) {
 var listClasses = generateUtilityClasses("MuiList", ["root", "padding", "dense", "subheader"]);
 
 // node_modules/@mui/material/List/List.js
+var jsx_runtime43 = __toESM(require_jsx_runtime(), 1);
 var jsx_runtime44 = __toESM(require_jsx_runtime(), 1);
-var jsx_runtime45 = __toESM(require_jsx_runtime(), 1);
-var _excluded40 = ["children", "className", "component", "dense", "disablePadding", "subheader"];
-var useUtilityClasses19 = (ownerState) => {
+var _excluded39 = ["children", "className", "component", "dense", "disablePadding", "subheader"];
+var useUtilityClasses18 = (ownerState) => {
   const {
     classes,
     disablePadding,
@@ -38340,7 +38157,7 @@ var ListRoot = styled_default2("ul", {
 }, ownerState.subheader && {
   paddingTop: 0
 }));
-var List = React62.forwardRef(function List2(inProps, ref) {
+var List = React61.forwardRef(function List2(inProps, ref) {
   const props = useThemeProps3({
     props: inProps,
     name: "MuiList"
@@ -38352,8 +38169,8 @@ var List = React62.forwardRef(function List2(inProps, ref) {
     dense = false,
     disablePadding = false,
     subheader
-  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded40);
-  const context = React62.useMemo(() => ({
+  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded39);
+  const context = React61.useMemo(() => ({
     dense
   }), [dense]);
   const ownerState = _extends4({}, props, {
@@ -38361,10 +38178,10 @@ var List = React62.forwardRef(function List2(inProps, ref) {
     dense,
     disablePadding
   });
-  const classes = useUtilityClasses19(ownerState);
-  return jsx_runtime45.jsx(ListContext_default.Provider, {
+  const classes = useUtilityClasses18(ownerState);
+  return jsx_runtime44.jsx(ListContext_default.Provider, {
     value: context,
-    children: jsx_runtime44.jsxs(ListRoot, _extends4({
+    children: jsx_runtime43.jsxs(ListRoot, _extends4({
       as: component,
       className: clsx_default2(classes.root, className2),
       ref,
@@ -38375,19 +38192,19 @@ var List = React62.forwardRef(function List2(inProps, ref) {
   });
 });
 List.propTypes = {
-  children: import_prop_types42.default.node,
-  classes: import_prop_types42.default.object,
-  className: import_prop_types42.default.string,
-  component: import_prop_types42.default.elementType,
-  dense: import_prop_types42.default.bool,
-  disablePadding: import_prop_types42.default.bool,
-  subheader: import_prop_types42.default.node,
-  sx: import_prop_types42.default.oneOfType([import_prop_types42.default.arrayOf(import_prop_types42.default.oneOfType([import_prop_types42.default.func, import_prop_types42.default.object, import_prop_types42.default.bool])), import_prop_types42.default.func, import_prop_types42.default.object])
+  children: import_prop_types41.default.node,
+  classes: import_prop_types41.default.object,
+  className: import_prop_types41.default.string,
+  component: import_prop_types41.default.elementType,
+  dense: import_prop_types41.default.bool,
+  disablePadding: import_prop_types41.default.bool,
+  subheader: import_prop_types41.default.node,
+  sx: import_prop_types41.default.oneOfType([import_prop_types41.default.arrayOf(import_prop_types41.default.oneOfType([import_prop_types41.default.func, import_prop_types41.default.object, import_prop_types41.default.bool])), import_prop_types41.default.func, import_prop_types41.default.object])
 };
 var List_default = List;
 // node_modules/@mui/material/ListItemButton/ListItemButton.js
-var React63 = __toESM(require_react(), 1);
-var import_prop_types43 = __toESM(require_prop_types(), 1);
+var React62 = __toESM(require_react(), 1);
+var import_prop_types42 = __toESM(require_prop_types(), 1);
 
 // node_modules/@mui/material/ListItemButton/listItemButtonClasses.js
 function getListItemButtonUtilityClass(slot) {
@@ -38397,15 +38214,15 @@ var listItemButtonClasses = generateUtilityClasses("MuiListItemButton", ["root",
 var listItemButtonClasses_default = listItemButtonClasses;
 
 // node_modules/@mui/material/ListItemButton/ListItemButton.js
-var jsx_runtime46 = __toESM(require_jsx_runtime(), 1);
-var _excluded41 = ["alignItems", "autoFocus", "component", "children", "dense", "disableGutters", "divider", "focusVisibleClassName", "selected", "className"];
+var jsx_runtime45 = __toESM(require_jsx_runtime(), 1);
+var _excluded40 = ["alignItems", "autoFocus", "component", "children", "dense", "disableGutters", "divider", "focusVisibleClassName", "selected", "className"];
 var overridesResolver2 = (props, styles5) => {
   const {
     ownerState
   } = props;
   return [styles5.root, ownerState.dense && styles5.dense, ownerState.alignItems === "flex-start" && styles5.alignItemsFlexStart, ownerState.divider && styles5.divider, !ownerState.disableGutters && styles5.gutters];
 };
-var useUtilityClasses20 = (ownerState) => {
+var useUtilityClasses19 = (ownerState) => {
   const {
     alignItems,
     classes,
@@ -38481,7 +38298,7 @@ var ListItemButtonRoot = styled_default2(ButtonBase_default, {
   paddingTop: 4,
   paddingBottom: 4
 }));
-var ListItemButton = React63.forwardRef(function ListItemButton2(inProps, ref) {
+var ListItemButton = React62.forwardRef(function ListItemButton2(inProps, ref) {
   const props = useThemeProps3({
     props: inProps,
     name: "MuiListItemButton"
@@ -38497,14 +38314,14 @@ var ListItemButton = React63.forwardRef(function ListItemButton2(inProps, ref) {
     focusVisibleClassName,
     selected = false,
     className: className2
-  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded41);
-  const context = React63.useContext(ListContext_default);
-  const childContext = React63.useMemo(() => ({
+  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded40);
+  const context = React62.useContext(ListContext_default);
+  const childContext = React62.useMemo(() => ({
     dense: dense || context.dense || false,
     alignItems,
     disableGutters
   }), [alignItems, context.dense, dense, disableGutters]);
-  const listItemRef = React63.useRef(null);
+  const listItemRef = React62.useRef(null);
   useEnhancedEffect_default2(() => {
     if (autoFocus) {
       if (listItemRef.current) {
@@ -38521,11 +38338,11 @@ var ListItemButton = React63.forwardRef(function ListItemButton2(inProps, ref) {
     divider,
     selected
   });
-  const classes = useUtilityClasses20(ownerState);
+  const classes = useUtilityClasses19(ownerState);
   const handleRef = useForkRef_default(listItemRef, ref);
-  return jsx_runtime46.jsx(ListContext_default.Provider, {
+  return jsx_runtime45.jsx(ListContext_default.Provider, {
     value: childContext,
-    children: jsx_runtime46.jsx(ListItemButtonRoot, _extends4({
+    children: jsx_runtime45.jsx(ListItemButtonRoot, _extends4({
       ref: handleRef,
       href: other.href || other.to,
       component: (other.href || other.to) && component === "div" ? "button" : component,
@@ -38539,25 +38356,25 @@ var ListItemButton = React63.forwardRef(function ListItemButton2(inProps, ref) {
   });
 });
 ListItemButton.propTypes = {
-  alignItems: import_prop_types43.default.oneOf(["center", "flex-start"]),
-  autoFocus: import_prop_types43.default.bool,
-  children: import_prop_types43.default.node,
-  classes: import_prop_types43.default.object,
-  className: import_prop_types43.default.string,
-  component: import_prop_types43.default.elementType,
-  dense: import_prop_types43.default.bool,
-  disabled: import_prop_types43.default.bool,
-  disableGutters: import_prop_types43.default.bool,
-  divider: import_prop_types43.default.bool,
-  focusVisibleClassName: import_prop_types43.default.string,
-  href: import_prop_types43.default.string,
-  selected: import_prop_types43.default.bool,
-  sx: import_prop_types43.default.oneOfType([import_prop_types43.default.arrayOf(import_prop_types43.default.oneOfType([import_prop_types43.default.func, import_prop_types43.default.object, import_prop_types43.default.bool])), import_prop_types43.default.func, import_prop_types43.default.object])
+  alignItems: import_prop_types42.default.oneOf(["center", "flex-start"]),
+  autoFocus: import_prop_types42.default.bool,
+  children: import_prop_types42.default.node,
+  classes: import_prop_types42.default.object,
+  className: import_prop_types42.default.string,
+  component: import_prop_types42.default.elementType,
+  dense: import_prop_types42.default.bool,
+  disabled: import_prop_types42.default.bool,
+  disableGutters: import_prop_types42.default.bool,
+  divider: import_prop_types42.default.bool,
+  focusVisibleClassName: import_prop_types42.default.string,
+  href: import_prop_types42.default.string,
+  selected: import_prop_types42.default.bool,
+  sx: import_prop_types42.default.oneOfType([import_prop_types42.default.arrayOf(import_prop_types42.default.oneOfType([import_prop_types42.default.func, import_prop_types42.default.object, import_prop_types42.default.bool])), import_prop_types42.default.func, import_prop_types42.default.object])
 };
 var ListItemButton_default = ListItemButton;
 // node_modules/@mui/material/Popover/Popover.js
-var React64 = __toESM(require_react(), 1);
-var import_prop_types44 = __toESM(require_prop_types(), 1);
+var React63 = __toESM(require_react(), 1);
+var import_prop_types43 = __toESM(require_prop_types(), 1);
 
 // node_modules/@mui/material/Popover/popoverClasses.js
 function getPopoverUtilityClass(slot) {
@@ -38566,7 +38383,7 @@ function getPopoverUtilityClass(slot) {
 var popoverClasses = generateUtilityClasses("MuiPopover", ["root", "paper"]);
 
 // node_modules/@mui/material/Popover/Popover.js
-var jsx_runtime47 = __toESM(require_jsx_runtime(), 1);
+var jsx_runtime46 = __toESM(require_jsx_runtime(), 1);
 function getOffsetTop(rect, vertical) {
   let offset = 0;
   if (typeof vertical === "number") {
@@ -38595,10 +38412,10 @@ var getTransformOriginValue = function(transformOrigin) {
 var resolveAnchorEl = function(anchorEl) {
   return typeof anchorEl === "function" ? anchorEl() : anchorEl;
 };
-var _excluded42 = ["onEntering"];
+var _excluded41 = ["onEntering"];
 var _excluded210 = ["action", "anchorEl", "anchorOrigin", "anchorPosition", "anchorReference", "children", "className", "container", "elevation", "marginThreshold", "open", "PaperProps", "slots", "slotProps", "transformOrigin", "TransitionComponent", "transitionDuration", "TransitionProps", "disableScrollLock"];
 var _excluded310 = ["slotProps"];
-var useUtilityClasses21 = (ownerState) => {
+var useUtilityClasses20 = (ownerState) => {
   const {
     classes
   } = ownerState;
@@ -38627,7 +38444,7 @@ var PopoverPaper = styled_default2(Paper_default, {
   maxHeight: "calc(100% - 32px)",
   outline: 0
 });
-var Popover = React64.forwardRef(function Popover2(inProps, ref) {
+var Popover = React63.forwardRef(function Popover2(inProps, ref) {
   var _slotProps$paper, _slots$root, _slots$paper;
   const props = useThemeProps3({
     props: inProps,
@@ -38661,9 +38478,9 @@ var Popover = React64.forwardRef(function Popover2(inProps, ref) {
       onEntering
     } = {},
     disableScrollLock = false
-  } = props, TransitionProps = _objectWithoutPropertiesLoose2(props.TransitionProps, _excluded42), other = _objectWithoutPropertiesLoose2(props, _excluded210);
+  } = props, TransitionProps = _objectWithoutPropertiesLoose2(props.TransitionProps, _excluded41), other = _objectWithoutPropertiesLoose2(props, _excluded210);
   const externalPaperSlotProps = (_slotProps$paper = slotProps == null ? undefined : slotProps.paper) != null ? _slotProps$paper : PaperPropsProp;
-  const paperRef = React64.useRef();
+  const paperRef = React63.useRef();
   const handlePaperRef = useForkRef_default(paperRef, externalPaperSlotProps.ref);
   const ownerState = _extends4({}, props, {
     anchorOrigin,
@@ -38676,8 +38493,8 @@ var Popover = React64.forwardRef(function Popover2(inProps, ref) {
     transitionDuration: transitionDurationProp,
     TransitionProps
   });
-  const classes = useUtilityClasses21(ownerState);
-  const getAnchorOffset = React64.useCallback(() => {
+  const classes = useUtilityClasses20(ownerState);
+  const getAnchorOffset = React63.useCallback(() => {
     if (anchorReference === "anchorPosition") {
       if (true) {
         if (!anchorPosition) {
@@ -38700,13 +38517,13 @@ var Popover = React64.forwardRef(function Popover2(inProps, ref) {
       left: anchorRect.left + getOffsetLeft(anchorRect, anchorOrigin.horizontal)
     };
   }, [anchorEl, anchorOrigin.horizontal, anchorOrigin.vertical, anchorPosition, anchorReference]);
-  const getTransformOrigin = React64.useCallback((elemRect) => {
+  const getTransformOrigin = React63.useCallback((elemRect) => {
     return {
       vertical: getOffsetTop(elemRect, transformOrigin.vertical),
       horizontal: getOffsetLeft(elemRect, transformOrigin.horizontal)
     };
   }, [transformOrigin.horizontal, transformOrigin.vertical]);
-  const getPositioningStyle = React64.useCallback((element) => {
+  const getPositioningStyle = React63.useCallback((element) => {
     const elemRect = {
       width: element.offsetWidth,
       height: element.offsetHeight
@@ -38756,8 +38573,8 @@ var Popover = React64.forwardRef(function Popover2(inProps, ref) {
       transformOrigin: getTransformOriginValue(elemTransformOrigin)
     };
   }, [anchorEl, anchorReference, getAnchorOffset, getTransformOrigin, marginThreshold]);
-  const [isPositioned, setIsPositioned] = React64.useState(open);
-  const setPositioningStyles = React64.useCallback(() => {
+  const [isPositioned, setIsPositioned] = React63.useState(open);
+  const setPositioningStyles = React63.useCallback(() => {
     const element = paperRef.current;
     if (!element) {
       return;
@@ -38772,7 +38589,7 @@ var Popover = React64.forwardRef(function Popover2(inProps, ref) {
     element.style.transformOrigin = positioning.transformOrigin;
     setIsPositioned(true);
   }, [getPositioningStyle]);
-  React64.useEffect(() => {
+  React63.useEffect(() => {
     if (disableScrollLock) {
       window.addEventListener("scroll", setPositioningStyles);
     }
@@ -38787,17 +38604,17 @@ var Popover = React64.forwardRef(function Popover2(inProps, ref) {
   const handleExited = () => {
     setIsPositioned(false);
   };
-  React64.useEffect(() => {
+  React63.useEffect(() => {
     if (open) {
       setPositioningStyles();
     }
   });
-  React64.useImperativeHandle(action, () => open ? {
+  React63.useImperativeHandle(action, () => open ? {
     updatePosition: () => {
       setPositioningStyles();
     }
   } : null, [open, setPositioningStyles]);
-  React64.useEffect(() => {
+  React63.useEffect(() => {
     if (!open) {
       return;
     }
@@ -38851,18 +38668,18 @@ var Popover = React64.forwardRef(function Popover2(inProps, ref) {
   }), {
     slotProps: rootSlotPropsProp
   } = _useSlotProps, rootProps = _objectWithoutPropertiesLoose2(_useSlotProps, _excluded310);
-  return jsx_runtime47.jsx(RootSlot, _extends4({}, rootProps, !isHostComponent(RootSlot) && {
+  return jsx_runtime46.jsx(RootSlot, _extends4({}, rootProps, !isHostComponent(RootSlot) && {
     slotProps: rootSlotPropsProp,
     disableScrollLock
   }, {
-    children: jsx_runtime47.jsx(TransitionComponent, _extends4({
+    children: jsx_runtime46.jsx(TransitionComponent, _extends4({
       appear: true,
       in: open,
       onEntering: handleEntering,
       onExited: handleExited,
       timeout: transitionDuration
     }, TransitionProps, {
-      children: jsx_runtime47.jsx(PaperSlot, _extends4({}, paperProps, {
+      children: jsx_runtime46.jsx(PaperSlot, _extends4({}, paperProps, {
         children
       }))
     }))
@@ -38870,7 +38687,7 @@ var Popover = React64.forwardRef(function Popover2(inProps, ref) {
 });
 Popover.propTypes = {
   action: refType_default,
-  anchorEl: chainPropTypes(import_prop_types44.default.oneOfType([HTMLElementType, import_prop_types44.default.func]), (props) => {
+  anchorEl: chainPropTypes(import_prop_types43.default.oneOfType([HTMLElementType, import_prop_types43.default.func]), (props) => {
     if (props.open && (!props.anchorReference || props.anchorReference === "anchorEl")) {
       const resolvedAnchorEl = resolveAnchorEl(props.anchorEl);
       if (resolvedAnchorEl && resolvedAnchorEl.nodeType === 1) {
@@ -38884,52 +38701,52 @@ Popover.propTypes = {
     }
     return null;
   }),
-  anchorOrigin: import_prop_types44.default.shape({
-    horizontal: import_prop_types44.default.oneOfType([import_prop_types44.default.oneOf(["center", "left", "right"]), import_prop_types44.default.number]).isRequired,
-    vertical: import_prop_types44.default.oneOfType([import_prop_types44.default.oneOf(["bottom", "center", "top"]), import_prop_types44.default.number]).isRequired
+  anchorOrigin: import_prop_types43.default.shape({
+    horizontal: import_prop_types43.default.oneOfType([import_prop_types43.default.oneOf(["center", "left", "right"]), import_prop_types43.default.number]).isRequired,
+    vertical: import_prop_types43.default.oneOfType([import_prop_types43.default.oneOf(["bottom", "center", "top"]), import_prop_types43.default.number]).isRequired
   }),
-  anchorPosition: import_prop_types44.default.shape({
-    left: import_prop_types44.default.number.isRequired,
-    top: import_prop_types44.default.number.isRequired
+  anchorPosition: import_prop_types43.default.shape({
+    left: import_prop_types43.default.number.isRequired,
+    top: import_prop_types43.default.number.isRequired
   }),
-  anchorReference: import_prop_types44.default.oneOf(["anchorEl", "anchorPosition", "none"]),
-  children: import_prop_types44.default.node,
-  classes: import_prop_types44.default.object,
-  className: import_prop_types44.default.string,
-  container: import_prop_types44.default.oneOfType([HTMLElementType, import_prop_types44.default.func]),
-  disableScrollLock: import_prop_types44.default.bool,
+  anchorReference: import_prop_types43.default.oneOf(["anchorEl", "anchorPosition", "none"]),
+  children: import_prop_types43.default.node,
+  classes: import_prop_types43.default.object,
+  className: import_prop_types43.default.string,
+  container: import_prop_types43.default.oneOfType([HTMLElementType, import_prop_types43.default.func]),
+  disableScrollLock: import_prop_types43.default.bool,
   elevation: integerPropType_default,
-  marginThreshold: import_prop_types44.default.number,
-  onClose: import_prop_types44.default.func,
-  open: import_prop_types44.default.bool.isRequired,
-  PaperProps: import_prop_types44.default.shape({
+  marginThreshold: import_prop_types43.default.number,
+  onClose: import_prop_types43.default.func,
+  open: import_prop_types43.default.bool.isRequired,
+  PaperProps: import_prop_types43.default.shape({
     component: elementTypeAcceptingRef_default
   }),
-  slotProps: import_prop_types44.default.shape({
-    paper: import_prop_types44.default.oneOfType([import_prop_types44.default.func, import_prop_types44.default.object]),
-    root: import_prop_types44.default.oneOfType([import_prop_types44.default.func, import_prop_types44.default.object])
+  slotProps: import_prop_types43.default.shape({
+    paper: import_prop_types43.default.oneOfType([import_prop_types43.default.func, import_prop_types43.default.object]),
+    root: import_prop_types43.default.oneOfType([import_prop_types43.default.func, import_prop_types43.default.object])
   }),
-  slots: import_prop_types44.default.shape({
-    paper: import_prop_types44.default.elementType,
-    root: import_prop_types44.default.elementType
+  slots: import_prop_types43.default.shape({
+    paper: import_prop_types43.default.elementType,
+    root: import_prop_types43.default.elementType
   }),
-  sx: import_prop_types44.default.oneOfType([import_prop_types44.default.arrayOf(import_prop_types44.default.oneOfType([import_prop_types44.default.func, import_prop_types44.default.object, import_prop_types44.default.bool])), import_prop_types44.default.func, import_prop_types44.default.object]),
-  transformOrigin: import_prop_types44.default.shape({
-    horizontal: import_prop_types44.default.oneOfType([import_prop_types44.default.oneOf(["center", "left", "right"]), import_prop_types44.default.number]).isRequired,
-    vertical: import_prop_types44.default.oneOfType([import_prop_types44.default.oneOf(["bottom", "center", "top"]), import_prop_types44.default.number]).isRequired
+  sx: import_prop_types43.default.oneOfType([import_prop_types43.default.arrayOf(import_prop_types43.default.oneOfType([import_prop_types43.default.func, import_prop_types43.default.object, import_prop_types43.default.bool])), import_prop_types43.default.func, import_prop_types43.default.object]),
+  transformOrigin: import_prop_types43.default.shape({
+    horizontal: import_prop_types43.default.oneOfType([import_prop_types43.default.oneOf(["center", "left", "right"]), import_prop_types43.default.number]).isRequired,
+    vertical: import_prop_types43.default.oneOfType([import_prop_types43.default.oneOf(["bottom", "center", "top"]), import_prop_types43.default.number]).isRequired
   }),
-  TransitionComponent: import_prop_types44.default.elementType,
-  transitionDuration: import_prop_types44.default.oneOfType([import_prop_types44.default.oneOf(["auto"]), import_prop_types44.default.number, import_prop_types44.default.shape({
-    appear: import_prop_types44.default.number,
-    enter: import_prop_types44.default.number,
-    exit: import_prop_types44.default.number
+  TransitionComponent: import_prop_types43.default.elementType,
+  transitionDuration: import_prop_types43.default.oneOfType([import_prop_types43.default.oneOf(["auto"]), import_prop_types43.default.number, import_prop_types43.default.shape({
+    appear: import_prop_types43.default.number,
+    enter: import_prop_types43.default.number,
+    exit: import_prop_types43.default.number
   })]),
-  TransitionProps: import_prop_types44.default.object
+  TransitionProps: import_prop_types43.default.object
 };
 var Popover_default = Popover;
 // node_modules/@mui/material/Toolbar/Toolbar.js
-var React65 = __toESM(require_react(), 1);
-var import_prop_types45 = __toESM(require_prop_types(), 1);
+var React64 = __toESM(require_react(), 1);
+var import_prop_types44 = __toESM(require_prop_types(), 1);
 
 // node_modules/@mui/material/Toolbar/toolbarClasses.js
 function getToolbarUtilityClass(slot) {
@@ -38938,9 +38755,9 @@ function getToolbarUtilityClass(slot) {
 var toolbarClasses = generateUtilityClasses("MuiToolbar", ["root", "gutters", "regular", "dense"]);
 
 // node_modules/@mui/material/Toolbar/Toolbar.js
-var jsx_runtime48 = __toESM(require_jsx_runtime(), 1);
-var _excluded43 = ["className", "component", "disableGutters", "variant"];
-var useUtilityClasses22 = (ownerState) => {
+var jsx_runtime47 = __toESM(require_jsx_runtime(), 1);
+var _excluded42 = ["className", "component", "disableGutters", "variant"];
+var useUtilityClasses21 = (ownerState) => {
   const {
     classes,
     disableGutters,
@@ -38980,7 +38797,7 @@ var ToolbarRoot = styled_default2("div", {
   theme,
   ownerState
 }) => ownerState.variant === "regular" && theme.mixins.toolbar);
-var Toolbar = React65.forwardRef(function Toolbar2(inProps, ref) {
+var Toolbar = React64.forwardRef(function Toolbar2(inProps, ref) {
   const props = useThemeProps3({
     props: inProps,
     name: "MuiToolbar"
@@ -38990,14 +38807,14 @@ var Toolbar = React65.forwardRef(function Toolbar2(inProps, ref) {
     component = "div",
     disableGutters = false,
     variant = "regular"
-  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded43);
+  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded42);
   const ownerState = _extends4({}, props, {
     component,
     disableGutters,
     variant
   });
-  const classes = useUtilityClasses22(ownerState);
-  return jsx_runtime48.jsx(ToolbarRoot, _extends4({
+  const classes = useUtilityClasses21(ownerState);
+  return jsx_runtime47.jsx(ToolbarRoot, _extends4({
     as: component,
     className: clsx_default2(classes.root, className2),
     ref,
@@ -39005,13 +38822,13 @@ var Toolbar = React65.forwardRef(function Toolbar2(inProps, ref) {
   }, other));
 });
 Toolbar.propTypes = {
-  children: import_prop_types45.default.node,
-  classes: import_prop_types45.default.object,
-  className: import_prop_types45.default.string,
-  component: import_prop_types45.default.elementType,
-  disableGutters: import_prop_types45.default.bool,
-  sx: import_prop_types45.default.oneOfType([import_prop_types45.default.arrayOf(import_prop_types45.default.oneOfType([import_prop_types45.default.func, import_prop_types45.default.object, import_prop_types45.default.bool])), import_prop_types45.default.func, import_prop_types45.default.object]),
-  variant: import_prop_types45.default.oneOfType([import_prop_types45.default.oneOf(["dense", "regular"]), import_prop_types45.default.string])
+  children: import_prop_types44.default.node,
+  classes: import_prop_types44.default.object,
+  className: import_prop_types44.default.string,
+  component: import_prop_types44.default.elementType,
+  disableGutters: import_prop_types44.default.bool,
+  sx: import_prop_types44.default.oneOfType([import_prop_types44.default.arrayOf(import_prop_types44.default.oneOfType([import_prop_types44.default.func, import_prop_types44.default.object, import_prop_types44.default.bool])), import_prop_types44.default.func, import_prop_types44.default.object]),
+  variant: import_prop_types44.default.oneOfType([import_prop_types44.default.oneOf(["dense", "regular"]), import_prop_types44.default.string])
 };
 var Toolbar_default = Toolbar;
 // src/components/offers/OffersPage.js
@@ -39055,79 +38872,79 @@ var import_react_responsive_carousel = __toESM(require_js(), 1);
 // src/components/home/HeaderSection/ImageSlider.js
 var import_react9 = __toESM(require_react(), 1);
 // node_modules/@mui/icons-material/esm/AccessTime.js
-var jsx_runtime49 = __toESM(require_jsx_runtime(), 1);
-var AccessTime_default = createSvgIcon([jsx_runtime49.jsx("path", {
+var jsx_runtime48 = __toESM(require_jsx_runtime(), 1);
+var AccessTime_default = createSvgIcon([jsx_runtime48.jsx("path", {
   d: "M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"
-}, "0"), jsx_runtime49.jsx("path", {
+}, "0"), jsx_runtime48.jsx("path", {
   d: "M12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z"
 }, "1")], "AccessTime");
 // node_modules/@mui/icons-material/esm/Circle.js
-var jsx_runtime50 = __toESM(require_jsx_runtime(), 1);
-var Circle_default = createSvgIcon(jsx_runtime50.jsx("path", {
+var jsx_runtime49 = __toESM(require_jsx_runtime(), 1);
+var Circle_default = createSvgIcon(jsx_runtime49.jsx("path", {
   d: "M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2z"
 }), "Circle");
 // node_modules/@mui/icons-material/esm/CircleOutlined.js
-var jsx_runtime51 = __toESM(require_jsx_runtime(), 1);
-var CircleOutlined_default = createSvgIcon(jsx_runtime51.jsx("path", {
+var jsx_runtime50 = __toESM(require_jsx_runtime(), 1);
+var CircleOutlined_default = createSvgIcon(jsx_runtime50.jsx("path", {
   d: "M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"
 }), "CircleOutlined");
 // node_modules/@mui/icons-material/esm/Computer.js
-var jsx_runtime52 = __toESM(require_jsx_runtime(), 1);
-var Computer_default = createSvgIcon(jsx_runtime52.jsx("path", {
+var jsx_runtime51 = __toESM(require_jsx_runtime(), 1);
+var Computer_default = createSvgIcon(jsx_runtime51.jsx("path", {
   d: "M20 18c1.1 0 1.99-.9 1.99-2L22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2H0v2h24v-2h-4zM4 6h16v10H4V6z"
 }), "Computer");
 // node_modules/@mui/icons-material/esm/DeliveryDining.js
-var jsx_runtime53 = __toESM(require_jsx_runtime(), 1);
-var DeliveryDining_default = createSvgIcon([jsx_runtime53.jsx("path", {
+var jsx_runtime52 = __toESM(require_jsx_runtime(), 1);
+var DeliveryDining_default = createSvgIcon([jsx_runtime52.jsx("path", {
   d: "M19 7c0-1.1-.9-2-2-2h-3v2h3v2.65L13.52 14H10V9H6c-2.21 0-4 1.79-4 4v3h2c0 1.66 1.34 3 3 3s3-1.34 3-3h4.48L19 10.35V7zM7 17c-.55 0-1-.45-1-1h2c0 .55-.45 1-1 1z"
-}, "0"), jsx_runtime53.jsx("path", {
+}, "0"), jsx_runtime52.jsx("path", {
   d: "M5 6h5v2H5zm14 7c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3zm0 4c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1z"
 }, "1")], "DeliveryDining");
 // node_modules/@mui/icons-material/esm/Email.js
-var jsx_runtime54 = __toESM(require_jsx_runtime(), 1);
-var Email_default = createSvgIcon(jsx_runtime54.jsx("path", {
+var jsx_runtime53 = __toESM(require_jsx_runtime(), 1);
+var Email_default = createSvgIcon(jsx_runtime53.jsx("path", {
   d: "M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"
 }), "Email");
 // node_modules/@mui/icons-material/esm/Home.js
-var jsx_runtime55 = __toESM(require_jsx_runtime(), 1);
-var Home_default = createSvgIcon(jsx_runtime55.jsx("path", {
+var jsx_runtime54 = __toESM(require_jsx_runtime(), 1);
+var Home_default = createSvgIcon(jsx_runtime54.jsx("path", {
   d: "M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"
 }), "Home");
 // node_modules/@mui/icons-material/esm/Info.js
-var jsx_runtime56 = __toESM(require_jsx_runtime(), 1);
-var Info_default = createSvgIcon(jsx_runtime56.jsx("path", {
+var jsx_runtime55 = __toESM(require_jsx_runtime(), 1);
+var Info_default = createSvgIcon(jsx_runtime55.jsx("path", {
   d: "M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"
 }), "Info");
 // node_modules/@mui/icons-material/esm/Instagram.js
-var React67 = __toESM(require_react(), 1);
-var jsx_runtime57 = __toESM(require_jsx_runtime(), 1);
-var Instagram_default = createSvgIcon(jsx_runtime57.jsx("path", {
+var React66 = __toESM(require_react(), 1);
+var jsx_runtime56 = __toESM(require_jsx_runtime(), 1);
+var Instagram_default = createSvgIcon(jsx_runtime56.jsx("path", {
   d: "M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"
 }), "Instagram");
 // node_modules/@mui/icons-material/esm/KeyboardArrowLeft.js
-var jsx_runtime58 = __toESM(require_jsx_runtime(), 1);
-var KeyboardArrowLeft_default = createSvgIcon(jsx_runtime58.jsx("path", {
+var jsx_runtime57 = __toESM(require_jsx_runtime(), 1);
+var KeyboardArrowLeft_default = createSvgIcon(jsx_runtime57.jsx("path", {
   d: "M15.41 16.59 10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"
 }), "KeyboardArrowLeft");
 // node_modules/@mui/icons-material/esm/KeyboardArrowRight.js
-var jsx_runtime59 = __toESM(require_jsx_runtime(), 1);
-var KeyboardArrowRight_default = createSvgIcon(jsx_runtime59.jsx("path", {
+var jsx_runtime58 = __toESM(require_jsx_runtime(), 1);
+var KeyboardArrowRight_default = createSvgIcon(jsx_runtime58.jsx("path", {
   d: "M8.59 16.59 13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"
 }), "KeyboardArrowRight");
 // node_modules/@mui/icons-material/esm/Phone.js
-var jsx_runtime60 = __toESM(require_jsx_runtime(), 1);
-var Phone_default = createSvgIcon(jsx_runtime60.jsx("path", {
+var jsx_runtime59 = __toESM(require_jsx_runtime(), 1);
+var Phone_default = createSvgIcon(jsx_runtime59.jsx("path", {
   d: "M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"
 }), "Phone");
 // node_modules/@mui/icons-material/esm/Search.js
-var jsx_runtime61 = __toESM(require_jsx_runtime(), 1);
-var Search_default = createSvgIcon(jsx_runtime61.jsx("path", {
+var jsx_runtime60 = __toESM(require_jsx_runtime(), 1);
+var Search_default = createSvgIcon(jsx_runtime60.jsx("path", {
   d: "M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
 }), "Search");
 // node_modules/@mui/icons-material/esm/Telegram.js
-var React68 = __toESM(require_react(), 1);
-var jsx_runtime62 = __toESM(require_jsx_runtime(), 1);
-var Telegram_default = createSvgIcon(jsx_runtime62.jsx("path", {
+var React67 = __toESM(require_react(), 1);
+var jsx_runtime61 = __toESM(require_jsx_runtime(), 1);
+var Telegram_default = createSvgIcon(jsx_runtime61.jsx("path", {
   d: "M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"
 }), "Telegram");
 // src/components/home/HeaderSection/ImageSlider.js
@@ -39178,20 +38995,32 @@ var dotStyle = {
   cursor: "pointer",
   fontSize: "20px"
 };
+var NEXT_SLIDE_TIMER = 5;
 var ImageSlider = ({ items }) => {
   const [currentIndex, setCurrentIndex] = import_react9.useState(0);
+  const [timeLeft, setTimeLeft] = import_react9.useState(NEXT_SLIDE_TIMER);
+  import_react9.useEffect(() => {
+    const interval = setInterval(() => {
+      if (timeLeft === 0) {
+        setTimeLeft(NEXT_SLIDE_TIMER);
+        setCurrentIndex((index) => (index + 1) % items.length);
+      } else {
+        setTimeLeft((index) => index - 1);
+      }
+    }, 1000);
+    return () => clearInterval(interval);
+  }, [timeLeft]);
   const goToPrevious = () => {
-    const isFirstSlide = currentIndex === 0;
-    const newIndex = isFirstSlide ? items.length - 1 : currentIndex - 1;
-    setCurrentIndex(newIndex);
+    setCurrentIndex((currentIndex - 1) % items.length);
+    setTimeLeft(NEXT_SLIDE_TIMER);
   };
   const goToNext = () => {
-    const isLastSlide = currentIndex === items.length - 1;
-    const newIndex = isLastSlide ? 0 : currentIndex + 1;
-    setCurrentIndex(newIndex);
+    setCurrentIndex((currentIndex + 1) % items.length);
+    setTimeLeft(NEXT_SLIDE_TIMER);
   };
   const goToSlide = (slideIndex) => {
     setCurrentIndex(slideIndex);
+    setTimeLeft(NEXT_SLIDE_TIMER);
   };
   const slideStylesWidthBackground = {
     ...slideStyles,
@@ -39356,8 +39185,11 @@ var ChooseSection_default = ChooseSection = () => {
         }, undefined, false, undefined, this),
         jsx_dev_runtime4.jsxDEV(Box_default, {
           component: "div",
+          id: "gradient",
           style: {
-            boxShadow: "inset 0px 52px 4em -40px blue, inset 0px -52px 4em -40px blue"
+            backgroundColor: "#2234ae",
+            backgroundImage: "linear-gradient(315deg, #191714 0%, #2234ae 74%)",
+            boxShadow: "inset 0px 10px 4em -4px #0d0d0d, inset 0px -10px 4em -4px #0d0d0d"
           },
           sx: {
             border: 2,
@@ -39374,12 +39206,12 @@ var ChooseSection_default = ChooseSection = () => {
             children: games.map((game, index) => jsx_dev_runtime4.jsxDEV(ImageListItem_default, {
               sx: {
                 boxShadow: `0 0 2em ${selectedGames.includes(index) ? "red" : "black"}`,
-                width: "200px",
+                width: "250px",
+                maxHeight: "444px",
                 "&:hover": {
                   md: {
-                    border: "1px solid #ffffff",
                     color: "gray",
-                    boxShadow: "0 0 2em #ffffff"
+                    boxShadow: selectedGames.includes(index) ? "0 0 2em orange" : "0 0 1em #ffffff"
                   }
                 }
               },
@@ -39389,7 +39221,8 @@ var ChooseSection_default = ChooseSection = () => {
                   srcSet: `${game.img}`,
                   src: `${game.img}`,
                   alt: game.title,
-                  loading: "lazy"
+                  loading: "lazy",
+                  style: { objectFit: "cover", height: "444px" }
                 }, undefined, false, undefined, this),
                 jsx_dev_runtime4.jsxDEV(ImageListItemBar_default, {
                   position: "bottom",
@@ -39399,11 +39232,16 @@ var ChooseSection_default = ChooseSection = () => {
             }, game.img, true, undefined, this))
           }, undefined, false, undefined, this)
         }, undefined, false, undefined, this),
-        selectedGames.length > 0 && jsx_dev_runtime4.jsxDEV(Box_default, {
+        jsx_dev_runtime4.jsxDEV(Box_default, {
           sx: {
+            visibility: selectedGames.length > 0 ? "visible" : "hidden",
+            margin: "10px",
+            width: "50vw",
+            backgroundColor: selectedGames.length > 0 ? "gray" : "#0d0d0d",
+            color: selectedGames.length > 0 ? "#ffffff" : "#0d0d0d",
             borderRadius: "10px",
-            backgroundColor: "gray",
             marginInline: "auto",
+            transition: "all 1s",
             "&:hover": {
               border: "1px solid #ffffff",
               backgroundColor: "lightblue",
@@ -39419,6 +39257,16 @@ var ChooseSection_default = ChooseSection = () => {
               padding: "10px"
             },
             children: "\u041F\u043E\u0441\u043C\u043E\u0442\u0440\u0435\u0442\u044C \u043B\u0443\u0447\u0448\u0438\u0435 \u043A\u043E\u043C\u043F\u044C\u044E\u0442\u0435\u0440\u044B \u0434\u043B\u044F \u044D\u0442\u0438\u0445 \u0438\u0433\u0440"
+          }, undefined, false, undefined, this)
+        }, undefined, false, undefined, this),
+        jsx_dev_runtime4.jsxDEV(Box_default, {
+          sx: {
+            width: "100%"
+          },
+          children: jsx_dev_runtime4.jsxDEV(Typography_default, {
+            variant: "h4",
+            textAlign: "center",
+            children: "\u041C\u044B \u0430\u043D\u0430\u043B\u0438\u0437\u0438\u0440\u0443\u0435\u043C \u0442\u0440\u0435\u0431\u043E\u0432\u0430\u043D\u0438\u044F \u043A \u0438\u0433\u0440\u0430\u043C \u0438 \u043F\u043E\u0434\u0431\u0438\u0440\u0430\u0435\u043C \u0434\u043B\u044F \u0432\u0430\u0441 \u043D\u0430\u0438\u0431\u043E\u043B\u0435\u0435 \u043F\u043E\u0434\u0445\u043E\u0434\u044F\u0449\u0438\u0435 \u0441\u0431\u043E\u0440\u043A\u0438"
           }, undefined, false, undefined, this)
         }, undefined, false, undefined, this)
       ]
@@ -39448,7 +39296,6 @@ var ReviewSection_default = ReviewSection = () => {
 var jsx_dev_runtime6 = __toESM(require_jsx_dev_runtime(), 1);
 var HomePage_default = HomePage = () => {
   return jsx_dev_runtime6.jsxDEV(Box_default, {
-    marginBottom: "200px",
     children: [
       jsx_dev_runtime6.jsxDEV(HeaderSection_default, {}, undefined, false, undefined, this),
       jsx_dev_runtime6.jsxDEV(ChooseSection_default, {}, undefined, false, undefined, this),
@@ -40094,9 +39941,11 @@ var DeliveryPage_default = DeliveryPage = () => {
                 jsx_dev_runtime8.jsxDEV(Phone_default, {
                   sx: { marginRight: 2 }
                 }, undefined, false, undefined, this),
-                jsx_dev_runtime8.jsxDEV(Typography_default, {
-                  component: Link_default,
-                  to: "tel:9851460477",
+                jsx_dev_runtime8.jsxDEV("a", {
+                  href: "tel:9851460477",
+                  style: {
+                    color: "blueviolet"
+                  },
                   children: "+7 (985) 146-04-77"
                 }, undefined, false, undefined, this)
               ]
@@ -40199,8 +40048,11 @@ var AboutUsPage_default = AboutUsPage = () => {
               sx: { marginRight: 2 }
             }, undefined, false, undefined, this),
             jsx_dev_runtime9.jsxDEV(Box_default, {
-              children: jsx_dev_runtime9.jsxDEV(Link_default, {
-                to: "tel:9851460477",
+              children: jsx_dev_runtime9.jsxDEV("a", {
+                href: "tel:9851460477",
+                style: {
+                  color: "blueviolet"
+                },
                 children: "+7 (985) 146-04-77"
               }, undefined, false, undefined, this)
             }, undefined, false, undefined, this)
@@ -40329,22 +40181,22 @@ var CustomSearch_default = CustomSearch = () => {
 };
 
 // node_modules/material-ui-popup-state/es/index.mjs
-var import_prop_types46 = __toESM(require_prop_types(), 1);
+var import_prop_types45 = __toESM(require_prop_types(), 1);
 
 // node_modules/material-ui-popup-state/es/hooks.mjs
 var import_react18 = __toESM(require_react(), 1);
 
 // node_modules/material-ui-popup-state/es/useEvent.mjs
-var React75 = __toESM(require_react(), 1);
+var React74 = __toESM(require_react(), 1);
 function useEvent(handler) {
   if (typeof window === "undefined") {
     return handler;
   }
-  const handlerRef = React75.useRef(null);
-  React75.useLayoutEffect(() => {
+  const handlerRef = React74.useRef(null);
+  React74.useLayoutEffect(() => {
     handlerRef.current = handler;
   });
-  return React75.useCallback((...args) => {
+  return React74.useCallback((...args) => {
     var _handlerRef$current;
     (_handlerRef$current = handlerRef.current) === null || _handlerRef$current === undefined || _handlerRef$current.call(handlerRef, ...args);
   }, []);
@@ -40649,11 +40501,11 @@ function PopupState({
   return result != null ? result : null;
 }
 PopupState.propTypes = {
-  children: import_prop_types46.default.func.isRequired,
-  popupId: import_prop_types46.default.string,
-  variant: import_prop_types46.default.oneOf(["popover", "popper"]).isRequired,
-  parentPopupState: import_prop_types46.default.object,
-  disableAutoFocus: import_prop_types46.default.bool
+  children: import_prop_types45.default.func.isRequired,
+  popupId: import_prop_types45.default.string,
+  variant: import_prop_types45.default.oneOf(["popover", "popper"]).isRequired,
+  parentPopupState: import_prop_types45.default.object,
+  disableAutoFocus: import_prop_types45.default.bool
 };
 
 // node_modules/@material-ui/core/esm/styles/colorManipulator.js
@@ -40904,9 +40756,11 @@ var CustomBarPC_default = CustomBarPC = () => {
                 variant: "body1",
                 sx: { alignSelf: "center" },
                 display: { xs: "none", lg: "flex" },
-                children: jsx_dev_runtime12.jsxDEV(Link_default, {
-                  to: "tel:9851460477",
-                  underline: "none",
+                children: jsx_dev_runtime12.jsxDEV("a", {
+                  href: "tel:9851460477",
+                  style: {
+                    color: "white"
+                  },
                   children: "+7 (985) 146-04-77"
                 }, undefined, false, undefined, this)
               }, undefined, false, undefined, this),
@@ -40934,11 +40788,11 @@ var CustomBarPC_default = CustomBarPC = () => {
                         },
                         children: jsx_dev_runtime12.jsxDEV(Typography_default, {
                           sx: { p: 2 },
-                          children: jsx_dev_runtime12.jsxDEV(Link_default, {
-                            to: "tel:9851460477",
-                            underline: "none",
-                            xs: { color: "black" },
-                            color: "#000000",
+                          children: jsx_dev_runtime12.jsxDEV("a", {
+                            href: "tel:9851460477",
+                            style: {
+                              color: "black"
+                            },
                             children: "+7 (985) 146-04-77"
                           }, undefined, false, undefined, this)
                         }, undefined, false, undefined, this)
@@ -42325,9 +42179,11 @@ var CustomBarMobile_default = CustomBarMobile = () => {
                         },
                         children: jsx_dev_runtime13.jsxDEV(Typography_default, {
                           sx: { p: 2 },
-                          children: jsx_dev_runtime13.jsxDEV(Link_default, {
-                            to: "tel:9851460477",
-                            underline: "none",
+                          children: jsx_dev_runtime13.jsxDEV("a", {
+                            href: "tel:9851460477",
+                            style: {
+                              color: "blueviolet"
+                            },
                             children: "+7 (985) 146-04-77"
                           }, undefined, false, undefined, this)
                         }, undefined, false, undefined, this)

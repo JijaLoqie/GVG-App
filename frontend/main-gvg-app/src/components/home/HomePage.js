@@ -7,7 +7,7 @@ import ReviewSection from './ReviewSection/ReviewSection';
 
 export default HomePage = () => {
   return (
-    <Box marginBottom="200px">
+    <Box>
       <HeaderSection />
       <ChooseSection />
       <ReviewSection />

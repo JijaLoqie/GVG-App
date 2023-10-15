@@ -121,9 +121,14 @@ export default DeliveryPage = () => {
         >
           <Stack alignItems="center" direction="row">
             <PhoneIcon sx={{ marginRight: 2 }} />
-            <Typography component={Link} to="tel:9851460477">
+            <a
+              href="tel:9851460477"
+              style={{
+                color: "blueviolet",
+              }}
+            >
               +7 (985) 146-04-77
-            </Typography>
+            </a>
           </Stack>
           <Stack alignItems="center" direction="row">
             <AccessTimeIcon sx={{ marginRight: 2 }} />

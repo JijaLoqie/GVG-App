@@ -152,9 +152,14 @@ export default CustomBarPC = () => {
               sx={{ alignSelf: "center" }}
               display={{ xs: "none", lg: "flex" }}
             >
-              <Link to="tel:9851460477" underline="none">
+              <a
+                href="tel:9851460477"
+                style={{
+                  color: "white",
+                }}
+              >
                 +7 (985) 146-04-77
-              </Link>
+              </a>
             </Typography>
             {/* CallButton */}
             <Box display={{ xs: "flex", lg: "none" }}>
@@ -179,14 +184,14 @@ export default CustomBarPC = () => {
                       }}
                     >
                       <Typography sx={{ p: 2 }}>
-                        <Link
-                          to="tel:9851460477"
-                          underline="none"
-                          xs={{ color: "black" }}
-                          color={"#000000"}
+                        <a
+                          href="tel:9851460477"
+                          style={{
+                            color: "black",
+                          }}
                         >
                           +7 (985) 146-04-77
-                        </Link>
+                        </a>
                       </Typography>
                     </Popover>
                   </div>

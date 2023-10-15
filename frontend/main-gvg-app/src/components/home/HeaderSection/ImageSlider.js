@@ -8,9 +8,6 @@ import {
 import { Box } from "@mui/material";
 import { styled, alpha } from "@mui/material/styles";
 
-
-
-
 const slideStyles = {
   width: "100%",
   height: "100%",
@@ -63,21 +60,35 @@ const dotStyle = {
   cursor: "pointer",
   fontSize: "20px",
 };
+const NEXT_SLIDE_TIMER = 5;
 
 const ImageSlider = ({ items }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [timeLeft, setTimeLeft] = useState(NEXT_SLIDE_TIMER);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (timeLeft === 0) {
+        setTimeLeft(NEXT_SLIDE_TIMER);
+        setCurrentIndex((index) => (index + 1) % items.length);
+      } else {
+        setTimeLeft((index) => index - 1);
+      }
+    }, 1000);
+    return () => clearInterval(interval);
+  }, [timeLeft]);
+
   const goToPrevious = () => {
-    const isFirstSlide = currentIndex === 0;
-    const newIndex = isFirstSlide ? items.length - 1 : currentIndex - 1;
-    setCurrentIndex(newIndex);
+    setCurrentIndex((currentIndex - 1) % items.length);
+    setTimeLeft(NEXT_SLIDE_TIMER);
   };
   const goToNext = () => {
-    const isLastSlide = currentIndex === items.length - 1;
-    const newIndex = isLastSlide ? 0 : currentIndex + 1;
-    setCurrentIndex(newIndex);
+    setCurrentIndex((currentIndex + 1) % items.length);
+    setTimeLeft(NEXT_SLIDE_TIMER);
   };
   const goToSlide = (slideIndex) => {
     setCurrentIndex(slideIndex);
+	setTimeLeft(NEXT_SLIDE_TIMER);
   };
   const slideStylesWidthBackground = {
     ...slideStyles,
@@ -103,7 +114,11 @@ const ImageSlider = ({ items }) => {
               key={slideIndex}
               onClick={() => goToSlide(slideIndex)}
             >
-              {currentIndex == slideIndex ? <CircleIcon /> : <CircleOutlinedIcon />}
+              {currentIndex == slideIndex ? (
+                <CircleIcon />
+              ) : (
+                <CircleOutlinedIcon />
+              )}
             </Box>
           ))}
         </Box>

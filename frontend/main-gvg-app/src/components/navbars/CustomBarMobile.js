@@ -157,9 +157,14 @@ export default CustomBarMobile = () => {
                     }}
                   >
                     <Typography sx={{ p: 2 }}>
-                      <Link to="tel:9851460477" underline="none">
+                      <a
+                        href="tel:9851460477"
+                        style={{
+                          color: "blueviolet",
+                        }}
+                      >
                         +7 (985) 146-04-77
-                      </Link>
+                      </a>
                     </Typography>
                   </Popover>
                 </div>

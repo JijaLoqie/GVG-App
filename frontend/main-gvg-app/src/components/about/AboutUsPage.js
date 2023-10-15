@@ -66,7 +66,14 @@ export default AboutUsPage = () => {
         <Grid item xs={12} md={4} component={Stack} alignItems="center">
           <PhoneIcon sx={{ marginRight: 2 }} />
           <Box>
-            <Link to="tel:9851460477">+7 (985) 146-04-77</Link>
+            <a
+              href="tel:9851460477"
+              style={{
+                color: "blueviolet",
+              }}
+            >
+              +7 (985) 146-04-77
+            </a>
           </Box>
         </Grid>
         <Grid item xs={12} md={4} component={Stack} alignItems="center">
@@ -75,7 +82,9 @@ export default AboutUsPage = () => {
         </Grid>
         <Grid item xs={12} md={4} component={Stack} alignItems="center">
           <EmailIcon sx={{ marginRight: 2 }} />
-          <Box>kraskovskiydm@gmail.com</Box>
+          <Box>
+            kraskovskiydm@gmail.com
+          </Box>
         </Grid>
         <Grid item xs={12} md={12} marginBottom={12}>
           <TelegramIcon sx={{ marginRight: 2 }} />

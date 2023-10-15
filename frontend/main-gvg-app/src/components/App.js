@@ -12,6 +12,10 @@ import useCheckMobileScreen from './common/hooks/UseCheckMobileScreen';
 import CustomBarPC from "./navbars/CustomBarPC";
 import CustomBarMobile from "./navbars/CustomBarMobile";
 
+import BuildsPage from './offers/BuildsPage';
+import ComponentsPage from './offers/ComponentsPage';
+import ConstructorPage from './offers/ConstructorPage';
+
 
 export default App = () => {
   const isMobile = useCheckMobileScreen();
@@ -35,7 +39,11 @@ export default App = () => {
         <Box>
           <Routes>
             <Route path="home" element={<HomePage />} />
-            <Route path="offers" element={<OffersPage />} />
+            <Route path="offers">
+              <Route path="builds" element={<BuildsPage />} />
+              <Route path="components" element={<ComponentsPage />} />
+              <Route path="constructor" element={<ConstructorPage />} />
+            </Route>
             <Route path="delivery" element={<DeliveryPage />} />
             <Route path="about" element={<AboutUsPage />} />
           </Routes>

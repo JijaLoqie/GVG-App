@@ -12,6 +12,7 @@ import Popover from "@mui/material/Popover";
 import PopupState, { bindTrigger, bindPopover } from "material-ui-popup-state";
 
 import CustomSearch from "../common/CustomSearch";
+import CustomPopup from "../common/CustomPopup";
 
 import {
   Button,
@@ -24,9 +25,13 @@ import {
   BottomNavigation,
   BottomNavigationAction,
   IconButton,
+  createTheme,
 } from "@mui/material";
 
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
+import { ThemeProvider } from 'styled-components';
+import { darken } from '@material-ui/core';
+
 
 const actions = [
   {
@@ -35,33 +40,66 @@ const actions = [
     icon: <HomeIcon />,
   },
   {
-	title: "Услуги",
-	path: "/offers",
-	icon: <ComputerIcon />,
+    title: "Услуги",
+    path: "/offers",
+    icon: <ComputerIcon />,
   },
   {
     title: "Доставка",
     path: "/delivery",
-	icon: <DeliveryDiningIcon />,
+    icon: <DeliveryDiningIcon />,
   },
   {
     title: "О нас",
     path: "/about",
-	icon: <InfoIcon />,
+    icon: <InfoIcon />,
+  },
+];
+const offersActions = [
+  {
+    title: "Собрки",
+    path: "/offers/builds",
+  },
+  {
+    title: "Комплектующие",
+    path: "/offers/components",
+  },
+  {
+    title: "Игровой конструктор",
+    path: "/offers/constructor",
   },
 ];
 
+const themed = createTheme({
+  palette: {
+    primary: {
+      main: "#ffffff",
+      dark: darken("#ffffff"),
+    },
+  },
+});
+
 export default CustomBarMobile = () => {
+	const [mouseOnOffers, setMouseOnOffers] = useState(false);
+  const [mouseOnPopup, setMouseOnPopup] = useState(false);
+  const navigate = useNavigate();
+
+
+
   const [selected, setSelected] = useState(0);
   const handleSelect = (target, newSelected) => {
     setSelected(newSelected);
-	navigate(`${actions[newSelected].path}`);
+
+	if (actions[newSelected].path === "/offers") {
+		setMouseOnOffers(value => !value)
+	} else {
+		setMouseOnOffers(false);
+    	navigate(`${actions[newSelected].path}`);
+	}
   };
-  
-  const navigate = useNavigate()
 
   return (
-    <>
+    <ThemeProvider theme={themed}>
       <AppBar position="static">
         <Toolbar
           sx={{
@@ -148,6 +186,12 @@ export default CustomBarMobile = () => {
           />
         ))}
       </BottomNavigation>
-    </>
+      {(mouseOnOffers || mouseOnPopup) && (
+        <CustomPopup
+          setMouseOnPopup={setMouseOnPopup}
+          actions={offersActions}
+        />
+      )}
+    </ThemeProvider>
   );
 };

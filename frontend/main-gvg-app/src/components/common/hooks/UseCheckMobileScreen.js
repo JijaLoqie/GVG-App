@@ -13,6 +13,6 @@ export default useCheckMobileScreen = () => {
     };
   }, []);
 
-  return width <= 768;
+  return width <= 900;
 };
 

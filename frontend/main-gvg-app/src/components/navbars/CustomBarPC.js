@@ -17,6 +17,8 @@ import {
   IconButton,
 } from "@mui/material";
 import PopupState, { bindPopover, bindTrigger } from "material-ui-popup-state";
+import CustomPopup from '../common/CustomPopup';
+import { useNavigate } from 'react-router-dom';
 
 const themed = createTheme({
   palette: {
@@ -44,8 +46,46 @@ const actions = [
     path: "/about",
   },
 ];
+const offersActions = [
+  {
+    title: "Собрки",
+    path: "/offers/builds",
+  },
+  {
+    title: "Комплектующие",
+    path: "/offers/components",
+  },
+  {
+    title: "Игровой конструктор",
+    path: "/offers/constructor",
+  },
+];
 
 export default CustomBarPC = () => {
+  const [mouseOnOffers, setMouseOnOffers] = useState(false);
+  const [mouseOnPopup, setMouseOnPopup] = useState(false);
+  const navigate = useNavigate();
+
+
+  const handleEnterButton = (actionPath) => {
+    if (actionPath === "/offers") {
+      setMouseOnOffers(true);
+    }
+  };
+
+  const handleLeaveButton = (actionPath) => {
+    if (actionPath === "/offers") {
+      setMouseOnOffers(false);
+    }
+  };
+
+  const handleClickButton = (actionPath) => {
+	if (actionPath === "/offers") {
+		return
+	}
+	navigate(actionPath)
+  }
+
   return (
     <ThemeProvider theme={themed}>
       <AppBar position="static">
@@ -83,19 +123,27 @@ export default CustomBarPC = () => {
               <Button
                 key={index}
                 sx={{ paddingInline: "20px" }}
-                href={`${action.path}`}
+                onClick={() => handleClickButton(action.path)}
+                onMouseEnter={() => handleEnterButton(action.path)}
+                onMouseLeave={() => handleLeaveButton(action.path)}
               >
                 {action.title}
               </Button>
             ))}
           </ButtonGroup>
+          {(mouseOnOffers || mouseOnPopup) && (
+            <CustomPopup
+              setMouseOnPopup={setMouseOnPopup}
+              actions={offersActions}
+            />
+          )}
           <Stack
             direction="row-reverse"
             marginLeft="auto"
             sx={{ alignItems: "center", color: "#ffffff" }}
           >
             <CustomSearch />
-			{/* CallText */}
+            {/* CallText */}
             <Typography
               variant="body1"
               sx={{ alignSelf: "center" }}
@@ -105,7 +153,7 @@ export default CustomBarPC = () => {
                 +7 (985) 146-04-77
               </Link>
             </Typography>
-			{/* CallButton */}
+            {/* CallButton */}
             <Box display={{ xs: "flex", lg: "none" }}>
               <PopupState variant="popover" popupId="demo-popup-popover">
                 {(popupState) => (

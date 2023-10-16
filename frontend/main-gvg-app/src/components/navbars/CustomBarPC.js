@@ -48,7 +48,7 @@ const actions = [
 ];
 const offersActions = [
   {
-    title: "Собрки",
+    title: "Сборки",
     path: "/offers/builds",
   },
   {

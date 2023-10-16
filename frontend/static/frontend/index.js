@@ -22517,7 +22517,7 @@ var require_react_is4 = __commonJS((exports, module) => {
 
 // node_modules/react/cjs/react-jsx-dev-runtime.development.js
 var require_react_jsx_dev_runtime_development = __commonJS((exports) => {
-  var React65 = __toESM(require_react(), 1);
+  var React72 = __toESM(require_react(), 1);
   if (true) {
     (function() {
       var _assign = require_object_assign();
@@ -22576,7 +22576,7 @@ var require_react_jsx_dev_runtime_development = __commonJS((exports) => {
         }
         return null;
       }
-      var ReactSharedInternals = React65.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+      var ReactSharedInternals = React72.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
       function error(format) {
         {
           for (var _len2 = arguments.length, args = new Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1;_key2 < _len2; _key2++) {
@@ -27178,7 +27178,6 @@ var red = {
   A700: "#d50000"
 };
 var red_default = red;
-
 // node_modules/@mui/material/colors/purple.js
 var purple = {
   50: "#f3e5f5",
@@ -35778,15 +35777,214 @@ InputBase.propTypes = {
   value: import_prop_types26.default.any
 };
 var InputBase_default = InputBase;
-// node_modules/@mui/material/Backdrop/Backdrop.js
+// node_modules/@mui/material/Avatar/Avatar.js
 var React45 = __toESM(require_react(), 1);
-var import_prop_types28 = __toESM(require_prop_types(), 1);
+var import_prop_types27 = __toESM(require_prop_types(), 1);
+
+// node_modules/@mui/material/internal/svg-icons/Person.js
+var React44 = __toESM(require_react(), 1);
+var jsx_runtime27 = __toESM(require_jsx_runtime(), 1);
+var Person_default = createSvgIcon(jsx_runtime27.jsx("path", {
+  d: "M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
+}), "Person");
+
+// node_modules/@mui/material/Avatar/avatarClasses.js
+function getAvatarUtilityClass(slot) {
+  return generateUtilityClass("MuiAvatar", slot);
+}
+var avatarClasses = generateUtilityClasses("MuiAvatar", ["root", "colorDefault", "circular", "rounded", "square", "img", "fallback"]);
+
+// node_modules/@mui/material/Avatar/Avatar.js
+var jsx_runtime28 = __toESM(require_jsx_runtime(), 1);
+var useLoaded = function({
+  crossOrigin,
+  referrerPolicy,
+  src,
+  srcSet
+}) {
+  const [loaded, setLoaded] = React45.useState(false);
+  React45.useEffect(() => {
+    if (!src && !srcSet) {
+      return;
+    }
+    setLoaded(false);
+    let active = true;
+    const image = new Image;
+    image.onload = () => {
+      if (!active) {
+        return;
+      }
+      setLoaded("loaded");
+    };
+    image.onerror = () => {
+      if (!active) {
+        return;
+      }
+      setLoaded("error");
+    };
+    image.crossOrigin = crossOrigin;
+    image.referrerPolicy = referrerPolicy;
+    image.src = src;
+    if (srcSet) {
+      image.srcset = srcSet;
+    }
+    return () => {
+      active = false;
+    };
+  }, [crossOrigin, referrerPolicy, src, srcSet]);
+  return loaded;
+};
+var _excluded27 = ["alt", "children", "className", "component", "imgProps", "sizes", "src", "srcSet", "variant"];
+var useUtilityClasses8 = (ownerState) => {
+  const {
+    classes,
+    variant,
+    colorDefault
+  } = ownerState;
+  const slots = {
+    root: ["root", variant, colorDefault && "colorDefault"],
+    img: ["img"],
+    fallback: ["fallback"]
+  };
+  return composeClasses(slots, getAvatarUtilityClass, classes);
+};
+var AvatarRoot = styled_default2("div", {
+  name: "MuiAvatar",
+  slot: "Root",
+  overridesResolver: (props, styles2) => {
+    const {
+      ownerState
+    } = props;
+    return [styles2.root, styles2[ownerState.variant], ownerState.colorDefault && styles2.colorDefault];
+  }
+})(({
+  theme,
+  ownerState
+}) => _extends4({
+  position: "relative",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  flexShrink: 0,
+  width: 40,
+  height: 40,
+  fontFamily: theme.typography.fontFamily,
+  fontSize: theme.typography.pxToRem(20),
+  lineHeight: 1,
+  borderRadius: "50%",
+  overflow: "hidden",
+  userSelect: "none"
+}, ownerState.variant === "rounded" && {
+  borderRadius: (theme.vars || theme).shape.borderRadius
+}, ownerState.variant === "square" && {
+  borderRadius: 0
+}, ownerState.colorDefault && _extends4({
+  color: (theme.vars || theme).palette.background.default
+}, theme.vars ? {
+  backgroundColor: theme.vars.palette.Avatar.defaultBg
+} : {
+  backgroundColor: theme.palette.mode === "light" ? theme.palette.grey[400] : theme.palette.grey[600]
+})));
+var AvatarImg = styled_default2("img", {
+  name: "MuiAvatar",
+  slot: "Img",
+  overridesResolver: (props, styles2) => styles2.img
+})({
+  width: "100%",
+  height: "100%",
+  textAlign: "center",
+  objectFit: "cover",
+  color: "transparent",
+  textIndent: 1e4
+});
+var AvatarFallback = styled_default2(Person_default, {
+  name: "MuiAvatar",
+  slot: "Fallback",
+  overridesResolver: (props, styles2) => styles2.fallback
+})({
+  width: "75%",
+  height: "75%"
+});
+var Avatar = React45.forwardRef(function Avatar2(inProps, ref) {
+  const props = useThemeProps3({
+    props: inProps,
+    name: "MuiAvatar"
+  });
+  const {
+    alt,
+    children: childrenProp,
+    className,
+    component = "div",
+    imgProps,
+    sizes,
+    src,
+    srcSet,
+    variant = "circular"
+  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded27);
+  let children = null;
+  const loaded = useLoaded(_extends4({}, imgProps, {
+    src,
+    srcSet
+  }));
+  const hasImg = src || srcSet;
+  const hasImgNotFailing = hasImg && loaded !== "error";
+  const ownerState = _extends4({}, props, {
+    colorDefault: !hasImgNotFailing,
+    component,
+    variant
+  });
+  const classes = useUtilityClasses8(ownerState);
+  if (hasImgNotFailing) {
+    children = jsx_runtime28.jsx(AvatarImg, _extends4({
+      alt,
+      srcSet,
+      src,
+      sizes,
+      ownerState,
+      className: classes.img
+    }, imgProps));
+  } else if (childrenProp != null) {
+    children = childrenProp;
+  } else if (hasImg && alt) {
+    children = alt[0];
+  } else {
+    children = jsx_runtime28.jsx(AvatarFallback, {
+      ownerState,
+      className: classes.fallback
+    });
+  }
+  return jsx_runtime28.jsx(AvatarRoot, _extends4({
+    as: component,
+    ownerState,
+    className: clsx_default2(classes.root, className),
+    ref
+  }, other, {
+    children
+  }));
+});
+Avatar.propTypes = {
+  alt: import_prop_types27.default.string,
+  children: import_prop_types27.default.node,
+  classes: import_prop_types27.default.object,
+  className: import_prop_types27.default.string,
+  component: import_prop_types27.default.elementType,
+  imgProps: import_prop_types27.default.object,
+  sizes: import_prop_types27.default.string,
+  src: import_prop_types27.default.string,
+  srcSet: import_prop_types27.default.string,
+  sx: import_prop_types27.default.oneOfType([import_prop_types27.default.arrayOf(import_prop_types27.default.oneOfType([import_prop_types27.default.func, import_prop_types27.default.object, import_prop_types27.default.bool])), import_prop_types27.default.func, import_prop_types27.default.object]),
+  variant: import_prop_types27.default.oneOfType([import_prop_types27.default.oneOf(["circular", "rounded", "square"]), import_prop_types27.default.string])
+};
+var Avatar_default = Avatar;
+// node_modules/@mui/material/Backdrop/Backdrop.js
+var React47 = __toESM(require_react(), 1);
+var import_prop_types29 = __toESM(require_prop_types(), 1);
 
 // node_modules/@mui/material/Fade/Fade.js
-var React44 = __toESM(require_react(), 1);
-var import_prop_types27 = __toESM(require_prop_types(), 1);
-var jsx_runtime27 = __toESM(require_jsx_runtime(), 1);
-var _excluded27 = ["addEndListener", "appear", "children", "easing", "in", "onEnter", "onEntered", "onEntering", "onExit", "onExited", "onExiting", "style", "timeout", "TransitionComponent"];
+var React46 = __toESM(require_react(), 1);
+var import_prop_types28 = __toESM(require_prop_types(), 1);
+var jsx_runtime29 = __toESM(require_jsx_runtime(), 1);
+var _excluded28 = ["addEndListener", "appear", "children", "easing", "in", "onEnter", "onEntered", "onEntering", "onExit", "onExited", "onExiting", "style", "timeout", "TransitionComponent"];
 var styles2 = {
   entering: {
     opacity: 1
@@ -35795,7 +35993,7 @@ var styles2 = {
     opacity: 1
   }
 };
-var Fade = React44.forwardRef(function Fade2(props, ref) {
+var Fade = React46.forwardRef(function Fade2(props, ref) {
   const theme = useTheme9();
   const defaultTimeout = {
     enter: theme.transitions.duration.enteringScreen,
@@ -35816,9 +36014,9 @@ var Fade = React44.forwardRef(function Fade2(props, ref) {
     style: style10,
     timeout: timeout2 = defaultTimeout,
     TransitionComponent = Transition_default
-  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded27);
+  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded28);
   const enableStrictModeCompat = true;
-  const nodeRef = React44.useRef(null);
+  const nodeRef = React46.useRef(null);
   const handleRef = useForkRef_default(nodeRef, children.ref, ref);
   const normalizedTransitionCallback = (callback) => (maybeIsAppearing) => {
     if (callback) {
@@ -35868,7 +36066,7 @@ var Fade = React44.forwardRef(function Fade2(props, ref) {
       addEndListener(nodeRef.current, next2);
     }
   };
-  return jsx_runtime27.jsx(TransitionComponent, _extends4({
+  return jsx_runtime29.jsx(TransitionComponent, _extends4({
     appear,
     in: inProp,
     nodeRef: enableStrictModeCompat ? nodeRef : undefined,
@@ -35882,7 +36080,7 @@ var Fade = React44.forwardRef(function Fade2(props, ref) {
     timeout: timeout2
   }, other, {
     children: (state, childProps) => {
-      return React44.cloneElement(children, _extends4({
+      return React46.cloneElement(children, _extends4({
         style: _extends4({
           opacity: 0,
           visibility: state === "exited" && !inProp ? "hidden" : undefined
@@ -35893,25 +36091,25 @@ var Fade = React44.forwardRef(function Fade2(props, ref) {
   }));
 });
 Fade.propTypes = {
-  addEndListener: import_prop_types27.default.func,
-  appear: import_prop_types27.default.bool,
+  addEndListener: import_prop_types28.default.func,
+  appear: import_prop_types28.default.bool,
   children: elementAcceptingRef_default.isRequired,
-  easing: import_prop_types27.default.oneOfType([import_prop_types27.default.shape({
-    enter: import_prop_types27.default.string,
-    exit: import_prop_types27.default.string
-  }), import_prop_types27.default.string]),
-  in: import_prop_types27.default.bool,
-  onEnter: import_prop_types27.default.func,
-  onEntered: import_prop_types27.default.func,
-  onEntering: import_prop_types27.default.func,
-  onExit: import_prop_types27.default.func,
-  onExited: import_prop_types27.default.func,
-  onExiting: import_prop_types27.default.func,
-  style: import_prop_types27.default.object,
-  timeout: import_prop_types27.default.oneOfType([import_prop_types27.default.number, import_prop_types27.default.shape({
-    appear: import_prop_types27.default.number,
-    enter: import_prop_types27.default.number,
-    exit: import_prop_types27.default.number
+  easing: import_prop_types28.default.oneOfType([import_prop_types28.default.shape({
+    enter: import_prop_types28.default.string,
+    exit: import_prop_types28.default.string
+  }), import_prop_types28.default.string]),
+  in: import_prop_types28.default.bool,
+  onEnter: import_prop_types28.default.func,
+  onEntered: import_prop_types28.default.func,
+  onEntering: import_prop_types28.default.func,
+  onExit: import_prop_types28.default.func,
+  onExited: import_prop_types28.default.func,
+  onExiting: import_prop_types28.default.func,
+  style: import_prop_types28.default.object,
+  timeout: import_prop_types28.default.oneOfType([import_prop_types28.default.number, import_prop_types28.default.shape({
+    appear: import_prop_types28.default.number,
+    enter: import_prop_types28.default.number,
+    exit: import_prop_types28.default.number
   })])
 };
 var Fade_default = Fade;
@@ -35922,9 +36120,9 @@ function getBackdropUtilityClass(slot) {
 var backdropClasses = generateUtilityClasses("MuiBackdrop", ["root", "invisible"]);
 
 // node_modules/@mui/material/Backdrop/Backdrop.js
-var jsx_runtime28 = __toESM(require_jsx_runtime(), 1);
-var _excluded28 = ["children", "className", "component", "components", "componentsProps", "invisible", "open", "slotProps", "slots", "TransitionComponent", "transitionDuration"];
-var useUtilityClasses8 = (ownerState) => {
+var jsx_runtime30 = __toESM(require_jsx_runtime(), 1);
+var _excluded29 = ["children", "className", "component", "components", "componentsProps", "invisible", "open", "slotProps", "slots", "TransitionComponent", "transitionDuration"];
+var useUtilityClasses9 = (ownerState) => {
   const {
     classes,
     invisible
@@ -35959,7 +36157,7 @@ var BackdropRoot = styled_default2("div", {
 }, ownerState.invisible && {
   backgroundColor: "transparent"
 }));
-var Backdrop = React45.forwardRef(function Backdrop2(inProps, ref) {
+var Backdrop = React47.forwardRef(function Backdrop2(inProps, ref) {
   var _slotProps$root, _ref, _slots$root;
   const props = useThemeProps3({
     props: inProps,
@@ -35977,18 +36175,18 @@ var Backdrop = React45.forwardRef(function Backdrop2(inProps, ref) {
     slots = {},
     TransitionComponent = Fade_default,
     transitionDuration
-  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded28);
+  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded29);
   const ownerState = _extends4({}, props, {
     component,
     invisible
   });
-  const classes = useUtilityClasses8(ownerState);
+  const classes = useUtilityClasses9(ownerState);
   const rootSlotProps = (_slotProps$root = slotProps.root) != null ? _slotProps$root : componentsProps.root;
-  return jsx_runtime28.jsx(TransitionComponent, _extends4({
+  return jsx_runtime30.jsx(TransitionComponent, _extends4({
     in: open,
     timeout: transitionDuration
   }, other, {
-    children: jsx_runtime28.jsx(BackdropRoot, _extends4({
+    children: jsx_runtime30.jsx(BackdropRoot, _extends4({
       "aria-hidden": true
     }, rootSlotProps, {
       as: (_ref = (_slots$root = slots.root) != null ? _slots$root : components.Root) != null ? _ref : component,
@@ -36001,37 +36199,37 @@ var Backdrop = React45.forwardRef(function Backdrop2(inProps, ref) {
   }));
 });
 Backdrop.propTypes = {
-  children: import_prop_types28.default.node,
-  classes: import_prop_types28.default.object,
-  className: import_prop_types28.default.string,
-  component: import_prop_types28.default.elementType,
-  components: import_prop_types28.default.shape({
-    Root: import_prop_types28.default.elementType
+  children: import_prop_types29.default.node,
+  classes: import_prop_types29.default.object,
+  className: import_prop_types29.default.string,
+  component: import_prop_types29.default.elementType,
+  components: import_prop_types29.default.shape({
+    Root: import_prop_types29.default.elementType
   }),
-  componentsProps: import_prop_types28.default.shape({
-    root: import_prop_types28.default.object
+  componentsProps: import_prop_types29.default.shape({
+    root: import_prop_types29.default.object
   }),
-  invisible: import_prop_types28.default.bool,
-  open: import_prop_types28.default.bool.isRequired,
-  slotProps: import_prop_types28.default.shape({
-    root: import_prop_types28.default.object
+  invisible: import_prop_types29.default.bool,
+  open: import_prop_types29.default.bool.isRequired,
+  slotProps: import_prop_types29.default.shape({
+    root: import_prop_types29.default.object
   }),
-  slots: import_prop_types28.default.shape({
-    root: import_prop_types28.default.elementType
+  slots: import_prop_types29.default.shape({
+    root: import_prop_types29.default.elementType
   }),
-  sx: import_prop_types28.default.oneOfType([import_prop_types28.default.arrayOf(import_prop_types28.default.oneOfType([import_prop_types28.default.func, import_prop_types28.default.object, import_prop_types28.default.bool])), import_prop_types28.default.func, import_prop_types28.default.object]),
-  TransitionComponent: import_prop_types28.default.elementType,
-  transitionDuration: import_prop_types28.default.oneOfType([import_prop_types28.default.number, import_prop_types28.default.shape({
-    appear: import_prop_types28.default.number,
-    enter: import_prop_types28.default.number,
-    exit: import_prop_types28.default.number
+  sx: import_prop_types29.default.oneOfType([import_prop_types29.default.arrayOf(import_prop_types29.default.oneOfType([import_prop_types29.default.func, import_prop_types29.default.object, import_prop_types29.default.bool])), import_prop_types29.default.func, import_prop_types29.default.object]),
+  TransitionComponent: import_prop_types29.default.elementType,
+  transitionDuration: import_prop_types29.default.oneOfType([import_prop_types29.default.number, import_prop_types29.default.shape({
+    appear: import_prop_types29.default.number,
+    enter: import_prop_types29.default.number,
+    exit: import_prop_types29.default.number
   })])
 };
 var Backdrop_default = Backdrop;
 // node_modules/@mui/material/BottomNavigation/BottomNavigation.js
-var React46 = __toESM(require_react(), 1);
+var React48 = __toESM(require_react(), 1);
 var import_react_is2 = __toESM(require_react_is4(), 1);
-var import_prop_types29 = __toESM(require_prop_types(), 1);
+var import_prop_types30 = __toESM(require_prop_types(), 1);
 
 // node_modules/@mui/material/BottomNavigation/bottomNavigationClasses.js
 function getBottomNavigationUtilityClass(slot) {
@@ -36040,9 +36238,9 @@ function getBottomNavigationUtilityClass(slot) {
 var bottomNavigationClasses = generateUtilityClasses("MuiBottomNavigation", ["root"]);
 
 // node_modules/@mui/material/BottomNavigation/BottomNavigation.js
-var jsx_runtime29 = __toESM(require_jsx_runtime(), 1);
-var _excluded29 = ["children", "className", "component", "onChange", "showLabels", "value"];
-var useUtilityClasses9 = (ownerState) => {
+var jsx_runtime31 = __toESM(require_jsx_runtime(), 1);
+var _excluded30 = ["children", "className", "component", "onChange", "showLabels", "value"];
+var useUtilityClasses10 = (ownerState) => {
   const {
     classes
   } = ownerState;
@@ -36063,7 +36261,7 @@ var BottomNavigationRoot = styled_default2("div", {
   height: 56,
   backgroundColor: (theme.vars || theme).palette.background.paper
 }));
-var BottomNavigation = React46.forwardRef(function BottomNavigation2(inProps, ref) {
+var BottomNavigation = React48.forwardRef(function BottomNavigation2(inProps, ref) {
   const props = useThemeProps3({
     props: inProps,
     name: "MuiBottomNavigation"
@@ -36075,20 +36273,20 @@ var BottomNavigation = React46.forwardRef(function BottomNavigation2(inProps, re
     onChange,
     showLabels = false,
     value
-  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded29);
+  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded30);
   const ownerState = _extends4({}, props, {
     component,
     showLabels
   });
-  const classes = useUtilityClasses9(ownerState);
-  return jsx_runtime29.jsx(BottomNavigationRoot, _extends4({
+  const classes = useUtilityClasses10(ownerState);
+  return jsx_runtime31.jsx(BottomNavigationRoot, _extends4({
     as: component,
     className: clsx_default2(classes.root, className),
     ref,
     ownerState
   }, other, {
-    children: React46.Children.map(children, (child, childIndex) => {
-      if (!React46.isValidElement(child)) {
+    children: React48.Children.map(children, (child, childIndex) => {
+      if (!React48.isValidElement(child)) {
         return null;
       }
       if (true) {
@@ -36097,7 +36295,7 @@ var BottomNavigation = React46.forwardRef(function BottomNavigation2(inProps, re
         }
       }
       const childValue = child.props.value === undefined ? childIndex : child.props.value;
-      return React46.cloneElement(child, {
+      return React48.cloneElement(child, {
         selected: childValue === value,
         showLabel: child.props.showLabel !== undefined ? child.props.showLabel : showLabels,
         value: childValue,
@@ -36107,19 +36305,19 @@ var BottomNavigation = React46.forwardRef(function BottomNavigation2(inProps, re
   }));
 });
 BottomNavigation.propTypes = {
-  children: import_prop_types29.default.node,
-  classes: import_prop_types29.default.object,
-  className: import_prop_types29.default.string,
-  component: import_prop_types29.default.elementType,
-  onChange: import_prop_types29.default.func,
-  showLabels: import_prop_types29.default.bool,
-  sx: import_prop_types29.default.oneOfType([import_prop_types29.default.arrayOf(import_prop_types29.default.oneOfType([import_prop_types29.default.func, import_prop_types29.default.object, import_prop_types29.default.bool])), import_prop_types29.default.func, import_prop_types29.default.object]),
-  value: import_prop_types29.default.any
+  children: import_prop_types30.default.node,
+  classes: import_prop_types30.default.object,
+  className: import_prop_types30.default.string,
+  component: import_prop_types30.default.elementType,
+  onChange: import_prop_types30.default.func,
+  showLabels: import_prop_types30.default.bool,
+  sx: import_prop_types30.default.oneOfType([import_prop_types30.default.arrayOf(import_prop_types30.default.oneOfType([import_prop_types30.default.func, import_prop_types30.default.object, import_prop_types30.default.bool])), import_prop_types30.default.func, import_prop_types30.default.object]),
+  value: import_prop_types30.default.any
 };
 var BottomNavigation_default = BottomNavigation;
 // node_modules/@mui/material/BottomNavigationAction/BottomNavigationAction.js
-var React47 = __toESM(require_react(), 1);
-var import_prop_types30 = __toESM(require_prop_types(), 1);
+var React49 = __toESM(require_react(), 1);
+var import_prop_types31 = __toESM(require_prop_types(), 1);
 
 // node_modules/@mui/material/BottomNavigationAction/bottomNavigationActionClasses.js
 function getBottomNavigationActionUtilityClass(slot) {
@@ -36129,10 +36327,10 @@ var bottomNavigationActionClasses = generateUtilityClasses("MuiBottomNavigationA
 var bottomNavigationActionClasses_default = bottomNavigationActionClasses;
 
 // node_modules/@mui/material/BottomNavigationAction/BottomNavigationAction.js
-var jsx_runtime30 = __toESM(require_jsx_runtime(), 1);
-var jsx_runtime31 = __toESM(require_jsx_runtime(), 1);
-var _excluded30 = ["className", "icon", "label", "onChange", "onClick", "selected", "showLabel", "value"];
-var useUtilityClasses10 = (ownerState) => {
+var jsx_runtime32 = __toESM(require_jsx_runtime(), 1);
+var jsx_runtime33 = __toESM(require_jsx_runtime(), 1);
+var _excluded31 = ["className", "icon", "label", "onChange", "onClick", "selected", "showLabel", "value"];
+var useUtilityClasses11 = (ownerState) => {
   const {
     classes,
     showLabel,
@@ -36196,7 +36394,7 @@ var BottomNavigationActionLabel = styled_default2("span", {
     fontSize: theme.typography.pxToRem(14)
   }
 }));
-var BottomNavigationAction = React47.forwardRef(function BottomNavigationAction2(inProps, ref) {
+var BottomNavigationAction = React49.forwardRef(function BottomNavigationAction2(inProps, ref) {
   const props = useThemeProps3({
     props: inProps,
     name: "MuiBottomNavigationAction"
@@ -36208,9 +36406,9 @@ var BottomNavigationAction = React47.forwardRef(function BottomNavigationAction2
     onChange,
     onClick,
     value
-  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded30);
+  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded31);
   const ownerState = props;
-  const classes = useUtilityClasses10(ownerState);
+  const classes = useUtilityClasses11(ownerState);
   const handleChange = (event) => {
     if (onChange) {
       onChange(event, value);
@@ -36219,14 +36417,14 @@ var BottomNavigationAction = React47.forwardRef(function BottomNavigationAction2
       onClick(event);
     }
   };
-  return jsx_runtime31.jsxs(BottomNavigationActionRoot, _extends4({
+  return jsx_runtime33.jsxs(BottomNavigationActionRoot, _extends4({
     ref,
     className: clsx_default2(classes.root, className),
     focusRipple: true,
     onClick: handleChange,
     ownerState
   }, other, {
-    children: [icon, jsx_runtime30.jsx(BottomNavigationActionLabel, {
+    children: [icon, jsx_runtime32.jsx(BottomNavigationActionLabel, {
       className: classes.label,
       ownerState,
       children: label
@@ -36235,19 +36433,19 @@ var BottomNavigationAction = React47.forwardRef(function BottomNavigationAction2
 });
 BottomNavigationAction.propTypes = {
   children: unsupportedProp_default,
-  classes: import_prop_types30.default.object,
-  className: import_prop_types30.default.string,
-  icon: import_prop_types30.default.node,
-  label: import_prop_types30.default.node,
-  onChange: import_prop_types30.default.func,
-  onClick: import_prop_types30.default.func,
-  showLabel: import_prop_types30.default.bool,
-  sx: import_prop_types30.default.oneOfType([import_prop_types30.default.arrayOf(import_prop_types30.default.oneOfType([import_prop_types30.default.func, import_prop_types30.default.object, import_prop_types30.default.bool])), import_prop_types30.default.func, import_prop_types30.default.object]),
-  value: import_prop_types30.default.any
+  classes: import_prop_types31.default.object,
+  className: import_prop_types31.default.string,
+  icon: import_prop_types31.default.node,
+  label: import_prop_types31.default.node,
+  onChange: import_prop_types31.default.func,
+  onClick: import_prop_types31.default.func,
+  showLabel: import_prop_types31.default.bool,
+  sx: import_prop_types31.default.oneOfType([import_prop_types31.default.arrayOf(import_prop_types31.default.oneOfType([import_prop_types31.default.func, import_prop_types31.default.object, import_prop_types31.default.bool])), import_prop_types31.default.func, import_prop_types31.default.object]),
+  value: import_prop_types31.default.any
 };
 var BottomNavigationAction_default = BottomNavigationAction;
 // node_modules/@mui/material/Box/Box.js
-var import_prop_types31 = __toESM(require_prop_types(), 1);
+var import_prop_types32 = __toESM(require_prop_types(), 1);
 var defaultTheme7 = createTheme_default2();
 var Box = createBox({
   themeId: identifier_default,
@@ -36256,14 +36454,14 @@ var Box = createBox({
   generateClassName: ClassNameGenerator_default.generate
 });
 Box.propTypes = {
-  children: import_prop_types31.default.node,
-  component: import_prop_types31.default.elementType,
-  sx: import_prop_types31.default.oneOfType([import_prop_types31.default.arrayOf(import_prop_types31.default.oneOfType([import_prop_types31.default.func, import_prop_types31.default.object, import_prop_types31.default.bool])), import_prop_types31.default.func, import_prop_types31.default.object])
+  children: import_prop_types32.default.node,
+  component: import_prop_types32.default.elementType,
+  sx: import_prop_types32.default.oneOfType([import_prop_types32.default.arrayOf(import_prop_types32.default.oneOfType([import_prop_types32.default.func, import_prop_types32.default.object, import_prop_types32.default.bool])), import_prop_types32.default.func, import_prop_types32.default.object])
 };
 var Box_default = Box;
 // node_modules/@mui/material/Button/Button.js
-var React50 = __toESM(require_react(), 1);
-var import_prop_types32 = __toESM(require_prop_types(), 1);
+var React52 = __toESM(require_react(), 1);
+var import_prop_types33 = __toESM(require_prop_types(), 1);
 
 // node_modules/@mui/material/Button/buttonClasses.js
 function getButtonUtilityClass(slot) {
@@ -36273,26 +36471,26 @@ var buttonClasses = generateUtilityClasses("MuiButton", ["root", "text", "textIn
 var buttonClasses_default = buttonClasses;
 
 // node_modules/@mui/material/ButtonGroup/ButtonGroupContext.js
-var React48 = __toESM(require_react(), 1);
-var ButtonGroupContext = React48.createContext({});
+var React50 = __toESM(require_react(), 1);
+var ButtonGroupContext = React50.createContext({});
 if (true) {
   ButtonGroupContext.displayName = "ButtonGroupContext";
 }
 var ButtonGroupContext_default = ButtonGroupContext;
 
 // node_modules/@mui/material/ButtonGroup/ButtonGroupButtonContext.js
-var React49 = __toESM(require_react(), 1);
-var ButtonGroupButtonContext = React49.createContext(undefined);
+var React51 = __toESM(require_react(), 1);
+var ButtonGroupButtonContext = React51.createContext(undefined);
 if (true) {
   ButtonGroupButtonContext.displayName = "ButtonGroupButtonContext";
 }
 var ButtonGroupButtonContext_default = ButtonGroupButtonContext;
 
 // node_modules/@mui/material/Button/Button.js
-var jsx_runtime32 = __toESM(require_jsx_runtime(), 1);
-var jsx_runtime33 = __toESM(require_jsx_runtime(), 1);
-var _excluded31 = ["children", "color", "component", "className", "disabled", "disableElevation", "disableFocusRipple", "endIcon", "focusVisibleClassName", "fullWidth", "size", "startIcon", "type", "variant"];
-var useUtilityClasses11 = (ownerState) => {
+var jsx_runtime34 = __toESM(require_jsx_runtime(), 1);
+var jsx_runtime35 = __toESM(require_jsx_runtime(), 1);
+var _excluded32 = ["children", "color", "component", "className", "disabled", "disableElevation", "disableFocusRipple", "endIcon", "focusVisibleClassName", "fullWidth", "size", "startIcon", "type", "variant"];
+var useUtilityClasses12 = (ownerState) => {
   const {
     color: color2,
     disableElevation,
@@ -36486,9 +36684,9 @@ var ButtonEndIcon = styled_default2("span", {
 }, ownerState.size === "small" && {
   marginRight: -2
 }, commonIconStyles(ownerState)));
-var Button2 = React50.forwardRef(function Button3(inProps, ref) {
-  const contextProps = React50.useContext(ButtonGroupContext_default);
-  const buttonGroupButtonContextPositionClassName = React50.useContext(ButtonGroupButtonContext_default);
+var Button2 = React52.forwardRef(function Button3(inProps, ref) {
+  const contextProps = React52.useContext(ButtonGroupContext_default);
+  const buttonGroupButtonContextPositionClassName = React52.useContext(ButtonGroupButtonContext_default);
   const resolvedProps = resolveProps(contextProps, inProps);
   const props = useThemeProps3({
     props: resolvedProps,
@@ -36509,7 +36707,7 @@ var Button2 = React50.forwardRef(function Button3(inProps, ref) {
     startIcon: startIconProp,
     type,
     variant = "text"
-  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded31);
+  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded32);
   const ownerState = _extends4({}, props, {
     color: color2,
     component,
@@ -36521,19 +36719,19 @@ var Button2 = React50.forwardRef(function Button3(inProps, ref) {
     type,
     variant
   });
-  const classes = useUtilityClasses11(ownerState);
-  const startIcon = startIconProp && jsx_runtime32.jsx(ButtonStartIcon, {
+  const classes = useUtilityClasses12(ownerState);
+  const startIcon = startIconProp && jsx_runtime34.jsx(ButtonStartIcon, {
     className: classes.startIcon,
     ownerState,
     children: startIconProp
   });
-  const endIcon = endIconProp && jsx_runtime32.jsx(ButtonEndIcon, {
+  const endIcon = endIconProp && jsx_runtime34.jsx(ButtonEndIcon, {
     className: classes.endIcon,
     ownerState,
     children: endIconProp
   });
   const positionClassName = buttonGroupButtonContextPositionClassName || "";
-  return jsx_runtime33.jsxs(ButtonRoot, _extends4({
+  return jsx_runtime35.jsxs(ButtonRoot, _extends4({
     ownerState,
     className: clsx_default2(contextProps.className, classes.root, className2, positionClassName),
     component,
@@ -36548,29 +36746,29 @@ var Button2 = React50.forwardRef(function Button3(inProps, ref) {
   }));
 });
 Button2.propTypes = {
-  children: import_prop_types32.default.node,
-  classes: import_prop_types32.default.object,
-  className: import_prop_types32.default.string,
-  color: import_prop_types32.default.oneOfType([import_prop_types32.default.oneOf(["inherit", "primary", "secondary", "success", "error", "info", "warning"]), import_prop_types32.default.string]),
-  component: import_prop_types32.default.elementType,
-  disabled: import_prop_types32.default.bool,
-  disableElevation: import_prop_types32.default.bool,
-  disableFocusRipple: import_prop_types32.default.bool,
-  disableRipple: import_prop_types32.default.bool,
-  endIcon: import_prop_types32.default.node,
-  focusVisibleClassName: import_prop_types32.default.string,
-  fullWidth: import_prop_types32.default.bool,
-  href: import_prop_types32.default.string,
-  size: import_prop_types32.default.oneOfType([import_prop_types32.default.oneOf(["small", "medium", "large"]), import_prop_types32.default.string]),
-  startIcon: import_prop_types32.default.node,
-  sx: import_prop_types32.default.oneOfType([import_prop_types32.default.arrayOf(import_prop_types32.default.oneOfType([import_prop_types32.default.func, import_prop_types32.default.object, import_prop_types32.default.bool])), import_prop_types32.default.func, import_prop_types32.default.object]),
-  type: import_prop_types32.default.oneOfType([import_prop_types32.default.oneOf(["button", "reset", "submit"]), import_prop_types32.default.string]),
-  variant: import_prop_types32.default.oneOfType([import_prop_types32.default.oneOf(["contained", "outlined", "text"]), import_prop_types32.default.string])
+  children: import_prop_types33.default.node,
+  classes: import_prop_types33.default.object,
+  className: import_prop_types33.default.string,
+  color: import_prop_types33.default.oneOfType([import_prop_types33.default.oneOf(["inherit", "primary", "secondary", "success", "error", "info", "warning"]), import_prop_types33.default.string]),
+  component: import_prop_types33.default.elementType,
+  disabled: import_prop_types33.default.bool,
+  disableElevation: import_prop_types33.default.bool,
+  disableFocusRipple: import_prop_types33.default.bool,
+  disableRipple: import_prop_types33.default.bool,
+  endIcon: import_prop_types33.default.node,
+  focusVisibleClassName: import_prop_types33.default.string,
+  fullWidth: import_prop_types33.default.bool,
+  href: import_prop_types33.default.string,
+  size: import_prop_types33.default.oneOfType([import_prop_types33.default.oneOf(["small", "medium", "large"]), import_prop_types33.default.string]),
+  startIcon: import_prop_types33.default.node,
+  sx: import_prop_types33.default.oneOfType([import_prop_types33.default.arrayOf(import_prop_types33.default.oneOfType([import_prop_types33.default.func, import_prop_types33.default.object, import_prop_types33.default.bool])), import_prop_types33.default.func, import_prop_types33.default.object]),
+  type: import_prop_types33.default.oneOfType([import_prop_types33.default.oneOf(["button", "reset", "submit"]), import_prop_types33.default.string]),
+  variant: import_prop_types33.default.oneOfType([import_prop_types33.default.oneOf(["contained", "outlined", "text"]), import_prop_types33.default.string])
 };
 var Button_default = Button2;
 // node_modules/@mui/material/ButtonGroup/ButtonGroup.js
-var React51 = __toESM(require_react(), 1);
-var import_prop_types33 = __toESM(require_prop_types(), 1);
+var React53 = __toESM(require_react(), 1);
+var import_prop_types34 = __toESM(require_prop_types(), 1);
 
 // node_modules/@mui/material/ButtonGroup/buttonGroupClasses.js
 function getButtonGroupUtilityClass(slot) {
@@ -36580,8 +36778,8 @@ var buttonGroupClasses = generateUtilityClasses("MuiButtonGroup", ["root", "cont
 var buttonGroupClasses_default = buttonGroupClasses;
 
 // node_modules/@mui/material/ButtonGroup/ButtonGroup.js
-var jsx_runtime34 = __toESM(require_jsx_runtime(), 1);
-var _excluded32 = ["children", "className", "color", "component", "disabled", "disableElevation", "disableFocusRipple", "disableRipple", "fullWidth", "orientation", "size", "variant"];
+var jsx_runtime36 = __toESM(require_jsx_runtime(), 1);
+var _excluded33 = ["children", "className", "color", "component", "disabled", "disableElevation", "disableFocusRipple", "disableRipple", "fullWidth", "orientation", "size", "variant"];
 var overridesResolver = (props, styles4) => {
   const {
     ownerState
@@ -36604,7 +36802,7 @@ var overridesResolver = (props, styles4) => {
     [`& .${buttonGroupClasses_default.middleButton}`]: styles4.middleButton
   }, styles4.root, styles4[ownerState.variant], ownerState.disableElevation === true && styles4.disableElevation, ownerState.fullWidth && styles4.fullWidth, ownerState.orientation === "vertical" && styles4.vertical];
 };
-var useUtilityClasses12 = (ownerState) => {
+var useUtilityClasses13 = (ownerState) => {
   const {
     classes,
     color: color2,
@@ -36703,7 +36901,7 @@ var ButtonGroupRoot = styled_default2("div", {
     marginTop: -1
   })
 }));
-var ButtonGroup = React51.forwardRef(function ButtonGroup2(inProps, ref) {
+var ButtonGroup = React53.forwardRef(function ButtonGroup2(inProps, ref) {
   const props = useThemeProps3({
     props: inProps,
     name: "MuiButtonGroup"
@@ -36721,7 +36919,7 @@ var ButtonGroup = React51.forwardRef(function ButtonGroup2(inProps, ref) {
     orientation = "horizontal",
     size = "medium",
     variant = "outlined"
-  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded32);
+  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded33);
   const ownerState = _extends4({}, props, {
     color: color2,
     component,
@@ -36734,8 +36932,8 @@ var ButtonGroup = React51.forwardRef(function ButtonGroup2(inProps, ref) {
     size,
     variant
   });
-  const classes = useUtilityClasses12(ownerState);
-  const context = React51.useMemo(() => ({
+  const classes = useUtilityClasses13(ownerState);
+  const context = React53.useMemo(() => ({
     className: classes.grouped,
     color: color2,
     disabled,
@@ -36762,17 +36960,17 @@ var ButtonGroup = React51.forwardRef(function ButtonGroup2(inProps, ref) {
     }
     return classes.middleButton;
   };
-  return jsx_runtime34.jsx(ButtonGroupRoot, _extends4({
+  return jsx_runtime36.jsx(ButtonGroupRoot, _extends4({
     as: component,
     role: "group",
     className: clsx_default2(classes.root, className2),
     ref,
     ownerState
   }, other, {
-    children: jsx_runtime34.jsx(ButtonGroupContext_default.Provider, {
+    children: jsx_runtime36.jsx(ButtonGroupContext_default.Provider, {
       value: context,
       children: validChildren.map((child, index) => {
-        return jsx_runtime34.jsx(ButtonGroupButtonContext_default.Provider, {
+        return jsx_runtime36.jsx(ButtonGroupButtonContext_default.Provider, {
           value: getButtonPositionClassName(index),
           children: child
         }, index);
@@ -36781,25 +36979,471 @@ var ButtonGroup = React51.forwardRef(function ButtonGroup2(inProps, ref) {
   }));
 });
 ButtonGroup.propTypes = {
-  children: import_prop_types33.default.node,
-  classes: import_prop_types33.default.object,
-  className: import_prop_types33.default.string,
-  color: import_prop_types33.default.oneOfType([import_prop_types33.default.oneOf(["inherit", "primary", "secondary", "error", "info", "success", "warning"]), import_prop_types33.default.string]),
-  component: import_prop_types33.default.elementType,
-  disabled: import_prop_types33.default.bool,
-  disableElevation: import_prop_types33.default.bool,
-  disableFocusRipple: import_prop_types33.default.bool,
-  disableRipple: import_prop_types33.default.bool,
-  fullWidth: import_prop_types33.default.bool,
-  orientation: import_prop_types33.default.oneOf(["horizontal", "vertical"]),
-  size: import_prop_types33.default.oneOfType([import_prop_types33.default.oneOf(["small", "medium", "large"]), import_prop_types33.default.string]),
-  sx: import_prop_types33.default.oneOfType([import_prop_types33.default.arrayOf(import_prop_types33.default.oneOfType([import_prop_types33.default.func, import_prop_types33.default.object, import_prop_types33.default.bool])), import_prop_types33.default.func, import_prop_types33.default.object]),
-  variant: import_prop_types33.default.oneOfType([import_prop_types33.default.oneOf(["contained", "outlined", "text"]), import_prop_types33.default.string])
+  children: import_prop_types34.default.node,
+  classes: import_prop_types34.default.object,
+  className: import_prop_types34.default.string,
+  color: import_prop_types34.default.oneOfType([import_prop_types34.default.oneOf(["inherit", "primary", "secondary", "error", "info", "success", "warning"]), import_prop_types34.default.string]),
+  component: import_prop_types34.default.elementType,
+  disabled: import_prop_types34.default.bool,
+  disableElevation: import_prop_types34.default.bool,
+  disableFocusRipple: import_prop_types34.default.bool,
+  disableRipple: import_prop_types34.default.bool,
+  fullWidth: import_prop_types34.default.bool,
+  orientation: import_prop_types34.default.oneOf(["horizontal", "vertical"]),
+  size: import_prop_types34.default.oneOfType([import_prop_types34.default.oneOf(["small", "medium", "large"]), import_prop_types34.default.string]),
+  sx: import_prop_types34.default.oneOfType([import_prop_types34.default.arrayOf(import_prop_types34.default.oneOfType([import_prop_types34.default.func, import_prop_types34.default.object, import_prop_types34.default.bool])), import_prop_types34.default.func, import_prop_types34.default.object]),
+  variant: import_prop_types34.default.oneOfType([import_prop_types34.default.oneOf(["contained", "outlined", "text"]), import_prop_types34.default.string])
 };
 var ButtonGroup_default = ButtonGroup;
+// node_modules/@mui/material/Card/Card.js
+var React54 = __toESM(require_react(), 1);
+var import_prop_types35 = __toESM(require_prop_types(), 1);
+
+// node_modules/@mui/material/Card/cardClasses.js
+function getCardUtilityClass(slot) {
+  return generateUtilityClass("MuiCard", slot);
+}
+var cardClasses = generateUtilityClasses("MuiCard", ["root"]);
+
+// node_modules/@mui/material/Card/Card.js
+var jsx_runtime37 = __toESM(require_jsx_runtime(), 1);
+var _excluded34 = ["className", "raised"];
+var useUtilityClasses14 = (ownerState) => {
+  const {
+    classes
+  } = ownerState;
+  const slots = {
+    root: ["root"]
+  };
+  return composeClasses(slots, getCardUtilityClass, classes);
+};
+var CardRoot = styled_default2(Paper_default, {
+  name: "MuiCard",
+  slot: "Root",
+  overridesResolver: (props, styles4) => styles4.root
+})(() => {
+  return {
+    overflow: "hidden"
+  };
+});
+var Card = React54.forwardRef(function Card2(inProps, ref) {
+  const props = useThemeProps3({
+    props: inProps,
+    name: "MuiCard"
+  });
+  const {
+    className: className2,
+    raised = false
+  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded34);
+  const ownerState = _extends4({}, props, {
+    raised
+  });
+  const classes = useUtilityClasses14(ownerState);
+  return jsx_runtime37.jsx(CardRoot, _extends4({
+    className: clsx_default2(classes.root, className2),
+    elevation: raised ? 8 : undefined,
+    ref,
+    ownerState
+  }, other));
+});
+Card.propTypes = {
+  children: import_prop_types35.default.node,
+  classes: import_prop_types35.default.object,
+  className: import_prop_types35.default.string,
+  raised: chainPropTypes(import_prop_types35.default.bool, (props) => {
+    if (props.raised && props.variant === "outlined") {
+      return new Error('MUI: Combining `raised={true}` with `variant="outlined"` has no effect.');
+    }
+    return null;
+  }),
+  sx: import_prop_types35.default.oneOfType([import_prop_types35.default.arrayOf(import_prop_types35.default.oneOfType([import_prop_types35.default.func, import_prop_types35.default.object, import_prop_types35.default.bool])), import_prop_types35.default.func, import_prop_types35.default.object])
+};
+var Card_default = Card;
+// node_modules/@mui/material/CardActions/CardActions.js
+var React55 = __toESM(require_react(), 1);
+var import_prop_types36 = __toESM(require_prop_types(), 1);
+
+// node_modules/@mui/material/CardActions/cardActionsClasses.js
+function getCardActionsUtilityClass(slot) {
+  return generateUtilityClass("MuiCardActions", slot);
+}
+var cardActionsClasses = generateUtilityClasses("MuiCardActions", ["root", "spacing"]);
+
+// node_modules/@mui/material/CardActions/CardActions.js
+var jsx_runtime38 = __toESM(require_jsx_runtime(), 1);
+var _excluded35 = ["disableSpacing", "className"];
+var useUtilityClasses15 = (ownerState) => {
+  const {
+    classes,
+    disableSpacing
+  } = ownerState;
+  const slots = {
+    root: ["root", !disableSpacing && "spacing"]
+  };
+  return composeClasses(slots, getCardActionsUtilityClass, classes);
+};
+var CardActionsRoot = styled_default2("div", {
+  name: "MuiCardActions",
+  slot: "Root",
+  overridesResolver: (props, styles4) => {
+    const {
+      ownerState
+    } = props;
+    return [styles4.root, !ownerState.disableSpacing && styles4.spacing];
+  }
+})(({
+  ownerState
+}) => _extends4({
+  display: "flex",
+  alignItems: "center",
+  padding: 8
+}, !ownerState.disableSpacing && {
+  "& > :not(:first-of-type)": {
+    marginLeft: 8
+  }
+}));
+var CardActions = React55.forwardRef(function CardActions2(inProps, ref) {
+  const props = useThemeProps3({
+    props: inProps,
+    name: "MuiCardActions"
+  });
+  const {
+    disableSpacing = false,
+    className: className2
+  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded35);
+  const ownerState = _extends4({}, props, {
+    disableSpacing
+  });
+  const classes = useUtilityClasses15(ownerState);
+  return jsx_runtime38.jsx(CardActionsRoot, _extends4({
+    className: clsx_default2(classes.root, className2),
+    ownerState,
+    ref
+  }, other));
+});
+CardActions.propTypes = {
+  children: import_prop_types36.default.node,
+  classes: import_prop_types36.default.object,
+  className: import_prop_types36.default.string,
+  disableSpacing: import_prop_types36.default.bool,
+  sx: import_prop_types36.default.oneOfType([import_prop_types36.default.arrayOf(import_prop_types36.default.oneOfType([import_prop_types36.default.func, import_prop_types36.default.object, import_prop_types36.default.bool])), import_prop_types36.default.func, import_prop_types36.default.object])
+};
+var CardActions_default = CardActions;
+// node_modules/@mui/material/CardContent/CardContent.js
+var React56 = __toESM(require_react(), 1);
+var import_prop_types37 = __toESM(require_prop_types(), 1);
+
+// node_modules/@mui/material/CardContent/cardContentClasses.js
+function getCardContentUtilityClass(slot) {
+  return generateUtilityClass("MuiCardContent", slot);
+}
+var cardContentClasses = generateUtilityClasses("MuiCardContent", ["root"]);
+
+// node_modules/@mui/material/CardContent/CardContent.js
+var jsx_runtime39 = __toESM(require_jsx_runtime(), 1);
+var _excluded36 = ["className", "component"];
+var useUtilityClasses16 = (ownerState) => {
+  const {
+    classes
+  } = ownerState;
+  const slots = {
+    root: ["root"]
+  };
+  return composeClasses(slots, getCardContentUtilityClass, classes);
+};
+var CardContentRoot = styled_default2("div", {
+  name: "MuiCardContent",
+  slot: "Root",
+  overridesResolver: (props, styles4) => styles4.root
+})(() => {
+  return {
+    padding: 16,
+    "&:last-child": {
+      paddingBottom: 24
+    }
+  };
+});
+var CardContent = React56.forwardRef(function CardContent2(inProps, ref) {
+  const props = useThemeProps3({
+    props: inProps,
+    name: "MuiCardContent"
+  });
+  const {
+    className: className2,
+    component = "div"
+  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded36);
+  const ownerState = _extends4({}, props, {
+    component
+  });
+  const classes = useUtilityClasses16(ownerState);
+  return jsx_runtime39.jsx(CardContentRoot, _extends4({
+    as: component,
+    className: clsx_default2(classes.root, className2),
+    ownerState,
+    ref
+  }, other));
+});
+CardContent.propTypes = {
+  children: import_prop_types37.default.node,
+  classes: import_prop_types37.default.object,
+  className: import_prop_types37.default.string,
+  component: import_prop_types37.default.elementType,
+  sx: import_prop_types37.default.oneOfType([import_prop_types37.default.arrayOf(import_prop_types37.default.oneOfType([import_prop_types37.default.func, import_prop_types37.default.object, import_prop_types37.default.bool])), import_prop_types37.default.func, import_prop_types37.default.object])
+};
+var CardContent_default = CardContent;
+// node_modules/@mui/material/CardHeader/CardHeader.js
+var React57 = __toESM(require_react(), 1);
+var import_prop_types38 = __toESM(require_prop_types(), 1);
+
+// node_modules/@mui/material/CardHeader/cardHeaderClasses.js
+function getCardHeaderUtilityClass(slot) {
+  return generateUtilityClass("MuiCardHeader", slot);
+}
+var cardHeaderClasses = generateUtilityClasses("MuiCardHeader", ["root", "avatar", "action", "content", "title", "subheader"]);
+var cardHeaderClasses_default = cardHeaderClasses;
+
+// node_modules/@mui/material/CardHeader/CardHeader.js
+var jsx_runtime40 = __toESM(require_jsx_runtime(), 1);
+var jsx_runtime41 = __toESM(require_jsx_runtime(), 1);
+var _excluded37 = ["action", "avatar", "className", "component", "disableTypography", "subheader", "subheaderTypographyProps", "title", "titleTypographyProps"];
+var useUtilityClasses17 = (ownerState) => {
+  const {
+    classes
+  } = ownerState;
+  const slots = {
+    root: ["root"],
+    avatar: ["avatar"],
+    action: ["action"],
+    content: ["content"],
+    title: ["title"],
+    subheader: ["subheader"]
+  };
+  return composeClasses(slots, getCardHeaderUtilityClass, classes);
+};
+var CardHeaderRoot = styled_default2("div", {
+  name: "MuiCardHeader",
+  slot: "Root",
+  overridesResolver: (props, styles4) => _extends4({
+    [`& .${cardHeaderClasses_default.title}`]: styles4.title,
+    [`& .${cardHeaderClasses_default.subheader}`]: styles4.subheader
+  }, styles4.root)
+})({
+  display: "flex",
+  alignItems: "center",
+  padding: 16
+});
+var CardHeaderAvatar = styled_default2("div", {
+  name: "MuiCardHeader",
+  slot: "Avatar",
+  overridesResolver: (props, styles4) => styles4.avatar
+})({
+  display: "flex",
+  flex: "0 0 auto",
+  marginRight: 16
+});
+var CardHeaderAction = styled_default2("div", {
+  name: "MuiCardHeader",
+  slot: "Action",
+  overridesResolver: (props, styles4) => styles4.action
+})({
+  flex: "0 0 auto",
+  alignSelf: "flex-start",
+  marginTop: -4,
+  marginRight: -8,
+  marginBottom: -4
+});
+var CardHeaderContent = styled_default2("div", {
+  name: "MuiCardHeader",
+  slot: "Content",
+  overridesResolver: (props, styles4) => styles4.content
+})({
+  flex: "1 1 auto"
+});
+var CardHeader = React57.forwardRef(function CardHeader2(inProps, ref) {
+  const props = useThemeProps3({
+    props: inProps,
+    name: "MuiCardHeader"
+  });
+  const {
+    action,
+    avatar,
+    className: className2,
+    component = "div",
+    disableTypography = false,
+    subheader: subheaderProp,
+    subheaderTypographyProps,
+    title: titleProp,
+    titleTypographyProps
+  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded37);
+  const ownerState = _extends4({}, props, {
+    component,
+    disableTypography
+  });
+  const classes = useUtilityClasses17(ownerState);
+  let title = titleProp;
+  if (title != null && title.type !== Typography_default && !disableTypography) {
+    title = jsx_runtime40.jsx(Typography_default, _extends4({
+      variant: avatar ? "body2" : "h5",
+      className: classes.title,
+      component: "span",
+      display: "block"
+    }, titleTypographyProps, {
+      children: title
+    }));
+  }
+  let subheader = subheaderProp;
+  if (subheader != null && subheader.type !== Typography_default && !disableTypography) {
+    subheader = jsx_runtime40.jsx(Typography_default, _extends4({
+      variant: avatar ? "body2" : "body1",
+      className: classes.subheader,
+      color: "text.secondary",
+      component: "span",
+      display: "block"
+    }, subheaderTypographyProps, {
+      children: subheader
+    }));
+  }
+  return jsx_runtime41.jsxs(CardHeaderRoot, _extends4({
+    className: clsx_default2(classes.root, className2),
+    as: component,
+    ref,
+    ownerState
+  }, other, {
+    children: [avatar && jsx_runtime40.jsx(CardHeaderAvatar, {
+      className: classes.avatar,
+      ownerState,
+      children: avatar
+    }), jsx_runtime41.jsxs(CardHeaderContent, {
+      className: classes.content,
+      ownerState,
+      children: [title, subheader]
+    }), action && jsx_runtime40.jsx(CardHeaderAction, {
+      className: classes.action,
+      ownerState,
+      children: action
+    })]
+  }));
+});
+CardHeader.propTypes = {
+  action: import_prop_types38.default.node,
+  avatar: import_prop_types38.default.node,
+  children: import_prop_types38.default.node,
+  classes: import_prop_types38.default.object,
+  className: import_prop_types38.default.string,
+  component: import_prop_types38.default.elementType,
+  disableTypography: import_prop_types38.default.bool,
+  subheader: import_prop_types38.default.node,
+  subheaderTypographyProps: import_prop_types38.default.object,
+  sx: import_prop_types38.default.oneOfType([import_prop_types38.default.arrayOf(import_prop_types38.default.oneOfType([import_prop_types38.default.func, import_prop_types38.default.object, import_prop_types38.default.bool])), import_prop_types38.default.func, import_prop_types38.default.object]),
+  title: import_prop_types38.default.node,
+  titleTypographyProps: import_prop_types38.default.object
+};
+var CardHeader_default = CardHeader;
+// node_modules/@mui/material/CardMedia/CardMedia.js
+var React58 = __toESM(require_react(), 1);
+var import_prop_types39 = __toESM(require_prop_types(), 1);
+
+// node_modules/@mui/material/CardMedia/cardMediaClasses.js
+function getCardMediaUtilityClass(slot) {
+  return generateUtilityClass("MuiCardMedia", slot);
+}
+var cardMediaClasses = generateUtilityClasses("MuiCardMedia", ["root", "media", "img"]);
+
+// node_modules/@mui/material/CardMedia/CardMedia.js
+var jsx_runtime42 = __toESM(require_jsx_runtime(), 1);
+var _excluded38 = ["children", "className", "component", "image", "src", "style"];
+var useUtilityClasses18 = (ownerState) => {
+  const {
+    classes,
+    isMediaComponent,
+    isImageComponent
+  } = ownerState;
+  const slots = {
+    root: ["root", isMediaComponent && "media", isImageComponent && "img"]
+  };
+  return composeClasses(slots, getCardMediaUtilityClass, classes);
+};
+var CardMediaRoot = styled_default2("div", {
+  name: "MuiCardMedia",
+  slot: "Root",
+  overridesResolver: (props, styles4) => {
+    const {
+      ownerState
+    } = props;
+    const {
+      isMediaComponent,
+      isImageComponent
+    } = ownerState;
+    return [styles4.root, isMediaComponent && styles4.media, isImageComponent && styles4.img];
+  }
+})(({
+  ownerState
+}) => _extends4({
+  display: "block",
+  backgroundSize: "cover",
+  backgroundRepeat: "no-repeat",
+  backgroundPosition: "center"
+}, ownerState.isMediaComponent && {
+  width: "100%"
+}, ownerState.isImageComponent && {
+  objectFit: "cover"
+}));
+var MEDIA_COMPONENTS = ["video", "audio", "picture", "iframe", "img"];
+var IMAGE_COMPONENTS = ["picture", "img"];
+var CardMedia = React58.forwardRef(function CardMedia2(inProps, ref) {
+  const props = useThemeProps3({
+    props: inProps,
+    name: "MuiCardMedia"
+  });
+  const {
+    children,
+    className: className2,
+    component = "div",
+    image,
+    src,
+    style: style10
+  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded38);
+  const isMediaComponent = MEDIA_COMPONENTS.indexOf(component) !== -1;
+  const composedStyle = !isMediaComponent && image ? _extends4({
+    backgroundImage: `url("${image}")`
+  }, style10) : style10;
+  const ownerState = _extends4({}, props, {
+    component,
+    isMediaComponent,
+    isImageComponent: IMAGE_COMPONENTS.indexOf(component) !== -1
+  });
+  const classes = useUtilityClasses18(ownerState);
+  return jsx_runtime42.jsx(CardMediaRoot, _extends4({
+    className: clsx_default2(classes.root, className2),
+    as: component,
+    role: !isMediaComponent && image ? "img" : undefined,
+    ref,
+    style: composedStyle,
+    ownerState,
+    src: isMediaComponent ? image || src : undefined
+  }, other, {
+    children
+  }));
+});
+CardMedia.propTypes = {
+  children: chainPropTypes(import_prop_types39.default.node, (props) => {
+    if (!props.children && !props.image && !props.src && !props.component) {
+      return new Error("MUI: Either `children`, `image`, `src` or `component` prop must be specified.");
+    }
+    return null;
+  }),
+  classes: import_prop_types39.default.object,
+  className: import_prop_types39.default.string,
+  component: import_prop_types39.default.elementType,
+  image: import_prop_types39.default.string,
+  src: import_prop_types39.default.string,
+  style: import_prop_types39.default.object,
+  sx: import_prop_types39.default.oneOfType([import_prop_types39.default.arrayOf(import_prop_types39.default.oneOfType([import_prop_types39.default.func, import_prop_types39.default.object, import_prop_types39.default.bool])), import_prop_types39.default.func, import_prop_types39.default.object])
+};
+var CardMedia_default = CardMedia;
 // node_modules/@mui/material/Modal/Modal.js
-var React52 = __toESM(require_react(), 1);
-var import_prop_types34 = __toESM(require_prop_types(), 1);
+var React59 = __toESM(require_react(), 1);
+var import_prop_types40 = __toESM(require_prop_types(), 1);
 // node_modules/@mui/material/Modal/modalClasses.js
 function getModalUtilityClass(slot) {
   return generateUtilityClass("MuiModal", slot);
@@ -36807,10 +37451,10 @@ function getModalUtilityClass(slot) {
 var modalClasses = generateUtilityClasses("MuiModal", ["root", "hidden", "backdrop"]);
 
 // node_modules/@mui/material/Modal/Modal.js
-var jsx_runtime35 = __toESM(require_jsx_runtime(), 1);
-var jsx_runtime36 = __toESM(require_jsx_runtime(), 1);
-var _excluded33 = ["BackdropComponent", "BackdropProps", "classes", "className", "closeAfterTransition", "children", "container", "component", "components", "componentsProps", "disableAutoFocus", "disableEnforceFocus", "disableEscapeKeyDown", "disablePortal", "disableRestoreFocus", "disableScrollLock", "hideBackdrop", "keepMounted", "onBackdropClick", "onClose", "onTransitionEnter", "onTransitionExited", "open", "slotProps", "slots", "theme"];
-var useUtilityClasses13 = (ownerState) => {
+var jsx_runtime43 = __toESM(require_jsx_runtime(), 1);
+var jsx_runtime44 = __toESM(require_jsx_runtime(), 1);
+var _excluded39 = ["BackdropComponent", "BackdropProps", "classes", "className", "closeAfterTransition", "children", "container", "component", "components", "componentsProps", "disableAutoFocus", "disableEnforceFocus", "disableEscapeKeyDown", "disablePortal", "disableRestoreFocus", "disableScrollLock", "hideBackdrop", "keepMounted", "onBackdropClick", "onClose", "onTransitionEnter", "onTransitionExited", "open", "slotProps", "slots", "theme"];
+var useUtilityClasses19 = (ownerState) => {
   const {
     open,
     exited,
@@ -36853,7 +37497,7 @@ var ModalBackdrop = styled_default2(Backdrop_default, {
 })({
   zIndex: -1
 });
-var Modal2 = React52.forwardRef(function Modal3(inProps, ref) {
+var Modal2 = React59.forwardRef(function Modal3(inProps, ref) {
   var _ref, _slots$root, _ref2, _slots$backdrop, _slotProps$root, _slotProps$backdrop;
   const props = useThemeProps3({
     name: "MuiModal",
@@ -36881,7 +37525,7 @@ var Modal2 = React52.forwardRef(function Modal3(inProps, ref) {
     open,
     slotProps,
     slots
-  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded33);
+  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded39);
   const propsWithDefaults = _extends4({}, props, {
     closeAfterTransition,
     disableAutoFocus,
@@ -36907,7 +37551,7 @@ var Modal2 = React52.forwardRef(function Modal3(inProps, ref) {
   const ownerState = _extends4({}, propsWithDefaults, {
     exited
   });
-  const classes = useUtilityClasses13(ownerState);
+  const classes = useUtilityClasses19(ownerState);
   const childProps = {};
   if (children.props.tabIndex === undefined) {
     childProps.tabIndex = "-1";
@@ -36958,65 +37602,65 @@ var Modal2 = React52.forwardRef(function Modal3(inProps, ref) {
   if (!keepMounted && !open && (!hasTransition || exited)) {
     return null;
   }
-  return jsx_runtime35.jsx(Portal, {
+  return jsx_runtime43.jsx(Portal, {
     ref: portalRef,
     container,
     disablePortal,
-    children: jsx_runtime36.jsxs(RootSlot, _extends4({}, rootProps, {
-      children: [!hideBackdrop && BackdropComponent ? jsx_runtime35.jsx(BackdropSlot, _extends4({}, backdropProps)) : null, jsx_runtime35.jsx(FocusTrap, {
+    children: jsx_runtime44.jsxs(RootSlot, _extends4({}, rootProps, {
+      children: [!hideBackdrop && BackdropComponent ? jsx_runtime43.jsx(BackdropSlot, _extends4({}, backdropProps)) : null, jsx_runtime43.jsx(FocusTrap, {
         disableEnforceFocus,
         disableAutoFocus,
         disableRestoreFocus,
         isEnabled: isTopModal,
         open,
-        children: React52.cloneElement(children, childProps)
+        children: React59.cloneElement(children, childProps)
       })]
     }))
   });
 });
 Modal2.propTypes = {
-  BackdropComponent: import_prop_types34.default.elementType,
-  BackdropProps: import_prop_types34.default.object,
+  BackdropComponent: import_prop_types40.default.elementType,
+  BackdropProps: import_prop_types40.default.object,
   children: elementAcceptingRef_default.isRequired,
-  classes: import_prop_types34.default.object,
-  className: import_prop_types34.default.string,
-  closeAfterTransition: import_prop_types34.default.bool,
-  component: import_prop_types34.default.elementType,
-  components: import_prop_types34.default.shape({
-    Backdrop: import_prop_types34.default.elementType,
-    Root: import_prop_types34.default.elementType
+  classes: import_prop_types40.default.object,
+  className: import_prop_types40.default.string,
+  closeAfterTransition: import_prop_types40.default.bool,
+  component: import_prop_types40.default.elementType,
+  components: import_prop_types40.default.shape({
+    Backdrop: import_prop_types40.default.elementType,
+    Root: import_prop_types40.default.elementType
   }),
-  componentsProps: import_prop_types34.default.shape({
-    backdrop: import_prop_types34.default.oneOfType([import_prop_types34.default.func, import_prop_types34.default.object]),
-    root: import_prop_types34.default.oneOfType([import_prop_types34.default.func, import_prop_types34.default.object])
+  componentsProps: import_prop_types40.default.shape({
+    backdrop: import_prop_types40.default.oneOfType([import_prop_types40.default.func, import_prop_types40.default.object]),
+    root: import_prop_types40.default.oneOfType([import_prop_types40.default.func, import_prop_types40.default.object])
   }),
-  container: import_prop_types34.default.oneOfType([HTMLElementType, import_prop_types34.default.func]),
-  disableAutoFocus: import_prop_types34.default.bool,
-  disableEnforceFocus: import_prop_types34.default.bool,
-  disableEscapeKeyDown: import_prop_types34.default.bool,
-  disablePortal: import_prop_types34.default.bool,
-  disableRestoreFocus: import_prop_types34.default.bool,
-  disableScrollLock: import_prop_types34.default.bool,
-  hideBackdrop: import_prop_types34.default.bool,
-  keepMounted: import_prop_types34.default.bool,
-  onBackdropClick: import_prop_types34.default.func,
-  onClose: import_prop_types34.default.func,
-  onTransitionEnter: import_prop_types34.default.func,
-  onTransitionExited: import_prop_types34.default.func,
-  open: import_prop_types34.default.bool.isRequired,
-  slotProps: import_prop_types34.default.shape({
-    backdrop: import_prop_types34.default.oneOfType([import_prop_types34.default.func, import_prop_types34.default.object]),
-    root: import_prop_types34.default.oneOfType([import_prop_types34.default.func, import_prop_types34.default.object])
+  container: import_prop_types40.default.oneOfType([HTMLElementType, import_prop_types40.default.func]),
+  disableAutoFocus: import_prop_types40.default.bool,
+  disableEnforceFocus: import_prop_types40.default.bool,
+  disableEscapeKeyDown: import_prop_types40.default.bool,
+  disablePortal: import_prop_types40.default.bool,
+  disableRestoreFocus: import_prop_types40.default.bool,
+  disableScrollLock: import_prop_types40.default.bool,
+  hideBackdrop: import_prop_types40.default.bool,
+  keepMounted: import_prop_types40.default.bool,
+  onBackdropClick: import_prop_types40.default.func,
+  onClose: import_prop_types40.default.func,
+  onTransitionEnter: import_prop_types40.default.func,
+  onTransitionExited: import_prop_types40.default.func,
+  open: import_prop_types40.default.bool.isRequired,
+  slotProps: import_prop_types40.default.shape({
+    backdrop: import_prop_types40.default.oneOfType([import_prop_types40.default.func, import_prop_types40.default.object]),
+    root: import_prop_types40.default.oneOfType([import_prop_types40.default.func, import_prop_types40.default.object])
   }),
-  slots: import_prop_types34.default.shape({
-    backdrop: import_prop_types34.default.elementType,
-    root: import_prop_types34.default.elementType
+  slots: import_prop_types40.default.shape({
+    backdrop: import_prop_types40.default.elementType,
+    root: import_prop_types40.default.elementType
   }),
-  sx: import_prop_types34.default.oneOfType([import_prop_types34.default.arrayOf(import_prop_types34.default.oneOfType([import_prop_types34.default.func, import_prop_types34.default.object, import_prop_types34.default.bool])), import_prop_types34.default.func, import_prop_types34.default.object])
+  sx: import_prop_types40.default.oneOfType([import_prop_types40.default.arrayOf(import_prop_types40.default.oneOfType([import_prop_types40.default.func, import_prop_types40.default.object, import_prop_types40.default.bool])), import_prop_types40.default.func, import_prop_types40.default.object])
 };
 var Modal_default = Modal2;
 // node_modules/@mui/material/Stack/Stack.js
-var import_prop_types35 = __toESM(require_prop_types(), 1);
+var import_prop_types41 = __toESM(require_prop_types(), 1);
 var Stack2 = createStack({
   createStyledComponent: styled_default2("div", {
     name: "MuiStack",
@@ -37029,22 +37673,22 @@ var Stack2 = createStack({
   })
 });
 Stack2.propTypes = {
-  children: import_prop_types35.default.node,
-  component: import_prop_types35.default.elementType,
-  direction: import_prop_types35.default.oneOfType([import_prop_types35.default.oneOf(["column-reverse", "column", "row-reverse", "row"]), import_prop_types35.default.arrayOf(import_prop_types35.default.oneOf(["column-reverse", "column", "row-reverse", "row"])), import_prop_types35.default.object]),
-  divider: import_prop_types35.default.node,
-  spacing: import_prop_types35.default.oneOfType([import_prop_types35.default.arrayOf(import_prop_types35.default.oneOfType([import_prop_types35.default.number, import_prop_types35.default.string])), import_prop_types35.default.number, import_prop_types35.default.object, import_prop_types35.default.string]),
-  sx: import_prop_types35.default.oneOfType([import_prop_types35.default.arrayOf(import_prop_types35.default.oneOfType([import_prop_types35.default.func, import_prop_types35.default.object, import_prop_types35.default.bool])), import_prop_types35.default.func, import_prop_types35.default.object]),
-  useFlexGap: import_prop_types35.default.bool
+  children: import_prop_types41.default.node,
+  component: import_prop_types41.default.elementType,
+  direction: import_prop_types41.default.oneOfType([import_prop_types41.default.oneOf(["column-reverse", "column", "row-reverse", "row"]), import_prop_types41.default.arrayOf(import_prop_types41.default.oneOf(["column-reverse", "column", "row-reverse", "row"])), import_prop_types41.default.object]),
+  divider: import_prop_types41.default.node,
+  spacing: import_prop_types41.default.oneOfType([import_prop_types41.default.arrayOf(import_prop_types41.default.oneOfType([import_prop_types41.default.number, import_prop_types41.default.string])), import_prop_types41.default.number, import_prop_types41.default.object, import_prop_types41.default.string]),
+  sx: import_prop_types41.default.oneOfType([import_prop_types41.default.arrayOf(import_prop_types41.default.oneOfType([import_prop_types41.default.func, import_prop_types41.default.object, import_prop_types41.default.bool])), import_prop_types41.default.func, import_prop_types41.default.object]),
+  useFlexGap: import_prop_types41.default.bool
 };
 var Stack_default = Stack2;
 // node_modules/@mui/material/Grid/Grid.js
-var React54 = __toESM(require_react(), 1);
-var import_prop_types36 = __toESM(require_prop_types(), 1);
+var React61 = __toESM(require_react(), 1);
+var import_prop_types42 = __toESM(require_prop_types(), 1);
 
 // node_modules/@mui/material/Grid/GridContext.js
-var React53 = __toESM(require_react(), 1);
-var GridContext = React53.createContext();
+var React60 = __toESM(require_react(), 1);
+var GridContext = React60.createContext();
 if (true) {
   GridContext.displayName = "GridContext";
 }
@@ -37075,7 +37719,7 @@ var gridClasses = generateUtilityClasses("MuiGrid", [
 var gridClasses_default = gridClasses;
 
 // node_modules/@mui/material/Grid/Grid.js
-var jsx_runtime37 = __toESM(require_jsx_runtime(), 1);
+var jsx_runtime45 = __toESM(require_jsx_runtime(), 1);
 var getOffset = function(val) {
   const parse2 = parseFloat(val);
   return `${parse2}${String(val).replace(String(parse2), "") || "px"}`;
@@ -37311,7 +37955,7 @@ function resolveSpacingClasses(spacing8, breakpoints8) {
   });
   return classes;
 }
-var _excluded34 = ["className", "columns", "columnSpacing", "component", "container", "direction", "item", "rowSpacing", "spacing", "wrap", "zeroMinWidth"];
+var _excluded40 = ["className", "columns", "columnSpacing", "component", "container", "direction", "item", "rowSpacing", "spacing", "wrap", "zeroMinWidth"];
 var GridRoot = styled_default2("div", {
   name: "MuiGrid",
   slot: "Root",
@@ -37356,7 +38000,7 @@ var GridRoot = styled_default2("div", {
 }, ownerState.wrap !== "wrap" && {
   flexWrap: ownerState.wrap
 }), generateDirection, generateRowGap, generateColumnGap, generateGrid);
-var useUtilityClasses14 = (ownerState) => {
+var useUtilityClasses20 = (ownerState) => {
   const {
     classes,
     container,
@@ -37383,7 +38027,7 @@ var useUtilityClasses14 = (ownerState) => {
   };
   return composeClasses(slots, getGridUtilityClass, classes);
 };
-var Grid = React54.forwardRef(function Grid2(inProps, ref) {
+var Grid = React61.forwardRef(function Grid2(inProps, ref) {
   const themeProps = useThemeProps3({
     props: inProps,
     name: "MuiGrid"
@@ -37404,10 +38048,10 @@ var Grid = React54.forwardRef(function Grid2(inProps, ref) {
     spacing: spacing8 = 0,
     wrap = "wrap",
     zeroMinWidth = false
-  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded34);
+  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded40);
   const rowSpacing = rowSpacingProp || spacing8;
   const columnSpacing = columnSpacingProp || spacing8;
-  const columnsContext = React54.useContext(GridContext_default);
+  const columnsContext = React61.useContext(GridContext_default);
   const columns = container ? columnsProp || 12 : columnsContext;
   const breakpointsValues = {};
   const otherFiltered = _extends4({}, other);
@@ -37430,10 +38074,10 @@ var Grid = React54.forwardRef(function Grid2(inProps, ref) {
   }, breakpointsValues, {
     breakpoints: breakpoints8.keys
   });
-  const classes = useUtilityClasses14(ownerState);
-  return jsx_runtime37.jsx(GridContext_default.Provider, {
+  const classes = useUtilityClasses20(ownerState);
+  return jsx_runtime45.jsx(GridContext_default.Provider, {
     value: columns,
-    children: jsx_runtime37.jsx(GridRoot, _extends4({
+    children: jsx_runtime45.jsx(GridRoot, _extends4({
       ownerState,
       className: clsx_default2(classes.root, className2),
       as: component,
@@ -37442,25 +38086,25 @@ var Grid = React54.forwardRef(function Grid2(inProps, ref) {
   });
 });
 Grid.propTypes = {
-  children: import_prop_types36.default.node,
-  classes: import_prop_types36.default.object,
-  className: import_prop_types36.default.string,
-  columns: import_prop_types36.default.oneOfType([import_prop_types36.default.arrayOf(import_prop_types36.default.number), import_prop_types36.default.number, import_prop_types36.default.object]),
-  columnSpacing: import_prop_types36.default.oneOfType([import_prop_types36.default.arrayOf(import_prop_types36.default.oneOfType([import_prop_types36.default.number, import_prop_types36.default.string])), import_prop_types36.default.number, import_prop_types36.default.object, import_prop_types36.default.string]),
-  component: import_prop_types36.default.elementType,
-  container: import_prop_types36.default.bool,
-  direction: import_prop_types36.default.oneOfType([import_prop_types36.default.oneOf(["column-reverse", "column", "row-reverse", "row"]), import_prop_types36.default.arrayOf(import_prop_types36.default.oneOf(["column-reverse", "column", "row-reverse", "row"])), import_prop_types36.default.object]),
-  item: import_prop_types36.default.bool,
-  lg: import_prop_types36.default.oneOfType([import_prop_types36.default.oneOf(["auto"]), import_prop_types36.default.number, import_prop_types36.default.bool]),
-  md: import_prop_types36.default.oneOfType([import_prop_types36.default.oneOf(["auto"]), import_prop_types36.default.number, import_prop_types36.default.bool]),
-  rowSpacing: import_prop_types36.default.oneOfType([import_prop_types36.default.arrayOf(import_prop_types36.default.oneOfType([import_prop_types36.default.number, import_prop_types36.default.string])), import_prop_types36.default.number, import_prop_types36.default.object, import_prop_types36.default.string]),
-  sm: import_prop_types36.default.oneOfType([import_prop_types36.default.oneOf(["auto"]), import_prop_types36.default.number, import_prop_types36.default.bool]),
-  spacing: import_prop_types36.default.oneOfType([import_prop_types36.default.arrayOf(import_prop_types36.default.oneOfType([import_prop_types36.default.number, import_prop_types36.default.string])), import_prop_types36.default.number, import_prop_types36.default.object, import_prop_types36.default.string]),
-  sx: import_prop_types36.default.oneOfType([import_prop_types36.default.arrayOf(import_prop_types36.default.oneOfType([import_prop_types36.default.func, import_prop_types36.default.object, import_prop_types36.default.bool])), import_prop_types36.default.func, import_prop_types36.default.object]),
-  wrap: import_prop_types36.default.oneOf(["nowrap", "wrap-reverse", "wrap"]),
-  xl: import_prop_types36.default.oneOfType([import_prop_types36.default.oneOf(["auto"]), import_prop_types36.default.number, import_prop_types36.default.bool]),
-  xs: import_prop_types36.default.oneOfType([import_prop_types36.default.oneOf(["auto"]), import_prop_types36.default.number, import_prop_types36.default.bool]),
-  zeroMinWidth: import_prop_types36.default.bool
+  children: import_prop_types42.default.node,
+  classes: import_prop_types42.default.object,
+  className: import_prop_types42.default.string,
+  columns: import_prop_types42.default.oneOfType([import_prop_types42.default.arrayOf(import_prop_types42.default.number), import_prop_types42.default.number, import_prop_types42.default.object]),
+  columnSpacing: import_prop_types42.default.oneOfType([import_prop_types42.default.arrayOf(import_prop_types42.default.oneOfType([import_prop_types42.default.number, import_prop_types42.default.string])), import_prop_types42.default.number, import_prop_types42.default.object, import_prop_types42.default.string]),
+  component: import_prop_types42.default.elementType,
+  container: import_prop_types42.default.bool,
+  direction: import_prop_types42.default.oneOfType([import_prop_types42.default.oneOf(["column-reverse", "column", "row-reverse", "row"]), import_prop_types42.default.arrayOf(import_prop_types42.default.oneOf(["column-reverse", "column", "row-reverse", "row"])), import_prop_types42.default.object]),
+  item: import_prop_types42.default.bool,
+  lg: import_prop_types42.default.oneOfType([import_prop_types42.default.oneOf(["auto"]), import_prop_types42.default.number, import_prop_types42.default.bool]),
+  md: import_prop_types42.default.oneOfType([import_prop_types42.default.oneOf(["auto"]), import_prop_types42.default.number, import_prop_types42.default.bool]),
+  rowSpacing: import_prop_types42.default.oneOfType([import_prop_types42.default.arrayOf(import_prop_types42.default.oneOfType([import_prop_types42.default.number, import_prop_types42.default.string])), import_prop_types42.default.number, import_prop_types42.default.object, import_prop_types42.default.string]),
+  sm: import_prop_types42.default.oneOfType([import_prop_types42.default.oneOf(["auto"]), import_prop_types42.default.number, import_prop_types42.default.bool]),
+  spacing: import_prop_types42.default.oneOfType([import_prop_types42.default.arrayOf(import_prop_types42.default.oneOfType([import_prop_types42.default.number, import_prop_types42.default.string])), import_prop_types42.default.number, import_prop_types42.default.object, import_prop_types42.default.string]),
+  sx: import_prop_types42.default.oneOfType([import_prop_types42.default.arrayOf(import_prop_types42.default.oneOfType([import_prop_types42.default.func, import_prop_types42.default.object, import_prop_types42.default.bool])), import_prop_types42.default.func, import_prop_types42.default.object]),
+  wrap: import_prop_types42.default.oneOf(["nowrap", "wrap-reverse", "wrap"]),
+  xl: import_prop_types42.default.oneOfType([import_prop_types42.default.oneOf(["auto"]), import_prop_types42.default.number, import_prop_types42.default.bool]),
+  xs: import_prop_types42.default.oneOfType([import_prop_types42.default.oneOf(["auto"]), import_prop_types42.default.number, import_prop_types42.default.bool]),
+  zeroMinWidth: import_prop_types42.default.bool
 };
 if (true) {
   const requireProp = requirePropFactory_default("Grid", Grid);
@@ -37477,13 +38121,13 @@ if (true) {
 }
 var Grid_default = Grid;
 // node_modules/@mui/material/Grow/Grow.js
-var React55 = __toESM(require_react(), 1);
-var import_prop_types37 = __toESM(require_prop_types(), 1);
-var jsx_runtime38 = __toESM(require_jsx_runtime(), 1);
+var React62 = __toESM(require_react(), 1);
+var import_prop_types43 = __toESM(require_prop_types(), 1);
+var jsx_runtime46 = __toESM(require_jsx_runtime(), 1);
 var getScale = function(value) {
   return `scale(${value}, ${value ** 2})`;
 };
-var _excluded35 = ["addEndListener", "appear", "children", "easing", "in", "onEnter", "onEntered", "onEntering", "onExit", "onExited", "onExiting", "style", "timeout", "TransitionComponent"];
+var _excluded41 = ["addEndListener", "appear", "children", "easing", "in", "onEnter", "onEntered", "onEntering", "onExit", "onExited", "onExiting", "style", "timeout", "TransitionComponent"];
 var styles4 = {
   entering: {
     opacity: 1,
@@ -37495,7 +38139,7 @@ var styles4 = {
   }
 };
 var isWebKit154 = typeof navigator !== "undefined" && /^((?!chrome|android).)*(safari|mobile)/i.test(navigator.userAgent) && /(os |version\/)15(.|_)4/i.test(navigator.userAgent);
-var Grow = React55.forwardRef(function Grow2(props, ref) {
+var Grow = React62.forwardRef(function Grow2(props, ref) {
   const {
     addEndListener,
     appear = true,
@@ -37511,11 +38155,11 @@ var Grow = React55.forwardRef(function Grow2(props, ref) {
     style: style10,
     timeout: timeout2 = "auto",
     TransitionComponent = Transition_default
-  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded35);
-  const timer = React55.useRef();
-  const autoTimeout = React55.useRef();
+  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded41);
+  const timer = React62.useRef();
+  const autoTimeout = React62.useRef();
   const theme = useTheme9();
-  const nodeRef = React55.useRef(null);
+  const nodeRef = React62.useRef(null);
   const handleRef = useForkRef_default(nodeRef, children.ref, ref);
   const normalizedTransitionCallback = (callback) => (maybeIsAppearing) => {
     if (callback) {
@@ -37604,12 +38248,12 @@ var Grow = React55.forwardRef(function Grow2(props, ref) {
       addEndListener(nodeRef.current, next2);
     }
   };
-  React55.useEffect(() => {
+  React62.useEffect(() => {
     return () => {
       clearTimeout(timer.current);
     };
   }, []);
-  return jsx_runtime38.jsx(TransitionComponent, _extends4({
+  return jsx_runtime46.jsx(TransitionComponent, _extends4({
     appear,
     in: inProp,
     nodeRef,
@@ -37623,7 +38267,7 @@ var Grow = React55.forwardRef(function Grow2(props, ref) {
     timeout: timeout2 === "auto" ? null : timeout2
   }, other, {
     children: (state, childProps) => {
-      return React55.cloneElement(children, _extends4({
+      return React62.cloneElement(children, _extends4({
         style: _extends4({
           opacity: 0,
           transform: getScale(0.75),
@@ -37635,32 +38279,32 @@ var Grow = React55.forwardRef(function Grow2(props, ref) {
   }));
 });
 Grow.propTypes = {
-  addEndListener: import_prop_types37.default.func,
-  appear: import_prop_types37.default.bool,
+  addEndListener: import_prop_types43.default.func,
+  appear: import_prop_types43.default.bool,
   children: elementAcceptingRef_default.isRequired,
-  easing: import_prop_types37.default.oneOfType([import_prop_types37.default.shape({
-    enter: import_prop_types37.default.string,
-    exit: import_prop_types37.default.string
-  }), import_prop_types37.default.string]),
-  in: import_prop_types37.default.bool,
-  onEnter: import_prop_types37.default.func,
-  onEntered: import_prop_types37.default.func,
-  onEntering: import_prop_types37.default.func,
-  onExit: import_prop_types37.default.func,
-  onExited: import_prop_types37.default.func,
-  onExiting: import_prop_types37.default.func,
-  style: import_prop_types37.default.object,
-  timeout: import_prop_types37.default.oneOfType([import_prop_types37.default.oneOf(["auto"]), import_prop_types37.default.number, import_prop_types37.default.shape({
-    appear: import_prop_types37.default.number,
-    enter: import_prop_types37.default.number,
-    exit: import_prop_types37.default.number
+  easing: import_prop_types43.default.oneOfType([import_prop_types43.default.shape({
+    enter: import_prop_types43.default.string,
+    exit: import_prop_types43.default.string
+  }), import_prop_types43.default.string]),
+  in: import_prop_types43.default.bool,
+  onEnter: import_prop_types43.default.func,
+  onEntered: import_prop_types43.default.func,
+  onEntering: import_prop_types43.default.func,
+  onExit: import_prop_types43.default.func,
+  onExited: import_prop_types43.default.func,
+  onExiting: import_prop_types43.default.func,
+  style: import_prop_types43.default.object,
+  timeout: import_prop_types43.default.oneOfType([import_prop_types43.default.oneOf(["auto"]), import_prop_types43.default.number, import_prop_types43.default.shape({
+    appear: import_prop_types43.default.number,
+    enter: import_prop_types43.default.number,
+    exit: import_prop_types43.default.number
   })])
 };
 Grow.muiSupportAuto = true;
 var Grow_default = Grow;
 // node_modules/@mui/material/ImageList/ImageList.js
-var import_prop_types38 = __toESM(require_prop_types(), 1);
-var React57 = __toESM(require_react(), 1);
+var import_prop_types44 = __toESM(require_prop_types(), 1);
+var React64 = __toESM(require_react(), 1);
 
 // node_modules/@mui/material/ImageList/imageListClasses.js
 function getImageListUtilityClass(slot) {
@@ -37669,17 +38313,17 @@ function getImageListUtilityClass(slot) {
 var imageListClasses = generateUtilityClasses("MuiImageList", ["root", "masonry", "quilted", "standard", "woven"]);
 
 // node_modules/@mui/material/ImageList/ImageListContext.js
-var React56 = __toESM(require_react(), 1);
-var ImageListContext = React56.createContext({});
+var React63 = __toESM(require_react(), 1);
+var ImageListContext = React63.createContext({});
 if (true) {
   ImageListContext.displayName = "ImageListContext";
 }
 var ImageListContext_default = ImageListContext;
 
 // node_modules/@mui/material/ImageList/ImageList.js
-var jsx_runtime39 = __toESM(require_jsx_runtime(), 1);
-var _excluded36 = ["children", "className", "cols", "component", "rowHeight", "gap", "style", "variant"];
-var useUtilityClasses15 = (ownerState) => {
+var jsx_runtime47 = __toESM(require_jsx_runtime(), 1);
+var _excluded42 = ["children", "className", "cols", "component", "rowHeight", "gap", "style", "variant"];
+var useUtilityClasses21 = (ownerState) => {
   const {
     classes,
     variant
@@ -37711,7 +38355,7 @@ var ImageListRoot = styled_default2("ul", {
     display: "block"
   });
 });
-var ImageList = React57.forwardRef(function ImageList2(inProps, ref) {
+var ImageList = React64.forwardRef(function ImageList2(inProps, ref) {
   const props = useThemeProps3({
     props: inProps,
     name: "MuiImageList"
@@ -37725,13 +38369,13 @@ var ImageList = React57.forwardRef(function ImageList2(inProps, ref) {
     gap: gap2 = 4,
     style: styleProp,
     variant = "standard"
-  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded36);
-  const contextValue = React57.useMemo(() => ({
+  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded42);
+  const contextValue = React64.useMemo(() => ({
     rowHeight,
     gap: gap2,
     variant
   }), [rowHeight, gap2, variant]);
-  React57.useEffect(() => {
+  React64.useEffect(() => {
     if (true) {
       if (document !== undefined && ("objectFit" in document.documentElement.style) === false) {
         console.error(["MUI: ImageList v5+ no longer natively supports Internet Explorer.", "Use v4 of this component instead, or polyfill CSS object-fit."].join("\n"));
@@ -37751,36 +38395,36 @@ var ImageList = React57.forwardRef(function ImageList2(inProps, ref) {
     rowHeight,
     variant
   });
-  const classes = useUtilityClasses15(ownerState);
-  return jsx_runtime39.jsx(ImageListRoot, _extends4({
+  const classes = useUtilityClasses21(ownerState);
+  return jsx_runtime47.jsx(ImageListRoot, _extends4({
     as: component,
     className: clsx_default2(classes.root, classes[variant], className2),
     ref,
     style: style10,
     ownerState
   }, other, {
-    children: jsx_runtime39.jsx(ImageListContext_default.Provider, {
+    children: jsx_runtime47.jsx(ImageListContext_default.Provider, {
       value: contextValue,
       children
     })
   }));
 });
 ImageList.propTypes = {
-  children: import_prop_types38.default.node.isRequired,
-  classes: import_prop_types38.default.object,
-  className: import_prop_types38.default.string,
+  children: import_prop_types44.default.node.isRequired,
+  classes: import_prop_types44.default.object,
+  className: import_prop_types44.default.string,
   cols: integerPropType_default,
-  component: import_prop_types38.default.elementType,
-  gap: import_prop_types38.default.number,
-  rowHeight: import_prop_types38.default.oneOfType([import_prop_types38.default.oneOf(["auto"]), import_prop_types38.default.number]),
-  style: import_prop_types38.default.object,
-  sx: import_prop_types38.default.oneOfType([import_prop_types38.default.arrayOf(import_prop_types38.default.oneOfType([import_prop_types38.default.func, import_prop_types38.default.object, import_prop_types38.default.bool])), import_prop_types38.default.func, import_prop_types38.default.object]),
-  variant: import_prop_types38.default.oneOfType([import_prop_types38.default.oneOf(["masonry", "quilted", "standard", "woven"]), import_prop_types38.default.string])
+  component: import_prop_types44.default.elementType,
+  gap: import_prop_types44.default.number,
+  rowHeight: import_prop_types44.default.oneOfType([import_prop_types44.default.oneOf(["auto"]), import_prop_types44.default.number]),
+  style: import_prop_types44.default.object,
+  sx: import_prop_types44.default.oneOfType([import_prop_types44.default.arrayOf(import_prop_types44.default.oneOfType([import_prop_types44.default.func, import_prop_types44.default.object, import_prop_types44.default.bool])), import_prop_types44.default.func, import_prop_types44.default.object]),
+  variant: import_prop_types44.default.oneOfType([import_prop_types44.default.oneOf(["masonry", "quilted", "standard", "woven"]), import_prop_types44.default.string])
 };
 var ImageList_default = ImageList;
 // node_modules/@mui/material/ImageListItem/ImageListItem.js
-var import_prop_types39 = __toESM(require_prop_types(), 1);
-var React58 = __toESM(require_react(), 1);
+var import_prop_types45 = __toESM(require_prop_types(), 1);
+var React65 = __toESM(require_react(), 1);
 var import_react_is3 = __toESM(require_react_is4(), 1);
 
 // node_modules/@mui/material/ImageListItem/imageListItemClasses.js
@@ -37791,9 +38435,9 @@ var imageListItemClasses = generateUtilityClasses("MuiImageListItem", ["root", "
 var imageListItemClasses_default = imageListItemClasses;
 
 // node_modules/@mui/material/ImageListItem/ImageListItem.js
-var jsx_runtime40 = __toESM(require_jsx_runtime(), 1);
-var _excluded37 = ["children", "className", "cols", "component", "rows", "style"];
-var useUtilityClasses16 = (ownerState) => {
+var jsx_runtime48 = __toESM(require_jsx_runtime(), 1);
+var _excluded43 = ["children", "className", "cols", "component", "rows", "style"];
+var useUtilityClasses22 = (ownerState) => {
   const {
     classes,
     variant
@@ -37840,7 +38484,7 @@ var ImageListItemRoot = styled_default2("li", {
     flexGrow: 1
   })
 }));
-var ImageListItem = React58.forwardRef(function ImageListItem2(inProps, ref) {
+var ImageListItem = React65.forwardRef(function ImageListItem2(inProps, ref) {
   const props = useThemeProps3({
     props: inProps,
     name: "MuiImageListItem"
@@ -37852,12 +38496,12 @@ var ImageListItem = React58.forwardRef(function ImageListItem2(inProps, ref) {
     component = "li",
     rows = 1,
     style: style10
-  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded37);
+  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded43);
   const {
     rowHeight = "auto",
     gap: gap2,
     variant
-  } = React58.useContext(ImageListContext_default);
+  } = React65.useContext(ImageListContext_default);
   let height2 = "auto";
   if (variant === "woven") {
     height2 = undefined;
@@ -37872,8 +38516,8 @@ var ImageListItem = React58.forwardRef(function ImageListItem2(inProps, ref) {
     rows,
     variant
   });
-  const classes = useUtilityClasses16(ownerState);
-  return jsx_runtime40.jsx(ImageListItemRoot, _extends4({
+  const classes = useUtilityClasses22(ownerState);
+  return jsx_runtime48.jsx(ImageListItemRoot, _extends4({
     as: component,
     className: clsx_default2(classes.root, classes[variant], className2),
     ref,
@@ -37886,8 +38530,8 @@ var ImageListItem = React58.forwardRef(function ImageListItem2(inProps, ref) {
     }, style10),
     ownerState
   }, other, {
-    children: React58.Children.map(children, (child) => {
-      if (!React58.isValidElement(child)) {
+    children: React65.Children.map(children, (child) => {
+      if (!React65.isValidElement(child)) {
         return null;
       }
       if (true) {
@@ -37896,7 +38540,7 @@ var ImageListItem = React58.forwardRef(function ImageListItem2(inProps, ref) {
         }
       }
       if (child.type === "img" || isMuiElement_default(child, ["Image"])) {
-        return React58.cloneElement(child, {
+        return React65.cloneElement(child, {
           className: clsx_default2(classes.img, child.props.className)
         });
       }
@@ -37905,19 +38549,19 @@ var ImageListItem = React58.forwardRef(function ImageListItem2(inProps, ref) {
   }));
 });
 ImageListItem.propTypes = {
-  children: import_prop_types39.default.node,
-  classes: import_prop_types39.default.object,
-  className: import_prop_types39.default.string,
+  children: import_prop_types45.default.node,
+  classes: import_prop_types45.default.object,
+  className: import_prop_types45.default.string,
   cols: integerPropType_default,
-  component: import_prop_types39.default.elementType,
+  component: import_prop_types45.default.elementType,
   rows: integerPropType_default,
-  style: import_prop_types39.default.object,
-  sx: import_prop_types39.default.oneOfType([import_prop_types39.default.arrayOf(import_prop_types39.default.oneOfType([import_prop_types39.default.func, import_prop_types39.default.object, import_prop_types39.default.bool])), import_prop_types39.default.func, import_prop_types39.default.object])
+  style: import_prop_types45.default.object,
+  sx: import_prop_types45.default.oneOfType([import_prop_types45.default.arrayOf(import_prop_types45.default.oneOfType([import_prop_types45.default.func, import_prop_types45.default.object, import_prop_types45.default.bool])), import_prop_types45.default.func, import_prop_types45.default.object])
 };
 var ImageListItem_default = ImageListItem;
 // node_modules/@mui/material/ImageListItemBar/ImageListItemBar.js
-var import_prop_types40 = __toESM(require_prop_types(), 1);
-var React59 = __toESM(require_react(), 1);
+var import_prop_types46 = __toESM(require_prop_types(), 1);
+var React66 = __toESM(require_react(), 1);
 
 // node_modules/@mui/material/ImageListItemBar/imageListItemBarClasses.js
 function getImageListItemBarUtilityClass(slot) {
@@ -37926,10 +38570,10 @@ function getImageListItemBarUtilityClass(slot) {
 var imageListItemBarClasses = generateUtilityClasses("MuiImageListItemBar", ["root", "positionBottom", "positionTop", "positionBelow", "titleWrap", "titleWrapBottom", "titleWrapTop", "titleWrapBelow", "titleWrapActionPosLeft", "titleWrapActionPosRight", "title", "subtitle", "actionIcon", "actionIconActionPosLeft", "actionIconActionPosRight"]);
 
 // node_modules/@mui/material/ImageListItemBar/ImageListItemBar.js
-var jsx_runtime41 = __toESM(require_jsx_runtime(), 1);
-var jsx_runtime42 = __toESM(require_jsx_runtime(), 1);
-var _excluded38 = ["actionIcon", "actionPosition", "className", "subtitle", "title", "position"];
-var useUtilityClasses17 = (ownerState) => {
+var jsx_runtime49 = __toESM(require_jsx_runtime(), 1);
+var jsx_runtime50 = __toESM(require_jsx_runtime(), 1);
+var _excluded44 = ["actionIcon", "actionPosition", "className", "subtitle", "title", "position"];
+var useUtilityClasses23 = (ownerState) => {
   const {
     classes,
     position: position2,
@@ -38049,7 +38693,7 @@ var ImageListItemBarActionIcon = styled_default2("div", {
     order: -1
   });
 });
-var ImageListItemBar = React59.forwardRef(function ImageListItemBar2(inProps, ref) {
+var ImageListItemBar = React66.forwardRef(function ImageListItemBar2(inProps, ref) {
   const props = useThemeProps3({
     props: inProps,
     name: "MuiImageListItemBar"
@@ -38061,28 +38705,28 @@ var ImageListItemBar = React59.forwardRef(function ImageListItemBar2(inProps, re
     subtitle,
     title,
     position: position2 = "bottom"
-  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded38);
+  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded44);
   const ownerState = _extends4({}, props, {
     position: position2,
     actionPosition
   });
-  const classes = useUtilityClasses17(ownerState);
-  return jsx_runtime42.jsxs(ImageListItemBarRoot, _extends4({
+  const classes = useUtilityClasses23(ownerState);
+  return jsx_runtime50.jsxs(ImageListItemBarRoot, _extends4({
     ownerState,
     className: clsx_default2(classes.root, className2),
     ref
   }, other, {
-    children: [jsx_runtime42.jsxs(ImageListItemBarTitleWrap, {
+    children: [jsx_runtime50.jsxs(ImageListItemBarTitleWrap, {
       ownerState,
       className: classes.titleWrap,
-      children: [jsx_runtime41.jsx(ImageListItemBarTitle, {
+      children: [jsx_runtime49.jsx(ImageListItemBarTitle, {
         className: classes.title,
         children: title
-      }), subtitle ? jsx_runtime41.jsx(ImageListItemBarSubtitle, {
+      }), subtitle ? jsx_runtime49.jsx(ImageListItemBarSubtitle, {
         className: classes.subtitle,
         children: subtitle
       }) : null]
-    }), actionIcon ? jsx_runtime41.jsx(ImageListItemBarActionIcon, {
+    }), actionIcon ? jsx_runtime49.jsx(ImageListItemBarActionIcon, {
       ownerState,
       className: classes.actionIcon,
       children: actionIcon
@@ -38090,24 +38734,24 @@ var ImageListItemBar = React59.forwardRef(function ImageListItemBar2(inProps, re
   }));
 });
 ImageListItemBar.propTypes = {
-  actionIcon: import_prop_types40.default.node,
-  actionPosition: import_prop_types40.default.oneOf(["left", "right"]),
-  children: import_prop_types40.default.node,
-  classes: import_prop_types40.default.object,
-  className: import_prop_types40.default.string,
-  position: import_prop_types40.default.oneOf(["below", "bottom", "top"]),
-  subtitle: import_prop_types40.default.node,
-  sx: import_prop_types40.default.oneOfType([import_prop_types40.default.arrayOf(import_prop_types40.default.oneOfType([import_prop_types40.default.func, import_prop_types40.default.object, import_prop_types40.default.bool])), import_prop_types40.default.func, import_prop_types40.default.object]),
-  title: import_prop_types40.default.node
+  actionIcon: import_prop_types46.default.node,
+  actionPosition: import_prop_types46.default.oneOf(["left", "right"]),
+  children: import_prop_types46.default.node,
+  classes: import_prop_types46.default.object,
+  className: import_prop_types46.default.string,
+  position: import_prop_types46.default.oneOf(["below", "bottom", "top"]),
+  subtitle: import_prop_types46.default.node,
+  sx: import_prop_types46.default.oneOfType([import_prop_types46.default.arrayOf(import_prop_types46.default.oneOfType([import_prop_types46.default.func, import_prop_types46.default.object, import_prop_types46.default.bool])), import_prop_types46.default.func, import_prop_types46.default.object]),
+  title: import_prop_types46.default.node
 };
 var ImageListItemBar_default = ImageListItemBar;
 // node_modules/@mui/material/List/List.js
-var React61 = __toESM(require_react(), 1);
-var import_prop_types41 = __toESM(require_prop_types(), 1);
+var React68 = __toESM(require_react(), 1);
+var import_prop_types47 = __toESM(require_prop_types(), 1);
 
 // node_modules/@mui/material/List/ListContext.js
-var React60 = __toESM(require_react(), 1);
-var ListContext = React60.createContext({});
+var React67 = __toESM(require_react(), 1);
+var ListContext = React67.createContext({});
 if (true) {
   ListContext.displayName = "ListContext";
 }
@@ -38120,10 +38764,10 @@ function getListUtilityClass(slot) {
 var listClasses = generateUtilityClasses("MuiList", ["root", "padding", "dense", "subheader"]);
 
 // node_modules/@mui/material/List/List.js
-var jsx_runtime43 = __toESM(require_jsx_runtime(), 1);
-var jsx_runtime44 = __toESM(require_jsx_runtime(), 1);
-var _excluded39 = ["children", "className", "component", "dense", "disablePadding", "subheader"];
-var useUtilityClasses18 = (ownerState) => {
+var jsx_runtime51 = __toESM(require_jsx_runtime(), 1);
+var jsx_runtime52 = __toESM(require_jsx_runtime(), 1);
+var _excluded45 = ["children", "className", "component", "dense", "disablePadding", "subheader"];
+var useUtilityClasses24 = (ownerState) => {
   const {
     classes,
     disablePadding,
@@ -38157,7 +38801,7 @@ var ListRoot = styled_default2("ul", {
 }, ownerState.subheader && {
   paddingTop: 0
 }));
-var List = React61.forwardRef(function List2(inProps, ref) {
+var List = React68.forwardRef(function List2(inProps, ref) {
   const props = useThemeProps3({
     props: inProps,
     name: "MuiList"
@@ -38169,8 +38813,8 @@ var List = React61.forwardRef(function List2(inProps, ref) {
     dense = false,
     disablePadding = false,
     subheader
-  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded39);
-  const context = React61.useMemo(() => ({
+  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded45);
+  const context = React68.useMemo(() => ({
     dense
   }), [dense]);
   const ownerState = _extends4({}, props, {
@@ -38178,10 +38822,10 @@ var List = React61.forwardRef(function List2(inProps, ref) {
     dense,
     disablePadding
   });
-  const classes = useUtilityClasses18(ownerState);
-  return jsx_runtime44.jsx(ListContext_default.Provider, {
+  const classes = useUtilityClasses24(ownerState);
+  return jsx_runtime52.jsx(ListContext_default.Provider, {
     value: context,
-    children: jsx_runtime43.jsxs(ListRoot, _extends4({
+    children: jsx_runtime51.jsxs(ListRoot, _extends4({
       as: component,
       className: clsx_default2(classes.root, className2),
       ref,
@@ -38192,19 +38836,19 @@ var List = React61.forwardRef(function List2(inProps, ref) {
   });
 });
 List.propTypes = {
-  children: import_prop_types41.default.node,
-  classes: import_prop_types41.default.object,
-  className: import_prop_types41.default.string,
-  component: import_prop_types41.default.elementType,
-  dense: import_prop_types41.default.bool,
-  disablePadding: import_prop_types41.default.bool,
-  subheader: import_prop_types41.default.node,
-  sx: import_prop_types41.default.oneOfType([import_prop_types41.default.arrayOf(import_prop_types41.default.oneOfType([import_prop_types41.default.func, import_prop_types41.default.object, import_prop_types41.default.bool])), import_prop_types41.default.func, import_prop_types41.default.object])
+  children: import_prop_types47.default.node,
+  classes: import_prop_types47.default.object,
+  className: import_prop_types47.default.string,
+  component: import_prop_types47.default.elementType,
+  dense: import_prop_types47.default.bool,
+  disablePadding: import_prop_types47.default.bool,
+  subheader: import_prop_types47.default.node,
+  sx: import_prop_types47.default.oneOfType([import_prop_types47.default.arrayOf(import_prop_types47.default.oneOfType([import_prop_types47.default.func, import_prop_types47.default.object, import_prop_types47.default.bool])), import_prop_types47.default.func, import_prop_types47.default.object])
 };
 var List_default = List;
 // node_modules/@mui/material/ListItemButton/ListItemButton.js
-var React62 = __toESM(require_react(), 1);
-var import_prop_types42 = __toESM(require_prop_types(), 1);
+var React69 = __toESM(require_react(), 1);
+var import_prop_types48 = __toESM(require_prop_types(), 1);
 
 // node_modules/@mui/material/ListItemButton/listItemButtonClasses.js
 function getListItemButtonUtilityClass(slot) {
@@ -38214,15 +38858,15 @@ var listItemButtonClasses = generateUtilityClasses("MuiListItemButton", ["root",
 var listItemButtonClasses_default = listItemButtonClasses;
 
 // node_modules/@mui/material/ListItemButton/ListItemButton.js
-var jsx_runtime45 = __toESM(require_jsx_runtime(), 1);
-var _excluded40 = ["alignItems", "autoFocus", "component", "children", "dense", "disableGutters", "divider", "focusVisibleClassName", "selected", "className"];
+var jsx_runtime53 = __toESM(require_jsx_runtime(), 1);
+var _excluded46 = ["alignItems", "autoFocus", "component", "children", "dense", "disableGutters", "divider", "focusVisibleClassName", "selected", "className"];
 var overridesResolver2 = (props, styles5) => {
   const {
     ownerState
   } = props;
   return [styles5.root, ownerState.dense && styles5.dense, ownerState.alignItems === "flex-start" && styles5.alignItemsFlexStart, ownerState.divider && styles5.divider, !ownerState.disableGutters && styles5.gutters];
 };
-var useUtilityClasses19 = (ownerState) => {
+var useUtilityClasses25 = (ownerState) => {
   const {
     alignItems,
     classes,
@@ -38298,7 +38942,7 @@ var ListItemButtonRoot = styled_default2(ButtonBase_default, {
   paddingTop: 4,
   paddingBottom: 4
 }));
-var ListItemButton = React62.forwardRef(function ListItemButton2(inProps, ref) {
+var ListItemButton = React69.forwardRef(function ListItemButton2(inProps, ref) {
   const props = useThemeProps3({
     props: inProps,
     name: "MuiListItemButton"
@@ -38314,14 +38958,14 @@ var ListItemButton = React62.forwardRef(function ListItemButton2(inProps, ref) {
     focusVisibleClassName,
     selected = false,
     className: className2
-  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded40);
-  const context = React62.useContext(ListContext_default);
-  const childContext = React62.useMemo(() => ({
+  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded46);
+  const context = React69.useContext(ListContext_default);
+  const childContext = React69.useMemo(() => ({
     dense: dense || context.dense || false,
     alignItems,
     disableGutters
   }), [alignItems, context.dense, dense, disableGutters]);
-  const listItemRef = React62.useRef(null);
+  const listItemRef = React69.useRef(null);
   useEnhancedEffect_default2(() => {
     if (autoFocus) {
       if (listItemRef.current) {
@@ -38338,11 +38982,11 @@ var ListItemButton = React62.forwardRef(function ListItemButton2(inProps, ref) {
     divider,
     selected
   });
-  const classes = useUtilityClasses19(ownerState);
+  const classes = useUtilityClasses25(ownerState);
   const handleRef = useForkRef_default(listItemRef, ref);
-  return jsx_runtime45.jsx(ListContext_default.Provider, {
+  return jsx_runtime53.jsx(ListContext_default.Provider, {
     value: childContext,
-    children: jsx_runtime45.jsx(ListItemButtonRoot, _extends4({
+    children: jsx_runtime53.jsx(ListItemButtonRoot, _extends4({
       ref: handleRef,
       href: other.href || other.to,
       component: (other.href || other.to) && component === "div" ? "button" : component,
@@ -38356,25 +39000,25 @@ var ListItemButton = React62.forwardRef(function ListItemButton2(inProps, ref) {
   });
 });
 ListItemButton.propTypes = {
-  alignItems: import_prop_types42.default.oneOf(["center", "flex-start"]),
-  autoFocus: import_prop_types42.default.bool,
-  children: import_prop_types42.default.node,
-  classes: import_prop_types42.default.object,
-  className: import_prop_types42.default.string,
-  component: import_prop_types42.default.elementType,
-  dense: import_prop_types42.default.bool,
-  disabled: import_prop_types42.default.bool,
-  disableGutters: import_prop_types42.default.bool,
-  divider: import_prop_types42.default.bool,
-  focusVisibleClassName: import_prop_types42.default.string,
-  href: import_prop_types42.default.string,
-  selected: import_prop_types42.default.bool,
-  sx: import_prop_types42.default.oneOfType([import_prop_types42.default.arrayOf(import_prop_types42.default.oneOfType([import_prop_types42.default.func, import_prop_types42.default.object, import_prop_types42.default.bool])), import_prop_types42.default.func, import_prop_types42.default.object])
+  alignItems: import_prop_types48.default.oneOf(["center", "flex-start"]),
+  autoFocus: import_prop_types48.default.bool,
+  children: import_prop_types48.default.node,
+  classes: import_prop_types48.default.object,
+  className: import_prop_types48.default.string,
+  component: import_prop_types48.default.elementType,
+  dense: import_prop_types48.default.bool,
+  disabled: import_prop_types48.default.bool,
+  disableGutters: import_prop_types48.default.bool,
+  divider: import_prop_types48.default.bool,
+  focusVisibleClassName: import_prop_types48.default.string,
+  href: import_prop_types48.default.string,
+  selected: import_prop_types48.default.bool,
+  sx: import_prop_types48.default.oneOfType([import_prop_types48.default.arrayOf(import_prop_types48.default.oneOfType([import_prop_types48.default.func, import_prop_types48.default.object, import_prop_types48.default.bool])), import_prop_types48.default.func, import_prop_types48.default.object])
 };
 var ListItemButton_default = ListItemButton;
 // node_modules/@mui/material/Popover/Popover.js
-var React63 = __toESM(require_react(), 1);
-var import_prop_types43 = __toESM(require_prop_types(), 1);
+var React70 = __toESM(require_react(), 1);
+var import_prop_types49 = __toESM(require_prop_types(), 1);
 
 // node_modules/@mui/material/Popover/popoverClasses.js
 function getPopoverUtilityClass(slot) {
@@ -38383,7 +39027,7 @@ function getPopoverUtilityClass(slot) {
 var popoverClasses = generateUtilityClasses("MuiPopover", ["root", "paper"]);
 
 // node_modules/@mui/material/Popover/Popover.js
-var jsx_runtime46 = __toESM(require_jsx_runtime(), 1);
+var jsx_runtime54 = __toESM(require_jsx_runtime(), 1);
 function getOffsetTop(rect, vertical) {
   let offset = 0;
   if (typeof vertical === "number") {
@@ -38412,10 +39056,10 @@ var getTransformOriginValue = function(transformOrigin) {
 var resolveAnchorEl = function(anchorEl) {
   return typeof anchorEl === "function" ? anchorEl() : anchorEl;
 };
-var _excluded41 = ["onEntering"];
+var _excluded47 = ["onEntering"];
 var _excluded210 = ["action", "anchorEl", "anchorOrigin", "anchorPosition", "anchorReference", "children", "className", "container", "elevation", "marginThreshold", "open", "PaperProps", "slots", "slotProps", "transformOrigin", "TransitionComponent", "transitionDuration", "TransitionProps", "disableScrollLock"];
 var _excluded310 = ["slotProps"];
-var useUtilityClasses20 = (ownerState) => {
+var useUtilityClasses26 = (ownerState) => {
   const {
     classes
   } = ownerState;
@@ -38444,7 +39088,7 @@ var PopoverPaper = styled_default2(Paper_default, {
   maxHeight: "calc(100% - 32px)",
   outline: 0
 });
-var Popover = React63.forwardRef(function Popover2(inProps, ref) {
+var Popover = React70.forwardRef(function Popover2(inProps, ref) {
   var _slotProps$paper, _slots$root, _slots$paper;
   const props = useThemeProps3({
     props: inProps,
@@ -38478,9 +39122,9 @@ var Popover = React63.forwardRef(function Popover2(inProps, ref) {
       onEntering
     } = {},
     disableScrollLock = false
-  } = props, TransitionProps = _objectWithoutPropertiesLoose2(props.TransitionProps, _excluded41), other = _objectWithoutPropertiesLoose2(props, _excluded210);
+  } = props, TransitionProps = _objectWithoutPropertiesLoose2(props.TransitionProps, _excluded47), other = _objectWithoutPropertiesLoose2(props, _excluded210);
   const externalPaperSlotProps = (_slotProps$paper = slotProps == null ? undefined : slotProps.paper) != null ? _slotProps$paper : PaperPropsProp;
-  const paperRef = React63.useRef();
+  const paperRef = React70.useRef();
   const handlePaperRef = useForkRef_default(paperRef, externalPaperSlotProps.ref);
   const ownerState = _extends4({}, props, {
     anchorOrigin,
@@ -38493,8 +39137,8 @@ var Popover = React63.forwardRef(function Popover2(inProps, ref) {
     transitionDuration: transitionDurationProp,
     TransitionProps
   });
-  const classes = useUtilityClasses20(ownerState);
-  const getAnchorOffset = React63.useCallback(() => {
+  const classes = useUtilityClasses26(ownerState);
+  const getAnchorOffset = React70.useCallback(() => {
     if (anchorReference === "anchorPosition") {
       if (true) {
         if (!anchorPosition) {
@@ -38517,13 +39161,13 @@ var Popover = React63.forwardRef(function Popover2(inProps, ref) {
       left: anchorRect.left + getOffsetLeft(anchorRect, anchorOrigin.horizontal)
     };
   }, [anchorEl, anchorOrigin.horizontal, anchorOrigin.vertical, anchorPosition, anchorReference]);
-  const getTransformOrigin = React63.useCallback((elemRect) => {
+  const getTransformOrigin = React70.useCallback((elemRect) => {
     return {
       vertical: getOffsetTop(elemRect, transformOrigin.vertical),
       horizontal: getOffsetLeft(elemRect, transformOrigin.horizontal)
     };
   }, [transformOrigin.horizontal, transformOrigin.vertical]);
-  const getPositioningStyle = React63.useCallback((element) => {
+  const getPositioningStyle = React70.useCallback((element) => {
     const elemRect = {
       width: element.offsetWidth,
       height: element.offsetHeight
@@ -38573,8 +39217,8 @@ var Popover = React63.forwardRef(function Popover2(inProps, ref) {
       transformOrigin: getTransformOriginValue(elemTransformOrigin)
     };
   }, [anchorEl, anchorReference, getAnchorOffset, getTransformOrigin, marginThreshold]);
-  const [isPositioned, setIsPositioned] = React63.useState(open);
-  const setPositioningStyles = React63.useCallback(() => {
+  const [isPositioned, setIsPositioned] = React70.useState(open);
+  const setPositioningStyles = React70.useCallback(() => {
     const element = paperRef.current;
     if (!element) {
       return;
@@ -38589,7 +39233,7 @@ var Popover = React63.forwardRef(function Popover2(inProps, ref) {
     element.style.transformOrigin = positioning.transformOrigin;
     setIsPositioned(true);
   }, [getPositioningStyle]);
-  React63.useEffect(() => {
+  React70.useEffect(() => {
     if (disableScrollLock) {
       window.addEventListener("scroll", setPositioningStyles);
     }
@@ -38604,17 +39248,17 @@ var Popover = React63.forwardRef(function Popover2(inProps, ref) {
   const handleExited = () => {
     setIsPositioned(false);
   };
-  React63.useEffect(() => {
+  React70.useEffect(() => {
     if (open) {
       setPositioningStyles();
     }
   });
-  React63.useImperativeHandle(action, () => open ? {
+  React70.useImperativeHandle(action, () => open ? {
     updatePosition: () => {
       setPositioningStyles();
     }
   } : null, [open, setPositioningStyles]);
-  React63.useEffect(() => {
+  React70.useEffect(() => {
     if (!open) {
       return;
     }
@@ -38668,18 +39312,18 @@ var Popover = React63.forwardRef(function Popover2(inProps, ref) {
   }), {
     slotProps: rootSlotPropsProp
   } = _useSlotProps, rootProps = _objectWithoutPropertiesLoose2(_useSlotProps, _excluded310);
-  return jsx_runtime46.jsx(RootSlot, _extends4({}, rootProps, !isHostComponent(RootSlot) && {
+  return jsx_runtime54.jsx(RootSlot, _extends4({}, rootProps, !isHostComponent(RootSlot) && {
     slotProps: rootSlotPropsProp,
     disableScrollLock
   }, {
-    children: jsx_runtime46.jsx(TransitionComponent, _extends4({
+    children: jsx_runtime54.jsx(TransitionComponent, _extends4({
       appear: true,
       in: open,
       onEntering: handleEntering,
       onExited: handleExited,
       timeout: transitionDuration
     }, TransitionProps, {
-      children: jsx_runtime46.jsx(PaperSlot, _extends4({}, paperProps, {
+      children: jsx_runtime54.jsx(PaperSlot, _extends4({}, paperProps, {
         children
       }))
     }))
@@ -38687,7 +39331,7 @@ var Popover = React63.forwardRef(function Popover2(inProps, ref) {
 });
 Popover.propTypes = {
   action: refType_default,
-  anchorEl: chainPropTypes(import_prop_types43.default.oneOfType([HTMLElementType, import_prop_types43.default.func]), (props) => {
+  anchorEl: chainPropTypes(import_prop_types49.default.oneOfType([HTMLElementType, import_prop_types49.default.func]), (props) => {
     if (props.open && (!props.anchorReference || props.anchorReference === "anchorEl")) {
       const resolvedAnchorEl = resolveAnchorEl(props.anchorEl);
       if (resolvedAnchorEl && resolvedAnchorEl.nodeType === 1) {
@@ -38701,52 +39345,52 @@ Popover.propTypes = {
     }
     return null;
   }),
-  anchorOrigin: import_prop_types43.default.shape({
-    horizontal: import_prop_types43.default.oneOfType([import_prop_types43.default.oneOf(["center", "left", "right"]), import_prop_types43.default.number]).isRequired,
-    vertical: import_prop_types43.default.oneOfType([import_prop_types43.default.oneOf(["bottom", "center", "top"]), import_prop_types43.default.number]).isRequired
+  anchorOrigin: import_prop_types49.default.shape({
+    horizontal: import_prop_types49.default.oneOfType([import_prop_types49.default.oneOf(["center", "left", "right"]), import_prop_types49.default.number]).isRequired,
+    vertical: import_prop_types49.default.oneOfType([import_prop_types49.default.oneOf(["bottom", "center", "top"]), import_prop_types49.default.number]).isRequired
   }),
-  anchorPosition: import_prop_types43.default.shape({
-    left: import_prop_types43.default.number.isRequired,
-    top: import_prop_types43.default.number.isRequired
+  anchorPosition: import_prop_types49.default.shape({
+    left: import_prop_types49.default.number.isRequired,
+    top: import_prop_types49.default.number.isRequired
   }),
-  anchorReference: import_prop_types43.default.oneOf(["anchorEl", "anchorPosition", "none"]),
-  children: import_prop_types43.default.node,
-  classes: import_prop_types43.default.object,
-  className: import_prop_types43.default.string,
-  container: import_prop_types43.default.oneOfType([HTMLElementType, import_prop_types43.default.func]),
-  disableScrollLock: import_prop_types43.default.bool,
+  anchorReference: import_prop_types49.default.oneOf(["anchorEl", "anchorPosition", "none"]),
+  children: import_prop_types49.default.node,
+  classes: import_prop_types49.default.object,
+  className: import_prop_types49.default.string,
+  container: import_prop_types49.default.oneOfType([HTMLElementType, import_prop_types49.default.func]),
+  disableScrollLock: import_prop_types49.default.bool,
   elevation: integerPropType_default,
-  marginThreshold: import_prop_types43.default.number,
-  onClose: import_prop_types43.default.func,
-  open: import_prop_types43.default.bool.isRequired,
-  PaperProps: import_prop_types43.default.shape({
+  marginThreshold: import_prop_types49.default.number,
+  onClose: import_prop_types49.default.func,
+  open: import_prop_types49.default.bool.isRequired,
+  PaperProps: import_prop_types49.default.shape({
     component: elementTypeAcceptingRef_default
   }),
-  slotProps: import_prop_types43.default.shape({
-    paper: import_prop_types43.default.oneOfType([import_prop_types43.default.func, import_prop_types43.default.object]),
-    root: import_prop_types43.default.oneOfType([import_prop_types43.default.func, import_prop_types43.default.object])
+  slotProps: import_prop_types49.default.shape({
+    paper: import_prop_types49.default.oneOfType([import_prop_types49.default.func, import_prop_types49.default.object]),
+    root: import_prop_types49.default.oneOfType([import_prop_types49.default.func, import_prop_types49.default.object])
   }),
-  slots: import_prop_types43.default.shape({
-    paper: import_prop_types43.default.elementType,
-    root: import_prop_types43.default.elementType
+  slots: import_prop_types49.default.shape({
+    paper: import_prop_types49.default.elementType,
+    root: import_prop_types49.default.elementType
   }),
-  sx: import_prop_types43.default.oneOfType([import_prop_types43.default.arrayOf(import_prop_types43.default.oneOfType([import_prop_types43.default.func, import_prop_types43.default.object, import_prop_types43.default.bool])), import_prop_types43.default.func, import_prop_types43.default.object]),
-  transformOrigin: import_prop_types43.default.shape({
-    horizontal: import_prop_types43.default.oneOfType([import_prop_types43.default.oneOf(["center", "left", "right"]), import_prop_types43.default.number]).isRequired,
-    vertical: import_prop_types43.default.oneOfType([import_prop_types43.default.oneOf(["bottom", "center", "top"]), import_prop_types43.default.number]).isRequired
+  sx: import_prop_types49.default.oneOfType([import_prop_types49.default.arrayOf(import_prop_types49.default.oneOfType([import_prop_types49.default.func, import_prop_types49.default.object, import_prop_types49.default.bool])), import_prop_types49.default.func, import_prop_types49.default.object]),
+  transformOrigin: import_prop_types49.default.shape({
+    horizontal: import_prop_types49.default.oneOfType([import_prop_types49.default.oneOf(["center", "left", "right"]), import_prop_types49.default.number]).isRequired,
+    vertical: import_prop_types49.default.oneOfType([import_prop_types49.default.oneOf(["bottom", "center", "top"]), import_prop_types49.default.number]).isRequired
   }),
-  TransitionComponent: import_prop_types43.default.elementType,
-  transitionDuration: import_prop_types43.default.oneOfType([import_prop_types43.default.oneOf(["auto"]), import_prop_types43.default.number, import_prop_types43.default.shape({
-    appear: import_prop_types43.default.number,
-    enter: import_prop_types43.default.number,
-    exit: import_prop_types43.default.number
+  TransitionComponent: import_prop_types49.default.elementType,
+  transitionDuration: import_prop_types49.default.oneOfType([import_prop_types49.default.oneOf(["auto"]), import_prop_types49.default.number, import_prop_types49.default.shape({
+    appear: import_prop_types49.default.number,
+    enter: import_prop_types49.default.number,
+    exit: import_prop_types49.default.number
   })]),
-  TransitionProps: import_prop_types43.default.object
+  TransitionProps: import_prop_types49.default.object
 };
 var Popover_default = Popover;
 // node_modules/@mui/material/Toolbar/Toolbar.js
-var React64 = __toESM(require_react(), 1);
-var import_prop_types44 = __toESM(require_prop_types(), 1);
+var React71 = __toESM(require_react(), 1);
+var import_prop_types50 = __toESM(require_prop_types(), 1);
 
 // node_modules/@mui/material/Toolbar/toolbarClasses.js
 function getToolbarUtilityClass(slot) {
@@ -38755,9 +39399,9 @@ function getToolbarUtilityClass(slot) {
 var toolbarClasses = generateUtilityClasses("MuiToolbar", ["root", "gutters", "regular", "dense"]);
 
 // node_modules/@mui/material/Toolbar/Toolbar.js
-var jsx_runtime47 = __toESM(require_jsx_runtime(), 1);
-var _excluded42 = ["className", "component", "disableGutters", "variant"];
-var useUtilityClasses21 = (ownerState) => {
+var jsx_runtime55 = __toESM(require_jsx_runtime(), 1);
+var _excluded48 = ["className", "component", "disableGutters", "variant"];
+var useUtilityClasses27 = (ownerState) => {
   const {
     classes,
     disableGutters,
@@ -38797,7 +39441,7 @@ var ToolbarRoot = styled_default2("div", {
   theme,
   ownerState
 }) => ownerState.variant === "regular" && theme.mixins.toolbar);
-var Toolbar = React64.forwardRef(function Toolbar2(inProps, ref) {
+var Toolbar = React71.forwardRef(function Toolbar2(inProps, ref) {
   const props = useThemeProps3({
     props: inProps,
     name: "MuiToolbar"
@@ -38807,14 +39451,14 @@ var Toolbar = React64.forwardRef(function Toolbar2(inProps, ref) {
     component = "div",
     disableGutters = false,
     variant = "regular"
-  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded42);
+  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded48);
   const ownerState = _extends4({}, props, {
     component,
     disableGutters,
     variant
   });
-  const classes = useUtilityClasses21(ownerState);
-  return jsx_runtime47.jsx(ToolbarRoot, _extends4({
+  const classes = useUtilityClasses27(ownerState);
+  return jsx_runtime55.jsx(ToolbarRoot, _extends4({
     as: component,
     className: clsx_default2(classes.root, className2),
     ref,
@@ -38822,13 +39466,13 @@ var Toolbar = React64.forwardRef(function Toolbar2(inProps, ref) {
   }, other));
 });
 Toolbar.propTypes = {
-  children: import_prop_types44.default.node,
-  classes: import_prop_types44.default.object,
-  className: import_prop_types44.default.string,
-  component: import_prop_types44.default.elementType,
-  disableGutters: import_prop_types44.default.bool,
-  sx: import_prop_types44.default.oneOfType([import_prop_types44.default.arrayOf(import_prop_types44.default.oneOfType([import_prop_types44.default.func, import_prop_types44.default.object, import_prop_types44.default.bool])), import_prop_types44.default.func, import_prop_types44.default.object]),
-  variant: import_prop_types44.default.oneOfType([import_prop_types44.default.oneOf(["dense", "regular"]), import_prop_types44.default.string])
+  children: import_prop_types50.default.node,
+  classes: import_prop_types50.default.object,
+  className: import_prop_types50.default.string,
+  component: import_prop_types50.default.elementType,
+  disableGutters: import_prop_types50.default.bool,
+  sx: import_prop_types50.default.oneOfType([import_prop_types50.default.arrayOf(import_prop_types50.default.oneOfType([import_prop_types50.default.func, import_prop_types50.default.object, import_prop_types50.default.bool])), import_prop_types50.default.func, import_prop_types50.default.object]),
+  variant: import_prop_types50.default.oneOfType([import_prop_types50.default.oneOf(["dense", "regular"]), import_prop_types50.default.string])
 };
 var Toolbar_default = Toolbar;
 // src/components/offers/OffersPage.js
@@ -38872,79 +39516,79 @@ var import_react_responsive_carousel = __toESM(require_js(), 1);
 // src/components/home/HeaderSection/ImageSlider.js
 var import_react9 = __toESM(require_react(), 1);
 // node_modules/@mui/icons-material/esm/AccessTime.js
-var jsx_runtime48 = __toESM(require_jsx_runtime(), 1);
-var AccessTime_default = createSvgIcon([jsx_runtime48.jsx("path", {
+var jsx_runtime56 = __toESM(require_jsx_runtime(), 1);
+var AccessTime_default = createSvgIcon([jsx_runtime56.jsx("path", {
   d: "M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"
-}, "0"), jsx_runtime48.jsx("path", {
+}, "0"), jsx_runtime56.jsx("path", {
   d: "M12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z"
 }, "1")], "AccessTime");
 // node_modules/@mui/icons-material/esm/Circle.js
-var jsx_runtime49 = __toESM(require_jsx_runtime(), 1);
-var Circle_default = createSvgIcon(jsx_runtime49.jsx("path", {
+var jsx_runtime57 = __toESM(require_jsx_runtime(), 1);
+var Circle_default = createSvgIcon(jsx_runtime57.jsx("path", {
   d: "M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2z"
 }), "Circle");
 // node_modules/@mui/icons-material/esm/CircleOutlined.js
-var jsx_runtime50 = __toESM(require_jsx_runtime(), 1);
-var CircleOutlined_default = createSvgIcon(jsx_runtime50.jsx("path", {
+var jsx_runtime58 = __toESM(require_jsx_runtime(), 1);
+var CircleOutlined_default = createSvgIcon(jsx_runtime58.jsx("path", {
   d: "M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"
 }), "CircleOutlined");
 // node_modules/@mui/icons-material/esm/Computer.js
-var jsx_runtime51 = __toESM(require_jsx_runtime(), 1);
-var Computer_default = createSvgIcon(jsx_runtime51.jsx("path", {
+var jsx_runtime59 = __toESM(require_jsx_runtime(), 1);
+var Computer_default = createSvgIcon(jsx_runtime59.jsx("path", {
   d: "M20 18c1.1 0 1.99-.9 1.99-2L22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2H0v2h24v-2h-4zM4 6h16v10H4V6z"
 }), "Computer");
 // node_modules/@mui/icons-material/esm/DeliveryDining.js
-var jsx_runtime52 = __toESM(require_jsx_runtime(), 1);
-var DeliveryDining_default = createSvgIcon([jsx_runtime52.jsx("path", {
+var jsx_runtime60 = __toESM(require_jsx_runtime(), 1);
+var DeliveryDining_default = createSvgIcon([jsx_runtime60.jsx("path", {
   d: "M19 7c0-1.1-.9-2-2-2h-3v2h3v2.65L13.52 14H10V9H6c-2.21 0-4 1.79-4 4v3h2c0 1.66 1.34 3 3 3s3-1.34 3-3h4.48L19 10.35V7zM7 17c-.55 0-1-.45-1-1h2c0 .55-.45 1-1 1z"
-}, "0"), jsx_runtime52.jsx("path", {
+}, "0"), jsx_runtime60.jsx("path", {
   d: "M5 6h5v2H5zm14 7c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3zm0 4c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1z"
 }, "1")], "DeliveryDining");
 // node_modules/@mui/icons-material/esm/Email.js
-var jsx_runtime53 = __toESM(require_jsx_runtime(), 1);
-var Email_default = createSvgIcon(jsx_runtime53.jsx("path", {
+var jsx_runtime61 = __toESM(require_jsx_runtime(), 1);
+var Email_default = createSvgIcon(jsx_runtime61.jsx("path", {
   d: "M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"
 }), "Email");
 // node_modules/@mui/icons-material/esm/Home.js
-var jsx_runtime54 = __toESM(require_jsx_runtime(), 1);
-var Home_default = createSvgIcon(jsx_runtime54.jsx("path", {
+var jsx_runtime62 = __toESM(require_jsx_runtime(), 1);
+var Home_default = createSvgIcon(jsx_runtime62.jsx("path", {
   d: "M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"
 }), "Home");
 // node_modules/@mui/icons-material/esm/Info.js
-var jsx_runtime55 = __toESM(require_jsx_runtime(), 1);
-var Info_default = createSvgIcon(jsx_runtime55.jsx("path", {
+var jsx_runtime63 = __toESM(require_jsx_runtime(), 1);
+var Info_default = createSvgIcon(jsx_runtime63.jsx("path", {
   d: "M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"
 }), "Info");
 // node_modules/@mui/icons-material/esm/Instagram.js
-var React66 = __toESM(require_react(), 1);
-var jsx_runtime56 = __toESM(require_jsx_runtime(), 1);
-var Instagram_default = createSvgIcon(jsx_runtime56.jsx("path", {
+var React73 = __toESM(require_react(), 1);
+var jsx_runtime64 = __toESM(require_jsx_runtime(), 1);
+var Instagram_default = createSvgIcon(jsx_runtime64.jsx("path", {
   d: "M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"
 }), "Instagram");
 // node_modules/@mui/icons-material/esm/KeyboardArrowLeft.js
-var jsx_runtime57 = __toESM(require_jsx_runtime(), 1);
-var KeyboardArrowLeft_default = createSvgIcon(jsx_runtime57.jsx("path", {
+var jsx_runtime65 = __toESM(require_jsx_runtime(), 1);
+var KeyboardArrowLeft_default = createSvgIcon(jsx_runtime65.jsx("path", {
   d: "M15.41 16.59 10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"
 }), "KeyboardArrowLeft");
 // node_modules/@mui/icons-material/esm/KeyboardArrowRight.js
-var jsx_runtime58 = __toESM(require_jsx_runtime(), 1);
-var KeyboardArrowRight_default = createSvgIcon(jsx_runtime58.jsx("path", {
+var jsx_runtime66 = __toESM(require_jsx_runtime(), 1);
+var KeyboardArrowRight_default = createSvgIcon(jsx_runtime66.jsx("path", {
   d: "M8.59 16.59 13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"
 }), "KeyboardArrowRight");
 // node_modules/@mui/icons-material/esm/Phone.js
-var jsx_runtime59 = __toESM(require_jsx_runtime(), 1);
-var Phone_default = createSvgIcon(jsx_runtime59.jsx("path", {
+var jsx_runtime67 = __toESM(require_jsx_runtime(), 1);
+var Phone_default = createSvgIcon(jsx_runtime67.jsx("path", {
   d: "M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"
 }), "Phone");
 // node_modules/@mui/icons-material/esm/Search.js
-var jsx_runtime60 = __toESM(require_jsx_runtime(), 1);
-var Search_default = createSvgIcon(jsx_runtime60.jsx("path", {
+var jsx_runtime68 = __toESM(require_jsx_runtime(), 1);
+var Search_default = createSvgIcon(jsx_runtime68.jsx("path", {
   d: "M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
 }), "Search");
 // node_modules/@mui/icons-material/esm/Telegram.js
-var React67 = __toESM(require_react(), 1);
-var jsx_runtime61 = __toESM(require_jsx_runtime(), 1);
-var Telegram_default = createSvgIcon(jsx_runtime61.jsx("path", {
+var React74 = __toESM(require_react(), 1);
+var jsx_runtime69 = __toESM(require_jsx_runtime(), 1);
+var Telegram_default = createSvgIcon(jsx_runtime69.jsx("path", {
   d: "M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"
 }), "Telegram");
 // src/components/home/HeaderSection/ImageSlider.js
@@ -39011,7 +39655,13 @@ var ImageSlider = ({ items }) => {
     return () => clearInterval(interval);
   }, [timeLeft]);
   const goToPrevious = () => {
-    setCurrentIndex((currentIndex - 1) % items.length);
+    setCurrentIndex((oldIndex) => {
+      var newIndex = oldIndex - 1;
+      if (newIndex < 0) {
+        newIndex = items.length - 1;
+      }
+      return newIndex;
+    });
     setTimeLeft(NEXT_SLIDE_TIMER);
   };
   const goToNext = () => {
@@ -39163,7 +39813,7 @@ var ChooseSection_default = ChooseSection = () => {
     container: true,
     sx: {
       backgroundColor: "#0d0d0d",
-      height: "100vh",
+      minHeight: "100vh",
       justifyContent: "center"
     },
     component: "div",
@@ -39237,13 +39887,12 @@ var ChooseSection_default = ChooseSection = () => {
             visibility: selectedGames.length > 0 ? "visible" : "hidden",
             margin: "10px",
             width: "50vw",
-            backgroundColor: selectedGames.length > 0 ? "gray" : "#0d0d0d",
+            backgroundColor: selectedGames.length > 0 ? "blue" : "#0d0d0d",
             color: selectedGames.length > 0 ? "#ffffff" : "#0d0d0d",
             borderRadius: "10px",
             marginInline: "auto",
-            transition: "all 1s",
+            transition: "all 0.3s",
             "&:hover": {
-              border: "1px solid #ffffff",
               backgroundColor: "lightblue",
               boxShadow: "0 0 2em #ffffff",
               color: "blue",
@@ -39274,32 +39923,110 @@ var ChooseSection_default = ChooseSection = () => {
   }, undefined, false, undefined, this);
 };
 
-// src/components/home/ReviewSection/ReviewSection.js
+// src/components/home/ReviewSection/ReviewCard.js
+var React76 = __toESM(require_react(), 1);
 var jsx_dev_runtime5 = __toESM(require_jsx_dev_runtime(), 1);
-var ReviewSection_default = ReviewSection = () => {
-  return jsx_dev_runtime5.jsxDEV(Box_default, {
-    sx: { padding: 4, height: "50vh" },
+function ReviewCard({ reviewData }) {
+  const [expanded, setExpanded] = React76.useState(false);
+  const handleExpandClick = () => {
+    setExpanded(!expanded);
+  };
+  return jsx_dev_runtime5.jsxDEV(Card_default, {
+    sx: { maxWidth: 345, boxShadow: "0 0 2em red" },
     children: [
-      jsx_dev_runtime5.jsxDEV(Typography_default, {
+      jsx_dev_runtime5.jsxDEV(CardHeader_default, {
+        avatar: jsx_dev_runtime5.jsxDEV(Avatar_default, {
+          sx: { bgcolor: red_default[500] },
+          "aria-label": "recipe",
+          children: reviewData.shortName
+        }, undefined, false, undefined, this),
+        title: reviewData.name,
+        subheader: reviewData.date
+      }, undefined, false, undefined, this),
+      jsx_dev_runtime5.jsxDEV(CardMedia_default, {
+        component: "img",
+        height: "194",
+        image: reviewData.photo,
+        alt: "Paella dish"
+      }, undefined, false, undefined, this),
+      jsx_dev_runtime5.jsxDEV(CardContent_default, {
+        children: jsx_dev_runtime5.jsxDEV(Typography_default, {
+          variant: "body2",
+          color: "text.secondary",
+          children: reviewData.review
+        }, undefined, false, undefined, this)
+      }, undefined, false, undefined, this),
+      jsx_dev_runtime5.jsxDEV(CardActions_default, {
+        disableSpacing: true
+      }, undefined, false, undefined, this)
+    ]
+  }, undefined, true, undefined, this);
+}
+
+// src/components/home/ReviewSection/ReviewSection.js
+var jsx_dev_runtime6 = __toESM(require_jsx_dev_runtime(), 1);
+var reviews = [
+  {
+    icon: "/static/reviews/icons/AB.jpg",
+    name: "\u0410\u043B\u0435\u043A\u0441\u0435\u0439 \u0411\u043E\u0434\u0440\u043E\u0432",
+    shortName: "\u0410\u0411",
+    photo: "/static/reviews/photos/AB1.jpg",
+    review: "\u0412\u043E\u0441\u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u043B\u0441\u044F \u0443\u0441\u043B\u0443\u0433\u0430\u043C\u0438 \u0430\u043F\u0433\u0440\u0435\u0439\u0434\u0430 , \u0440\u0435\u0431\u044F\u0442\u0430 \u043E\u043F\u0435\u0440\u0430\u0442\u0438\u0432\u043D\u043E \u043F\u043E\u0434\u043E\u0431\u0440\u0430\u043B\u0438 \u0432\u0438\u0434\u0435\u043E\u043A\u0430\u0440\u0442\u0443 3060ti , \u0432\u0441\u0435 \u0440\u0430\u0431\u043E\u0442\u0430\u0435\u0442 \u043E\u0442\u043B\u0438\u0447\u043D\u043E , \u043F\u0440\u0430\u0439\u0441 \u0442\u043E\u0436\u0435 \u0437\u0430\u043C\u0435\u0447\u0430\u0442\u0435\u043B\u044C\u043D\u044B\u0439. \u0421\u043F\u0430\u0441\u0438\u0431\u043E \u0432\u0430\u043C \u0431\u043E\u043B\u044C\u0448\u043E\u0435, 5\u2B50",
+    date: "16 \u043E\u043A\u0442\u044F\u0431\u0440\u044F, 2023"
+  },
+  {
+    icon: "/static/reviews/icons/NK.jpg",
+    name: "\u041D\u0438\u043A\u043E\u043B\u0430\u0439 \u041A\u0430\u0440\u0442\u043E\u0448\u043D\u0438\u043A\u043E\u0432",
+    shortName: "\u041D\u041A",
+    photo: "/static/reviews/photos/NK1.jpg",
+    review: "\u0417\u0430\u043A\u0430\u0437\u0430\u043B \u0443\u0441\u043B\u0443\u0433\u0443 \u0447\u0438\u0441\u0442\u043A\u0430 \u041F\u041A \u0438 \u0437\u0430\u043C\u0435\u043D\u0430 \u0442\u0435\u0440\u043C\u043E\u043F\u0430\u0441\u0442\u044B, \u0441\u0434\u0435\u043B\u0430\u043B\u0438 \u0442\u043E\u0447\u043D\u043E \u0432 \u0441\u0440\u043E\u043A, \u0432 \u043C\u043E\u043C\u0435\u043D\u0442\u0435 \u043E\u0431\u0441\u0443\u0436\u0434\u0435\u043D\u0438\u044F \u0434\u0435\u0442\u0430\u043B\u0435\u0439, \u044F \u043A\u0443\u043F\u0438\u043B \u0443 \u043D\u0438\u0445 \u0434\u043B\u044F \u0441\u0435\u0431\u044F \u043D\u043E\u0432\u044B\u0439 \u043A\u043E\u0440\u043F\u0443\u0441, \u043E\u043D\u0438 \u043F\u0435\u0440\u0435\u043A\u0438\u043D\u0443\u043B\u0438 \u0432\u0441\u0435 \u0434\u0435\u0442\u0430\u043B\u0438, \u0432\u0441\u0435 \u0440\u0430\u0431\u043E\u0442\u0430\u0435\u0442 \u0438 \u0441\u0432\u0435\u0442\u0438\u0442\u0441\u044F, \u0431\u0443\u0434\u0443 \u0443 \u043D\u0438\u0445 \u0434\u0435\u043B\u0430\u0442\u044C \u0441\u043A\u043E\u0440\u043E \u0430\u043F\u0433\u0440\u0435\u0439\u0442))\u0421\u043F\u0430\u0441\u0438\u0431\u043E \u0431\u043E\u043B\u044C\u0448\u043E\u0435!",
+    date: "17 \u043E\u043A\u0442\u044F\u0431\u0440\u044F, 2023"
+  },
+  {
+    icon: "/static/reviews/icons/AB.jpg",
+    name: "Kventin Buratino",
+    shortName: "KB",
+    photo: "/static/backgrounds/background1.jpg",
+    review: "You guys are great!",
+    date: "1 \u044F\u043D\u0432\u0430\u0440\u044F, 1970"
+  }
+];
+var ReviewSection_default = ReviewSection = () => {
+  return jsx_dev_runtime6.jsxDEV(Box_default, {
+    sx: { padding: 4, height: "80vh" },
+    children: [
+      jsx_dev_runtime6.jsxDEV(Typography_default, {
         variant: "h4",
         sx: {
           textAlign: "center"
         },
         children: "\u0427\u0442\u043E \u0434\u0443\u043C\u0430\u044E\u0442 \u043D\u0430\u0448\u0438 \u043A\u043B\u0438\u0435\u043D\u0442\u044B"
       }, undefined, false, undefined, this),
-      jsx_dev_runtime5.jsxDEV(Box_default, {}, undefined, false, undefined, this)
+      jsx_dev_runtime6.jsxDEV(Stack_default, {
+        direction: "row",
+        spacing: 8,
+        sx: {
+          justifyContent: "center",
+          marginTop: "20px",
+          width: "100%",
+          marginRight: 4
+        },
+        children: reviews.map((review, index) => jsx_dev_runtime6.jsxDEV(ReviewCard, {
+          reviewData: review
+        }, index, false, undefined, this))
+      }, undefined, false, undefined, this)
     ]
   }, undefined, true, undefined, this);
 };
 
 // src/components/home/HomePage.js
-var jsx_dev_runtime6 = __toESM(require_jsx_dev_runtime(), 1);
+var jsx_dev_runtime7 = __toESM(require_jsx_dev_runtime(), 1);
 var HomePage_default = HomePage = () => {
-  return jsx_dev_runtime6.jsxDEV(Box_default, {
+  return jsx_dev_runtime7.jsxDEV(Box_default, {
     children: [
-      jsx_dev_runtime6.jsxDEV(HeaderSection_default, {}, undefined, false, undefined, this),
-      jsx_dev_runtime6.jsxDEV(ChooseSection_default, {}, undefined, false, undefined, this),
-      jsx_dev_runtime6.jsxDEV(ReviewSection_default, {}, undefined, false, undefined, this)
+      jsx_dev_runtime7.jsxDEV(HeaderSection_default, {}, undefined, false, undefined, this),
+      jsx_dev_runtime7.jsxDEV(ChooseSection_default, {}, undefined, false, undefined, this),
+      jsx_dev_runtime7.jsxDEV(ReviewSection_default, {}, undefined, false, undefined, this)
     ]
   }, undefined, true, undefined, this);
 };
@@ -39778,16 +40505,16 @@ var ot = x(l(d((e2) => import_react13.default.createElement(K, r4({}, e2, { name
 var st = x(l(d((e2) => import_react13.default.createElement(K, r4({}, e2, { name: "Rectangle" })), true, ["Rectangle"])));
 
 // src/components/delivery/CustomYandexMap.js
-var jsx_dev_runtime7 = __toESM(require_jsx_dev_runtime(), 1);
+var jsx_dev_runtime8 = __toESM(require_jsx_dev_runtime(), 1);
 var CustomYandexMap_default = CustomYandexMap = ({ selected }) => {
   const [ymaps, setYmaps] = import_react14.useState();
   const [coords, setCoords] = import_react14.useState([0, 0]);
-  return jsx_dev_runtime7.jsxDEV(y, {
+  return jsx_dev_runtime8.jsxDEV(y, {
     onApiAvaliable: (ymaps2) => {
       console.log("setting ymaps");
       setYmaps(ymaps2);
     },
-    children: jsx_dev_runtime7.jsxDEV(k, {
+    children: jsx_dev_runtime8.jsxDEV(k, {
       state: {
         center: selected.coord,
         zoom: 9,
@@ -39800,7 +40527,7 @@ var CustomYandexMap_default = CustomYandexMap = ({ selected }) => {
       ],
       width: "100%",
       height: "100%",
-      children: jsx_dev_runtime7.jsxDEV(et, {
+      children: jsx_dev_runtime8.jsxDEV(et, {
         modules: ["geoObject.addon.balloon"],
         geometry: selected.coord,
         properties: {
@@ -39812,7 +40539,7 @@ var CustomYandexMap_default = CustomYandexMap = ({ selected }) => {
 };
 
 // src/components/delivery/DeliveryPage.js
-var jsx_dev_runtime8 = __toESM(require_jsx_dev_runtime(), 1);
+var jsx_dev_runtime9 = __toESM(require_jsx_dev_runtime(), 1);
 var adresses = [
   {
     title: "595695, \u041E\u043C\u0441\u043A\u0430\u044F \u043E\u0431\u043B\u0430\u0441\u0442\u044C, \u0433\u043E\u0440\u043E\u0434 \u041A\u0430\u0448\u0438\u0440\u0430, \u043F\u0440\u043E\u0435\u0437\u0434 \u0427\u0435\u0445\u043E\u0432\u0430, 52",
@@ -39841,23 +40568,23 @@ var adresses = [
 ];
 var DeliveryPage_default = DeliveryPage = () => {
   const [selected, setSelected] = import_react15.useState(adresses[0]);
-  return jsx_dev_runtime8.jsxDEV(Grid_default, {
+  return jsx_dev_runtime9.jsxDEV(Grid_default, {
     container: true,
     justifyItems: "center",
     rowGap: "30px",
     marginBlockEnd: "100px",
     padding: 4,
     children: [
-      jsx_dev_runtime8.jsxDEV(Grid_default, {
+      jsx_dev_runtime9.jsxDEV(Grid_default, {
         item: true,
         xs: 12,
         md: 12,
-        children: jsx_dev_runtime8.jsxDEV(Typography_default, {
+        children: jsx_dev_runtime9.jsxDEV(Typography_default, {
           fontSize: "1.5rem",
           children: "\u0421\u0430\u043C\u043E\u0432\u044B\u0432\u043E\u0437"
         }, undefined, false, undefined, this)
       }, undefined, false, undefined, this),
-      jsx_dev_runtime8.jsxDEV(Grid_default, {
+      jsx_dev_runtime9.jsxDEV(Grid_default, {
         item: true,
         xs: 12,
         md: 6,
@@ -39865,15 +40592,15 @@ var DeliveryPage_default = DeliveryPage = () => {
           width: { xs: "360px", md: "100%" },
           height: "360px"
         },
-        children: jsx_dev_runtime8.jsxDEV(CustomYandexMap_default, {
+        children: jsx_dev_runtime9.jsxDEV(CustomYandexMap_default, {
           selected
         }, undefined, false, undefined, this)
       }, undefined, false, undefined, this),
-      jsx_dev_runtime8.jsxDEV(Grid_default, {
+      jsx_dev_runtime9.jsxDEV(Grid_default, {
         item: true,
         xs: 12,
         md: 6,
-        children: jsx_dev_runtime8.jsxDEV(List_default, {
+        children: jsx_dev_runtime9.jsxDEV(List_default, {
           sx: {
             border: 1,
             borderColor: "#ffffff",
@@ -39883,7 +40610,7 @@ var DeliveryPage_default = DeliveryPage = () => {
             maxHeight: 360,
             "& ul": { padding: 0 }
           },
-          children: adresses.map((adress, index) => jsx_dev_runtime8.jsxDEV(ListItemButton_default, {
+          children: adresses.map((adress, index) => jsx_dev_runtime9.jsxDEV(ListItemButton_default, {
             sx: {
               bgcolor: selected == adress ? alpha("#ffffff", 0.15) : "#000000",
               "&: hover": {
@@ -39891,57 +40618,57 @@ var DeliveryPage_default = DeliveryPage = () => {
               }
             },
             onClick: () => setSelected(adresses[index]),
-            children: jsx_dev_runtime8.jsxDEV(Typography_default, {
+            children: jsx_dev_runtime9.jsxDEV(Typography_default, {
               children: adress.title
             }, undefined, false, undefined, this)
           }, index, false, undefined, this))
         }, undefined, false, undefined, this)
       }, undefined, false, undefined, this),
-      jsx_dev_runtime8.jsxDEV(Grid_default, {
+      jsx_dev_runtime9.jsxDEV(Grid_default, {
         item: true,
         xs: 12,
         md: 12,
-        children: jsx_dev_runtime8.jsxDEV(Typography_default, {
+        children: jsx_dev_runtime9.jsxDEV(Typography_default, {
           fontSize: "1.5rem",
           children: "\u0414\u043E\u0441\u0442\u0430\u0432\u043A\u0430 \u0434\u043E \u0434\u0432\u0435\u0440\u0438"
         }, undefined, false, undefined, this)
       }, undefined, false, undefined, this),
-      jsx_dev_runtime8.jsxDEV(Grid_default, {
+      jsx_dev_runtime9.jsxDEV(Grid_default, {
         item: true,
         xs: 12,
         md: 4,
         component: Stack_default,
         alignItems: "center",
-        children: jsx_dev_runtime8.jsxDEV(Typography_default, {
+        children: jsx_dev_runtime9.jsxDEV(Typography_default, {
           children: "\u041E\u0441\u0443\u0449\u0435\u0441\u0442\u0432\u043B\u044F\u0435\u0442\u0441\u044F \u042F\u043D\u0434\u0435\u043A\u0441 \u043A\u0443\u0440\u044C\u0435\u0440\u043E\u043C \u043F\u043E \u0432\u0441\u0435\u0439 \u041C\u043E\u0441\u043A\u0432\u0435"
         }, undefined, false, undefined, this)
       }, undefined, false, undefined, this),
-      jsx_dev_runtime8.jsxDEV(Grid_default, {
+      jsx_dev_runtime9.jsxDEV(Grid_default, {
         item: true,
         xs: 12,
         md: 12,
-        children: jsx_dev_runtime8.jsxDEV(Typography_default, {
+        children: jsx_dev_runtime9.jsxDEV(Typography_default, {
           fontSize: "1.5rem",
           children: "\u0421\u0432\u044F\u0436\u0438\u0442\u0435\u0441\u044C \u0441 \u043D\u0430\u043C\u0438"
         }, undefined, false, undefined, this)
       }, undefined, false, undefined, this),
-      jsx_dev_runtime8.jsxDEV(Grid_default, {
+      jsx_dev_runtime9.jsxDEV(Grid_default, {
         item: true,
         xs: 12,
         md: 12,
-        children: jsx_dev_runtime8.jsxDEV(Stack_default, {
+        children: jsx_dev_runtime9.jsxDEV(Stack_default, {
           direction: { xs: "column", md: "row" },
           spacing: 4,
           fontSize: "1rem",
           children: [
-            jsx_dev_runtime8.jsxDEV(Stack_default, {
+            jsx_dev_runtime9.jsxDEV(Stack_default, {
               alignItems: "center",
               direction: "row",
               children: [
-                jsx_dev_runtime8.jsxDEV(Phone_default, {
+                jsx_dev_runtime9.jsxDEV(Phone_default, {
                   sx: { marginRight: 2 }
                 }, undefined, false, undefined, this),
-                jsx_dev_runtime8.jsxDEV("a", {
+                jsx_dev_runtime9.jsxDEV("a", {
                   href: "tel:9851460477",
                   style: {
                     color: "blueviolet"
@@ -39950,26 +40677,26 @@ var DeliveryPage_default = DeliveryPage = () => {
                 }, undefined, false, undefined, this)
               ]
             }, undefined, true, undefined, this),
-            jsx_dev_runtime8.jsxDEV(Stack_default, {
+            jsx_dev_runtime9.jsxDEV(Stack_default, {
               alignItems: "center",
               direction: "row",
               children: [
-                jsx_dev_runtime8.jsxDEV(AccessTime_default, {
+                jsx_dev_runtime9.jsxDEV(AccessTime_default, {
                   sx: { marginRight: 2 }
                 }, undefined, false, undefined, this),
-                jsx_dev_runtime8.jsxDEV(Typography_default, {
+                jsx_dev_runtime9.jsxDEV(Typography_default, {
                   children: "\u0415\u0436\u0435\u0434\u043D\u0435\u0432\u043D\u043E \u0441 10:00 \u0434\u043E 20:00"
                 }, undefined, false, undefined, this)
               ]
             }, undefined, true, undefined, this),
-            jsx_dev_runtime8.jsxDEV(Stack_default, {
+            jsx_dev_runtime9.jsxDEV(Stack_default, {
               alignItems: "center",
               direction: "row",
               children: [
-                jsx_dev_runtime8.jsxDEV(Email_default, {
+                jsx_dev_runtime9.jsxDEV(Email_default, {
                   sx: { marginRight: 2 }
                 }, undefined, false, undefined, this),
-                jsx_dev_runtime8.jsxDEV(Typography_default, {
+                jsx_dev_runtime9.jsxDEV(Typography_default, {
                   children: "kraskovskiydm@gmail.com"
                 }, undefined, false, undefined, this)
               ]
@@ -39983,7 +40710,7 @@ var DeliveryPage_default = DeliveryPage = () => {
 
 // src/components/about/AboutUsPage.js
 var import_react16 = __toESM(require_react(), 1);
-var jsx_dev_runtime9 = __toESM(require_jsx_dev_runtime(), 1);
+var jsx_dev_runtime10 = __toESM(require_jsx_dev_runtime(), 1);
 var Item = styled_default2(Paper_default)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
   ...theme.typography.body2,
@@ -39993,62 +40720,62 @@ var Item = styled_default2(Paper_default)(({ theme }) => ({
   alignItems: "center"
 }));
 var AboutUsPage_default = AboutUsPage = () => {
-  return jsx_dev_runtime9.jsxDEV(Box_default, {
+  return jsx_dev_runtime10.jsxDEV(Box_default, {
     sx: { flexGrow: 1, marginBottom: "100px" },
     padding: 4,
-    children: jsx_dev_runtime9.jsxDEV(Grid_default, {
+    children: jsx_dev_runtime10.jsxDEV(Grid_default, {
       container: true,
       spacing: 2,
       children: [
-        jsx_dev_runtime9.jsxDEV(Grid_default, {
+        jsx_dev_runtime10.jsxDEV(Grid_default, {
           item: true,
           xs: 12,
           md: 6,
-          children: jsx_dev_runtime9.jsxDEV(Typography_default, {
+          children: jsx_dev_runtime10.jsxDEV(Typography_default, {
             fontSize: "1.5rem",
             children: "\u041A\u0442\u043E \u043C\u044B?"
           }, undefined, false, undefined, this)
         }, undefined, false, undefined, this),
-        jsx_dev_runtime9.jsxDEV(Grid_default, {
+        jsx_dev_runtime10.jsxDEV(Grid_default, {
           item: true,
           xs: 12,
           md: 12,
           children: [
-            jsx_dev_runtime9.jsxDEV(Typography_default, {
+            jsx_dev_runtime10.jsxDEV(Typography_default, {
               paragraph: true,
               children: "\u041C\u044B \u0434\u0438\u043D\u0430\u043C\u0438\u0447\u043D\u0430\u044F \u043A\u043E\u043C\u043F\u0430\u043D\u0438\u044F, \u043F\u0440\u0435\u0434\u043B\u0430\u0433\u0430\u044E\u0449\u0430\u044F \u0431\u043E\u043B\u0435\u0435 10 \u043F\u0440\u043E\u0444\u0435\u0441\u0441\u0438\u043E\u043D\u0430\u043B\u044C\u043D\u044B\u0445 \u0441\u0431\u043E\u0440\u043E\u043A \u043A\u043E\u043C\u043F\u044C\u044E\u0442\u0435\u0440\u043E\u0432 \u0434\u043B\u044F \u043B\u044E\u0431\u044B\u0445 \u0437\u0430\u0434\u0430\u0447. \u041D\u0430\u0448\u0430 \u043A\u043E\u043C\u0430\u043D\u0434\u0430 \u0441\u043E\u0441\u0442\u043E\u0438\u0442 \u0438\u0437 \u043E\u043F\u044B\u0442\u043D\u044B\u0445 \u0441\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442\u043E\u0432, \u0433\u0430\u0440\u0430\u043D\u0442\u0438\u0440\u0443\u044E\u0449\u0438\u0445 \u043A\u0430\u0447\u0435\u0441\u0442\u0432\u0435\u043D\u043D\u0443\u044E \u0441\u0431\u043E\u0440\u043A\u0443 \u0432 \u043A\u0440\u0430\u0442\u0447\u0430\u0439\u0448\u0438\u0435 \u0441\u0440\u043E\u043A\u0438."
             }, undefined, false, undefined, this),
-            jsx_dev_runtime9.jsxDEV(Typography_default, {
+            jsx_dev_runtime10.jsxDEV(Typography_default, {
               paragraph: true,
               children: "\u041C\u044B \u043F\u043E\u043D\u0438\u043C\u0430\u0435\u043C, \u0447\u0442\u043E \u0432\u0430\u0448\u0435 \u0432\u0440\u0435\u043C\u044F \u0446\u0435\u043D\u043D\u043E, \u043F\u043E\u044D\u0442\u043E\u043C\u0443 \u043C\u044B \u0441\u0442\u0440\u0435\u043C\u0438\u043C\u0441\u044F \u043E\u0431\u0435\u0441\u043F\u0435\u0447\u0438\u0442\u044C \u043F\u0440\u044F\u043C\u0443\u044E \u0441\u0432\u044F\u0437\u044C \u0441 \u043D\u0430\u0448\u0435\u0439 \u043A\u043E\u043C\u043F\u0430\u043D\u0438\u0435\u0439. \u0423 \u043D\u0430\u0441 \u043D\u0435\u0442 \u043F\u043E\u0441\u0440\u0435\u0434\u043D\u0438\u043A\u043E\u0432, \u0442\u043E\u043B\u044C\u043A\u043E \u043D\u0435\u043F\u043E\u0441\u0440\u0435\u0434\u0441\u0442\u0432\u0435\u043D\u043D\u043E\u0435 \u043E\u0431\u0449\u0435\u043D\u0438\u0435 \u0441 \u043D\u0430\u0448\u0435\u0439 \u0434\u0440\u0443\u0436\u0435\u043B\u044E\u0431\u043D\u043E\u0439 \u043A\u043E\u043C\u0430\u043D\u0434\u043E\u0439, \u0433\u043E\u0442\u043E\u0432\u043E\u0439 \u043F\u043E\u043C\u043E\u0447\u044C \u0438 \u043E\u0442\u0432\u0435\u0442\u0438\u0442\u044C \u043D\u0430 \u0432\u0441\u0435 \u0432\u0430\u0448\u0438 \u0432\u043E\u043F\u0440\u043E\u0441\u044B."
             }, undefined, false, undefined, this),
-            jsx_dev_runtime9.jsxDEV(Typography_default, {
+            jsx_dev_runtime10.jsxDEV(Typography_default, {
               paragraph: true,
               children: "\u0415\u0441\u043B\u0438 \u0432\u0430\u043C \u043D\u0443\u0436\u043D\u0430 \u043D\u0430\u0434\u0435\u0436\u043D\u0430\u044F \u0441\u0431\u043E\u0440\u043A\u0430 \u043A\u043E\u043C\u043F\u044C\u044E\u0442\u0435\u0440\u0430, \u0442\u043E GVG Tech Solutions - \u0432\u0430\u0448 \u0438\u0434\u0435\u0430\u043B\u044C\u043D\u044B\u0439 \u0432\u044B\u0431\u043E\u0440! \u041E\u0441\u0442\u0430\u0432\u044C\u0442\u0435 \u0441\u0432\u043E\u0438 \u0437\u0430\u044F\u0432\u043A\u0438 \u0441\u0435\u0439\u0447\u0430\u0441, \u0438 \u043D\u0430\u0448\u0430 \u043A\u043E\u043C\u0430\u043D\u0434\u0430 \u043F\u0440\u0438\u0441\u0442\u0443\u043F\u0438\u0442 \u043A \u0440\u0430\u0431\u043E\u0442\u0435 \u043D\u0430\u0434 \u0432\u0430\u0448\u0438\u043C \u0438\u0434\u0435\u0430\u043B\u044C\u043D\u044B\u043C \u043A\u043E\u043C\u043F\u044C\u044E\u0442\u0435\u0440\u043E\u043C. \uD83D\uDCAA"
             }, undefined, false, undefined, this)
           ]
         }, undefined, true, undefined, this),
-        jsx_dev_runtime9.jsxDEV(Grid_default, {
+        jsx_dev_runtime10.jsxDEV(Grid_default, {
           item: true,
           xs: 12,
           md: 12,
-          children: jsx_dev_runtime9.jsxDEV(Typography_default, {
+          children: jsx_dev_runtime10.jsxDEV(Typography_default, {
             fontSize: "1.5rem",
             children: "\u041A\u043E\u043D\u0442\u0430\u043A\u0442\u044B"
           }, undefined, false, undefined, this)
         }, undefined, false, undefined, this),
-        jsx_dev_runtime9.jsxDEV(Grid_default, {
+        jsx_dev_runtime10.jsxDEV(Grid_default, {
           item: true,
           xs: 12,
           md: 4,
           component: Stack_default,
           alignItems: "center",
           children: [
-            jsx_dev_runtime9.jsxDEV(Phone_default, {
+            jsx_dev_runtime10.jsxDEV(Phone_default, {
               sx: { marginRight: 2 }
             }, undefined, false, undefined, this),
-            jsx_dev_runtime9.jsxDEV(Box_default, {
-              children: jsx_dev_runtime9.jsxDEV("a", {
+            jsx_dev_runtime10.jsxDEV(Box_default, {
+              children: jsx_dev_runtime10.jsxDEV("a", {
                 href: "tel:9851460477",
                 style: {
                   color: "blueviolet"
@@ -40058,46 +40785,46 @@ var AboutUsPage_default = AboutUsPage = () => {
             }, undefined, false, undefined, this)
           ]
         }, undefined, true, undefined, this),
-        jsx_dev_runtime9.jsxDEV(Grid_default, {
+        jsx_dev_runtime10.jsxDEV(Grid_default, {
           item: true,
           xs: 12,
           md: 4,
           component: Stack_default,
           alignItems: "center",
           children: [
-            jsx_dev_runtime9.jsxDEV(AccessTime_default, {
+            jsx_dev_runtime10.jsxDEV(AccessTime_default, {
               sx: { marginRight: 2 }
             }, undefined, false, undefined, this),
-            jsx_dev_runtime9.jsxDEV(Box_default, {
+            jsx_dev_runtime10.jsxDEV(Box_default, {
               children: "\u0415\u0436\u0435\u0434\u043D\u0435\u0432\u043D\u043E \u0441 10:00 \u0434\u043E 20:00"
             }, undefined, false, undefined, this)
           ]
         }, undefined, true, undefined, this),
-        jsx_dev_runtime9.jsxDEV(Grid_default, {
+        jsx_dev_runtime10.jsxDEV(Grid_default, {
           item: true,
           xs: 12,
           md: 4,
           component: Stack_default,
           alignItems: "center",
           children: [
-            jsx_dev_runtime9.jsxDEV(Email_default, {
+            jsx_dev_runtime10.jsxDEV(Email_default, {
               sx: { marginRight: 2 }
             }, undefined, false, undefined, this),
-            jsx_dev_runtime9.jsxDEV(Box_default, {
+            jsx_dev_runtime10.jsxDEV(Box_default, {
               children: "kraskovskiydm@gmail.com"
             }, undefined, false, undefined, this)
           ]
         }, undefined, true, undefined, this),
-        jsx_dev_runtime9.jsxDEV(Grid_default, {
+        jsx_dev_runtime10.jsxDEV(Grid_default, {
           item: true,
           xs: 12,
           md: 12,
           marginBottom: 12,
           children: [
-            jsx_dev_runtime9.jsxDEV(Telegram_default, {
+            jsx_dev_runtime10.jsxDEV(Telegram_default, {
               sx: { marginRight: 2 }
             }, undefined, false, undefined, this),
-            jsx_dev_runtime9.jsxDEV(Instagram_default, {
+            jsx_dev_runtime10.jsxDEV(Instagram_default, {
               sx: { marginRight: 2 }
             }, undefined, false, undefined, this)
           ]
@@ -40127,7 +40854,7 @@ var UseCheckMobileScreen_default = useCheckMobileScreen = () => {
 var import_react19 = __toESM(require_react(), 1);
 
 // src/components/common/CustomSearch.js
-var jsx_dev_runtime10 = __toESM(require_jsx_dev_runtime(), 1);
+var jsx_dev_runtime11 = __toESM(require_jsx_dev_runtime(), 1);
 var Search = styled_default2("div")(({ theme }) => ({
   position: "relative",
   borderRadius: theme.shape.borderRadius,
@@ -40166,12 +40893,12 @@ var StyledInputBase = styled_default2(InputBase_default)(({ theme }) => ({
   }
 }));
 var CustomSearch_default = CustomSearch = () => {
-  return jsx_dev_runtime10.jsxDEV(Search, {
+  return jsx_dev_runtime11.jsxDEV(Search, {
     children: [
-      jsx_dev_runtime10.jsxDEV(SearchIconWrapper, {
-        children: jsx_dev_runtime10.jsxDEV(Search_default, {}, undefined, false, undefined, this)
+      jsx_dev_runtime11.jsxDEV(SearchIconWrapper, {
+        children: jsx_dev_runtime11.jsxDEV(Search_default, {}, undefined, false, undefined, this)
       }, undefined, false, undefined, this),
-      jsx_dev_runtime10.jsxDEV(StyledInputBase, {
+      jsx_dev_runtime11.jsxDEV(StyledInputBase, {
         placeholder: "Search\u2026",
         color: "#ffffff",
         inputProps: { "aria-label": "search" }
@@ -40181,22 +40908,22 @@ var CustomSearch_default = CustomSearch = () => {
 };
 
 // node_modules/material-ui-popup-state/es/index.mjs
-var import_prop_types45 = __toESM(require_prop_types(), 1);
+var import_prop_types51 = __toESM(require_prop_types(), 1);
 
 // node_modules/material-ui-popup-state/es/hooks.mjs
 var import_react18 = __toESM(require_react(), 1);
 
 // node_modules/material-ui-popup-state/es/useEvent.mjs
-var React74 = __toESM(require_react(), 1);
+var React82 = __toESM(require_react(), 1);
 function useEvent(handler) {
   if (typeof window === "undefined") {
     return handler;
   }
-  const handlerRef = React74.useRef(null);
-  React74.useLayoutEffect(() => {
+  const handlerRef = React82.useRef(null);
+  React82.useLayoutEffect(() => {
     handlerRef.current = handler;
   });
-  return React74.useCallback((...args) => {
+  return React82.useCallback((...args) => {
     var _handlerRef$current;
     (_handlerRef$current = handlerRef.current) === null || _handlerRef$current === undefined || _handlerRef$current.call(handlerRef, ...args);
   }, []);
@@ -40501,11 +41228,11 @@ function PopupState({
   return result != null ? result : null;
 }
 PopupState.propTypes = {
-  children: import_prop_types45.default.func.isRequired,
-  popupId: import_prop_types45.default.string,
-  variant: import_prop_types45.default.oneOf(["popover", "popper"]).isRequired,
-  parentPopupState: import_prop_types45.default.object,
-  disableAutoFocus: import_prop_types45.default.bool
+  children: import_prop_types51.default.func.isRequired,
+  popupId: import_prop_types51.default.string,
+  variant: import_prop_types51.default.oneOf(["popover", "popper"]).isRequired,
+  parentPopupState: import_prop_types51.default.object,
+  disableAutoFocus: import_prop_types51.default.bool
 };
 
 // node_modules/@material-ui/core/esm/styles/colorManipulator.js
@@ -40522,13 +41249,13 @@ var clamp2 = function(value) {
 function hexToRgb2(color2) {
   color2 = color2.substr(1);
   var re = new RegExp(".{1,".concat(color2.length >= 6 ? 2 : 1, "}"), "g");
-  var colors = color2.match(re);
-  if (colors && colors[0].length === 1) {
-    colors = colors.map(function(n2) {
+  var colors2 = color2.match(re);
+  if (colors2 && colors2[0].length === 1) {
+    colors2 = colors2.map(function(n2) {
       return n2 + n2;
     });
   }
-  return colors ? "rgb".concat(colors.length === 4 ? "a" : "", "(").concat(colors.map(function(n2, index) {
+  return colors2 ? "rgb".concat(colors2.length === 4 ? "a" : "", "(").concat(colors2.map(function(n2, index) {
     return index < 3 ? parseInt(n2, 16) : Math.round(parseInt(n2, 16) / 255 * 1000) / 1000;
   }).join(", "), ")") : "";
 }
@@ -40580,7 +41307,7 @@ function darken2(color2, coefficient) {
 }
 
 // src/components/common/CustomPopup.js
-var jsx_dev_runtime11 = __toESM(require_jsx_dev_runtime(), 1);
+var jsx_dev_runtime12 = __toESM(require_jsx_dev_runtime(), 1);
 var CustomPopup_default = CustomPopupOptions = ({ setMouseOnPopup, actions }) => {
   const isMobile = UseCheckMobileScreen_default();
   const handleEnter = () => {
@@ -40594,7 +41321,7 @@ var CustomPopup_default = CustomPopupOptions = ({ setMouseOnPopup, actions }) =>
     variant: "contained",
     fullWidth: true
   };
-  return jsx_dev_runtime11.jsxDEV(Box_default, {
+  return jsx_dev_runtime12.jsxDEV(Box_default, {
     sx: {
       position: "absolute",
       bottom: { xs: "56px", md: "auto" },
@@ -40608,12 +41335,12 @@ var CustomPopup_default = CustomPopupOptions = ({ setMouseOnPopup, actions }) =>
     },
     onMouseEnter: handleEnter,
     onMouseLeave: handleLeave,
-    children: jsx_dev_runtime11.jsxDEV(ButtonGroup_default, {
+    children: jsx_dev_runtime12.jsxDEV(ButtonGroup_default, {
       ...buttonGroupProps,
       sx: {
         minHeight: "50px"
       },
-      children: actions.map((action, index) => jsx_dev_runtime11.jsxDEV(Button_default, {
+      children: actions.map((action, index) => jsx_dev_runtime12.jsxDEV(Button_default, {
         href: `${action.path}`,
         sx: {
           color: { xs: "#ff0000", md: "#ffffff" },
@@ -40623,7 +41350,7 @@ var CustomPopup_default = CustomPopupOptions = ({ setMouseOnPopup, actions }) =>
             color: "#000000"
           }
         },
-        children: jsx_dev_runtime11.jsxDEV(Typography_default, {
+        children: jsx_dev_runtime12.jsxDEV(Typography_default, {
           variant: "p",
           sx: {
             width: "100%",
@@ -40638,7 +41365,7 @@ var CustomPopup_default = CustomPopupOptions = ({ setMouseOnPopup, actions }) =>
 };
 
 // src/components/navbars/CustomBarPC.js
-var jsx_dev_runtime12 = __toESM(require_jsx_dev_runtime(), 1);
+var jsx_dev_runtime13 = __toESM(require_jsx_dev_runtime(), 1);
 var themed = createTheme_default2({
   palette: {
     primary: {
@@ -40666,7 +41393,7 @@ var actions = [
 ];
 var offersActions = [
   {
-    title: "\u0421\u043E\u0431\u0440\u043A\u0438",
+    title: "\u0421\u0431\u043E\u0440\u043A\u0438",
     path: "/offers/builds"
   },
   {
@@ -40698,22 +41425,22 @@ var CustomBarPC_default = CustomBarPC = () => {
     }
     navigate(actionPath);
   };
-  return jsx_dev_runtime12.jsxDEV(ThemeProvider5, {
+  return jsx_dev_runtime13.jsxDEV(ThemeProvider5, {
     theme: themed,
-    children: jsx_dev_runtime12.jsxDEV(AppBar_default, {
+    children: jsx_dev_runtime13.jsxDEV(AppBar_default, {
       position: "static",
-      children: jsx_dev_runtime12.jsxDEV(Toolbar_default, {
+      children: jsx_dev_runtime13.jsxDEV(Toolbar_default, {
         sx: {
           borderBottom: 1,
           borderColor: "primary.main",
           bgcolor: "#0D0D0D"
         },
         children: [
-          jsx_dev_runtime12.jsxDEV(Button_default, {
+          jsx_dev_runtime13.jsxDEV(Button_default, {
             sx: { alignItems: "end", color: "#ffffff", paddingTop: 0 },
             onClick: () => navigate("/home"),
             children: [
-              jsx_dev_runtime12.jsxDEV(Box_default, {
+              jsx_dev_runtime13.jsxDEV(Box_default, {
                 component: "img",
                 sx: {
                   maxHeight: 81,
@@ -40721,7 +41448,7 @@ var CustomBarPC_default = CustomBarPC = () => {
                 },
                 src: "/static/logos/icon.png"
               }, undefined, false, undefined, this),
-              jsx_dev_runtime12.jsxDEV(Box_default, {
+              jsx_dev_runtime13.jsxDEV(Box_default, {
                 component: "img",
                 sx: {
                   height: "35px",
@@ -40731,10 +41458,10 @@ var CustomBarPC_default = CustomBarPC = () => {
               }, undefined, false, undefined, this)
             ]
           }, undefined, true, undefined, this),
-          jsx_dev_runtime12.jsxDEV(ButtonGroup_default, {
+          jsx_dev_runtime13.jsxDEV(ButtonGroup_default, {
             variant: "text",
             sx: { minHeight: "50px", paddingInline: "20px" },
-            children: actions.map((action, index) => jsx_dev_runtime12.jsxDEV(Button_default, {
+            children: actions.map((action, index) => jsx_dev_runtime13.jsxDEV(Button_default, {
               sx: { paddingInline: "20px" },
               onClick: () => handleClickButton(action.path),
               onMouseEnter: () => handleEnterButton(action.path),
@@ -40742,21 +41469,21 @@ var CustomBarPC_default = CustomBarPC = () => {
               children: action.title
             }, index, false, undefined, this))
           }, undefined, false, undefined, this),
-          (mouseOnOffers || mouseOnPopup) && jsx_dev_runtime12.jsxDEV(CustomPopup_default, {
+          (mouseOnOffers || mouseOnPopup) && jsx_dev_runtime13.jsxDEV(CustomPopup_default, {
             setMouseOnPopup,
             actions: offersActions
           }, undefined, false, undefined, this),
-          jsx_dev_runtime12.jsxDEV(Stack_default, {
+          jsx_dev_runtime13.jsxDEV(Stack_default, {
             direction: "row-reverse",
             marginLeft: "auto",
             sx: { alignItems: "center", color: "#ffffff" },
             children: [
-              jsx_dev_runtime12.jsxDEV(CustomSearch_default, {}, undefined, false, undefined, this),
-              jsx_dev_runtime12.jsxDEV(Typography_default, {
+              jsx_dev_runtime13.jsxDEV(CustomSearch_default, {}, undefined, false, undefined, this),
+              jsx_dev_runtime13.jsxDEV(Typography_default, {
                 variant: "body1",
                 sx: { alignSelf: "center" },
                 display: { xs: "none", lg: "flex" },
-                children: jsx_dev_runtime12.jsxDEV("a", {
+                children: jsx_dev_runtime13.jsxDEV("a", {
                   href: "tel:9851460477",
                   style: {
                     color: "white"
@@ -40764,19 +41491,19 @@ var CustomBarPC_default = CustomBarPC = () => {
                   children: "+7 (985) 146-04-77"
                 }, undefined, false, undefined, this)
               }, undefined, false, undefined, this),
-              jsx_dev_runtime12.jsxDEV(Box_default, {
+              jsx_dev_runtime13.jsxDEV(Box_default, {
                 display: { xs: "flex", lg: "none" },
-                children: jsx_dev_runtime12.jsxDEV(PopupState, {
+                children: jsx_dev_runtime13.jsxDEV(PopupState, {
                   variant: "popover",
                   popupId: "demo-popup-popover",
-                  children: (popupState) => jsx_dev_runtime12.jsxDEV("div", {
+                  children: (popupState) => jsx_dev_runtime13.jsxDEV("div", {
                     children: [
-                      jsx_dev_runtime12.jsxDEV(IconButton_default, {
+                      jsx_dev_runtime13.jsxDEV(IconButton_default, {
                         sx: { color: "#ffffff" },
                         ...bindTrigger(popupState),
-                        children: jsx_dev_runtime12.jsxDEV(Phone_default, {}, undefined, false, undefined, this)
+                        children: jsx_dev_runtime13.jsxDEV(Phone_default, {}, undefined, false, undefined, this)
                       }, undefined, false, undefined, this),
-                      jsx_dev_runtime12.jsxDEV(Popover_default, {
+                      jsx_dev_runtime13.jsxDEV(Popover_default, {
                         ...bindPopover(popupState),
                         anchorOrigin: {
                           vertical: "bottom",
@@ -40786,9 +41513,9 @@ var CustomBarPC_default = CustomBarPC = () => {
                           vertical: "top",
                           horizontal: "center"
                         },
-                        children: jsx_dev_runtime12.jsxDEV(Typography_default, {
+                        children: jsx_dev_runtime13.jsxDEV(Typography_default, {
                           sx: { p: 2 },
-                          children: jsx_dev_runtime12.jsxDEV("a", {
+                          children: jsx_dev_runtime13.jsxDEV("a", {
                             href: "tel:9851460477",
                             style: {
                               color: "black"
@@ -42057,32 +42784,32 @@ var dt = "__sc-".concat(f2, "__");
 typeof window != "undefined" && (window[dt] || (window[dt] = 0), window[dt] === 1 && console.warn("It looks like there are several instances of 'styled-components' initialized in this application. This may cause dynamic styles to not render properly, errors during the rehydration process, a missing theme prop, and makes your application bigger without good reason.\n\nSee https://s-c.sh/2BAXzed for more info."), window[dt] += 1);
 
 // src/components/navbars/CustomBarMobile.js
-var jsx_dev_runtime13 = __toESM(require_jsx_dev_runtime(), 1);
+var jsx_dev_runtime14 = __toESM(require_jsx_dev_runtime(), 1);
 var actions2 = [
   {
     title: "\u0413\u043B\u0430\u0432\u043D\u0430\u044F",
     path: "/home",
-    icon: jsx_dev_runtime13.jsxDEV(Home_default, {}, undefined, false, undefined, this)
+    icon: jsx_dev_runtime14.jsxDEV(Home_default, {}, undefined, false, undefined, this)
   },
   {
     title: "\u0423\u0441\u043B\u0443\u0433\u0438",
     path: "/offers",
-    icon: jsx_dev_runtime13.jsxDEV(Computer_default, {}, undefined, false, undefined, this)
+    icon: jsx_dev_runtime14.jsxDEV(Computer_default, {}, undefined, false, undefined, this)
   },
   {
     title: "\u0414\u043E\u0441\u0442\u0430\u0432\u043A\u0430",
     path: "/delivery",
-    icon: jsx_dev_runtime13.jsxDEV(DeliveryDining_default, {}, undefined, false, undefined, this)
+    icon: jsx_dev_runtime14.jsxDEV(DeliveryDining_default, {}, undefined, false, undefined, this)
   },
   {
     title: "\u041E \u043D\u0430\u0441",
     path: "/about",
-    icon: jsx_dev_runtime13.jsxDEV(Info_default, {}, undefined, false, undefined, this)
+    icon: jsx_dev_runtime14.jsxDEV(Info_default, {}, undefined, false, undefined, this)
   }
 ];
 var offersActions2 = [
   {
-    title: "\u0421\u043E\u0431\u0440\u043A\u0438",
+    title: "\u0421\u0431\u043E\u0440\u043A\u0438",
     path: "/offers/builds"
   },
   {
@@ -42116,23 +42843,23 @@ var CustomBarMobile_default = CustomBarMobile = () => {
       navigate(`${actions2[newSelected].path}`);
     }
   };
-  return jsx_dev_runtime13.jsxDEV(Xe, {
+  return jsx_dev_runtime14.jsxDEV(Xe, {
     theme: themed2,
     children: [
-      jsx_dev_runtime13.jsxDEV(AppBar_default, {
+      jsx_dev_runtime14.jsxDEV(AppBar_default, {
         position: "static",
-        children: jsx_dev_runtime13.jsxDEV(Toolbar_default, {
+        children: jsx_dev_runtime14.jsxDEV(Toolbar_default, {
           sx: {
             borderBottom: 1,
             borderColor: "#ffffff",
             bgcolor: "#0D0D0D"
           },
           children: [
-            jsx_dev_runtime13.jsxDEV(Button_default, {
+            jsx_dev_runtime14.jsxDEV(Button_default, {
               sx: { alignItems: "end", color: "#ffffff", paddingTop: 0 },
               onClick: () => navigate("/home"),
               children: [
-                jsx_dev_runtime13.jsxDEV(Box_default, {
+                jsx_dev_runtime14.jsxDEV(Box_default, {
                   component: "img",
                   sx: {
                     maxHeight: 81,
@@ -42141,7 +42868,7 @@ var CustomBarMobile_default = CustomBarMobile = () => {
                   alt: "The house from the offer.",
                   src: "/static/logos/icon.png"
                 }, undefined, false, undefined, this),
-                jsx_dev_runtime13.jsxDEV(Box_default, {
+                jsx_dev_runtime14.jsxDEV(Box_default, {
                   component: "img",
                   sx: {
                     height: "35px",
@@ -42151,23 +42878,23 @@ var CustomBarMobile_default = CustomBarMobile = () => {
                 }, undefined, false, undefined, this)
               ]
             }, undefined, true, undefined, this),
-            jsx_dev_runtime13.jsxDEV(Stack_default, {
+            jsx_dev_runtime14.jsxDEV(Stack_default, {
               direction: "row-reverse",
               marginLeft: "auto",
               sx: { alignItems: "center" },
               children: [
-                jsx_dev_runtime13.jsxDEV(CustomSearch_default, {}, undefined, false, undefined, this),
-                jsx_dev_runtime13.jsxDEV(PopupState, {
+                jsx_dev_runtime14.jsxDEV(CustomSearch_default, {}, undefined, false, undefined, this),
+                jsx_dev_runtime14.jsxDEV(PopupState, {
                   variant: "popover",
                   popupId: "demo-popup-popover",
-                  children: (popupState) => jsx_dev_runtime13.jsxDEV("div", {
+                  children: (popupState) => jsx_dev_runtime14.jsxDEV("div", {
                     children: [
-                      jsx_dev_runtime13.jsxDEV(IconButton_default, {
+                      jsx_dev_runtime14.jsxDEV(IconButton_default, {
                         sx: { color: "#ffffff" },
                         ...bindTrigger(popupState),
-                        children: jsx_dev_runtime13.jsxDEV(Phone_default, {}, undefined, false, undefined, this)
+                        children: jsx_dev_runtime14.jsxDEV(Phone_default, {}, undefined, false, undefined, this)
                       }, undefined, false, undefined, this),
-                      jsx_dev_runtime13.jsxDEV(Popover_default, {
+                      jsx_dev_runtime14.jsxDEV(Popover_default, {
                         ...bindPopover(popupState),
                         anchorOrigin: {
                           vertical: "bottom",
@@ -42177,9 +42904,9 @@ var CustomBarMobile_default = CustomBarMobile = () => {
                           vertical: "top",
                           horizontal: "center"
                         },
-                        children: jsx_dev_runtime13.jsxDEV(Typography_default, {
+                        children: jsx_dev_runtime14.jsxDEV(Typography_default, {
                           sx: { p: 2 },
-                          children: jsx_dev_runtime13.jsxDEV("a", {
+                          children: jsx_dev_runtime14.jsxDEV("a", {
                             href: "tel:9851460477",
                             style: {
                               color: "blueviolet"
@@ -42196,7 +42923,7 @@ var CustomBarMobile_default = CustomBarMobile = () => {
           ]
         }, undefined, true, undefined, this)
       }, undefined, false, undefined, this),
-      jsx_dev_runtime13.jsxDEV(BottomNavigation_default, {
+      jsx_dev_runtime14.jsxDEV(BottomNavigation_default, {
         sx: {
           backgroundColor: "#ffffff",
           width: "100%",
@@ -42208,12 +42935,12 @@ var CustomBarMobile_default = CustomBarMobile = () => {
         value: selected,
         onChange: handleSelect,
         showLabels: true,
-        children: actions2.map((action, index) => jsx_dev_runtime13.jsxDEV(BottomNavigationAction_default, {
+        children: actions2.map((action, index) => jsx_dev_runtime14.jsxDEV(BottomNavigationAction_default, {
           label: action.title,
           icon: action.icon
         }, index, false, undefined, this))
       }, undefined, false, undefined, this),
-      (mouseOnOffers || mouseOnPopup) && jsx_dev_runtime13.jsxDEV(CustomPopup_default, {
+      (mouseOnOffers || mouseOnPopup) && jsx_dev_runtime14.jsxDEV(CustomPopup_default, {
         setMouseOnPopup,
         actions: offersActions2
       }, undefined, false, undefined, this)
@@ -42223,9 +42950,9 @@ var CustomBarMobile_default = CustomBarMobile = () => {
 
 // src/components/offers/BuildsPage.js
 var import_react22 = __toESM(require_react(), 1);
-var jsx_dev_runtime14 = __toESM(require_jsx_dev_runtime(), 1);
+var jsx_dev_runtime15 = __toESM(require_jsx_dev_runtime(), 1);
 var BuildsPage_default = BuildsPage = (props) => {
-  return jsx_dev_runtime14.jsxDEV(Box_default, {
+  return jsx_dev_runtime15.jsxDEV(Box_default, {
     padding: 4,
     children: "BUILDS"
   }, undefined, false, undefined, this);
@@ -42233,9 +42960,9 @@ var BuildsPage_default = BuildsPage = (props) => {
 
 // src/components/offers/ComponentsPage.js
 var import_react23 = __toESM(require_react(), 1);
-var jsx_dev_runtime15 = __toESM(require_jsx_dev_runtime(), 1);
+var jsx_dev_runtime16 = __toESM(require_jsx_dev_runtime(), 1);
 var ComponentsPage_default = ComponentsPage = (props) => {
-  return jsx_dev_runtime15.jsxDEV(Box_default, {
+  return jsx_dev_runtime16.jsxDEV(Box_default, {
     padding: 4,
     children: "COMPONENTS"
   }, undefined, false, undefined, this);
@@ -42243,24 +42970,24 @@ var ComponentsPage_default = ComponentsPage = (props) => {
 
 // src/components/offers/ConstructorPage.js
 var import_react24 = __toESM(require_react(), 1);
-var jsx_dev_runtime16 = __toESM(require_jsx_dev_runtime(), 1);
+var jsx_dev_runtime17 = __toESM(require_jsx_dev_runtime(), 1);
 var ConstructorPage_default = ConstructorPage = (props) => {
-  return jsx_dev_runtime16.jsxDEV(Box_default, {
+  return jsx_dev_runtime17.jsxDEV(Box_default, {
     padding: 4,
     children: "CONSTRUCTORS"
   }, undefined, false, undefined, this);
 };
 
 // src/components/App.js
-var jsx_dev_runtime17 = __toESM(require_jsx_dev_runtime(), 1);
+var jsx_dev_runtime18 = __toESM(require_jsx_dev_runtime(), 1);
 var App_default = App = () => {
   const isMobile = UseCheckMobileScreen_default();
   import_react25.useEffect(() => {
     console.log(`mobile: ${isMobile}`);
   }, [isMobile]);
-  return jsx_dev_runtime17.jsxDEV(BrowserRouter, {
+  return jsx_dev_runtime18.jsxDEV(BrowserRouter, {
     basename: "/",
-    children: jsx_dev_runtime17.jsxDEV(Box_default, {
+    children: jsx_dev_runtime18.jsxDEV(Box_default, {
       sx: {
         backgroundColor: "#000000",
         color: "#ffffff",
@@ -42268,38 +42995,38 @@ var App_default = App = () => {
         width: 1
       },
       children: [
-        isMobile ? jsx_dev_runtime17.jsxDEV(CustomBarMobile_default, {}, undefined, false, undefined, this) : jsx_dev_runtime17.jsxDEV(CustomBarPC_default, {}, undefined, false, undefined, this),
-        jsx_dev_runtime17.jsxDEV(Box_default, {
-          children: jsx_dev_runtime17.jsxDEV(Routes, {
+        isMobile ? jsx_dev_runtime18.jsxDEV(CustomBarMobile_default, {}, undefined, false, undefined, this) : jsx_dev_runtime18.jsxDEV(CustomBarPC_default, {}, undefined, false, undefined, this),
+        jsx_dev_runtime18.jsxDEV(Box_default, {
+          children: jsx_dev_runtime18.jsxDEV(Routes, {
             children: [
-              jsx_dev_runtime17.jsxDEV(Route, {
+              jsx_dev_runtime18.jsxDEV(Route, {
                 path: "home",
-                element: jsx_dev_runtime17.jsxDEV(HomePage_default, {}, undefined, false, undefined, this)
+                element: jsx_dev_runtime18.jsxDEV(HomePage_default, {}, undefined, false, undefined, this)
               }, undefined, false, undefined, this),
-              jsx_dev_runtime17.jsxDEV(Route, {
+              jsx_dev_runtime18.jsxDEV(Route, {
                 path: "offers",
                 children: [
-                  jsx_dev_runtime17.jsxDEV(Route, {
+                  jsx_dev_runtime18.jsxDEV(Route, {
                     path: "builds",
-                    element: jsx_dev_runtime17.jsxDEV(BuildsPage_default, {}, undefined, false, undefined, this)
+                    element: jsx_dev_runtime18.jsxDEV(BuildsPage_default, {}, undefined, false, undefined, this)
                   }, undefined, false, undefined, this),
-                  jsx_dev_runtime17.jsxDEV(Route, {
+                  jsx_dev_runtime18.jsxDEV(Route, {
                     path: "components",
-                    element: jsx_dev_runtime17.jsxDEV(ComponentsPage_default, {}, undefined, false, undefined, this)
+                    element: jsx_dev_runtime18.jsxDEV(ComponentsPage_default, {}, undefined, false, undefined, this)
                   }, undefined, false, undefined, this),
-                  jsx_dev_runtime17.jsxDEV(Route, {
+                  jsx_dev_runtime18.jsxDEV(Route, {
                     path: "constructor",
-                    element: jsx_dev_runtime17.jsxDEV(ConstructorPage_default, {}, undefined, false, undefined, this)
+                    element: jsx_dev_runtime18.jsxDEV(ConstructorPage_default, {}, undefined, false, undefined, this)
                   }, undefined, false, undefined, this)
                 ]
               }, undefined, true, undefined, this),
-              jsx_dev_runtime17.jsxDEV(Route, {
+              jsx_dev_runtime18.jsxDEV(Route, {
                 path: "delivery",
-                element: jsx_dev_runtime17.jsxDEV(DeliveryPage_default, {}, undefined, false, undefined, this)
+                element: jsx_dev_runtime18.jsxDEV(DeliveryPage_default, {}, undefined, false, undefined, this)
               }, undefined, false, undefined, this),
-              jsx_dev_runtime17.jsxDEV(Route, {
+              jsx_dev_runtime18.jsxDEV(Route, {
                 path: "about",
-                element: jsx_dev_runtime17.jsxDEV(AboutUsPage_default, {}, undefined, false, undefined, this)
+                element: jsx_dev_runtime18.jsxDEV(AboutUsPage_default, {}, undefined, false, undefined, this)
               }, undefined, false, undefined, this)
             ]
           }, undefined, true, undefined, this)
@@ -42310,6 +43037,6 @@ var App_default = App = () => {
 };
 
 // src/index.js
-var jsx_dev_runtime18 = __toESM(require_jsx_dev_runtime(), 1);
+var jsx_dev_runtime19 = __toESM(require_jsx_dev_runtime(), 1);
 var appDiv = document.getElementById("app");
-import_react_dom2.render(jsx_dev_runtime18.jsxDEV(App_default, {}, undefined, false, undefined, this), appDiv);
+import_react_dom2.render(jsx_dev_runtime19.jsxDEV(App_default, {}, undefined, false, undefined, this), appDiv);

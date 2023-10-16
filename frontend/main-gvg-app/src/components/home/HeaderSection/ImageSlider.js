@@ -79,7 +79,13 @@ const ImageSlider = ({ items }) => {
   }, [timeLeft]);
 
   const goToPrevious = () => {
-    setCurrentIndex((currentIndex - 1) % items.length);
+    setCurrentIndex((oldIndex) => {
+      var newIndex = oldIndex - 1;
+      if (newIndex < 0) {
+        newIndex = items.length - 1;
+      }
+      return newIndex;
+    });
     setTimeLeft(NEXT_SLIDE_TIMER);
   };
   const goToNext = () => {
@@ -88,7 +94,7 @@ const ImageSlider = ({ items }) => {
   };
   const goToSlide = (slideIndex) => {
     setCurrentIndex(slideIndex);
-	setTimeLeft(NEXT_SLIDE_TIMER);
+    setTimeLeft(NEXT_SLIDE_TIMER);
   };
   const slideStylesWidthBackground = {
     ...slideStyles,

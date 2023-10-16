@@ -189,7 +189,7 @@ export default ChooseSection = () => {
       container
       sx={{
         backgroundColor: "#0d0d0d",
-        height: "100vh",
+        minHeight: "100vh",
         justifyContent: "center",
       }}
       component={"div"}
@@ -272,13 +272,12 @@ export default ChooseSection = () => {
             visibility: selectedGames.length > 0 ? "visible" : "hidden",
             margin: "10px",
             width: "50vw",
-            backgroundColor: selectedGames.length > 0 ? "gray" : "#0d0d0d",
+            backgroundColor: selectedGames.length > 0 ? "blue" : "#0d0d0d",
             color: selectedGames.length > 0 ? "#ffffff" : "#0d0d0d",
             borderRadius: "10px",
             marginInline: "auto",
-            transition: "all 1s",
+            transition: "all 0.3s",
             "&:hover": {
-              border: "1px solid #ffffff",
               backgroundColor: "lightblue",
               boxShadow: "0 0 2em #ffffff",
               color: "blue",

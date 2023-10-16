@@ -28,10 +28,9 @@ import {
   createTheme,
 } from "@mui/material";
 
-import { useNavigate } from "react-router-dom";
-import { ThemeProvider } from 'styled-components';
-import { darken } from '@material-ui/core';
-
+import { useLocation, useNavigate } from "react-router-dom";
+import { ThemeProvider } from "styled-components";
+import { darken } from "@material-ui/core";
 
 const actions = [
   {
@@ -80,23 +79,50 @@ const themed = createTheme({
 });
 
 export default CustomBarMobile = () => {
-	const [mouseOnOffers, setMouseOnOffers] = useState(false);
+  const [selected, setSelected] = useState(0);
+
+  const [mouseOnOffers, setMouseOnOffers] = useState(false);
   const [mouseOnPopup, setMouseOnPopup] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
 
+  // remember last location and display it on mobile navbar
+  useEffect(() => {
+    var pathname = location.pathname;
+	if (pathname[pathname.length - 1] === '/') {
+		pathname = pathname.substring(0, pathname.length - 1);
+	}
+    console.log(pathname);
+    for (let i = 0; i < actions.length; i += 1) {
+      if (actions[i].path == pathname) {
+        console.log(`GOOOD, ${pathname} IS ${actions[i].path}`);
+        setSelected(i);
+        return;
+      } else {
+        console.log(`baad, ${pathname} is not ${actions[i].path}`);
+	  }
+    }
+    for (let i = 0; i < offersActions.length; i += 1) {
+      if (offersActions[i].path == pathname) {
+        setSelected(1);
+        return;
+	  }
+    }
+  }, [location]);
 
-
-  const [selected, setSelected] = useState(0);
   const handleSelect = (target, newSelected) => {
     setSelected(newSelected);
 
-	if (actions[newSelected].path === "/offers") {
-		setMouseOnOffers(value => !value)
-	} else {
-		setMouseOnOffers(false);
-    	navigate(`${actions[newSelected].path}`);
-	}
+    if (actions[newSelected].path === "/offers") {
+      setMouseOnOffers((value) => !value);
+    } else {
+      setMouseOnOffers(false);
+      navigate(`${actions[newSelected].path}`);
+    }
   };
+  useEffect(() => {
+	console.log(selected)
+  }, [selected])
 
   return (
     <ThemeProvider theme={themed}>

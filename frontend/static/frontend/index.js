@@ -39629,7 +39629,7 @@ var sliderStyles = {
 };
 var dotsContainerStyles = {
   position: "relative",
-  top: "55vh",
+  top: "65vh",
   display: "flex",
   justifyContent: "center",
   flexDirection: "row"
@@ -39698,8 +39698,11 @@ var ImageSlider = ({ items }) => {
         sx: slideStylesWidthBackground,
         children: [
           jsx_dev_runtime2.jsxDEV(Box_default, {
-            sx: { padding: 4 },
-            children: items[currentIndex].name
+            sx: { position: "absolute", bottom: "104px", left: "54px" },
+            children: jsx_dev_runtime2.jsxDEV(Typography_default, {
+              fontSize: "1.5rem",
+              children: items[currentIndex].name
+            }, undefined, false, undefined, this)
           }, undefined, false, undefined, this),
           jsx_dev_runtime2.jsxDEV(Box_default, {
             sx: dotsContainerStyles,
@@ -39725,13 +39728,21 @@ var containerStyles = {
 };
 var HeaderSection_default = HeaderSection = () => {
   return jsx_dev_runtime3.jsxDEV(Box_default, {
-    children: jsx_dev_runtime3.jsxDEV(Box_default, {
-      sx: containerStyles,
-      children: jsx_dev_runtime3.jsxDEV(ImageSlider_default, {
-        items: header_items_default
+    position: "relative",
+    children: [
+      jsx_dev_runtime3.jsxDEV(Box_default, {
+        sx: containerStyles,
+        children: jsx_dev_runtime3.jsxDEV(ImageSlider_default, {
+          items: header_items_default
+        }, undefined, false, undefined, this)
+      }, undefined, false, undefined, this),
+      jsx_dev_runtime3.jsxDEV(Typography_default, {
+        variant: "h2",
+        sx: { position: "absolute", top: "24px", left: "24px" },
+        children: "Tech Solutions"
       }, undefined, false, undefined, this)
-    }, undefined, false, undefined, this)
-  }, undefined, false, undefined, this);
+    ]
+  }, undefined, true, undefined, this);
 };
 
 // src/components/home/ChooseSection/ChooseSection.js
@@ -42845,10 +42856,33 @@ var themed2 = createTheme_default2({
   }
 });
 var CustomBarMobile_default = CustomBarMobile = () => {
+  const [selected, setSelected] = import_react21.useState(0);
   const [mouseOnOffers, setMouseOnOffers] = import_react21.useState(false);
   const [mouseOnPopup, setMouseOnPopup] = import_react21.useState(false);
   const navigate = useNavigate();
-  const [selected, setSelected] = import_react21.useState(0);
+  const location = useLocation();
+  import_react21.useEffect(() => {
+    var pathname = location.pathname;
+    if (pathname[pathname.length - 1] === "/") {
+      pathname = pathname.substring(0, pathname.length - 1);
+    }
+    console.log(pathname);
+    for (let i3 = 0;i3 < actions2.length; i3 += 1) {
+      if (actions2[i3].path == pathname) {
+        console.log(`GOOOD, ${pathname} IS ${actions2[i3].path}`);
+        setSelected(i3);
+        return;
+      } else {
+        console.log(`baad, ${pathname} is not ${actions2[i3].path}`);
+      }
+    }
+    for (let i3 = 0;i3 < offersActions2.length; i3 += 1) {
+      if (offersActions2[i3].path == pathname) {
+        setSelected(1);
+        return;
+      }
+    }
+  }, [location]);
   const handleSelect = (target, newSelected) => {
     setSelected(newSelected);
     if (actions2[newSelected].path === "/offers") {
@@ -42858,6 +42892,9 @@ var CustomBarMobile_default = CustomBarMobile = () => {
       navigate(`${actions2[newSelected].path}`);
     }
   };
+  import_react21.useEffect(() => {
+    console.log(selected);
+  }, [selected]);
   return jsx_dev_runtime14.jsxDEV(Xe, {
     theme: themed2,
     children: [

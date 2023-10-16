@@ -15,16 +15,6 @@ import ImageSlider from "./ImageSlider";
 //   },
 // ];
 
-const Item = (props) => {
-  return (
-    <Paper>
-      <h2>{props.item.name}</h2>
-      <p>{props.item.description}</p>
-
-      <Button className="CheckButton">Check it out!</Button>
-    </Paper>
-  );
-};
 const containerStyles = {
   width: "100%",
   height: "70vh",
@@ -32,11 +22,16 @@ const containerStyles = {
 };
 export default HeaderSection = () => {
   return (
-    <Box
-    >
+    <Box position={"relative"}>
       <Box sx={containerStyles}>
         <ImageSlider items={items} />
       </Box>
+      <Typography
+        variant="h2"
+        sx={{ position: "absolute", top: "24px", left: "24px" }}
+      >
+        Tech Solutions
+      </Typography>
     </Box>
   );
 };

@@ -5,8 +5,7 @@ import {
   KeyboardArrowLeft,
   KeyboardArrowRight,
 } from "@mui/icons-material";
-import { Box } from "@mui/material";
-import { styled, alpha } from "@mui/material/styles";
+import { Box, Typography } from "@mui/material";
 
 const slideStyles = {
   width: "100%",
@@ -49,7 +48,7 @@ const sliderStyles = {
 
 const dotsContainerStyles = {
   position: "relative",
-  top: "55vh",
+  top: "65vh",
   display: "flex",
   justifyContent: "center",
   flexDirection: "row",
@@ -112,7 +111,9 @@ const ImageSlider = ({ items }) => {
         </Box>
       </Box>
       <Box sx={slideStylesWidthBackground}>
-        <Box sx={{ padding: 4 }}>{items[currentIndex].name}</Box>
+        <Box sx={{ position: "absolute", bottom: "104px", left: "54px" }}>
+          <Typography fontSize="1.5rem">{items[currentIndex].name}</Typography>
+        </Box>
         <Box sx={dotsContainerStyles}>
           {items.map((slide, slideIndex) => (
             <Box

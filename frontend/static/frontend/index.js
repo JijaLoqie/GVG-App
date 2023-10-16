@@ -39813,7 +39813,6 @@ var ChooseSection_default = ChooseSection = () => {
     container: true,
     sx: {
       backgroundColor: "#0d0d0d",
-      minHeight: "100vh",
       justifyContent: "center"
     },
     component: "div",
@@ -39932,7 +39931,7 @@ function ReviewCard({ reviewData }) {
     setExpanded(!expanded);
   };
   return jsx_dev_runtime5.jsxDEV(Card_default, {
-    sx: { maxWidth: 345, boxShadow: "0 0 2em red" },
+    sx: { width: 345, height: "auto", boxShadow: "0 0 2em black" },
     children: [
       jsx_dev_runtime5.jsxDEV(CardHeader_default, {
         avatar: jsx_dev_runtime5.jsxDEV(Avatar_default, {
@@ -39993,26 +39992,42 @@ var reviews = [
 ];
 var ReviewSection_default = ReviewSection = () => {
   return jsx_dev_runtime6.jsxDEV(Box_default, {
-    sx: { padding: 4, height: "80vh" },
+    sx: {
+      padding: 4,
+      boxShadow: "inset 10px 0px 4em -4px #0d0d0d, inset 10px 0px 4em -4px #0d0d0d",
+      backgroundImage: "linear-gradient(315deg, #191714 0%, #2234ae 74%)"
+    },
     children: [
       jsx_dev_runtime6.jsxDEV(Typography_default, {
         variant: "h4",
         sx: {
-          textAlign: "center"
+          textAlign: "center",
+          marginBottom: "10px"
         },
         children: "\u0427\u0442\u043E \u0434\u0443\u043C\u0430\u044E\u0442 \u043D\u0430\u0448\u0438 \u043A\u043B\u0438\u0435\u043D\u0442\u044B"
       }, undefined, false, undefined, this),
-      jsx_dev_runtime6.jsxDEV(Stack_default, {
-        direction: "row",
-        spacing: 8,
+      jsx_dev_runtime6.jsxDEV(Grid_default, {
+        container: true,
+        wrap: "wrap",
         sx: {
           justifyContent: "center",
-          marginTop: "20px",
-          width: "100%",
-          marginRight: 4
+          alignContent: "center",
+          marginBottom: "200px"
         },
-        children: reviews.map((review, index) => jsx_dev_runtime6.jsxDEV(ReviewCard, {
-          reviewData: review
+        rowGap: 5,
+        columnGap: 10,
+        children: reviews.map((review, index) => jsx_dev_runtime6.jsxDEV(Grid_default, {
+          item: true,
+          sx: {
+            display: "flex",
+            justifyContent: "center",
+            backgroundColor: "blue",
+            border: 1,
+            borderColor: "black"
+          },
+          children: jsx_dev_runtime6.jsxDEV(ReviewCard, {
+            reviewData: review
+          }, undefined, false, undefined, this)
         }, index, false, undefined, this))
       }, undefined, false, undefined, this)
     ]

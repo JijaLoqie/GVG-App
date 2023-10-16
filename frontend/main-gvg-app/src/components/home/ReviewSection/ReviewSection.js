@@ -1,4 +1,4 @@
-import { Box, Stack, Typography } from "@mui/material";
+import { Box, Grid, List, ListItem, Stack, Typography } from "@mui/material";
 import ReviewCard from "./ReviewCard";
 
 const reviews = [
@@ -32,29 +32,58 @@ const reviews = [
 
 export default ReviewSection = () => {
   return (
-    <Box sx={{ padding: 4, height: "80vh" }}>
+    <Box
+      sx={{
+        padding: 4,
+        boxShadow:
+          "inset 10px 0px 4em -4px #0d0d0d, inset 10px 0px 4em -4px #0d0d0d",
+        backgroundImage: "linear-gradient(315deg, #191714 0%, #2234ae 74%)",
+      }}
+    >
       <Typography
         variant="h4"
         sx={{
           textAlign: "center",
+          marginBottom: "10px",
         }}
       >
         Что думают наши клиенты
       </Typography>
-      <Stack
-        direction="row"
-        spacing={8}
+      <Grid
+        container
+        wrap="wrap"
         sx={{
           justifyContent: "center",
-          marginTop: "20px",
-          width: "100%",
-          marginRight: 4,
+          alignContent: "center",
+
+          marginBottom: "200px",
         }}
+        rowGap={5}
+        columnGap={10}
       >
         {reviews.map((review, index) => (
-          <ReviewCard key={index} reviewData={review} />
+          <Grid
+            item
+            key={index}
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              backgroundColor: "blue",
+              border: 1,
+              borderColor: "black",
+            }}
+          >
+            {/* <Box
+              sx={{
+                backgroundColor: "#00ff00",
+                width: "100px",
+                height: "100px",
+              }}
+            ></Box> */}
+            <ReviewCard reviewData={review} />
+          </Grid>
         ))}
-      </Stack>
+      </Grid>
     </Box>
   );
 };

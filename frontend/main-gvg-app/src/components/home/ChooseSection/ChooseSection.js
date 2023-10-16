@@ -189,7 +189,6 @@ export default ChooseSection = () => {
       container
       sx={{
         backgroundColor: "#0d0d0d",
-        minHeight: "100vh",
         justifyContent: "center",
       }}
       component={"div"}

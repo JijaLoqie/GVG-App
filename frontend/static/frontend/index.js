@@ -40045,14 +40045,247 @@ var ReviewSection_default = ReviewSection = () => {
   }, undefined, true, undefined, this);
 };
 
-// src/components/home/HomePage.js
+// src/components/home/FooterSection/groups/AboutGroup.js
 var jsx_dev_runtime7 = __toESM(require_jsx_dev_runtime(), 1);
-var HomePage_default = HomePage = () => {
+var AboutGroup_default = AboutGroup = () => {
   return jsx_dev_runtime7.jsxDEV(Box_default, {
     children: [
-      jsx_dev_runtime7.jsxDEV(HeaderSection_default, {}, undefined, false, undefined, this),
-      jsx_dev_runtime7.jsxDEV(ChooseSection_default, {}, undefined, false, undefined, this),
-      jsx_dev_runtime7.jsxDEV(ReviewSection_default, {}, undefined, false, undefined, this)
+      jsx_dev_runtime7.jsxDEV(Typography_default, {
+        variant: "h4",
+        sx: { paddingBottom: "10px" },
+        children: "\u041E \u043D\u0430\u0441"
+      }, undefined, false, undefined, this),
+      jsx_dev_runtime7.jsxDEV(Typography_default, {
+        children: "\u041C\u044B \u0434\u0438\u043D\u0430\u043C\u0438\u0447\u043D\u0430\u044F \u043A\u043E\u043C\u043F\u0430\u043D\u0438\u044F, \u043F\u0440\u0435\u0434\u043B\u0430\u0433\u0430\u044E\u0449\u0430\u044F \u0431\u043E\u043B\u0435\u0435 10 \u043F\u0440\u043E\u0444\u0435\u0441\u0441\u0438\u043E\u043D\u0430\u043B\u044C\u043D\u044B\u0445 \u0441\u0431\u043E\u0440\u043E\u043A \u043A\u043E\u043C\u043F\u044C\u044E\u0442\u0435\u0440\u043E\u0432 \u0434\u043B\u044F \u043B\u044E\u0431\u044B\u0445 \u0437\u0430\u0434\u0430\u0447. \u041D\u0430\u0448\u0430 \u043A\u043E\u043C\u0430\u043D\u0434\u0430 \u0441\u043E\u0441\u0442\u043E\u0438\u0442 \u0438\u0437 \u043E\u043F\u044B\u0442\u043D\u044B\u0445 \u0441\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442\u043E\u0432, \u0433\u0430\u0440\u0430\u043D\u0442\u0438\u0440\u0443\u044E\u0449\u0438\u0445 \u043A\u0430\u0447\u0435\u0441\u0442\u0432\u0435\u043D\u043D\u0443\u044E \u0441\u0431\u043E\u0440\u043A\u0443 \u0432 \u043A\u0440\u0430\u0442\u0447\u0430\u0439\u0448\u0438\u0435 \u0441\u0440\u043E\u043A\u0438."
+      }, undefined, false, undefined, this),
+      jsx_dev_runtime7.jsxDEV(Box_default, {
+        sx: {
+          width: "100%",
+          alignContent: "center",
+          textAlign: "center"
+        },
+        children: jsx_dev_runtime7.jsxDEV("img", {
+          srcSet: `/static/logos/gvgFull.png`,
+          src: `/static/logos/gvgFull.png`,
+          alt: `GVG Tech Solutions`,
+          loading: "lazy",
+          style: { objectFit: "cover", width: "100px" }
+        }, undefined, false, undefined, this)
+      }, undefined, false, undefined, this)
+    ]
+  }, undefined, true, undefined, this);
+};
+
+// src/components/home/FooterSection/groups/HelpGroup.js
+var jsx_dev_runtime8 = __toESM(require_jsx_dev_runtime(), 1);
+var HelpGroup_default = HelpGroup = () => {
+  return jsx_dev_runtime8.jsxDEV(Box_default, {
+    sx: { width: "100%" },
+    children: [
+      jsx_dev_runtime8.jsxDEV(Typography_default, {
+        variant: "h4",
+        sx: { paddingBottom: "10px" },
+        children: "\u041F\u043E\u0434\u0434\u0435\u0440\u0436\u043A\u0430"
+      }, undefined, false, undefined, this),
+      jsx_dev_runtime8.jsxDEV(Stack_default, {
+        direction: "column",
+        children: [
+          jsx_dev_runtime8.jsxDEV(Typography_default, {
+            component: Link,
+            style: { textDecoration: "none", color: "#ffffff" },
+            children: "\u0417\u0430\u0434\u0430\u0442\u044C \u0432\u043E\u043F\u0440\u043E\u0441 \u0432 \u0412\u041A"
+          }, undefined, false, undefined, this),
+          jsx_dev_runtime8.jsxDEV(Typography_default, {
+            component: Link,
+            style: { textDecoration: "none", color: "#ffffff" },
+            children: "\u0412\u043E\u043F\u0440\u043E\u0441\u044B \u043F\u043E \u0434\u043E\u0441\u0442\u0430\u0432\u043A\u0435"
+          }, undefined, false, undefined, this)
+        ]
+      }, undefined, true, undefined, this),
+      jsx_dev_runtime8.jsxDEV(Stack_default, {
+        direction: "row",
+        marginTop: 2,
+        children: [
+          jsx_dev_runtime8.jsxDEV(Telegram_default, {
+            sx: { marginRight: 2 }
+          }, undefined, false, undefined, this),
+          jsx_dev_runtime8.jsxDEV(Instagram_default, {
+            sx: { marginRight: 2 }
+          }, undefined, false, undefined, this),
+          jsx_dev_runtime8.jsxDEV(Box_default, {
+            component: "img",
+            sx: {
+              height: 25,
+              width: 25
+            },
+            alt: "vk",
+            src: "/static/logos/vk.png"
+          }, undefined, false, undefined, this)
+        ]
+      }, undefined, true, undefined, this)
+    ]
+  }, undefined, true, undefined, this);
+};
+
+// src/components/home/FooterSection/groups/ShopGroup.js
+var jsx_dev_runtime9 = __toESM(require_jsx_dev_runtime(), 1);
+var ShopGroup_default = ShopGroup = () => {
+  return jsx_dev_runtime9.jsxDEV(Box_default, {
+    sx: { width: "100%" },
+    children: [
+      jsx_dev_runtime9.jsxDEV(Typography_default, {
+        variant: "h4",
+        sx: { paddingBottom: "10px" },
+        children: "\u041C\u0430\u0433\u0430\u0437\u0438\u043D"
+      }, undefined, false, undefined, this),
+      jsx_dev_runtime9.jsxDEV(Stack_default, {
+        direction: "column",
+        children: [
+          jsx_dev_runtime9.jsxDEV(Typography_default, {
+            component: Link,
+            style: { textDecoration: "none", color: "#ffffff" },
+            children: "\u0421\u0431\u043E\u0440\u043A\u0438"
+          }, undefined, false, undefined, this),
+          jsx_dev_runtime9.jsxDEV(Typography_default, {
+            component: Link,
+            style: { textDecoration: "none", color: "#ffffff" },
+            children: "\u041A\u043E\u043C\u043F\u043B\u0435\u043A\u0442\u0443\u044E\u0449\u0438\u0435"
+          }, undefined, false, undefined, this),
+          jsx_dev_runtime9.jsxDEV(Typography_default, {
+            component: Link,
+            style: { textDecoration: "none", color: "#ffffff" },
+            children: "\u0418\u0433\u0440\u043E\u0432\u043E\u0439 \u043A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440"
+          }, undefined, false, undefined, this)
+        ]
+      }, undefined, true, undefined, this)
+    ]
+  }, undefined, true, undefined, this);
+};
+
+// src/components/home/FooterSection/groups/ContactGroup.js
+var jsx_dev_runtime10 = __toESM(require_jsx_dev_runtime(), 1);
+var ContactGroup_default = ContuctGroup = () => {
+  return jsx_dev_runtime10.jsxDEV(Box_default, {
+    sx: { width: "100%" },
+    children: [
+      jsx_dev_runtime10.jsxDEV(Typography_default, {
+        variant: "h4",
+        sx: { paddingBottom: "10px" },
+        children: "\u0421\u0432\u044F\u0437\u0430\u0442\u044C\u0441\u044F \u0441 \u043D\u0430\u043C\u0438"
+      }, undefined, false, undefined, this),
+      jsx_dev_runtime10.jsxDEV(Stack_default, {
+        direction: "column",
+        children: [
+          jsx_dev_runtime10.jsxDEV(Typography_default, {
+            component: Link,
+            style: { textDecoration: "none", color: "#ffffff" },
+            children: "+7 (985) 146-04-77"
+          }, undefined, false, undefined, this),
+          jsx_dev_runtime10.jsxDEV(Typography_default, {
+            component: Link,
+            style: { textDecoration: "none", color: "#ffffff" },
+            children: "kraskovskiydm@gmail.com"
+          }, undefined, false, undefined, this)
+        ]
+      }, undefined, true, undefined, this),
+      jsx_dev_runtime10.jsxDEV(Box_default, {
+        sx: {
+          width: "100%",
+          marginTop: "40px"
+        },
+        children: jsx_dev_runtime10.jsxDEV(Button_default, {
+          variant: "contained",
+          color: "success",
+          sx: {
+            width: "100%",
+            height: "60px"
+          },
+          children: "\u041D\u0430\u043F\u0438\u0441\u0430\u0442\u044C \u043D\u0430\u043C"
+        }, undefined, false, undefined, this)
+      }, undefined, false, undefined, this)
+    ]
+  }, undefined, true, undefined, this);
+};
+
+// src/components/home/FooterSection/FooterSection.js
+var jsx_dev_runtime11 = __toESM(require_jsx_dev_runtime(), 1);
+var themed = createTheme_default2({
+  palette: {
+    primary: {
+      main: "#ffffff"
+    }
+  }
+});
+var items = [
+  {
+    component: jsx_dev_runtime11.jsxDEV(AboutGroup_default, {}, undefined, false, undefined, this)
+  },
+  {
+    component: jsx_dev_runtime11.jsxDEV(HelpGroup_default, {}, undefined, false, undefined, this)
+  },
+  {
+    component: jsx_dev_runtime11.jsxDEV(ShopGroup_default, {}, undefined, false, undefined, this)
+  },
+  {
+    component: jsx_dev_runtime11.jsxDEV(ContactGroup_default, {}, undefined, false, undefined, this)
+  }
+];
+var FooterSection_default = FooterSection = () => {
+  return jsx_dev_runtime11.jsxDEV(ThemeProvider5, {
+    theme: themed,
+    children: jsx_dev_runtime11.jsxDEV(Box_default, {
+      sx: {
+        width: "100%"
+      },
+      children: [
+        jsx_dev_runtime11.jsxDEV(Grid_default, {
+          container: true,
+          wrap: "wrap",
+          sx: {
+            alignContent: "center",
+            justifyContent: "center",
+            paddingTop: "10vh"
+          },
+          rowGap: 5,
+          columnGap: 10,
+          children: items.map((item, index) => jsx_dev_runtime11.jsxDEV(Grid_default, {
+            item: true,
+            sx: {
+              display: "flex",
+              justifyContent: "center",
+              border: 1,
+              borderColor: "black",
+              width: "300px",
+              paddingInline: 0
+            },
+            children: item.component
+          }, index, false, undefined, this))
+        }, undefined, false, undefined, this),
+        jsx_dev_runtime11.jsxDEV(Box_default, {
+          sx: {
+            position: "relative",
+            width: "100%",
+            textAlign: "center",
+            padding: "10px",
+            marginTop: "100px",
+            bottom: { xs: "60px", md: "0" }
+          },
+          children: 'Copyright \xA92023 "GVG Tech Solutions". All Rights Reserved'
+        }, undefined, false, undefined, this)
+      ]
+    }, undefined, true, undefined, this)
+  }, undefined, false, undefined, this);
+};
+
+// src/components/home/HomePage.js
+var jsx_dev_runtime12 = __toESM(require_jsx_dev_runtime(), 1);
+var HomePage_default = HomePage = () => {
+  return jsx_dev_runtime12.jsxDEV(Box_default, {
+    children: [
+      jsx_dev_runtime12.jsxDEV(HeaderSection_default, {}, undefined, false, undefined, this),
+      jsx_dev_runtime12.jsxDEV(ChooseSection_default, {}, undefined, false, undefined, this),
+      jsx_dev_runtime12.jsxDEV(ReviewSection_default, {}, undefined, false, undefined, this),
+      jsx_dev_runtime12.jsxDEV(FooterSection_default, {}, undefined, false, undefined, this)
     ]
   }, undefined, true, undefined, this);
 };
@@ -40531,16 +40764,16 @@ var ot = x(l(d((e2) => import_react13.default.createElement(K, r4({}, e2, { name
 var st = x(l(d((e2) => import_react13.default.createElement(K, r4({}, e2, { name: "Rectangle" })), true, ["Rectangle"])));
 
 // src/components/delivery/CustomYandexMap.js
-var jsx_dev_runtime8 = __toESM(require_jsx_dev_runtime(), 1);
+var jsx_dev_runtime13 = __toESM(require_jsx_dev_runtime(), 1);
 var CustomYandexMap_default = CustomYandexMap = ({ selected }) => {
   const [ymaps, setYmaps] = import_react14.useState();
   const [coords, setCoords] = import_react14.useState([0, 0]);
-  return jsx_dev_runtime8.jsxDEV(y, {
+  return jsx_dev_runtime13.jsxDEV(y, {
     onApiAvaliable: (ymaps2) => {
       console.log("setting ymaps");
       setYmaps(ymaps2);
     },
-    children: jsx_dev_runtime8.jsxDEV(k, {
+    children: jsx_dev_runtime13.jsxDEV(k, {
       state: {
         center: selected.coord,
         zoom: 9,
@@ -40553,7 +40786,7 @@ var CustomYandexMap_default = CustomYandexMap = ({ selected }) => {
       ],
       width: "100%",
       height: "100%",
-      children: jsx_dev_runtime8.jsxDEV(et, {
+      children: jsx_dev_runtime13.jsxDEV(et, {
         modules: ["geoObject.addon.balloon"],
         geometry: selected.coord,
         properties: {
@@ -40565,7 +40798,7 @@ var CustomYandexMap_default = CustomYandexMap = ({ selected }) => {
 };
 
 // src/components/delivery/DeliveryPage.js
-var jsx_dev_runtime9 = __toESM(require_jsx_dev_runtime(), 1);
+var jsx_dev_runtime14 = __toESM(require_jsx_dev_runtime(), 1);
 var adresses = [
   {
     title: "595695, \u041E\u043C\u0441\u043A\u0430\u044F \u043E\u0431\u043B\u0430\u0441\u0442\u044C, \u0433\u043E\u0440\u043E\u0434 \u041A\u0430\u0448\u0438\u0440\u0430, \u043F\u0440\u043E\u0435\u0437\u0434 \u0427\u0435\u0445\u043E\u0432\u0430, 52",
@@ -40594,23 +40827,23 @@ var adresses = [
 ];
 var DeliveryPage_default = DeliveryPage = () => {
   const [selected, setSelected] = import_react15.useState(adresses[0]);
-  return jsx_dev_runtime9.jsxDEV(Grid_default, {
+  return jsx_dev_runtime14.jsxDEV(Grid_default, {
     container: true,
     justifyItems: "center",
     rowGap: "30px",
     marginBlockEnd: "100px",
     padding: 4,
     children: [
-      jsx_dev_runtime9.jsxDEV(Grid_default, {
+      jsx_dev_runtime14.jsxDEV(Grid_default, {
         item: true,
         xs: 12,
         md: 12,
-        children: jsx_dev_runtime9.jsxDEV(Typography_default, {
+        children: jsx_dev_runtime14.jsxDEV(Typography_default, {
           fontSize: "1.5rem",
           children: "\u0421\u0430\u043C\u043E\u0432\u044B\u0432\u043E\u0437"
         }, undefined, false, undefined, this)
       }, undefined, false, undefined, this),
-      jsx_dev_runtime9.jsxDEV(Grid_default, {
+      jsx_dev_runtime14.jsxDEV(Grid_default, {
         item: true,
         xs: 12,
         md: 6,
@@ -40618,15 +40851,15 @@ var DeliveryPage_default = DeliveryPage = () => {
           width: { xs: "360px", md: "100%" },
           height: "360px"
         },
-        children: jsx_dev_runtime9.jsxDEV(CustomYandexMap_default, {
+        children: jsx_dev_runtime14.jsxDEV(CustomYandexMap_default, {
           selected
         }, undefined, false, undefined, this)
       }, undefined, false, undefined, this),
-      jsx_dev_runtime9.jsxDEV(Grid_default, {
+      jsx_dev_runtime14.jsxDEV(Grid_default, {
         item: true,
         xs: 12,
         md: 6,
-        children: jsx_dev_runtime9.jsxDEV(List_default, {
+        children: jsx_dev_runtime14.jsxDEV(List_default, {
           sx: {
             border: 1,
             borderColor: "#ffffff",
@@ -40636,7 +40869,7 @@ var DeliveryPage_default = DeliveryPage = () => {
             maxHeight: 360,
             "& ul": { padding: 0 }
           },
-          children: adresses.map((adress, index) => jsx_dev_runtime9.jsxDEV(ListItemButton_default, {
+          children: adresses.map((adress, index) => jsx_dev_runtime14.jsxDEV(ListItemButton_default, {
             sx: {
               bgcolor: selected == adress ? alpha("#ffffff", 0.15) : "#000000",
               "&: hover": {
@@ -40644,57 +40877,57 @@ var DeliveryPage_default = DeliveryPage = () => {
               }
             },
             onClick: () => setSelected(adresses[index]),
-            children: jsx_dev_runtime9.jsxDEV(Typography_default, {
+            children: jsx_dev_runtime14.jsxDEV(Typography_default, {
               children: adress.title
             }, undefined, false, undefined, this)
           }, index, false, undefined, this))
         }, undefined, false, undefined, this)
       }, undefined, false, undefined, this),
-      jsx_dev_runtime9.jsxDEV(Grid_default, {
+      jsx_dev_runtime14.jsxDEV(Grid_default, {
         item: true,
         xs: 12,
         md: 12,
-        children: jsx_dev_runtime9.jsxDEV(Typography_default, {
+        children: jsx_dev_runtime14.jsxDEV(Typography_default, {
           fontSize: "1.5rem",
           children: "\u0414\u043E\u0441\u0442\u0430\u0432\u043A\u0430 \u0434\u043E \u0434\u0432\u0435\u0440\u0438"
         }, undefined, false, undefined, this)
       }, undefined, false, undefined, this),
-      jsx_dev_runtime9.jsxDEV(Grid_default, {
+      jsx_dev_runtime14.jsxDEV(Grid_default, {
         item: true,
         xs: 12,
         md: 4,
         component: Stack_default,
         alignItems: "center",
-        children: jsx_dev_runtime9.jsxDEV(Typography_default, {
+        children: jsx_dev_runtime14.jsxDEV(Typography_default, {
           children: "\u041E\u0441\u0443\u0449\u0435\u0441\u0442\u0432\u043B\u044F\u0435\u0442\u0441\u044F \u042F\u043D\u0434\u0435\u043A\u0441 \u043A\u0443\u0440\u044C\u0435\u0440\u043E\u043C \u043F\u043E \u0432\u0441\u0435\u0439 \u041C\u043E\u0441\u043A\u0432\u0435"
         }, undefined, false, undefined, this)
       }, undefined, false, undefined, this),
-      jsx_dev_runtime9.jsxDEV(Grid_default, {
+      jsx_dev_runtime14.jsxDEV(Grid_default, {
         item: true,
         xs: 12,
         md: 12,
-        children: jsx_dev_runtime9.jsxDEV(Typography_default, {
+        children: jsx_dev_runtime14.jsxDEV(Typography_default, {
           fontSize: "1.5rem",
           children: "\u0421\u0432\u044F\u0436\u0438\u0442\u0435\u0441\u044C \u0441 \u043D\u0430\u043C\u0438"
         }, undefined, false, undefined, this)
       }, undefined, false, undefined, this),
-      jsx_dev_runtime9.jsxDEV(Grid_default, {
+      jsx_dev_runtime14.jsxDEV(Grid_default, {
         item: true,
         xs: 12,
         md: 12,
-        children: jsx_dev_runtime9.jsxDEV(Stack_default, {
+        children: jsx_dev_runtime14.jsxDEV(Stack_default, {
           direction: { xs: "column", md: "row" },
           spacing: 4,
           fontSize: "1rem",
           children: [
-            jsx_dev_runtime9.jsxDEV(Stack_default, {
+            jsx_dev_runtime14.jsxDEV(Stack_default, {
               alignItems: "center",
               direction: "row",
               children: [
-                jsx_dev_runtime9.jsxDEV(Phone_default, {
+                jsx_dev_runtime14.jsxDEV(Phone_default, {
                   sx: { marginRight: 2 }
                 }, undefined, false, undefined, this),
-                jsx_dev_runtime9.jsxDEV("a", {
+                jsx_dev_runtime14.jsxDEV("a", {
                   href: "tel:9851460477",
                   style: {
                     color: "blueviolet"
@@ -40703,26 +40936,26 @@ var DeliveryPage_default = DeliveryPage = () => {
                 }, undefined, false, undefined, this)
               ]
             }, undefined, true, undefined, this),
-            jsx_dev_runtime9.jsxDEV(Stack_default, {
+            jsx_dev_runtime14.jsxDEV(Stack_default, {
               alignItems: "center",
               direction: "row",
               children: [
-                jsx_dev_runtime9.jsxDEV(AccessTime_default, {
+                jsx_dev_runtime14.jsxDEV(AccessTime_default, {
                   sx: { marginRight: 2 }
                 }, undefined, false, undefined, this),
-                jsx_dev_runtime9.jsxDEV(Typography_default, {
+                jsx_dev_runtime14.jsxDEV(Typography_default, {
                   children: "\u0415\u0436\u0435\u0434\u043D\u0435\u0432\u043D\u043E \u0441 10:00 \u0434\u043E 20:00"
                 }, undefined, false, undefined, this)
               ]
             }, undefined, true, undefined, this),
-            jsx_dev_runtime9.jsxDEV(Stack_default, {
+            jsx_dev_runtime14.jsxDEV(Stack_default, {
               alignItems: "center",
               direction: "row",
               children: [
-                jsx_dev_runtime9.jsxDEV(Email_default, {
+                jsx_dev_runtime14.jsxDEV(Email_default, {
                   sx: { marginRight: 2 }
                 }, undefined, false, undefined, this),
-                jsx_dev_runtime9.jsxDEV(Typography_default, {
+                jsx_dev_runtime14.jsxDEV(Typography_default, {
                   children: "kraskovskiydm@gmail.com"
                 }, undefined, false, undefined, this)
               ]
@@ -40736,7 +40969,7 @@ var DeliveryPage_default = DeliveryPage = () => {
 
 // src/components/about/AboutUsPage.js
 var import_react16 = __toESM(require_react(), 1);
-var jsx_dev_runtime10 = __toESM(require_jsx_dev_runtime(), 1);
+var jsx_dev_runtime15 = __toESM(require_jsx_dev_runtime(), 1);
 var Item = styled_default2(Paper_default)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
   ...theme.typography.body2,
@@ -40746,62 +40979,62 @@ var Item = styled_default2(Paper_default)(({ theme }) => ({
   alignItems: "center"
 }));
 var AboutUsPage_default = AboutUsPage = () => {
-  return jsx_dev_runtime10.jsxDEV(Box_default, {
+  return jsx_dev_runtime15.jsxDEV(Box_default, {
     sx: { flexGrow: 1, marginBottom: "100px" },
     padding: 4,
-    children: jsx_dev_runtime10.jsxDEV(Grid_default, {
+    children: jsx_dev_runtime15.jsxDEV(Grid_default, {
       container: true,
       spacing: 2,
       children: [
-        jsx_dev_runtime10.jsxDEV(Grid_default, {
+        jsx_dev_runtime15.jsxDEV(Grid_default, {
           item: true,
           xs: 12,
           md: 6,
-          children: jsx_dev_runtime10.jsxDEV(Typography_default, {
+          children: jsx_dev_runtime15.jsxDEV(Typography_default, {
             fontSize: "1.5rem",
             children: "\u041A\u0442\u043E \u043C\u044B?"
           }, undefined, false, undefined, this)
         }, undefined, false, undefined, this),
-        jsx_dev_runtime10.jsxDEV(Grid_default, {
+        jsx_dev_runtime15.jsxDEV(Grid_default, {
           item: true,
           xs: 12,
           md: 12,
           children: [
-            jsx_dev_runtime10.jsxDEV(Typography_default, {
+            jsx_dev_runtime15.jsxDEV(Typography_default, {
               paragraph: true,
               children: "\u041C\u044B \u0434\u0438\u043D\u0430\u043C\u0438\u0447\u043D\u0430\u044F \u043A\u043E\u043C\u043F\u0430\u043D\u0438\u044F, \u043F\u0440\u0435\u0434\u043B\u0430\u0433\u0430\u044E\u0449\u0430\u044F \u0431\u043E\u043B\u0435\u0435 10 \u043F\u0440\u043E\u0444\u0435\u0441\u0441\u0438\u043E\u043D\u0430\u043B\u044C\u043D\u044B\u0445 \u0441\u0431\u043E\u0440\u043E\u043A \u043A\u043E\u043C\u043F\u044C\u044E\u0442\u0435\u0440\u043E\u0432 \u0434\u043B\u044F \u043B\u044E\u0431\u044B\u0445 \u0437\u0430\u0434\u0430\u0447. \u041D\u0430\u0448\u0430 \u043A\u043E\u043C\u0430\u043D\u0434\u0430 \u0441\u043E\u0441\u0442\u043E\u0438\u0442 \u0438\u0437 \u043E\u043F\u044B\u0442\u043D\u044B\u0445 \u0441\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442\u043E\u0432, \u0433\u0430\u0440\u0430\u043D\u0442\u0438\u0440\u0443\u044E\u0449\u0438\u0445 \u043A\u0430\u0447\u0435\u0441\u0442\u0432\u0435\u043D\u043D\u0443\u044E \u0441\u0431\u043E\u0440\u043A\u0443 \u0432 \u043A\u0440\u0430\u0442\u0447\u0430\u0439\u0448\u0438\u0435 \u0441\u0440\u043E\u043A\u0438."
             }, undefined, false, undefined, this),
-            jsx_dev_runtime10.jsxDEV(Typography_default, {
+            jsx_dev_runtime15.jsxDEV(Typography_default, {
               paragraph: true,
               children: "\u041C\u044B \u043F\u043E\u043D\u0438\u043C\u0430\u0435\u043C, \u0447\u0442\u043E \u0432\u0430\u0448\u0435 \u0432\u0440\u0435\u043C\u044F \u0446\u0435\u043D\u043D\u043E, \u043F\u043E\u044D\u0442\u043E\u043C\u0443 \u043C\u044B \u0441\u0442\u0440\u0435\u043C\u0438\u043C\u0441\u044F \u043E\u0431\u0435\u0441\u043F\u0435\u0447\u0438\u0442\u044C \u043F\u0440\u044F\u043C\u0443\u044E \u0441\u0432\u044F\u0437\u044C \u0441 \u043D\u0430\u0448\u0435\u0439 \u043A\u043E\u043C\u043F\u0430\u043D\u0438\u0435\u0439. \u0423 \u043D\u0430\u0441 \u043D\u0435\u0442 \u043F\u043E\u0441\u0440\u0435\u0434\u043D\u0438\u043A\u043E\u0432, \u0442\u043E\u043B\u044C\u043A\u043E \u043D\u0435\u043F\u043E\u0441\u0440\u0435\u0434\u0441\u0442\u0432\u0435\u043D\u043D\u043E\u0435 \u043E\u0431\u0449\u0435\u043D\u0438\u0435 \u0441 \u043D\u0430\u0448\u0435\u0439 \u0434\u0440\u0443\u0436\u0435\u043B\u044E\u0431\u043D\u043E\u0439 \u043A\u043E\u043C\u0430\u043D\u0434\u043E\u0439, \u0433\u043E\u0442\u043E\u0432\u043E\u0439 \u043F\u043E\u043C\u043E\u0447\u044C \u0438 \u043E\u0442\u0432\u0435\u0442\u0438\u0442\u044C \u043D\u0430 \u0432\u0441\u0435 \u0432\u0430\u0448\u0438 \u0432\u043E\u043F\u0440\u043E\u0441\u044B."
             }, undefined, false, undefined, this),
-            jsx_dev_runtime10.jsxDEV(Typography_default, {
+            jsx_dev_runtime15.jsxDEV(Typography_default, {
               paragraph: true,
               children: "\u0415\u0441\u043B\u0438 \u0432\u0430\u043C \u043D\u0443\u0436\u043D\u0430 \u043D\u0430\u0434\u0435\u0436\u043D\u0430\u044F \u0441\u0431\u043E\u0440\u043A\u0430 \u043A\u043E\u043C\u043F\u044C\u044E\u0442\u0435\u0440\u0430, \u0442\u043E GVG Tech Solutions - \u0432\u0430\u0448 \u0438\u0434\u0435\u0430\u043B\u044C\u043D\u044B\u0439 \u0432\u044B\u0431\u043E\u0440! \u041E\u0441\u0442\u0430\u0432\u044C\u0442\u0435 \u0441\u0432\u043E\u0438 \u0437\u0430\u044F\u0432\u043A\u0438 \u0441\u0435\u0439\u0447\u0430\u0441, \u0438 \u043D\u0430\u0448\u0430 \u043A\u043E\u043C\u0430\u043D\u0434\u0430 \u043F\u0440\u0438\u0441\u0442\u0443\u043F\u0438\u0442 \u043A \u0440\u0430\u0431\u043E\u0442\u0435 \u043D\u0430\u0434 \u0432\u0430\u0448\u0438\u043C \u0438\u0434\u0435\u0430\u043B\u044C\u043D\u044B\u043C \u043A\u043E\u043C\u043F\u044C\u044E\u0442\u0435\u0440\u043E\u043C. \uD83D\uDCAA"
             }, undefined, false, undefined, this)
           ]
         }, undefined, true, undefined, this),
-        jsx_dev_runtime10.jsxDEV(Grid_default, {
+        jsx_dev_runtime15.jsxDEV(Grid_default, {
           item: true,
           xs: 12,
           md: 12,
-          children: jsx_dev_runtime10.jsxDEV(Typography_default, {
+          children: jsx_dev_runtime15.jsxDEV(Typography_default, {
             fontSize: "1.5rem",
             children: "\u041A\u043E\u043D\u0442\u0430\u043A\u0442\u044B"
           }, undefined, false, undefined, this)
         }, undefined, false, undefined, this),
-        jsx_dev_runtime10.jsxDEV(Grid_default, {
+        jsx_dev_runtime15.jsxDEV(Grid_default, {
           item: true,
           xs: 12,
           md: 4,
           component: Stack_default,
           alignItems: "center",
           children: [
-            jsx_dev_runtime10.jsxDEV(Phone_default, {
+            jsx_dev_runtime15.jsxDEV(Phone_default, {
               sx: { marginRight: 2 }
             }, undefined, false, undefined, this),
-            jsx_dev_runtime10.jsxDEV(Box_default, {
-              children: jsx_dev_runtime10.jsxDEV("a", {
+            jsx_dev_runtime15.jsxDEV(Box_default, {
+              children: jsx_dev_runtime15.jsxDEV("a", {
                 href: "tel:9851460477",
                 style: {
                   color: "blueviolet"
@@ -40811,46 +41044,46 @@ var AboutUsPage_default = AboutUsPage = () => {
             }, undefined, false, undefined, this)
           ]
         }, undefined, true, undefined, this),
-        jsx_dev_runtime10.jsxDEV(Grid_default, {
+        jsx_dev_runtime15.jsxDEV(Grid_default, {
           item: true,
           xs: 12,
           md: 4,
           component: Stack_default,
           alignItems: "center",
           children: [
-            jsx_dev_runtime10.jsxDEV(AccessTime_default, {
+            jsx_dev_runtime15.jsxDEV(AccessTime_default, {
               sx: { marginRight: 2 }
             }, undefined, false, undefined, this),
-            jsx_dev_runtime10.jsxDEV(Box_default, {
+            jsx_dev_runtime15.jsxDEV(Box_default, {
               children: "\u0415\u0436\u0435\u0434\u043D\u0435\u0432\u043D\u043E \u0441 10:00 \u0434\u043E 20:00"
             }, undefined, false, undefined, this)
           ]
         }, undefined, true, undefined, this),
-        jsx_dev_runtime10.jsxDEV(Grid_default, {
+        jsx_dev_runtime15.jsxDEV(Grid_default, {
           item: true,
           xs: 12,
           md: 4,
           component: Stack_default,
           alignItems: "center",
           children: [
-            jsx_dev_runtime10.jsxDEV(Email_default, {
+            jsx_dev_runtime15.jsxDEV(Email_default, {
               sx: { marginRight: 2 }
             }, undefined, false, undefined, this),
-            jsx_dev_runtime10.jsxDEV(Box_default, {
+            jsx_dev_runtime15.jsxDEV(Box_default, {
               children: "kraskovskiydm@gmail.com"
             }, undefined, false, undefined, this)
           ]
         }, undefined, true, undefined, this),
-        jsx_dev_runtime10.jsxDEV(Grid_default, {
+        jsx_dev_runtime15.jsxDEV(Grid_default, {
           item: true,
           xs: 12,
           md: 12,
           marginBottom: 12,
           children: [
-            jsx_dev_runtime10.jsxDEV(Telegram_default, {
+            jsx_dev_runtime15.jsxDEV(Telegram_default, {
               sx: { marginRight: 2 }
             }, undefined, false, undefined, this),
-            jsx_dev_runtime10.jsxDEV(Instagram_default, {
+            jsx_dev_runtime15.jsxDEV(Instagram_default, {
               sx: { marginRight: 2 }
             }, undefined, false, undefined, this)
           ]
@@ -40880,7 +41113,7 @@ var UseCheckMobileScreen_default = useCheckMobileScreen = () => {
 var import_react19 = __toESM(require_react(), 1);
 
 // src/components/common/CustomSearch.js
-var jsx_dev_runtime11 = __toESM(require_jsx_dev_runtime(), 1);
+var jsx_dev_runtime16 = __toESM(require_jsx_dev_runtime(), 1);
 var Search = styled_default2("div")(({ theme }) => ({
   position: "relative",
   borderRadius: theme.shape.borderRadius,
@@ -40919,12 +41152,12 @@ var StyledInputBase = styled_default2(InputBase_default)(({ theme }) => ({
   }
 }));
 var CustomSearch_default = CustomSearch = () => {
-  return jsx_dev_runtime11.jsxDEV(Search, {
+  return jsx_dev_runtime16.jsxDEV(Search, {
     children: [
-      jsx_dev_runtime11.jsxDEV(SearchIconWrapper, {
-        children: jsx_dev_runtime11.jsxDEV(Search_default, {}, undefined, false, undefined, this)
+      jsx_dev_runtime16.jsxDEV(SearchIconWrapper, {
+        children: jsx_dev_runtime16.jsxDEV(Search_default, {}, undefined, false, undefined, this)
       }, undefined, false, undefined, this),
-      jsx_dev_runtime11.jsxDEV(StyledInputBase, {
+      jsx_dev_runtime16.jsxDEV(StyledInputBase, {
         placeholder: "Search\u2026",
         color: "#ffffff",
         inputProps: { "aria-label": "search" }
@@ -41333,7 +41566,7 @@ function darken2(color2, coefficient) {
 }
 
 // src/components/common/CustomPopup.js
-var jsx_dev_runtime12 = __toESM(require_jsx_dev_runtime(), 1);
+var jsx_dev_runtime17 = __toESM(require_jsx_dev_runtime(), 1);
 var CustomPopup_default = CustomPopupOptions = ({ setMouseOnPopup, actions }) => {
   const isMobile = UseCheckMobileScreen_default();
   const handleEnter = () => {
@@ -41347,7 +41580,7 @@ var CustomPopup_default = CustomPopupOptions = ({ setMouseOnPopup, actions }) =>
     variant: "contained",
     fullWidth: true
   };
-  return jsx_dev_runtime12.jsxDEV(Box_default, {
+  return jsx_dev_runtime17.jsxDEV(Box_default, {
     sx: {
       position: "absolute",
       bottom: { xs: "56px", md: "auto" },
@@ -41361,12 +41594,12 @@ var CustomPopup_default = CustomPopupOptions = ({ setMouseOnPopup, actions }) =>
     },
     onMouseEnter: handleEnter,
     onMouseLeave: handleLeave,
-    children: jsx_dev_runtime12.jsxDEV(ButtonGroup_default, {
+    children: jsx_dev_runtime17.jsxDEV(ButtonGroup_default, {
       ...buttonGroupProps,
       sx: {
         minHeight: "50px"
       },
-      children: actions.map((action, index) => jsx_dev_runtime12.jsxDEV(Button_default, {
+      children: actions.map((action, index) => jsx_dev_runtime17.jsxDEV(Button_default, {
         href: `${action.path}`,
         sx: {
           color: { xs: "#ff0000", md: "#ffffff" },
@@ -41376,7 +41609,7 @@ var CustomPopup_default = CustomPopupOptions = ({ setMouseOnPopup, actions }) =>
             color: "#000000"
           }
         },
-        children: jsx_dev_runtime12.jsxDEV(Typography_default, {
+        children: jsx_dev_runtime17.jsxDEV(Typography_default, {
           variant: "p",
           sx: {
             width: "100%",
@@ -41391,8 +41624,8 @@ var CustomPopup_default = CustomPopupOptions = ({ setMouseOnPopup, actions }) =>
 };
 
 // src/components/navbars/CustomBarPC.js
-var jsx_dev_runtime13 = __toESM(require_jsx_dev_runtime(), 1);
-var themed = createTheme_default2({
+var jsx_dev_runtime18 = __toESM(require_jsx_dev_runtime(), 1);
+var themed2 = createTheme_default2({
   palette: {
     primary: {
       main: "#ffffff"
@@ -41451,22 +41684,22 @@ var CustomBarPC_default = CustomBarPC = () => {
     }
     navigate(actionPath);
   };
-  return jsx_dev_runtime13.jsxDEV(ThemeProvider5, {
-    theme: themed,
-    children: jsx_dev_runtime13.jsxDEV(AppBar_default, {
+  return jsx_dev_runtime18.jsxDEV(ThemeProvider5, {
+    theme: themed2,
+    children: jsx_dev_runtime18.jsxDEV(AppBar_default, {
       position: "static",
-      children: jsx_dev_runtime13.jsxDEV(Toolbar_default, {
+      children: jsx_dev_runtime18.jsxDEV(Toolbar_default, {
         sx: {
           borderBottom: 1,
           borderColor: "primary.main",
           bgcolor: "#0D0D0D"
         },
         children: [
-          jsx_dev_runtime13.jsxDEV(Button_default, {
+          jsx_dev_runtime18.jsxDEV(Button_default, {
             sx: { alignItems: "end", color: "#ffffff", paddingTop: 0 },
             onClick: () => navigate("/home"),
             children: [
-              jsx_dev_runtime13.jsxDEV(Box_default, {
+              jsx_dev_runtime18.jsxDEV(Box_default, {
                 component: "img",
                 sx: {
                   maxHeight: 81,
@@ -41474,7 +41707,7 @@ var CustomBarPC_default = CustomBarPC = () => {
                 },
                 src: "/static/logos/icon.png"
               }, undefined, false, undefined, this),
-              jsx_dev_runtime13.jsxDEV(Box_default, {
+              jsx_dev_runtime18.jsxDEV(Box_default, {
                 component: "img",
                 sx: {
                   height: "35px",
@@ -41484,10 +41717,10 @@ var CustomBarPC_default = CustomBarPC = () => {
               }, undefined, false, undefined, this)
             ]
           }, undefined, true, undefined, this),
-          jsx_dev_runtime13.jsxDEV(ButtonGroup_default, {
+          jsx_dev_runtime18.jsxDEV(ButtonGroup_default, {
             variant: "text",
             sx: { minHeight: "50px", paddingInline: "20px" },
-            children: actions.map((action, index) => jsx_dev_runtime13.jsxDEV(Button_default, {
+            children: actions.map((action, index) => jsx_dev_runtime18.jsxDEV(Button_default, {
               sx: { paddingInline: "20px" },
               onClick: () => handleClickButton(action.path),
               onMouseEnter: () => handleEnterButton(action.path),
@@ -41495,21 +41728,21 @@ var CustomBarPC_default = CustomBarPC = () => {
               children: action.title
             }, index, false, undefined, this))
           }, undefined, false, undefined, this),
-          (mouseOnOffers || mouseOnPopup) && jsx_dev_runtime13.jsxDEV(CustomPopup_default, {
+          (mouseOnOffers || mouseOnPopup) && jsx_dev_runtime18.jsxDEV(CustomPopup_default, {
             setMouseOnPopup,
             actions: offersActions
           }, undefined, false, undefined, this),
-          jsx_dev_runtime13.jsxDEV(Stack_default, {
+          jsx_dev_runtime18.jsxDEV(Stack_default, {
             direction: "row-reverse",
             marginLeft: "auto",
             sx: { alignItems: "center", color: "#ffffff" },
             children: [
-              jsx_dev_runtime13.jsxDEV(CustomSearch_default, {}, undefined, false, undefined, this),
-              jsx_dev_runtime13.jsxDEV(Typography_default, {
+              jsx_dev_runtime18.jsxDEV(CustomSearch_default, {}, undefined, false, undefined, this),
+              jsx_dev_runtime18.jsxDEV(Typography_default, {
                 variant: "body1",
                 sx: { alignSelf: "center" },
                 display: { xs: "none", lg: "flex" },
-                children: jsx_dev_runtime13.jsxDEV("a", {
+                children: jsx_dev_runtime18.jsxDEV("a", {
                   href: "tel:9851460477",
                   style: {
                     color: "white"
@@ -41517,19 +41750,19 @@ var CustomBarPC_default = CustomBarPC = () => {
                   children: "+7 (985) 146-04-77"
                 }, undefined, false, undefined, this)
               }, undefined, false, undefined, this),
-              jsx_dev_runtime13.jsxDEV(Box_default, {
+              jsx_dev_runtime18.jsxDEV(Box_default, {
                 display: { xs: "flex", lg: "none" },
-                children: jsx_dev_runtime13.jsxDEV(PopupState, {
+                children: jsx_dev_runtime18.jsxDEV(PopupState, {
                   variant: "popover",
                   popupId: "demo-popup-popover",
-                  children: (popupState) => jsx_dev_runtime13.jsxDEV("div", {
+                  children: (popupState) => jsx_dev_runtime18.jsxDEV("div", {
                     children: [
-                      jsx_dev_runtime13.jsxDEV(IconButton_default, {
+                      jsx_dev_runtime18.jsxDEV(IconButton_default, {
                         sx: { color: "#ffffff" },
                         ...bindTrigger(popupState),
-                        children: jsx_dev_runtime13.jsxDEV(Phone_default, {}, undefined, false, undefined, this)
+                        children: jsx_dev_runtime18.jsxDEV(Phone_default, {}, undefined, false, undefined, this)
                       }, undefined, false, undefined, this),
-                      jsx_dev_runtime13.jsxDEV(Popover_default, {
+                      jsx_dev_runtime18.jsxDEV(Popover_default, {
                         ...bindPopover(popupState),
                         anchorOrigin: {
                           vertical: "bottom",
@@ -41539,9 +41772,9 @@ var CustomBarPC_default = CustomBarPC = () => {
                           vertical: "top",
                           horizontal: "center"
                         },
-                        children: jsx_dev_runtime13.jsxDEV(Typography_default, {
+                        children: jsx_dev_runtime18.jsxDEV(Typography_default, {
                           sx: { p: 2 },
-                          children: jsx_dev_runtime13.jsxDEV("a", {
+                          children: jsx_dev_runtime18.jsxDEV("a", {
                             href: "tel:9851460477",
                             style: {
                               color: "black"
@@ -42810,27 +43043,27 @@ var dt = "__sc-".concat(f2, "__");
 typeof window != "undefined" && (window[dt] || (window[dt] = 0), window[dt] === 1 && console.warn("It looks like there are several instances of 'styled-components' initialized in this application. This may cause dynamic styles to not render properly, errors during the rehydration process, a missing theme prop, and makes your application bigger without good reason.\n\nSee https://s-c.sh/2BAXzed for more info."), window[dt] += 1);
 
 // src/components/navbars/CustomBarMobile.js
-var jsx_dev_runtime14 = __toESM(require_jsx_dev_runtime(), 1);
+var jsx_dev_runtime19 = __toESM(require_jsx_dev_runtime(), 1);
 var actions2 = [
   {
     title: "\u0413\u043B\u0430\u0432\u043D\u0430\u044F",
     path: "/home",
-    icon: jsx_dev_runtime14.jsxDEV(Home_default, {}, undefined, false, undefined, this)
+    icon: jsx_dev_runtime19.jsxDEV(Home_default, {}, undefined, false, undefined, this)
   },
   {
     title: "\u0423\u0441\u043B\u0443\u0433\u0438",
     path: "/offers",
-    icon: jsx_dev_runtime14.jsxDEV(Computer_default, {}, undefined, false, undefined, this)
+    icon: jsx_dev_runtime19.jsxDEV(Computer_default, {}, undefined, false, undefined, this)
   },
   {
     title: "\u0414\u043E\u0441\u0442\u0430\u0432\u043A\u0430",
     path: "/delivery",
-    icon: jsx_dev_runtime14.jsxDEV(DeliveryDining_default, {}, undefined, false, undefined, this)
+    icon: jsx_dev_runtime19.jsxDEV(DeliveryDining_default, {}, undefined, false, undefined, this)
   },
   {
     title: "\u041E \u043D\u0430\u0441",
     path: "/about",
-    icon: jsx_dev_runtime14.jsxDEV(Info_default, {}, undefined, false, undefined, this)
+    icon: jsx_dev_runtime19.jsxDEV(Info_default, {}, undefined, false, undefined, this)
   }
 ];
 var offersActions2 = [
@@ -42847,7 +43080,7 @@ var offersActions2 = [
     path: "/offers/constructor"
   }
 ];
-var themed2 = createTheme_default2({
+var themed3 = createTheme_default2({
   palette: {
     primary: {
       main: "#ffffff",
@@ -42895,23 +43128,23 @@ var CustomBarMobile_default = CustomBarMobile = () => {
   import_react21.useEffect(() => {
     console.log(selected);
   }, [selected]);
-  return jsx_dev_runtime14.jsxDEV(Xe, {
-    theme: themed2,
+  return jsx_dev_runtime19.jsxDEV(Xe, {
+    theme: themed3,
     children: [
-      jsx_dev_runtime14.jsxDEV(AppBar_default, {
+      jsx_dev_runtime19.jsxDEV(AppBar_default, {
         position: "static",
-        children: jsx_dev_runtime14.jsxDEV(Toolbar_default, {
+        children: jsx_dev_runtime19.jsxDEV(Toolbar_default, {
           sx: {
             borderBottom: 1,
             borderColor: "#ffffff",
             bgcolor: "#0D0D0D"
           },
           children: [
-            jsx_dev_runtime14.jsxDEV(Button_default, {
+            jsx_dev_runtime19.jsxDEV(Button_default, {
               sx: { alignItems: "end", color: "#ffffff", paddingTop: 0 },
               onClick: () => navigate("/home"),
               children: [
-                jsx_dev_runtime14.jsxDEV(Box_default, {
+                jsx_dev_runtime19.jsxDEV(Box_default, {
                   component: "img",
                   sx: {
                     maxHeight: 81,
@@ -42920,7 +43153,7 @@ var CustomBarMobile_default = CustomBarMobile = () => {
                   alt: "The house from the offer.",
                   src: "/static/logos/icon.png"
                 }, undefined, false, undefined, this),
-                jsx_dev_runtime14.jsxDEV(Box_default, {
+                jsx_dev_runtime19.jsxDEV(Box_default, {
                   component: "img",
                   sx: {
                     height: "35px",
@@ -42930,23 +43163,23 @@ var CustomBarMobile_default = CustomBarMobile = () => {
                 }, undefined, false, undefined, this)
               ]
             }, undefined, true, undefined, this),
-            jsx_dev_runtime14.jsxDEV(Stack_default, {
+            jsx_dev_runtime19.jsxDEV(Stack_default, {
               direction: "row-reverse",
               marginLeft: "auto",
               sx: { alignItems: "center" },
               children: [
-                jsx_dev_runtime14.jsxDEV(CustomSearch_default, {}, undefined, false, undefined, this),
-                jsx_dev_runtime14.jsxDEV(PopupState, {
+                jsx_dev_runtime19.jsxDEV(CustomSearch_default, {}, undefined, false, undefined, this),
+                jsx_dev_runtime19.jsxDEV(PopupState, {
                   variant: "popover",
                   popupId: "demo-popup-popover",
-                  children: (popupState) => jsx_dev_runtime14.jsxDEV("div", {
+                  children: (popupState) => jsx_dev_runtime19.jsxDEV("div", {
                     children: [
-                      jsx_dev_runtime14.jsxDEV(IconButton_default, {
+                      jsx_dev_runtime19.jsxDEV(IconButton_default, {
                         sx: { color: "#ffffff" },
                         ...bindTrigger(popupState),
-                        children: jsx_dev_runtime14.jsxDEV(Phone_default, {}, undefined, false, undefined, this)
+                        children: jsx_dev_runtime19.jsxDEV(Phone_default, {}, undefined, false, undefined, this)
                       }, undefined, false, undefined, this),
-                      jsx_dev_runtime14.jsxDEV(Popover_default, {
+                      jsx_dev_runtime19.jsxDEV(Popover_default, {
                         ...bindPopover(popupState),
                         anchorOrigin: {
                           vertical: "bottom",
@@ -42956,9 +43189,9 @@ var CustomBarMobile_default = CustomBarMobile = () => {
                           vertical: "top",
                           horizontal: "center"
                         },
-                        children: jsx_dev_runtime14.jsxDEV(Typography_default, {
+                        children: jsx_dev_runtime19.jsxDEV(Typography_default, {
                           sx: { p: 2 },
-                          children: jsx_dev_runtime14.jsxDEV("a", {
+                          children: jsx_dev_runtime19.jsxDEV("a", {
                             href: "tel:9851460477",
                             style: {
                               color: "blueviolet"
@@ -42975,7 +43208,7 @@ var CustomBarMobile_default = CustomBarMobile = () => {
           ]
         }, undefined, true, undefined, this)
       }, undefined, false, undefined, this),
-      jsx_dev_runtime14.jsxDEV(BottomNavigation_default, {
+      jsx_dev_runtime19.jsxDEV(BottomNavigation_default, {
         sx: {
           backgroundColor: "#ffffff",
           width: "100%",
@@ -42987,12 +43220,12 @@ var CustomBarMobile_default = CustomBarMobile = () => {
         value: selected,
         onChange: handleSelect,
         showLabels: true,
-        children: actions2.map((action, index) => jsx_dev_runtime14.jsxDEV(BottomNavigationAction_default, {
+        children: actions2.map((action, index) => jsx_dev_runtime19.jsxDEV(BottomNavigationAction_default, {
           label: action.title,
           icon: action.icon
         }, index, false, undefined, this))
       }, undefined, false, undefined, this),
-      (mouseOnOffers || mouseOnPopup) && jsx_dev_runtime14.jsxDEV(CustomPopup_default, {
+      (mouseOnOffers || mouseOnPopup) && jsx_dev_runtime19.jsxDEV(CustomPopup_default, {
         setMouseOnPopup,
         actions: offersActions2
       }, undefined, false, undefined, this)
@@ -43002,9 +43235,9 @@ var CustomBarMobile_default = CustomBarMobile = () => {
 
 // src/components/offers/BuildsPage.js
 var import_react22 = __toESM(require_react(), 1);
-var jsx_dev_runtime15 = __toESM(require_jsx_dev_runtime(), 1);
+var jsx_dev_runtime20 = __toESM(require_jsx_dev_runtime(), 1);
 var BuildsPage_default = BuildsPage = (props) => {
-  return jsx_dev_runtime15.jsxDEV(Box_default, {
+  return jsx_dev_runtime20.jsxDEV(Box_default, {
     padding: 4,
     children: "BUILDS"
   }, undefined, false, undefined, this);
@@ -43012,9 +43245,9 @@ var BuildsPage_default = BuildsPage = (props) => {
 
 // src/components/offers/ComponentsPage.js
 var import_react23 = __toESM(require_react(), 1);
-var jsx_dev_runtime16 = __toESM(require_jsx_dev_runtime(), 1);
+var jsx_dev_runtime21 = __toESM(require_jsx_dev_runtime(), 1);
 var ComponentsPage_default = ComponentsPage = (props) => {
-  return jsx_dev_runtime16.jsxDEV(Box_default, {
+  return jsx_dev_runtime21.jsxDEV(Box_default, {
     padding: 4,
     children: "COMPONENTS"
   }, undefined, false, undefined, this);
@@ -43022,24 +43255,24 @@ var ComponentsPage_default = ComponentsPage = (props) => {
 
 // src/components/offers/ConstructorPage.js
 var import_react24 = __toESM(require_react(), 1);
-var jsx_dev_runtime17 = __toESM(require_jsx_dev_runtime(), 1);
+var jsx_dev_runtime22 = __toESM(require_jsx_dev_runtime(), 1);
 var ConstructorPage_default = ConstructorPage = (props) => {
-  return jsx_dev_runtime17.jsxDEV(Box_default, {
+  return jsx_dev_runtime22.jsxDEV(Box_default, {
     padding: 4,
     children: "CONSTRUCTORS"
   }, undefined, false, undefined, this);
 };
 
 // src/components/App.js
-var jsx_dev_runtime18 = __toESM(require_jsx_dev_runtime(), 1);
+var jsx_dev_runtime23 = __toESM(require_jsx_dev_runtime(), 1);
 var App_default = App = () => {
   const isMobile = UseCheckMobileScreen_default();
   import_react25.useEffect(() => {
     console.log(`mobile: ${isMobile}`);
   }, [isMobile]);
-  return jsx_dev_runtime18.jsxDEV(BrowserRouter, {
+  return jsx_dev_runtime23.jsxDEV(BrowserRouter, {
     basename: "/",
-    children: jsx_dev_runtime18.jsxDEV(Box_default, {
+    children: jsx_dev_runtime23.jsxDEV(Box_default, {
       sx: {
         backgroundColor: "#000000",
         color: "#ffffff",
@@ -43047,38 +43280,38 @@ var App_default = App = () => {
         width: 1
       },
       children: [
-        isMobile ? jsx_dev_runtime18.jsxDEV(CustomBarMobile_default, {}, undefined, false, undefined, this) : jsx_dev_runtime18.jsxDEV(CustomBarPC_default, {}, undefined, false, undefined, this),
-        jsx_dev_runtime18.jsxDEV(Box_default, {
-          children: jsx_dev_runtime18.jsxDEV(Routes, {
+        isMobile ? jsx_dev_runtime23.jsxDEV(CustomBarMobile_default, {}, undefined, false, undefined, this) : jsx_dev_runtime23.jsxDEV(CustomBarPC_default, {}, undefined, false, undefined, this),
+        jsx_dev_runtime23.jsxDEV(Box_default, {
+          children: jsx_dev_runtime23.jsxDEV(Routes, {
             children: [
-              jsx_dev_runtime18.jsxDEV(Route, {
+              jsx_dev_runtime23.jsxDEV(Route, {
                 path: "home",
-                element: jsx_dev_runtime18.jsxDEV(HomePage_default, {}, undefined, false, undefined, this)
+                element: jsx_dev_runtime23.jsxDEV(HomePage_default, {}, undefined, false, undefined, this)
               }, undefined, false, undefined, this),
-              jsx_dev_runtime18.jsxDEV(Route, {
+              jsx_dev_runtime23.jsxDEV(Route, {
                 path: "offers",
                 children: [
-                  jsx_dev_runtime18.jsxDEV(Route, {
+                  jsx_dev_runtime23.jsxDEV(Route, {
                     path: "builds",
-                    element: jsx_dev_runtime18.jsxDEV(BuildsPage_default, {}, undefined, false, undefined, this)
+                    element: jsx_dev_runtime23.jsxDEV(BuildsPage_default, {}, undefined, false, undefined, this)
                   }, undefined, false, undefined, this),
-                  jsx_dev_runtime18.jsxDEV(Route, {
+                  jsx_dev_runtime23.jsxDEV(Route, {
                     path: "components",
-                    element: jsx_dev_runtime18.jsxDEV(ComponentsPage_default, {}, undefined, false, undefined, this)
+                    element: jsx_dev_runtime23.jsxDEV(ComponentsPage_default, {}, undefined, false, undefined, this)
                   }, undefined, false, undefined, this),
-                  jsx_dev_runtime18.jsxDEV(Route, {
+                  jsx_dev_runtime23.jsxDEV(Route, {
                     path: "constructor",
-                    element: jsx_dev_runtime18.jsxDEV(ConstructorPage_default, {}, undefined, false, undefined, this)
+                    element: jsx_dev_runtime23.jsxDEV(ConstructorPage_default, {}, undefined, false, undefined, this)
                   }, undefined, false, undefined, this)
                 ]
               }, undefined, true, undefined, this),
-              jsx_dev_runtime18.jsxDEV(Route, {
+              jsx_dev_runtime23.jsxDEV(Route, {
                 path: "delivery",
-                element: jsx_dev_runtime18.jsxDEV(DeliveryPage_default, {}, undefined, false, undefined, this)
+                element: jsx_dev_runtime23.jsxDEV(DeliveryPage_default, {}, undefined, false, undefined, this)
               }, undefined, false, undefined, this),
-              jsx_dev_runtime18.jsxDEV(Route, {
+              jsx_dev_runtime23.jsxDEV(Route, {
                 path: "about",
-                element: jsx_dev_runtime18.jsxDEV(AboutUsPage_default, {}, undefined, false, undefined, this)
+                element: jsx_dev_runtime23.jsxDEV(AboutUsPage_default, {}, undefined, false, undefined, this)
               }, undefined, false, undefined, this)
             ]
           }, undefined, true, undefined, this)
@@ -43089,6 +43322,6 @@ var App_default = App = () => {
 };
 
 // src/index.js
-var jsx_dev_runtime19 = __toESM(require_jsx_dev_runtime(), 1);
+var jsx_dev_runtime24 = __toESM(require_jsx_dev_runtime(), 1);
 var appDiv = document.getElementById("app");
-import_react_dom2.render(jsx_dev_runtime19.jsxDEV(App_default, {}, undefined, false, undefined, this), appDiv);
+import_react_dom2.render(jsx_dev_runtime24.jsxDEV(App_default, {}, undefined, false, undefined, this), appDiv);

@@ -104,7 +104,7 @@ export default ChooseSection = () => {
     }
   };
 
-  // just script for gradient
+// just script for gradient
 //   useEffect(() => {
 //     var colors = new Array(
 //       [62, 35, 255],
@@ -216,7 +216,6 @@ export default ChooseSection = () => {
 
             boxShadow:
                 "inset 0px 10px 4em -4px #0d0d0d, inset 0px -10px 4em -4px #0d0d0d",
-            //   "inset 0px 22px 2em -20px #0d0d0d, inset 0px -22px 2em -20px #0d0d0d",
           }}
           sx={{
             border: 2,

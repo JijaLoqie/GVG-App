@@ -32,6 +32,8 @@ ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'gvgtechsolutions.ru', 'www.gvgtechso
 # Application definition
 
 INSTALLED_APPS = [
+    'api.apps.ApiConfig',
+    'builds.apps.BuildsConfig',
     'frontend.apps.FrontendConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -76,15 +78,14 @@ WSGI_APPLICATION = 'gvg_app.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 # DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'u2274872_default',
-#         'USER': 'u2274872_default',
-#         'PASSWORD': 'lOJd12NJqL7Ii6ja',
-#         'HOST': 'localhost',
-#     }
-# }
-
+#    'default': {
+#        'ENGINE': 'django.db.backends.mysql',
+#        'NAME': 'u2274872_default',
+#        'USER': 'u2274872_default',
+#        'PASSWORD': 'lOJd12NJqL7Ii6ja',
+#        'HOST': 'localhost',
+#   }
+# } 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 

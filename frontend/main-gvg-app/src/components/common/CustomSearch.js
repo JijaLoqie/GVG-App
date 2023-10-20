@@ -10,15 +10,12 @@ import { InputBase } from '@mui/material';
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
   borderRadius: theme.shape.borderRadius,
-  backgroundColor: alpha(theme.palette.common.white, 0.15),
   "&:hover": {
     backgroundColor: alpha(theme.palette.common.white, 0.25),
   },
-  width: "100%",
-  [theme.breakpoints.up("sm")]: {
-    marginLeft: theme.spacing(1),
-    width: "auto",
-  },
+  width: "39px",
+  marginLeft: theme.spacing(1),
+  width: "auto",
 }));
 
 const SearchIconWrapper = styled("div")(({ theme }) => ({
@@ -38,12 +35,11 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     // vertical padding + font size from searchIcon
     paddingLeft: `calc(1em + ${theme.spacing(4)})`,
     transition: theme.transitions.create("width"),
-    width: "12ch",
-    [theme.breakpoints.up("sm")]: {
-      width: "12ch",
-      "&:focus": {
-        width: "20ch",
-      },
+    width: "0px",
+    "&:focus": {
+      width: "15ch",
+      borderRadius: theme.shape.borderRadius,
+      backgroundColor: alpha(theme.palette.common.white, 0.25),
     },
   },
 }));
@@ -55,7 +51,6 @@ export default CustomSearch = () => {
         <SearchIcon />
       </SearchIconWrapper>
       <StyledInputBase
-        placeholder="Search…"
         color="#ffffff"
         inputProps={{ "aria-label": "search" }}
       />

@@ -27,7 +27,6 @@ export default CustomYandexMap = ({ selected }) => {
   return (
     <YMaps
       onApiAvaliable={(ymaps) => {
-        console.log("setting ymaps");
         setYmaps(ymaps);
       }}
     >

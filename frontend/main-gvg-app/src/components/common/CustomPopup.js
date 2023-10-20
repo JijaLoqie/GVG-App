@@ -45,7 +45,7 @@ export default CustomPopupOptions = ({ setMouseOnPopup, actions }) => {
             key={index}
             href={`${action.path}`}
             sx={{
-              color: { xs: "#ff0000", md: "#ffffff" },
+              color: { xs: "#0000ff", md: "#ffffff" },
               backgroundColor: { xs: "#ffffff", md: "#313131" },
               "&:hover": {
                 backgroundColor: "#ffffff",

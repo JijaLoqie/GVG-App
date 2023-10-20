@@ -20,9 +20,6 @@ import ConstructorPage from './offers/ConstructorPage';
 export default App = () => {
   const isMobile = useCheckMobileScreen();
 
-  useEffect(() => {
-    console.log(`mobile: ${isMobile}`);
-  }, [isMobile]);
 
   return (
     <BrowserRouter basename="/">

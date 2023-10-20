@@ -5,6 +5,7 @@ import {
   Computer as ComputerIcon,
   DeliveryDining as DeliveryDiningIcon,
   Info as InfoIcon,
+  ShoppingCart as ShoppingCartIcon,
 } from "@mui/icons-material";
 import { lime, purple } from "@mui/material/colors";
 
@@ -92,14 +93,10 @@ export default CustomBarMobile = () => {
 	if (pathname[pathname.length - 1] === '/') {
 		pathname = pathname.substring(0, pathname.length - 1);
 	}
-    console.log(pathname);
     for (let i = 0; i < actions.length; i += 1) {
       if (actions[i].path == pathname) {
-        console.log(`GOOOD, ${pathname} IS ${actions[i].path}`);
         setSelected(i);
         return;
-      } else {
-        console.log(`baad, ${pathname} is not ${actions[i].path}`);
 	  }
     }
     for (let i = 0; i < offersActions.length; i += 1) {
@@ -120,17 +117,12 @@ export default CustomBarMobile = () => {
       navigate(`${actions[newSelected].path}`);
     }
   };
-  useEffect(() => {
-	console.log(selected)
-  }, [selected])
 
   return (
     <ThemeProvider theme={themed}>
       <AppBar position="static">
         <Toolbar
           sx={{
-            borderBottom: 1,
-            borderColor: "#ffffff",
             bgcolor: "#0D0D0D",
           }}
         >
@@ -196,6 +188,9 @@ export default CustomBarMobile = () => {
                 </div>
               )}
             </PopupState>
+            <IconButton sx={{ color: "#ffffff", marginRight: 1 }}>
+              <ShoppingCartIcon />
+            </IconButton>
           </Stack>
         </Toolbar>
       </AppBar>

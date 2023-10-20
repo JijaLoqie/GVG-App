@@ -10,7 +10,6 @@ import { Box, Typography } from "@mui/material";
 const slideStyles = {
   width: "100%",
   height: "100%",
-  borderRadius: "10px",
   backgroundSize: "cover",
   backgroundPosition: "center",
   transition: (theme) =>
@@ -98,6 +97,7 @@ const ImageSlider = ({ items }) => {
   const slideStylesWidthBackground = {
     ...slideStyles,
     backgroundImage: `url(${items[currentIndex].url})`,
+	backgroundSize: "cover",
   };
 
   return (

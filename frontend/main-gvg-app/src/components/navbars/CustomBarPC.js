@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
 
 import CustomSearch from "../common/CustomSearch";
-import { Phone as PhoneIcon } from "@mui/icons-material";
+import {
+  Phone as PhoneIcon,
+  ShoppingCart as ShoppingCartIcon,
+} from "@mui/icons-material";
 import {
   Button,
   Box,
@@ -15,10 +18,12 @@ import {
   ThemeProvider,
   Popover,
   IconButton,
+  Tabs,
+  Tab,
 } from "@mui/material";
 import PopupState, { bindPopover, bindTrigger } from "material-ui-popup-state";
-import CustomPopup from '../common/CustomPopup';
-import { useNavigate } from 'react-router-dom';
+import CustomPopup from "../common/CustomPopup";
+import { useNavigate } from "react-router-dom";
 
 const themed = createTheme({
   palette: {
@@ -62,10 +67,10 @@ const offersActions = [
 ];
 
 export default CustomBarPC = () => {
+  const [selected, setSelected] = useState(actions[0].title)
   const [mouseOnOffers, setMouseOnOffers] = useState(false);
   const [mouseOnPopup, setMouseOnPopup] = useState(false);
   const navigate = useNavigate();
-
 
   const handleEnterButton = (actionPath) => {
     if (actionPath === "/offers") {
@@ -79,20 +84,19 @@ export default CustomBarPC = () => {
     }
   };
 
-  const handleClickButton = (actionPath) => {
-	if (actionPath === "/offers") {
-		return
-	}
-	navigate(actionPath)
-  }
+  const handleClickButton = (action) => {
+    if (action.path === "/offers") {
+      return;
+    }
+	setSelected(action.title)
+    navigate(action.path);
+  };
 
   return (
     <ThemeProvider theme={themed}>
-      <AppBar position="static">
+      <AppBar position="static" sx={{ boxShadow: "0 0 2em black" }}>
         <Toolbar
           sx={{
-            borderBottom: 1,
-            borderColor: "primary.main",
             bgcolor: "#0D0D0D",
           }}
         >
@@ -118,9 +122,9 @@ export default CustomBarPC = () => {
             />
           </Button>
 
-          <ButtonGroup
-            variant="text"
-            sx={{ minHeight: "50px", paddingInline: "20px" }}
+          {/* <Stack
+		  	direction="row"
+            sx={{ minHeight: "50px", paddingInline: "20px", textAlign: "center" }}
           >
             {actions.map((action, index) => (
               <Button
@@ -133,7 +137,21 @@ export default CustomBarPC = () => {
                 {action.title}
               </Button>
             ))}
-          </ButtonGroup>
+          </Stack> */}
+
+          <Tabs value={selected}>
+            {actions.map((action, index) => (
+              <Tab
+                key={index}
+                value={action.title}
+                label={action.title}
+                sx={{ paddingInline: "20px", color: "#ffffff" }}
+                onClick={() => handleClickButton(action)}
+                onMouseEnter={() => handleEnterButton(action.path)}
+                onMouseLeave={() => handleLeaveButton(action.path)}
+              />
+            ))}
+          </Tabs>
           {(mouseOnOffers || mouseOnPopup) && (
             <CustomPopup
               setMouseOnPopup={setMouseOnPopup}
@@ -198,6 +216,9 @@ export default CustomBarPC = () => {
                 )}
               </PopupState>
             </Box>
+            <IconButton sx={{ color: "#ffffff", marginRight: 1 }}>
+              <ShoppingCartIcon />
+            </IconButton>
           </Stack>
         </Toolbar>
       </AppBar>

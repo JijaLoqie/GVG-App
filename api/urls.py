@@ -3,7 +3,6 @@ from django.urls import path, include
 from .views import *
 
 urlpatterns = [
-	path('get-builds', hello_view),
-	path('get-build/<str:build_id>', hello_view),
-    
+	path('get-builds', Builds.as_view()),
+	path('get-build-by-id', BuildById.as_view()),
 ]

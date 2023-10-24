@@ -133,7 +133,6 @@ export default CustomBarMobile = () => {
             marginLeft="auto"
             sx={{ alignItems: "center" }}
           >
-            <CustomSearch />
             <PopupState variant="popover" popupId="demo-popup-popover">
               {(popupState) => (
                 <div>

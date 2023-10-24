@@ -23,10 +23,10 @@ span:hover {
     height: 100vh;
     font-weight: 100;
     background: radial-gradient(#4062BB,#1f1013);
-    -webkit-overflow-Y: hidden;
-    -moz-overflow-Y: hidden;
-    -o-overflow-Y: hidden;
-    overflow-y: hidden;
+    -webkit-overflow-Y: auto;
+    -moz-overflow-Y: auto;
+    -o-overflow-Y: auto;
+    overflow-y: auto;
     -webkit-animation: fadeIn 1 1s ease-out;
     -moz-animation: fadeIn 1 1s ease-out;
     -o-animation: fadeIn 1 1s ease-out;

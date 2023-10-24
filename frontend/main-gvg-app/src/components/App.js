@@ -1,25 +1,22 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import OffersPage from "./offers/OffersPage";
 import HomePage from "./home/HomePage";
 import DeliveryPage from "./delivery/DeliveryPage";
 import AboutUsPage from "./about/AboutUsPage";
 
 import { Box } from "@mui/material";
 
-import useCheckMobileScreen from './common/hooks/UseCheckMobileScreen';
+import useCheckMobileScreen from "./common/hooks/UseCheckMobileScreen";
 import CustomBarPC from "./navbars/CustomBarPC";
 import CustomBarMobile from "./navbars/CustomBarMobile";
 
-import BuildsPage from './offers/BuildsPage';
-import ComponentsPage from './offers/ComponentsPage';
-import ConstructorPage from './offers/ConstructorPage';
-
+import BuildsPage from "./offers/BuildsPage";
+import ComponentsPage from "./offers/ComponentsPage";
+import ConstructorPage from "./offers/ConstructorPage";
 
 export default App = () => {
   const isMobile = useCheckMobileScreen();
-
 
   return (
     <BrowserRouter basename="/">

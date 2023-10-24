@@ -3,7 +3,8 @@ import React, { useEffect, useState } from "react";
 import CustomSearch from "../common/CustomSearch";
 import {
   Phone as PhoneIcon,
-  ShoppingCart as ShoppingCartIcon,
+  ShoppingBag as ShoppingBagIcon,
+  Search as SearchIcon,
 } from "@mui/icons-material";
 import {
   Button,
@@ -20,16 +21,40 @@ import {
   IconButton,
   Tabs,
   Tab,
+  useScrollTrigger,
+  Switch,
+  colors,
 } from "@mui/material";
 import PopupState, { bindPopover, bindTrigger } from "material-ui-popup-state";
 import CustomPopup from "../common/CustomPopup";
 import { useNavigate } from "react-router-dom";
 import LogoButton from "./LogoButton";
+import styled from "styled-components";
 
 const themed = createTheme({
   palette: {
+    mode: "dark",
     primary: {
       main: "#ffffff",
+    },
+    secondary: {
+      main: "#00ff00",
+    },
+  },
+  components: {
+    MuiDataGrid: {
+      styleOverrides: {
+        root: {
+          border: 1,
+          borderColor: colors.primaryGrayMid,
+          borderStyle: "solid",
+          borderRadius: 10,
+          boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.25)",
+          backgroundColor: colors.primaryGrayDark,
+          color: "#C1C2C5",
+          padding: 10,
+        },
+      },
     },
   },
 });
@@ -67,9 +92,56 @@ const offersActions = [
   },
 ];
 
+const MaterialUISwitch = styled(Switch)(({ theme }) => ({
+  width: 62,
+  height: 34,
+  padding: 7,
+  "& .MuiSwitch-switchBase": {
+    margin: 1,
+    padding: 0,
+    transform: "translateX(6px)",
+    "&.Mui-checked": {
+      color: "#fff",
+      transform: "translateX(22px)",
+      "& .MuiSwitch-thumb:before": {
+        backgroundImage: `url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 20 20"><path fill="${encodeURIComponent(
+          "#fff"
+        )}" d="M4.2 2.5l-.7 1.8-1.8.7 1.8.7.7 1.8.6-1.8L6.7 5l-1.9-.7-.6-1.8zm15 8.3a6.7 6.7 0 11-6.6-6.6 5.8 5.8 0 006.6 6.6z"/></svg>')`,
+      },
+      "& + .MuiSwitch-track": {
+        opacity: 1,
+        backgroundColor: theme.palette.mode === "dark" ? "#8796A5" : "#aab4be",
+      },
+    },
+  },
+  "& .MuiSwitch-thumb": {
+    backgroundColor: theme.palette.mode === "dark" ? "#003892" : "#001e3c",
+    width: 32,
+    height: 32,
+    "&:before": {
+      content: "''",
+      position: "absolute",
+      width: "100%",
+      height: "100%",
+      left: 0,
+      top: 0,
+      backgroundRepeat: "no-repeat",
+      backgroundPosition: "center",
+      backgroundImage: `url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 20 20"><path fill="${encodeURIComponent(
+        "#fff"
+      )}" d="M9.305 1.667V3.75h1.389V1.667h-1.39zm-4.707 1.95l-.982.982L5.09 6.072l.982-.982-1.473-1.473zm10.802 0L13.927 5.09l.982.982 1.473-1.473-.982-.982zM10 5.139a4.872 4.872 0 00-4.862 4.86A4.872 4.872 0 0010 14.862 4.872 4.872 0 0014.86 10 4.872 4.872 0 0010 5.139zm0 1.389A3.462 3.462 0 0113.471 10a3.462 3.462 0 01-3.473 3.472A3.462 3.462 0 016.527 10 3.462 3.462 0 0110 6.528zM1.665 9.305v1.39h2.083v-1.39H1.666zm14.583 0v1.39h2.084v-1.39h-2.084zM5.09 13.928L3.616 15.4l.982.982 1.473-1.473-.982-.982zm9.82 0l-.982.982 1.473 1.473.982-.982-1.473-1.473zM9.305 16.25v2.083h1.389V16.25h-1.39z"/></svg>')`,
+    },
+  },
+  "& .MuiSwitch-track": {
+    opacity: 1,
+    backgroundColor: theme.palette.mode === "dark" ? "#8796A5" : "#aab4be",
+    borderRadius: 20 / 2,
+  },
+}));
+
 export default CustomBarPC = () => {
-  const [selected, setSelected] = useState(actions[0].title);
-  const [hovered, setHovered] = useState(actions[0].title);
+  const [selected, setSelected] = useState("");
+  const [hovered, setHovered] = useState("");
   const [mouseOnOffers, setMouseOnOffers] = useState(false);
   const [offersOpen, setOffersOpen] = useState(false);
   const [mouseOnPopup, setMouseOnPopup] = useState(false);
@@ -79,10 +151,7 @@ export default CustomBarPC = () => {
     if (!mouseOnOffers && !mouseOnPopup) {
       const timer = setTimeout(() => {
         if (!mouseOnOffers && !mouseOnPopup) {
-          console.log("Time's up, closing");
           setOffersOpen(false);
-        } else {
-          console.log("Well, still good");
         }
       }, 400);
       return () => clearTimeout(timer);
@@ -109,14 +178,14 @@ export default CustomBarPC = () => {
     if (action.path === "/offers") {
       return;
     }
-    setSelected(action.title);
+    setSelected(action.path);
     navigate(action.path);
   };
 
   return (
     <ThemeProvider theme={themed}>
       <AppBar
-        position="static"
+        position="sticky"
         sx={{
           boxShadow: "0 0 2em black",
           padding: "23px 0",
@@ -151,7 +220,7 @@ export default CustomBarPC = () => {
               sx={{
                 display: "flex",
                 flexDirection: "row",
-                justifyContent: "space-between",
+                justifyContent: "space-around",
                 height: "100%",
                 width: "50%",
                 paddingInline: "15px",
@@ -162,7 +231,7 @@ export default CustomBarPC = () => {
                   key={index}
                   sx={{
                     paddingInline: "20px",
-                    color: hovered === action.path ? "#0000ff" : "#ffffff",
+                    color: hovered === action.path ? "#2222ff" : "#ffffff",
                     cursor: "pointer",
                     height: "100%",
                     transition: "all 0.5s",
@@ -181,29 +250,22 @@ export default CustomBarPC = () => {
                 actions={offersActions}
               />
             )}
-            <Stack
-              direction="row-reverse"
+            <Box
               width="25%"
-              sx={{ alignItems: "center", color: "#ffffff" }}
+              sx={{
+                display: "flex",
+                alignItems: "end",
+                flexDirection: "column",
+                color: "#ffffff",
+                justifyContent: "center",
+              }}
             >
-              <CustomSearch />
-              <IconButton sx={{ color: "#ffffff", marginRight: 1 }}>
-                <ShoppingCartIcon />
-              </IconButton>
               {/* CallText */}
               <Typography
-                variant="body1"
-                sx={{ alignSelf: "center" }}
+                sx={{ fontSize: "20px", fontWeight: "400" }}
                 display={{ xs: "none", lg: "flex" }}
               >
-                <a
-                  href="tel:9851460477"
-                  style={{
-                    color: "white",
-                  }}
-                >
-                  +7 (985) 146-04-77
-                </a>
+                TEL: 89851460477
               </Typography>
               {/* CallButton */}
               <Box display={{ xs: "flex", lg: "none" }}>
@@ -211,7 +273,13 @@ export default CustomBarPC = () => {
                   {(popupState) => (
                     <div>
                       <IconButton
-                        sx={{ color: "#ffffff" }}
+                        sx={{
+                          color: "#ffffff",
+                          transition: "color 0.2s",
+                          "&:hover": {
+                            color: "#2222ff",
+                          },
+                        }}
                         {...bindTrigger(popupState)}
                       >
                         <PhoneIcon />
@@ -242,7 +310,35 @@ export default CustomBarPC = () => {
                   )}
                 </PopupState>
               </Box>
-            </Stack>
+              <Stack direction="row" spacing={3} sx={{}}>
+                <IconButton
+                  sx={{
+                    padding: 0,
+                    color: "#ffffff",
+                    transition: "color 0.2s",
+                    "&:hover": {
+                      color: "#2222ff",
+                    },
+                  }}
+                >
+                  <ShoppingBagIcon />
+                </IconButton>
+                <MaterialUISwitch theme={themed} />
+
+                <IconButton
+                  sx={{
+                    padding: 0,
+                    color: "#ffffff",
+                    transition: "color 0.2s",
+                    "&:hover": {
+                      color: "#2222ff",
+                    },
+                  }}
+                >
+                  <SearchIcon />
+                </IconButton>
+              </Stack>
+            </Box>
           </Toolbar>
         </Box>
       </AppBar>

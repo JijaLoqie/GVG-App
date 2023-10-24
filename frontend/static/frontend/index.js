@@ -22517,7 +22517,7 @@ var require_react_is4 = __commonJS((exports, module) => {
 
 // node_modules/react/cjs/react-jsx-dev-runtime.development.js
 var require_react_jsx_dev_runtime_development = __commonJS((exports) => {
-  var React78 = __toESM(require_react(), 1);
+  var React72 = __toESM(require_react(), 1);
   if (true) {
     (function() {
       var _assign = require_object_assign();
@@ -22576,7 +22576,7 @@ var require_react_jsx_dev_runtime_development = __commonJS((exports) => {
         }
         return null;
       }
-      var ReactSharedInternals = React78.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+      var ReactSharedInternals = React72.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
       function error(format) {
         {
           for (var _len2 = arguments.length, args = new Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1;_key2 < _len2; _key2++) {
@@ -23141,7 +23141,7 @@ var require_react_jsx_dev_runtime_development = __commonJS((exports) => {
       {
         propTypesMisspellWarningShown = false;
       }
-      function isValidElement12(object) {
+      function isValidElement10(object) {
         {
           return typeof object === "object" && object !== null && object.$$typeof === REACT_ELEMENT_TYPE;
         }
@@ -23208,11 +23208,11 @@ var require_react_jsx_dev_runtime_development = __commonJS((exports) => {
           if (Array.isArray(node2)) {
             for (var i = 0;i < node2.length; i++) {
               var child = node2[i];
-              if (isValidElement12(child)) {
+              if (isValidElement10(child)) {
                 validateExplicitKey(child, parentType);
               }
             }
-          } else if (isValidElement12(node2)) {
+          } else if (isValidElement10(node2)) {
             if (node2._store) {
               node2._store.validated = true;
             }
@@ -23223,7 +23223,7 @@ var require_react_jsx_dev_runtime_development = __commonJS((exports) => {
                 var iterator = iteratorFn.call(node2);
                 var step;
                 while (!(step = iterator.next()).done) {
-                  if (isValidElement12(step.value)) {
+                  if (isValidElement10(step.value)) {
                     validateExplicitKey(step.value, parentType);
                   }
                 }
@@ -24401,17 +24401,17 @@ var require_animations = __commonJS((exports) => {
   var slideAnimationHandler = function slideAnimationHandler(props, state) {
     var returnStyles = {};
     var selectedItem = state.selectedItem;
-    var previousItem2 = selectedItem;
+    var previousItem = selectedItem;
     var lastPosition = _react.Children.count(props.children) - 1;
     var needClonedSlide = props.infiniteLoop && (selectedItem < 0 || selectedItem > lastPosition);
     if (needClonedSlide) {
-      if (previousItem2 < 0) {
+      if (previousItem < 0) {
         if (props.centerMode && props.centerSlidePercentage && props.axis === "horizontal") {
           returnStyles.itemListStyle = (0, _utils.setPosition)(-(lastPosition + 2) * props.centerSlidePercentage - (100 - props.centerSlidePercentage) / 2, props.axis);
         } else {
           returnStyles.itemListStyle = (0, _utils.setPosition)(-(lastPosition + 2) * 100, props.axis);
         }
-      } else if (previousItem2 > lastPosition) {
+      } else if (previousItem > lastPosition) {
         returnStyles.itemListStyle = (0, _utils.setPosition)(0, props.axis);
       }
       return returnStyles;
@@ -25424,11 +25424,11 @@ var require_shallowequal = __commonJS((exports, module) => {
 });
 
 // src/index.js
-var import_react26 = __toESM(require_react(), 1);
+var import_react27 = __toESM(require_react(), 1);
 var import_react_dom2 = __toESM(require_react_dom(), 1);
 
 // src/components/App.js
-var import_react25 = __toESM(require_react(), 1);
+var import_react26 = __toESM(require_react(), 1);
 
 // node_modules/react-router-dom/dist/index.js
 var React2 = __toESM(require_react(), 1);
@@ -27695,52 +27695,6 @@ function getScrollbarSize(doc) {
   const documentWidth = doc.documentElement.clientWidth;
   return Math.abs(window.innerWidth - documentWidth);
 }
-// node_modules/@mui/utils/esm/scrollLeft.js
-function detectScrollType() {
-  if (cachedType) {
-    return cachedType;
-  }
-  const dummy = document.createElement("div");
-  const container = document.createElement("div");
-  container.style.width = "10px";
-  container.style.height = "1px";
-  dummy.appendChild(container);
-  dummy.dir = "rtl";
-  dummy.style.fontSize = "14px";
-  dummy.style.width = "4px";
-  dummy.style.height = "1px";
-  dummy.style.position = "absolute";
-  dummy.style.top = "-1000px";
-  dummy.style.overflow = "scroll";
-  document.body.appendChild(dummy);
-  cachedType = "reverse";
-  if (dummy.scrollLeft > 0) {
-    cachedType = "default";
-  } else {
-    dummy.scrollLeft = 1;
-    if (dummy.scrollLeft === 0) {
-      cachedType = "negative";
-    }
-  }
-  document.body.removeChild(dummy);
-  return cachedType;
-}
-function getNormalizedScrollLeft(element, direction) {
-  const scrollLeft = element.scrollLeft;
-  if (direction !== "rtl") {
-    return scrollLeft;
-  }
-  const type = detectScrollType();
-  switch (type) {
-    case "negative":
-      return element.scrollWidth - element.clientWidth + scrollLeft;
-    case "reverse":
-      return element.scrollWidth - element.clientWidth - scrollLeft;
-    default:
-      return scrollLeft;
-  }
-}
-var cachedType;
 // node_modules/@mui/utils/esm/getValidReactChildren.js
 var React8 = __toESM(require_react(), 1);
 function getValidReactChildren(children) {
@@ -32584,11 +32538,13 @@ var ownerDocument_default = ownerDocument;
 
 // node_modules/@mui/material/utils/ownerWindow.js
 var ownerWindow_default = ownerWindow;
+
 // node_modules/@mui/material/utils/requirePropFactory.js
 var requirePropFactory_default = requirePropFactory;
 
 // node_modules/@mui/material/utils/useEnhancedEffect.js
 var useEnhancedEffect_default2 = useEnhancedEffect_default;
+
 // node_modules/@mui/material/utils/unsupportedProp.js
 var unsupportedProp_default = unsupportedProp;
 
@@ -39432,203 +39388,9 @@ Popover.propTypes = {
   TransitionProps: import_prop_types49.default.object
 };
 var Popover_default = Popover;
-// node_modules/@mui/material/Tab/Tab.js
+// node_modules/@mui/material/Toolbar/Toolbar.js
 var React71 = __toESM(require_react(), 1);
 var import_prop_types50 = __toESM(require_prop_types(), 1);
-
-// node_modules/@mui/material/Tab/tabClasses.js
-function getTabUtilityClass(slot) {
-  return generateUtilityClass("MuiTab", slot);
-}
-var tabClasses = generateUtilityClasses("MuiTab", ["root", "labelIcon", "textColorInherit", "textColorPrimary", "textColorSecondary", "selected", "disabled", "fullWidth", "wrapped", "iconWrapper"]);
-var tabClasses_default = tabClasses;
-
-// node_modules/@mui/material/Tab/Tab.js
-var jsx_runtime55 = __toESM(require_jsx_runtime(), 1);
-var _excluded48 = ["className", "disabled", "disableFocusRipple", "fullWidth", "icon", "iconPosition", "indicator", "label", "onChange", "onClick", "onFocus", "selected", "selectionFollowsFocus", "textColor", "value", "wrapped"];
-var useUtilityClasses27 = (ownerState) => {
-  const {
-    classes,
-    textColor,
-    fullWidth,
-    wrapped,
-    icon,
-    label,
-    selected,
-    disabled
-  } = ownerState;
-  const slots = {
-    root: ["root", icon && label && "labelIcon", `textColor${capitalize_default(textColor)}`, fullWidth && "fullWidth", wrapped && "wrapped", selected && "selected", disabled && "disabled"],
-    iconWrapper: ["iconWrapper"]
-  };
-  return composeClasses(slots, getTabUtilityClass, classes);
-};
-var TabRoot = styled_default2(ButtonBase_default, {
-  name: "MuiTab",
-  slot: "Root",
-  overridesResolver: (props, styles5) => {
-    const {
-      ownerState
-    } = props;
-    return [styles5.root, ownerState.label && ownerState.icon && styles5.labelIcon, styles5[`textColor${capitalize_default(ownerState.textColor)}`], ownerState.fullWidth && styles5.fullWidth, ownerState.wrapped && styles5.wrapped];
-  }
-})(({
-  theme,
-  ownerState
-}) => _extends4({}, theme.typography.button, {
-  maxWidth: 360,
-  minWidth: 90,
-  position: "relative",
-  minHeight: 48,
-  flexShrink: 0,
-  padding: "12px 16px",
-  overflow: "hidden",
-  whiteSpace: "normal",
-  textAlign: "center"
-}, ownerState.label && {
-  flexDirection: ownerState.iconPosition === "top" || ownerState.iconPosition === "bottom" ? "column" : "row"
-}, {
-  lineHeight: 1.25
-}, ownerState.icon && ownerState.label && {
-  minHeight: 72,
-  paddingTop: 9,
-  paddingBottom: 9,
-  [`& > .${tabClasses_default.iconWrapper}`]: _extends4({}, ownerState.iconPosition === "top" && {
-    marginBottom: 6
-  }, ownerState.iconPosition === "bottom" && {
-    marginTop: 6
-  }, ownerState.iconPosition === "start" && {
-    marginRight: theme.spacing(1)
-  }, ownerState.iconPosition === "end" && {
-    marginLeft: theme.spacing(1)
-  })
-}, ownerState.textColor === "inherit" && {
-  color: "inherit",
-  opacity: 0.6,
-  [`&.${tabClasses_default.selected}`]: {
-    opacity: 1
-  },
-  [`&.${tabClasses_default.disabled}`]: {
-    opacity: (theme.vars || theme).palette.action.disabledOpacity
-  }
-}, ownerState.textColor === "primary" && {
-  color: (theme.vars || theme).palette.text.secondary,
-  [`&.${tabClasses_default.selected}`]: {
-    color: (theme.vars || theme).palette.primary.main
-  },
-  [`&.${tabClasses_default.disabled}`]: {
-    color: (theme.vars || theme).palette.text.disabled
-  }
-}, ownerState.textColor === "secondary" && {
-  color: (theme.vars || theme).palette.text.secondary,
-  [`&.${tabClasses_default.selected}`]: {
-    color: (theme.vars || theme).palette.secondary.main
-  },
-  [`&.${tabClasses_default.disabled}`]: {
-    color: (theme.vars || theme).palette.text.disabled
-  }
-}, ownerState.fullWidth && {
-  flexShrink: 1,
-  flexGrow: 1,
-  flexBasis: 0,
-  maxWidth: "none"
-}, ownerState.wrapped && {
-  fontSize: theme.typography.pxToRem(12)
-}));
-var Tab2 = React71.forwardRef(function Tab3(inProps, ref) {
-  const props = useThemeProps3({
-    props: inProps,
-    name: "MuiTab"
-  });
-  const {
-    className: className2,
-    disabled = false,
-    disableFocusRipple = false,
-    fullWidth,
-    icon: iconProp,
-    iconPosition = "top",
-    indicator,
-    label,
-    onChange,
-    onClick,
-    onFocus,
-    selected,
-    selectionFollowsFocus,
-    textColor = "inherit",
-    value,
-    wrapped = false
-  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded48);
-  const ownerState = _extends4({}, props, {
-    disabled,
-    disableFocusRipple,
-    selected,
-    icon: !!iconProp,
-    iconPosition,
-    label: !!label,
-    fullWidth,
-    textColor,
-    wrapped
-  });
-  const classes = useUtilityClasses27(ownerState);
-  const icon = iconProp && label && React71.isValidElement(iconProp) ? React71.cloneElement(iconProp, {
-    className: clsx_default2(classes.iconWrapper, iconProp.props.className)
-  }) : iconProp;
-  const handleClick = (event) => {
-    if (!selected && onChange) {
-      onChange(event, value);
-    }
-    if (onClick) {
-      onClick(event);
-    }
-  };
-  const handleFocus = (event) => {
-    if (selectionFollowsFocus && !selected && onChange) {
-      onChange(event, value);
-    }
-    if (onFocus) {
-      onFocus(event);
-    }
-  };
-  return jsx_runtime55.jsxs(TabRoot, _extends4({
-    focusRipple: !disableFocusRipple,
-    className: clsx_default2(classes.root, className2),
-    ref,
-    role: "tab",
-    "aria-selected": selected,
-    disabled,
-    onClick: handleClick,
-    onFocus: handleFocus,
-    ownerState,
-    tabIndex: selected ? 0 : -1
-  }, other, {
-    children: [iconPosition === "top" || iconPosition === "start" ? jsx_runtime55.jsxs(React71.Fragment, {
-      children: [icon, label]
-    }) : jsx_runtime55.jsxs(React71.Fragment, {
-      children: [label, icon]
-    }), indicator]
-  }));
-});
-Tab2.propTypes = {
-  children: unsupportedProp_default,
-  classes: import_prop_types50.default.object,
-  className: import_prop_types50.default.string,
-  disabled: import_prop_types50.default.bool,
-  disableFocusRipple: import_prop_types50.default.bool,
-  disableRipple: import_prop_types50.default.bool,
-  icon: import_prop_types50.default.oneOfType([import_prop_types50.default.element, import_prop_types50.default.string]),
-  iconPosition: import_prop_types50.default.oneOf(["bottom", "end", "start", "top"]),
-  label: import_prop_types50.default.node,
-  onChange: import_prop_types50.default.func,
-  onClick: import_prop_types50.default.func,
-  onFocus: import_prop_types50.default.func,
-  sx: import_prop_types50.default.oneOfType([import_prop_types50.default.arrayOf(import_prop_types50.default.oneOfType([import_prop_types50.default.func, import_prop_types50.default.object, import_prop_types50.default.bool])), import_prop_types50.default.func, import_prop_types50.default.object]),
-  value: import_prop_types50.default.any,
-  wrapped: import_prop_types50.default.bool
-};
-var Tab_default = Tab2;
-// node_modules/@mui/material/Toolbar/Toolbar.js
-var React72 = __toESM(require_react(), 1);
-var import_prop_types51 = __toESM(require_prop_types(), 1);
 
 // node_modules/@mui/material/Toolbar/toolbarClasses.js
 function getToolbarUtilityClass(slot) {
@@ -39637,9 +39399,9 @@ function getToolbarUtilityClass(slot) {
 var toolbarClasses = generateUtilityClasses("MuiToolbar", ["root", "gutters", "regular", "dense"]);
 
 // node_modules/@mui/material/Toolbar/Toolbar.js
-var jsx_runtime56 = __toESM(require_jsx_runtime(), 1);
-var _excluded49 = ["className", "component", "disableGutters", "variant"];
-var useUtilityClasses28 = (ownerState) => {
+var jsx_runtime55 = __toESM(require_jsx_runtime(), 1);
+var _excluded48 = ["className", "component", "disableGutters", "variant"];
+var useUtilityClasses27 = (ownerState) => {
   const {
     classes,
     disableGutters,
@@ -39679,7 +39441,7 @@ var ToolbarRoot = styled_default2("div", {
   theme,
   ownerState
 }) => ownerState.variant === "regular" && theme.mixins.toolbar);
-var Toolbar = React72.forwardRef(function Toolbar2(inProps, ref) {
+var Toolbar = React71.forwardRef(function Toolbar2(inProps, ref) {
   const props = useThemeProps3({
     props: inProps,
     name: "MuiToolbar"
@@ -39689,14 +39451,14 @@ var Toolbar = React72.forwardRef(function Toolbar2(inProps, ref) {
     component = "div",
     disableGutters = false,
     variant = "regular"
-  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded49);
+  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded48);
   const ownerState = _extends4({}, props, {
     component,
     disableGutters,
     variant
   });
-  const classes = useUtilityClasses28(ownerState);
-  return jsx_runtime56.jsx(ToolbarRoot, _extends4({
+  const classes = useUtilityClasses27(ownerState);
+  return jsx_runtime55.jsx(ToolbarRoot, _extends4({
     as: component,
     className: clsx_default2(classes.root, className2),
     ref,
@@ -39704,879 +39466,15 @@ var Toolbar = React72.forwardRef(function Toolbar2(inProps, ref) {
   }, other));
 });
 Toolbar.propTypes = {
-  children: import_prop_types51.default.node,
-  classes: import_prop_types51.default.object,
-  className: import_prop_types51.default.string,
-  component: import_prop_types51.default.elementType,
-  disableGutters: import_prop_types51.default.bool,
-  sx: import_prop_types51.default.oneOfType([import_prop_types51.default.arrayOf(import_prop_types51.default.oneOfType([import_prop_types51.default.func, import_prop_types51.default.object, import_prop_types51.default.bool])), import_prop_types51.default.func, import_prop_types51.default.object]),
-  variant: import_prop_types51.default.oneOfType([import_prop_types51.default.oneOf(["dense", "regular"]), import_prop_types51.default.string])
+  children: import_prop_types50.default.node,
+  classes: import_prop_types50.default.object,
+  className: import_prop_types50.default.string,
+  component: import_prop_types50.default.elementType,
+  disableGutters: import_prop_types50.default.bool,
+  sx: import_prop_types50.default.oneOfType([import_prop_types50.default.arrayOf(import_prop_types50.default.oneOfType([import_prop_types50.default.func, import_prop_types50.default.object, import_prop_types50.default.bool])), import_prop_types50.default.func, import_prop_types50.default.object]),
+  variant: import_prop_types50.default.oneOfType([import_prop_types50.default.oneOf(["dense", "regular"]), import_prop_types50.default.string])
 };
 var Toolbar_default = Toolbar;
-// node_modules/@mui/material/internal/svg-icons/KeyboardArrowLeft.js
-var React73 = __toESM(require_react(), 1);
-var jsx_runtime57 = __toESM(require_jsx_runtime(), 1);
-var KeyboardArrowLeft_default = createSvgIcon(jsx_runtime57.jsx("path", {
-  d: "M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z"
-}), "KeyboardArrowLeft");
-
-// node_modules/@mui/material/internal/svg-icons/KeyboardArrowRight.js
-var React74 = __toESM(require_react(), 1);
-var jsx_runtime58 = __toESM(require_jsx_runtime(), 1);
-var KeyboardArrowRight_default = createSvgIcon(jsx_runtime58.jsx("path", {
-  d: "M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"
-}), "KeyboardArrowRight");
-// node_modules/@mui/material/Tabs/Tabs.js
-var React77 = __toESM(require_react(), 1);
-var import_react_is4 = __toESM(require_react_is4(), 1);
-var import_prop_types54 = __toESM(require_prop_types(), 1);
-// node_modules/@mui/material/internal/animate.js
-var easeInOutSin = function(time) {
-  return (1 + Math.sin(Math.PI * time - Math.PI / 2)) / 2;
-};
-function animate(property, element, to, options = {}, cb = () => {
-}) {
-  const {
-    ease = easeInOutSin,
-    duration: duration2 = 300
-  } = options;
-  let start = null;
-  const from2 = element[property];
-  let cancelled = false;
-  const cancel = () => {
-    cancelled = true;
-  };
-  const step = (timestamp) => {
-    if (cancelled) {
-      cb(new Error("Animation cancelled"));
-      return;
-    }
-    if (start === null) {
-      start = timestamp;
-    }
-    const time = Math.min(1, (timestamp - start) / duration2);
-    element[property] = ease(time) * (to - from2) + from2;
-    if (time >= 1) {
-      requestAnimationFrame(() => {
-        cb(null);
-      });
-      return;
-    }
-    requestAnimationFrame(step);
-  };
-  if (from2 === to) {
-    cb(new Error("Element already at target position"));
-    return cancel;
-  }
-  requestAnimationFrame(step);
-  return cancel;
-}
-
-// node_modules/@mui/material/Tabs/ScrollbarSize.js
-var React75 = __toESM(require_react(), 1);
-var import_prop_types52 = __toESM(require_prop_types(), 1);
-var jsx_runtime59 = __toESM(require_jsx_runtime(), 1);
-var _excluded50 = ["onChange"];
-var styles5 = {
-  width: 99,
-  height: 99,
-  position: "absolute",
-  top: -9999,
-  overflow: "scroll"
-};
-function ScrollbarSize(props) {
-  const {
-    onChange
-  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded50);
-  const scrollbarHeight = React75.useRef();
-  const nodeRef = React75.useRef(null);
-  const setMeasurements = () => {
-    scrollbarHeight.current = nodeRef.current.offsetHeight - nodeRef.current.clientHeight;
-  };
-  useEnhancedEffect_default2(() => {
-    const handleResize = debounce_default(() => {
-      const prevHeight = scrollbarHeight.current;
-      setMeasurements();
-      if (prevHeight !== scrollbarHeight.current) {
-        onChange(scrollbarHeight.current);
-      }
-    });
-    const containerWindow = ownerWindow_default(nodeRef.current);
-    containerWindow.addEventListener("resize", handleResize);
-    return () => {
-      handleResize.clear();
-      containerWindow.removeEventListener("resize", handleResize);
-    };
-  }, [onChange]);
-  React75.useEffect(() => {
-    setMeasurements();
-    onChange(scrollbarHeight.current);
-  }, [onChange]);
-  return jsx_runtime59.jsx("div", _extends4({
-    style: styles5,
-    ref: nodeRef
-  }, other));
-}
-ScrollbarSize.propTypes = {
-  onChange: import_prop_types52.default.func.isRequired
-};
-
-// node_modules/@mui/material/TabScrollButton/TabScrollButton.js
-var React76 = __toESM(require_react(), 1);
-var import_prop_types53 = __toESM(require_prop_types(), 1);
-
-// node_modules/@mui/material/TabScrollButton/tabScrollButtonClasses.js
-function getTabScrollButtonUtilityClass(slot) {
-  return generateUtilityClass("MuiTabScrollButton", slot);
-}
-var tabScrollButtonClasses = generateUtilityClasses("MuiTabScrollButton", ["root", "vertical", "horizontal", "disabled"]);
-var tabScrollButtonClasses_default = tabScrollButtonClasses;
-
-// node_modules/@mui/material/TabScrollButton/TabScrollButton.js
-var jsx_runtime60 = __toESM(require_jsx_runtime(), 1);
-var _excluded51 = ["className", "slots", "slotProps", "direction", "orientation", "disabled"];
-var useUtilityClasses29 = (ownerState) => {
-  const {
-    classes,
-    orientation,
-    disabled
-  } = ownerState;
-  const slots = {
-    root: ["root", orientation, disabled && "disabled"]
-  };
-  return composeClasses(slots, getTabScrollButtonUtilityClass, classes);
-};
-var TabScrollButtonRoot = styled_default2(ButtonBase_default, {
-  name: "MuiTabScrollButton",
-  slot: "Root",
-  overridesResolver: (props, styles6) => {
-    const {
-      ownerState
-    } = props;
-    return [styles6.root, ownerState.orientation && styles6[ownerState.orientation]];
-  }
-})(({
-  ownerState
-}) => _extends4({
-  width: 40,
-  flexShrink: 0,
-  opacity: 0.8,
-  [`&.${tabScrollButtonClasses_default.disabled}`]: {
-    opacity: 0
-  }
-}, ownerState.orientation === "vertical" && {
-  width: "100%",
-  height: 40,
-  "& svg": {
-    transform: `rotate(${ownerState.isRtl ? -90 : 90}deg)`
-  }
-}));
-var TabScrollButton = React76.forwardRef(function TabScrollButton2(inProps, ref) {
-  var _slots$StartScrollBut, _slots$EndScrollButto;
-  const props = useThemeProps3({
-    props: inProps,
-    name: "MuiTabScrollButton"
-  });
-  const {
-    className: className2,
-    slots = {},
-    slotProps = {},
-    direction
-  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded51);
-  const theme = useTheme9();
-  const isRtl = theme.direction === "rtl";
-  const ownerState = _extends4({
-    isRtl
-  }, props);
-  const classes = useUtilityClasses29(ownerState);
-  const StartButtonIcon = (_slots$StartScrollBut = slots.StartScrollButtonIcon) != null ? _slots$StartScrollBut : KeyboardArrowLeft_default;
-  const EndButtonIcon = (_slots$EndScrollButto = slots.EndScrollButtonIcon) != null ? _slots$EndScrollButto : KeyboardArrowRight_default;
-  const startButtonIconProps = useSlotProps({
-    elementType: StartButtonIcon,
-    externalSlotProps: slotProps.startScrollButtonIcon,
-    additionalProps: {
-      fontSize: "small"
-    },
-    ownerState
-  });
-  const endButtonIconProps = useSlotProps({
-    elementType: EndButtonIcon,
-    externalSlotProps: slotProps.endScrollButtonIcon,
-    additionalProps: {
-      fontSize: "small"
-    },
-    ownerState
-  });
-  return jsx_runtime60.jsx(TabScrollButtonRoot, _extends4({
-    component: "div",
-    className: clsx_default2(classes.root, className2),
-    ref,
-    role: null,
-    ownerState,
-    tabIndex: null
-  }, other, {
-    children: direction === "left" ? jsx_runtime60.jsx(StartButtonIcon, _extends4({}, startButtonIconProps)) : jsx_runtime60.jsx(EndButtonIcon, _extends4({}, endButtonIconProps))
-  }));
-});
-TabScrollButton.propTypes = {
-  children: import_prop_types53.default.node,
-  classes: import_prop_types53.default.object,
-  className: import_prop_types53.default.string,
-  direction: import_prop_types53.default.oneOf(["left", "right"]).isRequired,
-  disabled: import_prop_types53.default.bool,
-  orientation: import_prop_types53.default.oneOf(["horizontal", "vertical"]).isRequired,
-  slotProps: import_prop_types53.default.shape({
-    endScrollButtonIcon: import_prop_types53.default.oneOfType([import_prop_types53.default.func, import_prop_types53.default.object]),
-    startScrollButtonIcon: import_prop_types53.default.oneOfType([import_prop_types53.default.func, import_prop_types53.default.object])
-  }),
-  slots: import_prop_types53.default.shape({
-    EndScrollButtonIcon: import_prop_types53.default.elementType,
-    StartScrollButtonIcon: import_prop_types53.default.elementType
-  }),
-  sx: import_prop_types53.default.oneOfType([import_prop_types53.default.arrayOf(import_prop_types53.default.oneOfType([import_prop_types53.default.func, import_prop_types53.default.object, import_prop_types53.default.bool])), import_prop_types53.default.func, import_prop_types53.default.object])
-};
-var TabScrollButton_default = TabScrollButton;
-// node_modules/@mui/material/Tabs/tabsClasses.js
-function getTabsUtilityClass(slot) {
-  return generateUtilityClass("MuiTabs", slot);
-}
-var tabsClasses = generateUtilityClasses("MuiTabs", ["root", "vertical", "flexContainer", "flexContainerVertical", "centered", "scroller", "fixed", "scrollableX", "scrollableY", "hideScrollbar", "scrollButtons", "scrollButtonsHideMobile", "indicator"]);
-var tabsClasses_default = tabsClasses;
-
-// node_modules/@mui/material/Tabs/Tabs.js
-var jsx_runtime61 = __toESM(require_jsx_runtime(), 1);
-var jsx_runtime62 = __toESM(require_jsx_runtime(), 1);
-var _excluded52 = ["aria-label", "aria-labelledby", "action", "centered", "children", "className", "component", "allowScrollButtonsMobile", "indicatorColor", "onChange", "orientation", "ScrollButtonComponent", "scrollButtons", "selectionFollowsFocus", "slots", "slotProps", "TabIndicatorProps", "TabScrollButtonProps", "textColor", "value", "variant", "visibleScrollbar"];
-var nextItem = (list, item) => {
-  if (list === item) {
-    return list.firstChild;
-  }
-  if (item && item.nextElementSibling) {
-    return item.nextElementSibling;
-  }
-  return list.firstChild;
-};
-var previousItem = (list, item) => {
-  if (list === item) {
-    return list.lastChild;
-  }
-  if (item && item.previousElementSibling) {
-    return item.previousElementSibling;
-  }
-  return list.lastChild;
-};
-var moveFocus = (list, currentFocus, traversalFunction) => {
-  let wrappedOnce = false;
-  let nextFocus = traversalFunction(list, currentFocus);
-  while (nextFocus) {
-    if (nextFocus === list.firstChild) {
-      if (wrappedOnce) {
-        return;
-      }
-      wrappedOnce = true;
-    }
-    const nextFocusDisabled = nextFocus.disabled || nextFocus.getAttribute("aria-disabled") === "true";
-    if (!nextFocus.hasAttribute("tabindex") || nextFocusDisabled) {
-      nextFocus = traversalFunction(list, nextFocus);
-    } else {
-      nextFocus.focus();
-      return;
-    }
-  }
-};
-var useUtilityClasses30 = (ownerState) => {
-  const {
-    vertical,
-    fixed,
-    hideScrollbar,
-    scrollableX,
-    scrollableY,
-    centered,
-    scrollButtonsHideMobile,
-    classes
-  } = ownerState;
-  const slots = {
-    root: ["root", vertical && "vertical"],
-    scroller: ["scroller", fixed && "fixed", hideScrollbar && "hideScrollbar", scrollableX && "scrollableX", scrollableY && "scrollableY"],
-    flexContainer: ["flexContainer", vertical && "flexContainerVertical", centered && "centered"],
-    indicator: ["indicator"],
-    scrollButtons: ["scrollButtons", scrollButtonsHideMobile && "scrollButtonsHideMobile"],
-    scrollableX: [scrollableX && "scrollableX"],
-    hideScrollbar: [hideScrollbar && "hideScrollbar"]
-  };
-  return composeClasses(slots, getTabsUtilityClass, classes);
-};
-var TabsRoot = styled_default2("div", {
-  name: "MuiTabs",
-  slot: "Root",
-  overridesResolver: (props, styles6) => {
-    const {
-      ownerState
-    } = props;
-    return [{
-      [`& .${tabsClasses_default.scrollButtons}`]: styles6.scrollButtons
-    }, {
-      [`& .${tabsClasses_default.scrollButtons}`]: ownerState.scrollButtonsHideMobile && styles6.scrollButtonsHideMobile
-    }, styles6.root, ownerState.vertical && styles6.vertical];
-  }
-})(({
-  ownerState,
-  theme
-}) => _extends4({
-  overflow: "hidden",
-  minHeight: 48,
-  WebkitOverflowScrolling: "touch",
-  display: "flex"
-}, ownerState.vertical && {
-  flexDirection: "column"
-}, ownerState.scrollButtonsHideMobile && {
-  [`& .${tabsClasses_default.scrollButtons}`]: {
-    [theme.breakpoints.down("sm")]: {
-      display: "none"
-    }
-  }
-}));
-var TabsScroller = styled_default2("div", {
-  name: "MuiTabs",
-  slot: "Scroller",
-  overridesResolver: (props, styles6) => {
-    const {
-      ownerState
-    } = props;
-    return [styles6.scroller, ownerState.fixed && styles6.fixed, ownerState.hideScrollbar && styles6.hideScrollbar, ownerState.scrollableX && styles6.scrollableX, ownerState.scrollableY && styles6.scrollableY];
-  }
-})(({
-  ownerState
-}) => _extends4({
-  position: "relative",
-  display: "inline-block",
-  flex: "1 1 auto",
-  whiteSpace: "nowrap"
-}, ownerState.fixed && {
-  overflowX: "hidden",
-  width: "100%"
-}, ownerState.hideScrollbar && {
-  scrollbarWidth: "none",
-  "&::-webkit-scrollbar": {
-    display: "none"
-  }
-}, ownerState.scrollableX && {
-  overflowX: "auto",
-  overflowY: "hidden"
-}, ownerState.scrollableY && {
-  overflowY: "auto",
-  overflowX: "hidden"
-}));
-var FlexContainer = styled_default2("div", {
-  name: "MuiTabs",
-  slot: "FlexContainer",
-  overridesResolver: (props, styles6) => {
-    const {
-      ownerState
-    } = props;
-    return [styles6.flexContainer, ownerState.vertical && styles6.flexContainerVertical, ownerState.centered && styles6.centered];
-  }
-})(({
-  ownerState
-}) => _extends4({
-  display: "flex"
-}, ownerState.vertical && {
-  flexDirection: "column"
-}, ownerState.centered && {
-  justifyContent: "center"
-}));
-var TabsIndicator = styled_default2("span", {
-  name: "MuiTabs",
-  slot: "Indicator",
-  overridesResolver: (props, styles6) => styles6.indicator
-})(({
-  ownerState,
-  theme
-}) => _extends4({
-  position: "absolute",
-  height: 2,
-  bottom: 0,
-  width: "100%",
-  transition: theme.transitions.create()
-}, ownerState.indicatorColor === "primary" && {
-  backgroundColor: (theme.vars || theme).palette.primary.main
-}, ownerState.indicatorColor === "secondary" && {
-  backgroundColor: (theme.vars || theme).palette.secondary.main
-}, ownerState.vertical && {
-  height: "100%",
-  width: 2,
-  right: 0
-}));
-var TabsScrollbarSize = styled_default2(ScrollbarSize)({
-  overflowX: "auto",
-  overflowY: "hidden",
-  scrollbarWidth: "none",
-  "&::-webkit-scrollbar": {
-    display: "none"
-  }
-});
-var defaultIndicatorStyle = {};
-var warnedOnceTabPresent = false;
-var Tabs2 = React77.forwardRef(function Tabs3(inProps, ref) {
-  const props = useThemeProps3({
-    props: inProps,
-    name: "MuiTabs"
-  });
-  const theme = useTheme9();
-  const isRtl = theme.direction === "rtl";
-  const {
-    "aria-label": ariaLabel,
-    "aria-labelledby": ariaLabelledBy,
-    action,
-    centered = false,
-    children: childrenProp,
-    className: className2,
-    component = "div",
-    allowScrollButtonsMobile = false,
-    indicatorColor = "primary",
-    onChange,
-    orientation = "horizontal",
-    ScrollButtonComponent = TabScrollButton_default,
-    scrollButtons = "auto",
-    selectionFollowsFocus,
-    slots = {},
-    slotProps = {},
-    TabIndicatorProps = {},
-    TabScrollButtonProps = {},
-    textColor = "primary",
-    value,
-    variant = "standard",
-    visibleScrollbar = false
-  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded52);
-  const scrollable = variant === "scrollable";
-  const vertical = orientation === "vertical";
-  const scrollStart = vertical ? "scrollTop" : "scrollLeft";
-  const start = vertical ? "top" : "left";
-  const end = vertical ? "bottom" : "right";
-  const clientSize = vertical ? "clientHeight" : "clientWidth";
-  const size = vertical ? "height" : "width";
-  const ownerState = _extends4({}, props, {
-    component,
-    allowScrollButtonsMobile,
-    indicatorColor,
-    orientation,
-    vertical,
-    scrollButtons,
-    textColor,
-    variant,
-    visibleScrollbar,
-    fixed: !scrollable,
-    hideScrollbar: scrollable && !visibleScrollbar,
-    scrollableX: scrollable && !vertical,
-    scrollableY: scrollable && vertical,
-    centered: centered && !scrollable,
-    scrollButtonsHideMobile: !allowScrollButtonsMobile
-  });
-  const classes = useUtilityClasses30(ownerState);
-  const startScrollButtonIconProps = useSlotProps({
-    elementType: slots.StartScrollButtonIcon,
-    externalSlotProps: slotProps.startScrollButtonIcon,
-    ownerState
-  });
-  const endScrollButtonIconProps = useSlotProps({
-    elementType: slots.EndScrollButtonIcon,
-    externalSlotProps: slotProps.endScrollButtonIcon,
-    ownerState
-  });
-  if (true) {
-    if (centered && scrollable) {
-      console.error('MUI: You can not use the `centered={true}` and `variant="scrollable"` properties at the same time on a `Tabs` component.');
-    }
-  }
-  const [mounted, setMounted] = React77.useState(false);
-  const [indicatorStyle, setIndicatorStyle] = React77.useState(defaultIndicatorStyle);
-  const [displayStartScroll, setDisplayStartScroll] = React77.useState(false);
-  const [displayEndScroll, setDisplayEndScroll] = React77.useState(false);
-  const [updateScrollObserver, setUpdateScrollObserver] = React77.useState(false);
-  const [scrollerStyle, setScrollerStyle] = React77.useState({
-    overflow: "hidden",
-    scrollbarWidth: 0
-  });
-  const valueToIndex = new Map;
-  const tabsRef = React77.useRef(null);
-  const tabListRef = React77.useRef(null);
-  const getTabsMeta = () => {
-    const tabsNode = tabsRef.current;
-    let tabsMeta;
-    if (tabsNode) {
-      const rect = tabsNode.getBoundingClientRect();
-      tabsMeta = {
-        clientWidth: tabsNode.clientWidth,
-        scrollLeft: tabsNode.scrollLeft,
-        scrollTop: tabsNode.scrollTop,
-        scrollLeftNormalized: getNormalizedScrollLeft(tabsNode, theme.direction),
-        scrollWidth: tabsNode.scrollWidth,
-        top: rect.top,
-        bottom: rect.bottom,
-        left: rect.left,
-        right: rect.right
-      };
-    }
-    let tabMeta;
-    if (tabsNode && value !== false) {
-      const children2 = tabListRef.current.children;
-      if (children2.length > 0) {
-        const tab = children2[valueToIndex.get(value)];
-        if (true) {
-          if (!tab) {
-            console.error([`MUI: The \`value\` provided to the Tabs component is invalid.`, `None of the Tabs' children match with "${value}".`, valueToIndex.keys ? `You can provide one of the following values: ${Array.from(valueToIndex.keys()).join(", ")}.` : null].join("\n"));
-          }
-        }
-        tabMeta = tab ? tab.getBoundingClientRect() : null;
-        if (true) {
-          if (!warnedOnceTabPresent && tabMeta && tabMeta.width === 0 && tabMeta.height === 0 && tabsMeta.clientWidth !== 0) {
-            tabsMeta = null;
-            console.error(["MUI: The `value` provided to the Tabs component is invalid.", `The Tab with this \`value\` ("${value}") is not part of the document layout.`, "Make sure the tab item is present in the document or that it's not `display: none`."].join("\n"));
-            warnedOnceTabPresent = true;
-          }
-        }
-      }
-    }
-    return {
-      tabsMeta,
-      tabMeta
-    };
-  };
-  const updateIndicatorState = useEventCallback_default2(() => {
-    const {
-      tabsMeta,
-      tabMeta
-    } = getTabsMeta();
-    let startValue = 0;
-    let startIndicator;
-    if (vertical) {
-      startIndicator = "top";
-      if (tabMeta && tabsMeta) {
-        startValue = tabMeta.top - tabsMeta.top + tabsMeta.scrollTop;
-      }
-    } else {
-      startIndicator = isRtl ? "right" : "left";
-      if (tabMeta && tabsMeta) {
-        const correction = isRtl ? tabsMeta.scrollLeftNormalized + tabsMeta.clientWidth - tabsMeta.scrollWidth : tabsMeta.scrollLeft;
-        startValue = (isRtl ? -1 : 1) * (tabMeta[startIndicator] - tabsMeta[startIndicator] + correction);
-      }
-    }
-    const newIndicatorStyle = {
-      [startIndicator]: startValue,
-      [size]: tabMeta ? tabMeta[size] : 0
-    };
-    if (isNaN(indicatorStyle[startIndicator]) || isNaN(indicatorStyle[size])) {
-      setIndicatorStyle(newIndicatorStyle);
-    } else {
-      const dStart = Math.abs(indicatorStyle[startIndicator] - newIndicatorStyle[startIndicator]);
-      const dSize = Math.abs(indicatorStyle[size] - newIndicatorStyle[size]);
-      if (dStart >= 1 || dSize >= 1) {
-        setIndicatorStyle(newIndicatorStyle);
-      }
-    }
-  });
-  const scroll = (scrollValue, {
-    animation = true
-  } = {}) => {
-    if (animation) {
-      animate(scrollStart, tabsRef.current, scrollValue, {
-        duration: theme.transitions.duration.standard
-      });
-    } else {
-      tabsRef.current[scrollStart] = scrollValue;
-    }
-  };
-  const moveTabsScroll = (delta) => {
-    let scrollValue = tabsRef.current[scrollStart];
-    if (vertical) {
-      scrollValue += delta;
-    } else {
-      scrollValue += delta * (isRtl ? -1 : 1);
-      scrollValue *= isRtl && detectScrollType() === "reverse" ? -1 : 1;
-    }
-    scroll(scrollValue);
-  };
-  const getScrollSize = () => {
-    const containerSize = tabsRef.current[clientSize];
-    let totalSize = 0;
-    const children2 = Array.from(tabListRef.current.children);
-    for (let i = 0;i < children2.length; i += 1) {
-      const tab = children2[i];
-      if (totalSize + tab[clientSize] > containerSize) {
-        if (i === 0) {
-          totalSize = containerSize;
-        }
-        break;
-      }
-      totalSize += tab[clientSize];
-    }
-    return totalSize;
-  };
-  const handleStartScrollClick = () => {
-    moveTabsScroll(-1 * getScrollSize());
-  };
-  const handleEndScrollClick = () => {
-    moveTabsScroll(getScrollSize());
-  };
-  const handleScrollbarSizeChange = React77.useCallback((scrollbarWidth) => {
-    setScrollerStyle({
-      overflow: null,
-      scrollbarWidth
-    });
-  }, []);
-  const getConditionalElements = () => {
-    const conditionalElements2 = {};
-    conditionalElements2.scrollbarSizeListener = scrollable ? jsx_runtime61.jsx(TabsScrollbarSize, {
-      onChange: handleScrollbarSizeChange,
-      className: clsx_default2(classes.scrollableX, classes.hideScrollbar)
-    }) : null;
-    const scrollButtonsActive = displayStartScroll || displayEndScroll;
-    const showScrollButtons = scrollable && (scrollButtons === "auto" && scrollButtonsActive || scrollButtons === true);
-    conditionalElements2.scrollButtonStart = showScrollButtons ? jsx_runtime61.jsx(ScrollButtonComponent, _extends4({
-      slots: {
-        StartScrollButtonIcon: slots.StartScrollButtonIcon
-      },
-      slotProps: {
-        startScrollButtonIcon: startScrollButtonIconProps
-      },
-      orientation,
-      direction: isRtl ? "right" : "left",
-      onClick: handleStartScrollClick,
-      disabled: !displayStartScroll
-    }, TabScrollButtonProps, {
-      className: clsx_default2(classes.scrollButtons, TabScrollButtonProps.className)
-    })) : null;
-    conditionalElements2.scrollButtonEnd = showScrollButtons ? jsx_runtime61.jsx(ScrollButtonComponent, _extends4({
-      slots: {
-        EndScrollButtonIcon: slots.EndScrollButtonIcon
-      },
-      slotProps: {
-        endScrollButtonIcon: endScrollButtonIconProps
-      },
-      orientation,
-      direction: isRtl ? "left" : "right",
-      onClick: handleEndScrollClick,
-      disabled: !displayEndScroll
-    }, TabScrollButtonProps, {
-      className: clsx_default2(classes.scrollButtons, TabScrollButtonProps.className)
-    })) : null;
-    return conditionalElements2;
-  };
-  const scrollSelectedIntoView = useEventCallback_default2((animation) => {
-    const {
-      tabsMeta,
-      tabMeta
-    } = getTabsMeta();
-    if (!tabMeta || !tabsMeta) {
-      return;
-    }
-    if (tabMeta[start] < tabsMeta[start]) {
-      const nextScrollStart = tabsMeta[scrollStart] + (tabMeta[start] - tabsMeta[start]);
-      scroll(nextScrollStart, {
-        animation
-      });
-    } else if (tabMeta[end] > tabsMeta[end]) {
-      const nextScrollStart = tabsMeta[scrollStart] + (tabMeta[end] - tabsMeta[end]);
-      scroll(nextScrollStart, {
-        animation
-      });
-    }
-  });
-  const updateScrollButtonState = useEventCallback_default2(() => {
-    if (scrollable && scrollButtons !== false) {
-      setUpdateScrollObserver(!updateScrollObserver);
-    }
-  });
-  React77.useEffect(() => {
-    const handleResize = debounce_default(() => {
-      if (tabsRef.current) {
-        updateIndicatorState();
-      }
-    });
-    const win = ownerWindow_default(tabsRef.current);
-    win.addEventListener("resize", handleResize);
-    let resizeObserver;
-    if (typeof ResizeObserver !== "undefined") {
-      resizeObserver = new ResizeObserver(handleResize);
-      Array.from(tabListRef.current.children).forEach((child) => {
-        resizeObserver.observe(child);
-      });
-    }
-    return () => {
-      handleResize.clear();
-      win.removeEventListener("resize", handleResize);
-      if (resizeObserver) {
-        resizeObserver.disconnect();
-      }
-    };
-  }, [updateIndicatorState]);
-  React77.useEffect(() => {
-    const tabListChildren = Array.from(tabListRef.current.children);
-    const length2 = tabListChildren.length;
-    if (typeof IntersectionObserver !== "undefined" && length2 > 0 && scrollable && scrollButtons !== false) {
-      const firstTab = tabListChildren[0];
-      const lastTab = tabListChildren[length2 - 1];
-      const observerOptions = {
-        root: tabsRef.current,
-        threshold: 0.99
-      };
-      const handleScrollButtonStart = (entries) => {
-        setDisplayStartScroll(!entries[0].isIntersecting);
-      };
-      const firstObserver = new IntersectionObserver(handleScrollButtonStart, observerOptions);
-      firstObserver.observe(firstTab);
-      const handleScrollButtonEnd = (entries) => {
-        setDisplayEndScroll(!entries[0].isIntersecting);
-      };
-      const lastObserver = new IntersectionObserver(handleScrollButtonEnd, observerOptions);
-      lastObserver.observe(lastTab);
-      return () => {
-        firstObserver.disconnect();
-        lastObserver.disconnect();
-      };
-    }
-    return;
-  }, [scrollable, scrollButtons, updateScrollObserver, childrenProp == null ? undefined : childrenProp.length]);
-  React77.useEffect(() => {
-    setMounted(true);
-  }, []);
-  React77.useEffect(() => {
-    updateIndicatorState();
-  });
-  React77.useEffect(() => {
-    scrollSelectedIntoView(defaultIndicatorStyle !== indicatorStyle);
-  }, [scrollSelectedIntoView, indicatorStyle]);
-  React77.useImperativeHandle(action, () => ({
-    updateIndicator: updateIndicatorState,
-    updateScrollButtons: updateScrollButtonState
-  }), [updateIndicatorState, updateScrollButtonState]);
-  const indicator = jsx_runtime61.jsx(TabsIndicator, _extends4({}, TabIndicatorProps, {
-    className: clsx_default2(classes.indicator, TabIndicatorProps.className),
-    ownerState,
-    style: _extends4({}, indicatorStyle, TabIndicatorProps.style)
-  }));
-  let childIndex = 0;
-  const children = React77.Children.map(childrenProp, (child) => {
-    if (!React77.isValidElement(child)) {
-      return null;
-    }
-    if (true) {
-      if (import_react_is4.isFragment(child)) {
-        console.error(["MUI: The Tabs component doesn't accept a Fragment as a child.", "Consider providing an array instead."].join("\n"));
-      }
-    }
-    const childValue = child.props.value === undefined ? childIndex : child.props.value;
-    valueToIndex.set(childValue, childIndex);
-    const selected = childValue === value;
-    childIndex += 1;
-    return React77.cloneElement(child, _extends4({
-      fullWidth: variant === "fullWidth",
-      indicator: selected && !mounted && indicator,
-      selected,
-      selectionFollowsFocus,
-      onChange,
-      textColor,
-      value: childValue
-    }, childIndex === 1 && value === false && !child.props.tabIndex ? {
-      tabIndex: 0
-    } : {}));
-  });
-  const handleKeyDown2 = (event) => {
-    const list = tabListRef.current;
-    const currentFocus = ownerDocument_default(list).activeElement;
-    const role = currentFocus.getAttribute("role");
-    if (role !== "tab") {
-      return;
-    }
-    let previousItemKey = orientation === "horizontal" ? "ArrowLeft" : "ArrowUp";
-    let nextItemKey = orientation === "horizontal" ? "ArrowRight" : "ArrowDown";
-    if (orientation === "horizontal" && isRtl) {
-      previousItemKey = "ArrowRight";
-      nextItemKey = "ArrowLeft";
-    }
-    switch (event.key) {
-      case previousItemKey:
-        event.preventDefault();
-        moveFocus(list, currentFocus, previousItem);
-        break;
-      case nextItemKey:
-        event.preventDefault();
-        moveFocus(list, currentFocus, nextItem);
-        break;
-      case "Home":
-        event.preventDefault();
-        moveFocus(list, null, nextItem);
-        break;
-      case "End":
-        event.preventDefault();
-        moveFocus(list, null, previousItem);
-        break;
-      default:
-        break;
-    }
-  };
-  const conditionalElements = getConditionalElements();
-  return jsx_runtime62.jsxs(TabsRoot, _extends4({
-    className: clsx_default2(classes.root, className2),
-    ownerState,
-    ref,
-    as: component
-  }, other, {
-    children: [conditionalElements.scrollButtonStart, conditionalElements.scrollbarSizeListener, jsx_runtime62.jsxs(TabsScroller, {
-      className: classes.scroller,
-      ownerState,
-      style: {
-        overflow: scrollerStyle.overflow,
-        [vertical ? `margin${isRtl ? "Left" : "Right"}` : "marginBottom"]: visibleScrollbar ? undefined : -scrollerStyle.scrollbarWidth
-      },
-      ref: tabsRef,
-      children: [jsx_runtime61.jsx(FlexContainer, {
-        "aria-label": ariaLabel,
-        "aria-labelledby": ariaLabelledBy,
-        "aria-orientation": orientation === "vertical" ? "vertical" : null,
-        className: classes.flexContainer,
-        ownerState,
-        onKeyDown: handleKeyDown2,
-        ref: tabListRef,
-        role: "tablist",
-        children
-      }), mounted && indicator]
-    }), conditionalElements.scrollButtonEnd]
-  }));
-});
-Tabs2.propTypes = {
-  action: refType_default,
-  allowScrollButtonsMobile: import_prop_types54.default.bool,
-  "aria-label": import_prop_types54.default.string,
-  "aria-labelledby": import_prop_types54.default.string,
-  centered: import_prop_types54.default.bool,
-  children: import_prop_types54.default.node,
-  classes: import_prop_types54.default.object,
-  className: import_prop_types54.default.string,
-  component: import_prop_types54.default.elementType,
-  indicatorColor: import_prop_types54.default.oneOfType([import_prop_types54.default.oneOf(["primary", "secondary"]), import_prop_types54.default.string]),
-  onChange: import_prop_types54.default.func,
-  orientation: import_prop_types54.default.oneOf(["horizontal", "vertical"]),
-  ScrollButtonComponent: import_prop_types54.default.elementType,
-  scrollButtons: import_prop_types54.default.oneOf(["auto", false, true]),
-  selectionFollowsFocus: import_prop_types54.default.bool,
-  slotProps: import_prop_types54.default.shape({
-    endScrollButtonIcon: import_prop_types54.default.oneOfType([import_prop_types54.default.func, import_prop_types54.default.object]),
-    startScrollButtonIcon: import_prop_types54.default.oneOfType([import_prop_types54.default.func, import_prop_types54.default.object])
-  }),
-  slots: import_prop_types54.default.shape({
-    EndScrollButtonIcon: import_prop_types54.default.elementType,
-    StartScrollButtonIcon: import_prop_types54.default.elementType
-  }),
-  sx: import_prop_types54.default.oneOfType([import_prop_types54.default.arrayOf(import_prop_types54.default.oneOfType([import_prop_types54.default.func, import_prop_types54.default.object, import_prop_types54.default.bool])), import_prop_types54.default.func, import_prop_types54.default.object]),
-  TabIndicatorProps: import_prop_types54.default.object,
-  TabScrollButtonProps: import_prop_types54.default.object,
-  textColor: import_prop_types54.default.oneOf(["inherit", "primary", "secondary"]),
-  value: import_prop_types54.default.any,
-  variant: import_prop_types54.default.oneOf(["fullWidth", "scrollable", "standard"]),
-  visibleScrollbar: import_prop_types54.default.bool
-};
-var Tabs_default = Tabs2;
 // src/components/offers/OffersPage.js
 var import_react8 = __toESM(require_react(), 1);
 var jsx_dev_runtime = __toESM(require_jsx_dev_runtime(), 1);
@@ -40618,84 +39516,84 @@ var import_react_responsive_carousel = __toESM(require_js(), 1);
 // src/components/home/HeaderSection/ImageSlider.js
 var import_react9 = __toESM(require_react(), 1);
 // node_modules/@mui/icons-material/esm/AccessTime.js
-var jsx_runtime63 = __toESM(require_jsx_runtime(), 1);
-var AccessTime_default = createSvgIcon([jsx_runtime63.jsx("path", {
+var jsx_runtime56 = __toESM(require_jsx_runtime(), 1);
+var AccessTime_default = createSvgIcon([jsx_runtime56.jsx("path", {
   d: "M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"
-}, "0"), jsx_runtime63.jsx("path", {
+}, "0"), jsx_runtime56.jsx("path", {
   d: "M12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z"
 }, "1")], "AccessTime");
 // node_modules/@mui/icons-material/esm/Circle.js
-var jsx_runtime64 = __toESM(require_jsx_runtime(), 1);
-var Circle_default = createSvgIcon(jsx_runtime64.jsx("path", {
+var jsx_runtime57 = __toESM(require_jsx_runtime(), 1);
+var Circle_default = createSvgIcon(jsx_runtime57.jsx("path", {
   d: "M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2z"
 }), "Circle");
 // node_modules/@mui/icons-material/esm/CircleOutlined.js
-var jsx_runtime65 = __toESM(require_jsx_runtime(), 1);
-var CircleOutlined_default = createSvgIcon(jsx_runtime65.jsx("path", {
+var jsx_runtime58 = __toESM(require_jsx_runtime(), 1);
+var CircleOutlined_default = createSvgIcon(jsx_runtime58.jsx("path", {
   d: "M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"
 }), "CircleOutlined");
 // node_modules/@mui/icons-material/esm/Computer.js
-var jsx_runtime66 = __toESM(require_jsx_runtime(), 1);
-var Computer_default = createSvgIcon(jsx_runtime66.jsx("path", {
+var jsx_runtime59 = __toESM(require_jsx_runtime(), 1);
+var Computer_default = createSvgIcon(jsx_runtime59.jsx("path", {
   d: "M20 18c1.1 0 1.99-.9 1.99-2L22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2H0v2h24v-2h-4zM4 6h16v10H4V6z"
 }), "Computer");
 // node_modules/@mui/icons-material/esm/DeliveryDining.js
-var jsx_runtime67 = __toESM(require_jsx_runtime(), 1);
-var DeliveryDining_default = createSvgIcon([jsx_runtime67.jsx("path", {
+var jsx_runtime60 = __toESM(require_jsx_runtime(), 1);
+var DeliveryDining_default = createSvgIcon([jsx_runtime60.jsx("path", {
   d: "M19 7c0-1.1-.9-2-2-2h-3v2h3v2.65L13.52 14H10V9H6c-2.21 0-4 1.79-4 4v3h2c0 1.66 1.34 3 3 3s3-1.34 3-3h4.48L19 10.35V7zM7 17c-.55 0-1-.45-1-1h2c0 .55-.45 1-1 1z"
-}, "0"), jsx_runtime67.jsx("path", {
+}, "0"), jsx_runtime60.jsx("path", {
   d: "M5 6h5v2H5zm14 7c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3zm0 4c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1z"
 }, "1")], "DeliveryDining");
 // node_modules/@mui/icons-material/esm/Email.js
-var jsx_runtime68 = __toESM(require_jsx_runtime(), 1);
-var Email_default = createSvgIcon(jsx_runtime68.jsx("path", {
+var jsx_runtime61 = __toESM(require_jsx_runtime(), 1);
+var Email_default = createSvgIcon(jsx_runtime61.jsx("path", {
   d: "M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"
 }), "Email");
 // node_modules/@mui/icons-material/esm/Home.js
-var jsx_runtime69 = __toESM(require_jsx_runtime(), 1);
-var Home_default = createSvgIcon(jsx_runtime69.jsx("path", {
+var jsx_runtime62 = __toESM(require_jsx_runtime(), 1);
+var Home_default = createSvgIcon(jsx_runtime62.jsx("path", {
   d: "M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"
 }), "Home");
 // node_modules/@mui/icons-material/esm/Info.js
-var jsx_runtime70 = __toESM(require_jsx_runtime(), 1);
-var Info_default = createSvgIcon(jsx_runtime70.jsx("path", {
+var jsx_runtime63 = __toESM(require_jsx_runtime(), 1);
+var Info_default = createSvgIcon(jsx_runtime63.jsx("path", {
   d: "M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"
 }), "Info");
 // node_modules/@mui/icons-material/esm/Instagram.js
-var React79 = __toESM(require_react(), 1);
-var jsx_runtime71 = __toESM(require_jsx_runtime(), 1);
-var Instagram_default = createSvgIcon(jsx_runtime71.jsx("path", {
+var React73 = __toESM(require_react(), 1);
+var jsx_runtime64 = __toESM(require_jsx_runtime(), 1);
+var Instagram_default = createSvgIcon(jsx_runtime64.jsx("path", {
   d: "M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"
 }), "Instagram");
 // node_modules/@mui/icons-material/esm/KeyboardArrowLeft.js
-var jsx_runtime72 = __toESM(require_jsx_runtime(), 1);
-var KeyboardArrowLeft_default2 = createSvgIcon(jsx_runtime72.jsx("path", {
+var jsx_runtime65 = __toESM(require_jsx_runtime(), 1);
+var KeyboardArrowLeft_default = createSvgIcon(jsx_runtime65.jsx("path", {
   d: "M15.41 16.59 10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"
 }), "KeyboardArrowLeft");
 // node_modules/@mui/icons-material/esm/KeyboardArrowRight.js
-var jsx_runtime73 = __toESM(require_jsx_runtime(), 1);
-var KeyboardArrowRight_default2 = createSvgIcon(jsx_runtime73.jsx("path", {
+var jsx_runtime66 = __toESM(require_jsx_runtime(), 1);
+var KeyboardArrowRight_default = createSvgIcon(jsx_runtime66.jsx("path", {
   d: "M8.59 16.59 13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"
 }), "KeyboardArrowRight");
 // node_modules/@mui/icons-material/esm/Phone.js
-var jsx_runtime74 = __toESM(require_jsx_runtime(), 1);
-var Phone_default = createSvgIcon(jsx_runtime74.jsx("path", {
+var jsx_runtime67 = __toESM(require_jsx_runtime(), 1);
+var Phone_default = createSvgIcon(jsx_runtime67.jsx("path", {
   d: "M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"
 }), "Phone");
 // node_modules/@mui/icons-material/esm/Search.js
-var jsx_runtime75 = __toESM(require_jsx_runtime(), 1);
-var Search_default = createSvgIcon(jsx_runtime75.jsx("path", {
+var jsx_runtime68 = __toESM(require_jsx_runtime(), 1);
+var Search_default = createSvgIcon(jsx_runtime68.jsx("path", {
   d: "M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
 }), "Search");
 // node_modules/@mui/icons-material/esm/ShoppingCart.js
-var jsx_runtime76 = __toESM(require_jsx_runtime(), 1);
-var ShoppingCart_default = createSvgIcon(jsx_runtime76.jsx("path", {
+var jsx_runtime69 = __toESM(require_jsx_runtime(), 1);
+var ShoppingCart_default = createSvgIcon(jsx_runtime69.jsx("path", {
   d: "M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"
 }), "ShoppingCart");
 // node_modules/@mui/icons-material/esm/Telegram.js
-var React80 = __toESM(require_react(), 1);
-var jsx_runtime77 = __toESM(require_jsx_runtime(), 1);
-var Telegram_default = createSvgIcon(jsx_runtime77.jsx("path", {
+var React74 = __toESM(require_react(), 1);
+var jsx_runtime70 = __toESM(require_jsx_runtime(), 1);
+var Telegram_default = createSvgIcon(jsx_runtime70.jsx("path", {
   d: "M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"
 }), "Telegram");
 // src/components/home/HeaderSection/ImageSlider.js
@@ -40792,12 +39690,12 @@ var ImageSlider = ({ items }) => {
           jsx_dev_runtime2.jsxDEV(Box_default, {
             onClick: goToPrevious,
             sx: leftArrowStyles,
-            children: jsx_dev_runtime2.jsxDEV(KeyboardArrowLeft_default2, {}, undefined, false, undefined, this)
+            children: jsx_dev_runtime2.jsxDEV(KeyboardArrowLeft_default, {}, undefined, false, undefined, this)
           }, undefined, false, undefined, this),
           jsx_dev_runtime2.jsxDEV(Box_default, {
             onClick: goToNext,
             sx: rightArrowStyles,
-            children: jsx_dev_runtime2.jsxDEV(KeyboardArrowRight_default2, {}, undefined, false, undefined, this)
+            children: jsx_dev_runtime2.jsxDEV(KeyboardArrowRight_default, {}, undefined, false, undefined, this)
           }, undefined, false, undefined, this)
         ]
       }, undefined, true, undefined, this),
@@ -41041,10 +39939,10 @@ var ChooseSection_default = ChooseSection = () => {
 };
 
 // src/components/home/ReviewSection/ReviewCard.js
-var React82 = __toESM(require_react(), 1);
+var React76 = __toESM(require_react(), 1);
 var jsx_dev_runtime5 = __toESM(require_jsx_dev_runtime(), 1);
 function ReviewCard({ reviewData }) {
-  const [expanded, setExpanded] = React82.useState(false);
+  const [expanded, setExpanded] = React76.useState(false);
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
@@ -42216,7 +41114,7 @@ var UseCheckMobileScreen_default = useCheckMobileScreen = () => {
 };
 
 // src/components/navbars/CustomBarPC.js
-var import_react19 = __toESM(require_react(), 1);
+var import_react20 = __toESM(require_react(), 1);
 
 // src/components/common/CustomSearch.js
 var jsx_dev_runtime16 = __toESM(require_jsx_dev_runtime(), 1);
@@ -42226,7 +41124,6 @@ var Search = styled_default2("div")(({ theme }) => ({
   "&:hover": {
     backgroundColor: alpha(theme.palette.common.white, 0.25)
   },
-  width: "39px",
   marginLeft: theme.spacing(1),
   width: "auto"
 }));
@@ -42268,22 +41165,22 @@ var CustomSearch_default = CustomSearch = () => {
 };
 
 // node_modules/material-ui-popup-state/es/index.mjs
-var import_prop_types55 = __toESM(require_prop_types(), 1);
+var import_prop_types51 = __toESM(require_prop_types(), 1);
 
 // node_modules/material-ui-popup-state/es/hooks.mjs
 var import_react18 = __toESM(require_react(), 1);
 
 // node_modules/material-ui-popup-state/es/useEvent.mjs
-var React88 = __toESM(require_react(), 1);
+var React82 = __toESM(require_react(), 1);
 function useEvent(handler) {
   if (typeof window === "undefined") {
     return handler;
   }
-  const handlerRef = React88.useRef(null);
-  React88.useLayoutEffect(() => {
+  const handlerRef = React82.useRef(null);
+  React82.useLayoutEffect(() => {
     handlerRef.current = handler;
   });
-  return React88.useCallback((...args) => {
+  return React82.useCallback((...args) => {
     var _handlerRef$current;
     (_handlerRef$current = handlerRef.current) === null || _handlerRef$current === undefined || _handlerRef$current.call(handlerRef, ...args);
   }, []);
@@ -42588,11 +41485,11 @@ function PopupState({
   return result != null ? result : null;
 }
 PopupState.propTypes = {
-  children: import_prop_types55.default.func.isRequired,
-  popupId: import_prop_types55.default.string,
-  variant: import_prop_types55.default.oneOf(["popover", "popper"]).isRequired,
-  parentPopupState: import_prop_types55.default.object,
-  disableAutoFocus: import_prop_types55.default.bool
+  children: import_prop_types51.default.func.isRequired,
+  popupId: import_prop_types51.default.string,
+  variant: import_prop_types51.default.oneOf(["popover", "popper"]).isRequired,
+  parentPopupState: import_prop_types51.default.object,
+  disableAutoFocus: import_prop_types51.default.bool
 };
 
 // node_modules/@material-ui/core/esm/styles/colorManipulator.js
@@ -42724,8 +41621,64 @@ var CustomPopup_default = CustomPopupOptions = ({ setMouseOnPopup, actions }) =>
   }, undefined, false, undefined, this);
 };
 
-// src/components/navbars/CustomBarPC.js
+// src/components/navbars/LogoButton.js
+var import_react19 = __toESM(require_react(), 1);
 var jsx_dev_runtime18 = __toESM(require_jsx_dev_runtime(), 1);
+var theme = {
+  display: "inline-block",
+  maxWidth: "100%",
+  font: "1000 34px/34px 'Montserrat',sans-serif",
+  letterSpacing: ".1em",
+  textTransform: "uppercase",
+  cursor: "pointer",
+  transition: "0.2s",
+  "&:hover": {
+    md: { color: "#2222ff" }
+  }
+};
+var LogoButton_default = LogoButton = () => {
+  const navigate = useNavigate();
+  return jsx_dev_runtime18.jsxDEV(Box_default, {
+    sx: {
+      cursor: "pointer",
+      display: "flex",
+      justifyContent: "start",
+      alignItems: "end",
+      color: "#ffffff",
+      paddingBottom: "5px",
+      paddingInline: "15px",
+      width: "15%",
+      marginRight: "10%"
+    },
+    onClick: () => navigate("/home"),
+    children: [
+      jsx_dev_runtime18.jsxDEV(Box_default, {
+        component: "img",
+        sx: {
+          maxHeight: 81,
+          maxWidth: 61,
+          alignSelf: "end"
+        },
+        src: "/static/logos/icon.png"
+      }, undefined, false, undefined, this),
+      jsx_dev_runtime18.jsxDEV(Typography_default, {
+        sx: theme,
+        children: "G"
+      }, undefined, false, undefined, this),
+      jsx_dev_runtime18.jsxDEV(Typography_default, {
+        sx: theme,
+        children: "V"
+      }, undefined, false, undefined, this),
+      jsx_dev_runtime18.jsxDEV(Typography_default, {
+        sx: theme,
+        children: "G"
+      }, undefined, false, undefined, this)
+    ]
+  }, undefined, true, undefined, this);
+};
+
+// src/components/navbars/CustomBarPC.js
+var jsx_dev_runtime19 = __toESM(require_jsx_dev_runtime(), 1);
 var themed2 = createTheme_default2({
   palette: {
     primary: {
@@ -42766,19 +41719,38 @@ var offersActions = [
   }
 ];
 var CustomBarPC_default = CustomBarPC = () => {
-  const [selected, setSelected] = import_react19.useState(actions[0].title);
-  const [mouseOnOffers, setMouseOnOffers] = import_react19.useState(false);
-  const [mouseOnPopup, setMouseOnPopup] = import_react19.useState(false);
+  const [selected, setSelected] = import_react20.useState(actions[0].title);
+  const [hovered, setHovered] = import_react20.useState(actions[0].title);
+  const [mouseOnOffers, setMouseOnOffers] = import_react20.useState(false);
+  const [offersOpen, setOffersOpen] = import_react20.useState(false);
+  const [mouseOnPopup, setMouseOnPopup] = import_react20.useState(false);
   const navigate = useNavigate();
+  import_react20.useEffect(() => {
+    if (!mouseOnOffers && !mouseOnPopup) {
+      const timer = setTimeout(() => {
+        if (!mouseOnOffers && !mouseOnPopup) {
+          console.log("Time's up, closing");
+          setOffersOpen(false);
+        } else {
+          console.log("Well, still good");
+        }
+      }, 400);
+      return () => clearTimeout(timer);
+    } else {
+      setOffersOpen(true);
+    }
+  }, [mouseOnOffers, mouseOnPopup]);
   const handleEnterButton = (actionPath) => {
     if (actionPath === "/offers") {
       setMouseOnOffers(true);
     }
+    setHovered(actionPath);
   };
   const handleLeaveButton = (actionPath) => {
     if (actionPath === "/offers") {
       setMouseOnOffers(false);
     }
+    setHovered(actionPath === hovered ? "none" : hovered);
   };
   const handleClickButton = (action) => {
     if (action.path === "/offers") {
@@ -42787,122 +41759,135 @@ var CustomBarPC_default = CustomBarPC = () => {
     setSelected(action.title);
     navigate(action.path);
   };
-  return jsx_dev_runtime18.jsxDEV(ThemeProvider5, {
+  return jsx_dev_runtime19.jsxDEV(ThemeProvider5, {
     theme: themed2,
-    children: jsx_dev_runtime18.jsxDEV(AppBar_default, {
+    children: jsx_dev_runtime19.jsxDEV(AppBar_default, {
       position: "static",
-      sx: { boxShadow: "0 0 2em black" },
-      children: jsx_dev_runtime18.jsxDEV(Toolbar_default, {
+      sx: {
+        boxShadow: "0 0 2em black",
+        padding: "23px 0",
+        bgcolor: "#0D0D0D",
+        maxHeight: "90px",
+        justifyContent: "center"
+      },
+      children: jsx_dev_runtime19.jsxDEV(Box_default, {
         sx: {
-          bgcolor: "#0D0D0D"
+          position: "relative",
+          marginRight: "auto",
+          marginLeft: "auto",
+          paddingInline: "15px",
+          width: "100%",
+          maxWidth: "1200px"
         },
-        children: [
-          jsx_dev_runtime18.jsxDEV(Button_default, {
-            sx: { alignItems: "end", color: "#ffffff", paddingTop: 0 },
-            onClick: () => navigate("/home"),
-            children: [
-              jsx_dev_runtime18.jsxDEV(Box_default, {
-                component: "img",
+        children: jsx_dev_runtime19.jsxDEV(Toolbar_default, {
+          sx: {
+            minHeight: 45,
+            marginInline: "-15px",
+            fontSize: "16px",
+            lineHeight: "29px"
+          },
+          style: {
+            minHeight: 45
+          },
+          children: [
+            jsx_dev_runtime19.jsxDEV(LogoButton_default, {}, undefined, false, undefined, this),
+            jsx_dev_runtime19.jsxDEV(Box_default, {
+              sx: {
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-between",
+                height: "100%",
+                width: "50%",
+                paddingInline: "15px"
+              },
+              children: actions.map((action, index) => jsx_dev_runtime19.jsxDEV(Typography_default, {
                 sx: {
-                  maxHeight: 81,
-                  maxWidth: 61
+                  paddingInline: "20px",
+                  color: hovered === action.path ? "#0000ff" : "#ffffff",
+                  cursor: "pointer",
+                  height: "100%",
+                  transition: "all 0.5s"
                 },
-                src: "/static/logos/icon.png"
-              }, undefined, false, undefined, this),
-              jsx_dev_runtime18.jsxDEV(Box_default, {
-                component: "img",
-                sx: {
-                  height: "35px",
-                  width: "79px"
-                },
-                src: "/static/logos/gvg.png"
-              }, undefined, false, undefined, this)
-            ]
-          }, undefined, true, undefined, this),
-          jsx_dev_runtime18.jsxDEV(Tabs_default, {
-            value: selected,
-            children: actions.map((action, index) => jsx_dev_runtime18.jsxDEV(Tab_default, {
-              value: action.title,
-              label: action.title,
-              sx: { paddingInline: "20px", color: "#ffffff" },
-              onClick: () => handleClickButton(action),
-              onMouseEnter: () => handleEnterButton(action.path),
-              onMouseLeave: () => handleLeaveButton(action.path)
-            }, index, false, undefined, this))
-          }, undefined, false, undefined, this),
-          (mouseOnOffers || mouseOnPopup) && jsx_dev_runtime18.jsxDEV(CustomPopup_default, {
-            setMouseOnPopup,
-            actions: offersActions
-          }, undefined, false, undefined, this),
-          jsx_dev_runtime18.jsxDEV(Stack_default, {
-            direction: "row-reverse",
-            marginLeft: "auto",
-            sx: { alignItems: "center", color: "#ffffff" },
-            children: [
-              jsx_dev_runtime18.jsxDEV(CustomSearch_default, {}, undefined, false, undefined, this),
-              jsx_dev_runtime18.jsxDEV(Typography_default, {
-                variant: "body1",
-                sx: { alignSelf: "center" },
-                display: { xs: "none", lg: "flex" },
-                children: jsx_dev_runtime18.jsxDEV("a", {
-                  href: "tel:9851460477",
-                  style: {
-                    color: "white"
-                  },
-                  children: "+7 (985) 146-04-77"
-                }, undefined, false, undefined, this)
-              }, undefined, false, undefined, this),
-              jsx_dev_runtime18.jsxDEV(Box_default, {
-                display: { xs: "flex", lg: "none" },
-                children: jsx_dev_runtime18.jsxDEV(PopupState, {
-                  variant: "popover",
-                  popupId: "demo-popup-popover",
-                  children: (popupState) => jsx_dev_runtime18.jsxDEV("div", {
-                    children: [
-                      jsx_dev_runtime18.jsxDEV(IconButton_default, {
-                        sx: { color: "#ffffff" },
-                        ...bindTrigger(popupState),
-                        children: jsx_dev_runtime18.jsxDEV(Phone_default, {}, undefined, false, undefined, this)
-                      }, undefined, false, undefined, this),
-                      jsx_dev_runtime18.jsxDEV(Popover_default, {
-                        ...bindPopover(popupState),
-                        anchorOrigin: {
-                          vertical: "bottom",
-                          horizontal: "center"
-                        },
-                        transformOrigin: {
-                          vertical: "top",
-                          horizontal: "center"
-                        },
-                        children: jsx_dev_runtime18.jsxDEV(Typography_default, {
-                          sx: { p: 2 },
-                          children: jsx_dev_runtime18.jsxDEV("a", {
-                            href: "tel:9851460477",
-                            style: {
-                              color: "black"
-                            },
-                            children: "+7 (985) 146-04-77"
+                onClick: () => handleClickButton(action),
+                onMouseEnter: () => handleEnterButton(action.path),
+                onMouseLeave: () => handleLeaveButton(action.path),
+                children: action.title
+              }, index, false, undefined, this))
+            }, undefined, false, undefined, this),
+            (mouseOnOffers || mouseOnPopup || offersOpen) && jsx_dev_runtime19.jsxDEV(CustomPopup_default, {
+              setMouseOnPopup,
+              actions: offersActions
+            }, undefined, false, undefined, this),
+            jsx_dev_runtime19.jsxDEV(Stack_default, {
+              direction: "row-reverse",
+              width: "25%",
+              sx: { alignItems: "center", color: "#ffffff" },
+              children: [
+                jsx_dev_runtime19.jsxDEV(CustomSearch_default, {}, undefined, false, undefined, this),
+                jsx_dev_runtime19.jsxDEV(IconButton_default, {
+                  sx: { color: "#ffffff", marginRight: 1 },
+                  children: jsx_dev_runtime19.jsxDEV(ShoppingCart_default, {}, undefined, false, undefined, this)
+                }, undefined, false, undefined, this),
+                jsx_dev_runtime19.jsxDEV(Typography_default, {
+                  variant: "body1",
+                  sx: { alignSelf: "center" },
+                  display: { xs: "none", lg: "flex" },
+                  children: jsx_dev_runtime19.jsxDEV("a", {
+                    href: "tel:9851460477",
+                    style: {
+                      color: "white"
+                    },
+                    children: "+7 (985) 146-04-77"
+                  }, undefined, false, undefined, this)
+                }, undefined, false, undefined, this),
+                jsx_dev_runtime19.jsxDEV(Box_default, {
+                  display: { xs: "flex", lg: "none" },
+                  children: jsx_dev_runtime19.jsxDEV(PopupState, {
+                    variant: "popover",
+                    popupId: "demo-popup-popover",
+                    children: (popupState) => jsx_dev_runtime19.jsxDEV("div", {
+                      children: [
+                        jsx_dev_runtime19.jsxDEV(IconButton_default, {
+                          sx: { color: "#ffffff" },
+                          ...bindTrigger(popupState),
+                          children: jsx_dev_runtime19.jsxDEV(Phone_default, {}, undefined, false, undefined, this)
+                        }, undefined, false, undefined, this),
+                        jsx_dev_runtime19.jsxDEV(Popover_default, {
+                          ...bindPopover(popupState),
+                          anchorOrigin: {
+                            vertical: "bottom",
+                            horizontal: "center"
+                          },
+                          transformOrigin: {
+                            vertical: "top",
+                            horizontal: "center"
+                          },
+                          children: jsx_dev_runtime19.jsxDEV(Typography_default, {
+                            sx: { p: 2 },
+                            children: jsx_dev_runtime19.jsxDEV("a", {
+                              href: "tel:9851460477",
+                              style: {
+                                color: "black"
+                              },
+                              children: "+7 (985) 146-04-77"
+                            }, undefined, false, undefined, this)
                           }, undefined, false, undefined, this)
                         }, undefined, false, undefined, this)
-                      }, undefined, false, undefined, this)
-                    ]
-                  }, undefined, true, undefined, this)
+                      ]
+                    }, undefined, true, undefined, this)
+                  }, undefined, false, undefined, this)
                 }, undefined, false, undefined, this)
-              }, undefined, false, undefined, this),
-              jsx_dev_runtime18.jsxDEV(IconButton_default, {
-                sx: { color: "#ffffff", marginRight: 1 },
-                children: jsx_dev_runtime18.jsxDEV(ShoppingCart_default, {}, undefined, false, undefined, this)
-              }, undefined, false, undefined, this)
-            ]
-          }, undefined, true, undefined, this)
-        ]
-      }, undefined, true, undefined, this)
+              ]
+            }, undefined, true, undefined, this)
+          ]
+        }, undefined, true, undefined, this)
+      }, undefined, false, undefined, this)
     }, undefined, false, undefined, this)
   }, undefined, false, undefined, this);
 };
 
 // src/components/navbars/CustomBarMobile.js
-var import_react21 = __toESM(require_react(), 1);
+var import_react22 = __toESM(require_react(), 1);
 
 // node_modules/tslib/tslib.es6.mjs
 function __spreadArray(to, from2, pack) {
@@ -42930,7 +41915,7 @@ var __assign = function() {
 };
 
 // node_modules/styled-components/dist/styled-components.browser.esm.js
-var import_react20 = __toESM(require_react(), 1);
+var import_react21 = __toESM(require_react(), 1);
 var import_shallowequal = __toESM(require_shallowequal(), 1);
 
 // node_modules/stylis/src/Enum.js
@@ -43603,22 +42588,22 @@ var De = function(e2) {
   }, 5381).toString() : "", p3;
 };
 var Ve = function() {
-  return import_react20.useContext(ke);
+  return import_react21.useContext(ke);
 };
 var Fe = function(e2) {
-  var t2 = import_react20.useState(e2.stylisPlugins), n2 = t2[0], r6 = t2[1], c3 = Ve().styleSheet, l3 = import_react20.useMemo(function() {
+  var t2 = import_react21.useState(e2.stylisPlugins), n2 = t2[0], r6 = t2[1], c3 = Ve().styleSheet, l3 = import_react21.useMemo(function() {
     var t3 = c3;
     return e2.sheet ? t3 = e2.sheet : e2.target && (t3 = t3.reconstructWithOptions({ target: e2.target }, false)), e2.disableCSSOMInjection && (t3 = t3.reconstructWithOptions({ useCSSOMInjection: false })), t3;
-  }, [e2.disableCSSOMInjection, e2.sheet, e2.target, c3]), u3 = import_react20.useMemo(function() {
+  }, [e2.disableCSSOMInjection, e2.sheet, e2.target, c3]), u3 = import_react21.useMemo(function() {
     return De({ options: { namespace: e2.namespace, prefix: e2.enableVendorPrefixes }, plugins: n2 });
   }, [e2.enableVendorPrefixes, e2.namespace, n2]);
-  import_react20.useEffect(function() {
+  import_react21.useEffect(function() {
     import_shallowequal.default(n2, e2.stylisPlugins) || r6(e2.stylisPlugins);
   }, [e2.stylisPlugins]);
-  var d2 = import_react20.useMemo(function() {
+  var d2 = import_react21.useMemo(function() {
     return { shouldForwardProp: e2.shouldForwardProp, styleSheet: l3, stylis: u3 };
   }, [e2.shouldForwardProp, l3, u3]);
-  return import_react20.default.createElement(ke.Provider, { value: d2 }, import_react20.default.createElement(xe.Provider, { value: u3 }, e2.children));
+  return import_react21.default.createElement(ke.Provider, { value: d2 }, import_react21.default.createElement(xe.Provider, { value: u3 }, e2.children));
 };
 var ze = function(e2) {
   for (var t2 = "", n2 = 0;n2 < e2.length; n2++) {
@@ -43654,7 +42639,7 @@ var Ye = function(e2) {
   return true;
 };
 var Xe = function(e2) {
-  var n2 = import_react20.default.useContext(He), r6 = import_react20.useMemo(function() {
+  var n2 = import_react21.default.useContext(He), r6 = import_react21.useMemo(function() {
     return function(e3, n3) {
       if (!e3)
         throw ce(14);
@@ -43669,7 +42654,7 @@ var Xe = function(e2) {
       return n3 ? __assign(__assign({}, n3), e3) : e3;
     }(e2.theme, n2);
   }, [e2.theme, n2]);
-  return e2.children ? import_react20.default.createElement(He.Provider, { value: r6 }, e2.children) : null;
+  return e2.children ? import_react21.default.createElement(He.Provider, { value: r6 }, e2.children) : null;
 };
 var Qe = function(e2, r6, s3) {
   var i3 = ee(e2), a3 = e2, c3 = !F2(e2), p3 = r6.attrs, d2 = p3 === undefined ? E2 : p3, h2 = r6.componentId, f2 = h2 === undefined ? function(e3, t2) {
@@ -43693,8 +42678,8 @@ var Qe = function(e2, r6, s3) {
   var I2 = new qe(s3, v2, i3 ? a3.componentStyle : undefined);
   function O2(e3, r7) {
     return function(e4, r8, s4) {
-      var { attrs: i4, componentStyle: a4, defaultProps: c4, foldedComponentIds: p4, styledComponentId: d3, target: h3 } = e4, f3 = import_react20.default.useContext(He), m3 = Ve(), y3 = e4.shouldForwardProp || m3.shouldForwardProp;
-      import_react20.useDebugValue(d3);
+      var { attrs: i4, componentStyle: a4, defaultProps: c4, foldedComponentIds: p4, styledComponentId: d3, target: h3 } = e4, f3 = import_react21.default.useContext(He), m3 = Ve(), y3 = e4.shouldForwardProp || m3.shouldForwardProp;
+      import_react21.useDebugValue(d3);
       var v3 = function(e5, n2, o3) {
         for (var r9, s5 = __assign(__assign({}, n2), { className: undefined, theme: o3 }), i5 = 0;i5 < e5.length; i5 += 1) {
           var a5 = Q2(r9 = e5[i5]) ? r9(s5) : r9;
@@ -43707,15 +42692,15 @@ var Qe = function(e2, r6, s3) {
         v3[w3] === undefined || w3[0] === "$" || w3 === "as" || w3 === "theme" || (w3 === "forwardedAs" ? S3.as = v3.forwardedAs : y3 && !y3(w3, g3) || (S3[w3] = v3[w3], y3 || false || isPropValid(w3) || Ke.has(w3) || !_3.has(g3) || (Ke.add(w3), console.warn('styled-components: it looks like an unknown prop "'.concat(w3, '" is being sent through to the DOM, which will likely trigger a React console error. If you would like automatic filtering of unknown props, you can opt-into that behavior via `<StyleSheetManager shouldForwardProp={...}>` (connect an API like `@emotion/is-prop-valid`) or consider using transient props (`$` prefix for automatic filtering.)')))));
       var b2 = function(e5, t2) {
         var n2 = Ve(), o3 = e5.generateAndInjectStyles(t2, n2.styleSheet, n2.stylis);
-        return import_react20.useDebugValue(o3), o3;
+        return import_react21.useDebugValue(o3), o3;
       }(a4, v3);
       e4.warnTooManyClasses && e4.warnTooManyClasses(b2);
       var E2 = te(p4, d3);
-      return b2 && (E2 += " " + b2), v3.className && (E2 += " " + v3.className), S3[F2(g3) && !_3.has(g3) ? "class" : "className"] = E2, S3.ref = s4, import_react20.createElement(g3, S3);
+      return b2 && (E2 += " " + b2), v3.className && (E2 += " " + v3.className), S3[F2(g3) && !_3.has(g3) ? "class" : "className"] = E2, S3.ref = s4, import_react21.createElement(g3, S3);
     }(D2, e3, r7);
   }
   O2.displayName = y2;
-  var D2 = import_react20.default.forwardRef(O2);
+  var D2 = import_react21.default.forwardRef(O2);
   return D2.attrs = g2, D2.componentStyle = I2, D2.shouldForwardProp = S2, D2.displayName = y2, D2.foldedComponentIds = i3 ? te(a3.foldedComponentIds, a3.styledComponentId) : "", D2.styledComponentId = v2, D2.target = i3 ? a3.target : e2, Object.defineProperty(D2, "defaultProps", { get: function() {
     return this._foldedDefaultProps;
   }, set: function(e3) {
@@ -43781,7 +42766,7 @@ var b2 = function(t2, n2) {
         for (var n3 = [], o4 = 1;o4 < arguments.length; o4++)
           n3[o4 - 1] = arguments[o4];
         S2.test(t3) ? (a3 = false, w2.delete(s3)) : i3.apply(undefined, __spreadArray([t3], n3, false));
-      }, import_react20.useRef(), a3 && !w2.has(s3) && (console.warn(s3), w2.add(s3));
+      }, import_react21.useRef(), a3 && !w2.has(s3) && (console.warn(s3), w2.add(s3));
     } catch (e2) {
       S2.test(e2.message) && w2.delete(s3);
     } finally {
@@ -44021,9 +43006,9 @@ var Ie = /&/g;
 var Ae = /^\s*\/\/.*$/gm;
 var Re = new Ce;
 var Te = De();
-var ke = import_react20.default.createContext({ shouldForwardProp: undefined, styleSheet: Re, stylis: Te });
+var ke = import_react21.default.createContext({ shouldForwardProp: undefined, styleSheet: Re, stylis: Te });
 var je = ke.Consumer;
-var xe = import_react20.default.createContext(undefined);
+var xe = import_react21.default.createContext(undefined);
 var Me = function() {
   function e2(e3, t2) {
     var n2 = this;
@@ -44089,7 +43074,7 @@ var qe = function() {
     return o3;
   }, e2;
 }();
-var He = import_react20.default.createContext(undefined);
+var He = import_react21.default.createContext(undefined);
 var Ue = He.Consumer;
 var Ze = {};
 var Ke = new Set;
@@ -44131,7 +43116,7 @@ var ut = function() {
       if (e3.sealed)
         throw ce(2);
       var r6 = ((n2 = {})[f2] = "", n2["data-styled-version"] = "6.0.8", n2.dangerouslySetInnerHTML = { __html: e3.instance.toString() }, n2), s3 = Se();
-      return s3 && (r6.nonce = s3), [import_react20.default.createElement("style", __assign({}, r6, { key: "sc-0-0" }))];
+      return s3 && (r6.nonce = s3), [import_react21.default.createElement("style", __assign({}, r6, { key: "sc-0-0" }))];
     }, this.seal = function() {
       e3.sealed = true;
     }, this.instance = new Ce({ isServer: true }), this.sealed = false;
@@ -44139,7 +43124,7 @@ var ut = function() {
   return e2.prototype.collectStyles = function(e3) {
     if (this.sealed)
       throw ce(2);
-    return import_react20.default.createElement(Fe, { sheet: this.instance }, e3);
+    return import_react21.default.createElement(Fe, { sheet: this.instance }, e3);
   }, e2.prototype.interleaveWithNodeStream = function(e3) {
     throw ce(3);
   }, e2;
@@ -44149,27 +43134,27 @@ var dt = "__sc-".concat(f2, "__");
 typeof window != "undefined" && (window[dt] || (window[dt] = 0), window[dt] === 1 && console.warn("It looks like there are several instances of 'styled-components' initialized in this application. This may cause dynamic styles to not render properly, errors during the rehydration process, a missing theme prop, and makes your application bigger without good reason.\n\nSee https://s-c.sh/2BAXzed for more info."), window[dt] += 1);
 
 // src/components/navbars/CustomBarMobile.js
-var jsx_dev_runtime19 = __toESM(require_jsx_dev_runtime(), 1);
+var jsx_dev_runtime20 = __toESM(require_jsx_dev_runtime(), 1);
 var actions2 = [
   {
     title: "\u0413\u043B\u0430\u0432\u043D\u0430\u044F",
     path: "/home",
-    icon: jsx_dev_runtime19.jsxDEV(Home_default, {}, undefined, false, undefined, this)
+    icon: jsx_dev_runtime20.jsxDEV(Home_default, {}, undefined, false, undefined, this)
   },
   {
     title: "\u0423\u0441\u043B\u0443\u0433\u0438",
     path: "/offers",
-    icon: jsx_dev_runtime19.jsxDEV(Computer_default, {}, undefined, false, undefined, this)
+    icon: jsx_dev_runtime20.jsxDEV(Computer_default, {}, undefined, false, undefined, this)
   },
   {
     title: "\u0414\u043E\u0441\u0442\u0430\u0432\u043A\u0430",
     path: "/delivery",
-    icon: jsx_dev_runtime19.jsxDEV(DeliveryDining_default, {}, undefined, false, undefined, this)
+    icon: jsx_dev_runtime20.jsxDEV(DeliveryDining_default, {}, undefined, false, undefined, this)
   },
   {
     title: "\u041E \u043D\u0430\u0441",
     path: "/about",
-    icon: jsx_dev_runtime19.jsxDEV(Info_default, {}, undefined, false, undefined, this)
+    icon: jsx_dev_runtime20.jsxDEV(Info_default, {}, undefined, false, undefined, this)
   }
 ];
 var offersActions2 = [
@@ -44195,12 +43180,12 @@ var themed3 = createTheme_default2({
   }
 });
 var CustomBarMobile_default = CustomBarMobile = () => {
-  const [selected, setSelected] = import_react21.useState(0);
-  const [mouseOnOffers, setMouseOnOffers] = import_react21.useState(false);
-  const [mouseOnPopup, setMouseOnPopup] = import_react21.useState(false);
+  const [selected, setSelected] = import_react22.useState(0);
+  const [mouseOnOffers, setMouseOnOffers] = import_react22.useState(false);
+  const [mouseOnPopup, setMouseOnPopup] = import_react22.useState(false);
   const navigate = useNavigate();
   const location = useLocation();
-  import_react21.useEffect(() => {
+  import_react22.useEffect(() => {
     var pathname = location.pathname;
     if (pathname[pathname.length - 1] === "/") {
       pathname = pathname.substring(0, pathname.length - 1);
@@ -44227,56 +43212,34 @@ var CustomBarMobile_default = CustomBarMobile = () => {
       navigate(`${actions2[newSelected].path}`);
     }
   };
-  return jsx_dev_runtime19.jsxDEV(Xe, {
+  return jsx_dev_runtime20.jsxDEV(Xe, {
     theme: themed3,
     children: [
-      jsx_dev_runtime19.jsxDEV(AppBar_default, {
+      jsx_dev_runtime20.jsxDEV(AppBar_default, {
         position: "static",
-        children: jsx_dev_runtime19.jsxDEV(Toolbar_default, {
+        children: jsx_dev_runtime20.jsxDEV(Toolbar_default, {
           sx: {
             bgcolor: "#0D0D0D"
           },
           children: [
-            jsx_dev_runtime19.jsxDEV(Button_default, {
-              sx: { alignItems: "end", color: "#ffffff", paddingTop: 0 },
-              onClick: () => navigate("/home"),
-              children: [
-                jsx_dev_runtime19.jsxDEV(Box_default, {
-                  component: "img",
-                  sx: {
-                    maxHeight: 81,
-                    maxWidth: 61
-                  },
-                  alt: "The house from the offer.",
-                  src: "/static/logos/icon.png"
-                }, undefined, false, undefined, this),
-                jsx_dev_runtime19.jsxDEV(Box_default, {
-                  component: "img",
-                  sx: {
-                    height: "35px",
-                    width: "79px"
-                  },
-                  src: "/static/logos/gvg.png"
-                }, undefined, false, undefined, this)
-              ]
-            }, undefined, true, undefined, this),
-            jsx_dev_runtime19.jsxDEV(Stack_default, {
+            jsx_dev_runtime20.jsxDEV(LogoButton_default, {}, undefined, false, undefined, this),
+            jsx_dev_runtime20.jsxDEV(Stack_default, {
               direction: "row-reverse",
               marginLeft: "auto",
               sx: { alignItems: "center" },
               children: [
-                jsx_dev_runtime19.jsxDEV(CustomSearch_default, {}, undefined, false, undefined, this),
-                jsx_dev_runtime19.jsxDEV(PopupState, {
+                jsx_dev_runtime20.jsxDEV(CustomSearch_default, {}, undefined, false, undefined, this),
+                jsx_dev_runtime20.jsxDEV(PopupState, {
                   variant: "popover",
                   popupId: "demo-popup-popover",
-                  children: (popupState) => jsx_dev_runtime19.jsxDEV("div", {
+                  children: (popupState) => jsx_dev_runtime20.jsxDEV("div", {
                     children: [
-                      jsx_dev_runtime19.jsxDEV(IconButton_default, {
+                      jsx_dev_runtime20.jsxDEV(IconButton_default, {
                         sx: { color: "#ffffff" },
                         ...bindTrigger(popupState),
-                        children: jsx_dev_runtime19.jsxDEV(Phone_default, {}, undefined, false, undefined, this)
+                        children: jsx_dev_runtime20.jsxDEV(Phone_default, {}, undefined, false, undefined, this)
                       }, undefined, false, undefined, this),
-                      jsx_dev_runtime19.jsxDEV(Popover_default, {
+                      jsx_dev_runtime20.jsxDEV(Popover_default, {
                         ...bindPopover(popupState),
                         anchorOrigin: {
                           vertical: "bottom",
@@ -44286,9 +43249,9 @@ var CustomBarMobile_default = CustomBarMobile = () => {
                           vertical: "top",
                           horizontal: "center"
                         },
-                        children: jsx_dev_runtime19.jsxDEV(Typography_default, {
+                        children: jsx_dev_runtime20.jsxDEV(Typography_default, {
                           sx: { p: 2 },
-                          children: jsx_dev_runtime19.jsxDEV("a", {
+                          children: jsx_dev_runtime20.jsxDEV("a", {
                             href: "tel:9851460477",
                             style: {
                               color: "blueviolet"
@@ -44300,16 +43263,16 @@ var CustomBarMobile_default = CustomBarMobile = () => {
                     ]
                   }, undefined, true, undefined, this)
                 }, undefined, false, undefined, this),
-                jsx_dev_runtime19.jsxDEV(IconButton_default, {
+                jsx_dev_runtime20.jsxDEV(IconButton_default, {
                   sx: { color: "#ffffff", marginRight: 1 },
-                  children: jsx_dev_runtime19.jsxDEV(ShoppingCart_default, {}, undefined, false, undefined, this)
+                  children: jsx_dev_runtime20.jsxDEV(ShoppingCart_default, {}, undefined, false, undefined, this)
                 }, undefined, false, undefined, this)
               ]
             }, undefined, true, undefined, this)
           ]
         }, undefined, true, undefined, this)
       }, undefined, false, undefined, this),
-      jsx_dev_runtime19.jsxDEV(BottomNavigation_default, {
+      jsx_dev_runtime20.jsxDEV(BottomNavigation_default, {
         sx: {
           backgroundColor: "#ffffff",
           width: "100%",
@@ -44321,12 +43284,12 @@ var CustomBarMobile_default = CustomBarMobile = () => {
         value: selected,
         onChange: handleSelect,
         showLabels: true,
-        children: actions2.map((action, index) => jsx_dev_runtime19.jsxDEV(BottomNavigationAction_default, {
+        children: actions2.map((action, index) => jsx_dev_runtime20.jsxDEV(BottomNavigationAction_default, {
           label: action.title,
           icon: action.icon
         }, index, false, undefined, this))
       }, undefined, false, undefined, this),
-      (mouseOnOffers || mouseOnPopup) && jsx_dev_runtime19.jsxDEV(CustomPopup_default, {
+      (mouseOnOffers || mouseOnPopup) && jsx_dev_runtime20.jsxDEV(CustomPopup_default, {
         setMouseOnPopup,
         actions: offersActions2
       }, undefined, false, undefined, this)
@@ -44335,42 +43298,42 @@ var CustomBarMobile_default = CustomBarMobile = () => {
 };
 
 // src/components/offers/BuildsPage.js
-var import_react22 = __toESM(require_react(), 1);
-var jsx_dev_runtime20 = __toESM(require_jsx_dev_runtime(), 1);
+var import_react23 = __toESM(require_react(), 1);
+var jsx_dev_runtime21 = __toESM(require_jsx_dev_runtime(), 1);
 var BuildsPage_default = BuildsPage = (props) => {
-  return jsx_dev_runtime20.jsxDEV(Box_default, {
+  return jsx_dev_runtime21.jsxDEV(Box_default, {
     padding: 4,
-    children: "BUILDS"
+    children: "Hello world"
   }, undefined, false, undefined, this);
 };
 
 // src/components/offers/ComponentsPage.js
-var import_react23 = __toESM(require_react(), 1);
-var jsx_dev_runtime21 = __toESM(require_jsx_dev_runtime(), 1);
+var import_react24 = __toESM(require_react(), 1);
+var jsx_dev_runtime22 = __toESM(require_jsx_dev_runtime(), 1);
 var ComponentsPage_default = ComponentsPage = (props) => {
-  return jsx_dev_runtime21.jsxDEV(Box_default, {
+  return jsx_dev_runtime22.jsxDEV(Box_default, {
     padding: 4,
     children: "COMPONENTS"
   }, undefined, false, undefined, this);
 };
 
 // src/components/offers/ConstructorPage.js
-var import_react24 = __toESM(require_react(), 1);
-var jsx_dev_runtime22 = __toESM(require_jsx_dev_runtime(), 1);
+var import_react25 = __toESM(require_react(), 1);
+var jsx_dev_runtime23 = __toESM(require_jsx_dev_runtime(), 1);
 var ConstructorPage_default = ConstructorPage = (props) => {
-  return jsx_dev_runtime22.jsxDEV(Box_default, {
+  return jsx_dev_runtime23.jsxDEV(Box_default, {
     padding: 4,
     children: "CONSTRUCTORS"
   }, undefined, false, undefined, this);
 };
 
 // src/components/App.js
-var jsx_dev_runtime23 = __toESM(require_jsx_dev_runtime(), 1);
+var jsx_dev_runtime24 = __toESM(require_jsx_dev_runtime(), 1);
 var App_default = App = () => {
   const isMobile = UseCheckMobileScreen_default();
-  return jsx_dev_runtime23.jsxDEV(BrowserRouter, {
+  return jsx_dev_runtime24.jsxDEV(BrowserRouter, {
     basename: "/",
-    children: jsx_dev_runtime23.jsxDEV(Box_default, {
+    children: jsx_dev_runtime24.jsxDEV(Box_default, {
       sx: {
         backgroundColor: "#000000",
         color: "#ffffff",
@@ -44378,38 +43341,38 @@ var App_default = App = () => {
         width: 1
       },
       children: [
-        isMobile ? jsx_dev_runtime23.jsxDEV(CustomBarMobile_default, {}, undefined, false, undefined, this) : jsx_dev_runtime23.jsxDEV(CustomBarPC_default, {}, undefined, false, undefined, this),
-        jsx_dev_runtime23.jsxDEV(Box_default, {
-          children: jsx_dev_runtime23.jsxDEV(Routes, {
+        isMobile ? jsx_dev_runtime24.jsxDEV(CustomBarMobile_default, {}, undefined, false, undefined, this) : jsx_dev_runtime24.jsxDEV(CustomBarPC_default, {}, undefined, false, undefined, this),
+        jsx_dev_runtime24.jsxDEV(Box_default, {
+          children: jsx_dev_runtime24.jsxDEV(Routes, {
             children: [
-              jsx_dev_runtime23.jsxDEV(Route, {
+              jsx_dev_runtime24.jsxDEV(Route, {
                 path: "home",
-                element: jsx_dev_runtime23.jsxDEV(HomePage_default, {}, undefined, false, undefined, this)
+                element: jsx_dev_runtime24.jsxDEV(HomePage_default, {}, undefined, false, undefined, this)
               }, undefined, false, undefined, this),
-              jsx_dev_runtime23.jsxDEV(Route, {
+              jsx_dev_runtime24.jsxDEV(Route, {
                 path: "offers",
                 children: [
-                  jsx_dev_runtime23.jsxDEV(Route, {
+                  jsx_dev_runtime24.jsxDEV(Route, {
                     path: "builds",
-                    element: jsx_dev_runtime23.jsxDEV(BuildsPage_default, {}, undefined, false, undefined, this)
+                    element: jsx_dev_runtime24.jsxDEV(BuildsPage_default, {}, undefined, false, undefined, this)
                   }, undefined, false, undefined, this),
-                  jsx_dev_runtime23.jsxDEV(Route, {
+                  jsx_dev_runtime24.jsxDEV(Route, {
                     path: "components",
-                    element: jsx_dev_runtime23.jsxDEV(ComponentsPage_default, {}, undefined, false, undefined, this)
+                    element: jsx_dev_runtime24.jsxDEV(ComponentsPage_default, {}, undefined, false, undefined, this)
                   }, undefined, false, undefined, this),
-                  jsx_dev_runtime23.jsxDEV(Route, {
+                  jsx_dev_runtime24.jsxDEV(Route, {
                     path: "constructor",
-                    element: jsx_dev_runtime23.jsxDEV(ConstructorPage_default, {}, undefined, false, undefined, this)
+                    element: jsx_dev_runtime24.jsxDEV(ConstructorPage_default, {}, undefined, false, undefined, this)
                   }, undefined, false, undefined, this)
                 ]
               }, undefined, true, undefined, this),
-              jsx_dev_runtime23.jsxDEV(Route, {
+              jsx_dev_runtime24.jsxDEV(Route, {
                 path: "delivery",
-                element: jsx_dev_runtime23.jsxDEV(DeliveryPage_default, {}, undefined, false, undefined, this)
+                element: jsx_dev_runtime24.jsxDEV(DeliveryPage_default, {}, undefined, false, undefined, this)
               }, undefined, false, undefined, this),
-              jsx_dev_runtime23.jsxDEV(Route, {
+              jsx_dev_runtime24.jsxDEV(Route, {
                 path: "about",
-                element: jsx_dev_runtime23.jsxDEV(AboutUsPage_default, {}, undefined, false, undefined, this)
+                element: jsx_dev_runtime24.jsxDEV(AboutUsPage_default, {}, undefined, false, undefined, this)
               }, undefined, false, undefined, this)
             ]
           }, undefined, true, undefined, this)
@@ -44420,6 +43383,6 @@ var App_default = App = () => {
 };
 
 // src/index.js
-var jsx_dev_runtime24 = __toESM(require_jsx_dev_runtime(), 1);
+var jsx_dev_runtime25 = __toESM(require_jsx_dev_runtime(), 1);
 var appDiv = document.getElementById("app");
-import_react_dom2.render(jsx_dev_runtime24.jsxDEV(App_default, {}, undefined, false, undefined, this), appDiv);
+import_react_dom2.render(jsx_dev_runtime25.jsxDEV(App_default, {}, undefined, false, undefined, this), appDiv);

@@ -24,6 +24,7 @@ import {
 import PopupState, { bindPopover, bindTrigger } from "material-ui-popup-state";
 import CustomPopup from "../common/CustomPopup";
 import { useNavigate } from "react-router-dom";
+import LogoButton from "./LogoButton";
 
 const themed = createTheme({
   palette: {
@@ -67,160 +68,183 @@ const offersActions = [
 ];
 
 export default CustomBarPC = () => {
-  const [selected, setSelected] = useState(actions[0].title)
+  const [selected, setSelected] = useState(actions[0].title);
+  const [hovered, setHovered] = useState(actions[0].title);
   const [mouseOnOffers, setMouseOnOffers] = useState(false);
+  const [offersOpen, setOffersOpen] = useState(false);
   const [mouseOnPopup, setMouseOnPopup] = useState(false);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!mouseOnOffers && !mouseOnPopup) {
+      const timer = setTimeout(() => {
+        if (!mouseOnOffers && !mouseOnPopup) {
+          console.log("Time's up, closing");
+          setOffersOpen(false);
+        } else {
+          console.log("Well, still good");
+        }
+      }, 400);
+      return () => clearTimeout(timer);
+    } else {
+      setOffersOpen(true);
+    }
+  }, [mouseOnOffers, mouseOnPopup]);
 
   const handleEnterButton = (actionPath) => {
     if (actionPath === "/offers") {
       setMouseOnOffers(true);
     }
+    setHovered(actionPath);
   };
 
   const handleLeaveButton = (actionPath) => {
     if (actionPath === "/offers") {
       setMouseOnOffers(false);
     }
+    setHovered(actionPath === hovered ? "none" : hovered);
   };
 
   const handleClickButton = (action) => {
     if (action.path === "/offers") {
       return;
     }
-	setSelected(action.title)
+    setSelected(action.title);
     navigate(action.path);
   };
 
   return (
     <ThemeProvider theme={themed}>
-      <AppBar position="static" sx={{ boxShadow: "0 0 2em black" }}>
-        <Toolbar
+      <AppBar
+        position="static"
+        sx={{
+          boxShadow: "0 0 2em black",
+          padding: "23px 0",
+          bgcolor: "#0D0D0D",
+          maxHeight: "90px",
+          justifyContent: "center",
+        }}
+      >
+        <Box
           sx={{
-            bgcolor: "#0D0D0D",
+            position: "relative",
+            marginRight: "auto",
+            marginLeft: "auto",
+            paddingInline: "15px",
+            width: "100%",
+            maxWidth: "1200px",
           }}
         >
-          <Button
-            sx={{ alignItems: "end", color: "#ffffff", paddingTop: 0 }}
-            onClick={() => navigate("/home")}
+          <Toolbar
+            sx={{
+              minHeight: 45,
+              marginInline: "-15px",
+              fontSize: "16px",
+              lineHeight: "29px",
+            }}
+            style={{
+              minHeight: 45,
+            }}
           >
+            <LogoButton />
             <Box
-              component="img"
               sx={{
-                maxHeight: 81,
-                maxWidth: 61,
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-between",
+                height: "100%",
+                width: "50%",
+                paddingInline: "15px",
               }}
-              src="/static/logos/icon.png"
-            />
-            <Box
-              component="img"
-              sx={{
-                height: "35px",
-                width: "79px",
-              }}
-              src="/static/logos/gvg.png"
-            />
-          </Button>
-
-          {/* <Stack
-		  	direction="row"
-            sx={{ minHeight: "50px", paddingInline: "20px", textAlign: "center" }}
-          >
-            {actions.map((action, index) => (
-              <Button
-                key={index}
-                sx={{ paddingInline: "20px" }}
-                onClick={() => handleClickButton(action.path)}
-                onMouseEnter={() => handleEnterButton(action.path)}
-                onMouseLeave={() => handleLeaveButton(action.path)}
-              >
-                {action.title}
-              </Button>
-            ))}
-          </Stack> */}
-
-          <Tabs value={selected}>
-            {actions.map((action, index) => (
-              <Tab
-                key={index}
-                value={action.title}
-                label={action.title}
-                sx={{ paddingInline: "20px", color: "#ffffff" }}
-                onClick={() => handleClickButton(action)}
-                onMouseEnter={() => handleEnterButton(action.path)}
-                onMouseLeave={() => handleLeaveButton(action.path)}
-              />
-            ))}
-          </Tabs>
-          {(mouseOnOffers || mouseOnPopup) && (
-            <CustomPopup
-              setMouseOnPopup={setMouseOnPopup}
-              actions={offersActions}
-            />
-          )}
-          <Stack
-            direction="row-reverse"
-            marginLeft="auto"
-            sx={{ alignItems: "center", color: "#ffffff" }}
-          >
-            <CustomSearch />
-            {/* CallText */}
-            <Typography
-              variant="body1"
-              sx={{ alignSelf: "center" }}
-              display={{ xs: "none", lg: "flex" }}
             >
-              <a
-                href="tel:9851460477"
-                style={{
-                  color: "white",
-                }}
-              >
-                +7 (985) 146-04-77
-              </a>
-            </Typography>
-            {/* CallButton */}
-            <Box display={{ xs: "flex", lg: "none" }}>
-              <PopupState variant="popover" popupId="demo-popup-popover">
-                {(popupState) => (
-                  <div>
-                    <IconButton
-                      sx={{ color: "#ffffff" }}
-                      {...bindTrigger(popupState)}
-                    >
-                      <PhoneIcon />
-                    </IconButton>
-                    <Popover
-                      {...bindPopover(popupState)}
-                      anchorOrigin={{
-                        vertical: "bottom",
-                        horizontal: "center",
-                      }}
-                      transformOrigin={{
-                        vertical: "top",
-                        horizontal: "center",
-                      }}
-                    >
-                      <Typography sx={{ p: 2 }}>
-                        <a
-                          href="tel:9851460477"
-                          style={{
-                            color: "black",
-                          }}
-                        >
-                          +7 (985) 146-04-77
-                        </a>
-                      </Typography>
-                    </Popover>
-                  </div>
-                )}
-              </PopupState>
+              {actions.map((action, index) => (
+                <Typography
+                  key={index}
+                  sx={{
+                    paddingInline: "20px",
+                    color: hovered === action.path ? "#0000ff" : "#ffffff",
+                    cursor: "pointer",
+                    height: "100%",
+                    transition: "all 0.5s",
+                  }}
+                  onClick={() => handleClickButton(action)}
+                  onMouseEnter={() => handleEnterButton(action.path)}
+                  onMouseLeave={() => handleLeaveButton(action.path)}
+                >
+                  {action.title}
+                </Typography>
+              ))}
             </Box>
-            <IconButton sx={{ color: "#ffffff", marginRight: 1 }}>
-              <ShoppingCartIcon />
-            </IconButton>
-          </Stack>
-        </Toolbar>
+            {(mouseOnOffers || mouseOnPopup || offersOpen) && (
+              <CustomPopup
+                setMouseOnPopup={setMouseOnPopup}
+                actions={offersActions}
+              />
+            )}
+            <Stack
+              direction="row-reverse"
+              width="25%"
+              sx={{ alignItems: "center", color: "#ffffff" }}
+            >
+              <CustomSearch />
+              <IconButton sx={{ color: "#ffffff", marginRight: 1 }}>
+                <ShoppingCartIcon />
+              </IconButton>
+              {/* CallText */}
+              <Typography
+                variant="body1"
+                sx={{ alignSelf: "center" }}
+                display={{ xs: "none", lg: "flex" }}
+              >
+                <a
+                  href="tel:9851460477"
+                  style={{
+                    color: "white",
+                  }}
+                >
+                  +7 (985) 146-04-77
+                </a>
+              </Typography>
+              {/* CallButton */}
+              <Box display={{ xs: "flex", lg: "none" }}>
+                <PopupState variant="popover" popupId="demo-popup-popover">
+                  {(popupState) => (
+                    <div>
+                      <IconButton
+                        sx={{ color: "#ffffff" }}
+                        {...bindTrigger(popupState)}
+                      >
+                        <PhoneIcon />
+                      </IconButton>
+                      <Popover
+                        {...bindPopover(popupState)}
+                        anchorOrigin={{
+                          vertical: "bottom",
+                          horizontal: "center",
+                        }}
+                        transformOrigin={{
+                          vertical: "top",
+                          horizontal: "center",
+                        }}
+                      >
+                        <Typography sx={{ p: 2 }}>
+                          <a
+                            href="tel:9851460477"
+                            style={{
+                              color: "black",
+                            }}
+                          >
+                            +7 (985) 146-04-77
+                          </a>
+                        </Typography>
+                      </Popover>
+                    </div>
+                  )}
+                </PopupState>
+              </Box>
+            </Stack>
+          </Toolbar>
+        </Box>
       </AppBar>
     </ThemeProvider>
   );

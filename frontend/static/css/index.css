@@ -1,5 +1,6 @@
 html,
 body {
+	font-family: raleway,sans-serif;
   height: 100%;
   margin: 0;
   padding: 0;
@@ -9,6 +10,12 @@ body {
   overflow-x: hidden;
 
   background-color: black;
+}
+span {
+	color: "blue",
+}
+span:hover {
+	color: "red",
 }
 
 .container {

@@ -32,6 +32,7 @@ import {
 import { useLocation, useNavigate } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import { darken } from "@material-ui/core";
+import LogoButton from './LogoButton';
 
 const actions = [
   {
@@ -126,28 +127,7 @@ export default CustomBarMobile = () => {
             bgcolor: "#0D0D0D",
           }}
         >
-          <Button
-            sx={{ alignItems: "end", color: "#ffffff", paddingTop: 0 }}
-            onClick={() => navigate("/home")}
-          >
-            <Box
-              component="img"
-              sx={{
-                maxHeight: 81,
-                maxWidth: 61,
-              }}
-              alt="The house from the offer."
-              src="/static/logos/icon.png"
-            />
-            <Box
-              component="img"
-              sx={{
-                height: "35px",
-                width: "79px",
-              }}
-              src="/static/logos/gvg.png"
-            />
-          </Button>
+          <LogoButton />
           <Stack
             direction="row-reverse"
             marginLeft="auto"

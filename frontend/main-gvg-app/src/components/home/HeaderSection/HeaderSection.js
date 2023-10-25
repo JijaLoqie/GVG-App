@@ -1,8 +1,8 @@
-import { Typography, Box, Paper, Button } from "@mui/material";
-import React, { useEffect } from "react";
-import items from "./header_items.json";
-import { Carousel } from "react-responsive-carousel";
-import ImageSlider from "./ImageSlider";
+import { Typography, Box, Paper, Button } from "@mui/material"
+import React, { useEffect } from "react"
+import items from "./header_items.json"
+import { Carousel } from "react-responsive-carousel"
+import ImageSlider from "./ImageSlider"
 
 // var items = [
 //   {
@@ -19,7 +19,7 @@ const containerStyles = {
   width: "100%",
   height: "70vh",
   margin: "0 auto",
-};
+}
 export default HeaderSection = () => {
   return (
     <Box position={"relative"}>
@@ -33,5 +33,5 @@ export default HeaderSection = () => {
         Tech Solutions
       </Typography>
     </Box>
-  );
-};
+  )
+}

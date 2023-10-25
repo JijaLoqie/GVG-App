@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from "react"
 
 import {
   Box,
@@ -12,8 +12,8 @@ import {
   ListItemButton,
   Typography,
   alpha,
-} from "@mui/material";
-import CustomYandexMap from "./CustomYandexMap";
+} from "@mui/material"
+import CustomYandexMap from "./CustomYandexMap"
 
 import {
   Phone as PhoneIcon,
@@ -21,7 +21,7 @@ import {
   Email as EmailIcon,
   Telegram as TelegramIcon,
   Instagram as InstagramIcon,
-} from "@mui/icons-material";
+} from "@mui/icons-material"
 
 const adresses = [
   {
@@ -49,10 +49,10 @@ const adresses = [
     title: "575674, Волгоградская область, город Подольск, шоссе Чехова, 88",
     coord: [1, 2],
   },
-];
+]
 
 export default DeliveryPage = () => {
-	const [selected, setSelected] = useState(adresses[0])
+  const [selected, setSelected] = useState(adresses[0])
   return (
     <Grid
       container
@@ -141,5 +141,5 @@ export default DeliveryPage = () => {
         </Stack>
       </Grid>
     </Grid>
-  );
-};
+  )
+}

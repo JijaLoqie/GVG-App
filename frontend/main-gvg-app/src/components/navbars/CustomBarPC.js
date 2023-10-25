@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react"
 
-import CustomSearch from "../common/CustomSearch";
+import CustomSearch from "../common/CustomSearch"
 import {
   Phone as PhoneIcon,
   ShoppingBag as ShoppingBagIcon,
   Search as SearchIcon,
-} from "@mui/icons-material";
+} from "@mui/icons-material"
 import {
   Button,
   Box,
@@ -24,12 +24,12 @@ import {
   useScrollTrigger,
   Switch,
   colors,
-} from "@mui/material";
-import PopupState, { bindPopover, bindTrigger } from "material-ui-popup-state";
-import CustomPopup from "../common/CustomPopup";
-import { useNavigate } from "react-router-dom";
-import LogoButton from "./LogoButton";
-import styled from "styled-components";
+} from "@mui/material"
+import PopupState, { bindPopover, bindTrigger } from "material-ui-popup-state"
+import CustomPopup from "../common/CustomPopup"
+import { useNavigate } from "react-router-dom"
+import LogoButton from "./LogoButton"
+import styled from "styled-components"
 
 const themed = createTheme({
   palette: {
@@ -57,7 +57,7 @@ const themed = createTheme({
       },
     },
   },
-});
+})
 
 const actions = [
   {
@@ -76,7 +76,7 @@ const actions = [
     title: "О нас",
     path: "/about",
   },
-];
+]
 const offersActions = [
   {
     title: "Сборки",
@@ -90,7 +90,7 @@ const offersActions = [
     title: "Игровой конструктор",
     path: "/offers/constructor",
   },
-];
+]
 
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   width: 62,
@@ -137,50 +137,50 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
     backgroundColor: theme.palette.mode === "dark" ? "#8796A5" : "#aab4be",
     borderRadius: 20 / 2,
   },
-}));
+}))
 
 export default CustomBarPC = () => {
-  const [selected, setSelected] = useState("");
-  const [hovered, setHovered] = useState("");
-  const [mouseOnOffers, setMouseOnOffers] = useState(false);
-  const [offersOpen, setOffersOpen] = useState(false);
-  const [mouseOnPopup, setMouseOnPopup] = useState(false);
-  const navigate = useNavigate();
+  const [selected, setSelected] = useState("")
+  const [hovered, setHovered] = useState("")
+  const [mouseOnOffers, setMouseOnOffers] = useState(false)
+  const [offersOpen, setOffersOpen] = useState(false)
+  const [mouseOnPopup, setMouseOnPopup] = useState(false)
+  const navigate = useNavigate()
 
   useEffect(() => {
     if (!mouseOnOffers && !mouseOnPopup) {
       const timer = setTimeout(() => {
         if (!mouseOnOffers && !mouseOnPopup) {
-          setOffersOpen(false);
+          setOffersOpen(false)
         }
-      }, 400);
-      return () => clearTimeout(timer);
+      }, 400)
+      return () => clearTimeout(timer)
     } else {
-      setOffersOpen(true);
+      setOffersOpen(true)
     }
-  }, [mouseOnOffers, mouseOnPopup]);
+  }, [mouseOnOffers, mouseOnPopup])
 
   const handleEnterButton = (actionPath) => {
     if (actionPath === "/offers") {
-      setMouseOnOffers(true);
+      setMouseOnOffers(true)
     }
-    setHovered(actionPath);
-  };
+    setHovered(actionPath)
+  }
 
   const handleLeaveButton = (actionPath) => {
     if (actionPath === "/offers") {
-      setMouseOnOffers(false);
+      setMouseOnOffers(false)
     }
-    setHovered(actionPath === hovered ? "none" : hovered);
-  };
+    setHovered(actionPath === hovered ? "none" : hovered)
+  }
 
   const handleClickButton = (action) => {
     if (action.path === "/offers") {
-      return;
+      return
     }
-    setSelected(action.path);
-    navigate(action.path);
-  };
+    setSelected(action.path)
+    navigate(action.path)
+  }
 
   return (
     <ThemeProvider theme={themed}>
@@ -343,5 +343,5 @@ export default CustomBarPC = () => {
         </Box>
       </AppBar>
     </ThemeProvider>
-  );
-};
+  )
+}

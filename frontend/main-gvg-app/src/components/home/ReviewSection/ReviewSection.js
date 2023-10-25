@@ -1,5 +1,5 @@
-import { Box, Grid, List, ListItem, Stack, Typography } from "@mui/material";
-import ReviewCard from "./ReviewCard";
+import { Box, Grid, List, ListItem, Stack, Typography } from "@mui/material"
+import ReviewCard from "./ReviewCard"
 
 const reviews = [
   {
@@ -28,7 +28,7 @@ const reviews = [
     review: "You guys are great!",
     date: "1 января, 1970",
   },
-];
+]
 
 export default ReviewSection = () => {
   return (
@@ -85,5 +85,5 @@ export default ReviewSection = () => {
         ))}
       </Grid>
     </Box>
-  );
-};
+  )
+}

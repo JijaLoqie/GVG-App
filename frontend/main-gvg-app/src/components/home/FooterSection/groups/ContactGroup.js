@@ -5,8 +5,8 @@ import {
   Button,
   ButtonGroup,
   Stack,
-} from "@mui/material";
-import { Link } from "react-router-dom";
+} from "@mui/material"
+import { Link } from "react-router-dom"
 
 export default ContuctGroup = () => {
   return (
@@ -39,12 +39,12 @@ export default ContuctGroup = () => {
           color="success"
           sx={{
             width: "100%",
-			height: "60px"
+            height: "60px",
           }}
         >
           Написать нам
         </Button>
       </Box>
     </Box>
-  );
-};
+  )
+}

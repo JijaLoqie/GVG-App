@@ -5,8 +5,8 @@ import {
   Grid,
   Stack,
   Typography,
-} from "@mui/material";
-import { Link } from 'react-router-dom';
+} from "@mui/material"
+import { Link } from "react-router-dom"
 
 export default ShopGroup = () => {
   return (
@@ -35,5 +35,5 @@ export default ShopGroup = () => {
         </Typography>
       </Stack>
     </Box>
-  );
-};
+  )
+}

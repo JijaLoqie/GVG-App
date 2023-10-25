@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react"
 import {
   Phone as PhoneIcon,
   Home as HomeIcon,
@@ -6,14 +6,14 @@ import {
   DeliveryDining as DeliveryDiningIcon,
   Info as InfoIcon,
   ShoppingCart as ShoppingCartIcon,
-} from "@mui/icons-material";
-import { lime, purple } from "@mui/material/colors";
+} from "@mui/icons-material"
+import { lime, purple } from "@mui/material/colors"
 
-import Popover from "@mui/material/Popover";
-import PopupState, { bindTrigger, bindPopover } from "material-ui-popup-state";
+import Popover from "@mui/material/Popover"
+import PopupState, { bindTrigger, bindPopover } from "material-ui-popup-state"
 
-import CustomSearch from "../common/CustomSearch";
-import CustomPopup from "../common/CustomPopup";
+import CustomSearch from "../common/CustomSearch"
+import CustomPopup from "../common/CustomPopup"
 
 import {
   Button,
@@ -27,12 +27,12 @@ import {
   BottomNavigationAction,
   IconButton,
   createTheme,
-} from "@mui/material";
+} from "@mui/material"
 
-import { useLocation, useNavigate } from "react-router-dom";
-import { ThemeProvider } from "styled-components";
-import { darken } from "@material-ui/core";
-import LogoButton from './LogoButton';
+import { useLocation, useNavigate } from "react-router-dom"
+import { ThemeProvider } from "styled-components"
+import { darken } from "@material-ui/core"
+import LogoButton from "./LogoButton"
 
 const actions = [
   {
@@ -55,7 +55,7 @@ const actions = [
     path: "/about",
     icon: <InfoIcon />,
   },
-];
+]
 const offersActions = [
   {
     title: "Сборки",
@@ -69,7 +69,7 @@ const offersActions = [
     title: "Игровой конструктор",
     path: "/offers/constructor",
   },
-];
+]
 
 const themed = createTheme({
   palette: {
@@ -78,46 +78,46 @@ const themed = createTheme({
       dark: darken("#ffffff"),
     },
   },
-});
+})
 
 export default CustomBarMobile = () => {
-  const [selected, setSelected] = useState(0);
+  const [selected, setSelected] = useState(0)
 
-  const [mouseOnOffers, setMouseOnOffers] = useState(false);
-  const [mouseOnPopup, setMouseOnPopup] = useState(false);
-  const navigate = useNavigate();
-  const location = useLocation();
+  const [mouseOnOffers, setMouseOnOffers] = useState(false)
+  const [mouseOnPopup, setMouseOnPopup] = useState(false)
+  const navigate = useNavigate()
+  const location = useLocation()
 
   // remember last location and display it on mobile navbar
   useEffect(() => {
-    var pathname = location.pathname;
-	if (pathname[pathname.length - 1] === '/') {
-		pathname = pathname.substring(0, pathname.length - 1);
-	}
+    var pathname = location.pathname
+    if (pathname[pathname.length - 1] === "/") {
+      pathname = pathname.substring(0, pathname.length - 1)
+    }
     for (let i = 0; i < actions.length; i += 1) {
       if (actions[i].path == pathname) {
-        setSelected(i);
-        return;
-	  }
+        setSelected(i)
+        return
+      }
     }
     for (let i = 0; i < offersActions.length; i += 1) {
       if (offersActions[i].path == pathname) {
-        setSelected(1);
-        return;
-	  }
+        setSelected(1)
+        return
+      }
     }
-  }, [location]);
+  }, [location])
 
   const handleSelect = (target, newSelected) => {
-    setSelected(newSelected);
+    setSelected(newSelected)
 
     if (actions[newSelected].path === "/offers") {
-      setMouseOnOffers((value) => !value);
+      setMouseOnOffers((value) => !value)
     } else {
-      setMouseOnOffers(false);
-      navigate(`${actions[newSelected].path}`);
+      setMouseOnOffers(false)
+      navigate(`${actions[newSelected].path}`)
     }
-  };
+  }
 
   return (
     <ThemeProvider theme={themed}>
@@ -201,5 +201,5 @@ export default CustomBarMobile = () => {
         />
       )}
     </ThemeProvider>
-  );
-};
+  )
+}

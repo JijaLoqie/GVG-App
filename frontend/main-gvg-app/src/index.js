@@ -1,13 +1,11 @@
-import React from 'react';
-import { render } from "react-dom";
+import React from "react"
+import { render } from "react-dom"
 
-import App from './components/App';
+import App from "./components/App"
 // import reportWebVitals from './reportWebVitals';
 
-
-const appDiv = document.getElementById("app");
-render(<App />, appDiv);
-
+const appDiv = document.getElementById("app")
+render(<App />, appDiv)
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

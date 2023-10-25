@@ -1,11 +1,11 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from "react"
 import {
   Circle as CircleIcon,
   CircleOutlined as CircleOutlinedIcon,
   KeyboardArrowLeft,
   KeyboardArrowRight,
-} from "@mui/icons-material";
-import { Box, Typography } from "@mui/material";
+} from "@mui/icons-material"
+import { Box, Typography } from "@mui/material"
 
 const slideStyles = {
   width: "100%",
@@ -16,7 +16,7 @@ const slideStyles = {
     theme.transitions.create("background", {
       duration: theme.transitions.duration.standard,
     }),
-};
+}
 
 const rightArrowStyles = {
   position: "absolute",
@@ -27,7 +27,7 @@ const rightArrowStyles = {
   color: "#fff",
   zIndex: 1,
   cursor: "pointer",
-};
+}
 
 const leftArrowStyles = {
   position: "absolute",
@@ -38,12 +38,12 @@ const leftArrowStyles = {
   color: "#fff",
   zIndex: 1,
   cursor: "pointer",
-};
+}
 
 const sliderStyles = {
   position: "relative",
   height: "100%",
-};
+}
 
 const dotsContainerStyles = {
   position: "relative",
@@ -51,54 +51,54 @@ const dotsContainerStyles = {
   display: "flex",
   justifyContent: "center",
   flexDirection: "row",
-};
+}
 
 const dotStyle = {
   margin: "0 3px",
   cursor: "pointer",
   fontSize: "20px",
-};
-const NEXT_SLIDE_TIMER = 5;
+}
+const NEXT_SLIDE_TIMER = 5
 
 const ImageSlider = ({ items }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [timeLeft, setTimeLeft] = useState(NEXT_SLIDE_TIMER);
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const [timeLeft, setTimeLeft] = useState(NEXT_SLIDE_TIMER)
 
   useEffect(() => {
     const interval = setInterval(() => {
       if (timeLeft === 0) {
-        setTimeLeft(NEXT_SLIDE_TIMER);
-        setCurrentIndex((index) => (index + 1) % items.length);
+        setTimeLeft(NEXT_SLIDE_TIMER)
+        setCurrentIndex((index) => (index + 1) % items.length)
       } else {
-        setTimeLeft((index) => index - 1);
+        setTimeLeft((index) => index - 1)
       }
-    }, 1000);
-    return () => clearInterval(interval);
-  }, [timeLeft]);
+    }, 1000)
+    return () => clearInterval(interval)
+  }, [timeLeft])
 
   const goToPrevious = () => {
     setCurrentIndex((oldIndex) => {
-      var newIndex = oldIndex - 1;
+      var newIndex = oldIndex - 1
       if (newIndex < 0) {
-        newIndex = items.length - 1;
+        newIndex = items.length - 1
       }
-      return newIndex;
-    });
-    setTimeLeft(NEXT_SLIDE_TIMER);
-  };
+      return newIndex
+    })
+    setTimeLeft(NEXT_SLIDE_TIMER)
+  }
   const goToNext = () => {
-    setCurrentIndex((currentIndex + 1) % items.length);
-    setTimeLeft(NEXT_SLIDE_TIMER);
-  };
+    setCurrentIndex((currentIndex + 1) % items.length)
+    setTimeLeft(NEXT_SLIDE_TIMER)
+  }
   const goToSlide = (slideIndex) => {
-    setCurrentIndex(slideIndex);
-    setTimeLeft(NEXT_SLIDE_TIMER);
-  };
+    setCurrentIndex(slideIndex)
+    setTimeLeft(NEXT_SLIDE_TIMER)
+  }
   const slideStylesWidthBackground = {
     ...slideStyles,
     backgroundImage: `url(${items[currentIndex].url})`,
-	backgroundSize: "cover",
-  };
+    backgroundSize: "cover",
+  }
 
   return (
     <Box sx={sliderStyles}>
@@ -131,7 +131,7 @@ const ImageSlider = ({ items }) => {
         </Box>
       </Box>
     </Box>
-  );
-};
+  )
+}
 
-export default ImageSlider;
+export default ImageSlider

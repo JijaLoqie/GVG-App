@@ -1,6 +1,6 @@
-import React from "react";
-import { Box, Button, Typography } from "@mui/material";
-import { useNavigate } from "react-router-dom";
+import React from "react"
+import { Box, Button, Typography } from "@mui/material"
+import { useNavigate } from "react-router-dom"
 
 const theme = {
   display: "inline-block",
@@ -11,12 +11,12 @@ const theme = {
   cursor: "pointer",
   transition: "0.2s",
   "&:hover": {
-    md: {color: "#2222ff",}
+    md: { color: "#2222ff" },
   },
-};
+}
 
 export default LogoButton = () => {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
   return (
     <Box
       sx={{
@@ -53,5 +53,5 @@ export default LogoButton = () => {
       <Typography sx={theme}>V</Typography>
       <Typography sx={theme}>G</Typography>
     </Box>
-  );
-};
+  )
+}

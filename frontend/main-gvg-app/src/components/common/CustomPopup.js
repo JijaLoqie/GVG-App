@@ -1,21 +1,21 @@
-import { Box, Button, ButtonGroup, Typography } from "@mui/material";
-import UseCheckMobileScreen from "./hooks/UseCheckMobileScreen";
-import { darken } from '@material-ui/core';
+import { Box, Button, ButtonGroup, Typography } from "@mui/material"
+import UseCheckMobileScreen from "./hooks/UseCheckMobileScreen"
+import { darken } from "@material-ui/core"
 
 export default CustomPopupOptions = ({ setMouseOnPopup, actions }) => {
-  const isMobile = UseCheckMobileScreen();
+  const isMobile = UseCheckMobileScreen()
   const handleEnter = () => {
-    setMouseOnPopup(true);
-  };
+    setMouseOnPopup(true)
+  }
 
   const handleLeave = () => {
-    setMouseOnPopup(false);
-  };
+    setMouseOnPopup(false)
+  }
   const buttonGroupProps = {
     orientation: isMobile ? "vertical" : "horizontal",
     variant: "contained",
     fullWidth: true,
-  };
+  }
 
   return (
     <Box
@@ -67,5 +67,5 @@ export default CustomPopupOptions = ({ setMouseOnPopup, actions }) => {
         ))}
       </ButtonGroup>
     </Box>
-  );
-};
+  )
+}

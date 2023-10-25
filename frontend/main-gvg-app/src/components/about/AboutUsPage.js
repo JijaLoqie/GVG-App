@@ -7,8 +7,8 @@ import {
   styled,
   Stack,
   Divider,
-} from "@mui/material";
-import React from "react";
+} from "@mui/material"
+import React from "react"
 
 import {
   Phone as PhoneIcon,
@@ -16,8 +16,7 @@ import {
   Email as EmailIcon,
   Telegram as TelegramIcon,
   Instagram as InstagramIcon,
-} from "@mui/icons-material";
-
+} from "@mui/icons-material"
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -26,7 +25,7 @@ const Item = styled(Paper)(({ theme }) => ({
   textAlign: "center",
   color: theme.palette.text.secondary,
   alignItems: "center",
-}));
+}))
 
 export default AboutUsPage = () => {
   return (
@@ -82,9 +81,7 @@ export default AboutUsPage = () => {
         </Grid>
         <Grid item xs={12} md={4} component={Stack} alignItems="center">
           <EmailIcon sx={{ marginRight: 2 }} />
-          <Box>
-            kraskovskiydm@gmail.com
-          </Box>
+          <Box>kraskovskiydm@gmail.com</Box>
         </Grid>
         <Grid item xs={12} md={12} marginBottom={12}>
           <TelegramIcon sx={{ marginRight: 2 }} />
@@ -92,5 +89,5 @@ export default AboutUsPage = () => {
         </Grid>
       </Grid>
     </Box>
-  );
-};
+  )
+}

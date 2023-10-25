@@ -1,9 +1,17 @@
-import { Box, Grid, Typography, Button, ButtonGroup, Stack, Icon } from "@mui/material";
-import { Link } from 'react-router-dom';
+import {
+  Box,
+  Grid,
+  Typography,
+  Button,
+  ButtonGroup,
+  Stack,
+  Icon,
+} from "@mui/material"
+import { Link } from "react-router-dom"
 import {
   Telegram as TelegramIcon,
   Instagram as InstagramIcon,
-} from "@mui/icons-material";
+} from "@mui/icons-material"
 
 export default HelpGroup = () => {
   return (
@@ -39,5 +47,5 @@ export default HelpGroup = () => {
         />
       </Stack>
     </Box>
-  );
-};
+  )
+}

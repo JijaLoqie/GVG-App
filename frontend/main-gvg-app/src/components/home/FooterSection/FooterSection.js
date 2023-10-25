@@ -1,8 +1,14 @@
-import { Box, Grid, ThemeProvider, Typography, createTheme } from "@mui/material";
-import AboutGroup from "./groups/AboutGroup";
-import HelpGroup from "./groups/HelpGroup";
-import ShopGroup from "./groups/ShopGroup";
-import ContactGroup from "./groups/ContactGroup";
+import {
+  Box,
+  Grid,
+  ThemeProvider,
+  Typography,
+  createTheme,
+} from "@mui/material"
+import AboutGroup from "./groups/AboutGroup"
+import HelpGroup from "./groups/HelpGroup"
+import ShopGroup from "./groups/ShopGroup"
+import ContactGroup from "./groups/ContactGroup"
 
 const themed = createTheme({
   palette: {
@@ -10,7 +16,7 @@ const themed = createTheme({
       main: "#ffffff",
     },
   },
-});
+})
 
 const items = [
   {
@@ -25,7 +31,7 @@ const items = [
   {
     component: <ContactGroup />,
   },
-];
+]
 
 export default FooterSection = () => {
   return (
@@ -69,7 +75,7 @@ export default FooterSection = () => {
             width: "100%",
             textAlign: "center",
             padding: "10px",
-			marginTop: "100px",
+            marginTop: "100px",
             bottom: { xs: "60px", md: "0" },
           }}
         >
@@ -77,5 +83,5 @@ export default FooterSection = () => {
         </Box>
       </Box>
     </ThemeProvider>
-  );
-};
+  )
+}

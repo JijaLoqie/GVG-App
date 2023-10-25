@@ -1,4 +1,4 @@
-import { Box, Grid, Typography } from "@mui/material";
+import { Box, Grid, Typography } from "@mui/material"
 
 export default AboutGroup = () => {
   return (
@@ -27,5 +27,5 @@ export default AboutGroup = () => {
         />
       </Box>
     </Box>
-  );
-};
+  )
+}

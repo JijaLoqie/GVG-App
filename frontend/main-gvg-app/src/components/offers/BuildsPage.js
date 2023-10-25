@@ -1,6 +1,6 @@
-import { Box } from "@mui/material";
-import React from "react";
+import { Box } from "@mui/material"
+import React from "react"
 
 export default BuildsPage = (props) => {
-  return <Box padding={4}>Hello world</Box>;
-};
+  return <Box padding={4}>Hello world</Box>
+}

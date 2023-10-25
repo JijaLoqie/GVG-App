@@ -24,8 +24,8 @@ export default CustomPopupOptions = function({ setMouseOnPopup, actions }) {
       sx={{
         position: "fixed",
         bottom: { xs: "56px", md: "auto" },
-        top: { xs: "auto", md: "56px" },
-        left: { xs: "12.5vw", md: "12.5vw" },
+        top: { xs: "auto", md: "76px" },
+        left: { xs: "12.5vw", md: "25vw" },
         width: "50vw",
         minHeight: "50px",
         paddingInline: 0,
@@ -45,11 +45,11 @@ export default CustomPopupOptions = function({ setMouseOnPopup, actions }) {
             href={`${action.path}`}
             key={index}
             sx={{
-              color: { xs: "#0000ff", md: "#ffffff" },
-              backgroundColor: { xs: "#ffffff", md: "#313131" },
+              color: "secondary.main",
+              backgroundColor: "primary.main",
               "&:hover": {
-                backgroundColor: "#ffffff",
-                color: "#000000",
+                backgroundColor: "secondary.main",
+                color: "primary.main",
               },
             }}
           >

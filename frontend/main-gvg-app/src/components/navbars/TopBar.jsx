@@ -217,7 +217,7 @@ export default function TopBar({ actions, offersActions, themeOptions }) {
                     <a
                       href="tel:9851460477"
                       style={{
-                        color: "black",
+                        color: "primary.secondary",
                       }}
                     >
                       +7 (985) 146-04-77

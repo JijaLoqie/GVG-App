@@ -70,7 +70,7 @@ export default function BottomBar({ actions, offersActions }) {
                 color: "secondary.main",
               },
               "& .Mui-selected": {
-                color: "blue",
+                color: "#A0648C",
               },
             }}
           />

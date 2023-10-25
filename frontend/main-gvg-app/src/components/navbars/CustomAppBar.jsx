@@ -14,7 +14,6 @@ import {
 
 import TopBar from "./TopBar.jsx"
 import BottomBar from "./BottomBar.jsx"
-import { darken } from '@material-ui/core'
 
 const darkTheme = createTheme({
   root: {
@@ -29,7 +28,6 @@ const darkTheme = createTheme({
     },
     secondary: {
       main: "#ffffff",
-      darky: darken("#0D0D0D"),
     },
   },
   components: {
@@ -63,7 +61,6 @@ const lightTheme = createTheme({
     },
     secondary: {
       main: "#0D0D0D",
-      darky: darken("#ffffff"),
     },
   },
   components: {

@@ -5,10 +5,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "bun build ./src/index.js --outdir ../static/frontend --watch",
+    "dev": "bun build ./src/index.jsx --outdir ../static/frontend --watch",
     "predeploy": "bun run build",
     "deploy": "gh-pages -d ../templates/frontend",
-    "build": "bun build ./src/index.js --outdir ../static/frontend"
+    "build": "bun build ./src/index.jsx --outdir ../static/frontend"
   },
   "keywords": [],
   "author": "",

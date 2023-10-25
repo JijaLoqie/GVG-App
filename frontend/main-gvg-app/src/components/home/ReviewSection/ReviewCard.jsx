@@ -19,25 +19,25 @@ export default function ReviewCard({ reviewData }) {
     <Card sx={{ width: 345, height: "auto", boxShadow: "0 0 2em black" }}>
       <CardHeader
         avatar={
-          <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
+          <Avatar aria-label="recipe" sx={{ bgcolor: red[500] }}>
             {reviewData.shortName}
           </Avatar>
         }
-        title={reviewData.name}
         subheader={reviewData.date}
+        title={reviewData.name}
       />
       <CardMedia
+        alt="Paella dish"
         component="img"
         height="194"
         image={reviewData.photo}
-        alt="Paella dish"
       />
       <CardContent>
-        <Typography variant="body2" color="text.secondary">
+        <Typography color="text.secondary" variant="body2">
           {reviewData.review}
         </Typography>
       </CardContent>
-      <CardActions disableSpacing></CardActions>
+      <CardActions disableSpacing />
     </Card>
   )
 }

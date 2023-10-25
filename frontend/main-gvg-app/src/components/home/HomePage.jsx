@@ -6,7 +6,7 @@ import ChooseSection from "./ChooseSection/ChooseSection"
 import ReviewSection from "./ReviewSection/ReviewSection"
 import FooterSection from "./FooterSection/FooterSection"
 
-export default HomePage = () => {
+export default HomePage = function() {
   return (
     <Box>
       <HeaderSection />

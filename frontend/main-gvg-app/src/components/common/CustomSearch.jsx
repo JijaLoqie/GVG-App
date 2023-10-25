@@ -40,7 +40,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }))
 
-export default CustomSearch = () => {
+export default CustomSearch = function() {
   return (
     <Search>
       <SearchIconWrapper>

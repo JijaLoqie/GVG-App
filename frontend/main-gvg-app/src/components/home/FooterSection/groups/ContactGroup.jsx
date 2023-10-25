@@ -8,10 +8,10 @@ import {
 } from "@mui/material"
 import { Link } from "react-router-dom"
 
-export default ContuctGroup = () => {
+export default ContuctGroup = function() {
   return (
     <Box sx={{ width: "100%" }}>
-      <Typography variant="h4" sx={{ paddingBottom: "10px" }}>
+      <Typography sx={{ paddingBottom: "10px" }} variant="h4">
         Связаться с нами
       </Typography>
       <Stack direction="column">
@@ -35,12 +35,12 @@ export default ContuctGroup = () => {
         }}
       >
         <Button
-          variant="contained"
           color="success"
           sx={{
             width: "100%",
             height: "60px",
           }}
+          variant="contained"
         >
           Написать нам
         </Button>

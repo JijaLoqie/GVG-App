@@ -1,9 +1,9 @@
 import { Box, Grid, Typography } from "@mui/material"
 
-export default AboutGroup = () => {
+export default AboutGroup = function() {
   return (
     <Box>
-      <Typography variant="h4" sx={{ paddingBottom: "10px" }}>
+      <Typography sx={{ paddingBottom: "10px" }} variant="h4">
         О нас
       </Typography>
       <Typography>
@@ -19,10 +19,10 @@ export default AboutGroup = () => {
         }}
       >
         <img
-          srcSet={`/static/logos/gvgFull.png`}
-          src={`/static/logos/gvgFull.png`}
-          alt={`GVG Tech Solutions`}
+          alt="GVG Tech Solutions"
           loading="lazy"
+          src="/static/logos/gvgFull.png"
+          srcSet="/static/logos/gvgFull.png"
           style={{ objectFit: "cover", width: "100px" }}
         />
       </Box>

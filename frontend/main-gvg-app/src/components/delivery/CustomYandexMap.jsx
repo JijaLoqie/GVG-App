@@ -6,7 +6,7 @@ import { Box } from "@mui/material"
 const pointerCoords = [55.8, 37.8]
 const mapState = { center: [55.8, 37.8], zoom: 20 }
 
-export default CustomYandexMap = ({ selected }) => {
+export default CustomYandexMap = function({ selected }) {
   const [ymaps, setYmaps] = useState()
   const [coords, setCoords] = useState([0, 0])
 
@@ -31,22 +31,22 @@ export default CustomYandexMap = ({ selected }) => {
       }}
     >
       <Map
-        state={{
-          center: selected.coord,
-          zoom: 9,
-          controls: ["zoomControl", "fullscreenControl"],
-        }}
+        height="100%"
         modules={[
           "geocode",
           "control.ZoomControl",
           "control.FullscreenControl",
         ]}
+        state={{
+          center: selected.coord,
+          zoom: 9,
+          controls: ["zoomControl", "fullscreenControl"],
+        }}
         width="100%"
-        height="100%"
       >
         <Placemark
-          modules={["geoObject.addon.balloon"]}
           geometry={selected.coord}
+          modules={["geoObject.addon.balloon"]}
           properties={{
             balloonContentBody: selected.title,
           }}

@@ -2,7 +2,7 @@ import { Box, Button, ButtonGroup, Typography } from "@mui/material"
 import UseCheckMobileScreen from "./hooks/UseCheckMobileScreen"
 import { darken } from "@material-ui/core"
 
-export default CustomPopupOptions = ({ setMouseOnPopup, actions }) => {
+export default CustomPopupOptions = function({ setMouseOnPopup, actions }) {
   const isMobile = UseCheckMobileScreen()
   const handleEnter = () => {
     setMouseOnPopup(true)
@@ -19,8 +19,10 @@ export default CustomPopupOptions = ({ setMouseOnPopup, actions }) => {
 
   return (
     <Box
+      onMouseEnter={handleEnter}
+      onMouseLeave={handleLeave}
       sx={{
-        position: "absolute",
+        position: "fixed",
         bottom: { xs: "56px", md: "auto" },
         top: { xs: "auto", md: "56px" },
         left: { xs: "12.5vw", md: "12.5vw" },
@@ -31,8 +33,6 @@ export default CustomPopupOptions = ({ setMouseOnPopup, actions }) => {
 
         zIndex: 10000,
       }}
-      onMouseEnter={handleEnter}
-      onMouseLeave={handleLeave}
     >
       <ButtonGroup
         {...buttonGroupProps}
@@ -42,8 +42,8 @@ export default CustomPopupOptions = ({ setMouseOnPopup, actions }) => {
       >
         {actions.map((action, index) => (
           <Button
-            key={index}
             href={`${action.path}`}
+            key={index}
             sx={{
               color: { xs: "#0000ff", md: "#ffffff" },
               backgroundColor: { xs: "#ffffff", md: "#313131" },
@@ -54,12 +54,12 @@ export default CustomPopupOptions = ({ setMouseOnPopup, actions }) => {
             }}
           >
             <Typography
-              variant="p"
               sx={{
                 width: "100%",
                 textAlign: "center",
                 transform: "skew(10deg)",
               }}
+              variant="p"
             >
               {action.title}
             </Typography>

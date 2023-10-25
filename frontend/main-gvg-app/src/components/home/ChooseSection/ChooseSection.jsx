@@ -90,7 +90,7 @@ const builds = [
   },
 ]
 
-export default ChooseSection = () => {
+export default ChooseSection = function() {
   const navigate = useNavigate()
   const [selectedGames, setSelectedGames] = useState([])
 
@@ -184,30 +184,30 @@ export default ChooseSection = () => {
   //   }, []);
   return (
     <Grid
+      columnGap={10}
+      component="div"
       container
       sx={{
         backgroundColor: "#0d0d0d",
         justifyContent: "center",
       }}
-      component={"div"}
-      columnGap={10}
     >
       <Grid
         item
-        xs={12}
         md={12}
         sx={{
           padding: "10px 0",
           boxShadow: "0 0 1em 1em #0d0d0d",
           zIndex: "100",
         }}
+        xs={12}
       >
-        <Typography variant="h4" textAlign={"center"}>
+        <Typography textAlign="center" variant="h4">
           Выберите игры
         </Typography>
         <Box
-          component={"div"}
-          id={"gradient"}
+          component="div"
+          id="gradient"
           style={{
             backgroundColor: "#2234ae",
             backgroundImage: "linear-gradient(315deg, #191714 0%, #2234ae 74%)",
@@ -222,15 +222,17 @@ export default ChooseSection = () => {
           }}
         >
           <ImageList
+            cols={games.length}
+            gap={8}
             sx={{
               padding: "20px",
             }}
             variant="standard"
-            cols={games.length}
-            gap={8}
           >
             {games.map((game, index) => (
               <ImageListItem
+                key={game.img}
+                onClick={() => handleSelectGame(index)}
                 sx={{
                   boxShadow: `0 0 2em ${
                     selectedGames.includes(index) ? "red" : "black"
@@ -247,14 +249,12 @@ export default ChooseSection = () => {
                     },
                   },
                 }}
-                key={game.img}
-                onClick={() => handleSelectGame(index)}
               >
                 <img
-                  srcSet={`${game.img}`}
-                  src={`${game.img}`}
                   alt={game.title}
                   loading="lazy"
+                  src={`${game.img}`}
+                  srcSet={`${game.img}`}
                   style={{ objectFit: "cover", height: "444px" }}
                 />
                 <ImageListItemBar position="bottom" title={game.title} />
@@ -264,6 +264,7 @@ export default ChooseSection = () => {
         </Box>
         {/* Box below is Visible, if games selected */}
         <Box
+          onClick={() => navigate("/offers/constructor")}
           sx={{
             visibility: selectedGames.length > 0 ? "visible" : "hidden",
             margin: "10px",
@@ -280,7 +281,6 @@ export default ChooseSection = () => {
               cursor: "pointer",
             },
           }}
-          onClick={() => navigate("/offers/constructor")}
         >
           <Typography
             sx={{
@@ -296,7 +296,7 @@ export default ChooseSection = () => {
             width: "100%",
           }}
         >
-          <Typography variant="h4" textAlign="center">
+          <Typography textAlign="center" variant="h4">
             Мы анализируем требования к играм и подбираем для вас наиболее
             подходящие сборки
           </Typography>

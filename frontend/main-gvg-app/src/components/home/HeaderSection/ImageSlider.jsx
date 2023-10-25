@@ -60,7 +60,7 @@ const dotStyle = {
 }
 const NEXT_SLIDE_TIMER = 5
 
-const ImageSlider = ({ items }) => {
+function ImageSlider({ items }) {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [timeLeft, setTimeLeft] = useState(NEXT_SLIDE_TIMER)
 
@@ -117,9 +117,9 @@ const ImageSlider = ({ items }) => {
         <Box sx={dotsContainerStyles}>
           {items.map((slide, slideIndex) => (
             <Box
-              style={dotStyle}
               key={slideIndex}
               onClick={() => goToSlide(slideIndex)}
+              style={dotStyle}
             >
               {currentIndex == slideIndex ? (
                 <CircleIcon />

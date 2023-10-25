@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React from "react"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 
 import HomePage from "./home/HomePage"
@@ -7,17 +7,12 @@ import AboutUsPage from "./about/AboutUsPage"
 
 import { Box } from "@mui/material"
 
-import useCheckMobileScreen from "./common/hooks/UseCheckMobileScreen"
-import CustomBarPC from "./navbars/CustomBarPC"
-import CustomBarMobile from "./navbars/CustomBarMobile"
-
 import BuildsPage from "./offers/BuildsPage"
 import ComponentsPage from "./offers/ComponentsPage"
 import ConstructorPage from "./offers/ConstructorPage"
+import CustomAppBar from './navbars/CustomAppBar'
 
-export default App = () => {
-  const isMobile = useCheckMobileScreen()
-
+export default function App() {
   return (
     <BrowserRouter basename="/">
       <Box
@@ -28,18 +23,17 @@ export default App = () => {
           width: 1,
         }}
       >
-        {isMobile ? <CustomBarMobile /> : <CustomBarPC />}
-
+        <CustomAppBar/>
         <Box>
           <Routes>
-            <Route path="home" element={<HomePage />} />
+            <Route element={<HomePage />} path="home" />
             <Route path="offers">
-              <Route path="builds" element={<BuildsPage />} />
-              <Route path="components" element={<ComponentsPage />} />
-              <Route path="constructor" element={<ConstructorPage />} />
+              <Route element={<BuildsPage />} path="builds" />
+              <Route element={<ComponentsPage />} path="components" />
+              <Route element={<ConstructorPage />} path="constructor" />
             </Route>
-            <Route path="delivery" element={<DeliveryPage />} />
-            <Route path="about" element={<AboutUsPage />} />
+            <Route element={<DeliveryPage />} path="delivery" />
+            <Route element={<AboutUsPage />} path="about" />
           </Routes>
         </Box>
       </Box>

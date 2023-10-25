@@ -51,31 +51,31 @@ const adresses = [
   },
 ]
 
-export default DeliveryPage = () => {
+export default DeliveryPage = function() {
   const [selected, setSelected] = useState(adresses[0])
   return (
     <Grid
       container
       justifyItems="center"
-      rowGap="30px"
       marginBlockEnd="100px"
       padding={4}
+      rowGap="30px"
     >
-      <Grid item xs={12} md={12}>
+      <Grid item md={12} xs={12}>
         <Typography fontSize="1.5rem">Самовывоз</Typography>
       </Grid>
       <Grid
         item
-        xs={12}
         md={6}
         sx={{
           width: { xs: "360px", md: "100%" },
           height: "360px",
         }}
+        xs={12}
       >
         <CustomYandexMap selected={selected} />
       </Grid>
-      <Grid item xs={12} md={6}>
+      <Grid item md={6} xs={12}>
         <List
           sx={{
             border: 1,
@@ -90,6 +90,7 @@ export default DeliveryPage = () => {
           {adresses.map((adress, index) => (
             <ListItemButton
               key={index}
+              onClick={() => setSelected(adresses[index])}
               sx={{
                 bgcolor:
                   selected == adress ? alpha("#ffffff", 0.15) : "#000000",
@@ -97,27 +98,26 @@ export default DeliveryPage = () => {
                   bgcolor: alpha("#ffffff", 0.15),
                 },
               }}
-              onClick={() => setSelected(adresses[index])}
             >
               <Typography>{adress.title}</Typography>
             </ListItemButton>
           ))}
         </List>
       </Grid>
-      <Grid item xs={12} md={12}>
+      <Grid item md={12} xs={12}>
         <Typography fontSize="1.5rem">Доставка до двери</Typography>
       </Grid>
-      <Grid item xs={12} md={4} component={Stack} alignItems="center">
+      <Grid alignItems="center" component={Stack} item md={4} xs={12}>
         <Typography>Осуществляется Яндекс курьером по всей Москве</Typography>
       </Grid>
-      <Grid item xs={12} md={12}>
+      <Grid item md={12} xs={12}>
         <Typography fontSize="1.5rem">Свяжитесь с нами</Typography>
       </Grid>
-      <Grid item xs={12} md={12}>
+      <Grid item md={12} xs={12}>
         <Stack
           direction={{ xs: "column", md: "row" }}
-          spacing={4}
           fontSize="1rem"
+          spacing={4}
         >
           <Stack alignItems="center" direction="row">
             <PhoneIcon sx={{ marginRight: 2 }} />

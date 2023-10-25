@@ -20,15 +20,15 @@ const containerStyles = {
   height: "70vh",
   margin: "0 auto",
 }
-export default HeaderSection = () => {
+export default HeaderSection = function() {
   return (
-    <Box position={"relative"}>
+    <Box position="relative">
       <Box sx={containerStyles}>
         <ImageSlider items={items} />
       </Box>
       <Typography
-        variant="h2"
         sx={{ position: "absolute", top: "24px", left: "24px" }}
+        variant="h2"
       >
         Tech Solutions
       </Typography>

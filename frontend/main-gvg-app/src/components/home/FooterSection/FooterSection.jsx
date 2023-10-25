@@ -33,7 +33,7 @@ const items = [
   },
 ]
 
-export default FooterSection = () => {
+export default FooterSection = function() {
   return (
     <ThemeProvider theme={themed}>
       <Box
@@ -42,15 +42,15 @@ export default FooterSection = () => {
         }}
       >
         <Grid
+          columnGap={10}
           container
-          wrap="wrap"
+          rowGap={5}
           sx={{
             alignContent: "center",
             justifyContent: "center",
             paddingTop: "10vh",
           }}
-          rowGap={5}
-          columnGap={10}
+          wrap="wrap"
         >
           {items.map((item, index) => (
             <Grid

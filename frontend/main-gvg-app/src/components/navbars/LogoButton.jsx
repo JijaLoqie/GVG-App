@@ -1,5 +1,5 @@
-import React from "react"
-import { Box, Button, Typography } from "@mui/material"
+import React, { useCallback, useMemo } from "react"
+import { Box, Typography } from "@mui/material"
 import { useNavigate } from "react-router-dom"
 
 const theme = {
@@ -15,43 +15,40 @@ const theme = {
   },
 }
 
-export default LogoButton = () => {
+export default function LogoButton() {
+	const logoText = useMemo(() => "GVG", [])
+	const handleGoHome = useCallback(() => {
+		navigate("/home")
+	}, [])
   const navigate = useNavigate()
   return (
     <Box
+      onClick={handleGoHome}
       sx={{
         cursor: "pointer",
         display: "flex",
         justifyContent: "start",
         alignItems: "end",
-        color: "#ffffff",
+        color: "secondary.main",
         paddingBottom: "5px",
         paddingInline: "15px",
         width: "15%",
         marginRight: "10%",
       }}
-      onClick={() => navigate("/home")}
     >
       <Box
         component="img"
+        src="/static/logos/icon.png"
         sx={{
           maxHeight: 81,
           maxWidth: 61,
           alignSelf: "end",
         }}
-        src="/static/logos/icon.png"
       />
-      {/* <Box
-        component="img"
-        sx={{
-          height: "35px",
-          width: "79px",
-        }}
-        src="/static/logos/gvg.png"
-      /> */}
-      <Typography sx={theme}>G</Typography>
-      <Typography sx={theme}>V</Typography>
-      <Typography sx={theme}>G</Typography>
+	  {
+		// eslint-disable-next-line react/no-array-index-key
+		[...logoText].map((ch, index) => <Typography key={index} sx={theme}>{ch}</Typography>)
+	  }
     </Box>
   )
 }

@@ -27,14 +27,14 @@ const Item = styled(Paper)(({ theme }) => ({
   alignItems: "center",
 }))
 
-export default AboutUsPage = () => {
+export default AboutUsPage = function() {
   return (
-    <Box sx={{ flexGrow: 1, marginBottom: "100px" }} padding={4}>
+    <Box padding={4} sx={{ flexGrow: 1, marginBottom: "100px" }}>
       <Grid container spacing={2}>
-        <Grid item xs={12} md={6}>
+        <Grid item md={6} xs={12}>
           <Typography fontSize="1.5rem">Кто мы?</Typography>
         </Grid>
-        <Grid item xs={12} md={12}>
+        <Grid item md={12} xs={12}>
           <Typography paragraph>
             Мы динамичная компания, предлагающая более 10 профессиональных
             сборок компьютеров для любых задач. Наша команда состоит из опытных
@@ -59,10 +59,10 @@ export default AboutUsPage = () => {
           </Typography>
         </Grid>
 
-        <Grid item xs={12} md={12}>
+        <Grid item md={12} xs={12}>
           <Typography fontSize="1.5rem">Контакты</Typography>
         </Grid>
-        <Grid item xs={12} md={4} component={Stack} alignItems="center">
+        <Grid alignItems="center" component={Stack} item md={4} xs={12}>
           <PhoneIcon sx={{ marginRight: 2 }} />
           <Box>
             <a
@@ -75,15 +75,15 @@ export default AboutUsPage = () => {
             </a>
           </Box>
         </Grid>
-        <Grid item xs={12} md={4} component={Stack} alignItems="center">
+        <Grid alignItems="center" component={Stack} item md={4} xs={12}>
           <AccessTimeIcon sx={{ marginRight: 2 }} />
           <Box>Ежедневно с 10:00 до 20:00</Box>
         </Grid>
-        <Grid item xs={12} md={4} component={Stack} alignItems="center">
+        <Grid alignItems="center" component={Stack} item md={4} xs={12}>
           <EmailIcon sx={{ marginRight: 2 }} />
           <Box>kraskovskiydm@gmail.com</Box>
         </Grid>
-        <Grid item xs={12} md={12} marginBottom={12}>
+        <Grid item marginBottom={12} md={12} xs={12}>
           <TelegramIcon sx={{ marginRight: 2 }} />
           <InstagramIcon sx={{ marginRight: 2 }} />
         </Grid>

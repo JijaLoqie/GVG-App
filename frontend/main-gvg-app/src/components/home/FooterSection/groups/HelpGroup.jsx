@@ -13,10 +13,10 @@ import {
   Instagram as InstagramIcon,
 } from "@mui/icons-material"
 
-export default HelpGroup = () => {
+export default HelpGroup = function() {
   return (
     <Box sx={{ width: "100%" }}>
-      <Typography variant="h4" sx={{ paddingBottom: "10px" }}>
+      <Typography sx={{ paddingBottom: "10px" }} variant="h4">
         Поддержка
       </Typography>
       <Stack direction="column">
@@ -37,13 +37,13 @@ export default HelpGroup = () => {
         <TelegramIcon sx={{ marginRight: 2 }} />
         <InstagramIcon sx={{ marginRight: 2 }} />
         <Box
+          alt="vk"
           component="img"
+          src="/static/logos/vk.png"
           sx={{
             height: 25,
             width: 25,
           }}
-          alt="vk"
-          src="/static/logos/vk.png"
         />
       </Stack>
     </Box>

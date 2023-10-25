@@ -30,7 +30,7 @@ const reviews = [
   },
 ]
 
-export default ReviewSection = () => {
+export default ReviewSection = function() {
   return (
     <Box
       sx={{
@@ -41,25 +41,25 @@ export default ReviewSection = () => {
       }}
     >
       <Typography
-        variant="h4"
         sx={{
           textAlign: "center",
           marginBottom: "10px",
         }}
+        variant="h4"
       >
         Что думают наши клиенты
       </Typography>
       <Grid
+        columnGap={10}
         container
-        wrap="wrap"
+        rowGap={5}
         sx={{
           justifyContent: "center",
           alignContent: "center",
 
           marginBottom: "200px",
         }}
-        rowGap={5}
-        columnGap={10}
+        wrap="wrap"
       >
         {reviews.map((review, index) => (
           <Grid

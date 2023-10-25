@@ -2,13 +2,9 @@ import React, { useEffect, useState } from "react"
 
 import CustomPopup from "../common/CustomPopup"
 
-import {
-  BottomNavigation,
-  BottomNavigationAction,
-} from "@mui/material"
+import { BottomNavigation, BottomNavigationAction } from "@mui/material"
 
 import { useLocation, useNavigate } from "react-router-dom"
-
 
 export default function BottomBar({ actions, offersActions }) {
   const [selected, setSelected] = useState(0)
@@ -69,6 +65,14 @@ export default function BottomBar({ actions, offersActions }) {
             key={index}
             label={action.title}
             color="secondary.main"
+            sx={{
+              "& svg": {
+                color: "secondary.main",
+              },
+              "& .Mui-selected": {
+                color: "blue",
+              },
+            }}
           />
         ))}
       </BottomNavigation>

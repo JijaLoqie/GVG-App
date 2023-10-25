@@ -41497,6 +41497,77 @@ PopupState.propTypes = {
   disableAutoFocus: import_prop_types48.default.bool
 };
 
+// node_modules/@material-ui/core/esm/styles/colorManipulator.js
+var clamp2 = function(value) {
+  var min = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+  var max = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 1;
+  if (true) {
+    if (value < min || value > max) {
+      console.error("Material-UI: The value provided ".concat(value, " is out of range [").concat(min, ", ").concat(max, "]."));
+    }
+  }
+  return Math.min(Math.max(min, value), max);
+};
+function hexToRgb2(color2) {
+  color2 = color2.substr(1);
+  var re = new RegExp(".{1,".concat(color2.length >= 6 ? 2 : 1, "}"), "g");
+  var colors2 = color2.match(re);
+  if (colors2 && colors2[0].length === 1) {
+    colors2 = colors2.map(function(n2) {
+      return n2 + n2;
+    });
+  }
+  return colors2 ? "rgb".concat(colors2.length === 4 ? "a" : "", "(").concat(colors2.map(function(n2, index) {
+    return index < 3 ? parseInt(n2, 16) : Math.round(parseInt(n2, 16) / 255 * 1000) / 1000;
+  }).join(", "), ")") : "";
+}
+function decomposeColor2(color2) {
+  if (color2.type) {
+    return color2;
+  }
+  if (color2.charAt(0) === "#") {
+    return decomposeColor2(hexToRgb2(color2));
+  }
+  var marker = color2.indexOf("(");
+  var type = color2.substring(0, marker);
+  if (["rgb", "rgba", "hsl", "hsla"].indexOf(type) === -1) {
+    throw new Error("Material-UI: Unsupported `".concat(color2, "` color.\nWe support the following formats: #nnn, #nnnnnn, rgb(), rgba(), hsl(), hsla()."));
+  }
+  var values3 = color2.substring(marker + 1, color2.length - 1).split(",");
+  values3 = values3.map(function(value) {
+    return parseFloat(value);
+  });
+  return {
+    type,
+    values: values3
+  };
+}
+function recomposeColor2(color2) {
+  var type = color2.type;
+  var values3 = color2.values;
+  if (type.indexOf("rgb") !== -1) {
+    values3 = values3.map(function(n2, i2) {
+      return i2 < 3 ? parseInt(n2, 10) : n2;
+    });
+  } else if (type.indexOf("hsl") !== -1) {
+    values3[1] = "".concat(values3[1], "%");
+    values3[2] = "".concat(values3[2], "%");
+  }
+  return "".concat(type, "(").concat(values3.join(", "), ")");
+}
+function darken2(color2, coefficient) {
+  color2 = decomposeColor2(color2);
+  coefficient = clamp2(coefficient);
+  if (color2.type.indexOf("hsl") !== -1) {
+    color2.values[2] *= 1 - coefficient;
+  } else if (color2.type.indexOf("rgb") !== -1) {
+    for (var i2 = 0;i2 < 3; i2 += 1) {
+      color2.values[i2] *= 1 - coefficient;
+    }
+  }
+  return recomposeColor2(color2);
+}
+
 // src/components/common/CustomPopup.jsx
 var jsx_dev_runtime18 = __toESM(require_jsx_dev_runtime(), 1);
 var CustomPopup_default = CustomPopupOptions = function({ setMouseOnPopup, actions }) {
@@ -43098,7 +43169,15 @@ function BottomBar({ actions, offersActions }) {
         children: actions.map((action, index) => jsx_dev_runtime21.jsxDEV(BottomNavigationAction_default, {
           icon: action.icon,
           label: action.title,
-          color: "secondary.main"
+          color: "secondary.main",
+          sx: {
+            "& svg": {
+              color: "secondary.main"
+            },
+            "& .Mui-selected": {
+              color: "blue"
+            }
+          }
         }, index, false, undefined, this))
       }, undefined, false, undefined, this),
       mouseOnOffers || mouseOnPopup ? jsx_dev_runtime21.jsxDEV(CustomPopup_default, {
@@ -43123,7 +43202,8 @@ var darkTheme = createTheme_default2({
       main: "#0D0D0D"
     },
     secondary: {
-      main: "#ffffff"
+      main: "#ffffff",
+      darky: darken2("#0D0D0D")
     }
   },
   components: {
@@ -43156,7 +43236,8 @@ var lightTheme = createTheme_default2({
       main: exports_colors.grey[200]
     },
     secondary: {
-      main: "#0D0D0D"
+      main: "#0D0D0D",
+      darky: darken2("#ffffff")
     }
   },
   components: {

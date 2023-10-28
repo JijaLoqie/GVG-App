@@ -2,12 +2,14 @@ import React, { useEffect, useState } from "react"
 
 import CustomPopup from "../common/CustomPopup"
 
-import { BottomNavigation, BottomNavigationAction } from "@mui/material"
+import { BottomNavigation, BottomNavigationAction, ThemeProvider } from "@mui/material"
 
 import { useLocation, useNavigate } from "react-router-dom"
+import useCheckCurrentTheme from '../common/hooks/useCheckCurrentTheme'
 
 export default function BottomBar({ actions, offersActions }) {
   const [selected, setSelected] = useState(0)
+  const currentTheme = useCheckCurrentTheme()
 
   const [mouseOnOffers, setMouseOnOffers] = useState(false)
   const [mouseOnPopup, setMouseOnPopup] = useState(false)
@@ -46,7 +48,7 @@ export default function BottomBar({ actions, offersActions }) {
   }
 
   return (
-    <>
+    <ThemeProvider theme={currentTheme}>
       <BottomNavigation
         onChange={handleSelect}
         showLabels
@@ -55,6 +57,7 @@ export default function BottomBar({ actions, offersActions }) {
           position: "fixed",
           bottom: 0,
           left: 0,
+          backgroundColor: "primary.main",
           marginBottom: 0,
         }}
         value={selected}
@@ -64,8 +67,8 @@ export default function BottomBar({ actions, offersActions }) {
             icon={action.icon}
             key={index}
             label={action.title}
-            color="secondary.main"
             sx={{
+              color: "secondary.main",
               "& svg": {
                 color: "secondary.main",
               },
@@ -82,6 +85,6 @@ export default function BottomBar({ actions, offersActions }) {
           setMouseOnPopup={setMouseOnPopup}
         />
       ) : null}
-    </>
+    </ThemeProvider>
   )
 }

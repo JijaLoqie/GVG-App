@@ -1,6 +1,7 @@
-import { Box, Grid, Typography } from "@mui/material"
+import React from 'react'
+import { Box, Typography } from "@mui/material"
 
-export default AboutGroup = function() {
+export default function AboutGroup() {
   return (
     <Box>
       <Typography sx={{ paddingBottom: "10px" }} variant="h4">

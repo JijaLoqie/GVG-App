@@ -6,9 +6,8 @@ from django.utils.html import format_html
 from .models import Build, Images
 
 
-# поле, отображается в самом низу модели "сборка"
 class ImageInline(admin.TabularInline):  
-    model = Build.image_list.through  # Обратитесь к промежуточной таблице, которая связывает Builds и Image
+    model = Build.image_list.through  
     
     extra = 0  # Определите количество дополнительных форм для добавления картинок
 	

@@ -1,8 +1,9 @@
+import React from 'react'
+
 import {
   Box,
   Grid,
   ThemeProvider,
-  Typography,
   createTheme,
 } from "@mui/material"
 import AboutGroup from "./groups/AboutGroup"
@@ -33,7 +34,7 @@ const items = [
   },
 ]
 
-export default FooterSection = function() {
+export default function FooterSection() {
   return (
     <ThemeProvider theme={themed}>
       <Box

@@ -1,14 +1,12 @@
+import React from "react"
 import {
   Box,
-  Button,
-  ButtonGroup,
-  Grid,
   Stack,
   Typography,
 } from "@mui/material"
 import { Link } from "react-router-dom"
 
-export default ShopGroup = function() {
+export default function ShopGroup() {
   return (
     <Box sx={{ width: "100%" }}>
       <Typography sx={{ paddingBottom: "10px" }} variant="h4">

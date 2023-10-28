@@ -17,6 +17,7 @@ import {
   Telegram as TelegramIcon,
   Instagram as InstagramIcon,
 } from "@mui/icons-material"
+import CustomTelephoneLink from '../common/CustomTelephoneLink'
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -27,7 +28,7 @@ const Item = styled(Paper)(({ theme }) => ({
   alignItems: "center",
 }))
 
-export default AboutUsPage = function() {
+export default function AboutUsPage() {
   return (
     <Box padding={4} sx={{ flexGrow: 1, marginBottom: "100px" }}>
       <Grid container spacing={2}>
@@ -64,16 +65,7 @@ export default AboutUsPage = function() {
         </Grid>
         <Grid alignItems="center" component={Stack} item md={4} xs={12}>
           <PhoneIcon sx={{ marginRight: 2 }} />
-          <Box>
-            <a
-              href="tel:9851460477"
-              style={{
-                color: "blueviolet",
-              }}
-            >
-              +7 (985) 146-04-77
-            </a>
-          </Box>
+          <CustomTelephoneLink />
         </Grid>
         <Grid alignItems="center" component={Stack} item md={4} xs={12}>
           <AccessTimeIcon sx={{ marginRight: 2 }} />

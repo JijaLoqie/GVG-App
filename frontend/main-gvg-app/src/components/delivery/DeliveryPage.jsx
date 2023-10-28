@@ -1,14 +1,9 @@
 import React, { useState } from "react"
 
 import {
-  Box,
   Stack,
-  Button,
-  Divider,
   Grid,
-  Link,
   List,
-  ListItem,
   ListItemButton,
   Typography,
   alpha,
@@ -19,9 +14,8 @@ import {
   Phone as PhoneIcon,
   AccessTime as AccessTimeIcon,
   Email as EmailIcon,
-  Telegram as TelegramIcon,
-  Instagram as InstagramIcon,
 } from "@mui/icons-material"
+import CustomTelephoneLink from '../common/CustomTelephoneLink'
 
 const adresses = [
   {
@@ -51,7 +45,7 @@ const adresses = [
   },
 ]
 
-export default DeliveryPage = function() {
+export default function DeliveryPage() {
   const [selected, setSelected] = useState(adresses[0])
   return (
     <Grid
@@ -121,14 +115,7 @@ export default DeliveryPage = function() {
         >
           <Stack alignItems="center" direction="row">
             <PhoneIcon sx={{ marginRight: 2 }} />
-            <a
-              href="tel:9851460477"
-              style={{
-                color: "blueviolet",
-              }}
-            >
-              +7 (985) 146-04-77
-            </a>
+            <CustomTelephoneLink />
           </Stack>
           <Stack alignItems="center" direction="row">
             <AccessTimeIcon sx={{ marginRight: 2 }} />

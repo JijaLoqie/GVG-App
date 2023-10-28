@@ -1,8 +1,8 @@
+import React from 'react'
 import { Box, Button, ButtonGroup, Typography } from "@mui/material"
 import UseCheckMobileScreen from "./hooks/UseCheckMobileScreen"
-import { darken } from "@material-ui/core"
 
-export default CustomPopupOptions = function({ setMouseOnPopup, actions }) {
+export default function CustomPopupOptions({ setMouseOnPopup, actions }) {
   const isMobile = UseCheckMobileScreen()
   const handleEnter = () => {
     setMouseOnPopup(true)
@@ -23,14 +23,14 @@ export default CustomPopupOptions = function({ setMouseOnPopup, actions }) {
       onMouseLeave={handleLeave}
       sx={{
         position: "fixed",
-        bottom: { xs: "56px", md: "auto" },
-        top: { xs: "auto", md: "76px" },
-        left: { xs: "12.5vw", md: "25vw" },
+        bottom: isMobile ? "56px" : "auto",
+        top: isMobile ? "auto" : "66px",
+        left: isMobile ? "12.5vw" : "25vw",
         width: "50vw",
         minHeight: "50px",
         paddingInline: 0,
         transform: "skew(-10deg)",
-
+        boxShadow: "0 0 8px black",
         zIndex: 10000,
       }}
     >

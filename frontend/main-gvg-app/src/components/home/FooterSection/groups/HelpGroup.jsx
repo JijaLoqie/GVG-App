@@ -1,11 +1,8 @@
+import React from "react"
 import {
   Box,
-  Grid,
   Typography,
-  Button,
-  ButtonGroup,
   Stack,
-  Icon,
 } from "@mui/material"
 import { Link } from "react-router-dom"
 import {
@@ -13,7 +10,7 @@ import {
   Instagram as InstagramIcon,
 } from "@mui/icons-material"
 
-export default HelpGroup = function() {
+export default function HelpGroup() {
   return (
     <Box sx={{ width: "100%" }}>
       <Typography sx={{ paddingBottom: "10px" }} variant="h4">

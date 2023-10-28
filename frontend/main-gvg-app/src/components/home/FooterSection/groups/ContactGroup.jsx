@@ -1,26 +1,21 @@
+import React from 'react'
 import {
   Box,
-  Grid,
   Typography,
   Button,
-  ButtonGroup,
   Stack,
 } from "@mui/material"
 import { Link } from "react-router-dom"
+import CustomTelephoneLink from '../../../common/CustomTelephoneLink'
 
-export default ContuctGroup = function() {
+export default function ContuctGroup() {
   return (
     <Box sx={{ width: "100%" }}>
       <Typography sx={{ paddingBottom: "10px" }} variant="h4">
         Связаться с нами
       </Typography>
       <Stack direction="column">
-        <Typography
-          component={Link}
-          style={{ textDecoration: "none", color: "#ffffff" }}
-        >
-          +7 (985) 146-04-77
-        </Typography>
+        <CustomTelephoneLink />
         <Typography
           component={Link}
           style={{ textDecoration: "none", color: "#ffffff" }}

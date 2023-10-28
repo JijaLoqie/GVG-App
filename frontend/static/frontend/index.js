@@ -2,7 +2,6 @@ var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getProtoOf = Object.getPrototypeOf;
 var __getOwnPropNames = Object.getOwnPropertyNames;
-var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
 var __hasOwnProp = Object.prototype.hasOwnProperty;
 var __toESM = (mod, isNodeMode, target) => {
   target = mod != null ? __create(__getProtoOf(mod)) : {};
@@ -15,24 +14,6 @@ var __toESM = (mod, isNodeMode, target) => {
       });
   return to;
 };
-var __toCommonJS = (from) => {
-  const moduleCache = __toCommonJS.moduleCache ??= new WeakMap;
-  var cached = moduleCache.get(from);
-  if (cached)
-    return cached;
-  var to = __defProp({}, "__esModule", { value: true });
-  var desc = { enumerable: false };
-  if (from && typeof from === "object" || typeof from === "function") {
-    for (let key of __getOwnPropNames(from))
-      if (!__hasOwnProp.call(to, key))
-        __defProp(to, key, {
-          get: () => from[key],
-          enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable
-        });
-  }
-  moduleCache.set(from, to);
-  return to;
-};
 var __commonJS = (cb, mod) => () => (mod || cb((mod = { exports: {} }).exports, mod), mod.exports);
 var __export = (target, all) => {
   for (var name in all)
@@ -43,7 +24,6 @@ var __export = (target, all) => {
       set: (newValue) => all[name] = () => newValue
     });
 };
-var __esm = (fn, res) => () => (fn && (res = fn(fn = 0)), res);
 
 // node_modules/object-assign/index.js
 var require_object_assign = __commonJS((exports, module) => {
@@ -21496,7 +21476,7 @@ var require_hoist_non_react_statics_cjs = __commonJS((exports, module) => {
 
 // node_modules/react/cjs/react-jsx-runtime.development.js
 var require_react_jsx_runtime_development = __commonJS((exports) => {
-  var React14 = __toESM(require_react(), 1);
+  var React13 = __toESM(require_react(), 1);
   if (true) {
     (function() {
       var _assign = require_object_assign();
@@ -21555,7 +21535,7 @@ var require_react_jsx_runtime_development = __commonJS((exports) => {
         }
         return null;
       }
-      var ReactSharedInternals = React14.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+      var ReactSharedInternals = React13.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
       function error(format) {
         {
           for (var _len2 = arguments.length, args = new Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1;_key2 < _len2; _key2++) {
@@ -22524,2047 +22504,9 @@ var require_react_is4 = __commonJS((exports, module) => {
   }
 });
 
-// node_modules/react-easy-swipe/lib/react-swipe.js
-var require_react_swipe = __commonJS((exports) => {
-  var import_react = __toESM(require_react(), 1);
-  (function(global2, factory) {
-    if (typeof define === "function" && define.amd) {
-      define(["exports", "react", "prop-types"], factory);
-    } else if (typeof exports !== "undefined") {
-      factory(exports, import_react, require_prop_types());
-    } else {
-      var mod = {
-        exports: {}
-      };
-      factory(mod.exports, global2.react, global2.propTypes);
-      global2.reactSwipe = mod.exports;
-    }
-  })(exports, function(exports2, _react, _propTypes) {
-    Object.defineProperty(exports2, "__esModule", {
-      value: true
-    });
-    exports2.setHasSupportToCaptureOption = setHasSupportToCaptureOption;
-    var _react2 = _interopRequireDefault(_react);
-    var _propTypes2 = _interopRequireDefault(_propTypes);
-    function _interopRequireDefault(obj) {
-      return obj && obj.__esModule ? obj : {
-        default: obj
-      };
-    }
-    var _extends5 = Object.assign || function(target) {
-      for (var i = 1;i < arguments.length; i++) {
-        var source = arguments[i];
-        for (var key in source) {
-          if (Object.prototype.hasOwnProperty.call(source, key)) {
-            target[key] = source[key];
-          }
-        }
-      }
-      return target;
-    };
-    function _objectWithoutProperties(obj, keys) {
-      var target = {};
-      for (var i in obj) {
-        if (keys.indexOf(i) >= 0)
-          continue;
-        if (!Object.prototype.hasOwnProperty.call(obj, i))
-          continue;
-        target[i] = obj[i];
-      }
-      return target;
-    }
-    function _classCallCheck(instance, Constructor) {
-      if (!(instance instanceof Constructor)) {
-        throw new TypeError("Cannot call a class as a function");
-      }
-    }
-    var _createClass = function() {
-      function defineProperties(target, props) {
-        for (var i = 0;i < props.length; i++) {
-          var descriptor = props[i];
-          descriptor.enumerable = descriptor.enumerable || false;
-          descriptor.configurable = true;
-          if ("value" in descriptor)
-            descriptor.writable = true;
-          Object.defineProperty(target, descriptor.key, descriptor);
-        }
-      }
-      return function(Constructor, protoProps, staticProps) {
-        if (protoProps)
-          defineProperties(Constructor.prototype, protoProps);
-        if (staticProps)
-          defineProperties(Constructor, staticProps);
-        return Constructor;
-      };
-    }();
-    function _possibleConstructorReturn(self, call) {
-      if (!self) {
-        throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-      }
-      return call && (typeof call === "object" || typeof call === "function") ? call : self;
-    }
-    function _inherits(subClass, superClass) {
-      if (typeof superClass !== "function" && superClass !== null) {
-        throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
-      }
-      subClass.prototype = Object.create(superClass && superClass.prototype, {
-        constructor: {
-          value: subClass,
-          enumerable: false,
-          writable: true,
-          configurable: true
-        }
-      });
-      if (superClass)
-        Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
-    }
-    var supportsCaptureOption = false;
-    function setHasSupportToCaptureOption(hasSupport) {
-      supportsCaptureOption = hasSupport;
-    }
-    try {
-      addEventListener("test", null, Object.defineProperty({}, "capture", { get: function get() {
-        setHasSupportToCaptureOption(true);
-      } }));
-    } catch (e) {
-    }
-    function getSafeEventHandlerOpts() {
-      var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : { capture: true };
-      return supportsCaptureOption ? options : options.capture;
-    }
-    function getPosition(event) {
-      if ("touches" in event) {
-        var _event$touches$ = event.touches[0], pageX = _event$touches$.pageX, pageY = _event$touches$.pageY;
-        return { x: pageX, y: pageY };
-      }
-      var { screenX, screenY } = event;
-      return { x: screenX, y: screenY };
-    }
-    var ReactSwipe = function(_Component) {
-      _inherits(ReactSwipe2, _Component);
-      function ReactSwipe2() {
-        var _ref;
-        _classCallCheck(this, ReactSwipe2);
-        for (var _len = arguments.length, args = Array(_len), _key = 0;_key < _len; _key++) {
-          args[_key] = arguments[_key];
-        }
-        var _this = _possibleConstructorReturn(this, (_ref = ReactSwipe2.__proto__ || Object.getPrototypeOf(ReactSwipe2)).call.apply(_ref, [this].concat(args)));
-        _this._handleSwipeStart = _this._handleSwipeStart.bind(_this);
-        _this._handleSwipeMove = _this._handleSwipeMove.bind(_this);
-        _this._handleSwipeEnd = _this._handleSwipeEnd.bind(_this);
-        _this._onMouseDown = _this._onMouseDown.bind(_this);
-        _this._onMouseMove = _this._onMouseMove.bind(_this);
-        _this._onMouseUp = _this._onMouseUp.bind(_this);
-        _this._setSwiperRef = _this._setSwiperRef.bind(_this);
-        return _this;
-      }
-      _createClass(ReactSwipe2, [{
-        key: "componentDidMount",
-        value: function componentDidMount() {
-          if (this.swiper) {
-            this.swiper.addEventListener("touchmove", this._handleSwipeMove, getSafeEventHandlerOpts({
-              capture: true,
-              passive: false
-            }));
-          }
-        }
-      }, {
-        key: "componentWillUnmount",
-        value: function componentWillUnmount() {
-          if (this.swiper) {
-            this.swiper.removeEventListener("touchmove", this._handleSwipeMove, getSafeEventHandlerOpts({
-              capture: true,
-              passive: false
-            }));
-          }
-        }
-      }, {
-        key: "_onMouseDown",
-        value: function _onMouseDown(event) {
-          if (!this.props.allowMouseEvents) {
-            return;
-          }
-          this.mouseDown = true;
-          document.addEventListener("mouseup", this._onMouseUp);
-          document.addEventListener("mousemove", this._onMouseMove);
-          this._handleSwipeStart(event);
-        }
-      }, {
-        key: "_onMouseMove",
-        value: function _onMouseMove(event) {
-          if (!this.mouseDown) {
-            return;
-          }
-          this._handleSwipeMove(event);
-        }
-      }, {
-        key: "_onMouseUp",
-        value: function _onMouseUp(event) {
-          this.mouseDown = false;
-          document.removeEventListener("mouseup", this._onMouseUp);
-          document.removeEventListener("mousemove", this._onMouseMove);
-          this._handleSwipeEnd(event);
-        }
-      }, {
-        key: "_handleSwipeStart",
-        value: function _handleSwipeStart(event) {
-          var _getPosition = getPosition(event), x = _getPosition.x, y = _getPosition.y;
-          this.moveStart = { x, y };
-          this.props.onSwipeStart(event);
-        }
-      }, {
-        key: "_handleSwipeMove",
-        value: function _handleSwipeMove(event) {
-          if (!this.moveStart) {
-            return;
-          }
-          var _getPosition2 = getPosition(event), x = _getPosition2.x, y = _getPosition2.y;
-          var deltaX = x - this.moveStart.x;
-          var deltaY = y - this.moveStart.y;
-          this.moving = true;
-          var shouldPreventDefault = this.props.onSwipeMove({
-            x: deltaX,
-            y: deltaY
-          }, event);
-          if (shouldPreventDefault && event.cancelable) {
-            event.preventDefault();
-          }
-          this.movePosition = { deltaX, deltaY };
-        }
-      }, {
-        key: "_handleSwipeEnd",
-        value: function _handleSwipeEnd(event) {
-          this.props.onSwipeEnd(event);
-          var tolerance = this.props.tolerance;
-          if (this.moving && this.movePosition) {
-            if (this.movePosition.deltaX < -tolerance) {
-              this.props.onSwipeLeft(1, event);
-            } else if (this.movePosition.deltaX > tolerance) {
-              this.props.onSwipeRight(1, event);
-            }
-            if (this.movePosition.deltaY < -tolerance) {
-              this.props.onSwipeUp(1, event);
-            } else if (this.movePosition.deltaY > tolerance) {
-              this.props.onSwipeDown(1, event);
-            }
-          }
-          this.moveStart = null;
-          this.moving = false;
-          this.movePosition = null;
-        }
-      }, {
-        key: "_setSwiperRef",
-        value: function _setSwiperRef(node2) {
-          this.swiper = node2;
-          this.props.innerRef(node2);
-        }
-      }, {
-        key: "render",
-        value: function render() {
-          var _props = this.props, tagName = _props.tagName, className2 = _props.className, style10 = _props.style, children = _props.children, allowMouseEvents = _props.allowMouseEvents, onSwipeUp = _props.onSwipeUp, onSwipeDown = _props.onSwipeDown, onSwipeLeft = _props.onSwipeLeft, onSwipeRight = _props.onSwipeRight, onSwipeStart = _props.onSwipeStart, onSwipeMove = _props.onSwipeMove, onSwipeEnd = _props.onSwipeEnd, innerRef = _props.innerRef, tolerance = _props.tolerance, props = _objectWithoutProperties(_props, ["tagName", "className", "style", "children", "allowMouseEvents", "onSwipeUp", "onSwipeDown", "onSwipeLeft", "onSwipeRight", "onSwipeStart", "onSwipeMove", "onSwipeEnd", "innerRef", "tolerance"]);
-          return _react2.default.createElement(this.props.tagName, _extends5({
-            ref: this._setSwiperRef,
-            onMouseDown: this._onMouseDown,
-            onTouchStart: this._handleSwipeStart,
-            onTouchEnd: this._handleSwipeEnd,
-            className: className2,
-            style: style10
-          }, props), children);
-        }
-      }]);
-      return ReactSwipe2;
-    }(_react.Component);
-    ReactSwipe.displayName = "ReactSwipe";
-    ReactSwipe.propTypes = {
-      tagName: _propTypes2.default.string,
-      className: _propTypes2.default.string,
-      style: _propTypes2.default.object,
-      children: _propTypes2.default.node,
-      allowMouseEvents: _propTypes2.default.bool,
-      onSwipeUp: _propTypes2.default.func,
-      onSwipeDown: _propTypes2.default.func,
-      onSwipeLeft: _propTypes2.default.func,
-      onSwipeRight: _propTypes2.default.func,
-      onSwipeStart: _propTypes2.default.func,
-      onSwipeMove: _propTypes2.default.func,
-      onSwipeEnd: _propTypes2.default.func,
-      innerRef: _propTypes2.default.func,
-      tolerance: _propTypes2.default.number.isRequired
-    };
-    ReactSwipe.defaultProps = {
-      tagName: "div",
-      allowMouseEvents: false,
-      onSwipeUp: function onSwipeUp() {
-      },
-      onSwipeDown: function onSwipeDown() {
-      },
-      onSwipeLeft: function onSwipeLeft() {
-      },
-      onSwipeRight: function onSwipeRight() {
-      },
-      onSwipeStart: function onSwipeStart() {
-      },
-      onSwipeMove: function onSwipeMove() {
-      },
-      onSwipeEnd: function onSwipeEnd() {
-      },
-      innerRef: function innerRef() {
-      },
-      tolerance: 0
-    };
-    exports2.default = ReactSwipe;
-  });
-});
-
-// node_modules/react-easy-swipe/lib/index.js
-var require_lib = __commonJS((exports) => {
-  (function(global2, factory) {
-    if (typeof define === "function" && define.amd) {
-      define(["exports", "./react-swipe"], factory);
-    } else if (typeof exports !== "undefined") {
-      factory(exports, require_react_swipe());
-    } else {
-      var mod = {
-        exports: {}
-      };
-      factory(mod.exports, global2.reactSwipe);
-      global2.index = mod.exports;
-    }
-  })(exports, function(exports2, _reactSwipe) {
-    Object.defineProperty(exports2, "__esModule", {
-      value: true
-    });
-    var _reactSwipe2 = _interopRequireDefault(_reactSwipe);
-    function _interopRequireDefault(obj) {
-      return obj && obj.__esModule ? obj : {
-        default: obj
-      };
-    }
-    exports2.default = _reactSwipe2.default;
-  });
-});
-
-// node_modules/classnames/index.js
-var require_classnames = __commonJS((exports, module) => {
-  /*!
-  	Copyright (c) 2018 Jed Watson.
-  	Licensed under the MIT License (MIT), see
-  	http://jedwatson.github.io/classnames
-  */
-  (function() {
-    var hasOwn = {}.hasOwnProperty;
-    var nativeCodeString = "[native code]";
-    function classNames() {
-      var classes = [];
-      for (var i = 0;i < arguments.length; i++) {
-        var arg = arguments[i];
-        if (!arg)
-          continue;
-        var argType = typeof arg;
-        if (argType === "string" || argType === "number") {
-          classes.push(arg);
-        } else if (Array.isArray(arg)) {
-          if (arg.length) {
-            var inner = classNames.apply(null, arg);
-            if (inner) {
-              classes.push(inner);
-            }
-          }
-        } else if (argType === "object") {
-          if (arg.toString !== Object.prototype.toString && !arg.toString.toString().includes("[native code]")) {
-            classes.push(arg.toString());
-            continue;
-          }
-          for (var key in arg) {
-            if (hasOwn.call(arg, key) && arg[key]) {
-              classes.push(key);
-            }
-          }
-        }
-      }
-      return classes.join(" ");
-    }
-    if (typeof module !== "undefined" && exports) {
-      classNames.default = classNames;
-      module.exports = classNames;
-    } else if (typeof define === "function" && typeof define.amd === "object" && define.amd) {
-      define("classnames", [], function() {
-        return classNames;
-      });
-    } else {
-      window.classNames = classNames;
-    }
-  })();
-});
-
-// node_modules/react-responsive-carousel/lib/js/cssClasses.js
-var require_cssClasses = __commonJS((exports) => {
-  var _interopRequireDefault = function(obj) {
-    return obj && obj.__esModule ? obj : { default: obj };
-  };
-  var _defineProperty = function(obj, key, value) {
-    if (key in obj) {
-      Object.defineProperty(obj, key, { value, enumerable: true, configurable: true, writable: true });
-    } else {
-      obj[key] = value;
-    }
-    return obj;
-  };
-  Object.defineProperty(exports, "__esModule", {
-    value: true
-  });
-  exports.default = undefined;
-  var _classnames = _interopRequireDefault(require_classnames());
-  var _default = {
-    ROOT: function ROOT(customClassName) {
-      return (0, _classnames.default)(_defineProperty({
-        "carousel-root": true
-      }, customClassName || "", !!customClassName));
-    },
-    CAROUSEL: function CAROUSEL(isSlider) {
-      return (0, _classnames.default)({
-        carousel: true,
-        "carousel-slider": isSlider
-      });
-    },
-    WRAPPER: function WRAPPER(isSlider, axis) {
-      return (0, _classnames.default)({
-        "thumbs-wrapper": !isSlider,
-        "slider-wrapper": isSlider,
-        "axis-horizontal": axis === "horizontal",
-        "axis-vertical": axis !== "horizontal"
-      });
-    },
-    SLIDER: function SLIDER(isSlider, isSwiping) {
-      return (0, _classnames.default)({
-        thumbs: !isSlider,
-        slider: isSlider,
-        animated: !isSwiping
-      });
-    },
-    ITEM: function ITEM(isSlider, selected, previous) {
-      return (0, _classnames.default)({
-        thumb: !isSlider,
-        slide: isSlider,
-        selected,
-        previous
-      });
-    },
-    ARROW_PREV: function ARROW_PREV(disabled) {
-      return (0, _classnames.default)({
-        "control-arrow control-prev": true,
-        "control-disabled": disabled
-      });
-    },
-    ARROW_NEXT: function ARROW_NEXT(disabled) {
-      return (0, _classnames.default)({
-        "control-arrow control-next": true,
-        "control-disabled": disabled
-      });
-    },
-    DOT: function DOT(selected) {
-      return (0, _classnames.default)({
-        dot: true,
-        selected
-      });
-    }
-  };
-  exports.default = _default;
-});
-
-// node_modules/react-responsive-carousel/lib/js/dimensions.js
-var require_dimensions = __commonJS((exports) => {
-  Object.defineProperty(exports, "__esModule", {
-    value: true
-  });
-  exports.outerWidth = undefined;
-  var outerWidth = function outerWidth(el) {
-    var width2 = el.offsetWidth;
-    var style10 = getComputedStyle(el);
-    width2 += parseInt(style10.marginLeft) + parseInt(style10.marginRight);
-    return width2;
-  };
-  exports.outerWidth = outerWidth;
-});
-
-// node_modules/react-responsive-carousel/lib/js/CSSTranslate.js
-var require_CSSTranslate = __commonJS((exports) => {
-  Object.defineProperty(exports, "__esModule", {
-    value: true
-  });
-  exports.default = undefined;
-  var _default = function _default(position2, metric, axis) {
-    var positionPercent = position2 === 0 ? position2 : position2 + metric;
-    var positionCss = axis === "horizontal" ? [positionPercent, 0, 0] : [0, positionPercent, 0];
-    var transitionProp = "translate3d";
-    var translatedPosition = "(" + positionCss.join(",") + ")";
-    return transitionProp + translatedPosition;
-  };
-  exports.default = _default;
-});
-
-// node_modules/react-responsive-carousel/lib/js/shims/window.js
-var require_window = __commonJS((exports) => {
-  Object.defineProperty(exports, "__esModule", {
-    value: true
-  });
-  exports.default = undefined;
-  var _default = function _default() {
-    return window;
-  };
-  exports.default = _default;
-});
-
-// node_modules/react-responsive-carousel/lib/js/components/Thumbs.js
-var require_Thumbs = __commonJS((exports) => {
-  var import_react = __toESM(require_react(), 1);
-  var _interopRequireDefault = function(obj) {
-    return obj && obj.__esModule ? obj : { default: obj };
-  };
-  var _getRequireWildcardCache = function() {
-    if (typeof WeakMap !== "function")
-      return null;
-    var cache3 = new WeakMap;
-    _getRequireWildcardCache = function _getRequireWildcardCache() {
-      return cache3;
-    };
-    return cache3;
-  };
-  var _interopRequireWildcard = function(obj) {
-    if (obj && obj.__esModule) {
-      return obj;
-    }
-    if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") {
-      return { default: obj };
-    }
-    var cache3 = _getRequireWildcardCache();
-    if (cache3 && cache3.has(obj)) {
-      return cache3.get(obj);
-    }
-    var newObj = {};
-    var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor;
-    for (var key in obj) {
-      if (Object.prototype.hasOwnProperty.call(obj, key)) {
-        var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null;
-        if (desc && (desc.get || desc.set)) {
-          Object.defineProperty(newObj, key, desc);
-        } else {
-          newObj[key] = obj[key];
-        }
-      }
-    }
-    newObj.default = obj;
-    if (cache3) {
-      cache3.set(obj, newObj);
-    }
-    return newObj;
-  };
-  var _typeof = function(obj) {
-    if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
-      _typeof = function _typeof(obj2) {
-        return typeof obj2;
-      };
-    } else {
-      _typeof = function _typeof(obj2) {
-        return obj2 && typeof Symbol === "function" && obj2.constructor === Symbol && obj2 !== Symbol.prototype ? "symbol" : typeof obj2;
-      };
-    }
-    return _typeof(obj);
-  };
-  var _extends5 = function() {
-    _extends5 = Object.assign || function(target) {
-      for (var i = 1;i < arguments.length; i++) {
-        var source = arguments[i];
-        for (var key in source) {
-          if (Object.prototype.hasOwnProperty.call(source, key)) {
-            target[key] = source[key];
-          }
-        }
-      }
-      return target;
-    };
-    return _extends5.apply(this, arguments);
-  };
-  var _classCallCheck = function(instance, Constructor) {
-    if (!(instance instanceof Constructor)) {
-      throw new TypeError("Cannot call a class as a function");
-    }
-  };
-  var _defineProperties = function(target, props) {
-    for (var i = 0;i < props.length; i++) {
-      var descriptor = props[i];
-      descriptor.enumerable = descriptor.enumerable || false;
-      descriptor.configurable = true;
-      if ("value" in descriptor)
-        descriptor.writable = true;
-      Object.defineProperty(target, descriptor.key, descriptor);
-    }
-  };
-  var _createClass = function(Constructor, protoProps, staticProps) {
-    if (protoProps)
-      _defineProperties(Constructor.prototype, protoProps);
-    if (staticProps)
-      _defineProperties(Constructor, staticProps);
-    return Constructor;
-  };
-  var _inherits = function(subClass, superClass) {
-    if (typeof superClass !== "function" && superClass !== null) {
-      throw new TypeError("Super expression must either be null or a function");
-    }
-    subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } });
-    if (superClass)
-      _setPrototypeOf2(subClass, superClass);
-  };
-  var _setPrototypeOf2 = function(o, p) {
-    _setPrototypeOf2 = Object.setPrototypeOf || function _setPrototypeOf(o2, p2) {
-      o2.__proto__ = p2;
-      return o2;
-    };
-    return _setPrototypeOf2(o, p);
-  };
-  var _createSuper = function(Derived) {
-    var hasNativeReflectConstruct = _isNativeReflectConstruct();
-    return function _createSuperInternal() {
-      var Super = _getPrototypeOf(Derived), result;
-      if (hasNativeReflectConstruct) {
-        var NewTarget = _getPrototypeOf(this).constructor;
-        result = Reflect.construct(Super, arguments, NewTarget);
-      } else {
-        result = Super.apply(this, arguments);
-      }
-      return _possibleConstructorReturn(this, result);
-    };
-  };
-  var _possibleConstructorReturn = function(self, call) {
-    if (call && (_typeof(call) === "object" || typeof call === "function")) {
-      return call;
-    }
-    return _assertThisInitialized2(self);
-  };
-  var _assertThisInitialized2 = function(self) {
-    if (self === undefined) {
-      throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-    }
-    return self;
-  };
-  var _isNativeReflectConstruct = function() {
-    if (typeof Reflect === "undefined" || !Reflect.construct)
-      return false;
-    if (Reflect.construct.sham)
-      return false;
-    if (typeof Proxy === "function")
-      return true;
-    try {
-      Date.prototype.toString.call(Reflect.construct(Date, [], function() {
-      }));
-      return true;
-    } catch (e) {
-      return false;
-    }
-  };
-  var _getPrototypeOf = function(o) {
-    _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o2) {
-      return o2.__proto__ || Object.getPrototypeOf(o2);
-    };
-    return _getPrototypeOf(o);
-  };
-  var _defineProperty = function(obj, key, value) {
-    if (key in obj) {
-      Object.defineProperty(obj, key, { value, enumerable: true, configurable: true, writable: true });
-    } else {
-      obj[key] = value;
-    }
-    return obj;
-  };
-  Object.defineProperty(exports, "__esModule", {
-    value: true
-  });
-  exports.default = undefined;
-  var _react = _interopRequireWildcard(import_react);
-  var _cssClasses = _interopRequireDefault(require_cssClasses());
-  var _dimensions = require_dimensions();
-  var _CSSTranslate = _interopRequireDefault(require_CSSTranslate());
-  var _reactEasySwipe = _interopRequireDefault(require_lib());
-  var _window = _interopRequireDefault(require_window());
-  var isKeyboardEvent = function isKeyboardEvent(e) {
-    return e.hasOwnProperty("key");
-  };
-  var Thumbs = function(_Component) {
-    _inherits(Thumbs2, _Component);
-    var _super = _createSuper(Thumbs2);
-    function Thumbs2(_props) {
-      var _this;
-      _classCallCheck(this, Thumbs2);
-      _this = _super.call(this, _props);
-      _defineProperty(_assertThisInitialized2(_this), "itemsWrapperRef", undefined);
-      _defineProperty(_assertThisInitialized2(_this), "itemsListRef", undefined);
-      _defineProperty(_assertThisInitialized2(_this), "thumbsRef", undefined);
-      _defineProperty(_assertThisInitialized2(_this), "setItemsWrapperRef", function(node2) {
-        _this.itemsWrapperRef = node2;
-      });
-      _defineProperty(_assertThisInitialized2(_this), "setItemsListRef", function(node2) {
-        _this.itemsListRef = node2;
-      });
-      _defineProperty(_assertThisInitialized2(_this), "setThumbsRef", function(node2, index) {
-        if (!_this.thumbsRef) {
-          _this.thumbsRef = [];
-        }
-        _this.thumbsRef[index] = node2;
-      });
-      _defineProperty(_assertThisInitialized2(_this), "updateSizes", function() {
-        if (!_this.props.children || !_this.itemsWrapperRef || !_this.thumbsRef) {
-          return;
-        }
-        var total = _react.Children.count(_this.props.children);
-        var wrapperSize = _this.itemsWrapperRef.clientWidth;
-        var itemSize = _this.props.thumbWidth ? _this.props.thumbWidth : (0, _dimensions.outerWidth)(_this.thumbsRef[0]);
-        var visibleItems = Math.floor(wrapperSize / itemSize);
-        var showArrows = visibleItems < total;
-        var lastPosition = showArrows ? total - visibleItems : 0;
-        _this.setState(function(_state, props) {
-          return {
-            itemSize,
-            visibleItems,
-            firstItem: showArrows ? _this.getFirstItem(props.selectedItem) : 0,
-            lastPosition,
-            showArrows
-          };
-        });
-      });
-      _defineProperty(_assertThisInitialized2(_this), "handleClickItem", function(index, item, e) {
-        if (!isKeyboardEvent(e) || e.key === "Enter") {
-          var handler = _this.props.onSelectItem;
-          if (typeof handler === "function") {
-            handler(index, item);
-          }
-        }
-      });
-      _defineProperty(_assertThisInitialized2(_this), "onSwipeStart", function() {
-        _this.setState({
-          swiping: true
-        });
-      });
-      _defineProperty(_assertThisInitialized2(_this), "onSwipeEnd", function() {
-        _this.setState({
-          swiping: false
-        });
-      });
-      _defineProperty(_assertThisInitialized2(_this), "onSwipeMove", function(delta) {
-        var deltaX = delta.x;
-        if (!_this.state.itemSize || !_this.itemsWrapperRef || !_this.state.visibleItems) {
-          return false;
-        }
-        var leftBoundary = 0;
-        var childrenLength = _react.Children.count(_this.props.children);
-        var currentPosition = -(_this.state.firstItem * 100) / _this.state.visibleItems;
-        var lastLeftItem = Math.max(childrenLength - _this.state.visibleItems, 0);
-        var lastLeftBoundary = -lastLeftItem * 100 / _this.state.visibleItems;
-        if (currentPosition === leftBoundary && deltaX > 0) {
-          deltaX = 0;
-        }
-        if (currentPosition === lastLeftBoundary && deltaX < 0) {
-          deltaX = 0;
-        }
-        var wrapperSize = _this.itemsWrapperRef.clientWidth;
-        var position2 = currentPosition + 100 / (wrapperSize / deltaX);
-        if (_this.itemsListRef) {
-          ["WebkitTransform", "MozTransform", "MsTransform", "OTransform", "transform", "msTransform"].forEach(function(prop) {
-            _this.itemsListRef.style[prop] = (0, _CSSTranslate.default)(position2, "%", _this.props.axis);
-          });
-        }
-        return true;
-      });
-      _defineProperty(_assertThisInitialized2(_this), "slideRight", function(positions2) {
-        _this.moveTo(_this.state.firstItem - (typeof positions2 === "number" ? positions2 : 1));
-      });
-      _defineProperty(_assertThisInitialized2(_this), "slideLeft", function(positions2) {
-        _this.moveTo(_this.state.firstItem + (typeof positions2 === "number" ? positions2 : 1));
-      });
-      _defineProperty(_assertThisInitialized2(_this), "moveTo", function(position2) {
-        position2 = position2 < 0 ? 0 : position2;
-        position2 = position2 >= _this.state.lastPosition ? _this.state.lastPosition : position2;
-        _this.setState({
-          firstItem: position2
-        });
-      });
-      _this.state = {
-        selectedItem: _props.selectedItem,
-        swiping: false,
-        showArrows: false,
-        firstItem: 0,
-        visibleItems: 0,
-        lastPosition: 0
-      };
-      return _this;
-    }
-    _createClass(Thumbs2, [{
-      key: "componentDidMount",
-      value: function componentDidMount() {
-        this.setupThumbs();
-      }
-    }, {
-      key: "componentDidUpdate",
-      value: function componentDidUpdate(prevProps) {
-        if (this.props.selectedItem !== this.state.selectedItem) {
-          this.setState({
-            selectedItem: this.props.selectedItem,
-            firstItem: this.getFirstItem(this.props.selectedItem)
-          });
-        }
-        if (this.props.children === prevProps.children) {
-          return;
-        }
-        this.updateSizes();
-      }
-    }, {
-      key: "componentWillUnmount",
-      value: function componentWillUnmount() {
-        this.destroyThumbs();
-      }
-    }, {
-      key: "setupThumbs",
-      value: function setupThumbs() {
-        (0, _window.default)().addEventListener("resize", this.updateSizes);
-        (0, _window.default)().addEventListener("DOMContentLoaded", this.updateSizes);
-        this.updateSizes();
-      }
-    }, {
-      key: "destroyThumbs",
-      value: function destroyThumbs() {
-        (0, _window.default)().removeEventListener("resize", this.updateSizes);
-        (0, _window.default)().removeEventListener("DOMContentLoaded", this.updateSizes);
-      }
-    }, {
-      key: "getFirstItem",
-      value: function getFirstItem(selectedItem) {
-        var firstItem = selectedItem;
-        if (selectedItem >= this.state.lastPosition) {
-          firstItem = this.state.lastPosition;
-        }
-        if (selectedItem < this.state.firstItem + this.state.visibleItems) {
-          firstItem = this.state.firstItem;
-        }
-        if (selectedItem < this.state.firstItem) {
-          firstItem = selectedItem;
-        }
-        return firstItem;
-      }
-    }, {
-      key: "renderItems",
-      value: function renderItems() {
-        var _this2 = this;
-        return this.props.children.map(function(img, index) {
-          var itemClass = _cssClasses.default.ITEM(false, index === _this2.state.selectedItem);
-          var thumbProps = {
-            key: index,
-            ref: function ref(e) {
-              return _this2.setThumbsRef(e, index);
-            },
-            className: itemClass,
-            onClick: _this2.handleClickItem.bind(_this2, index, _this2.props.children[index]),
-            onKeyDown: _this2.handleClickItem.bind(_this2, index, _this2.props.children[index]),
-            "aria-label": "".concat(_this2.props.labels.item, " ").concat(index + 1),
-            style: {
-              width: _this2.props.thumbWidth
-            }
-          };
-          return _react.default.createElement("li", _extends5({}, thumbProps, {
-            role: "button",
-            tabIndex: 0
-          }), img);
-        });
-      }
-    }, {
-      key: "render",
-      value: function render() {
-        var _this3 = this;
-        if (!this.props.children) {
-          return null;
-        }
-        var isSwipeable = _react.Children.count(this.props.children) > 1;
-        var hasPrev = this.state.showArrows && this.state.firstItem > 0;
-        var hasNext = this.state.showArrows && this.state.firstItem < this.state.lastPosition;
-        var itemListStyles = {};
-        var currentPosition = -this.state.firstItem * (this.state.itemSize || 0);
-        var transformProp = (0, _CSSTranslate.default)(currentPosition, "px", this.props.axis);
-        var transitionTime = this.props.transitionTime + "ms";
-        itemListStyles = {
-          WebkitTransform: transformProp,
-          MozTransform: transformProp,
-          MsTransform: transformProp,
-          OTransform: transformProp,
-          transform: transformProp,
-          msTransform: transformProp,
-          WebkitTransitionDuration: transitionTime,
-          MozTransitionDuration: transitionTime,
-          MsTransitionDuration: transitionTime,
-          OTransitionDuration: transitionTime,
-          transitionDuration: transitionTime,
-          msTransitionDuration: transitionTime
-        };
-        return _react.default.createElement("div", {
-          className: _cssClasses.default.CAROUSEL(false)
-        }, _react.default.createElement("div", {
-          className: _cssClasses.default.WRAPPER(false),
-          ref: this.setItemsWrapperRef
-        }, _react.default.createElement("button", {
-          type: "button",
-          className: _cssClasses.default.ARROW_PREV(!hasPrev),
-          onClick: function onClick() {
-            return _this3.slideRight();
-          },
-          "aria-label": this.props.labels.leftArrow
-        }), isSwipeable ? _react.default.createElement(_reactEasySwipe.default, {
-          tagName: "ul",
-          className: _cssClasses.default.SLIDER(false, this.state.swiping),
-          onSwipeLeft: this.slideLeft,
-          onSwipeRight: this.slideRight,
-          onSwipeMove: this.onSwipeMove,
-          onSwipeStart: this.onSwipeStart,
-          onSwipeEnd: this.onSwipeEnd,
-          style: itemListStyles,
-          innerRef: this.setItemsListRef,
-          allowMouseEvents: this.props.emulateTouch
-        }, this.renderItems()) : _react.default.createElement("ul", {
-          className: _cssClasses.default.SLIDER(false, this.state.swiping),
-          ref: function ref(node2) {
-            return _this3.setItemsListRef(node2);
-          },
-          style: itemListStyles
-        }, this.renderItems()), _react.default.createElement("button", {
-          type: "button",
-          className: _cssClasses.default.ARROW_NEXT(!hasNext),
-          onClick: function onClick() {
-            return _this3.slideLeft();
-          },
-          "aria-label": this.props.labels.rightArrow
-        })));
-      }
-    }]);
-    return Thumbs2;
-  }(_react.Component);
-  exports.default = Thumbs;
-  _defineProperty(Thumbs, "displayName", "Thumbs");
-  _defineProperty(Thumbs, "defaultProps", {
-    axis: "horizontal",
-    labels: {
-      leftArrow: "previous slide / item",
-      rightArrow: "next slide / item",
-      item: "slide item"
-    },
-    selectedItem: 0,
-    thumbWidth: 80,
-    transitionTime: 350
-  });
-});
-
-// node_modules/react-responsive-carousel/lib/js/shims/document.js
-var require_document = __commonJS((exports) => {
-  Object.defineProperty(exports, "__esModule", {
-    value: true
-  });
-  exports.default = undefined;
-  var _default = function _default() {
-    return document;
-  };
-  exports.default = _default;
-});
-
-// node_modules/react-responsive-carousel/lib/js/components/Carousel/utils.js
-var require_utils = __commonJS((exports) => {
-  var _react = __toESM(require_react(), 1);
-  var _interopRequireDefault = function(obj) {
-    return obj && obj.__esModule ? obj : { default: obj };
-  };
-  Object.defineProperty(exports, "__esModule", {
-    value: true
-  });
-  exports.setPosition = exports.getPosition = exports.isKeyboardEvent = exports.defaultStatusFormatter = exports.noop = undefined;
-  var _CSSTranslate = _interopRequireDefault(require_CSSTranslate());
-  var noop2 = function noop() {
-  };
-  exports.noop = noop2;
-  var defaultStatusFormatter = function defaultStatusFormatter(current, total) {
-    return "".concat(current, " of ").concat(total);
-  };
-  exports.defaultStatusFormatter = defaultStatusFormatter;
-  var isKeyboardEvent = function isKeyboardEvent(e) {
-    return e ? e.hasOwnProperty("key") : false;
-  };
-  exports.isKeyboardEvent = isKeyboardEvent;
-  var getPosition = function getPosition(index, props) {
-    if (props.infiniteLoop) {
-      ++index;
-    }
-    if (index === 0) {
-      return 0;
-    }
-    var childrenLength = _react.Children.count(props.children);
-    if (props.centerMode && props.axis === "horizontal") {
-      var currentPosition = -index * props.centerSlidePercentage;
-      var lastPosition = childrenLength - 1;
-      if (index && (index !== lastPosition || props.infiniteLoop)) {
-        currentPosition += (100 - props.centerSlidePercentage) / 2;
-      } else if (index === lastPosition) {
-        currentPosition += 100 - props.centerSlidePercentage;
-      }
-      return currentPosition;
-    }
-    return -index * 100;
-  };
-  exports.getPosition = getPosition;
-  var setPosition = function setPosition(position2, axis) {
-    var style10 = {};
-    ["WebkitTransform", "MozTransform", "MsTransform", "OTransform", "transform", "msTransform"].forEach(function(prop) {
-      style10[prop] = (0, _CSSTranslate.default)(position2, "%", axis);
-    });
-    return style10;
-  };
-  exports.setPosition = setPosition;
-});
-
-// node_modules/react-responsive-carousel/lib/js/components/Carousel/animations.js
-var require_animations = __commonJS((exports) => {
-  var _react = __toESM(require_react(), 1);
-  var _interopRequireDefault = function(obj) {
-    return obj && obj.__esModule ? obj : { default: obj };
-  };
-  var ownKeys = function(object, enumerableOnly) {
-    var keys = Object.keys(object);
-    if (Object.getOwnPropertySymbols) {
-      var symbols = Object.getOwnPropertySymbols(object);
-      if (enumerableOnly)
-        symbols = symbols.filter(function(sym) {
-          return Object.getOwnPropertyDescriptor(object, sym).enumerable;
-        });
-      keys.push.apply(keys, symbols);
-    }
-    return keys;
-  };
-  var _objectSpread = function(target) {
-    for (var i = 1;i < arguments.length; i++) {
-      var source = arguments[i] != null ? arguments[i] : {};
-      if (i % 2) {
-        ownKeys(Object(source), true).forEach(function(key) {
-          _defineProperty(target, key, source[key]);
-        });
-      } else if (Object.getOwnPropertyDescriptors) {
-        Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));
-      } else {
-        ownKeys(Object(source)).forEach(function(key) {
-          Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
-        });
-      }
-    }
-    return target;
-  };
-  var _defineProperty = function(obj, key, value) {
-    if (key in obj) {
-      Object.defineProperty(obj, key, { value, enumerable: true, configurable: true, writable: true });
-    } else {
-      obj[key] = value;
-    }
-    return obj;
-  };
-  Object.defineProperty(exports, "__esModule", {
-    value: true
-  });
-  exports.fadeAnimationHandler = exports.slideStopSwipingHandler = exports.slideSwipeAnimationHandler = exports.slideAnimationHandler = undefined;
-  var _CSSTranslate = _interopRequireDefault(require_CSSTranslate());
-  var _utils = require_utils();
-  var slideAnimationHandler = function slideAnimationHandler(props, state) {
-    var returnStyles = {};
-    var selectedItem = state.selectedItem;
-    var previousItem = selectedItem;
-    var lastPosition = _react.Children.count(props.children) - 1;
-    var needClonedSlide = props.infiniteLoop && (selectedItem < 0 || selectedItem > lastPosition);
-    if (needClonedSlide) {
-      if (previousItem < 0) {
-        if (props.centerMode && props.centerSlidePercentage && props.axis === "horizontal") {
-          returnStyles.itemListStyle = (0, _utils.setPosition)(-(lastPosition + 2) * props.centerSlidePercentage - (100 - props.centerSlidePercentage) / 2, props.axis);
-        } else {
-          returnStyles.itemListStyle = (0, _utils.setPosition)(-(lastPosition + 2) * 100, props.axis);
-        }
-      } else if (previousItem > lastPosition) {
-        returnStyles.itemListStyle = (0, _utils.setPosition)(0, props.axis);
-      }
-      return returnStyles;
-    }
-    var currentPosition = (0, _utils.getPosition)(selectedItem, props);
-    var transformProp = (0, _CSSTranslate.default)(currentPosition, "%", props.axis);
-    var transitionTime = props.transitionTime + "ms";
-    returnStyles.itemListStyle = {
-      WebkitTransform: transformProp,
-      msTransform: transformProp,
-      OTransform: transformProp,
-      transform: transformProp
-    };
-    if (!state.swiping) {
-      returnStyles.itemListStyle = _objectSpread(_objectSpread({}, returnStyles.itemListStyle), {}, {
-        WebkitTransitionDuration: transitionTime,
-        MozTransitionDuration: transitionTime,
-        OTransitionDuration: transitionTime,
-        transitionDuration: transitionTime,
-        msTransitionDuration: transitionTime
-      });
-    }
-    return returnStyles;
-  };
-  exports.slideAnimationHandler = slideAnimationHandler;
-  var slideSwipeAnimationHandler = function slideSwipeAnimationHandler(delta, props, state, setState) {
-    var returnStyles = {};
-    var isHorizontal = props.axis === "horizontal";
-    var childrenLength = _react.Children.count(props.children);
-    var initialBoundry = 0;
-    var currentPosition = (0, _utils.getPosition)(state.selectedItem, props);
-    var finalBoundry = props.infiniteLoop ? (0, _utils.getPosition)(childrenLength - 1, props) - 100 : (0, _utils.getPosition)(childrenLength - 1, props);
-    var axisDelta = isHorizontal ? delta.x : delta.y;
-    var handledDelta = axisDelta;
-    if (currentPosition === initialBoundry && axisDelta > 0) {
-      handledDelta = 0;
-    }
-    if (currentPosition === finalBoundry && axisDelta < 0) {
-      handledDelta = 0;
-    }
-    var position2 = currentPosition + 100 / (state.itemSize / handledDelta);
-    var hasMoved = Math.abs(axisDelta) > props.swipeScrollTolerance;
-    if (props.infiniteLoop && hasMoved) {
-      if (state.selectedItem === 0 && position2 > -100) {
-        position2 -= childrenLength * 100;
-      } else if (state.selectedItem === childrenLength - 1 && position2 < -childrenLength * 100) {
-        position2 += childrenLength * 100;
-      }
-    }
-    if (!props.preventMovementUntilSwipeScrollTolerance || hasMoved || state.swipeMovementStarted) {
-      if (!state.swipeMovementStarted) {
-        setState({
-          swipeMovementStarted: true
-        });
-      }
-      returnStyles.itemListStyle = (0, _utils.setPosition)(position2, props.axis);
-    }
-    if (hasMoved && !state.cancelClick) {
-      setState({
-        cancelClick: true
-      });
-    }
-    return returnStyles;
-  };
-  exports.slideSwipeAnimationHandler = slideSwipeAnimationHandler;
-  var slideStopSwipingHandler = function slideStopSwipingHandler(props, state) {
-    var currentPosition = (0, _utils.getPosition)(state.selectedItem, props);
-    var itemListStyle = (0, _utils.setPosition)(currentPosition, props.axis);
-    return {
-      itemListStyle
-    };
-  };
-  exports.slideStopSwipingHandler = slideStopSwipingHandler;
-  var fadeAnimationHandler = function fadeAnimationHandler(props, state) {
-    var transitionTime = props.transitionTime + "ms";
-    var transitionTimingFunction = "ease-in-out";
-    var slideStyle = {
-      position: "absolute",
-      display: "block",
-      zIndex: -2,
-      minHeight: "100%",
-      opacity: 0,
-      top: 0,
-      right: 0,
-      left: 0,
-      bottom: 0,
-      transitionTimingFunction,
-      msTransitionTimingFunction: transitionTimingFunction,
-      MozTransitionTimingFunction: transitionTimingFunction,
-      WebkitTransitionTimingFunction: transitionTimingFunction,
-      OTransitionTimingFunction: transitionTimingFunction
-    };
-    if (!state.swiping) {
-      slideStyle = _objectSpread(_objectSpread({}, slideStyle), {}, {
-        WebkitTransitionDuration: transitionTime,
-        MozTransitionDuration: transitionTime,
-        OTransitionDuration: transitionTime,
-        transitionDuration: transitionTime,
-        msTransitionDuration: transitionTime
-      });
-    }
-    return {
-      slideStyle,
-      selectedStyle: _objectSpread(_objectSpread({}, slideStyle), {}, {
-        opacity: 1,
-        position: "relative"
-      }),
-      prevStyle: _objectSpread({}, slideStyle)
-    };
-  };
-  exports.fadeAnimationHandler = fadeAnimationHandler;
-});
-
-// node_modules/react-responsive-carousel/lib/js/components/Carousel/index.js
-var require_Carousel = __commonJS((exports) => {
-  var import_react = __toESM(require_react(), 1);
-  var _interopRequireDefault = function(obj) {
-    return obj && obj.__esModule ? obj : { default: obj };
-  };
-  var _getRequireWildcardCache = function() {
-    if (typeof WeakMap !== "function")
-      return null;
-    var cache3 = new WeakMap;
-    _getRequireWildcardCache = function _getRequireWildcardCache() {
-      return cache3;
-    };
-    return cache3;
-  };
-  var _interopRequireWildcard = function(obj) {
-    if (obj && obj.__esModule) {
-      return obj;
-    }
-    if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") {
-      return { default: obj };
-    }
-    var cache3 = _getRequireWildcardCache();
-    if (cache3 && cache3.has(obj)) {
-      return cache3.get(obj);
-    }
-    var newObj = {};
-    var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor;
-    for (var key in obj) {
-      if (Object.prototype.hasOwnProperty.call(obj, key)) {
-        var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null;
-        if (desc && (desc.get || desc.set)) {
-          Object.defineProperty(newObj, key, desc);
-        } else {
-          newObj[key] = obj[key];
-        }
-      }
-    }
-    newObj.default = obj;
-    if (cache3) {
-      cache3.set(obj, newObj);
-    }
-    return newObj;
-  };
-  var _typeof = function(obj) {
-    if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
-      _typeof = function _typeof(obj2) {
-        return typeof obj2;
-      };
-    } else {
-      _typeof = function _typeof(obj2) {
-        return obj2 && typeof Symbol === "function" && obj2.constructor === Symbol && obj2 !== Symbol.prototype ? "symbol" : typeof obj2;
-      };
-    }
-    return _typeof(obj);
-  };
-  var _extends5 = function() {
-    _extends5 = Object.assign || function(target) {
-      for (var i = 1;i < arguments.length; i++) {
-        var source = arguments[i];
-        for (var key in source) {
-          if (Object.prototype.hasOwnProperty.call(source, key)) {
-            target[key] = source[key];
-          }
-        }
-      }
-      return target;
-    };
-    return _extends5.apply(this, arguments);
-  };
-  var ownKeys = function(object, enumerableOnly) {
-    var keys = Object.keys(object);
-    if (Object.getOwnPropertySymbols) {
-      var symbols = Object.getOwnPropertySymbols(object);
-      if (enumerableOnly)
-        symbols = symbols.filter(function(sym) {
-          return Object.getOwnPropertyDescriptor(object, sym).enumerable;
-        });
-      keys.push.apply(keys, symbols);
-    }
-    return keys;
-  };
-  var _objectSpread = function(target) {
-    for (var i = 1;i < arguments.length; i++) {
-      var source = arguments[i] != null ? arguments[i] : {};
-      if (i % 2) {
-        ownKeys(Object(source), true).forEach(function(key) {
-          _defineProperty(target, key, source[key]);
-        });
-      } else if (Object.getOwnPropertyDescriptors) {
-        Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));
-      } else {
-        ownKeys(Object(source)).forEach(function(key) {
-          Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
-        });
-      }
-    }
-    return target;
-  };
-  var _classCallCheck = function(instance, Constructor) {
-    if (!(instance instanceof Constructor)) {
-      throw new TypeError("Cannot call a class as a function");
-    }
-  };
-  var _defineProperties = function(target, props) {
-    for (var i = 0;i < props.length; i++) {
-      var descriptor = props[i];
-      descriptor.enumerable = descriptor.enumerable || false;
-      descriptor.configurable = true;
-      if ("value" in descriptor)
-        descriptor.writable = true;
-      Object.defineProperty(target, descriptor.key, descriptor);
-    }
-  };
-  var _createClass = function(Constructor, protoProps, staticProps) {
-    if (protoProps)
-      _defineProperties(Constructor.prototype, protoProps);
-    if (staticProps)
-      _defineProperties(Constructor, staticProps);
-    return Constructor;
-  };
-  var _inherits = function(subClass, superClass) {
-    if (typeof superClass !== "function" && superClass !== null) {
-      throw new TypeError("Super expression must either be null or a function");
-    }
-    subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } });
-    if (superClass)
-      _setPrototypeOf2(subClass, superClass);
-  };
-  var _setPrototypeOf2 = function(o, p) {
-    _setPrototypeOf2 = Object.setPrototypeOf || function _setPrototypeOf(o2, p2) {
-      o2.__proto__ = p2;
-      return o2;
-    };
-    return _setPrototypeOf2(o, p);
-  };
-  var _createSuper = function(Derived) {
-    var hasNativeReflectConstruct = _isNativeReflectConstruct();
-    return function _createSuperInternal() {
-      var Super = _getPrototypeOf(Derived), result;
-      if (hasNativeReflectConstruct) {
-        var NewTarget = _getPrototypeOf(this).constructor;
-        result = Reflect.construct(Super, arguments, NewTarget);
-      } else {
-        result = Super.apply(this, arguments);
-      }
-      return _possibleConstructorReturn(this, result);
-    };
-  };
-  var _possibleConstructorReturn = function(self, call) {
-    if (call && (_typeof(call) === "object" || typeof call === "function")) {
-      return call;
-    }
-    return _assertThisInitialized2(self);
-  };
-  var _assertThisInitialized2 = function(self) {
-    if (self === undefined) {
-      throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-    }
-    return self;
-  };
-  var _isNativeReflectConstruct = function() {
-    if (typeof Reflect === "undefined" || !Reflect.construct)
-      return false;
-    if (Reflect.construct.sham)
-      return false;
-    if (typeof Proxy === "function")
-      return true;
-    try {
-      Date.prototype.toString.call(Reflect.construct(Date, [], function() {
-      }));
-      return true;
-    } catch (e) {
-      return false;
-    }
-  };
-  var _getPrototypeOf = function(o) {
-    _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o2) {
-      return o2.__proto__ || Object.getPrototypeOf(o2);
-    };
-    return _getPrototypeOf(o);
-  };
-  var _defineProperty = function(obj, key, value) {
-    if (key in obj) {
-      Object.defineProperty(obj, key, { value, enumerable: true, configurable: true, writable: true });
-    } else {
-      obj[key] = value;
-    }
-    return obj;
-  };
-  Object.defineProperty(exports, "__esModule", {
-    value: true
-  });
-  exports.default = undefined;
-  var _react = _interopRequireWildcard(import_react);
-  var _reactEasySwipe = _interopRequireDefault(require_lib());
-  var _cssClasses = _interopRequireDefault(require_cssClasses());
-  var _Thumbs = _interopRequireDefault(require_Thumbs());
-  var _document = _interopRequireDefault(require_document());
-  var _window = _interopRequireDefault(require_window());
-  var _utils = require_utils();
-  var _animations = require_animations();
-  var Carousel = function(_React$Component) {
-    _inherits(Carousel2, _React$Component);
-    var _super = _createSuper(Carousel2);
-    function Carousel2(props) {
-      var _this;
-      _classCallCheck(this, Carousel2);
-      _this = _super.call(this, props);
-      _defineProperty(_assertThisInitialized2(_this), "thumbsRef", undefined);
-      _defineProperty(_assertThisInitialized2(_this), "carouselWrapperRef", undefined);
-      _defineProperty(_assertThisInitialized2(_this), "listRef", undefined);
-      _defineProperty(_assertThisInitialized2(_this), "itemsRef", undefined);
-      _defineProperty(_assertThisInitialized2(_this), "timer", undefined);
-      _defineProperty(_assertThisInitialized2(_this), "animationHandler", undefined);
-      _defineProperty(_assertThisInitialized2(_this), "setThumbsRef", function(node2) {
-        _this.thumbsRef = node2;
-      });
-      _defineProperty(_assertThisInitialized2(_this), "setCarouselWrapperRef", function(node2) {
-        _this.carouselWrapperRef = node2;
-      });
-      _defineProperty(_assertThisInitialized2(_this), "setListRef", function(node2) {
-        _this.listRef = node2;
-      });
-      _defineProperty(_assertThisInitialized2(_this), "setItemsRef", function(node2, index) {
-        if (!_this.itemsRef) {
-          _this.itemsRef = [];
-        }
-        _this.itemsRef[index] = node2;
-      });
-      _defineProperty(_assertThisInitialized2(_this), "autoPlay", function() {
-        if (_react.Children.count(_this.props.children) <= 1) {
-          return;
-        }
-        _this.clearAutoPlay();
-        if (!_this.props.autoPlay) {
-          return;
-        }
-        _this.timer = setTimeout(function() {
-          _this.increment();
-        }, _this.props.interval);
-      });
-      _defineProperty(_assertThisInitialized2(_this), "clearAutoPlay", function() {
-        if (_this.timer)
-          clearTimeout(_this.timer);
-      });
-      _defineProperty(_assertThisInitialized2(_this), "resetAutoPlay", function() {
-        _this.clearAutoPlay();
-        _this.autoPlay();
-      });
-      _defineProperty(_assertThisInitialized2(_this), "stopOnHover", function() {
-        _this.setState({
-          isMouseEntered: true
-        }, _this.clearAutoPlay);
-      });
-      _defineProperty(_assertThisInitialized2(_this), "startOnLeave", function() {
-        _this.setState({
-          isMouseEntered: false
-        }, _this.autoPlay);
-      });
-      _defineProperty(_assertThisInitialized2(_this), "isFocusWithinTheCarousel", function() {
-        if (!_this.carouselWrapperRef) {
-          return false;
-        }
-        if ((0, _document.default)().activeElement === _this.carouselWrapperRef || _this.carouselWrapperRef.contains((0, _document.default)().activeElement)) {
-          return true;
-        }
-        return false;
-      });
-      _defineProperty(_assertThisInitialized2(_this), "navigateWithKeyboard", function(e) {
-        if (!_this.isFocusWithinTheCarousel()) {
-          return;
-        }
-        var axis = _this.props.axis;
-        var isHorizontal = axis === "horizontal";
-        var keyNames = {
-          ArrowUp: 38,
-          ArrowRight: 39,
-          ArrowDown: 40,
-          ArrowLeft: 37
-        };
-        var nextKey = isHorizontal ? keyNames.ArrowRight : keyNames.ArrowDown;
-        var prevKey = isHorizontal ? keyNames.ArrowLeft : keyNames.ArrowUp;
-        if (nextKey === e.keyCode) {
-          _this.increment();
-        } else if (prevKey === e.keyCode) {
-          _this.decrement();
-        }
-      });
-      _defineProperty(_assertThisInitialized2(_this), "updateSizes", function() {
-        if (!_this.state.initialized || !_this.itemsRef || _this.itemsRef.length === 0) {
-          return;
-        }
-        var isHorizontal = _this.props.axis === "horizontal";
-        var firstItem = _this.itemsRef[0];
-        if (!firstItem) {
-          return;
-        }
-        var itemSize = isHorizontal ? firstItem.clientWidth : firstItem.clientHeight;
-        _this.setState({
-          itemSize
-        });
-        if (_this.thumbsRef) {
-          _this.thumbsRef.updateSizes();
-        }
-      });
-      _defineProperty(_assertThisInitialized2(_this), "setMountState", function() {
-        _this.setState({
-          hasMount: true
-        });
-        _this.updateSizes();
-      });
-      _defineProperty(_assertThisInitialized2(_this), "handleClickItem", function(index, item) {
-        if (_react.Children.count(_this.props.children) === 0) {
-          return;
-        }
-        if (_this.state.cancelClick) {
-          _this.setState({
-            cancelClick: false
-          });
-          return;
-        }
-        _this.props.onClickItem(index, item);
-        if (index !== _this.state.selectedItem) {
-          _this.setState({
-            selectedItem: index
-          });
-        }
-      });
-      _defineProperty(_assertThisInitialized2(_this), "handleOnChange", function(index, item) {
-        if (_react.Children.count(_this.props.children) <= 1) {
-          return;
-        }
-        _this.props.onChange(index, item);
-      });
-      _defineProperty(_assertThisInitialized2(_this), "handleClickThumb", function(index, item) {
-        _this.props.onClickThumb(index, item);
-        _this.moveTo(index);
-      });
-      _defineProperty(_assertThisInitialized2(_this), "onSwipeStart", function(event) {
-        _this.setState({
-          swiping: true
-        });
-        _this.props.onSwipeStart(event);
-      });
-      _defineProperty(_assertThisInitialized2(_this), "onSwipeEnd", function(event) {
-        _this.setState({
-          swiping: false,
-          cancelClick: false,
-          swipeMovementStarted: false
-        });
-        _this.props.onSwipeEnd(event);
-        _this.clearAutoPlay();
-        if (_this.state.autoPlay) {
-          _this.autoPlay();
-        }
-      });
-      _defineProperty(_assertThisInitialized2(_this), "onSwipeMove", function(delta, event) {
-        _this.props.onSwipeMove(event);
-        var animationHandlerResponse = _this.props.swipeAnimationHandler(delta, _this.props, _this.state, _this.setState.bind(_assertThisInitialized2(_this)));
-        _this.setState(_objectSpread({}, animationHandlerResponse));
-        return !!Object.keys(animationHandlerResponse).length;
-      });
-      _defineProperty(_assertThisInitialized2(_this), "decrement", function() {
-        var positions2 = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
-        _this.moveTo(_this.state.selectedItem - (typeof positions2 === "number" ? positions2 : 1));
-      });
-      _defineProperty(_assertThisInitialized2(_this), "increment", function() {
-        var positions2 = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
-        _this.moveTo(_this.state.selectedItem + (typeof positions2 === "number" ? positions2 : 1));
-      });
-      _defineProperty(_assertThisInitialized2(_this), "moveTo", function(position2) {
-        if (typeof position2 !== "number") {
-          return;
-        }
-        var lastPosition = _react.Children.count(_this.props.children) - 1;
-        if (position2 < 0) {
-          position2 = _this.props.infiniteLoop ? lastPosition : 0;
-        }
-        if (position2 > lastPosition) {
-          position2 = _this.props.infiniteLoop ? 0 : lastPosition;
-        }
-        _this.selectItem({
-          selectedItem: position2
-        });
-        if (_this.state.autoPlay && _this.state.isMouseEntered === false) {
-          _this.resetAutoPlay();
-        }
-      });
-      _defineProperty(_assertThisInitialized2(_this), "onClickNext", function() {
-        _this.increment(1);
-      });
-      _defineProperty(_assertThisInitialized2(_this), "onClickPrev", function() {
-        _this.decrement(1);
-      });
-      _defineProperty(_assertThisInitialized2(_this), "onSwipeForward", function() {
-        _this.increment(1);
-        if (_this.props.emulateTouch) {
-          _this.setState({
-            cancelClick: true
-          });
-        }
-      });
-      _defineProperty(_assertThisInitialized2(_this), "onSwipeBackwards", function() {
-        _this.decrement(1);
-        if (_this.props.emulateTouch) {
-          _this.setState({
-            cancelClick: true
-          });
-        }
-      });
-      _defineProperty(_assertThisInitialized2(_this), "changeItem", function(newIndex) {
-        return function(e) {
-          if (!(0, _utils.isKeyboardEvent)(e) || e.key === "Enter") {
-            _this.moveTo(newIndex);
-          }
-        };
-      });
-      _defineProperty(_assertThisInitialized2(_this), "selectItem", function(state) {
-        _this.setState(_objectSpread({
-          previousItem: _this.state.selectedItem
-        }, state), function() {
-          _this.setState(_this.animationHandler(_this.props, _this.state));
-        });
-        _this.handleOnChange(state.selectedItem, _react.Children.toArray(_this.props.children)[state.selectedItem]);
-      });
-      _defineProperty(_assertThisInitialized2(_this), "getInitialImage", function() {
-        var selectedItem = _this.props.selectedItem;
-        var item = _this.itemsRef && _this.itemsRef[selectedItem];
-        var images = item && item.getElementsByTagName("img") || [];
-        return images[0];
-      });
-      _defineProperty(_assertThisInitialized2(_this), "getVariableItemHeight", function(position2) {
-        var item = _this.itemsRef && _this.itemsRef[position2];
-        if (_this.state.hasMount && item && item.children.length) {
-          var slideImages = item.children[0].getElementsByTagName("img") || [];
-          if (slideImages.length > 0) {
-            var image = slideImages[0];
-            if (!image.complete) {
-              var onImageLoad = function onImageLoad() {
-                _this.forceUpdate();
-                image.removeEventListener("load", onImageLoad);
-              };
-              image.addEventListener("load", onImageLoad);
-            }
-          }
-          var displayItem = slideImages[0] || item.children[0];
-          var height2 = displayItem.clientHeight;
-          return height2 > 0 ? height2 : null;
-        }
-        return null;
-      });
-      var initState = {
-        initialized: false,
-        previousItem: props.selectedItem,
-        selectedItem: props.selectedItem,
-        hasMount: false,
-        isMouseEntered: false,
-        autoPlay: props.autoPlay,
-        swiping: false,
-        swipeMovementStarted: false,
-        cancelClick: false,
-        itemSize: 1,
-        itemListStyle: {},
-        slideStyle: {},
-        selectedStyle: {},
-        prevStyle: {}
-      };
-      _this.animationHandler = typeof props.animationHandler === "function" && props.animationHandler || props.animationHandler === "fade" && _animations.fadeAnimationHandler || _animations.slideAnimationHandler;
-      _this.state = _objectSpread(_objectSpread({}, initState), _this.animationHandler(props, initState));
-      return _this;
-    }
-    _createClass(Carousel2, [{
-      key: "componentDidMount",
-      value: function componentDidMount() {
-        if (!this.props.children) {
-          return;
-        }
-        this.setupCarousel();
-      }
-    }, {
-      key: "componentDidUpdate",
-      value: function componentDidUpdate(prevProps, prevState) {
-        if (!prevProps.children && this.props.children && !this.state.initialized) {
-          this.setupCarousel();
-        }
-        if (!prevProps.autoFocus && this.props.autoFocus) {
-          this.forceFocus();
-        }
-        if (prevState.swiping && !this.state.swiping) {
-          this.setState(_objectSpread({}, this.props.stopSwipingHandler(this.props, this.state)));
-        }
-        if (prevProps.selectedItem !== this.props.selectedItem || prevProps.centerMode !== this.props.centerMode) {
-          this.updateSizes();
-          this.moveTo(this.props.selectedItem);
-        }
-        if (prevProps.autoPlay !== this.props.autoPlay) {
-          if (this.props.autoPlay) {
-            this.setupAutoPlay();
-          } else {
-            this.destroyAutoPlay();
-          }
-          this.setState({
-            autoPlay: this.props.autoPlay
-          });
-        }
-      }
-    }, {
-      key: "componentWillUnmount",
-      value: function componentWillUnmount() {
-        this.destroyCarousel();
-      }
-    }, {
-      key: "setupCarousel",
-      value: function setupCarousel() {
-        var _this2 = this;
-        this.bindEvents();
-        if (this.state.autoPlay && _react.Children.count(this.props.children) > 1) {
-          this.setupAutoPlay();
-        }
-        if (this.props.autoFocus) {
-          this.forceFocus();
-        }
-        this.setState({
-          initialized: true
-        }, function() {
-          var initialImage = _this2.getInitialImage();
-          if (initialImage && !initialImage.complete) {
-            initialImage.addEventListener("load", _this2.setMountState);
-          } else {
-            _this2.setMountState();
-          }
-        });
-      }
-    }, {
-      key: "destroyCarousel",
-      value: function destroyCarousel() {
-        if (this.state.initialized) {
-          this.unbindEvents();
-          this.destroyAutoPlay();
-        }
-      }
-    }, {
-      key: "setupAutoPlay",
-      value: function setupAutoPlay() {
-        this.autoPlay();
-        var carouselWrapper = this.carouselWrapperRef;
-        if (this.props.stopOnHover && carouselWrapper) {
-          carouselWrapper.addEventListener("mouseenter", this.stopOnHover);
-          carouselWrapper.addEventListener("mouseleave", this.startOnLeave);
-        }
-      }
-    }, {
-      key: "destroyAutoPlay",
-      value: function destroyAutoPlay() {
-        this.clearAutoPlay();
-        var carouselWrapper = this.carouselWrapperRef;
-        if (this.props.stopOnHover && carouselWrapper) {
-          carouselWrapper.removeEventListener("mouseenter", this.stopOnHover);
-          carouselWrapper.removeEventListener("mouseleave", this.startOnLeave);
-        }
-      }
-    }, {
-      key: "bindEvents",
-      value: function bindEvents() {
-        (0, _window.default)().addEventListener("resize", this.updateSizes);
-        (0, _window.default)().addEventListener("DOMContentLoaded", this.updateSizes);
-        if (this.props.useKeyboardArrows) {
-          (0, _document.default)().addEventListener("keydown", this.navigateWithKeyboard);
-        }
-      }
-    }, {
-      key: "unbindEvents",
-      value: function unbindEvents() {
-        (0, _window.default)().removeEventListener("resize", this.updateSizes);
-        (0, _window.default)().removeEventListener("DOMContentLoaded", this.updateSizes);
-        var initialImage = this.getInitialImage();
-        if (initialImage) {
-          initialImage.removeEventListener("load", this.setMountState);
-        }
-        if (this.props.useKeyboardArrows) {
-          (0, _document.default)().removeEventListener("keydown", this.navigateWithKeyboard);
-        }
-      }
-    }, {
-      key: "forceFocus",
-      value: function forceFocus() {
-        var _this$carouselWrapper;
-        (_this$carouselWrapper = this.carouselWrapperRef) === null || _this$carouselWrapper === undefined || _this$carouselWrapper.focus();
-      }
-    }, {
-      key: "renderItems",
-      value: function renderItems(isClone) {
-        var _this3 = this;
-        if (!this.props.children) {
-          return [];
-        }
-        return _react.Children.map(this.props.children, function(item, index) {
-          var isSelected = index === _this3.state.selectedItem;
-          var isPrevious = index === _this3.state.previousItem;
-          var style10 = isSelected && _this3.state.selectedStyle || isPrevious && _this3.state.prevStyle || _this3.state.slideStyle || {};
-          if (_this3.props.centerMode && _this3.props.axis === "horizontal") {
-            style10 = _objectSpread(_objectSpread({}, style10), {}, {
-              minWidth: _this3.props.centerSlidePercentage + "%"
-            });
-          }
-          if (_this3.state.swiping && _this3.state.swipeMovementStarted) {
-            style10 = _objectSpread(_objectSpread({}, style10), {}, {
-              pointerEvents: "none"
-            });
-          }
-          var slideProps = {
-            ref: function ref(e) {
-              return _this3.setItemsRef(e, index);
-            },
-            key: "itemKey" + index + (isClone ? "clone" : ""),
-            className: _cssClasses.default.ITEM(true, index === _this3.state.selectedItem, index === _this3.state.previousItem),
-            onClick: _this3.handleClickItem.bind(_this3, index, item),
-            style: style10
-          };
-          return _react.default.createElement("li", slideProps, _this3.props.renderItem(item, {
-            isSelected: index === _this3.state.selectedItem,
-            isPrevious: index === _this3.state.previousItem
-          }));
-        });
-      }
-    }, {
-      key: "renderControls",
-      value: function renderControls() {
-        var _this4 = this;
-        var _this$props = this.props, showIndicators = _this$props.showIndicators, labels = _this$props.labels, renderIndicator = _this$props.renderIndicator, children = _this$props.children;
-        if (!showIndicators) {
-          return null;
-        }
-        return _react.default.createElement("ul", {
-          className: "control-dots"
-        }, _react.Children.map(children, function(_2, index) {
-          return renderIndicator && renderIndicator(_this4.changeItem(index), index === _this4.state.selectedItem, index, labels.item);
-        }));
-      }
-    }, {
-      key: "renderStatus",
-      value: function renderStatus() {
-        if (!this.props.showStatus) {
-          return null;
-        }
-        return _react.default.createElement("p", {
-          className: "carousel-status"
-        }, this.props.statusFormatter(this.state.selectedItem + 1, _react.Children.count(this.props.children)));
-      }
-    }, {
-      key: "renderThumbs",
-      value: function renderThumbs() {
-        if (!this.props.showThumbs || !this.props.children || _react.Children.count(this.props.children) === 0) {
-          return null;
-        }
-        return _react.default.createElement(_Thumbs.default, {
-          ref: this.setThumbsRef,
-          onSelectItem: this.handleClickThumb,
-          selectedItem: this.state.selectedItem,
-          transitionTime: this.props.transitionTime,
-          thumbWidth: this.props.thumbWidth,
-          labels: this.props.labels,
-          emulateTouch: this.props.emulateTouch
-        }, this.props.renderThumbs(this.props.children));
-      }
-    }, {
-      key: "render",
-      value: function render() {
-        var _this5 = this;
-        if (!this.props.children || _react.Children.count(this.props.children) === 0) {
-          return null;
-        }
-        var isSwipeable = this.props.swipeable && _react.Children.count(this.props.children) > 1;
-        var isHorizontal = this.props.axis === "horizontal";
-        var canShowArrows = this.props.showArrows && _react.Children.count(this.props.children) > 1;
-        var hasPrev = canShowArrows && (this.state.selectedItem > 0 || this.props.infiniteLoop) || false;
-        var hasNext = canShowArrows && (this.state.selectedItem < _react.Children.count(this.props.children) - 1 || this.props.infiniteLoop) || false;
-        var itemsClone = this.renderItems(true);
-        var firstClone = itemsClone.shift();
-        var lastClone = itemsClone.pop();
-        var swiperProps = {
-          className: _cssClasses.default.SLIDER(true, this.state.swiping),
-          onSwipeMove: this.onSwipeMove,
-          onSwipeStart: this.onSwipeStart,
-          onSwipeEnd: this.onSwipeEnd,
-          style: this.state.itemListStyle,
-          tolerance: this.props.swipeScrollTolerance
-        };
-        var containerStyles = {};
-        if (isHorizontal) {
-          swiperProps.onSwipeLeft = this.onSwipeForward;
-          swiperProps.onSwipeRight = this.onSwipeBackwards;
-          if (this.props.dynamicHeight) {
-            var itemHeight = this.getVariableItemHeight(this.state.selectedItem);
-            containerStyles.height = itemHeight || "auto";
-          }
-        } else {
-          swiperProps.onSwipeUp = this.props.verticalSwipe === "natural" ? this.onSwipeBackwards : this.onSwipeForward;
-          swiperProps.onSwipeDown = this.props.verticalSwipe === "natural" ? this.onSwipeForward : this.onSwipeBackwards;
-          swiperProps.style = _objectSpread(_objectSpread({}, swiperProps.style), {}, {
-            height: this.state.itemSize
-          });
-          containerStyles.height = this.state.itemSize;
-        }
-        return _react.default.createElement("div", {
-          "aria-label": this.props.ariaLabel,
-          className: _cssClasses.default.ROOT(this.props.className),
-          ref: this.setCarouselWrapperRef,
-          tabIndex: this.props.useKeyboardArrows ? 0 : undefined
-        }, _react.default.createElement("div", {
-          className: _cssClasses.default.CAROUSEL(true),
-          style: {
-            width: this.props.width
-          }
-        }, this.renderControls(), this.props.renderArrowPrev(this.onClickPrev, hasPrev, this.props.labels.leftArrow), _react.default.createElement("div", {
-          className: _cssClasses.default.WRAPPER(true, this.props.axis),
-          style: containerStyles
-        }, isSwipeable ? _react.default.createElement(_reactEasySwipe.default, _extends5({
-          tagName: "ul",
-          innerRef: this.setListRef
-        }, swiperProps, {
-          allowMouseEvents: this.props.emulateTouch
-        }), this.props.infiniteLoop && lastClone, this.renderItems(), this.props.infiniteLoop && firstClone) : _react.default.createElement("ul", {
-          className: _cssClasses.default.SLIDER(true, this.state.swiping),
-          ref: function ref(node2) {
-            return _this5.setListRef(node2);
-          },
-          style: this.state.itemListStyle || {}
-        }, this.props.infiniteLoop && lastClone, this.renderItems(), this.props.infiniteLoop && firstClone)), this.props.renderArrowNext(this.onClickNext, hasNext, this.props.labels.rightArrow), this.renderStatus()), this.renderThumbs());
-      }
-    }]);
-    return Carousel2;
-  }(_react.default.Component);
-  exports.default = Carousel;
-  _defineProperty(Carousel, "displayName", "Carousel");
-  _defineProperty(Carousel, "defaultProps", {
-    ariaLabel: undefined,
-    axis: "horizontal",
-    centerSlidePercentage: 80,
-    interval: 3000,
-    labels: {
-      leftArrow: "previous slide / item",
-      rightArrow: "next slide / item",
-      item: "slide item"
-    },
-    onClickItem: _utils.noop,
-    onClickThumb: _utils.noop,
-    onChange: _utils.noop,
-    onSwipeStart: function onSwipeStart() {
-    },
-    onSwipeEnd: function onSwipeEnd() {
-    },
-    onSwipeMove: function onSwipeMove() {
-      return false;
-    },
-    preventMovementUntilSwipeScrollTolerance: false,
-    renderArrowPrev: function renderArrowPrev(onClickHandler, hasPrev, label) {
-      return _react.default.createElement("button", {
-        type: "button",
-        "aria-label": label,
-        className: _cssClasses.default.ARROW_PREV(!hasPrev),
-        onClick: onClickHandler
-      });
-    },
-    renderArrowNext: function renderArrowNext(onClickHandler, hasNext, label) {
-      return _react.default.createElement("button", {
-        type: "button",
-        "aria-label": label,
-        className: _cssClasses.default.ARROW_NEXT(!hasNext),
-        onClick: onClickHandler
-      });
-    },
-    renderIndicator: function renderIndicator(onClickHandler, isSelected, index, label) {
-      return _react.default.createElement("li", {
-        className: _cssClasses.default.DOT(isSelected),
-        onClick: onClickHandler,
-        onKeyDown: onClickHandler,
-        value: index,
-        key: index,
-        role: "button",
-        tabIndex: 0,
-        "aria-label": "".concat(label, " ").concat(index + 1)
-      });
-    },
-    renderItem: function renderItem(item) {
-      return item;
-    },
-    renderThumbs: function renderThumbs(children) {
-      var images = _react.Children.map(children, function(item) {
-        var img = item;
-        if (item.type !== "img") {
-          img = _react.Children.toArray(item.props.children).find(function(children2) {
-            return children2.type === "img";
-          });
-        }
-        if (!img) {
-          return;
-        }
-        return img;
-      });
-      if (images.filter(function(image) {
-        return image;
-      }).length === 0) {
-        console.warn("No images found! Can't build the thumb list without images. If you don't need thumbs, set showThumbs={false} in the Carousel. Note that it's not possible to get images rendered inside custom components. More info at https://github.com/leandrowd/react-responsive-carousel/blob/master/TROUBLESHOOTING.md");
-        return [];
-      }
-      return images;
-    },
-    statusFormatter: _utils.defaultStatusFormatter,
-    selectedItem: 0,
-    showArrows: true,
-    showIndicators: true,
-    showStatus: true,
-    showThumbs: true,
-    stopOnHover: true,
-    swipeScrollTolerance: 5,
-    swipeable: true,
-    transitionTime: 350,
-    verticalSwipe: "standard",
-    width: "100%",
-    animationHandler: "slide",
-    swipeAnimationHandler: _animations.slideSwipeAnimationHandler,
-    stopSwipingHandler: _animations.slideStopSwipingHandler
-  });
-});
-
-// node_modules/react-responsive-carousel/lib/js/components/Carousel/types.js
-var exports_types = {};
-var init_types = __esm(() => {
-});
-
-// node_modules/react-responsive-carousel/lib/js/index.js
-var require_js = __commonJS((exports) => {
-  var _interopRequireDefault = function(obj) {
-    return obj && obj.__esModule ? obj : { default: obj };
-  };
-  Object.defineProperty(exports, "__esModule", {
-    value: true
-  });
-  Object.defineProperty(exports, "Carousel", {
-    enumerable: true,
-    get: function get() {
-      return _Carousel.default;
-    }
-  });
-  Object.defineProperty(exports, "CarouselProps", {
-    enumerable: true,
-    get: function get() {
-      return _types.CarouselProps;
-    }
-  });
-  Object.defineProperty(exports, "Thumbs", {
-    enumerable: true,
-    get: function get() {
-      return _Thumbs.default;
-    }
-  });
-  var _Carousel = _interopRequireDefault(require_Carousel());
-  var _types = (init_types(), __toCommonJS(exports_types));
-  var _Thumbs = _interopRequireDefault(require_Thumbs());
-});
-
 // node_modules/react/cjs/react-jsx-dev-runtime.development.js
 var require_react_jsx_dev_runtime_development = __commonJS((exports) => {
-  var React72 = __toESM(require_react(), 1);
+  var React70 = __toESM(require_react(), 1);
   if (true) {
     (function() {
       var _assign = require_object_assign();
@@ -24623,7 +22565,7 @@ var require_react_jsx_dev_runtime_development = __commonJS((exports) => {
         }
         return null;
       }
-      var ReactSharedInternals = React72.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+      var ReactSharedInternals = React70.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
       function error(format) {
         {
           for (var _len2 = arguments.length, args = new Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1;_key2 < _len2; _key2++) {
@@ -25188,7 +23130,7 @@ var require_react_jsx_dev_runtime_development = __commonJS((exports) => {
       {
         propTypesMisspellWarningShown = false;
       }
-      function isValidElement10(object) {
+      function isValidElement12(object) {
         {
           return typeof object === "object" && object !== null && object.$$typeof === REACT_ELEMENT_TYPE;
         }
@@ -25255,11 +23197,11 @@ var require_react_jsx_dev_runtime_development = __commonJS((exports) => {
           if (Array.isArray(node2)) {
             for (var i = 0;i < node2.length; i++) {
               var child = node2[i];
-              if (isValidElement10(child)) {
+              if (isValidElement12(child)) {
                 validateExplicitKey(child, parentType);
               }
             }
-          } else if (isValidElement10(node2)) {
+          } else if (isValidElement12(node2)) {
             if (node2._store) {
               node2._store.validated = true;
             }
@@ -25270,7 +23212,7 @@ var require_react_jsx_dev_runtime_development = __commonJS((exports) => {
                 var iterator = iteratorFn.call(node2);
                 var step;
                 while (!(step = iterator.next()).done) {
-                  if (isValidElement10(step.value)) {
+                  if (isValidElement12(step.value)) {
                     validateExplicitKey(step.value, parentType);
                   }
                 }
@@ -25397,47 +23339,12 @@ var require_jsx_dev_runtime = __commonJS((exports, module) => {
   }
 });
 
-// node_modules/shallowequal/index.js
-var require_shallowequal = __commonJS((exports, module) => {
-  module.exports = function shallowEqual(objA, objB, compare, compareContext) {
-    var ret = compare ? compare.call(compareContext, objA, objB) : undefined;
-    if (ret !== undefined) {
-      return !!ret;
-    }
-    if (objA === objB) {
-      return true;
-    }
-    if (typeof objA !== "object" || !objA || typeof objB !== "object" || !objB) {
-      return false;
-    }
-    var keysA = Object.keys(objA);
-    var keysB = Object.keys(objB);
-    if (keysA.length !== keysB.length) {
-      return false;
-    }
-    var bHasOwnProperty = Object.prototype.hasOwnProperty.bind(objB);
-    for (var idx = 0;idx < keysA.length; idx++) {
-      var key = keysA[idx];
-      if (!bHasOwnProperty(key)) {
-        return false;
-      }
-      var valueA = objA[key];
-      var valueB = objB[key];
-      ret = compare ? compare.call(compareContext, valueA, valueB, key) : undefined;
-      if (ret === false || ret === undefined && valueA !== valueB) {
-        return false;
-      }
-    }
-    return true;
-  };
-});
-
 // src/index.jsx
-var import_react27 = __toESM(require_react(), 1);
+var import_react36 = __toESM(require_react(), 1);
 var import_react_dom2 = __toESM(require_react_dom(), 1);
 
 // src/components/App.jsx
-var import_react26 = __toESM(require_react(), 1);
+var import_react35 = __toESM(require_react(), 1);
 
 // node_modules/react-router-dom/dist/index.js
 var React2 = __toESM(require_react(), 1);
@@ -27909,55 +25816,20 @@ function unsupportedProp(props, propName, componentName, location, propFullName)
   }
   return null;
 }
-// node_modules/@mui/utils/esm/useControlled/useControlled.js
-var React5 = __toESM(require_react(), 1);
-function useControlled({
-  controlled,
-  default: defaultProp,
-  name,
-  state = "value"
-}) {
-  const {
-    current: isControlled
-  } = React5.useRef(controlled !== undefined);
-  const [valueState, setValue] = React5.useState(defaultProp);
-  const value = isControlled ? controlled : valueState;
-  if (true) {
-    React5.useEffect(() => {
-      if (isControlled !== (controlled !== undefined)) {
-        console.error([`MUI: A component is changing the ${isControlled ? "" : "un"}controlled ${state} state of ${name} to be ${isControlled ? "un" : ""}controlled.`, "Elements should not switch from uncontrolled to controlled (or vice versa).", `Decide between using a controlled or uncontrolled ${name} ` + "element for the lifetime of the component.", "The nature of the state is determined during the first render. It's considered controlled if the value is not `undefined`.", "More info: https://fb.me/react-controlled-components"].join("\n"));
-      }
-    }, [state, name, controlled]);
-    const {
-      current: defaultValue
-    } = React5.useRef(defaultProp);
-    React5.useEffect(() => {
-      if (!isControlled && defaultValue !== defaultProp) {
-        console.error([`MUI: A component is changing the default ${state} state of an uncontrolled ${name} after being initialized. ` + `To suppress this warning opt to use a controlled ${name}.`].join("\n"));
-      }
-    }, [JSON.stringify(defaultProp)]);
-  }
-  const setValueIfUncontrolled = React5.useCallback((newValue) => {
-    if (!isControlled) {
-      setValue(newValue);
-    }
-  }, []);
-  return [value, setValueIfUncontrolled];
-}
 // node_modules/@mui/utils/esm/useEventCallback/useEventCallback.js
-var React6 = __toESM(require_react(), 1);
+var React5 = __toESM(require_react(), 1);
 var useEventCallback = function(fn) {
-  const ref = React6.useRef(fn);
+  const ref = React5.useRef(fn);
   useEnhancedEffect_default(() => {
     ref.current = fn;
   });
-  return React6.useCallback((...args) => (0, ref.current)(...args), []);
+  return React5.useCallback((...args) => (0, ref.current)(...args), []);
 };
 var useEventCallback_default = useEventCallback;
 // node_modules/@mui/utils/esm/useForkRef/useForkRef.js
-var React7 = __toESM(require_react(), 1);
+var React6 = __toESM(require_react(), 1);
 function useForkRef(...refs) {
-  return React7.useMemo(() => {
+  return React6.useMemo(() => {
     if (refs.every((ref) => ref == null)) {
       return null;
     }
@@ -27969,7 +25841,7 @@ function useForkRef(...refs) {
   }, refs);
 }
 // node_modules/@mui/utils/esm/useIsFocusVisible.js
-var React8 = __toESM(require_react(), 1);
+var React7 = __toESM(require_react(), 1);
 var focusTriggersKeyboardModality = function(node) {
   const {
     type,
@@ -28038,12 +25910,12 @@ var inputTypesWhitelist = {
   "datetime-local": true
 };
 function useIsFocusVisible() {
-  const ref = React8.useCallback((node) => {
+  const ref = React7.useCallback((node) => {
     if (node != null) {
       prepare(node.ownerDocument);
     }
   }, []);
-  const isFocusVisibleRef = React8.useRef(false);
+  const isFocusVisibleRef = React7.useRef(false);
   function handleBlurVisible() {
     if (isFocusVisibleRef.current) {
       hadFocusVisibleRecently = true;
@@ -28076,9 +25948,9 @@ function getScrollbarSize(doc) {
   return Math.abs(window.innerWidth - documentWidth);
 }
 // node_modules/@mui/utils/esm/getValidReactChildren.js
-var React9 = __toESM(require_react(), 1);
+var React8 = __toESM(require_react(), 1);
 function getValidReactChildren(children) {
-  return React9.Children.toArray(children).filter((child) => React9.isValidElement(child));
+  return React8.Children.toArray(children).filter((child) => React8.isValidElement(child));
 }
 // node_modules/@mui/utils/esm/integerPropType.js
 function getTypeByValue(value) {
@@ -28239,7 +26111,7 @@ function _objectWithoutPropertiesLoose2(source, excluded) {
 }
 
 // node_modules/@emotion/styled/base/dist/emotion-styled-base.browser.esm.js
-var React13 = __toESM(require_react(), 1);
+var React12 = __toESM(require_react(), 1);
 
 // node_modules/@emotion/memoize/dist/emotion-memoize.esm.js
 var memoize = function(fn) {
@@ -28258,7 +26130,7 @@ var isPropValid = memoize(function(prop) {
 });
 
 // node_modules/@emotion/react/dist/emotion-element-c39617d8.browser.esm.js
-var React11 = __toESM(require_react(), 1);
+var React10 = __toESM(require_react(), 1);
 var import_react = __toESM(require_react(), 1);
 
 // node_modules/@emotion/sheet/dist/emotion-sheet.browser.esm.js
@@ -29439,18 +27311,18 @@ var serializeStyles = function serializeStyles2(args, registered, mergedProps) {
 };
 
 // node_modules/@emotion/use-insertion-effect-with-fallbacks/dist/emotion-use-insertion-effect-with-fallbacks.browser.esm.js
-var React10 = __toESM(require_react(), 1);
+var React9 = __toESM(require_react(), 1);
 var syncFallback = function syncFallback2(create) {
   return create();
 };
-var useInsertionEffect2 = React10.useInsertionEffect ? React10.useInsertionEffect : false;
+var useInsertionEffect2 = React9.useInsertionEffect ? React9.useInsertionEffect : false;
 var useInsertionEffectAlwaysWithSyncFallback = useInsertionEffect2 || syncFallback;
-var useInsertionEffectWithLayoutFallback = useInsertionEffect2 || React10.useLayoutEffect;
+var useInsertionEffectWithLayoutFallback = useInsertionEffect2 || React9.useLayoutEffect;
 
 // node_modules/@emotion/react/dist/emotion-element-c39617d8.browser.esm.js
 var isBrowser3 = true;
 var hasOwnProperty = {}.hasOwnProperty;
-var EmotionCacheContext = React11.createContext(typeof HTMLElement !== "undefined" ? createCache({
+var EmotionCacheContext = React10.createContext(typeof HTMLElement !== "undefined" ? createCache({
   key: "css"
 }) : null);
 if (true) {
@@ -29471,7 +27343,7 @@ if (!isBrowser3) {
         cache2 = createCache({
           key: "css"
         });
-        return React11.createElement(EmotionCacheContext.Provider, {
+        return React10.createElement(EmotionCacheContext.Provider, {
           value: cache2
         }, func(props, cache2));
       } else {
@@ -29480,7 +27352,7 @@ if (!isBrowser3) {
     };
   };
 }
-var ThemeContext = React11.createContext({});
+var ThemeContext = React10.createContext({});
 if (true) {
   ThemeContext.displayName = "EmotionThemeContext";
 }
@@ -29507,7 +27379,7 @@ var Emotion = withEmotionCache(function(props, cache2, ref) {
   } else if (props.className != null) {
     className = props.className + " ";
   }
-  var serialized = serializeStyles(registeredStyles, undefined, React11.useContext(ThemeContext));
+  var serialized = serializeStyles(registeredStyles, undefined, React10.useContext(ThemeContext));
   if (serialized.name.indexOf("-") === -1) {
     var labelFromStack = props[labelPropName];
     if (labelFromStack) {
@@ -29523,18 +27395,18 @@ var Emotion = withEmotionCache(function(props, cache2, ref) {
   }
   newProps.ref = ref;
   newProps.className = className;
-  return React11.createElement(React11.Fragment, null, React11.createElement(Insertion, {
+  return React10.createElement(React10.Fragment, null, React10.createElement(Insertion, {
     cache: cache2,
     serialized,
     isStringTag: typeof WrappedComponent === "string"
-  }), React11.createElement(WrappedComponent, newProps));
+  }), React10.createElement(WrappedComponent, newProps));
 });
 if (true) {
   Emotion.displayName = "EmotionCssPropInternal";
 }
 
 // node_modules/@emotion/react/dist/emotion-react.browser.esm.js
-var React12 = __toESM(require_react(), 1);
+var React11 = __toESM(require_react(), 1);
 var import_hoist_non_react_statics = __toESM(require_hoist_non_react_statics_cjs(), 1);
 var css = function() {
   for (var _len = arguments.length, args = new Array(_len), _key = 0;_key < _len; _key++) {
@@ -29688,7 +27560,7 @@ var Global = withEmotionCache(function(props, cache3) {
     warnedAboutCssPropForGlobal = true;
   }
   var styles = props.styles;
-  var serialized = serializeStyles([styles], undefined, React12.useContext(ThemeContext));
+  var serialized = serializeStyles([styles], undefined, React11.useContext(ThemeContext));
   if (!isBrowser3) {
     var _ref;
     var serializedNames = serialized.name;
@@ -29707,11 +27579,11 @@ var Global = withEmotionCache(function(props, cache3) {
     if (shouldCache) {
       return null;
     }
-    return React12.createElement("style", (_ref = {}, _ref["data-emotion"] = cache3.key + "-global " + serializedNames, _ref.dangerouslySetInnerHTML = {
+    return React11.createElement("style", (_ref = {}, _ref["data-emotion"] = cache3.key + "-global " + serializedNames, _ref.dangerouslySetInnerHTML = {
       __html: rules
     }, _ref.nonce = cache3.sheet.nonce, _ref));
   }
-  var sheetRef = React12.useRef();
+  var sheetRef = React11.useRef();
   useInsertionEffectWithLayoutFallback(function() {
     var key = cache3.key + "-global";
     var sheet2 = new cache3.sheet.constructor({
@@ -29845,11 +27717,11 @@ var ClassNames = withEmotionCache(function(props, cache3) {
   var content = {
     css: css2,
     cx,
-    theme: React12.useContext(ThemeContext)
+    theme: React11.useContext(ThemeContext)
   };
   var ele = props.children(content);
   hasRendered = true;
-  return React12.createElement(React12.Fragment, null, React12.createElement(Insertion3, {
+  return React11.createElement(React11.Fragment, null, React11.createElement(Insertion3, {
     cache: cache3,
     serializedArr
   }), ele);
@@ -29953,7 +27825,7 @@ var createStyled = function createStyled2(tag, options) {
         for (var key in props) {
           mergedProps[key] = props[key];
         }
-        mergedProps.theme = React13.useContext(ThemeContext);
+        mergedProps.theme = React12.useContext(ThemeContext);
       }
       if (typeof props.className === "string") {
         className = getRegisteredStyles(cache3.registered, classInterpolations, props.className);
@@ -29976,11 +27848,11 @@ var createStyled = function createStyled2(tag, options) {
       }
       newProps.className = className;
       newProps.ref = ref;
-      return React13.createElement(React13.Fragment, null, React13.createElement(Insertion5, {
+      return React12.createElement(React12.Fragment, null, React12.createElement(Insertion5, {
         cache: cache3,
         serialized,
         isStringTag: typeof FinalTag === "string"
-      }), React13.createElement(FinalTag, newProps));
+      }), React12.createElement(FinalTag, newProps));
     });
     Styled.displayName = identifierName !== undefined ? identifierName : "Styled(" + (typeof baseTag === "string" ? baseTag : baseTag.displayName || baseTag.name || "Component") + ")";
     Styled.defaultProps = tag.defaultProps;
@@ -31271,12 +29143,12 @@ var createTheme = function(options = {}, ...args) {
 var _excluded6 = ["breakpoints", "palette", "spacing", "shape"];
 var createTheme_default = createTheme;
 // node_modules/@mui/system/esm/useThemeWithoutDefault.js
-var React14 = __toESM(require_react(), 1);
+var React13 = __toESM(require_react(), 1);
 var isObjectEmpty = function(obj) {
   return Object.keys(obj).length === 0;
 };
 var useTheme2 = function(defaultTheme = null) {
-  const contextTheme = React14.useContext(ThemeContext);
+  const contextTheme = React13.useContext(ThemeContext);
   return !contextTheme || isObjectEmpty(contextTheme) ? defaultTheme : contextTheme;
 };
 var useThemeWithoutDefault_default = useTheme2;
@@ -31332,7 +29204,7 @@ function extendSxProp(props) {
   });
 }
 // node_modules/@mui/system/esm/createBox.js
-var React15 = __toESM(require_react(), 1);
+var React14 = __toESM(require_react(), 1);
 
 // node_modules/@mui/system/node_modules/clsx/dist/clsx.mjs
 var r = function(e) {
@@ -31368,7 +29240,7 @@ function createBox(options = {}) {
   const BoxRoot = styled2("div", {
     shouldForwardProp: (prop) => prop !== "theme" && prop !== "sx" && prop !== "as"
   })(styleFunctionSx_default);
-  const Box = React15.forwardRef(function Box(inProps, ref) {
+  const Box = React14.forwardRef(function Box(inProps, ref) {
     const theme = useTheme_default(defaultTheme);
     const _extendSxProp = extendSxProp(inProps), {
       className,
@@ -31850,27 +29722,27 @@ function lighten(color2, coefficient) {
   return recomposeColor(color2);
 }
 // node_modules/@mui/system/esm/ThemeProvider/ThemeProvider.js
-var React19 = __toESM(require_react(), 1);
+var React18 = __toESM(require_react(), 1);
 var import_prop_types6 = __toESM(require_prop_types(), 1);
 
 // node_modules/@mui/private-theming/ThemeProvider/ThemeProvider.js
-var React18 = __toESM(require_react(), 1);
+var React17 = __toESM(require_react(), 1);
 var import_prop_types5 = __toESM(require_prop_types(), 1);
 
 // node_modules/@mui/private-theming/useTheme/ThemeContext.js
-var React16 = __toESM(require_react(), 1);
-var ThemeContext2 = React16.createContext(null);
+var React15 = __toESM(require_react(), 1);
+var ThemeContext2 = React15.createContext(null);
 if (true) {
   ThemeContext2.displayName = "ThemeContext";
 }
 var ThemeContext_default = ThemeContext2;
 
 // node_modules/@mui/private-theming/useTheme/useTheme.js
-var React17 = __toESM(require_react(), 1);
+var React16 = __toESM(require_react(), 1);
 function useTheme6() {
-  const theme = React17.useContext(ThemeContext_default);
+  const theme = React16.useContext(ThemeContext_default);
   if (true) {
-    React17.useDebugValue(theme);
+    React16.useDebugValue(theme);
   }
   return theme;
 }
@@ -31903,7 +29775,7 @@ var ThemeProvider2 = function(props) {
       console.error(["MUI: You are providing a theme function prop to the ThemeProvider component:", "<ThemeProvider theme={outerTheme => outerTheme} />", "", "However, no outer theme is present.", "Make sure a theme is already injected higher in the React tree or provide a theme object."].join("\n"));
     }
   }
-  const theme = React18.useMemo(() => {
+  const theme = React17.useMemo(() => {
     const output = outerTheme === null ? localTheme : mergeOuterLocalTheme(outerTheme, localTheme);
     if (output != null) {
       output[nested_default] = outerTheme !== null;
@@ -31926,7 +29798,7 @@ var ThemeProvider_default = ThemeProvider2;
 // node_modules/@mui/system/esm/ThemeProvider/ThemeProvider.js
 var jsx_runtime3 = __toESM(require_jsx_runtime(), 1);
 var useThemeScoping = function(themeId, upperTheme, localTheme, isPrivate = false) {
-  return React19.useMemo(() => {
+  return React18.useMemo(() => {
     const resolvedTheme = themeId ? upperTheme[themeId] || upperTheme : upperTheme;
     if (typeof localTheme === "function") {
       const mergedTheme = localTheme(resolvedTheme);
@@ -31977,7 +29849,7 @@ if (true) {
 }
 var ThemeProvider_default2 = ThemeProvider4;
 // node_modules/@mui/system/esm/Stack/createStack.js
-var React20 = __toESM(require_react(), 1);
+var React19 = __toESM(require_react(), 1);
 var import_prop_types7 = __toESM(require_prop_types(), 1);
 var jsx_runtime4 = __toESM(require_jsx_runtime(), 1);
 var useThemePropsDefault = function(props) {
@@ -31988,11 +29860,11 @@ var useThemePropsDefault = function(props) {
   });
 };
 var joinChildren = function(children, separator) {
-  const childrenArray = React20.Children.toArray(children).filter(Boolean);
+  const childrenArray = React19.Children.toArray(children).filter(Boolean);
   return childrenArray.reduce((output, child, index) => {
     output.push(child);
     if (index < childrenArray.length - 1) {
-      output.push(React20.cloneElement(separator, {
+      output.push(React19.cloneElement(separator, {
         key: `separator-${index}`
       }));
     }
@@ -32089,7 +29961,7 @@ function createStack(options = {}) {
     return composeClasses(slots, (slot) => generateUtilityClass(componentName, slot), {});
   };
   const StackRoot = createStyledComponent(style9);
-  const Stack = React20.forwardRef(function Grid(inProps, ref) {
+  const Stack = React19.forwardRef(function Grid(inProps, ref) {
     const themeProps = useThemeProps3(inProps);
     const props = extendSxProp(themeProps);
     const {
@@ -32629,7 +30501,7 @@ Please use another name.`);
 var _excluded15 = ["breakpoints", "mixins", "spacing", "palette", "transitions", "typography", "shape"];
 var createTheme_default2 = createTheme5;
 // node_modules/@mui/material/styles/useTheme.js
-var React21 = __toESM(require_react(), 1);
+var React20 = __toESM(require_react(), 1);
 
 // node_modules/@mui/material/styles/defaultTheme.js
 var defaultTheme2 = createTheme_default2();
@@ -32639,7 +30511,7 @@ var defaultTheme_default = defaultTheme2;
 function useTheme8() {
   const theme = useTheme_default(defaultTheme_default);
   if (true) {
-    React21.useDebugValue(theme);
+    React20.useDebugValue(theme);
   }
   return theme[identifier_default] || theme;
 }
@@ -32666,7 +30538,7 @@ var styled5 = createStyled3({
 });
 var styled_default2 = styled5;
 // node_modules/@mui/material/styles/ThemeProvider.js
-var React22 = __toESM(require_react(), 1);
+var React21 = __toESM(require_react(), 1);
 var import_prop_types8 = __toESM(require_prop_types(), 1);
 var jsx_runtime5 = __toESM(require_jsx_runtime(), 1);
 var _excluded16 = ["theme"];
@@ -32699,10 +30571,10 @@ var getOverlayAlpha_default = getOverlayAlpha;
 var capitalize_default = capitalize;
 
 // node_modules/@mui/material/utils/createSvgIcon.js
-var React24 = __toESM(require_react(), 1);
+var React23 = __toESM(require_react(), 1);
 
 // node_modules/@mui/material/SvgIcon/SvgIcon.js
-var React23 = __toESM(require_react(), 1);
+var React22 = __toESM(require_react(), 1);
 var import_prop_types9 = __toESM(require_prop_types(), 1);
 
 // node_modules/@mui/material/node_modules/clsx/dist/clsx.mjs
@@ -32783,7 +30655,7 @@ var SvgIconRoot = styled_default2("svg", {
     }[ownerState.color]
   };
 });
-var SvgIcon = React23.forwardRef(function SvgIcon2(inProps, ref) {
+var SvgIcon = React22.forwardRef(function SvgIcon2(inProps, ref) {
   const props = useThemeProps3({
     props: inProps,
     name: "MuiSvgIcon"
@@ -32799,7 +30671,7 @@ var SvgIcon = React23.forwardRef(function SvgIcon2(inProps, ref) {
     titleAccess,
     viewBox = "0 0 24 24"
   } = props, other = _objectWithoutPropertiesLoose2(props, _excluded17);
-  const hasSvgAsChild = React23.isValidElement(children) && children.type === "svg";
+  const hasSvgAsChild = React22.isValidElement(children) && children.type === "svg";
   const ownerState = _extends4({}, props, {
     color: color2,
     component,
@@ -32860,7 +30732,7 @@ function createSvgIcon(path, displayName) {
     Component2.displayName = `${displayName}Icon`;
   }
   Component2.muiName = SvgIcon_default.muiName;
-  return React24.memo(React24.forwardRef(Component2));
+  return React23.memo(React23.forwardRef(Component2));
 }
 // node_modules/@mui/material/utils/debounce.js
 var debounce_default = debounce;
@@ -32882,9 +30754,6 @@ var useEnhancedEffect_default2 = useEnhancedEffect_default;
 
 // node_modules/@mui/material/utils/unsupportedProp.js
 var unsupportedProp_default = unsupportedProp;
-
-// node_modules/@mui/material/utils/useControlled.js
-var useControlled_default = useControlled;
 
 // node_modules/@mui/material/utils/useEventCallback.js
 var useEventCallback_default2 = useEventCallback_default;
@@ -33434,7 +31303,7 @@ function getTransitionProps(props, options) {
 var reflow2 = (node2) => node2.scrollTop;
 
 // node_modules/@mui/material/Paper/Paper.js
-var React28 = __toESM(require_react(), 1);
+var React27 = __toESM(require_react(), 1);
 var import_prop_types13 = __toESM(require_prop_types(), 1);
 
 // node_modules/@mui/material/Paper/paperClasses.js
@@ -33488,7 +31357,7 @@ var PaperRoot = styled_default2("div", {
     backgroundImage: (_theme$vars$overlays = theme.vars.overlays) == null ? undefined : _theme$vars$overlays[ownerState.elevation]
   }));
 });
-var Paper = React28.forwardRef(function Paper2(inProps, ref) {
+var Paper = React27.forwardRef(function Paper2(inProps, ref) {
   const props = useThemeProps3({
     props: inProps,
     name: "MuiPaper"
@@ -33541,15 +31410,15 @@ Paper.propTypes = {
 };
 var Paper_default = Paper;
 // node_modules/@mui/material/ButtonBase/ButtonBase.js
-var React31 = __toESM(require_react(), 1);
+var React30 = __toESM(require_react(), 1);
 var import_prop_types16 = __toESM(require_prop_types(), 1);
 
 // node_modules/@mui/material/ButtonBase/TouchRipple.js
-var React30 = __toESM(require_react(), 1);
+var React29 = __toESM(require_react(), 1);
 var import_prop_types15 = __toESM(require_prop_types(), 1);
 
 // node_modules/@mui/material/ButtonBase/Ripple.js
-var React29 = __toESM(require_react(), 1);
+var React28 = __toESM(require_react(), 1);
 var import_prop_types14 = __toESM(require_prop_types(), 1);
 var jsx_runtime10 = __toESM(require_jsx_runtime(), 1);
 var Ripple = function(props) {
@@ -33564,7 +31433,7 @@ var Ripple = function(props) {
     onExited,
     timeout: timeout2
   } = props;
-  const [leaving, setLeaving] = React29.useState(false);
+  const [leaving, setLeaving] = React28.useState(false);
   const rippleClassName = clsx_default2(className, classes.ripple, classes.rippleVisible, pulsate && classes.ripplePulsate);
   const rippleStyles = {
     width: rippleSize,
@@ -33576,7 +31445,7 @@ var Ripple = function(props) {
   if (!inProp && !leaving) {
     setLeaving(true);
   }
-  React29.useEffect(() => {
+  React28.useEffect(() => {
     if (!inProp && onExited != null) {
       const timeoutId = setTimeout(onExited, timeout2);
       return () => {
@@ -33722,7 +31591,7 @@ var TouchRippleRipple = styled_default2(Ripple_default, {
 }) => theme.transitions.easing.easeInOut, touchRippleClasses_default.childPulsate, pulsateKeyframe, ({
   theme
 }) => theme.transitions.easing.easeInOut);
-var TouchRipple = React30.forwardRef(function TouchRipple2(inProps, ref) {
+var TouchRipple = React29.forwardRef(function TouchRipple2(inProps, ref) {
   const props = useThemeProps3({
     props: inProps,
     name: "MuiTouchRipple"
@@ -33732,27 +31601,27 @@ var TouchRipple = React30.forwardRef(function TouchRipple2(inProps, ref) {
     classes = {},
     className
   } = props, other = _objectWithoutPropertiesLoose2(props, _excluded19);
-  const [ripples, setRipples] = React30.useState([]);
-  const nextKey = React30.useRef(0);
-  const rippleCallback = React30.useRef(null);
-  React30.useEffect(() => {
+  const [ripples, setRipples] = React29.useState([]);
+  const nextKey = React29.useRef(0);
+  const rippleCallback = React29.useRef(null);
+  React29.useEffect(() => {
     if (rippleCallback.current) {
       rippleCallback.current();
       rippleCallback.current = null;
     }
   }, [ripples]);
-  const ignoringMouseDown = React30.useRef(false);
-  const startTimer = React30.useRef(0);
-  const startTimerCommit = React30.useRef(null);
-  const container = React30.useRef(null);
-  React30.useEffect(() => {
+  const ignoringMouseDown = React29.useRef(false);
+  const startTimer = React29.useRef(0);
+  const startTimerCommit = React29.useRef(null);
+  const container = React29.useRef(null);
+  React29.useEffect(() => {
     return () => {
       if (startTimer.current) {
         clearTimeout(startTimer.current);
       }
     };
   }, []);
-  const startCommit = React30.useCallback((params) => {
+  const startCommit = React29.useCallback((params) => {
     const {
       pulsate: pulsate2,
       rippleX,
@@ -33778,7 +31647,7 @@ var TouchRipple = React30.forwardRef(function TouchRipple2(inProps, ref) {
     nextKey.current += 1;
     rippleCallback.current = cb;
   }, [classes]);
-  const start = React30.useCallback((event = {}, options = {}, cb = () => {
+  const start = React29.useCallback((event = {}, options = {}, cb = () => {
   }) => {
     const {
       pulsate: pulsate2 = false,
@@ -33851,12 +31720,12 @@ var TouchRipple = React30.forwardRef(function TouchRipple2(inProps, ref) {
       });
     }
   }, [centerProp, startCommit]);
-  const pulsate = React30.useCallback(() => {
+  const pulsate = React29.useCallback(() => {
     start({}, {
       pulsate: true
     });
   }, [start]);
-  const stop = React30.useCallback((event, cb) => {
+  const stop = React29.useCallback((event, cb) => {
     clearTimeout(startTimer.current);
     if ((event == null ? undefined : event.type) === "touchend" && startTimerCommit.current) {
       startTimerCommit.current();
@@ -33875,7 +31744,7 @@ var TouchRipple = React30.forwardRef(function TouchRipple2(inProps, ref) {
     });
     rippleCallback.current = cb;
   }, []);
-  React30.useImperativeHandle(ref, () => ({
+  React29.useImperativeHandle(ref, () => ({
     pulsate,
     start,
     stop
@@ -33960,7 +31829,7 @@ var ButtonBaseRoot = styled_default2("button", {
     colorAdjust: "exact"
   }
 });
-var ButtonBase = React31.forwardRef(function ButtonBase2(inProps, ref) {
+var ButtonBase = React30.forwardRef(function ButtonBase2(inProps, ref) {
   const props = useThemeProps3({
     props: inProps,
     name: "MuiButtonBase"
@@ -33995,8 +31864,8 @@ var ButtonBase = React31.forwardRef(function ButtonBase2(inProps, ref) {
     touchRippleRef,
     type
   } = props, other = _objectWithoutPropertiesLoose2(props, _excluded20);
-  const buttonRef = React31.useRef(null);
-  const rippleRef = React31.useRef(null);
+  const buttonRef = React30.useRef(null);
+  const rippleRef = React30.useRef(null);
   const handleRippleRef = useForkRef_default(rippleRef, touchRippleRef);
   const {
     isFocusVisibleRef,
@@ -34004,22 +31873,22 @@ var ButtonBase = React31.forwardRef(function ButtonBase2(inProps, ref) {
     onBlur: handleBlurVisible,
     ref: focusVisibleRef
   } = useIsFocusVisible_default();
-  const [focusVisible, setFocusVisible] = React31.useState(false);
+  const [focusVisible, setFocusVisible] = React30.useState(false);
   if (disabled && focusVisible) {
     setFocusVisible(false);
   }
-  React31.useImperativeHandle(action, () => ({
+  React30.useImperativeHandle(action, () => ({
     focusVisible: () => {
       setFocusVisible(true);
       buttonRef.current.focus();
     }
   }), []);
-  const [mountedState, setMountedState] = React31.useState(false);
-  React31.useEffect(() => {
+  const [mountedState, setMountedState] = React30.useState(false);
+  React30.useEffect(() => {
     setMountedState(true);
   }, []);
   const enableTouchRipple = mountedState && !disableRipple && !disabled;
-  React31.useEffect(() => {
+  React30.useEffect(() => {
     if (focusVisible && focusRipple && !disableRipple && mountedState) {
       rippleRef.current.pulsate();
     }
@@ -34079,7 +31948,7 @@ var ButtonBase = React31.forwardRef(function ButtonBase2(inProps, ref) {
     const button = buttonRef.current;
     return component && component !== "button" && !(button.tagName === "A" && button.href);
   };
-  const keydownRef = React31.useRef(false);
+  const keydownRef = React30.useRef(false);
   const handleKeyDown2 = useEventCallback_default2((event) => {
     if (focusRipple && !keydownRef.current && focusVisible && rippleRef.current && event.key === " ") {
       keydownRef.current = true;
@@ -34132,7 +32001,7 @@ var ButtonBase = React31.forwardRef(function ButtonBase2(inProps, ref) {
   }
   const handleRef = useForkRef_default(ref, focusVisibleRef, buttonRef);
   if (true) {
-    React31.useEffect(() => {
+    React30.useEffect(() => {
       if (enableTouchRipple && !rippleRef.current) {
         console.error(["MUI: The `component` prop provided to ButtonBase is invalid.", "Please make sure the children prop is rendered in this custom component."].join("\n"));
       }
@@ -34218,7 +32087,7 @@ ButtonBase.propTypes = {
 };
 var ButtonBase_default = ButtonBase;
 // node_modules/@mui/material/IconButton/IconButton.js
-var React32 = __toESM(require_react(), 1);
+var React31 = __toESM(require_react(), 1);
 var import_prop_types17 = __toESM(require_prop_types(), 1);
 
 // node_modules/@mui/material/IconButton/iconButtonClasses.js
@@ -34309,7 +32178,7 @@ var IconButtonRoot = styled_default2(ButtonBase_default, {
     }
   });
 });
-var IconButton = React32.forwardRef(function IconButton2(inProps, ref) {
+var IconButton = React31.forwardRef(function IconButton2(inProps, ref) {
   const props = useThemeProps3({
     props: inProps,
     name: "MuiIconButton"
@@ -34344,7 +32213,7 @@ var IconButton = React32.forwardRef(function IconButton2(inProps, ref) {
 });
 IconButton.propTypes = {
   children: chainPropTypes(import_prop_types17.default.node, (props) => {
-    const found = React32.Children.toArray(props.children).some((child) => React32.isValidElement(child) && child.props.onClick);
+    const found = React31.Children.toArray(props.children).some((child) => React31.isValidElement(child) && child.props.onClick);
     if (found) {
       return new Error(["MUI: You are providing an onClick event listener to a child of a button element.", "Prefer applying it to the IconButton directly.", "This guarantees that the whole <button> will be responsive to click events."].join("\n"));
     }
@@ -34362,7 +32231,7 @@ IconButton.propTypes = {
 };
 var IconButton_default = IconButton;
 // node_modules/@mui/material/Typography/Typography.js
-var React33 = __toESM(require_react(), 1);
+var React32 = __toESM(require_react(), 1);
 var import_prop_types18 = __toESM(require_prop_types(), 1);
 
 // node_modules/@mui/material/Typography/typographyClasses.js
@@ -34438,7 +32307,7 @@ var colorTransformations = {
 var transformDeprecatedColors = (color2) => {
   return colorTransformations[color2] || color2;
 };
-var Typography = React33.forwardRef(function Typography2(inProps, ref) {
+var Typography = React32.forwardRef(function Typography2(inProps, ref) {
   const themeProps = useThemeProps3({
     props: inProps,
     name: "MuiTypography"
@@ -34492,7 +32361,7 @@ Typography.propTypes = {
 };
 var Typography_default = Typography;
 // node_modules/@mui/material/AppBar/AppBar.js
-var React34 = __toESM(require_react(), 1);
+var React33 = __toESM(require_react(), 1);
 var import_prop_types19 = __toESM(require_prop_types(), 1);
 
 // node_modules/@mui/material/AppBar/appBarClasses.js
@@ -34592,7 +32461,7 @@ var AppBarRoot = styled_default2(Paper_default, {
     color: "inherit"
   }));
 });
-var AppBar = React34.forwardRef(function AppBar2(inProps, ref) {
+var AppBar = React33.forwardRef(function AppBar2(inProps, ref) {
   const props = useThemeProps3({
     props: inProps,
     name: "MuiAppBar"
@@ -34762,7 +32631,7 @@ function useSlotProps(parameters) {
 }
 var _excluded24 = ["elementType", "externalSlotProps", "ownerState", "skipResolvingSlotProps"];
 // node_modules/@mui/base/FocusTrap/FocusTrap.js
-var React35 = __toESM(require_react(), 1);
+var React34 = __toESM(require_react(), 1);
 var import_prop_types20 = __toESM(require_prop_types(), 1);
 var jsx_runtime17 = __toESM(require_jsx_runtime(), 1);
 var jsx_runtime18 = __toESM(require_jsx_runtime(), 1);
@@ -34829,22 +32698,22 @@ var FocusTrap = function(props) {
     isEnabled = defaultIsEnabled,
     open
   } = props;
-  const ignoreNextEnforceFocus = React35.useRef(false);
-  const sentinelStart = React35.useRef(null);
-  const sentinelEnd = React35.useRef(null);
-  const nodeToRestore = React35.useRef(null);
-  const reactFocusEventTarget = React35.useRef(null);
-  const activated = React35.useRef(false);
-  const rootRef = React35.useRef(null);
+  const ignoreNextEnforceFocus = React34.useRef(false);
+  const sentinelStart = React34.useRef(null);
+  const sentinelEnd = React34.useRef(null);
+  const nodeToRestore = React34.useRef(null);
+  const reactFocusEventTarget = React34.useRef(null);
+  const activated = React34.useRef(false);
+  const rootRef = React34.useRef(null);
   const handleRef = useForkRef(children.ref, rootRef);
-  const lastKeydown = React35.useRef(null);
-  React35.useEffect(() => {
+  const lastKeydown = React34.useRef(null);
+  React34.useEffect(() => {
     if (!open || !rootRef.current) {
       return;
     }
     activated.current = !disableAutoFocus;
   }, [disableAutoFocus, open]);
-  React35.useEffect(() => {
+  React34.useEffect(() => {
     if (!open || !rootRef.current) {
       return;
     }
@@ -34870,7 +32739,7 @@ var FocusTrap = function(props) {
       }
     };
   }, [open]);
-  React35.useEffect(() => {
+  React34.useEffect(() => {
     if (!open || !rootRef.current) {
       return;
     }
@@ -34960,13 +32829,13 @@ var FocusTrap = function(props) {
     }
     activated.current = true;
   };
-  return jsx_runtime18.jsxs(React35.Fragment, {
+  return jsx_runtime18.jsxs(React34.Fragment, {
     children: [jsx_runtime17.jsx("div", {
       tabIndex: open ? 0 : -1,
       onFocus: handleFocusSentinel,
       ref: sentinelStart,
       "data-testid": "sentinelStart"
-    }), React35.cloneElement(children, {
+    }), React34.cloneElement(children, {
       ref: handleRef,
       onFocus
     }), jsx_runtime17.jsx("div", {
@@ -34991,21 +32860,21 @@ if (true) {
   FocusTrap["propTypes"] = exactProp(FocusTrap.propTypes);
 }
 // node_modules/@mui/base/Portal/Portal.js
-var React36 = __toESM(require_react(), 1);
+var React35 = __toESM(require_react(), 1);
 var ReactDOM2 = __toESM(require_react_dom(), 1);
 var import_prop_types21 = __toESM(require_prop_types(), 1);
 var jsx_runtime19 = __toESM(require_jsx_runtime(), 1);
 var getContainer = function(container) {
   return typeof container === "function" ? container() : container;
 };
-var Portal = React36.forwardRef(function Portal2(props, forwardedRef) {
+var Portal = React35.forwardRef(function Portal2(props, forwardedRef) {
   const {
     children,
     container,
     disablePortal = false
   } = props;
-  const [mountNode, setMountNode] = React36.useState(null);
-  const handleRef = useForkRef(React36.isValidElement(children) ? children.ref : null, forwardedRef);
+  const [mountNode, setMountNode] = React35.useState(null);
+  const handleRef = useForkRef(React35.isValidElement(children) ? children.ref : null, forwardedRef);
   useEnhancedEffect_default(() => {
     if (!disablePortal) {
       setMountNode(getContainer(container) || document.body);
@@ -35021,17 +32890,17 @@ var Portal = React36.forwardRef(function Portal2(props, forwardedRef) {
     return;
   }, [forwardedRef, mountNode, disablePortal]);
   if (disablePortal) {
-    if (React36.isValidElement(children)) {
+    if (React35.isValidElement(children)) {
       const newProps = {
         ref: handleRef
       };
-      return React36.cloneElement(children, newProps);
+      return React35.cloneElement(children, newProps);
     }
-    return jsx_runtime19.jsx(React36.Fragment, {
+    return jsx_runtime19.jsx(React35.Fragment, {
       children
     });
   }
-  return jsx_runtime19.jsx(React36.Fragment, {
+  return jsx_runtime19.jsx(React35.Fragment, {
     children: mountNode ? ReactDOM2.createPortal(children, mountNode) : mountNode
   });
 });
@@ -35044,7 +32913,7 @@ if (true) {
   Portal["propTypes"] = exactProp(Portal.propTypes);
 }
 // node_modules/@mui/base/unstable_useModal/useModal.js
-var React37 = __toESM(require_react(), 1);
+var React36 = __toESM(require_react(), 1);
 
 // node_modules/@mui/base/unstable_useModal/ModalManager.js
 var isOverflowing = function(container) {
@@ -35252,11 +33121,11 @@ function useModal(parameters) {
     open,
     rootRef
   } = parameters;
-  const modal = React37.useRef({});
-  const mountNodeRef = React37.useRef(null);
-  const modalRef = React37.useRef(null);
+  const modal = React36.useRef({});
+  const mountNodeRef = React36.useRef(null);
+  const modalRef = React36.useRef(null);
   const handleRef = useForkRef(modalRef, rootRef);
-  const [exited, setExited] = React37.useState(!open);
+  const [exited, setExited] = React36.useState(!open);
   const hasTransition = getHasTransition(children);
   let ariaHiddenProp = true;
   if (parameters["aria-hidden"] === "false" || parameters["aria-hidden"] === false) {
@@ -35283,7 +33152,7 @@ function useModal(parameters) {
       handleMounted();
     }
   });
-  const isTopModal = React37.useCallback(() => manager.isTopModal(getModal()), [manager]);
+  const isTopModal = React36.useCallback(() => manager.isTopModal(getModal()), [manager]);
   const handlePortalRef = useEventCallback_default((node2) => {
     mountNodeRef.current = node2;
     if (!node2) {
@@ -35295,15 +33164,15 @@ function useModal(parameters) {
       ariaHidden(modalRef.current, ariaHiddenProp);
     }
   });
-  const handleClose = React37.useCallback(() => {
+  const handleClose = React36.useCallback(() => {
     manager.remove(getModal(), ariaHiddenProp);
   }, [ariaHiddenProp, manager]);
-  React37.useEffect(() => {
+  React36.useEffect(() => {
     return () => {
       handleClose();
     };
   }, [handleClose]);
-  React37.useEffect(() => {
+  React36.useEffect(() => {
     if (open) {
       handleOpen();
     } else if (!hasTransition || !closeAfterTransition) {
@@ -35387,25 +33256,12 @@ function useModal(parameters) {
   };
 }
 var defaultManager = new ModalManager;
-// node_modules/@mui/material/FormControl/FormControlContext.js
-var React38 = __toESM(require_react(), 1);
-var FormControlContext = React38.createContext(undefined);
-if (true) {
-  FormControlContext.displayName = "FormControlContext";
-}
-var FormControlContext_default = FormControlContext;
-
-// node_modules/@mui/material/FormControl/useFormControl.js
-var React39 = __toESM(require_react(), 1);
-function useFormControl() {
-  return React39.useContext(FormControlContext_default);
-}
 // node_modules/@mui/material/Avatar/Avatar.js
-var React41 = __toESM(require_react(), 1);
+var React38 = __toESM(require_react(), 1);
 var import_prop_types22 = __toESM(require_prop_types(), 1);
 
 // node_modules/@mui/material/internal/svg-icons/Person.js
-var React40 = __toESM(require_react(), 1);
+var React37 = __toESM(require_react(), 1);
 var jsx_runtime20 = __toESM(require_jsx_runtime(), 1);
 var Person_default = createSvgIcon(jsx_runtime20.jsx("path", {
   d: "M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
@@ -35425,8 +33281,8 @@ var useLoaded = function({
   src,
   srcSet
 }) {
-  const [loaded, setLoaded] = React41.useState(false);
-  React41.useEffect(() => {
+  const [loaded, setLoaded] = React38.useState(false);
+  React38.useEffect(() => {
     if (!src && !srcSet) {
       return;
     }
@@ -35528,7 +33384,7 @@ var AvatarFallback = styled_default2(Person_default, {
   width: "75%",
   height: "75%"
 });
-var Avatar = React41.forwardRef(function Avatar2(inProps, ref) {
+var Avatar = React38.forwardRef(function Avatar2(inProps, ref) {
   const props = useThemeProps3({
     props: inProps,
     name: "MuiAvatar"
@@ -35600,11 +33456,11 @@ Avatar.propTypes = {
 };
 var Avatar_default = Avatar;
 // node_modules/@mui/material/Backdrop/Backdrop.js
-var React43 = __toESM(require_react(), 1);
+var React40 = __toESM(require_react(), 1);
 var import_prop_types24 = __toESM(require_prop_types(), 1);
 
 // node_modules/@mui/material/Fade/Fade.js
-var React42 = __toESM(require_react(), 1);
+var React39 = __toESM(require_react(), 1);
 var import_prop_types23 = __toESM(require_prop_types(), 1);
 var jsx_runtime22 = __toESM(require_jsx_runtime(), 1);
 var _excluded26 = ["addEndListener", "appear", "children", "easing", "in", "onEnter", "onEntered", "onEntering", "onExit", "onExited", "onExiting", "style", "timeout", "TransitionComponent"];
@@ -35616,7 +33472,7 @@ var styles = {
     opacity: 1
   }
 };
-var Fade = React42.forwardRef(function Fade2(props, ref) {
+var Fade = React39.forwardRef(function Fade2(props, ref) {
   const theme = useTheme8();
   const defaultTimeout = {
     enter: theme.transitions.duration.enteringScreen,
@@ -35639,7 +33495,7 @@ var Fade = React42.forwardRef(function Fade2(props, ref) {
     TransitionComponent = Transition_default
   } = props, other = _objectWithoutPropertiesLoose2(props, _excluded26);
   const enableStrictModeCompat = true;
-  const nodeRef = React42.useRef(null);
+  const nodeRef = React39.useRef(null);
   const handleRef = useForkRef_default(nodeRef, children.ref, ref);
   const normalizedTransitionCallback = (callback) => (maybeIsAppearing) => {
     if (callback) {
@@ -35703,7 +33559,7 @@ var Fade = React42.forwardRef(function Fade2(props, ref) {
     timeout: timeout2
   }, other, {
     children: (state, childProps) => {
-      return React42.cloneElement(children, _extends4({
+      return React39.cloneElement(children, _extends4({
         style: _extends4({
           opacity: 0,
           visibility: state === "exited" && !inProp ? "hidden" : undefined
@@ -35780,7 +33636,7 @@ var BackdropRoot = styled_default2("div", {
 }, ownerState.invisible && {
   backgroundColor: "transparent"
 }));
-var Backdrop = React43.forwardRef(function Backdrop2(inProps, ref) {
+var Backdrop = React40.forwardRef(function Backdrop2(inProps, ref) {
   var _slotProps$root, _ref, _slots$root;
   const props = useThemeProps3({
     props: inProps,
@@ -35850,7 +33706,7 @@ Backdrop.propTypes = {
 };
 var Backdrop_default = Backdrop;
 // node_modules/@mui/material/BottomNavigation/BottomNavigation.js
-var React44 = __toESM(require_react(), 1);
+var React41 = __toESM(require_react(), 1);
 var import_react_is2 = __toESM(require_react_is4(), 1);
 var import_prop_types25 = __toESM(require_prop_types(), 1);
 
@@ -35884,7 +33740,7 @@ var BottomNavigationRoot = styled_default2("div", {
   height: 56,
   backgroundColor: (theme.vars || theme).palette.background.paper
 }));
-var BottomNavigation = React44.forwardRef(function BottomNavigation2(inProps, ref) {
+var BottomNavigation = React41.forwardRef(function BottomNavigation2(inProps, ref) {
   const props = useThemeProps3({
     props: inProps,
     name: "MuiBottomNavigation"
@@ -35908,8 +33764,8 @@ var BottomNavigation = React44.forwardRef(function BottomNavigation2(inProps, re
     ref,
     ownerState
   }, other, {
-    children: React44.Children.map(children, (child, childIndex) => {
-      if (!React44.isValidElement(child)) {
+    children: React41.Children.map(children, (child, childIndex) => {
+      if (!React41.isValidElement(child)) {
         return null;
       }
       if (true) {
@@ -35918,7 +33774,7 @@ var BottomNavigation = React44.forwardRef(function BottomNavigation2(inProps, re
         }
       }
       const childValue = child.props.value === undefined ? childIndex : child.props.value;
-      return React44.cloneElement(child, {
+      return React41.cloneElement(child, {
         selected: childValue === value,
         showLabel: child.props.showLabel !== undefined ? child.props.showLabel : showLabels,
         value: childValue,
@@ -35939,7 +33795,7 @@ BottomNavigation.propTypes = {
 };
 var BottomNavigation_default = BottomNavigation;
 // node_modules/@mui/material/BottomNavigationAction/BottomNavigationAction.js
-var React45 = __toESM(require_react(), 1);
+var React42 = __toESM(require_react(), 1);
 var import_prop_types26 = __toESM(require_prop_types(), 1);
 
 // node_modules/@mui/material/BottomNavigationAction/bottomNavigationActionClasses.js
@@ -36017,7 +33873,7 @@ var BottomNavigationActionLabel = styled_default2("span", {
     fontSize: theme.typography.pxToRem(14)
   }
 }));
-var BottomNavigationAction = React45.forwardRef(function BottomNavigationAction2(inProps, ref) {
+var BottomNavigationAction = React42.forwardRef(function BottomNavigationAction2(inProps, ref) {
   const props = useThemeProps3({
     props: inProps,
     name: "MuiBottomNavigationAction"
@@ -36083,7 +33939,7 @@ Box.propTypes = {
 };
 var Box_default = Box;
 // node_modules/@mui/material/Button/Button.js
-var React48 = __toESM(require_react(), 1);
+var React45 = __toESM(require_react(), 1);
 var import_prop_types28 = __toESM(require_prop_types(), 1);
 
 // node_modules/@mui/material/Button/buttonClasses.js
@@ -36094,16 +33950,16 @@ var buttonClasses = generateUtilityClasses("MuiButton", ["root", "text", "textIn
 var buttonClasses_default = buttonClasses;
 
 // node_modules/@mui/material/ButtonGroup/ButtonGroupContext.js
-var React46 = __toESM(require_react(), 1);
-var ButtonGroupContext = React46.createContext({});
+var React43 = __toESM(require_react(), 1);
+var ButtonGroupContext = React43.createContext({});
 if (true) {
   ButtonGroupContext.displayName = "ButtonGroupContext";
 }
 var ButtonGroupContext_default = ButtonGroupContext;
 
 // node_modules/@mui/material/ButtonGroup/ButtonGroupButtonContext.js
-var React47 = __toESM(require_react(), 1);
-var ButtonGroupButtonContext = React47.createContext(undefined);
+var React44 = __toESM(require_react(), 1);
+var ButtonGroupButtonContext = React44.createContext(undefined);
 if (true) {
   ButtonGroupButtonContext.displayName = "ButtonGroupButtonContext";
 }
@@ -36307,9 +34163,9 @@ var ButtonEndIcon = styled_default2("span", {
 }, ownerState.size === "small" && {
   marginRight: -2
 }, commonIconStyles(ownerState)));
-var Button = React48.forwardRef(function Button2(inProps, ref) {
-  const contextProps = React48.useContext(ButtonGroupContext_default);
-  const buttonGroupButtonContextPositionClassName = React48.useContext(ButtonGroupButtonContext_default);
+var Button = React45.forwardRef(function Button2(inProps, ref) {
+  const contextProps = React45.useContext(ButtonGroupContext_default);
+  const buttonGroupButtonContextPositionClassName = React45.useContext(ButtonGroupButtonContext_default);
   const resolvedProps = resolveProps(contextProps, inProps);
   const props = useThemeProps3({
     props: resolvedProps,
@@ -36390,7 +34246,7 @@ Button.propTypes = {
 };
 var Button_default = Button;
 // node_modules/@mui/material/ButtonGroup/ButtonGroup.js
-var React49 = __toESM(require_react(), 1);
+var React46 = __toESM(require_react(), 1);
 var import_prop_types29 = __toESM(require_prop_types(), 1);
 
 // node_modules/@mui/material/ButtonGroup/buttonGroupClasses.js
@@ -36524,7 +34380,7 @@ var ButtonGroupRoot = styled_default2("div", {
     marginTop: -1
   })
 }));
-var ButtonGroup = React49.forwardRef(function ButtonGroup2(inProps, ref) {
+var ButtonGroup = React46.forwardRef(function ButtonGroup2(inProps, ref) {
   const props = useThemeProps3({
     props: inProps,
     name: "MuiButtonGroup"
@@ -36556,7 +34412,7 @@ var ButtonGroup = React49.forwardRef(function ButtonGroup2(inProps, ref) {
     variant
   });
   const classes = useUtilityClasses12(ownerState);
-  const context = React49.useMemo(() => ({
+  const context = React46.useMemo(() => ({
     className: classes.grouped,
     color: color2,
     disabled,
@@ -36619,7 +34475,7 @@ ButtonGroup.propTypes = {
 };
 var ButtonGroup_default = ButtonGroup;
 // node_modules/@mui/material/Card/Card.js
-var React50 = __toESM(require_react(), 1);
+var React47 = __toESM(require_react(), 1);
 var import_prop_types30 = __toESM(require_prop_types(), 1);
 
 // node_modules/@mui/material/Card/cardClasses.js
@@ -36649,7 +34505,7 @@ var CardRoot = styled_default2(Paper_default, {
     overflow: "hidden"
   };
 });
-var Card = React50.forwardRef(function Card2(inProps, ref) {
+var Card = React47.forwardRef(function Card2(inProps, ref) {
   const props = useThemeProps3({
     props: inProps,
     name: "MuiCard"
@@ -36683,7 +34539,7 @@ Card.propTypes = {
 };
 var Card_default = Card;
 // node_modules/@mui/material/CardActions/CardActions.js
-var React51 = __toESM(require_react(), 1);
+var React48 = __toESM(require_react(), 1);
 var import_prop_types31 = __toESM(require_prop_types(), 1);
 
 // node_modules/@mui/material/CardActions/cardActionsClasses.js
@@ -36725,7 +34581,7 @@ var CardActionsRoot = styled_default2("div", {
     marginLeft: 8
   }
 }));
-var CardActions = React51.forwardRef(function CardActions2(inProps, ref) {
+var CardActions = React48.forwardRef(function CardActions2(inProps, ref) {
   const props = useThemeProps3({
     props: inProps,
     name: "MuiCardActions"
@@ -36753,7 +34609,7 @@ CardActions.propTypes = {
 };
 var CardActions_default = CardActions;
 // node_modules/@mui/material/CardContent/CardContent.js
-var React52 = __toESM(require_react(), 1);
+var React49 = __toESM(require_react(), 1);
 var import_prop_types32 = __toESM(require_prop_types(), 1);
 
 // node_modules/@mui/material/CardContent/cardContentClasses.js
@@ -36786,7 +34642,7 @@ var CardContentRoot = styled_default2("div", {
     }
   };
 });
-var CardContent = React52.forwardRef(function CardContent2(inProps, ref) {
+var CardContent = React49.forwardRef(function CardContent2(inProps, ref) {
   const props = useThemeProps3({
     props: inProps,
     name: "MuiCardContent"
@@ -36815,7 +34671,7 @@ CardContent.propTypes = {
 };
 var CardContent_default = CardContent;
 // node_modules/@mui/material/CardHeader/CardHeader.js
-var React53 = __toESM(require_react(), 1);
+var React50 = __toESM(require_react(), 1);
 var import_prop_types33 = __toESM(require_prop_types(), 1);
 
 // node_modules/@mui/material/CardHeader/cardHeaderClasses.js
@@ -36882,7 +34738,7 @@ var CardHeaderContent = styled_default2("div", {
 })({
   flex: "1 1 auto"
 });
-var CardHeader = React53.forwardRef(function CardHeader2(inProps, ref) {
+var CardHeader = React50.forwardRef(function CardHeader2(inProps, ref) {
   const props = useThemeProps3({
     props: inProps,
     name: "MuiCardHeader"
@@ -36963,7 +34819,7 @@ CardHeader.propTypes = {
 };
 var CardHeader_default = CardHeader;
 // node_modules/@mui/material/CardMedia/CardMedia.js
-var React54 = __toESM(require_react(), 1);
+var React51 = __toESM(require_react(), 1);
 var import_prop_types34 = __toESM(require_prop_types(), 1);
 
 // node_modules/@mui/material/CardMedia/cardMediaClasses.js
@@ -37013,7 +34869,7 @@ var CardMediaRoot = styled_default2("div", {
 }));
 var MEDIA_COMPONENTS = ["video", "audio", "picture", "iframe", "img"];
 var IMAGE_COMPONENTS = ["picture", "img"];
-var CardMedia = React54.forwardRef(function CardMedia2(inProps, ref) {
+var CardMedia = React51.forwardRef(function CardMedia2(inProps, ref) {
   const props = useThemeProps3({
     props: inProps,
     name: "MuiCardMedia"
@@ -37064,188 +34920,9 @@ CardMedia.propTypes = {
   sx: import_prop_types34.default.oneOfType([import_prop_types34.default.arrayOf(import_prop_types34.default.oneOfType([import_prop_types34.default.func, import_prop_types34.default.object, import_prop_types34.default.bool])), import_prop_types34.default.func, import_prop_types34.default.object])
 };
 var CardMedia_default = CardMedia;
-// node_modules/@mui/material/internal/SwitchBase.js
-var React55 = __toESM(require_react(), 1);
-var import_prop_types35 = __toESM(require_prop_types(), 1);
-
-// node_modules/@mui/material/internal/switchBaseClasses.js
-function getSwitchBaseUtilityClass(slot) {
-  return generateUtilityClass("PrivateSwitchBase", slot);
-}
-var switchBaseClasses = generateUtilityClasses("PrivateSwitchBase", ["root", "checked", "disabled", "input", "edgeStart", "edgeEnd"]);
-
-// node_modules/@mui/material/internal/SwitchBase.js
-var jsx_runtime36 = __toESM(require_jsx_runtime(), 1);
-var jsx_runtime37 = __toESM(require_jsx_runtime(), 1);
-var _excluded37 = ["autoFocus", "checked", "checkedIcon", "className", "defaultChecked", "disabled", "disableFocusRipple", "edge", "icon", "id", "inputProps", "inputRef", "name", "onBlur", "onChange", "onFocus", "readOnly", "required", "tabIndex", "type", "value"];
-var useUtilityClasses18 = (ownerState) => {
-  const {
-    classes,
-    checked,
-    disabled,
-    edge
-  } = ownerState;
-  const slots = {
-    root: ["root", checked && "checked", disabled && "disabled", edge && `edge${capitalize_default(edge)}`],
-    input: ["input"]
-  };
-  return composeClasses(slots, getSwitchBaseUtilityClass, classes);
-};
-var SwitchBaseRoot = styled_default2(ButtonBase_default)(({
-  ownerState
-}) => _extends4({
-  padding: 9,
-  borderRadius: "50%"
-}, ownerState.edge === "start" && {
-  marginLeft: ownerState.size === "small" ? -3 : -12
-}, ownerState.edge === "end" && {
-  marginRight: ownerState.size === "small" ? -3 : -12
-}));
-var SwitchBaseInput = styled_default2("input")({
-  cursor: "inherit",
-  position: "absolute",
-  opacity: 0,
-  width: "100%",
-  height: "100%",
-  top: 0,
-  left: 0,
-  margin: 0,
-  padding: 0,
-  zIndex: 1
-});
-var SwitchBase = React55.forwardRef(function SwitchBase2(props, ref) {
-  const {
-    autoFocus,
-    checked: checkedProp,
-    checkedIcon,
-    className: className2,
-    defaultChecked,
-    disabled: disabledProp,
-    disableFocusRipple = false,
-    edge = false,
-    icon,
-    id,
-    inputProps,
-    inputRef,
-    name,
-    onBlur,
-    onChange,
-    onFocus,
-    readOnly,
-    required = false,
-    tabIndex,
-    type,
-    value
-  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded37);
-  const [checked, setCheckedState] = useControlled_default({
-    controlled: checkedProp,
-    default: Boolean(defaultChecked),
-    name: "SwitchBase",
-    state: "checked"
-  });
-  const muiFormControl = useFormControl();
-  const handleFocus = (event) => {
-    if (onFocus) {
-      onFocus(event);
-    }
-    if (muiFormControl && muiFormControl.onFocus) {
-      muiFormControl.onFocus(event);
-    }
-  };
-  const handleBlur = (event) => {
-    if (onBlur) {
-      onBlur(event);
-    }
-    if (muiFormControl && muiFormControl.onBlur) {
-      muiFormControl.onBlur(event);
-    }
-  };
-  const handleInputChange = (event) => {
-    if (event.nativeEvent.defaultPrevented) {
-      return;
-    }
-    const newChecked = event.target.checked;
-    setCheckedState(newChecked);
-    if (onChange) {
-      onChange(event, newChecked);
-    }
-  };
-  let disabled = disabledProp;
-  if (muiFormControl) {
-    if (typeof disabled === "undefined") {
-      disabled = muiFormControl.disabled;
-    }
-  }
-  const hasLabelFor = type === "checkbox" || type === "radio";
-  const ownerState = _extends4({}, props, {
-    checked,
-    disabled,
-    disableFocusRipple,
-    edge
-  });
-  const classes = useUtilityClasses18(ownerState);
-  return jsx_runtime37.jsxs(SwitchBaseRoot, _extends4({
-    component: "span",
-    className: clsx_default2(classes.root, className2),
-    centerRipple: true,
-    focusRipple: !disableFocusRipple,
-    disabled,
-    tabIndex: null,
-    role: undefined,
-    onFocus: handleFocus,
-    onBlur: handleBlur,
-    ownerState,
-    ref
-  }, other, {
-    children: [jsx_runtime36.jsx(SwitchBaseInput, _extends4({
-      autoFocus,
-      checked: checkedProp,
-      defaultChecked,
-      className: classes.input,
-      disabled,
-      id: hasLabelFor ? id : undefined,
-      name,
-      onChange: handleInputChange,
-      readOnly,
-      ref: inputRef,
-      required,
-      ownerState,
-      tabIndex,
-      type
-    }, type === "checkbox" && value === undefined ? {} : {
-      value
-    }, inputProps)), checked ? checkedIcon : icon]
-  }));
-});
-SwitchBase.propTypes = {
-  autoFocus: import_prop_types35.default.bool,
-  checked: import_prop_types35.default.bool,
-  checkedIcon: import_prop_types35.default.node.isRequired,
-  classes: import_prop_types35.default.object,
-  className: import_prop_types35.default.string,
-  defaultChecked: import_prop_types35.default.bool,
-  disabled: import_prop_types35.default.bool,
-  disableFocusRipple: import_prop_types35.default.bool,
-  edge: import_prop_types35.default.oneOf(["end", "start", false]),
-  icon: import_prop_types35.default.node.isRequired,
-  id: import_prop_types35.default.string,
-  inputProps: import_prop_types35.default.object,
-  inputRef: refType_default,
-  name: import_prop_types35.default.string,
-  onBlur: import_prop_types35.default.func,
-  onChange: import_prop_types35.default.func,
-  onFocus: import_prop_types35.default.func,
-  readOnly: import_prop_types35.default.bool,
-  required: import_prop_types35.default.bool,
-  sx: import_prop_types35.default.object,
-  tabIndex: import_prop_types35.default.oneOfType([import_prop_types35.default.number, import_prop_types35.default.string]),
-  type: import_prop_types35.default.string.isRequired,
-  value: import_prop_types35.default.any
-};
-var SwitchBase_default = SwitchBase;
 // node_modules/@mui/material/Modal/Modal.js
-var React56 = __toESM(require_react(), 1);
-var import_prop_types36 = __toESM(require_prop_types(), 1);
+var React52 = __toESM(require_react(), 1);
+var import_prop_types35 = __toESM(require_prop_types(), 1);
 // node_modules/@mui/material/Modal/modalClasses.js
 function getModalUtilityClass(slot) {
   return generateUtilityClass("MuiModal", slot);
@@ -37253,10 +34930,10 @@ function getModalUtilityClass(slot) {
 var modalClasses = generateUtilityClasses("MuiModal", ["root", "hidden", "backdrop"]);
 
 // node_modules/@mui/material/Modal/Modal.js
-var jsx_runtime38 = __toESM(require_jsx_runtime(), 1);
-var jsx_runtime39 = __toESM(require_jsx_runtime(), 1);
-var _excluded38 = ["BackdropComponent", "BackdropProps", "classes", "className", "closeAfterTransition", "children", "container", "component", "components", "componentsProps", "disableAutoFocus", "disableEnforceFocus", "disableEscapeKeyDown", "disablePortal", "disableRestoreFocus", "disableScrollLock", "hideBackdrop", "keepMounted", "onBackdropClick", "onClose", "onTransitionEnter", "onTransitionExited", "open", "slotProps", "slots", "theme"];
-var useUtilityClasses19 = (ownerState) => {
+var jsx_runtime36 = __toESM(require_jsx_runtime(), 1);
+var jsx_runtime37 = __toESM(require_jsx_runtime(), 1);
+var _excluded37 = ["BackdropComponent", "BackdropProps", "classes", "className", "closeAfterTransition", "children", "container", "component", "components", "componentsProps", "disableAutoFocus", "disableEnforceFocus", "disableEscapeKeyDown", "disablePortal", "disableRestoreFocus", "disableScrollLock", "hideBackdrop", "keepMounted", "onBackdropClick", "onClose", "onTransitionEnter", "onTransitionExited", "open", "slotProps", "slots", "theme"];
+var useUtilityClasses18 = (ownerState) => {
   const {
     open,
     exited,
@@ -37299,7 +34976,7 @@ var ModalBackdrop = styled_default2(Backdrop_default, {
 })({
   zIndex: -1
 });
-var Modal = React56.forwardRef(function Modal2(inProps, ref) {
+var Modal = React52.forwardRef(function Modal2(inProps, ref) {
   var _ref, _slots$root, _ref2, _slots$backdrop, _slotProps$root, _slotProps$backdrop;
   const props = useThemeProps3({
     name: "MuiModal",
@@ -37327,7 +35004,7 @@ var Modal = React56.forwardRef(function Modal2(inProps, ref) {
     open,
     slotProps,
     slots
-  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded38);
+  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded37);
   const propsWithDefaults = _extends4({}, props, {
     closeAfterTransition,
     disableAutoFocus,
@@ -37353,7 +35030,7 @@ var Modal = React56.forwardRef(function Modal2(inProps, ref) {
   const ownerState = _extends4({}, propsWithDefaults, {
     exited
   });
-  const classes = useUtilityClasses19(ownerState);
+  const classes = useUtilityClasses18(ownerState);
   const childProps = {};
   if (children.props.tabIndex === undefined) {
     childProps.tabIndex = "-1";
@@ -37404,65 +35081,68 @@ var Modal = React56.forwardRef(function Modal2(inProps, ref) {
   if (!keepMounted && !open && (!hasTransition || exited)) {
     return null;
   }
-  return jsx_runtime38.jsx(Portal, {
+  return jsx_runtime36.jsx(Portal, {
     ref: portalRef,
     container,
     disablePortal,
-    children: jsx_runtime39.jsxs(RootSlot, _extends4({}, rootProps, {
-      children: [!hideBackdrop && BackdropComponent ? jsx_runtime38.jsx(BackdropSlot, _extends4({}, backdropProps)) : null, jsx_runtime38.jsx(FocusTrap, {
+    children: jsx_runtime37.jsxs(RootSlot, _extends4({}, rootProps, {
+      children: [!hideBackdrop && BackdropComponent ? jsx_runtime36.jsx(BackdropSlot, _extends4({}, backdropProps)) : null, jsx_runtime36.jsx(FocusTrap, {
         disableEnforceFocus,
         disableAutoFocus,
         disableRestoreFocus,
         isEnabled: isTopModal,
         open,
-        children: React56.cloneElement(children, childProps)
+        children: React52.cloneElement(children, childProps)
       })]
     }))
   });
 });
 Modal.propTypes = {
-  BackdropComponent: import_prop_types36.default.elementType,
-  BackdropProps: import_prop_types36.default.object,
+  BackdropComponent: import_prop_types35.default.elementType,
+  BackdropProps: import_prop_types35.default.object,
   children: elementAcceptingRef_default.isRequired,
-  classes: import_prop_types36.default.object,
-  className: import_prop_types36.default.string,
-  closeAfterTransition: import_prop_types36.default.bool,
-  component: import_prop_types36.default.elementType,
-  components: import_prop_types36.default.shape({
-    Backdrop: import_prop_types36.default.elementType,
-    Root: import_prop_types36.default.elementType
+  classes: import_prop_types35.default.object,
+  className: import_prop_types35.default.string,
+  closeAfterTransition: import_prop_types35.default.bool,
+  component: import_prop_types35.default.elementType,
+  components: import_prop_types35.default.shape({
+    Backdrop: import_prop_types35.default.elementType,
+    Root: import_prop_types35.default.elementType
   }),
-  componentsProps: import_prop_types36.default.shape({
-    backdrop: import_prop_types36.default.oneOfType([import_prop_types36.default.func, import_prop_types36.default.object]),
-    root: import_prop_types36.default.oneOfType([import_prop_types36.default.func, import_prop_types36.default.object])
+  componentsProps: import_prop_types35.default.shape({
+    backdrop: import_prop_types35.default.oneOfType([import_prop_types35.default.func, import_prop_types35.default.object]),
+    root: import_prop_types35.default.oneOfType([import_prop_types35.default.func, import_prop_types35.default.object])
   }),
-  container: import_prop_types36.default.oneOfType([HTMLElementType, import_prop_types36.default.func]),
-  disableAutoFocus: import_prop_types36.default.bool,
-  disableEnforceFocus: import_prop_types36.default.bool,
-  disableEscapeKeyDown: import_prop_types36.default.bool,
-  disablePortal: import_prop_types36.default.bool,
-  disableRestoreFocus: import_prop_types36.default.bool,
-  disableScrollLock: import_prop_types36.default.bool,
-  hideBackdrop: import_prop_types36.default.bool,
-  keepMounted: import_prop_types36.default.bool,
-  onBackdropClick: import_prop_types36.default.func,
-  onClose: import_prop_types36.default.func,
-  onTransitionEnter: import_prop_types36.default.func,
-  onTransitionExited: import_prop_types36.default.func,
-  open: import_prop_types36.default.bool.isRequired,
-  slotProps: import_prop_types36.default.shape({
-    backdrop: import_prop_types36.default.oneOfType([import_prop_types36.default.func, import_prop_types36.default.object]),
-    root: import_prop_types36.default.oneOfType([import_prop_types36.default.func, import_prop_types36.default.object])
+  container: import_prop_types35.default.oneOfType([HTMLElementType, import_prop_types35.default.func]),
+  disableAutoFocus: import_prop_types35.default.bool,
+  disableEnforceFocus: import_prop_types35.default.bool,
+  disableEscapeKeyDown: import_prop_types35.default.bool,
+  disablePortal: import_prop_types35.default.bool,
+  disableRestoreFocus: import_prop_types35.default.bool,
+  disableScrollLock: import_prop_types35.default.bool,
+  hideBackdrop: import_prop_types35.default.bool,
+  keepMounted: import_prop_types35.default.bool,
+  onBackdropClick: import_prop_types35.default.func,
+  onClose: import_prop_types35.default.func,
+  onTransitionEnter: import_prop_types35.default.func,
+  onTransitionExited: import_prop_types35.default.func,
+  open: import_prop_types35.default.bool.isRequired,
+  slotProps: import_prop_types35.default.shape({
+    backdrop: import_prop_types35.default.oneOfType([import_prop_types35.default.func, import_prop_types35.default.object]),
+    root: import_prop_types35.default.oneOfType([import_prop_types35.default.func, import_prop_types35.default.object])
   }),
-  slots: import_prop_types36.default.shape({
-    backdrop: import_prop_types36.default.elementType,
-    root: import_prop_types36.default.elementType
+  slots: import_prop_types35.default.shape({
+    backdrop: import_prop_types35.default.elementType,
+    root: import_prop_types35.default.elementType
   }),
-  sx: import_prop_types36.default.oneOfType([import_prop_types36.default.arrayOf(import_prop_types36.default.oneOfType([import_prop_types36.default.func, import_prop_types36.default.object, import_prop_types36.default.bool])), import_prop_types36.default.func, import_prop_types36.default.object])
+  sx: import_prop_types35.default.oneOfType([import_prop_types35.default.arrayOf(import_prop_types35.default.oneOfType([import_prop_types35.default.func, import_prop_types35.default.object, import_prop_types35.default.bool])), import_prop_types35.default.func, import_prop_types35.default.object])
 };
 var Modal_default = Modal;
+// node_modules/@mui/material/Divider/dividerClasses.js
+var dividerClasses = generateUtilityClasses("MuiDivider", ["root", "absolute", "fullWidth", "inset", "middle", "flexItem", "light", "vertical", "withChildren", "withChildrenVertical", "textAlignRight", "textAlignLeft", "wrapper", "wrapperVertical"]);
+var dividerClasses_default = dividerClasses;
 // node_modules/@mui/material/Stack/Stack.js
-var import_prop_types37 = __toESM(require_prop_types(), 1);
+var import_prop_types36 = __toESM(require_prop_types(), 1);
 var Stack2 = createStack({
   createStyledComponent: styled_default2("div", {
     name: "MuiStack",
@@ -37475,22 +35155,22 @@ var Stack2 = createStack({
   })
 });
 Stack2.propTypes = {
-  children: import_prop_types37.default.node,
-  component: import_prop_types37.default.elementType,
-  direction: import_prop_types37.default.oneOfType([import_prop_types37.default.oneOf(["column-reverse", "column", "row-reverse", "row"]), import_prop_types37.default.arrayOf(import_prop_types37.default.oneOf(["column-reverse", "column", "row-reverse", "row"])), import_prop_types37.default.object]),
-  divider: import_prop_types37.default.node,
-  spacing: import_prop_types37.default.oneOfType([import_prop_types37.default.arrayOf(import_prop_types37.default.oneOfType([import_prop_types37.default.number, import_prop_types37.default.string])), import_prop_types37.default.number, import_prop_types37.default.object, import_prop_types37.default.string]),
-  sx: import_prop_types37.default.oneOfType([import_prop_types37.default.arrayOf(import_prop_types37.default.oneOfType([import_prop_types37.default.func, import_prop_types37.default.object, import_prop_types37.default.bool])), import_prop_types37.default.func, import_prop_types37.default.object]),
-  useFlexGap: import_prop_types37.default.bool
+  children: import_prop_types36.default.node,
+  component: import_prop_types36.default.elementType,
+  direction: import_prop_types36.default.oneOfType([import_prop_types36.default.oneOf(["column-reverse", "column", "row-reverse", "row"]), import_prop_types36.default.arrayOf(import_prop_types36.default.oneOf(["column-reverse", "column", "row-reverse", "row"])), import_prop_types36.default.object]),
+  divider: import_prop_types36.default.node,
+  spacing: import_prop_types36.default.oneOfType([import_prop_types36.default.arrayOf(import_prop_types36.default.oneOfType([import_prop_types36.default.number, import_prop_types36.default.string])), import_prop_types36.default.number, import_prop_types36.default.object, import_prop_types36.default.string]),
+  sx: import_prop_types36.default.oneOfType([import_prop_types36.default.arrayOf(import_prop_types36.default.oneOfType([import_prop_types36.default.func, import_prop_types36.default.object, import_prop_types36.default.bool])), import_prop_types36.default.func, import_prop_types36.default.object]),
+  useFlexGap: import_prop_types36.default.bool
 };
 var Stack_default = Stack2;
 // node_modules/@mui/material/Grid/Grid.js
-var React58 = __toESM(require_react(), 1);
-var import_prop_types38 = __toESM(require_prop_types(), 1);
+var React54 = __toESM(require_react(), 1);
+var import_prop_types37 = __toESM(require_prop_types(), 1);
 
 // node_modules/@mui/material/Grid/GridContext.js
-var React57 = __toESM(require_react(), 1);
-var GridContext = React57.createContext();
+var React53 = __toESM(require_react(), 1);
+var GridContext = React53.createContext();
 if (true) {
   GridContext.displayName = "GridContext";
 }
@@ -37521,7 +35201,7 @@ var gridClasses = generateUtilityClasses("MuiGrid", [
 var gridClasses_default = gridClasses;
 
 // node_modules/@mui/material/Grid/Grid.js
-var jsx_runtime40 = __toESM(require_jsx_runtime(), 1);
+var jsx_runtime38 = __toESM(require_jsx_runtime(), 1);
 var getOffset = function(val) {
   const parse2 = parseFloat(val);
   return `${parse2}${String(val).replace(String(parse2), "") || "px"}`;
@@ -37757,7 +35437,7 @@ function resolveSpacingClasses(spacing8, breakpoints8) {
   });
   return classes;
 }
-var _excluded39 = ["className", "columns", "columnSpacing", "component", "container", "direction", "item", "rowSpacing", "spacing", "wrap", "zeroMinWidth"];
+var _excluded38 = ["className", "columns", "columnSpacing", "component", "container", "direction", "item", "rowSpacing", "spacing", "wrap", "zeroMinWidth"];
 var GridRoot = styled_default2("div", {
   name: "MuiGrid",
   slot: "Root",
@@ -37802,7 +35482,7 @@ var GridRoot = styled_default2("div", {
 }, ownerState.wrap !== "wrap" && {
   flexWrap: ownerState.wrap
 }), generateDirection, generateRowGap, generateColumnGap, generateGrid);
-var useUtilityClasses20 = (ownerState) => {
+var useUtilityClasses19 = (ownerState) => {
   const {
     classes,
     container,
@@ -37829,7 +35509,7 @@ var useUtilityClasses20 = (ownerState) => {
   };
   return composeClasses(slots, getGridUtilityClass, classes);
 };
-var Grid = React58.forwardRef(function Grid2(inProps, ref) {
+var Grid = React54.forwardRef(function Grid2(inProps, ref) {
   const themeProps = useThemeProps3({
     props: inProps,
     name: "MuiGrid"
@@ -37850,10 +35530,10 @@ var Grid = React58.forwardRef(function Grid2(inProps, ref) {
     spacing: spacing8 = 0,
     wrap = "wrap",
     zeroMinWidth = false
-  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded39);
+  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded38);
   const rowSpacing = rowSpacingProp || spacing8;
   const columnSpacing = columnSpacingProp || spacing8;
-  const columnsContext = React58.useContext(GridContext_default);
+  const columnsContext = React54.useContext(GridContext_default);
   const columns = container ? columnsProp || 12 : columnsContext;
   const breakpointsValues = {};
   const otherFiltered = _extends4({}, other);
@@ -37876,10 +35556,10 @@ var Grid = React58.forwardRef(function Grid2(inProps, ref) {
   }, breakpointsValues, {
     breakpoints: breakpoints8.keys
   });
-  const classes = useUtilityClasses20(ownerState);
-  return jsx_runtime40.jsx(GridContext_default.Provider, {
+  const classes = useUtilityClasses19(ownerState);
+  return jsx_runtime38.jsx(GridContext_default.Provider, {
     value: columns,
-    children: jsx_runtime40.jsx(GridRoot, _extends4({
+    children: jsx_runtime38.jsx(GridRoot, _extends4({
       ownerState,
       className: clsx_default2(classes.root, className2),
       as: component,
@@ -37888,25 +35568,25 @@ var Grid = React58.forwardRef(function Grid2(inProps, ref) {
   });
 });
 Grid.propTypes = {
-  children: import_prop_types38.default.node,
-  classes: import_prop_types38.default.object,
-  className: import_prop_types38.default.string,
-  columns: import_prop_types38.default.oneOfType([import_prop_types38.default.arrayOf(import_prop_types38.default.number), import_prop_types38.default.number, import_prop_types38.default.object]),
-  columnSpacing: import_prop_types38.default.oneOfType([import_prop_types38.default.arrayOf(import_prop_types38.default.oneOfType([import_prop_types38.default.number, import_prop_types38.default.string])), import_prop_types38.default.number, import_prop_types38.default.object, import_prop_types38.default.string]),
-  component: import_prop_types38.default.elementType,
-  container: import_prop_types38.default.bool,
-  direction: import_prop_types38.default.oneOfType([import_prop_types38.default.oneOf(["column-reverse", "column", "row-reverse", "row"]), import_prop_types38.default.arrayOf(import_prop_types38.default.oneOf(["column-reverse", "column", "row-reverse", "row"])), import_prop_types38.default.object]),
-  item: import_prop_types38.default.bool,
-  lg: import_prop_types38.default.oneOfType([import_prop_types38.default.oneOf(["auto"]), import_prop_types38.default.number, import_prop_types38.default.bool]),
-  md: import_prop_types38.default.oneOfType([import_prop_types38.default.oneOf(["auto"]), import_prop_types38.default.number, import_prop_types38.default.bool]),
-  rowSpacing: import_prop_types38.default.oneOfType([import_prop_types38.default.arrayOf(import_prop_types38.default.oneOfType([import_prop_types38.default.number, import_prop_types38.default.string])), import_prop_types38.default.number, import_prop_types38.default.object, import_prop_types38.default.string]),
-  sm: import_prop_types38.default.oneOfType([import_prop_types38.default.oneOf(["auto"]), import_prop_types38.default.number, import_prop_types38.default.bool]),
-  spacing: import_prop_types38.default.oneOfType([import_prop_types38.default.arrayOf(import_prop_types38.default.oneOfType([import_prop_types38.default.number, import_prop_types38.default.string])), import_prop_types38.default.number, import_prop_types38.default.object, import_prop_types38.default.string]),
-  sx: import_prop_types38.default.oneOfType([import_prop_types38.default.arrayOf(import_prop_types38.default.oneOfType([import_prop_types38.default.func, import_prop_types38.default.object, import_prop_types38.default.bool])), import_prop_types38.default.func, import_prop_types38.default.object]),
-  wrap: import_prop_types38.default.oneOf(["nowrap", "wrap-reverse", "wrap"]),
-  xl: import_prop_types38.default.oneOfType([import_prop_types38.default.oneOf(["auto"]), import_prop_types38.default.number, import_prop_types38.default.bool]),
-  xs: import_prop_types38.default.oneOfType([import_prop_types38.default.oneOf(["auto"]), import_prop_types38.default.number, import_prop_types38.default.bool]),
-  zeroMinWidth: import_prop_types38.default.bool
+  children: import_prop_types37.default.node,
+  classes: import_prop_types37.default.object,
+  className: import_prop_types37.default.string,
+  columns: import_prop_types37.default.oneOfType([import_prop_types37.default.arrayOf(import_prop_types37.default.number), import_prop_types37.default.number, import_prop_types37.default.object]),
+  columnSpacing: import_prop_types37.default.oneOfType([import_prop_types37.default.arrayOf(import_prop_types37.default.oneOfType([import_prop_types37.default.number, import_prop_types37.default.string])), import_prop_types37.default.number, import_prop_types37.default.object, import_prop_types37.default.string]),
+  component: import_prop_types37.default.elementType,
+  container: import_prop_types37.default.bool,
+  direction: import_prop_types37.default.oneOfType([import_prop_types37.default.oneOf(["column-reverse", "column", "row-reverse", "row"]), import_prop_types37.default.arrayOf(import_prop_types37.default.oneOf(["column-reverse", "column", "row-reverse", "row"])), import_prop_types37.default.object]),
+  item: import_prop_types37.default.bool,
+  lg: import_prop_types37.default.oneOfType([import_prop_types37.default.oneOf(["auto"]), import_prop_types37.default.number, import_prop_types37.default.bool]),
+  md: import_prop_types37.default.oneOfType([import_prop_types37.default.oneOf(["auto"]), import_prop_types37.default.number, import_prop_types37.default.bool]),
+  rowSpacing: import_prop_types37.default.oneOfType([import_prop_types37.default.arrayOf(import_prop_types37.default.oneOfType([import_prop_types37.default.number, import_prop_types37.default.string])), import_prop_types37.default.number, import_prop_types37.default.object, import_prop_types37.default.string]),
+  sm: import_prop_types37.default.oneOfType([import_prop_types37.default.oneOf(["auto"]), import_prop_types37.default.number, import_prop_types37.default.bool]),
+  spacing: import_prop_types37.default.oneOfType([import_prop_types37.default.arrayOf(import_prop_types37.default.oneOfType([import_prop_types37.default.number, import_prop_types37.default.string])), import_prop_types37.default.number, import_prop_types37.default.object, import_prop_types37.default.string]),
+  sx: import_prop_types37.default.oneOfType([import_prop_types37.default.arrayOf(import_prop_types37.default.oneOfType([import_prop_types37.default.func, import_prop_types37.default.object, import_prop_types37.default.bool])), import_prop_types37.default.func, import_prop_types37.default.object]),
+  wrap: import_prop_types37.default.oneOf(["nowrap", "wrap-reverse", "wrap"]),
+  xl: import_prop_types37.default.oneOfType([import_prop_types37.default.oneOf(["auto"]), import_prop_types37.default.number, import_prop_types37.default.bool]),
+  xs: import_prop_types37.default.oneOfType([import_prop_types37.default.oneOf(["auto"]), import_prop_types37.default.number, import_prop_types37.default.bool]),
+  zeroMinWidth: import_prop_types37.default.bool
 };
 if (true) {
   const requireProp = requirePropFactory_default("Grid", Grid);
@@ -37923,13 +35603,13 @@ if (true) {
 }
 var Grid_default = Grid;
 // node_modules/@mui/material/Grow/Grow.js
-var React59 = __toESM(require_react(), 1);
-var import_prop_types39 = __toESM(require_prop_types(), 1);
-var jsx_runtime41 = __toESM(require_jsx_runtime(), 1);
+var React55 = __toESM(require_react(), 1);
+var import_prop_types38 = __toESM(require_prop_types(), 1);
+var jsx_runtime39 = __toESM(require_jsx_runtime(), 1);
 var getScale = function(value) {
   return `scale(${value}, ${value ** 2})`;
 };
-var _excluded40 = ["addEndListener", "appear", "children", "easing", "in", "onEnter", "onEntered", "onEntering", "onExit", "onExited", "onExiting", "style", "timeout", "TransitionComponent"];
+var _excluded39 = ["addEndListener", "appear", "children", "easing", "in", "onEnter", "onEntered", "onEntering", "onExit", "onExited", "onExiting", "style", "timeout", "TransitionComponent"];
 var styles3 = {
   entering: {
     opacity: 1,
@@ -37941,7 +35621,7 @@ var styles3 = {
   }
 };
 var isWebKit154 = typeof navigator !== "undefined" && /^((?!chrome|android).)*(safari|mobile)/i.test(navigator.userAgent) && /(os |version\/)15(.|_)4/i.test(navigator.userAgent);
-var Grow = React59.forwardRef(function Grow2(props, ref) {
+var Grow = React55.forwardRef(function Grow2(props, ref) {
   const {
     addEndListener,
     appear = true,
@@ -37957,11 +35637,11 @@ var Grow = React59.forwardRef(function Grow2(props, ref) {
     style: style10,
     timeout: timeout2 = "auto",
     TransitionComponent = Transition_default
-  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded40);
-  const timer = React59.useRef();
-  const autoTimeout = React59.useRef();
+  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded39);
+  const timer = React55.useRef();
+  const autoTimeout = React55.useRef();
   const theme = useTheme8();
-  const nodeRef = React59.useRef(null);
+  const nodeRef = React55.useRef(null);
   const handleRef = useForkRef_default(nodeRef, children.ref, ref);
   const normalizedTransitionCallback = (callback) => (maybeIsAppearing) => {
     if (callback) {
@@ -38050,12 +35730,12 @@ var Grow = React59.forwardRef(function Grow2(props, ref) {
       addEndListener(nodeRef.current, next2);
     }
   };
-  React59.useEffect(() => {
+  React55.useEffect(() => {
     return () => {
       clearTimeout(timer.current);
     };
   }, []);
-  return jsx_runtime41.jsx(TransitionComponent, _extends4({
+  return jsx_runtime39.jsx(TransitionComponent, _extends4({
     appear,
     in: inProp,
     nodeRef,
@@ -38069,7 +35749,7 @@ var Grow = React59.forwardRef(function Grow2(props, ref) {
     timeout: timeout2 === "auto" ? null : timeout2
   }, other, {
     children: (state, childProps) => {
-      return React59.cloneElement(children, _extends4({
+      return React55.cloneElement(children, _extends4({
         style: _extends4({
           opacity: 0,
           transform: getScale(0.75),
@@ -38081,32 +35761,32 @@ var Grow = React59.forwardRef(function Grow2(props, ref) {
   }));
 });
 Grow.propTypes = {
-  addEndListener: import_prop_types39.default.func,
-  appear: import_prop_types39.default.bool,
+  addEndListener: import_prop_types38.default.func,
+  appear: import_prop_types38.default.bool,
   children: elementAcceptingRef_default.isRequired,
-  easing: import_prop_types39.default.oneOfType([import_prop_types39.default.shape({
-    enter: import_prop_types39.default.string,
-    exit: import_prop_types39.default.string
-  }), import_prop_types39.default.string]),
-  in: import_prop_types39.default.bool,
-  onEnter: import_prop_types39.default.func,
-  onEntered: import_prop_types39.default.func,
-  onEntering: import_prop_types39.default.func,
-  onExit: import_prop_types39.default.func,
-  onExited: import_prop_types39.default.func,
-  onExiting: import_prop_types39.default.func,
-  style: import_prop_types39.default.object,
-  timeout: import_prop_types39.default.oneOfType([import_prop_types39.default.oneOf(["auto"]), import_prop_types39.default.number, import_prop_types39.default.shape({
-    appear: import_prop_types39.default.number,
-    enter: import_prop_types39.default.number,
-    exit: import_prop_types39.default.number
+  easing: import_prop_types38.default.oneOfType([import_prop_types38.default.shape({
+    enter: import_prop_types38.default.string,
+    exit: import_prop_types38.default.string
+  }), import_prop_types38.default.string]),
+  in: import_prop_types38.default.bool,
+  onEnter: import_prop_types38.default.func,
+  onEntered: import_prop_types38.default.func,
+  onEntering: import_prop_types38.default.func,
+  onExit: import_prop_types38.default.func,
+  onExited: import_prop_types38.default.func,
+  onExiting: import_prop_types38.default.func,
+  style: import_prop_types38.default.object,
+  timeout: import_prop_types38.default.oneOfType([import_prop_types38.default.oneOf(["auto"]), import_prop_types38.default.number, import_prop_types38.default.shape({
+    appear: import_prop_types38.default.number,
+    enter: import_prop_types38.default.number,
+    exit: import_prop_types38.default.number
   })])
 };
 Grow.muiSupportAuto = true;
 var Grow_default = Grow;
 // node_modules/@mui/material/ImageList/ImageList.js
-var import_prop_types40 = __toESM(require_prop_types(), 1);
-var React61 = __toESM(require_react(), 1);
+var import_prop_types39 = __toESM(require_prop_types(), 1);
+var React57 = __toESM(require_react(), 1);
 
 // node_modules/@mui/material/ImageList/imageListClasses.js
 function getImageListUtilityClass(slot) {
@@ -38115,17 +35795,17 @@ function getImageListUtilityClass(slot) {
 var imageListClasses = generateUtilityClasses("MuiImageList", ["root", "masonry", "quilted", "standard", "woven"]);
 
 // node_modules/@mui/material/ImageList/ImageListContext.js
-var React60 = __toESM(require_react(), 1);
-var ImageListContext = React60.createContext({});
+var React56 = __toESM(require_react(), 1);
+var ImageListContext = React56.createContext({});
 if (true) {
   ImageListContext.displayName = "ImageListContext";
 }
 var ImageListContext_default = ImageListContext;
 
 // node_modules/@mui/material/ImageList/ImageList.js
-var jsx_runtime42 = __toESM(require_jsx_runtime(), 1);
-var _excluded41 = ["children", "className", "cols", "component", "rowHeight", "gap", "style", "variant"];
-var useUtilityClasses21 = (ownerState) => {
+var jsx_runtime40 = __toESM(require_jsx_runtime(), 1);
+var _excluded40 = ["children", "className", "cols", "component", "rowHeight", "gap", "style", "variant"];
+var useUtilityClasses20 = (ownerState) => {
   const {
     classes,
     variant
@@ -38157,7 +35837,7 @@ var ImageListRoot = styled_default2("ul", {
     display: "block"
   });
 });
-var ImageList = React61.forwardRef(function ImageList2(inProps, ref) {
+var ImageList = React57.forwardRef(function ImageList2(inProps, ref) {
   const props = useThemeProps3({
     props: inProps,
     name: "MuiImageList"
@@ -38171,13 +35851,13 @@ var ImageList = React61.forwardRef(function ImageList2(inProps, ref) {
     gap: gap2 = 4,
     style: styleProp,
     variant = "standard"
-  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded41);
-  const contextValue = React61.useMemo(() => ({
+  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded40);
+  const contextValue = React57.useMemo(() => ({
     rowHeight,
     gap: gap2,
     variant
   }), [rowHeight, gap2, variant]);
-  React61.useEffect(() => {
+  React57.useEffect(() => {
     if (true) {
       if (document !== undefined && ("objectFit" in document.documentElement.style) === false) {
         console.error(["MUI: ImageList v5+ no longer natively supports Internet Explorer.", "Use v4 of this component instead, or polyfill CSS object-fit."].join("\n"));
@@ -38197,36 +35877,36 @@ var ImageList = React61.forwardRef(function ImageList2(inProps, ref) {
     rowHeight,
     variant
   });
-  const classes = useUtilityClasses21(ownerState);
-  return jsx_runtime42.jsx(ImageListRoot, _extends4({
+  const classes = useUtilityClasses20(ownerState);
+  return jsx_runtime40.jsx(ImageListRoot, _extends4({
     as: component,
     className: clsx_default2(classes.root, classes[variant], className2),
     ref,
     style: style10,
     ownerState
   }, other, {
-    children: jsx_runtime42.jsx(ImageListContext_default.Provider, {
+    children: jsx_runtime40.jsx(ImageListContext_default.Provider, {
       value: contextValue,
       children
     })
   }));
 });
 ImageList.propTypes = {
-  children: import_prop_types40.default.node.isRequired,
-  classes: import_prop_types40.default.object,
-  className: import_prop_types40.default.string,
+  children: import_prop_types39.default.node.isRequired,
+  classes: import_prop_types39.default.object,
+  className: import_prop_types39.default.string,
   cols: integerPropType_default,
-  component: import_prop_types40.default.elementType,
-  gap: import_prop_types40.default.number,
-  rowHeight: import_prop_types40.default.oneOfType([import_prop_types40.default.oneOf(["auto"]), import_prop_types40.default.number]),
-  style: import_prop_types40.default.object,
-  sx: import_prop_types40.default.oneOfType([import_prop_types40.default.arrayOf(import_prop_types40.default.oneOfType([import_prop_types40.default.func, import_prop_types40.default.object, import_prop_types40.default.bool])), import_prop_types40.default.func, import_prop_types40.default.object]),
-  variant: import_prop_types40.default.oneOfType([import_prop_types40.default.oneOf(["masonry", "quilted", "standard", "woven"]), import_prop_types40.default.string])
+  component: import_prop_types39.default.elementType,
+  gap: import_prop_types39.default.number,
+  rowHeight: import_prop_types39.default.oneOfType([import_prop_types39.default.oneOf(["auto"]), import_prop_types39.default.number]),
+  style: import_prop_types39.default.object,
+  sx: import_prop_types39.default.oneOfType([import_prop_types39.default.arrayOf(import_prop_types39.default.oneOfType([import_prop_types39.default.func, import_prop_types39.default.object, import_prop_types39.default.bool])), import_prop_types39.default.func, import_prop_types39.default.object]),
+  variant: import_prop_types39.default.oneOfType([import_prop_types39.default.oneOf(["masonry", "quilted", "standard", "woven"]), import_prop_types39.default.string])
 };
 var ImageList_default = ImageList;
 // node_modules/@mui/material/ImageListItem/ImageListItem.js
-var import_prop_types41 = __toESM(require_prop_types(), 1);
-var React62 = __toESM(require_react(), 1);
+var import_prop_types40 = __toESM(require_prop_types(), 1);
+var React58 = __toESM(require_react(), 1);
 var import_react_is3 = __toESM(require_react_is4(), 1);
 
 // node_modules/@mui/material/ImageListItem/imageListItemClasses.js
@@ -38237,9 +35917,9 @@ var imageListItemClasses = generateUtilityClasses("MuiImageListItem", ["root", "
 var imageListItemClasses_default = imageListItemClasses;
 
 // node_modules/@mui/material/ImageListItem/ImageListItem.js
-var jsx_runtime43 = __toESM(require_jsx_runtime(), 1);
-var _excluded42 = ["children", "className", "cols", "component", "rows", "style"];
-var useUtilityClasses22 = (ownerState) => {
+var jsx_runtime41 = __toESM(require_jsx_runtime(), 1);
+var _excluded41 = ["children", "className", "cols", "component", "rows", "style"];
+var useUtilityClasses21 = (ownerState) => {
   const {
     classes,
     variant
@@ -38286,7 +35966,7 @@ var ImageListItemRoot = styled_default2("li", {
     flexGrow: 1
   })
 }));
-var ImageListItem = React62.forwardRef(function ImageListItem2(inProps, ref) {
+var ImageListItem = React58.forwardRef(function ImageListItem2(inProps, ref) {
   const props = useThemeProps3({
     props: inProps,
     name: "MuiImageListItem"
@@ -38298,12 +35978,12 @@ var ImageListItem = React62.forwardRef(function ImageListItem2(inProps, ref) {
     component = "li",
     rows = 1,
     style: style10
-  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded42);
+  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded41);
   const {
     rowHeight = "auto",
     gap: gap2,
     variant
-  } = React62.useContext(ImageListContext_default);
+  } = React58.useContext(ImageListContext_default);
   let height2 = "auto";
   if (variant === "woven") {
     height2 = undefined;
@@ -38318,8 +35998,8 @@ var ImageListItem = React62.forwardRef(function ImageListItem2(inProps, ref) {
     rows,
     variant
   });
-  const classes = useUtilityClasses22(ownerState);
-  return jsx_runtime43.jsx(ImageListItemRoot, _extends4({
+  const classes = useUtilityClasses21(ownerState);
+  return jsx_runtime41.jsx(ImageListItemRoot, _extends4({
     as: component,
     className: clsx_default2(classes.root, classes[variant], className2),
     ref,
@@ -38332,8 +36012,8 @@ var ImageListItem = React62.forwardRef(function ImageListItem2(inProps, ref) {
     }, style10),
     ownerState
   }, other, {
-    children: React62.Children.map(children, (child) => {
-      if (!React62.isValidElement(child)) {
+    children: React58.Children.map(children, (child) => {
+      if (!React58.isValidElement(child)) {
         return null;
       }
       if (true) {
@@ -38342,7 +36022,7 @@ var ImageListItem = React62.forwardRef(function ImageListItem2(inProps, ref) {
         }
       }
       if (child.type === "img" || isMuiElement_default(child, ["Image"])) {
-        return React62.cloneElement(child, {
+        return React58.cloneElement(child, {
           className: clsx_default2(classes.img, child.props.className)
         });
       }
@@ -38351,19 +36031,19 @@ var ImageListItem = React62.forwardRef(function ImageListItem2(inProps, ref) {
   }));
 });
 ImageListItem.propTypes = {
-  children: import_prop_types41.default.node,
-  classes: import_prop_types41.default.object,
-  className: import_prop_types41.default.string,
+  children: import_prop_types40.default.node,
+  classes: import_prop_types40.default.object,
+  className: import_prop_types40.default.string,
   cols: integerPropType_default,
-  component: import_prop_types41.default.elementType,
+  component: import_prop_types40.default.elementType,
   rows: integerPropType_default,
-  style: import_prop_types41.default.object,
-  sx: import_prop_types41.default.oneOfType([import_prop_types41.default.arrayOf(import_prop_types41.default.oneOfType([import_prop_types41.default.func, import_prop_types41.default.object, import_prop_types41.default.bool])), import_prop_types41.default.func, import_prop_types41.default.object])
+  style: import_prop_types40.default.object,
+  sx: import_prop_types40.default.oneOfType([import_prop_types40.default.arrayOf(import_prop_types40.default.oneOfType([import_prop_types40.default.func, import_prop_types40.default.object, import_prop_types40.default.bool])), import_prop_types40.default.func, import_prop_types40.default.object])
 };
 var ImageListItem_default = ImageListItem;
 // node_modules/@mui/material/ImageListItemBar/ImageListItemBar.js
-var import_prop_types42 = __toESM(require_prop_types(), 1);
-var React63 = __toESM(require_react(), 1);
+var import_prop_types41 = __toESM(require_prop_types(), 1);
+var React59 = __toESM(require_react(), 1);
 
 // node_modules/@mui/material/ImageListItemBar/imageListItemBarClasses.js
 function getImageListItemBarUtilityClass(slot) {
@@ -38372,10 +36052,10 @@ function getImageListItemBarUtilityClass(slot) {
 var imageListItemBarClasses = generateUtilityClasses("MuiImageListItemBar", ["root", "positionBottom", "positionTop", "positionBelow", "titleWrap", "titleWrapBottom", "titleWrapTop", "titleWrapBelow", "titleWrapActionPosLeft", "titleWrapActionPosRight", "title", "subtitle", "actionIcon", "actionIconActionPosLeft", "actionIconActionPosRight"]);
 
 // node_modules/@mui/material/ImageListItemBar/ImageListItemBar.js
-var jsx_runtime44 = __toESM(require_jsx_runtime(), 1);
-var jsx_runtime45 = __toESM(require_jsx_runtime(), 1);
-var _excluded43 = ["actionIcon", "actionPosition", "className", "subtitle", "title", "position"];
-var useUtilityClasses23 = (ownerState) => {
+var jsx_runtime42 = __toESM(require_jsx_runtime(), 1);
+var jsx_runtime43 = __toESM(require_jsx_runtime(), 1);
+var _excluded42 = ["actionIcon", "actionPosition", "className", "subtitle", "title", "position"];
+var useUtilityClasses22 = (ownerState) => {
   const {
     classes,
     position: position2,
@@ -38495,7 +36175,7 @@ var ImageListItemBarActionIcon = styled_default2("div", {
     order: -1
   });
 });
-var ImageListItemBar = React63.forwardRef(function ImageListItemBar2(inProps, ref) {
+var ImageListItemBar = React59.forwardRef(function ImageListItemBar2(inProps, ref) {
   const props = useThemeProps3({
     props: inProps,
     name: "MuiImageListItemBar"
@@ -38507,28 +36187,28 @@ var ImageListItemBar = React63.forwardRef(function ImageListItemBar2(inProps, re
     subtitle,
     title,
     position: position2 = "bottom"
-  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded43);
+  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded42);
   const ownerState = _extends4({}, props, {
     position: position2,
     actionPosition
   });
-  const classes = useUtilityClasses23(ownerState);
-  return jsx_runtime45.jsxs(ImageListItemBarRoot, _extends4({
+  const classes = useUtilityClasses22(ownerState);
+  return jsx_runtime43.jsxs(ImageListItemBarRoot, _extends4({
     ownerState,
     className: clsx_default2(classes.root, className2),
     ref
   }, other, {
-    children: [jsx_runtime45.jsxs(ImageListItemBarTitleWrap, {
+    children: [jsx_runtime43.jsxs(ImageListItemBarTitleWrap, {
       ownerState,
       className: classes.titleWrap,
-      children: [jsx_runtime44.jsx(ImageListItemBarTitle, {
+      children: [jsx_runtime42.jsx(ImageListItemBarTitle, {
         className: classes.title,
         children: title
-      }), subtitle ? jsx_runtime44.jsx(ImageListItemBarSubtitle, {
+      }), subtitle ? jsx_runtime42.jsx(ImageListItemBarSubtitle, {
         className: classes.subtitle,
         children: subtitle
       }) : null]
-    }), actionIcon ? jsx_runtime44.jsx(ImageListItemBarActionIcon, {
+    }), actionIcon ? jsx_runtime42.jsx(ImageListItemBarActionIcon, {
       ownerState,
       className: classes.actionIcon,
       children: actionIcon
@@ -38536,24 +36216,24 @@ var ImageListItemBar = React63.forwardRef(function ImageListItemBar2(inProps, re
   }));
 });
 ImageListItemBar.propTypes = {
-  actionIcon: import_prop_types42.default.node,
-  actionPosition: import_prop_types42.default.oneOf(["left", "right"]),
-  children: import_prop_types42.default.node,
-  classes: import_prop_types42.default.object,
-  className: import_prop_types42.default.string,
-  position: import_prop_types42.default.oneOf(["below", "bottom", "top"]),
-  subtitle: import_prop_types42.default.node,
-  sx: import_prop_types42.default.oneOfType([import_prop_types42.default.arrayOf(import_prop_types42.default.oneOfType([import_prop_types42.default.func, import_prop_types42.default.object, import_prop_types42.default.bool])), import_prop_types42.default.func, import_prop_types42.default.object]),
-  title: import_prop_types42.default.node
+  actionIcon: import_prop_types41.default.node,
+  actionPosition: import_prop_types41.default.oneOf(["left", "right"]),
+  children: import_prop_types41.default.node,
+  classes: import_prop_types41.default.object,
+  className: import_prop_types41.default.string,
+  position: import_prop_types41.default.oneOf(["below", "bottom", "top"]),
+  subtitle: import_prop_types41.default.node,
+  sx: import_prop_types41.default.oneOfType([import_prop_types41.default.arrayOf(import_prop_types41.default.oneOfType([import_prop_types41.default.func, import_prop_types41.default.object, import_prop_types41.default.bool])), import_prop_types41.default.func, import_prop_types41.default.object]),
+  title: import_prop_types41.default.node
 };
 var ImageListItemBar_default = ImageListItemBar;
 // node_modules/@mui/material/List/List.js
-var React65 = __toESM(require_react(), 1);
-var import_prop_types43 = __toESM(require_prop_types(), 1);
+var React61 = __toESM(require_react(), 1);
+var import_prop_types42 = __toESM(require_prop_types(), 1);
 
 // node_modules/@mui/material/List/ListContext.js
-var React64 = __toESM(require_react(), 1);
-var ListContext = React64.createContext({});
+var React60 = __toESM(require_react(), 1);
+var ListContext = React60.createContext({});
 if (true) {
   ListContext.displayName = "ListContext";
 }
@@ -38566,10 +36246,10 @@ function getListUtilityClass(slot) {
 var listClasses = generateUtilityClasses("MuiList", ["root", "padding", "dense", "subheader"]);
 
 // node_modules/@mui/material/List/List.js
-var jsx_runtime46 = __toESM(require_jsx_runtime(), 1);
-var jsx_runtime47 = __toESM(require_jsx_runtime(), 1);
-var _excluded44 = ["children", "className", "component", "dense", "disablePadding", "subheader"];
-var useUtilityClasses24 = (ownerState) => {
+var jsx_runtime44 = __toESM(require_jsx_runtime(), 1);
+var jsx_runtime45 = __toESM(require_jsx_runtime(), 1);
+var _excluded43 = ["children", "className", "component", "dense", "disablePadding", "subheader"];
+var useUtilityClasses23 = (ownerState) => {
   const {
     classes,
     disablePadding,
@@ -38603,7 +36283,7 @@ var ListRoot = styled_default2("ul", {
 }, ownerState.subheader && {
   paddingTop: 0
 }));
-var List = React65.forwardRef(function List2(inProps, ref) {
+var List = React61.forwardRef(function List2(inProps, ref) {
   const props = useThemeProps3({
     props: inProps,
     name: "MuiList"
@@ -38615,8 +36295,8 @@ var List = React65.forwardRef(function List2(inProps, ref) {
     dense = false,
     disablePadding = false,
     subheader
-  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded44);
-  const context = React65.useMemo(() => ({
+  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded43);
+  const context = React61.useMemo(() => ({
     dense
   }), [dense]);
   const ownerState = _extends4({}, props, {
@@ -38624,10 +36304,10 @@ var List = React65.forwardRef(function List2(inProps, ref) {
     dense,
     disablePadding
   });
-  const classes = useUtilityClasses24(ownerState);
-  return jsx_runtime47.jsx(ListContext_default.Provider, {
+  const classes = useUtilityClasses23(ownerState);
+  return jsx_runtime45.jsx(ListContext_default.Provider, {
     value: context,
-    children: jsx_runtime46.jsxs(ListRoot, _extends4({
+    children: jsx_runtime44.jsxs(ListRoot, _extends4({
       as: component,
       className: clsx_default2(classes.root, className2),
       ref,
@@ -38638,19 +36318,19 @@ var List = React65.forwardRef(function List2(inProps, ref) {
   });
 });
 List.propTypes = {
-  children: import_prop_types43.default.node,
-  classes: import_prop_types43.default.object,
-  className: import_prop_types43.default.string,
-  component: import_prop_types43.default.elementType,
-  dense: import_prop_types43.default.bool,
-  disablePadding: import_prop_types43.default.bool,
-  subheader: import_prop_types43.default.node,
-  sx: import_prop_types43.default.oneOfType([import_prop_types43.default.arrayOf(import_prop_types43.default.oneOfType([import_prop_types43.default.func, import_prop_types43.default.object, import_prop_types43.default.bool])), import_prop_types43.default.func, import_prop_types43.default.object])
+  children: import_prop_types42.default.node,
+  classes: import_prop_types42.default.object,
+  className: import_prop_types42.default.string,
+  component: import_prop_types42.default.elementType,
+  dense: import_prop_types42.default.bool,
+  disablePadding: import_prop_types42.default.bool,
+  subheader: import_prop_types42.default.node,
+  sx: import_prop_types42.default.oneOfType([import_prop_types42.default.arrayOf(import_prop_types42.default.oneOfType([import_prop_types42.default.func, import_prop_types42.default.object, import_prop_types42.default.bool])), import_prop_types42.default.func, import_prop_types42.default.object])
 };
 var List_default = List;
 // node_modules/@mui/material/ListItemButton/ListItemButton.js
-var React66 = __toESM(require_react(), 1);
-var import_prop_types44 = __toESM(require_prop_types(), 1);
+var React62 = __toESM(require_react(), 1);
+var import_prop_types43 = __toESM(require_prop_types(), 1);
 
 // node_modules/@mui/material/ListItemButton/listItemButtonClasses.js
 function getListItemButtonUtilityClass(slot) {
@@ -38660,15 +36340,15 @@ var listItemButtonClasses = generateUtilityClasses("MuiListItemButton", ["root",
 var listItemButtonClasses_default = listItemButtonClasses;
 
 // node_modules/@mui/material/ListItemButton/ListItemButton.js
-var jsx_runtime48 = __toESM(require_jsx_runtime(), 1);
-var _excluded45 = ["alignItems", "autoFocus", "component", "children", "dense", "disableGutters", "divider", "focusVisibleClassName", "selected", "className"];
+var jsx_runtime46 = __toESM(require_jsx_runtime(), 1);
+var _excluded44 = ["alignItems", "autoFocus", "component", "children", "dense", "disableGutters", "divider", "focusVisibleClassName", "selected", "className"];
 var overridesResolver2 = (props, styles4) => {
   const {
     ownerState
   } = props;
   return [styles4.root, ownerState.dense && styles4.dense, ownerState.alignItems === "flex-start" && styles4.alignItemsFlexStart, ownerState.divider && styles4.divider, !ownerState.disableGutters && styles4.gutters];
 };
-var useUtilityClasses25 = (ownerState) => {
+var useUtilityClasses24 = (ownerState) => {
   const {
     alignItems,
     classes,
@@ -38744,7 +36424,7 @@ var ListItemButtonRoot = styled_default2(ButtonBase_default, {
   paddingTop: 4,
   paddingBottom: 4
 }));
-var ListItemButton = React66.forwardRef(function ListItemButton2(inProps, ref) {
+var ListItemButton = React62.forwardRef(function ListItemButton2(inProps, ref) {
   const props = useThemeProps3({
     props: inProps,
     name: "MuiListItemButton"
@@ -38760,14 +36440,14 @@ var ListItemButton = React66.forwardRef(function ListItemButton2(inProps, ref) {
     focusVisibleClassName,
     selected = false,
     className: className2
-  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded45);
-  const context = React66.useContext(ListContext_default);
-  const childContext = React66.useMemo(() => ({
+  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded44);
+  const context = React62.useContext(ListContext_default);
+  const childContext = React62.useMemo(() => ({
     dense: dense || context.dense || false,
     alignItems,
     disableGutters
   }), [alignItems, context.dense, dense, disableGutters]);
-  const listItemRef = React66.useRef(null);
+  const listItemRef = React62.useRef(null);
   useEnhancedEffect_default2(() => {
     if (autoFocus) {
       if (listItemRef.current) {
@@ -38784,11 +36464,11 @@ var ListItemButton = React66.forwardRef(function ListItemButton2(inProps, ref) {
     divider,
     selected
   });
-  const classes = useUtilityClasses25(ownerState);
+  const classes = useUtilityClasses24(ownerState);
   const handleRef = useForkRef_default(listItemRef, ref);
-  return jsx_runtime48.jsx(ListContext_default.Provider, {
+  return jsx_runtime46.jsx(ListContext_default.Provider, {
     value: childContext,
-    children: jsx_runtime48.jsx(ListItemButtonRoot, _extends4({
+    children: jsx_runtime46.jsx(ListItemButtonRoot, _extends4({
       ref: handleRef,
       href: other.href || other.to,
       component: (other.href || other.to) && component === "div" ? "button" : component,
@@ -38802,24 +36482,243 @@ var ListItemButton = React66.forwardRef(function ListItemButton2(inProps, ref) {
   });
 });
 ListItemButton.propTypes = {
-  alignItems: import_prop_types44.default.oneOf(["center", "flex-start"]),
-  autoFocus: import_prop_types44.default.bool,
-  children: import_prop_types44.default.node,
-  classes: import_prop_types44.default.object,
-  className: import_prop_types44.default.string,
-  component: import_prop_types44.default.elementType,
-  dense: import_prop_types44.default.bool,
-  disabled: import_prop_types44.default.bool,
-  disableGutters: import_prop_types44.default.bool,
-  divider: import_prop_types44.default.bool,
-  focusVisibleClassName: import_prop_types44.default.string,
-  href: import_prop_types44.default.string,
-  selected: import_prop_types44.default.bool,
-  sx: import_prop_types44.default.oneOfType([import_prop_types44.default.arrayOf(import_prop_types44.default.oneOfType([import_prop_types44.default.func, import_prop_types44.default.object, import_prop_types44.default.bool])), import_prop_types44.default.func, import_prop_types44.default.object])
+  alignItems: import_prop_types43.default.oneOf(["center", "flex-start"]),
+  autoFocus: import_prop_types43.default.bool,
+  children: import_prop_types43.default.node,
+  classes: import_prop_types43.default.object,
+  className: import_prop_types43.default.string,
+  component: import_prop_types43.default.elementType,
+  dense: import_prop_types43.default.bool,
+  disabled: import_prop_types43.default.bool,
+  disableGutters: import_prop_types43.default.bool,
+  divider: import_prop_types43.default.bool,
+  focusVisibleClassName: import_prop_types43.default.string,
+  href: import_prop_types43.default.string,
+  selected: import_prop_types43.default.bool,
+  sx: import_prop_types43.default.oneOfType([import_prop_types43.default.arrayOf(import_prop_types43.default.oneOfType([import_prop_types43.default.func, import_prop_types43.default.object, import_prop_types43.default.bool])), import_prop_types43.default.func, import_prop_types43.default.object])
 };
 var ListItemButton_default = ListItemButton;
+// node_modules/@mui/material/ListItemIcon/listItemIconClasses.js
+var listItemIconClasses = generateUtilityClasses("MuiListItemIcon", ["root", "alignItemsFlexStart"]);
+var listItemIconClasses_default = listItemIconClasses;
+// node_modules/@mui/material/ListItemText/listItemTextClasses.js
+var listItemTextClasses = generateUtilityClasses("MuiListItemText", ["root", "multiline", "dense", "inset", "primary", "secondary"]);
+var listItemTextClasses_default = listItemTextClasses;
+// node_modules/@mui/material/Menu/Menu.js
+var React65 = __toESM(require_react(), 1);
+var import_react_is5 = __toESM(require_react_is4(), 1);
+var import_prop_types46 = __toESM(require_prop_types(), 1);
+
+// node_modules/@mui/material/MenuList/MenuList.js
+var React63 = __toESM(require_react(), 1);
+var import_react_is4 = __toESM(require_react_is4(), 1);
+var import_prop_types44 = __toESM(require_prop_types(), 1);
+
+// node_modules/@mui/material/utils/getScrollbarSize.js
+var getScrollbarSize_default = getScrollbarSize;
+
+// node_modules/@mui/material/MenuList/MenuList.js
+var jsx_runtime47 = __toESM(require_jsx_runtime(), 1);
+var nextItem = function(list, item, disableListWrap) {
+  if (list === item) {
+    return list.firstChild;
+  }
+  if (item && item.nextElementSibling) {
+    return item.nextElementSibling;
+  }
+  return disableListWrap ? null : list.firstChild;
+};
+var previousItem = function(list, item, disableListWrap) {
+  if (list === item) {
+    return disableListWrap ? list.firstChild : list.lastChild;
+  }
+  if (item && item.previousElementSibling) {
+    return item.previousElementSibling;
+  }
+  return disableListWrap ? null : list.lastChild;
+};
+var textCriteriaMatches = function(nextFocus, textCriteria) {
+  if (textCriteria === undefined) {
+    return true;
+  }
+  let text = nextFocus.innerText;
+  if (text === undefined) {
+    text = nextFocus.textContent;
+  }
+  text = text.trim().toLowerCase();
+  if (text.length === 0) {
+    return false;
+  }
+  if (textCriteria.repeating) {
+    return text[0] === textCriteria.keys[0];
+  }
+  return text.indexOf(textCriteria.keys.join("")) === 0;
+};
+var moveFocus = function(list, currentFocus, disableListWrap, disabledItemsFocusable, traversalFunction, textCriteria) {
+  let wrappedOnce = false;
+  let nextFocus = traversalFunction(list, currentFocus, currentFocus ? disableListWrap : false);
+  while (nextFocus) {
+    if (nextFocus === list.firstChild) {
+      if (wrappedOnce) {
+        return false;
+      }
+      wrappedOnce = true;
+    }
+    const nextFocusDisabled = disabledItemsFocusable ? false : nextFocus.disabled || nextFocus.getAttribute("aria-disabled") === "true";
+    if (!nextFocus.hasAttribute("tabindex") || !textCriteriaMatches(nextFocus, textCriteria) || nextFocusDisabled) {
+      nextFocus = traversalFunction(list, nextFocus, disableListWrap);
+    } else {
+      nextFocus.focus();
+      return true;
+    }
+  }
+  return false;
+};
+var _excluded45 = ["actions", "autoFocus", "autoFocusItem", "children", "className", "disabledItemsFocusable", "disableListWrap", "onKeyDown", "variant"];
+var MenuList = React63.forwardRef(function MenuList2(props, ref) {
+  const {
+    actions,
+    autoFocus = false,
+    autoFocusItem = false,
+    children,
+    className: className2,
+    disabledItemsFocusable = false,
+    disableListWrap = false,
+    onKeyDown,
+    variant = "selectedMenu"
+  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded45);
+  const listRef = React63.useRef(null);
+  const textCriteriaRef = React63.useRef({
+    keys: [],
+    repeating: true,
+    previousKeyMatched: true,
+    lastTime: null
+  });
+  useEnhancedEffect_default2(() => {
+    if (autoFocus) {
+      listRef.current.focus();
+    }
+  }, [autoFocus]);
+  React63.useImperativeHandle(actions, () => ({
+    adjustStyleForScrollbar: (containerElement, theme) => {
+      const noExplicitWidth = !listRef.current.style.width;
+      if (containerElement.clientHeight < listRef.current.clientHeight && noExplicitWidth) {
+        const scrollbarSize = `${getScrollbarSize_default(ownerDocument_default(containerElement))}px`;
+        listRef.current.style[theme.direction === "rtl" ? "paddingLeft" : "paddingRight"] = scrollbarSize;
+        listRef.current.style.width = `calc(100% + ${scrollbarSize})`;
+      }
+      return listRef.current;
+    }
+  }), []);
+  const handleKeyDown2 = (event) => {
+    const list = listRef.current;
+    const key = event.key;
+    const currentFocus = ownerDocument_default(list).activeElement;
+    if (key === "ArrowDown") {
+      event.preventDefault();
+      moveFocus(list, currentFocus, disableListWrap, disabledItemsFocusable, nextItem);
+    } else if (key === "ArrowUp") {
+      event.preventDefault();
+      moveFocus(list, currentFocus, disableListWrap, disabledItemsFocusable, previousItem);
+    } else if (key === "Home") {
+      event.preventDefault();
+      moveFocus(list, null, disableListWrap, disabledItemsFocusable, nextItem);
+    } else if (key === "End") {
+      event.preventDefault();
+      moveFocus(list, null, disableListWrap, disabledItemsFocusable, previousItem);
+    } else if (key.length === 1) {
+      const criteria = textCriteriaRef.current;
+      const lowerKey = key.toLowerCase();
+      const currTime = performance.now();
+      if (criteria.keys.length > 0) {
+        if (currTime - criteria.lastTime > 500) {
+          criteria.keys = [];
+          criteria.repeating = true;
+          criteria.previousKeyMatched = true;
+        } else if (criteria.repeating && lowerKey !== criteria.keys[0]) {
+          criteria.repeating = false;
+        }
+      }
+      criteria.lastTime = currTime;
+      criteria.keys.push(lowerKey);
+      const keepFocusOnCurrent = currentFocus && !criteria.repeating && textCriteriaMatches(currentFocus, criteria);
+      if (criteria.previousKeyMatched && (keepFocusOnCurrent || moveFocus(list, currentFocus, false, disabledItemsFocusable, nextItem, criteria))) {
+        event.preventDefault();
+      } else {
+        criteria.previousKeyMatched = false;
+      }
+    }
+    if (onKeyDown) {
+      onKeyDown(event);
+    }
+  };
+  const handleRef = useForkRef_default(listRef, ref);
+  let activeItemIndex = -1;
+  React63.Children.forEach(children, (child, index) => {
+    if (!React63.isValidElement(child)) {
+      if (activeItemIndex === index) {
+        activeItemIndex += 1;
+        if (activeItemIndex >= children.length) {
+          activeItemIndex = -1;
+        }
+      }
+      return;
+    }
+    if (true) {
+      if (import_react_is4.isFragment(child)) {
+        console.error(["MUI: The Menu component doesn't accept a Fragment as a child.", "Consider providing an array instead."].join("\n"));
+      }
+    }
+    if (!child.props.disabled) {
+      if (variant === "selectedMenu" && child.props.selected) {
+        activeItemIndex = index;
+      } else if (activeItemIndex === -1) {
+        activeItemIndex = index;
+      }
+    }
+    if (activeItemIndex === index && (child.props.disabled || child.props.muiSkipListHighlight || child.type.muiSkipListHighlight)) {
+      activeItemIndex += 1;
+      if (activeItemIndex >= children.length) {
+        activeItemIndex = -1;
+      }
+    }
+  });
+  const items = React63.Children.map(children, (child, index) => {
+    if (index === activeItemIndex) {
+      const newChildProps = {};
+      if (autoFocusItem) {
+        newChildProps.autoFocus = true;
+      }
+      if (child.props.tabIndex === undefined && variant === "selectedMenu") {
+        newChildProps.tabIndex = 0;
+      }
+      return React63.cloneElement(child, newChildProps);
+    }
+    return child;
+  });
+  return jsx_runtime47.jsx(List_default, _extends4({
+    role: "menu",
+    ref: handleRef,
+    className: className2,
+    onKeyDown: handleKeyDown2,
+    tabIndex: autoFocus ? 0 : -1
+  }, other, {
+    children: items
+  }));
+});
+MenuList.propTypes = {
+  autoFocus: import_prop_types44.default.bool,
+  autoFocusItem: import_prop_types44.default.bool,
+  children: import_prop_types44.default.node,
+  className: import_prop_types44.default.string,
+  disabledItemsFocusable: import_prop_types44.default.bool,
+  disableListWrap: import_prop_types44.default.bool,
+  onKeyDown: import_prop_types44.default.func,
+  variant: import_prop_types44.default.oneOf(["menu", "selectedMenu"])
+};
+var MenuList_default = MenuList;
 // node_modules/@mui/material/Popover/Popover.js
-var React67 = __toESM(require_react(), 1);
+var React64 = __toESM(require_react(), 1);
 var import_prop_types45 = __toESM(require_prop_types(), 1);
 
 // node_modules/@mui/material/Popover/popoverClasses.js
@@ -38829,7 +36728,7 @@ function getPopoverUtilityClass(slot) {
 var popoverClasses = generateUtilityClasses("MuiPopover", ["root", "paper"]);
 
 // node_modules/@mui/material/Popover/Popover.js
-var jsx_runtime49 = __toESM(require_jsx_runtime(), 1);
+var jsx_runtime48 = __toESM(require_jsx_runtime(), 1);
 function getOffsetTop(rect, vertical) {
   let offset = 0;
   if (typeof vertical === "number") {
@@ -38861,7 +36760,7 @@ var resolveAnchorEl = function(anchorEl) {
 var _excluded46 = ["onEntering"];
 var _excluded210 = ["action", "anchorEl", "anchorOrigin", "anchorPosition", "anchorReference", "children", "className", "container", "elevation", "marginThreshold", "open", "PaperProps", "slots", "slotProps", "transformOrigin", "TransitionComponent", "transitionDuration", "TransitionProps", "disableScrollLock"];
 var _excluded310 = ["slotProps"];
-var useUtilityClasses26 = (ownerState) => {
+var useUtilityClasses25 = (ownerState) => {
   const {
     classes
   } = ownerState;
@@ -38890,7 +36789,7 @@ var PopoverPaper = styled_default2(Paper_default, {
   maxHeight: "calc(100% - 32px)",
   outline: 0
 });
-var Popover = React67.forwardRef(function Popover2(inProps, ref) {
+var Popover = React64.forwardRef(function Popover2(inProps, ref) {
   var _slotProps$paper, _slots$root, _slots$paper;
   const props = useThemeProps3({
     props: inProps,
@@ -38926,7 +36825,7 @@ var Popover = React67.forwardRef(function Popover2(inProps, ref) {
     disableScrollLock = false
   } = props, TransitionProps = _objectWithoutPropertiesLoose2(props.TransitionProps, _excluded46), other = _objectWithoutPropertiesLoose2(props, _excluded210);
   const externalPaperSlotProps = (_slotProps$paper = slotProps == null ? undefined : slotProps.paper) != null ? _slotProps$paper : PaperPropsProp;
-  const paperRef = React67.useRef();
+  const paperRef = React64.useRef();
   const handlePaperRef = useForkRef_default(paperRef, externalPaperSlotProps.ref);
   const ownerState = _extends4({}, props, {
     anchorOrigin,
@@ -38939,8 +36838,8 @@ var Popover = React67.forwardRef(function Popover2(inProps, ref) {
     transitionDuration: transitionDurationProp,
     TransitionProps
   });
-  const classes = useUtilityClasses26(ownerState);
-  const getAnchorOffset = React67.useCallback(() => {
+  const classes = useUtilityClasses25(ownerState);
+  const getAnchorOffset = React64.useCallback(() => {
     if (anchorReference === "anchorPosition") {
       if (true) {
         if (!anchorPosition) {
@@ -38963,13 +36862,13 @@ var Popover = React67.forwardRef(function Popover2(inProps, ref) {
       left: anchorRect.left + getOffsetLeft(anchorRect, anchorOrigin.horizontal)
     };
   }, [anchorEl, anchorOrigin.horizontal, anchorOrigin.vertical, anchorPosition, anchorReference]);
-  const getTransformOrigin = React67.useCallback((elemRect) => {
+  const getTransformOrigin = React64.useCallback((elemRect) => {
     return {
       vertical: getOffsetTop(elemRect, transformOrigin.vertical),
       horizontal: getOffsetLeft(elemRect, transformOrigin.horizontal)
     };
   }, [transformOrigin.horizontal, transformOrigin.vertical]);
-  const getPositioningStyle = React67.useCallback((element) => {
+  const getPositioningStyle = React64.useCallback((element) => {
     const elemRect = {
       width: element.offsetWidth,
       height: element.offsetHeight
@@ -39019,8 +36918,8 @@ var Popover = React67.forwardRef(function Popover2(inProps, ref) {
       transformOrigin: getTransformOriginValue(elemTransformOrigin)
     };
   }, [anchorEl, anchorReference, getAnchorOffset, getTransformOrigin, marginThreshold]);
-  const [isPositioned, setIsPositioned] = React67.useState(open);
-  const setPositioningStyles = React67.useCallback(() => {
+  const [isPositioned, setIsPositioned] = React64.useState(open);
+  const setPositioningStyles = React64.useCallback(() => {
     const element = paperRef.current;
     if (!element) {
       return;
@@ -39035,7 +36934,7 @@ var Popover = React67.forwardRef(function Popover2(inProps, ref) {
     element.style.transformOrigin = positioning.transformOrigin;
     setIsPositioned(true);
   }, [getPositioningStyle]);
-  React67.useEffect(() => {
+  React64.useEffect(() => {
     if (disableScrollLock) {
       window.addEventListener("scroll", setPositioningStyles);
     }
@@ -39050,17 +36949,17 @@ var Popover = React67.forwardRef(function Popover2(inProps, ref) {
   const handleExited = () => {
     setIsPositioned(false);
   };
-  React67.useEffect(() => {
+  React64.useEffect(() => {
     if (open) {
       setPositioningStyles();
     }
   });
-  React67.useImperativeHandle(action, () => open ? {
+  React64.useImperativeHandle(action, () => open ? {
     updatePosition: () => {
       setPositioningStyles();
     }
   } : null, [open, setPositioningStyles]);
-  React67.useEffect(() => {
+  React64.useEffect(() => {
     if (!open) {
       return;
     }
@@ -39114,18 +37013,18 @@ var Popover = React67.forwardRef(function Popover2(inProps, ref) {
   }), {
     slotProps: rootSlotPropsProp
   } = _useSlotProps, rootProps = _objectWithoutPropertiesLoose2(_useSlotProps, _excluded310);
-  return jsx_runtime49.jsx(RootSlot, _extends4({}, rootProps, !isHostComponent(RootSlot) && {
+  return jsx_runtime48.jsx(RootSlot, _extends4({}, rootProps, !isHostComponent(RootSlot) && {
     slotProps: rootSlotPropsProp,
     disableScrollLock
   }, {
-    children: jsx_runtime49.jsx(TransitionComponent, _extends4({
+    children: jsx_runtime48.jsx(TransitionComponent, _extends4({
       appear: true,
       in: open,
       onEntering: handleEntering,
       onExited: handleExited,
       timeout: transitionDuration
     }, TransitionProps, {
-      children: jsx_runtime49.jsx(PaperSlot, _extends4({}, paperProps, {
+      children: jsx_runtime48.jsx(PaperSlot, _extends4({}, paperProps, {
         children
       }))
     }))
@@ -39190,245 +37089,402 @@ Popover.propTypes = {
   TransitionProps: import_prop_types45.default.object
 };
 var Popover_default = Popover;
-// node_modules/@mui/material/Switch/Switch.js
-var React68 = __toESM(require_react(), 1);
-var import_prop_types46 = __toESM(require_prop_types(), 1);
-
-// node_modules/@mui/material/Switch/switchClasses.js
-function getSwitchUtilityClass(slot) {
-  return generateUtilityClass("MuiSwitch", slot);
+// node_modules/@mui/material/Menu/menuClasses.js
+function getMenuUtilityClass(slot) {
+  return generateUtilityClass("MuiMenu", slot);
 }
-var switchClasses = generateUtilityClasses("MuiSwitch", ["root", "edgeStart", "edgeEnd", "switchBase", "colorPrimary", "colorSecondary", "sizeSmall", "sizeMedium", "checked", "disabled", "input", "thumb", "track"]);
-var switchClasses_default = switchClasses;
+var menuClasses = generateUtilityClasses("MuiMenu", ["root", "paper", "list"]);
 
-// node_modules/@mui/material/Switch/Switch.js
-var jsx_runtime50 = __toESM(require_jsx_runtime(), 1);
-var jsx_runtime51 = __toESM(require_jsx_runtime(), 1);
-var _excluded47 = ["className", "color", "edge", "size", "sx"];
-var useUtilityClasses27 = (ownerState) => {
+// node_modules/@mui/material/Menu/Menu.js
+var jsx_runtime49 = __toESM(require_jsx_runtime(), 1);
+var _excluded47 = ["onEntering"];
+var _excluded212 = ["autoFocus", "children", "className", "disableAutoFocusItem", "MenuListProps", "onClose", "open", "PaperProps", "PopoverClasses", "transitionDuration", "TransitionProps", "variant", "slots", "slotProps"];
+var RTL_ORIGIN = {
+  vertical: "top",
+  horizontal: "right"
+};
+var LTR_ORIGIN = {
+  vertical: "top",
+  horizontal: "left"
+};
+var useUtilityClasses26 = (ownerState) => {
   const {
-    classes,
-    edge,
-    size,
-    color: color2,
-    checked,
-    disabled
+    classes
   } = ownerState;
   const slots = {
-    root: ["root", edge && `edge${capitalize_default(edge)}`, `size${capitalize_default(size)}`],
-    switchBase: ["switchBase", `color${capitalize_default(color2)}`, checked && "checked", disabled && "disabled"],
-    thumb: ["thumb"],
-    track: ["track"],
-    input: ["input"]
+    root: ["root"],
+    paper: ["paper"],
+    list: ["list"]
   };
-  const composedClasses = composeClasses(slots, getSwitchUtilityClass, classes);
+  return composeClasses(slots, getMenuUtilityClass, classes);
+};
+var MenuRoot = styled_default2(Popover_default, {
+  shouldForwardProp: (prop) => rootShouldForwardProp(prop) || prop === "classes",
+  name: "MuiMenu",
+  slot: "Root",
+  overridesResolver: (props, styles4) => styles4.root
+})({});
+var MenuPaper = styled_default2(PopoverPaper, {
+  name: "MuiMenu",
+  slot: "Paper",
+  overridesResolver: (props, styles4) => styles4.paper
+})({
+  maxHeight: "calc(100% - 96px)",
+  WebkitOverflowScrolling: "touch"
+});
+var MenuMenuList = styled_default2(MenuList_default, {
+  name: "MuiMenu",
+  slot: "List",
+  overridesResolver: (props, styles4) => styles4.list
+})({
+  outline: 0
+});
+var Menu = React65.forwardRef(function Menu2(inProps, ref) {
+  var _slots$paper, _slotProps$paper;
+  const props = useThemeProps3({
+    props: inProps,
+    name: "MuiMenu"
+  });
+  const {
+    autoFocus = true,
+    children,
+    className: className2,
+    disableAutoFocusItem = false,
+    MenuListProps = {},
+    onClose,
+    open,
+    PaperProps = {},
+    PopoverClasses,
+    transitionDuration = "auto",
+    TransitionProps: {
+      onEntering
+    } = {},
+    variant = "selectedMenu",
+    slots = {},
+    slotProps = {}
+  } = props, TransitionProps = _objectWithoutPropertiesLoose2(props.TransitionProps, _excluded47), other = _objectWithoutPropertiesLoose2(props, _excluded212);
+  const theme = useTheme8();
+  const isRtl = theme.direction === "rtl";
+  const ownerState = _extends4({}, props, {
+    autoFocus,
+    disableAutoFocusItem,
+    MenuListProps,
+    onEntering,
+    PaperProps,
+    transitionDuration,
+    TransitionProps,
+    variant
+  });
+  const classes = useUtilityClasses26(ownerState);
+  const autoFocusItem = autoFocus && !disableAutoFocusItem && open;
+  const menuListActionsRef = React65.useRef(null);
+  const handleEntering = (element, isAppearing) => {
+    if (menuListActionsRef.current) {
+      menuListActionsRef.current.adjustStyleForScrollbar(element, theme);
+    }
+    if (onEntering) {
+      onEntering(element, isAppearing);
+    }
+  };
+  const handleListKeyDown = (event) => {
+    if (event.key === "Tab") {
+      event.preventDefault();
+      if (onClose) {
+        onClose(event, "tabKeyDown");
+      }
+    }
+  };
+  let activeItemIndex = -1;
+  React65.Children.map(children, (child, index) => {
+    if (!React65.isValidElement(child)) {
+      return;
+    }
+    if (true) {
+      if (import_react_is5.isFragment(child)) {
+        console.error(["MUI: The Menu component doesn't accept a Fragment as a child.", "Consider providing an array instead."].join("\n"));
+      }
+    }
+    if (!child.props.disabled) {
+      if (variant === "selectedMenu" && child.props.selected) {
+        activeItemIndex = index;
+      } else if (activeItemIndex === -1) {
+        activeItemIndex = index;
+      }
+    }
+  });
+  const PaperSlot = (_slots$paper = slots.paper) != null ? _slots$paper : MenuPaper;
+  const paperExternalSlotProps = (_slotProps$paper = slotProps.paper) != null ? _slotProps$paper : PaperProps;
+  const rootSlotProps = useSlotProps({
+    elementType: slots.root,
+    externalSlotProps: slotProps.root,
+    ownerState,
+    className: [classes.root, className2]
+  });
+  const paperSlotProps = useSlotProps({
+    elementType: PaperSlot,
+    externalSlotProps: paperExternalSlotProps,
+    ownerState,
+    className: classes.paper
+  });
+  return jsx_runtime49.jsx(MenuRoot, _extends4({
+    onClose,
+    anchorOrigin: {
+      vertical: "bottom",
+      horizontal: isRtl ? "right" : "left"
+    },
+    transformOrigin: isRtl ? RTL_ORIGIN : LTR_ORIGIN,
+    slots: {
+      paper: PaperSlot,
+      root: slots.root
+    },
+    slotProps: {
+      root: rootSlotProps,
+      paper: paperSlotProps
+    },
+    open,
+    ref,
+    transitionDuration,
+    TransitionProps: _extends4({
+      onEntering: handleEntering
+    }, TransitionProps),
+    ownerState
+  }, other, {
+    classes: PopoverClasses,
+    children: jsx_runtime49.jsx(MenuMenuList, _extends4({
+      onKeyDown: handleListKeyDown,
+      actions: menuListActionsRef,
+      autoFocus: autoFocus && (activeItemIndex === -1 || disableAutoFocusItem),
+      autoFocusItem,
+      variant
+    }, MenuListProps, {
+      className: clsx_default2(classes.list, MenuListProps.className),
+      children
+    }))
+  }));
+});
+Menu.propTypes = {
+  anchorEl: import_prop_types46.default.oneOfType([HTMLElementType, import_prop_types46.default.func]),
+  autoFocus: import_prop_types46.default.bool,
+  children: import_prop_types46.default.node,
+  classes: import_prop_types46.default.object,
+  className: import_prop_types46.default.string,
+  disableAutoFocusItem: import_prop_types46.default.bool,
+  MenuListProps: import_prop_types46.default.object,
+  onClose: import_prop_types46.default.func,
+  open: import_prop_types46.default.bool.isRequired,
+  PaperProps: import_prop_types46.default.object,
+  PopoverClasses: import_prop_types46.default.object,
+  slotProps: import_prop_types46.default.shape({
+    paper: import_prop_types46.default.oneOfType([import_prop_types46.default.func, import_prop_types46.default.object]),
+    root: import_prop_types46.default.oneOfType([import_prop_types46.default.func, import_prop_types46.default.object])
+  }),
+  slots: import_prop_types46.default.shape({
+    paper: import_prop_types46.default.elementType,
+    root: import_prop_types46.default.elementType
+  }),
+  sx: import_prop_types46.default.oneOfType([import_prop_types46.default.arrayOf(import_prop_types46.default.oneOfType([import_prop_types46.default.func, import_prop_types46.default.object, import_prop_types46.default.bool])), import_prop_types46.default.func, import_prop_types46.default.object]),
+  transitionDuration: import_prop_types46.default.oneOfType([import_prop_types46.default.oneOf(["auto"]), import_prop_types46.default.number, import_prop_types46.default.shape({
+    appear: import_prop_types46.default.number,
+    enter: import_prop_types46.default.number,
+    exit: import_prop_types46.default.number
+  })]),
+  TransitionProps: import_prop_types46.default.object,
+  variant: import_prop_types46.default.oneOf(["menu", "selectedMenu"])
+};
+var Menu_default = Menu;
+// node_modules/@mui/material/MenuItem/MenuItem.js
+var React66 = __toESM(require_react(), 1);
+var import_prop_types47 = __toESM(require_prop_types(), 1);
+
+// node_modules/@mui/material/MenuItem/menuItemClasses.js
+function getMenuItemUtilityClass(slot) {
+  return generateUtilityClass("MuiMenuItem", slot);
+}
+var menuItemClasses = generateUtilityClasses("MuiMenuItem", ["root", "focusVisible", "dense", "disabled", "divider", "gutters", "selected"]);
+var menuItemClasses_default = menuItemClasses;
+
+// node_modules/@mui/material/MenuItem/MenuItem.js
+var jsx_runtime50 = __toESM(require_jsx_runtime(), 1);
+var _excluded48 = ["autoFocus", "component", "dense", "divider", "disableGutters", "focusVisibleClassName", "role", "tabIndex", "className"];
+var overridesResolver3 = (props, styles4) => {
+  const {
+    ownerState
+  } = props;
+  return [styles4.root, ownerState.dense && styles4.dense, ownerState.divider && styles4.divider, !ownerState.disableGutters && styles4.gutters];
+};
+var useUtilityClasses27 = (ownerState) => {
+  const {
+    disabled,
+    dense,
+    divider,
+    disableGutters,
+    selected,
+    classes
+  } = ownerState;
+  const slots = {
+    root: ["root", dense && "dense", disabled && "disabled", !disableGutters && "gutters", divider && "divider", selected && "selected"]
+  };
+  const composedClasses = composeClasses(slots, getMenuItemUtilityClass, classes);
   return _extends4({}, classes, composedClasses);
 };
-var SwitchRoot = styled_default2("span", {
-  name: "MuiSwitch",
+var MenuItemRoot = styled_default2(ButtonBase_default, {
+  shouldForwardProp: (prop) => rootShouldForwardProp(prop) || prop === "classes",
+  name: "MuiMenuItem",
   slot: "Root",
-  overridesResolver: (props, styles4) => {
-    const {
-      ownerState
-    } = props;
-    return [styles4.root, ownerState.edge && styles4[`edge${capitalize_default(ownerState.edge)}`], styles4[`size${capitalize_default(ownerState.size)}`]];
-  }
+  overridesResolver: overridesResolver3
 })(({
-  ownerState
-}) => _extends4({
-  display: "inline-flex",
-  width: 34 + 12 * 2,
-  height: 14 + 12 * 2,
-  overflow: "hidden",
-  padding: 12,
-  boxSizing: "border-box",
-  position: "relative",
-  flexShrink: 0,
-  zIndex: 0,
-  verticalAlign: "middle",
-  "@media print": {
-    colorAdjust: "exact"
-  }
-}, ownerState.edge === "start" && {
-  marginLeft: -8
-}, ownerState.edge === "end" && {
-  marginRight: -8
-}, ownerState.size === "small" && {
-  width: 40,
-  height: 24,
-  padding: 7,
-  [`& .${switchClasses_default.thumb}`]: {
-    width: 16,
-    height: 16
-  },
-  [`& .${switchClasses_default.switchBase}`]: {
-    padding: 4,
-    [`&.${switchClasses_default.checked}`]: {
-      transform: "translateX(16px)"
-    }
-  }
-}));
-var SwitchSwitchBase = styled_default2(SwitchBase_default, {
-  name: "MuiSwitch",
-  slot: "SwitchBase",
-  overridesResolver: (props, styles4) => {
-    const {
-      ownerState
-    } = props;
-    return [styles4.switchBase, {
-      [`& .${switchClasses_default.input}`]: styles4.input
-    }, ownerState.color !== "default" && styles4[`color${capitalize_default(ownerState.color)}`]];
-  }
-})(({
-  theme
-}) => ({
-  position: "absolute",
-  top: 0,
-  left: 0,
-  zIndex: 1,
-  color: theme.vars ? theme.vars.palette.Switch.defaultColor : `${theme.palette.mode === "light" ? theme.palette.common.white : theme.palette.grey[300]}`,
-  transition: theme.transitions.create(["left", "transform"], {
-    duration: theme.transitions.duration.shortest
-  }),
-  [`&.${switchClasses_default.checked}`]: {
-    transform: "translateX(20px)"
-  },
-  [`&.${switchClasses_default.disabled}`]: {
-    color: theme.vars ? theme.vars.palette.Switch.defaultDisabledColor : `${theme.palette.mode === "light" ? theme.palette.grey[100] : theme.palette.grey[600]}`
-  },
-  [`&.${switchClasses_default.checked} + .${switchClasses_default.track}`]: {
-    opacity: 0.5
-  },
-  [`&.${switchClasses_default.disabled} + .${switchClasses_default.track}`]: {
-    opacity: theme.vars ? theme.vars.opacity.switchTrackDisabled : `${theme.palette.mode === "light" ? 0.12 : 0.2}`
-  },
-  [`& .${switchClasses_default.input}`]: {
-    left: "-100%",
-    width: "300%"
-  }
-}), ({
   theme,
   ownerState
-}) => _extends4({
+}) => _extends4({}, theme.typography.body1, {
+  display: "flex",
+  justifyContent: "flex-start",
+  alignItems: "center",
+  position: "relative",
+  textDecoration: "none",
+  minHeight: 48,
+  paddingTop: 6,
+  paddingBottom: 6,
+  boxSizing: "border-box",
+  whiteSpace: "nowrap"
+}, !ownerState.disableGutters && {
+  paddingLeft: 16,
+  paddingRight: 16
+}, ownerState.divider && {
+  borderBottom: `1px solid ${(theme.vars || theme).palette.divider}`,
+  backgroundClip: "padding-box"
+}, {
   "&:hover": {
-    backgroundColor: theme.vars ? `rgba(${theme.vars.palette.action.activeChannel} / ${theme.vars.palette.action.hoverOpacity})` : alpha(theme.palette.action.active, theme.palette.action.hoverOpacity),
+    textDecoration: "none",
+    backgroundColor: (theme.vars || theme).palette.action.hover,
     "@media (hover: none)": {
       backgroundColor: "transparent"
     }
-  }
-}, ownerState.color !== "default" && {
-  [`&.${switchClasses_default.checked}`]: {
-    color: (theme.vars || theme).palette[ownerState.color].main,
-    "&:hover": {
-      backgroundColor: theme.vars ? `rgba(${theme.vars.palette[ownerState.color].mainChannel} / ${theme.vars.palette.action.hoverOpacity})` : alpha(theme.palette[ownerState.color].main, theme.palette.action.hoverOpacity),
-      "@media (hover: none)": {
-        backgroundColor: "transparent"
-      }
-    },
-    [`&.${switchClasses_default.disabled}`]: {
-      color: theme.vars ? theme.vars.palette.Switch[`${ownerState.color}DisabledColor`] : `${theme.palette.mode === "light" ? lighten(theme.palette[ownerState.color].main, 0.62) : darken(theme.palette[ownerState.color].main, 0.55)}`
+  },
+  [`&.${menuItemClasses_default.selected}`]: {
+    backgroundColor: theme.vars ? `rgba(${theme.vars.palette.primary.mainChannel} / ${theme.vars.palette.action.selectedOpacity})` : alpha(theme.palette.primary.main, theme.palette.action.selectedOpacity),
+    [`&.${menuItemClasses_default.focusVisible}`]: {
+      backgroundColor: theme.vars ? `rgba(${theme.vars.palette.primary.mainChannel} / calc(${theme.vars.palette.action.selectedOpacity} + ${theme.vars.palette.action.focusOpacity}))` : alpha(theme.palette.primary.main, theme.palette.action.selectedOpacity + theme.palette.action.focusOpacity)
     }
   },
-  [`&.${switchClasses_default.checked} + .${switchClasses_default.track}`]: {
-    backgroundColor: (theme.vars || theme).palette[ownerState.color].main
+  [`&.${menuItemClasses_default.selected}:hover`]: {
+    backgroundColor: theme.vars ? `rgba(${theme.vars.palette.primary.mainChannel} / calc(${theme.vars.palette.action.selectedOpacity} + ${theme.vars.palette.action.hoverOpacity}))` : alpha(theme.palette.primary.main, theme.palette.action.selectedOpacity + theme.palette.action.hoverOpacity),
+    "@media (hover: none)": {
+      backgroundColor: theme.vars ? `rgba(${theme.vars.palette.primary.mainChannel} / ${theme.vars.palette.action.selectedOpacity})` : alpha(theme.palette.primary.main, theme.palette.action.selectedOpacity)
+    }
+  },
+  [`&.${menuItemClasses_default.focusVisible}`]: {
+    backgroundColor: (theme.vars || theme).palette.action.focus
+  },
+  [`&.${menuItemClasses_default.disabled}`]: {
+    opacity: (theme.vars || theme).palette.action.disabledOpacity
+  },
+  [`& + .${dividerClasses_default.root}`]: {
+    marginTop: theme.spacing(1),
+    marginBottom: theme.spacing(1)
+  },
+  [`& + .${dividerClasses_default.inset}`]: {
+    marginLeft: 52
+  },
+  [`& .${listItemTextClasses_default.root}`]: {
+    marginTop: 0,
+    marginBottom: 0
+  },
+  [`& .${listItemTextClasses_default.inset}`]: {
+    paddingLeft: 36
+  },
+  [`& .${listItemIconClasses_default.root}`]: {
+    minWidth: 36
   }
-}));
-var SwitchTrack = styled_default2("span", {
-  name: "MuiSwitch",
-  slot: "Track",
-  overridesResolver: (props, styles4) => styles4.track
-})(({
-  theme
-}) => ({
-  height: "100%",
-  width: "100%",
-  borderRadius: 14 / 2,
-  zIndex: -1,
-  transition: theme.transitions.create(["opacity", "background-color"], {
-    duration: theme.transitions.duration.shortest
-  }),
-  backgroundColor: theme.vars ? theme.vars.palette.common.onBackground : `${theme.palette.mode === "light" ? theme.palette.common.black : theme.palette.common.white}`,
-  opacity: theme.vars ? theme.vars.opacity.switchTrack : `${theme.palette.mode === "light" ? 0.38 : 0.3}`
-}));
-var SwitchThumb = styled_default2("span", {
-  name: "MuiSwitch",
-  slot: "Thumb",
-  overridesResolver: (props, styles4) => styles4.thumb
-})(({
-  theme
-}) => ({
-  boxShadow: (theme.vars || theme).shadows[1],
-  backgroundColor: "currentColor",
-  width: 20,
-  height: 20,
-  borderRadius: "50%"
-}));
-var Switch = React68.forwardRef(function Switch2(inProps, ref) {
+}, !ownerState.dense && {
+  [theme.breakpoints.up("sm")]: {
+    minHeight: "auto"
+  }
+}, ownerState.dense && _extends4({
+  minHeight: 32,
+  paddingTop: 4,
+  paddingBottom: 4
+}, theme.typography.body2, {
+  [`& .${listItemIconClasses_default.root} svg`]: {
+    fontSize: "1.25rem"
+  }
+})));
+var MenuItem = React66.forwardRef(function MenuItem2(inProps, ref) {
   const props = useThemeProps3({
     props: inProps,
-    name: "MuiSwitch"
+    name: "MuiMenuItem"
   });
   const {
-    className: className2,
-    color: color2 = "primary",
-    edge = false,
-    size = "medium",
-    sx
-  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded47);
+    autoFocus = false,
+    component = "li",
+    dense = false,
+    divider = false,
+    disableGutters = false,
+    focusVisibleClassName,
+    role = "menuitem",
+    tabIndex: tabIndexProp,
+    className: className2
+  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded48);
+  const context = React66.useContext(ListContext_default);
+  const childContext = React66.useMemo(() => ({
+    dense: dense || context.dense || false,
+    disableGutters
+  }), [context.dense, dense, disableGutters]);
+  const menuItemRef = React66.useRef(null);
+  useEnhancedEffect_default2(() => {
+    if (autoFocus) {
+      if (menuItemRef.current) {
+        menuItemRef.current.focus();
+      } else if (true) {
+        console.error("MUI: Unable to set focus to a MenuItem whose component has not been rendered.");
+      }
+    }
+  }, [autoFocus]);
   const ownerState = _extends4({}, props, {
-    color: color2,
-    edge,
-    size
+    dense: childContext.dense,
+    divider,
+    disableGutters
   });
-  const classes = useUtilityClasses27(ownerState);
-  const icon = jsx_runtime50.jsx(SwitchThumb, {
-    className: classes.thumb,
-    ownerState
-  });
-  return jsx_runtime51.jsxs(SwitchRoot, {
-    className: clsx_default2(classes.root, className2),
-    sx,
-    ownerState,
-    children: [jsx_runtime50.jsx(SwitchSwitchBase, _extends4({
-      type: "checkbox",
-      icon,
-      checkedIcon: icon,
-      ref,
-      ownerState
+  const classes = useUtilityClasses27(props);
+  const handleRef = useForkRef_default(menuItemRef, ref);
+  let tabIndex;
+  if (!props.disabled) {
+    tabIndex = tabIndexProp !== undefined ? tabIndexProp : -1;
+  }
+  return jsx_runtime50.jsx(ListContext_default.Provider, {
+    value: childContext,
+    children: jsx_runtime50.jsx(MenuItemRoot, _extends4({
+      ref: handleRef,
+      role,
+      tabIndex,
+      component,
+      focusVisibleClassName: clsx_default2(classes.focusVisible, focusVisibleClassName),
+      className: clsx_default2(classes.root, className2)
     }, other, {
-      classes: _extends4({}, classes, {
-        root: classes.switchBase
-      })
-    })), jsx_runtime50.jsx(SwitchTrack, {
-      className: classes.track,
-      ownerState
-    })]
+      ownerState,
+      classes
+    }))
   });
 });
-Switch.propTypes = {
-  checked: import_prop_types46.default.bool,
-  checkedIcon: import_prop_types46.default.node,
-  classes: import_prop_types46.default.object,
-  className: import_prop_types46.default.string,
-  color: import_prop_types46.default.oneOfType([import_prop_types46.default.oneOf(["default", "primary", "secondary", "error", "info", "success", "warning"]), import_prop_types46.default.string]),
-  defaultChecked: import_prop_types46.default.bool,
-  disabled: import_prop_types46.default.bool,
-  disableRipple: import_prop_types46.default.bool,
-  edge: import_prop_types46.default.oneOf(["end", "start", false]),
-  icon: import_prop_types46.default.node,
-  id: import_prop_types46.default.string,
-  inputProps: import_prop_types46.default.object,
-  inputRef: refType_default,
-  onChange: import_prop_types46.default.func,
-  required: import_prop_types46.default.bool,
-  size: import_prop_types46.default.oneOfType([import_prop_types46.default.oneOf(["medium", "small"]), import_prop_types46.default.string]),
-  sx: import_prop_types46.default.oneOfType([import_prop_types46.default.arrayOf(import_prop_types46.default.oneOfType([import_prop_types46.default.func, import_prop_types46.default.object, import_prop_types46.default.bool])), import_prop_types46.default.func, import_prop_types46.default.object]),
-  value: import_prop_types46.default.any
+MenuItem.propTypes = {
+  autoFocus: import_prop_types47.default.bool,
+  children: import_prop_types47.default.node,
+  classes: import_prop_types47.default.object,
+  className: import_prop_types47.default.string,
+  component: import_prop_types47.default.elementType,
+  dense: import_prop_types47.default.bool,
+  disabled: import_prop_types47.default.bool,
+  disableGutters: import_prop_types47.default.bool,
+  divider: import_prop_types47.default.bool,
+  focusVisibleClassName: import_prop_types47.default.string,
+  role: import_prop_types47.default.string,
+  selected: import_prop_types47.default.bool,
+  sx: import_prop_types47.default.oneOfType([import_prop_types47.default.arrayOf(import_prop_types47.default.oneOfType([import_prop_types47.default.func, import_prop_types47.default.object, import_prop_types47.default.bool])), import_prop_types47.default.func, import_prop_types47.default.object]),
+  tabIndex: import_prop_types47.default.number
 };
-var Switch_default = Switch;
+var MenuItem_default = MenuItem;
 // node_modules/@mui/material/Toolbar/Toolbar.js
-var React69 = __toESM(require_react(), 1);
-var import_prop_types47 = __toESM(require_prop_types(), 1);
+var React67 = __toESM(require_react(), 1);
+var import_prop_types48 = __toESM(require_prop_types(), 1);
 
 // node_modules/@mui/material/Toolbar/toolbarClasses.js
 function getToolbarUtilityClass(slot) {
@@ -39437,8 +37493,8 @@ function getToolbarUtilityClass(slot) {
 var toolbarClasses = generateUtilityClasses("MuiToolbar", ["root", "gutters", "regular", "dense"]);
 
 // node_modules/@mui/material/Toolbar/Toolbar.js
-var jsx_runtime52 = __toESM(require_jsx_runtime(), 1);
-var _excluded48 = ["className", "component", "disableGutters", "variant"];
+var jsx_runtime51 = __toESM(require_jsx_runtime(), 1);
+var _excluded49 = ["className", "component", "disableGutters", "variant"];
 var useUtilityClasses28 = (ownerState) => {
   const {
     classes,
@@ -39479,7 +37535,7 @@ var ToolbarRoot = styled_default2("div", {
   theme,
   ownerState
 }) => ownerState.variant === "regular" && theme.mixins.toolbar);
-var Toolbar = React69.forwardRef(function Toolbar2(inProps, ref) {
+var Toolbar = React67.forwardRef(function Toolbar2(inProps, ref) {
   const props = useThemeProps3({
     props: inProps,
     name: "MuiToolbar"
@@ -39489,14 +37545,14 @@ var Toolbar = React69.forwardRef(function Toolbar2(inProps, ref) {
     component = "div",
     disableGutters = false,
     variant = "regular"
-  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded48);
+  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded49);
   const ownerState = _extends4({}, props, {
     component,
     disableGutters,
     variant
   });
   const classes = useUtilityClasses28(ownerState);
-  return jsx_runtime52.jsx(ToolbarRoot, _extends4({
+  return jsx_runtime51.jsx(ToolbarRoot, _extends4({
     as: component,
     className: clsx_default2(classes.root, className2),
     ref,
@@ -39504,13 +37560,13 @@ var Toolbar = React69.forwardRef(function Toolbar2(inProps, ref) {
   }, other));
 });
 Toolbar.propTypes = {
-  children: import_prop_types47.default.node,
-  classes: import_prop_types47.default.object,
-  className: import_prop_types47.default.string,
-  component: import_prop_types47.default.elementType,
-  disableGutters: import_prop_types47.default.bool,
-  sx: import_prop_types47.default.oneOfType([import_prop_types47.default.arrayOf(import_prop_types47.default.oneOfType([import_prop_types47.default.func, import_prop_types47.default.object, import_prop_types47.default.bool])), import_prop_types47.default.func, import_prop_types47.default.object]),
-  variant: import_prop_types47.default.oneOfType([import_prop_types47.default.oneOf(["dense", "regular"]), import_prop_types47.default.string])
+  children: import_prop_types48.default.node,
+  classes: import_prop_types48.default.object,
+  className: import_prop_types48.default.string,
+  component: import_prop_types48.default.elementType,
+  disableGutters: import_prop_types48.default.bool,
+  sx: import_prop_types48.default.oneOfType([import_prop_types48.default.arrayOf(import_prop_types48.default.oneOfType([import_prop_types48.default.func, import_prop_types48.default.object, import_prop_types48.default.bool])), import_prop_types48.default.func, import_prop_types48.default.object]),
+  variant: import_prop_types48.default.oneOfType([import_prop_types48.default.oneOf(["dense", "regular"]), import_prop_types48.default.string])
 };
 var Toolbar_default = Toolbar;
 // src/components/home/HeaderSection/HeaderSection.jsx
@@ -39535,90 +37591,148 @@ var header_items_default = [
   }
 ];
 
-// src/components/home/HeaderSection/HeaderSection.jsx
-var import_react_responsive_carousel = __toESM(require_js(), 1);
-
 // src/components/home/HeaderSection/ImageSlider.jsx
 var import_react8 = __toESM(require_react(), 1);
 // node_modules/@mui/icons-material/esm/AccessTime.js
-var jsx_runtime53 = __toESM(require_jsx_runtime(), 1);
-var AccessTime_default = createSvgIcon([jsx_runtime53.jsx("path", {
+var jsx_runtime52 = __toESM(require_jsx_runtime(), 1);
+var AccessTime_default = createSvgIcon([jsx_runtime52.jsx("path", {
   d: "M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"
-}, "0"), jsx_runtime53.jsx("path", {
+}, "0"), jsx_runtime52.jsx("path", {
   d: "M12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z"
 }, "1")], "AccessTime");
 // node_modules/@mui/icons-material/esm/Circle.js
-var jsx_runtime54 = __toESM(require_jsx_runtime(), 1);
-var Circle_default = createSvgIcon(jsx_runtime54.jsx("path", {
+var jsx_runtime53 = __toESM(require_jsx_runtime(), 1);
+var Circle_default = createSvgIcon(jsx_runtime53.jsx("path", {
   d: "M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2z"
 }), "Circle");
 // node_modules/@mui/icons-material/esm/CircleOutlined.js
-var jsx_runtime55 = __toESM(require_jsx_runtime(), 1);
-var CircleOutlined_default = createSvgIcon(jsx_runtime55.jsx("path", {
+var jsx_runtime54 = __toESM(require_jsx_runtime(), 1);
+var CircleOutlined_default = createSvgIcon(jsx_runtime54.jsx("path", {
   d: "M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"
 }), "CircleOutlined");
 // node_modules/@mui/icons-material/esm/Computer.js
-var jsx_runtime56 = __toESM(require_jsx_runtime(), 1);
-var Computer_default = createSvgIcon(jsx_runtime56.jsx("path", {
+var jsx_runtime55 = __toESM(require_jsx_runtime(), 1);
+var Computer_default = createSvgIcon(jsx_runtime55.jsx("path", {
   d: "M20 18c1.1 0 1.99-.9 1.99-2L22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2H0v2h24v-2h-4zM4 6h16v10H4V6z"
 }), "Computer");
 // node_modules/@mui/icons-material/esm/DeliveryDining.js
-var jsx_runtime57 = __toESM(require_jsx_runtime(), 1);
-var DeliveryDining_default = createSvgIcon([jsx_runtime57.jsx("path", {
+var jsx_runtime56 = __toESM(require_jsx_runtime(), 1);
+var DeliveryDining_default = createSvgIcon([jsx_runtime56.jsx("path", {
   d: "M19 7c0-1.1-.9-2-2-2h-3v2h3v2.65L13.52 14H10V9H6c-2.21 0-4 1.79-4 4v3h2c0 1.66 1.34 3 3 3s3-1.34 3-3h4.48L19 10.35V7zM7 17c-.55 0-1-.45-1-1h2c0 .55-.45 1-1 1z"
-}, "0"), jsx_runtime57.jsx("path", {
+}, "0"), jsx_runtime56.jsx("path", {
   d: "M5 6h5v2H5zm14 7c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3zm0 4c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1z"
 }, "1")], "DeliveryDining");
 // node_modules/@mui/icons-material/esm/Email.js
-var jsx_runtime58 = __toESM(require_jsx_runtime(), 1);
-var Email_default = createSvgIcon(jsx_runtime58.jsx("path", {
+var jsx_runtime57 = __toESM(require_jsx_runtime(), 1);
+var Email_default = createSvgIcon(jsx_runtime57.jsx("path", {
   d: "M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"
 }), "Email");
 // node_modules/@mui/icons-material/esm/Home.js
-var jsx_runtime59 = __toESM(require_jsx_runtime(), 1);
-var Home_default = createSvgIcon(jsx_runtime59.jsx("path", {
+var jsx_runtime58 = __toESM(require_jsx_runtime(), 1);
+var Home_default = createSvgIcon(jsx_runtime58.jsx("path", {
   d: "M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"
 }), "Home");
 // node_modules/@mui/icons-material/esm/Info.js
-var jsx_runtime60 = __toESM(require_jsx_runtime(), 1);
-var Info_default = createSvgIcon(jsx_runtime60.jsx("path", {
+var jsx_runtime59 = __toESM(require_jsx_runtime(), 1);
+var Info_default = createSvgIcon(jsx_runtime59.jsx("path", {
   d: "M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"
 }), "Info");
 // node_modules/@mui/icons-material/esm/Instagram.js
-var React70 = __toESM(require_react(), 1);
-var jsx_runtime61 = __toESM(require_jsx_runtime(), 1);
-var Instagram_default = createSvgIcon(jsx_runtime61.jsx("path", {
+var React68 = __toESM(require_react(), 1);
+var jsx_runtime60 = __toESM(require_jsx_runtime(), 1);
+var Instagram_default = createSvgIcon(jsx_runtime60.jsx("path", {
   d: "M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"
 }), "Instagram");
 // node_modules/@mui/icons-material/esm/KeyboardArrowLeft.js
-var jsx_runtime62 = __toESM(require_jsx_runtime(), 1);
-var KeyboardArrowLeft_default = createSvgIcon(jsx_runtime62.jsx("path", {
+var jsx_runtime61 = __toESM(require_jsx_runtime(), 1);
+var KeyboardArrowLeft_default = createSvgIcon(jsx_runtime61.jsx("path", {
   d: "M15.41 16.59 10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"
 }), "KeyboardArrowLeft");
 // node_modules/@mui/icons-material/esm/KeyboardArrowRight.js
-var jsx_runtime63 = __toESM(require_jsx_runtime(), 1);
-var KeyboardArrowRight_default = createSvgIcon(jsx_runtime63.jsx("path", {
+var jsx_runtime62 = __toESM(require_jsx_runtime(), 1);
+var KeyboardArrowRight_default = createSvgIcon(jsx_runtime62.jsx("path", {
   d: "M8.59 16.59 13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"
 }), "KeyboardArrowRight");
+// node_modules/@mui/icons-material/esm/MoreHoriz.js
+var jsx_runtime63 = __toESM(require_jsx_runtime(), 1);
+var MoreHoriz_default = createSvgIcon(jsx_runtime63.jsx("path", {
+  d: "M6 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm12 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-6 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"
+}), "MoreHoriz");
 // node_modules/@mui/icons-material/esm/Phone.js
 var jsx_runtime64 = __toESM(require_jsx_runtime(), 1);
 var Phone_default = createSvgIcon(jsx_runtime64.jsx("path", {
   d: "M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"
 }), "Phone");
-// node_modules/@mui/icons-material/esm/ShoppingBag.js
+// node_modules/@mui/icons-material/esm/Search.js
 var jsx_runtime65 = __toESM(require_jsx_runtime(), 1);
-var ShoppingBag_default = createSvgIcon(jsx_runtime65.jsx("path", {
+var Search_default = createSvgIcon(jsx_runtime65.jsx("path", {
+  d: "M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+}), "Search");
+// node_modules/@mui/icons-material/esm/Shop.js
+var jsx_runtime66 = __toESM(require_jsx_runtime(), 1);
+var Shop_default = createSvgIcon(jsx_runtime66.jsx("path", {
+  d: "M16 6V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H2v13c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6h-6zm-6-2h4v2h-4V4zM9 18V9l7.5 4L9 18z"
+}), "Shop");
+// node_modules/@mui/icons-material/esm/ShoppingBag.js
+var jsx_runtime67 = __toESM(require_jsx_runtime(), 1);
+var ShoppingBag_default = createSvgIcon(jsx_runtime67.jsx("path", {
   d: "M18 6h-2c0-2.21-1.79-4-4-4S8 3.79 8 6H6c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-8 4c0 .55-.45 1-1 1s-1-.45-1-1V8h2v2zm2-6c1.1 0 2 .9 2 2h-4c0-1.1.9-2 2-2zm4 6c0 .55-.45 1-1 1s-1-.45-1-1V8h2v2z"
 }), "ShoppingBag");
 // node_modules/@mui/icons-material/esm/Telegram.js
-var React71 = __toESM(require_react(), 1);
-var jsx_runtime66 = __toESM(require_jsx_runtime(), 1);
-var Telegram_default = createSvgIcon(jsx_runtime66.jsx("path", {
+var React69 = __toESM(require_react(), 1);
+var jsx_runtime68 = __toESM(require_jsx_runtime(), 1);
+var Telegram_default = createSvgIcon(jsx_runtime68.jsx("path", {
   d: "M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"
 }), "Telegram");
 // src/components/home/HeaderSection/ImageSlider.jsx
 var jsx_dev_runtime = __toESM(require_jsx_dev_runtime(), 1);
-var ImageSlider = function({ items }) {
+var slideStyles = {
+  width: "100%",
+  height: "100%",
+  backgroundSize: "cover",
+  backgroundPosition: "center",
+  transition: (theme) => theme.transitions.create("background", {
+    duration: theme.transitions.duration.standard
+  })
+};
+var rightArrowStyles = {
+  position: "absolute",
+  top: "50%",
+  transform: "translate(0, -50%)",
+  right: "32px",
+  fontSize: "45px",
+  color: "#fff",
+  zIndex: 1,
+  cursor: "pointer"
+};
+var leftArrowStyles = {
+  position: "absolute",
+  top: "50%",
+  transform: "translate(0, -50%)",
+  left: "32px",
+  fontSize: "45px",
+  color: "#fff",
+  zIndex: 1,
+  cursor: "pointer"
+};
+var sliderStyles = {
+  position: "relative",
+  height: "100%"
+};
+var dotsContainerStyles = {
+  position: "relative",
+  top: "80vh",
+  display: "flex",
+  justifyContent: "center",
+  flexDirection: "row"
+};
+var dotStyle = {
+  margin: "0 3px",
+  cursor: "pointer",
+  fontSize: "20px"
+};
+var NEXT_SLIDE_TIMER = 5;
+function ImageSlider({ items }) {
   const [currentIndex, setCurrentIndex] = import_react8.useState(0);
   const [timeLeft, setTimeLeft] = import_react8.useState(NEXT_SLIDE_TIMER);
   import_react8.useEffect(() => {
@@ -39695,69 +37809,22 @@ var ImageSlider = function({ items }) {
       }, undefined, true, undefined, this)
     ]
   }, undefined, true, undefined, this);
-};
-var slideStyles = {
-  width: "100%",
-  height: "100%",
-  backgroundSize: "cover",
-  backgroundPosition: "center",
-  transition: (theme) => theme.transitions.create("background", {
-    duration: theme.transitions.duration.standard
-  })
-};
-var rightArrowStyles = {
-  position: "absolute",
-  top: "50%",
-  transform: "translate(0, -50%)",
-  right: "32px",
-  fontSize: "45px",
-  color: "#fff",
-  zIndex: 1,
-  cursor: "pointer"
-};
-var leftArrowStyles = {
-  position: "absolute",
-  top: "50%",
-  transform: "translate(0, -50%)",
-  left: "32px",
-  fontSize: "45px",
-  color: "#fff",
-  zIndex: 1,
-  cursor: "pointer"
-};
-var sliderStyles = {
-  position: "relative",
-  height: "100%"
-};
-var dotsContainerStyles = {
-  position: "relative",
-  top: "65vh",
-  display: "flex",
-  justifyContent: "center",
-  flexDirection: "row"
-};
-var dotStyle = {
-  margin: "0 3px",
-  cursor: "pointer",
-  fontSize: "20px"
-};
-var NEXT_SLIDE_TIMER = 5;
-var ImageSlider_default = ImageSlider;
+}
 
 // src/components/home/HeaderSection/HeaderSection.jsx
 var jsx_dev_runtime2 = __toESM(require_jsx_dev_runtime(), 1);
 var containerStyles = {
   width: "100%",
-  height: "70vh",
+  height: "90vh",
   margin: "0 auto"
 };
-var HeaderSection_default = HeaderSection = function() {
+function HeaderSection() {
   return jsx_dev_runtime2.jsxDEV(Box_default, {
     position: "relative",
     children: [
       jsx_dev_runtime2.jsxDEV(Box_default, {
         sx: containerStyles,
-        children: jsx_dev_runtime2.jsxDEV(ImageSlider_default, {
+        children: jsx_dev_runtime2.jsxDEV(ImageSlider, {
           items: header_items_default
         }, undefined, false, undefined, this)
       }, undefined, false, undefined, this),
@@ -39768,7 +37835,7 @@ var HeaderSection_default = HeaderSection = function() {
       }, undefined, false, undefined, this)
     ]
   }, undefined, true, undefined, this);
-};
+}
 
 // src/components/home/ChooseSection/ChooseSection.jsx
 var import_react10 = __toESM(require_react(), 1);
@@ -39835,7 +37902,7 @@ var games = [
     author: "Darren Richardson"
   }
 ];
-var ChooseSection_default = ChooseSection = function() {
+function ChooseSection() {
   const navigate = useNavigate();
   const [selectedGames, setSelectedGames] = import_react10.useState([]);
   const handleSelectGame = (index) => {
@@ -39956,7 +38023,7 @@ var ChooseSection_default = ChooseSection = function() {
       ]
     }, undefined, true, undefined, this)
   }, undefined, false, undefined, this);
-};
+}
 
 // src/components/home/ReviewSection/ReviewCard.jsx
 var React73 = __toESM(require_react(), 1);
@@ -40070,253 +38137,20 @@ var ReviewSection_default = ReviewSection = function() {
   }, undefined, true, undefined, this);
 };
 
-// src/components/home/FooterSection/groups/AboutGroup.jsx
+// src/components/home/HomePage.jsx
 var jsx_dev_runtime6 = __toESM(require_jsx_dev_runtime(), 1);
-var AboutGroup_default = AboutGroup = function() {
+function HomePage() {
   return jsx_dev_runtime6.jsxDEV(Box_default, {
     children: [
-      jsx_dev_runtime6.jsxDEV(Typography_default, {
-        sx: { paddingBottom: "10px" },
-        variant: "h4",
-        children: "\u041E \u043D\u0430\u0441"
-      }, undefined, false, undefined, this),
-      jsx_dev_runtime6.jsxDEV(Typography_default, {
-        children: "\u041C\u044B \u0434\u0438\u043D\u0430\u043C\u0438\u0447\u043D\u0430\u044F \u043A\u043E\u043C\u043F\u0430\u043D\u0438\u044F, \u043F\u0440\u0435\u0434\u043B\u0430\u0433\u0430\u044E\u0449\u0430\u044F \u0431\u043E\u043B\u0435\u0435 10 \u043F\u0440\u043E\u0444\u0435\u0441\u0441\u0438\u043E\u043D\u0430\u043B\u044C\u043D\u044B\u0445 \u0441\u0431\u043E\u0440\u043E\u043A \u043A\u043E\u043C\u043F\u044C\u044E\u0442\u0435\u0440\u043E\u0432 \u0434\u043B\u044F \u043B\u044E\u0431\u044B\u0445 \u0437\u0430\u0434\u0430\u0447. \u041D\u0430\u0448\u0430 \u043A\u043E\u043C\u0430\u043D\u0434\u0430 \u0441\u043E\u0441\u0442\u043E\u0438\u0442 \u0438\u0437 \u043E\u043F\u044B\u0442\u043D\u044B\u0445 \u0441\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442\u043E\u0432, \u0433\u0430\u0440\u0430\u043D\u0442\u0438\u0440\u0443\u044E\u0449\u0438\u0445 \u043A\u0430\u0447\u0435\u0441\u0442\u0432\u0435\u043D\u043D\u0443\u044E \u0441\u0431\u043E\u0440\u043A\u0443 \u0432 \u043A\u0440\u0430\u0442\u0447\u0430\u0439\u0448\u0438\u0435 \u0441\u0440\u043E\u043A\u0438."
-      }, undefined, false, undefined, this),
-      jsx_dev_runtime6.jsxDEV(Box_default, {
-        sx: {
-          width: "100%",
-          alignContent: "center",
-          textAlign: "center"
-        },
-        children: jsx_dev_runtime6.jsxDEV("img", {
-          alt: "GVG Tech Solutions",
-          loading: "lazy",
-          src: "/static/logos/gvgFull.png",
-          srcSet: "/static/logos/gvgFull.png",
-          style: { objectFit: "cover", width: "100px" }
-        }, undefined, false, undefined, this)
-      }, undefined, false, undefined, this)
+      jsx_dev_runtime6.jsxDEV(HeaderSection, {}, undefined, false, undefined, this),
+      jsx_dev_runtime6.jsxDEV(ChooseSection, {}, undefined, false, undefined, this),
+      jsx_dev_runtime6.jsxDEV(ReviewSection_default, {}, undefined, false, undefined, this)
     ]
   }, undefined, true, undefined, this);
-};
-
-// src/components/home/FooterSection/groups/HelpGroup.jsx
-var jsx_dev_runtime7 = __toESM(require_jsx_dev_runtime(), 1);
-var HelpGroup_default = HelpGroup = function() {
-  return jsx_dev_runtime7.jsxDEV(Box_default, {
-    sx: { width: "100%" },
-    children: [
-      jsx_dev_runtime7.jsxDEV(Typography_default, {
-        sx: { paddingBottom: "10px" },
-        variant: "h4",
-        children: "\u041F\u043E\u0434\u0434\u0435\u0440\u0436\u043A\u0430"
-      }, undefined, false, undefined, this),
-      jsx_dev_runtime7.jsxDEV(Stack_default, {
-        direction: "column",
-        children: [
-          jsx_dev_runtime7.jsxDEV(Typography_default, {
-            component: Link,
-            style: { textDecoration: "none", color: "#ffffff" },
-            children: "\u0417\u0430\u0434\u0430\u0442\u044C \u0432\u043E\u043F\u0440\u043E\u0441 \u0432 \u0412\u041A"
-          }, undefined, false, undefined, this),
-          jsx_dev_runtime7.jsxDEV(Typography_default, {
-            component: Link,
-            style: { textDecoration: "none", color: "#ffffff" },
-            children: "\u0412\u043E\u043F\u0440\u043E\u0441\u044B \u043F\u043E \u0434\u043E\u0441\u0442\u0430\u0432\u043A\u0435"
-          }, undefined, false, undefined, this)
-        ]
-      }, undefined, true, undefined, this),
-      jsx_dev_runtime7.jsxDEV(Stack_default, {
-        direction: "row",
-        marginTop: 2,
-        children: [
-          jsx_dev_runtime7.jsxDEV(Telegram_default, {
-            sx: { marginRight: 2 }
-          }, undefined, false, undefined, this),
-          jsx_dev_runtime7.jsxDEV(Instagram_default, {
-            sx: { marginRight: 2 }
-          }, undefined, false, undefined, this),
-          jsx_dev_runtime7.jsxDEV(Box_default, {
-            alt: "vk",
-            component: "img",
-            src: "/static/logos/vk.png",
-            sx: {
-              height: 25,
-              width: 25
-            }
-          }, undefined, false, undefined, this)
-        ]
-      }, undefined, true, undefined, this)
-    ]
-  }, undefined, true, undefined, this);
-};
-
-// src/components/home/FooterSection/groups/ShopGroup.jsx
-var jsx_dev_runtime8 = __toESM(require_jsx_dev_runtime(), 1);
-var ShopGroup_default = ShopGroup = function() {
-  return jsx_dev_runtime8.jsxDEV(Box_default, {
-    sx: { width: "100%" },
-    children: [
-      jsx_dev_runtime8.jsxDEV(Typography_default, {
-        sx: { paddingBottom: "10px" },
-        variant: "h4",
-        children: "\u041C\u0430\u0433\u0430\u0437\u0438\u043D"
-      }, undefined, false, undefined, this),
-      jsx_dev_runtime8.jsxDEV(Stack_default, {
-        direction: "column",
-        children: [
-          jsx_dev_runtime8.jsxDEV(Typography_default, {
-            component: Link,
-            style: { textDecoration: "none", color: "#ffffff" },
-            children: "\u0421\u0431\u043E\u0440\u043A\u0438"
-          }, undefined, false, undefined, this),
-          jsx_dev_runtime8.jsxDEV(Typography_default, {
-            component: Link,
-            style: { textDecoration: "none", color: "#ffffff" },
-            children: "\u041A\u043E\u043C\u043F\u043B\u0435\u043A\u0442\u0443\u044E\u0449\u0438\u0435"
-          }, undefined, false, undefined, this),
-          jsx_dev_runtime8.jsxDEV(Typography_default, {
-            component: Link,
-            style: { textDecoration: "none", color: "#ffffff" },
-            children: "\u0418\u0433\u0440\u043E\u0432\u043E\u0439 \u043A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440"
-          }, undefined, false, undefined, this)
-        ]
-      }, undefined, true, undefined, this)
-    ]
-  }, undefined, true, undefined, this);
-};
-
-// src/components/home/FooterSection/groups/ContactGroup.jsx
-var jsx_dev_runtime9 = __toESM(require_jsx_dev_runtime(), 1);
-var ContactGroup_default = ContuctGroup = function() {
-  return jsx_dev_runtime9.jsxDEV(Box_default, {
-    sx: { width: "100%" },
-    children: [
-      jsx_dev_runtime9.jsxDEV(Typography_default, {
-        sx: { paddingBottom: "10px" },
-        variant: "h4",
-        children: "\u0421\u0432\u044F\u0437\u0430\u0442\u044C\u0441\u044F \u0441 \u043D\u0430\u043C\u0438"
-      }, undefined, false, undefined, this),
-      jsx_dev_runtime9.jsxDEV(Stack_default, {
-        direction: "column",
-        children: [
-          jsx_dev_runtime9.jsxDEV(Typography_default, {
-            component: Link,
-            style: { textDecoration: "none", color: "#ffffff" },
-            children: "+7 (985) 146-04-77"
-          }, undefined, false, undefined, this),
-          jsx_dev_runtime9.jsxDEV(Typography_default, {
-            component: Link,
-            style: { textDecoration: "none", color: "#ffffff" },
-            children: "kraskovskiydm@gmail.com"
-          }, undefined, false, undefined, this)
-        ]
-      }, undefined, true, undefined, this),
-      jsx_dev_runtime9.jsxDEV(Box_default, {
-        sx: {
-          width: "100%",
-          marginTop: "40px"
-        },
-        children: jsx_dev_runtime9.jsxDEV(Button_default, {
-          color: "success",
-          sx: {
-            width: "100%",
-            height: "60px"
-          },
-          variant: "contained",
-          children: "\u041D\u0430\u043F\u0438\u0441\u0430\u0442\u044C \u043D\u0430\u043C"
-        }, undefined, false, undefined, this)
-      }, undefined, false, undefined, this)
-    ]
-  }, undefined, true, undefined, this);
-};
-
-// src/components/home/FooterSection/FooterSection.jsx
-var jsx_dev_runtime10 = __toESM(require_jsx_dev_runtime(), 1);
-var themed = createTheme_default2({
-  palette: {
-    primary: {
-      main: "#ffffff"
-    }
-  }
-});
-var items = [
-  {
-    component: jsx_dev_runtime10.jsxDEV(AboutGroup_default, {}, undefined, false, undefined, this)
-  },
-  {
-    component: jsx_dev_runtime10.jsxDEV(HelpGroup_default, {}, undefined, false, undefined, this)
-  },
-  {
-    component: jsx_dev_runtime10.jsxDEV(ShopGroup_default, {}, undefined, false, undefined, this)
-  },
-  {
-    component: jsx_dev_runtime10.jsxDEV(ContactGroup_default, {}, undefined, false, undefined, this)
-  }
-];
-var FooterSection_default = FooterSection = function() {
-  return jsx_dev_runtime10.jsxDEV(ThemeProvider5, {
-    theme: themed,
-    children: jsx_dev_runtime10.jsxDEV(Box_default, {
-      sx: {
-        width: "100%"
-      },
-      children: [
-        jsx_dev_runtime10.jsxDEV(Grid_default, {
-          columnGap: 10,
-          container: true,
-          rowGap: 5,
-          sx: {
-            alignContent: "center",
-            justifyContent: "center",
-            paddingTop: "10vh"
-          },
-          wrap: "wrap",
-          children: items.map((item, index) => jsx_dev_runtime10.jsxDEV(Grid_default, {
-            item: true,
-            sx: {
-              display: "flex",
-              justifyContent: "center",
-              border: 1,
-              borderColor: "black",
-              width: "300px",
-              paddingInline: 0
-            },
-            children: item.component
-          }, index, false, undefined, this))
-        }, undefined, false, undefined, this),
-        jsx_dev_runtime10.jsxDEV(Box_default, {
-          sx: {
-            position: "relative",
-            width: "100%",
-            textAlign: "center",
-            padding: "10px",
-            marginTop: "100px",
-            bottom: { xs: "60px", md: "0" }
-          },
-          children: 'Copyright \xA92023 "GVG Tech Solutions". All Rights Reserved'
-        }, undefined, false, undefined, this)
-      ]
-    }, undefined, true, undefined, this)
-  }, undefined, false, undefined, this);
-};
-
-// src/components/home/HomePage.jsx
-var jsx_dev_runtime11 = __toESM(require_jsx_dev_runtime(), 1);
-var HomePage_default = HomePage = function() {
-  return jsx_dev_runtime11.jsxDEV(Box_default, {
-    children: [
-      jsx_dev_runtime11.jsxDEV(HeaderSection_default, {}, undefined, false, undefined, this),
-      jsx_dev_runtime11.jsxDEV(ChooseSection_default, {}, undefined, false, undefined, this),
-      jsx_dev_runtime11.jsxDEV(ReviewSection_default, {}, undefined, false, undefined, this),
-      jsx_dev_runtime11.jsxDEV(FooterSection_default, {}, undefined, false, undefined, this)
-    ]
-  }, undefined, true, undefined, this);
-};
+}
 
 // src/components/delivery/DeliveryPage.jsx
-var import_react14 = __toESM(require_react(), 1);
+var import_react16 = __toESM(require_react(), 1);
 
 // src/components/delivery/CustomYandexMap.jsx
 var import_react13 = __toESM(require_react(), 1);
@@ -40789,15 +38623,15 @@ var ot = x(l(d((e2) => import_react12.default.createElement(K, r4({}, e2, { name
 var st = x(l(d((e2) => import_react12.default.createElement(K, r4({}, e2, { name: "Rectangle" })), true, ["Rectangle"])));
 
 // src/components/delivery/CustomYandexMap.jsx
-var jsx_dev_runtime12 = __toESM(require_jsx_dev_runtime(), 1);
-var CustomYandexMap_default = CustomYandexMap = function({ selected }) {
+var jsx_dev_runtime7 = __toESM(require_jsx_dev_runtime(), 1);
+function CustomYandexMap({ selected }) {
   const [ymaps, setYmaps] = import_react13.useState();
   const [coords, setCoords] = import_react13.useState([0, 0]);
-  return jsx_dev_runtime12.jsxDEV(y, {
+  return jsx_dev_runtime7.jsxDEV(y, {
     onApiAvaliable: (ymaps2) => {
       setYmaps(ymaps2);
     },
-    children: jsx_dev_runtime12.jsxDEV(k, {
+    children: jsx_dev_runtime7.jsxDEV(k, {
       height: "100%",
       modules: [
         "geocode",
@@ -40810,7 +38644,7 @@ var CustomYandexMap_default = CustomYandexMap = function({ selected }) {
         controls: ["zoomControl", "fullscreenControl"]
       },
       width: "100%",
-      children: jsx_dev_runtime12.jsxDEV(et, {
+      children: jsx_dev_runtime7.jsxDEV(et, {
         geometry: selected.coord,
         modules: ["geoObject.addon.balloon"],
         properties: {
@@ -40819,10 +38653,1277 @@ var CustomYandexMap_default = CustomYandexMap = function({ selected }) {
       }, undefined, false, undefined, this)
     }, undefined, false, undefined, this)
   }, undefined, false, undefined, this);
+}
+
+// src/components/common/CustomTelephoneLink.jsx
+var import_react15 = __toESM(require_react(), 1);
+
+// src/components/common/hooks/useCheckCurrentTheme.js
+var import_react14 = __toESM(require_react(), 1);
+
+// node_modules/@material-ui/core/esm/colors/common.js
+var common3 = {
+  black: "#000",
+  white: "#fff"
+};
+var common_default2 = common3;
+
+// node_modules/@material-ui/core/esm/colors/red.js
+var red3 = {
+  50: "#ffebee",
+  100: "#ffcdd2",
+  200: "#ef9a9a",
+  300: "#e57373",
+  400: "#ef5350",
+  500: "#f44336",
+  600: "#e53935",
+  700: "#d32f2f",
+  800: "#c62828",
+  900: "#b71c1c",
+  A100: "#ff8a80",
+  A200: "#ff5252",
+  A400: "#ff1744",
+  A700: "#d50000"
+};
+var red_default2 = red3;
+
+// node_modules/@material-ui/core/esm/colors/pink.js
+var pink2 = {
+  50: "#fce4ec",
+  100: "#f8bbd0",
+  200: "#f48fb1",
+  300: "#f06292",
+  400: "#ec407a",
+  500: "#e91e63",
+  600: "#d81b60",
+  700: "#c2185b",
+  800: "#ad1457",
+  900: "#880e4f",
+  A100: "#ff80ab",
+  A200: "#ff4081",
+  A400: "#f50057",
+  A700: "#c51162"
+};
+var pink_default2 = pink2;
+
+// node_modules/@material-ui/core/esm/colors/indigo.js
+var indigo2 = {
+  50: "#e8eaf6",
+  100: "#c5cae9",
+  200: "#9fa8da",
+  300: "#7986cb",
+  400: "#5c6bc0",
+  500: "#3f51b5",
+  600: "#3949ab",
+  700: "#303f9f",
+  800: "#283593",
+  900: "#1a237e",
+  A100: "#8c9eff",
+  A200: "#536dfe",
+  A400: "#3d5afe",
+  A700: "#304ffe"
+};
+var indigo_default2 = indigo2;
+
+// node_modules/@material-ui/core/esm/colors/blue.js
+var blue3 = {
+  50: "#e3f2fd",
+  100: "#bbdefb",
+  200: "#90caf9",
+  300: "#64b5f6",
+  400: "#42a5f5",
+  500: "#2196f3",
+  600: "#1e88e5",
+  700: "#1976d2",
+  800: "#1565c0",
+  900: "#0d47a1",
+  A100: "#82b1ff",
+  A200: "#448aff",
+  A400: "#2979ff",
+  A700: "#2962ff"
+};
+var blue_default2 = blue3;
+
+// node_modules/@material-ui/core/esm/colors/green.js
+var green3 = {
+  50: "#e8f5e9",
+  100: "#c8e6c9",
+  200: "#a5d6a7",
+  300: "#81c784",
+  400: "#66bb6a",
+  500: "#4caf50",
+  600: "#43a047",
+  700: "#388e3c",
+  800: "#2e7d32",
+  900: "#1b5e20",
+  A100: "#b9f6ca",
+  A200: "#69f0ae",
+  A400: "#00e676",
+  A700: "#00c853"
+};
+var green_default2 = green3;
+
+// node_modules/@material-ui/core/esm/colors/orange.js
+var orange3 = {
+  50: "#fff3e0",
+  100: "#ffe0b2",
+  200: "#ffcc80",
+  300: "#ffb74d",
+  400: "#ffa726",
+  500: "#ff9800",
+  600: "#fb8c00",
+  700: "#f57c00",
+  800: "#ef6c00",
+  900: "#e65100",
+  A100: "#ffd180",
+  A200: "#ffab40",
+  A400: "#ff9100",
+  A700: "#ff6d00"
+};
+var orange_default2 = orange3;
+
+// node_modules/@material-ui/core/esm/colors/grey.js
+var grey3 = {
+  50: "#fafafa",
+  100: "#f5f5f5",
+  200: "#eeeeee",
+  300: "#e0e0e0",
+  400: "#bdbdbd",
+  500: "#9e9e9e",
+  600: "#757575",
+  700: "#616161",
+  800: "#424242",
+  900: "#212121",
+  A100: "#d5d5d5",
+  A200: "#aaaaaa",
+  A400: "#303030",
+  A700: "#616161"
+};
+var grey_default2 = grey3;
+
+// node_modules/@material-ui/utils/node_modules/@babel/runtime/helpers/esm/extends.js
+function _extends5() {
+  _extends5 = Object.assign ? Object.assign.bind() : function(target) {
+    for (var i2 = 1;i2 < arguments.length; i2++) {
+      var source = arguments[i2];
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+    return target;
+  };
+  return _extends5.apply(this, arguments);
+}
+
+// node_modules/@material-ui/utils/node_modules/@babel/runtime/helpers/esm/typeof.js
+function _typeof(o2) {
+  return _typeof = typeof Symbol == "function" && typeof Symbol.iterator == "symbol" ? function(o3) {
+    return typeof o3;
+  } : function(o3) {
+    return o3 && typeof Symbol == "function" && o3.constructor === Symbol && o3 !== Symbol.prototype ? "symbol" : typeof o3;
+  }, _typeof(o2);
+}
+
+// node_modules/@material-ui/utils/esm/deepmerge.js
+function isPlainObject2(item) {
+  return item && _typeof(item) === "object" && item.constructor === Object;
+}
+function deepmerge2(target, source) {
+  var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {
+    clone: true
+  };
+  var output = options.clone ? _extends5({}, target) : target;
+  if (isPlainObject2(target) && isPlainObject2(source)) {
+    Object.keys(source).forEach(function(key) {
+      if (key === "__proto__") {
+        return;
+      }
+      if (isPlainObject2(source[key]) && (key in target)) {
+        output[key] = deepmerge2(target[key], source[key], options);
+      } else {
+        output[key] = source[key];
+      }
+    });
+  }
+  return output;
+}
+// node_modules/@material-ui/core/esm/styles/colorManipulator.js
+var clamp2 = function(value) {
+  var min = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+  var max = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 1;
+  if (true) {
+    if (value < min || value > max) {
+      console.error("Material-UI: The value provided ".concat(value, " is out of range [").concat(min, ", ").concat(max, "]."));
+    }
+  }
+  return Math.min(Math.max(min, value), max);
+};
+function hexToRgb2(color2) {
+  color2 = color2.substr(1);
+  var re = new RegExp(".{1,".concat(color2.length >= 6 ? 2 : 1, "}"), "g");
+  var colors2 = color2.match(re);
+  if (colors2 && colors2[0].length === 1) {
+    colors2 = colors2.map(function(n2) {
+      return n2 + n2;
+    });
+  }
+  return colors2 ? "rgb".concat(colors2.length === 4 ? "a" : "", "(").concat(colors2.map(function(n2, index) {
+    return index < 3 ? parseInt(n2, 16) : Math.round(parseInt(n2, 16) / 255 * 1000) / 1000;
+  }).join(", "), ")") : "";
+}
+function hslToRgb2(color2) {
+  color2 = decomposeColor2(color2);
+  var _color = color2, values3 = _color.values;
+  var h2 = values3[0];
+  var s2 = values3[1] / 100;
+  var l2 = values3[2] / 100;
+  var a2 = s2 * Math.min(l2, 1 - l2);
+  var f2 = function f(n2) {
+    var k2 = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : (n2 + h2 / 30) % 12;
+    return l2 - a2 * Math.max(Math.min(k2 - 3, 9 - k2, 1), -1);
+  };
+  var type = "rgb";
+  var rgb = [Math.round(f2(0) * 255), Math.round(f2(8) * 255), Math.round(f2(4) * 255)];
+  if (color2.type === "hsla") {
+    type += "a";
+    rgb.push(values3[3]);
+  }
+  return recomposeColor2({
+    type,
+    values: rgb
+  });
+}
+function decomposeColor2(color2) {
+  if (color2.type) {
+    return color2;
+  }
+  if (color2.charAt(0) === "#") {
+    return decomposeColor2(hexToRgb2(color2));
+  }
+  var marker = color2.indexOf("(");
+  var type = color2.substring(0, marker);
+  if (["rgb", "rgba", "hsl", "hsla"].indexOf(type) === -1) {
+    throw new Error("Material-UI: Unsupported `".concat(color2, "` color.\nWe support the following formats: #nnn, #nnnnnn, rgb(), rgba(), hsl(), hsla()."));
+  }
+  var values3 = color2.substring(marker + 1, color2.length - 1).split(",");
+  values3 = values3.map(function(value) {
+    return parseFloat(value);
+  });
+  return {
+    type,
+    values: values3
+  };
+}
+function recomposeColor2(color2) {
+  var type = color2.type;
+  var values3 = color2.values;
+  if (type.indexOf("rgb") !== -1) {
+    values3 = values3.map(function(n2, i2) {
+      return i2 < 3 ? parseInt(n2, 10) : n2;
+    });
+  } else if (type.indexOf("hsl") !== -1) {
+    values3[1] = "".concat(values3[1], "%");
+    values3[2] = "".concat(values3[2], "%");
+  }
+  return "".concat(type, "(").concat(values3.join(", "), ")");
+}
+function getContrastRatio2(foreground, background) {
+  var lumA = getLuminance2(foreground);
+  var lumB = getLuminance2(background);
+  return (Math.max(lumA, lumB) + 0.05) / (Math.min(lumA, lumB) + 0.05);
+}
+function getLuminance2(color2) {
+  color2 = decomposeColor2(color2);
+  var rgb = color2.type === "hsl" ? decomposeColor2(hslToRgb2(color2)).values : color2.values;
+  rgb = rgb.map(function(val) {
+    val /= 255;
+    return val <= 0.03928 ? val / 12.92 : Math.pow((val + 0.055) / 1.055, 2.4);
+  });
+  return Number((0.2126 * rgb[0] + 0.7152 * rgb[1] + 0.0722 * rgb[2]).toFixed(3));
+}
+function darken2(color2, coefficient) {
+  color2 = decomposeColor2(color2);
+  coefficient = clamp2(coefficient);
+  if (color2.type.indexOf("hsl") !== -1) {
+    color2.values[2] *= 1 - coefficient;
+  } else if (color2.type.indexOf("rgb") !== -1) {
+    for (var i2 = 0;i2 < 3; i2 += 1) {
+      color2.values[i2] *= 1 - coefficient;
+    }
+  }
+  return recomposeColor2(color2);
+}
+function lighten2(color2, coefficient) {
+  color2 = decomposeColor2(color2);
+  coefficient = clamp2(coefficient);
+  if (color2.type.indexOf("hsl") !== -1) {
+    color2.values[2] += (100 - color2.values[2]) * coefficient;
+  } else if (color2.type.indexOf("rgb") !== -1) {
+    for (var i2 = 0;i2 < 3; i2 += 1) {
+      color2.values[i2] += (255 - color2.values[i2]) * coefficient;
+    }
+  }
+  return recomposeColor2(color2);
+}
+// node_modules/@material-ui/core/node_modules/@babel/runtime/helpers/esm/typeof.js
+function _typeof2(o2) {
+  return _typeof2 = typeof Symbol == "function" && typeof Symbol.iterator == "symbol" ? function(o3) {
+    return typeof o3;
+  } : function(o3) {
+    return o3 && typeof Symbol == "function" && o3.constructor === Symbol && o3 !== Symbol.prototype ? "symbol" : typeof o3;
+  }, _typeof2(o2);
+}
+
+// node_modules/@material-ui/core/node_modules/@babel/runtime/helpers/esm/toPrimitive.js
+function _toPrimitive(input, hint) {
+  if (_typeof2(input) !== "object" || input === null)
+    return input;
+  var prim = input[Symbol.toPrimitive];
+  if (prim !== undefined) {
+    var res = prim.call(input, hint || "default");
+    if (_typeof2(res) !== "object")
+      return res;
+    throw new TypeError("@@toPrimitive must return a primitive value.");
+  }
+  return (hint === "string" ? String : Number)(input);
+}
+
+// node_modules/@material-ui/core/node_modules/@babel/runtime/helpers/esm/toPropertyKey.js
+function _toPropertyKey(arg) {
+  var key = _toPrimitive(arg, "string");
+  return _typeof2(key) === "symbol" ? key : String(key);
+}
+
+// node_modules/@material-ui/core/node_modules/@babel/runtime/helpers/esm/defineProperty.js
+function _defineProperty(obj, key, value) {
+  key = _toPropertyKey(key);
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+  return obj;
+}
+
+// node_modules/@material-ui/core/node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js
+function _objectWithoutPropertiesLoose3(source, excluded) {
+  if (source == null)
+    return {};
+  var target = {};
+  var sourceKeys = Object.keys(source);
+  var key, i2;
+  for (i2 = 0;i2 < sourceKeys.length; i2++) {
+    key = sourceKeys[i2];
+    if (excluded.indexOf(key) >= 0)
+      continue;
+    target[key] = source[key];
+  }
+  return target;
+}
+
+// node_modules/@material-ui/core/node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js
+function _objectWithoutProperties(source, excluded) {
+  if (source == null)
+    return {};
+  var target = _objectWithoutPropertiesLoose3(source, excluded);
+  var key, i2;
+  if (Object.getOwnPropertySymbols) {
+    var sourceSymbolKeys = Object.getOwnPropertySymbols(source);
+    for (i2 = 0;i2 < sourceSymbolKeys.length; i2++) {
+      key = sourceSymbolKeys[i2];
+      if (excluded.indexOf(key) >= 0)
+        continue;
+      if (!Object.prototype.propertyIsEnumerable.call(source, key))
+        continue;
+      target[key] = source[key];
+    }
+  }
+  return target;
+}
+
+// node_modules/@material-ui/core/node_modules/@babel/runtime/helpers/esm/extends.js
+function _extends6() {
+  _extends6 = Object.assign ? Object.assign.bind() : function(target) {
+    for (var i2 = 1;i2 < arguments.length; i2++) {
+      var source = arguments[i2];
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+    return target;
+  };
+  return _extends6.apply(this, arguments);
+}
+
+// node_modules/@material-ui/core/esm/styles/createBreakpoints.js
+var keys = ["xs", "sm", "md", "lg", "xl"];
+function createBreakpoints3(breakpoints8) {
+  var _breakpoints$values = breakpoints8.values, values3 = _breakpoints$values === undefined ? {
+    xs: 0,
+    sm: 600,
+    md: 960,
+    lg: 1280,
+    xl: 1920
+  } : _breakpoints$values, _breakpoints$unit = breakpoints8.unit, unit = _breakpoints$unit === undefined ? "px" : _breakpoints$unit, _breakpoints$step = breakpoints8.step, step = _breakpoints$step === undefined ? 5 : _breakpoints$step, other = _objectWithoutProperties(breakpoints8, ["values", "unit", "step"]);
+  function up(key) {
+    var value = typeof values3[key] === "number" ? values3[key] : key;
+    return "@media (min-width:".concat(value).concat(unit, ")");
+  }
+  function down(key) {
+    var endIndex = keys.indexOf(key) + 1;
+    var upperbound = values3[keys[endIndex]];
+    if (endIndex === keys.length) {
+      return up("xs");
+    }
+    var value = typeof upperbound === "number" && endIndex > 0 ? upperbound : key;
+    return "@media (max-width:".concat(value - step / 100).concat(unit, ")");
+  }
+  function between(start, end) {
+    var endIndex = keys.indexOf(end);
+    if (endIndex === keys.length - 1) {
+      return up(start);
+    }
+    return "@media (min-width:".concat(typeof values3[start] === "number" ? values3[start] : start).concat(unit, ") and ") + "(max-width:".concat((endIndex !== -1 && typeof values3[keys[endIndex + 1]] === "number" ? values3[keys[endIndex + 1]] : end) - step / 100).concat(unit, ")");
+  }
+  function only(key) {
+    return between(key, key);
+  }
+  var warnedOnce = false;
+  function width2(key) {
+    if (true) {
+      if (!warnedOnce) {
+        warnedOnce = true;
+        console.warn(["Material-UI: The `theme.breakpoints.width` utility is deprecated because it's redundant.", "Use the `theme.breakpoints.values` instead."].join("\n"));
+      }
+    }
+    return values3[key];
+  }
+  return _extends6({
+    keys,
+    values: values3,
+    up,
+    down,
+    between,
+    only,
+    width: width2
+  }, other);
+}
+
+// node_modules/@material-ui/core/esm/styles/createMixins.js
+function createMixins3(breakpoints8, spacing8, mixins) {
+  var _toolbar;
+  return _extends6({
+    gutters: function gutters() {
+      var styles5 = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+      console.warn(["Material-UI: theme.mixins.gutters() is deprecated.", "You can use the source of the mixin directly:", "\n      paddingLeft: theme.spacing(2),\n      paddingRight: theme.spacing(2),\n      [theme.breakpoints.up('sm')]: {\n        paddingLeft: theme.spacing(3),\n        paddingRight: theme.spacing(3),\n      },\n      "].join("\n"));
+      return _extends6({
+        paddingLeft: spacing8(2),
+        paddingRight: spacing8(2)
+      }, styles5, _defineProperty({}, breakpoints8.up("sm"), _extends6({
+        paddingLeft: spacing8(3),
+        paddingRight: spacing8(3)
+      }, styles5[breakpoints8.up("sm")])));
+    },
+    toolbar: (_toolbar = {
+      minHeight: 56
+    }, _defineProperty(_toolbar, "".concat(breakpoints8.up("xs"), " and (orientation: landscape)"), {
+      minHeight: 48
+    }), _defineProperty(_toolbar, breakpoints8.up("sm"), {
+      minHeight: 64
+    }), _toolbar)
+  }, mixins);
+}
+
+// node_modules/@material-ui/core/esm/styles/createPalette.js
+var addLightOrDark2 = function(intent, direction, shade, tonalOffset) {
+  var tonalOffsetLight = tonalOffset.light || tonalOffset;
+  var tonalOffsetDark = tonalOffset.dark || tonalOffset * 1.5;
+  if (!intent[direction]) {
+    if (intent.hasOwnProperty(shade)) {
+      intent[direction] = intent[shade];
+    } else if (direction === "light") {
+      intent.light = lighten2(intent.main, tonalOffsetLight);
+    } else if (direction === "dark") {
+      intent.dark = darken2(intent.main, tonalOffsetDark);
+    }
+  }
+};
+var light2 = {
+  text: {
+    primary: "rgba(0, 0, 0, 0.87)",
+    secondary: "rgba(0, 0, 0, 0.54)",
+    disabled: "rgba(0, 0, 0, 0.38)",
+    hint: "rgba(0, 0, 0, 0.38)"
+  },
+  divider: "rgba(0, 0, 0, 0.12)",
+  background: {
+    paper: common_default2.white,
+    default: grey_default2[50]
+  },
+  action: {
+    active: "rgba(0, 0, 0, 0.54)",
+    hover: "rgba(0, 0, 0, 0.04)",
+    hoverOpacity: 0.04,
+    selected: "rgba(0, 0, 0, 0.08)",
+    selectedOpacity: 0.08,
+    disabled: "rgba(0, 0, 0, 0.26)",
+    disabledBackground: "rgba(0, 0, 0, 0.12)",
+    disabledOpacity: 0.38,
+    focus: "rgba(0, 0, 0, 0.12)",
+    focusOpacity: 0.12,
+    activatedOpacity: 0.12
+  }
+};
+var dark2 = {
+  text: {
+    primary: common_default2.white,
+    secondary: "rgba(255, 255, 255, 0.7)",
+    disabled: "rgba(255, 255, 255, 0.5)",
+    hint: "rgba(255, 255, 255, 0.5)",
+    icon: "rgba(255, 255, 255, 0.5)"
+  },
+  divider: "rgba(255, 255, 255, 0.12)",
+  background: {
+    paper: grey_default2[800],
+    default: "#303030"
+  },
+  action: {
+    active: common_default2.white,
+    hover: "rgba(255, 255, 255, 0.08)",
+    hoverOpacity: 0.08,
+    selected: "rgba(255, 255, 255, 0.16)",
+    selectedOpacity: 0.16,
+    disabled: "rgba(255, 255, 255, 0.3)",
+    disabledBackground: "rgba(255, 255, 255, 0.12)",
+    disabledOpacity: 0.38,
+    focus: "rgba(255, 255, 255, 0.12)",
+    focusOpacity: 0.12,
+    activatedOpacity: 0.24
+  }
+};
+function createPalette3(palette4) {
+  var _palette$primary = palette4.primary, primary = _palette$primary === undefined ? {
+    light: indigo_default2[300],
+    main: indigo_default2[500],
+    dark: indigo_default2[700]
+  } : _palette$primary, _palette$secondary = palette4.secondary, secondary = _palette$secondary === undefined ? {
+    light: pink_default2.A200,
+    main: pink_default2.A400,
+    dark: pink_default2.A700
+  } : _palette$secondary, _palette$error = palette4.error, error = _palette$error === undefined ? {
+    light: red_default2[300],
+    main: red_default2[500],
+    dark: red_default2[700]
+  } : _palette$error, _palette$warning = palette4.warning, warning2 = _palette$warning === undefined ? {
+    light: orange_default2[300],
+    main: orange_default2[500],
+    dark: orange_default2[700]
+  } : _palette$warning, _palette$info = palette4.info, info = _palette$info === undefined ? {
+    light: blue_default2[300],
+    main: blue_default2[500],
+    dark: blue_default2[700]
+  } : _palette$info, _palette$success = palette4.success, success = _palette$success === undefined ? {
+    light: green_default2[300],
+    main: green_default2[500],
+    dark: green_default2[700]
+  } : _palette$success, _palette$type = palette4.type, type = _palette$type === undefined ? "light" : _palette$type, _palette$contrastThre = palette4.contrastThreshold, contrastThreshold = _palette$contrastThre === undefined ? 3 : _palette$contrastThre, _palette$tonalOffset = palette4.tonalOffset, tonalOffset = _palette$tonalOffset === undefined ? 0.2 : _palette$tonalOffset, other = _objectWithoutProperties(palette4, ["primary", "secondary", "error", "warning", "info", "success", "type", "contrastThreshold", "tonalOffset"]);
+  function getContrastText(background) {
+    var contrastText = getContrastRatio2(background, dark2.text.primary) >= contrastThreshold ? dark2.text.primary : light2.text.primary;
+    if (true) {
+      var contrast = getContrastRatio2(background, contrastText);
+      if (contrast < 3) {
+        console.error(["Material-UI: The contrast ratio of ".concat(contrast, ":1 for ").concat(contrastText, " on ").concat(background), "falls below the WCAG recommended absolute minimum contrast ratio of 3:1.", "https://www.w3.org/TR/2008/REC-WCAG20-20081211/#visual-audio-contrast-contrast"].join("\n"));
+      }
+    }
+    return contrastText;
+  }
+  var augmentColor = function augmentColor(color2) {
+    var mainShade = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 500;
+    var lightShade = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 300;
+    var darkShade = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 700;
+    color2 = _extends6({}, color2);
+    if (!color2.main && color2[mainShade]) {
+      color2.main = color2[mainShade];
+    }
+    if (!color2.main) {
+      throw new Error("Material-UI: The color provided to augmentColor(color) is invalid.\nThe color object needs to have a `main` property or a `".concat(mainShade, "` property."));
+    }
+    if (typeof color2.main !== "string") {
+      throw new Error("Material-UI: The color provided to augmentColor(color) is invalid.\n`color.main` should be a string, but `".concat(JSON.stringify(color2.main), `\` was provided instead.
+
+Did you intend to use one of the following approaches?
+
+import {\xA0green } from "@material-ui/core/colors";
+
+const theme1 = createTheme({ palette: {
+  primary: green,
+} });
+
+const theme2 = createTheme({ palette: {
+  primary: { main: green[500] },
+} });`));
+    }
+    addLightOrDark2(color2, "light", lightShade, tonalOffset);
+    addLightOrDark2(color2, "dark", darkShade, tonalOffset);
+    if (!color2.contrastText) {
+      color2.contrastText = getContrastText(color2.main);
+    }
+    return color2;
+  };
+  var types2 = {
+    dark: dark2,
+    light: light2
+  };
+  if (true) {
+    if (!types2[type]) {
+      console.error("Material-UI: The palette type `".concat(type, "` is not supported."));
+    }
+  }
+  var paletteOutput = deepmerge2(_extends6({
+    common: common_default2,
+    type,
+    primary: augmentColor(primary),
+    secondary: augmentColor(secondary, "A400", "A200", "A700"),
+    error: augmentColor(error),
+    warning: augmentColor(warning2),
+    info: augmentColor(info),
+    success: augmentColor(success),
+    grey: grey_default2,
+    contrastThreshold,
+    getContrastText,
+    augmentColor,
+    tonalOffset
+  }, types2[type]), other);
+  return paletteOutput;
+}
+
+// node_modules/@material-ui/core/esm/styles/createTypography.js
+var round2 = function(value) {
+  return Math.round(value * 1e5) / 1e5;
+};
+var roundWithDeprecationWarning = function(value) {
+  if (true) {
+    if (!warnedOnce) {
+      console.warn(["Material-UI: The `theme.typography.round` helper is deprecated.", "Head to https://mui.com/r/migration-v4/#theme for a migration path."].join("\n"));
+      warnedOnce = true;
+    }
+  }
+  return round2(value);
+};
+var warnedOnce = false;
+var caseAllCaps2 = {
+  textTransform: "uppercase"
+};
+var defaultFontFamily2 = '"Roboto", "Helvetica", "Arial", sans-serif';
+function createTypography3(palette4, typography2) {
+  var _ref = typeof typography2 === "function" ? typography2(palette4) : typography2, _ref$fontFamily = _ref.fontFamily, fontFamily = _ref$fontFamily === undefined ? defaultFontFamily2 : _ref$fontFamily, _ref$fontSize = _ref.fontSize, fontSize = _ref$fontSize === undefined ? 14 : _ref$fontSize, _ref$fontWeightLight = _ref.fontWeightLight, fontWeightLight = _ref$fontWeightLight === undefined ? 300 : _ref$fontWeightLight, _ref$fontWeightRegula = _ref.fontWeightRegular, fontWeightRegular = _ref$fontWeightRegula === undefined ? 400 : _ref$fontWeightRegula, _ref$fontWeightMedium = _ref.fontWeightMedium, fontWeightMedium = _ref$fontWeightMedium === undefined ? 500 : _ref$fontWeightMedium, _ref$fontWeightBold = _ref.fontWeightBold, fontWeightBold = _ref$fontWeightBold === undefined ? 700 : _ref$fontWeightBold, _ref$htmlFontSize = _ref.htmlFontSize, htmlFontSize = _ref$htmlFontSize === undefined ? 16 : _ref$htmlFontSize, allVariants = _ref.allVariants, pxToRem2 = _ref.pxToRem, other = _objectWithoutProperties(_ref, ["fontFamily", "fontSize", "fontWeightLight", "fontWeightRegular", "fontWeightMedium", "fontWeightBold", "htmlFontSize", "allVariants", "pxToRem"]);
+  if (true) {
+    if (typeof fontSize !== "number") {
+      console.error("Material-UI: `fontSize` is required to be a number.");
+    }
+    if (typeof htmlFontSize !== "number") {
+      console.error("Material-UI: `htmlFontSize` is required to be a number.");
+    }
+  }
+  var coef = fontSize / 14;
+  var pxToRem = pxToRem2 || function(size) {
+    return "".concat(size / htmlFontSize * coef, "rem");
+  };
+  var buildVariant = function buildVariant(fontWeight, size, lineHeight, letterSpacing, casing) {
+    return _extends6({
+      fontFamily,
+      fontWeight,
+      fontSize: pxToRem(size),
+      lineHeight
+    }, fontFamily === defaultFontFamily2 ? {
+      letterSpacing: "".concat(round2(letterSpacing / size), "em")
+    } : {}, casing, allVariants);
+  };
+  var variants = {
+    h1: buildVariant(fontWeightLight, 96, 1.167, -1.5),
+    h2: buildVariant(fontWeightLight, 60, 1.2, -0.5),
+    h3: buildVariant(fontWeightRegular, 48, 1.167, 0),
+    h4: buildVariant(fontWeightRegular, 34, 1.235, 0.25),
+    h5: buildVariant(fontWeightRegular, 24, 1.334, 0),
+    h6: buildVariant(fontWeightMedium, 20, 1.6, 0.15),
+    subtitle1: buildVariant(fontWeightRegular, 16, 1.75, 0.15),
+    subtitle2: buildVariant(fontWeightMedium, 14, 1.57, 0.1),
+    body1: buildVariant(fontWeightRegular, 16, 1.5, 0.15),
+    body2: buildVariant(fontWeightRegular, 14, 1.43, 0.15),
+    button: buildVariant(fontWeightMedium, 14, 1.75, 0.4, caseAllCaps2),
+    caption: buildVariant(fontWeightRegular, 12, 1.66, 0.4),
+    overline: buildVariant(fontWeightRegular, 12, 2.66, 1, caseAllCaps2)
+  };
+  return deepmerge2(_extends6({
+    htmlFontSize,
+    pxToRem,
+    round: roundWithDeprecationWarning,
+    fontFamily,
+    fontSize,
+    fontWeightLight,
+    fontWeightRegular,
+    fontWeightMedium,
+    fontWeightBold
+  }, variants), other, {
+    clone: false
+  });
+}
+
+// node_modules/@material-ui/core/esm/styles/shadows.js
+var createShadow2 = function() {
+  return ["".concat(arguments.length <= 0 ? undefined : arguments[0], "px ").concat(arguments.length <= 1 ? undefined : arguments[1], "px ").concat(arguments.length <= 2 ? undefined : arguments[2], "px ").concat(arguments.length <= 3 ? undefined : arguments[3], "px rgba(0,0,0,").concat(shadowKeyUmbraOpacity2, ")"), "".concat(arguments.length <= 4 ? undefined : arguments[4], "px ").concat(arguments.length <= 5 ? undefined : arguments[5], "px ").concat(arguments.length <= 6 ? undefined : arguments[6], "px ").concat(arguments.length <= 7 ? undefined : arguments[7], "px rgba(0,0,0,").concat(shadowKeyPenumbraOpacity2, ")"), "".concat(arguments.length <= 8 ? undefined : arguments[8], "px ").concat(arguments.length <= 9 ? undefined : arguments[9], "px ").concat(arguments.length <= 10 ? undefined : arguments[10], "px ").concat(arguments.length <= 11 ? undefined : arguments[11], "px rgba(0,0,0,").concat(shadowAmbientShadowOpacity2, ")")].join(",");
+};
+var shadowKeyUmbraOpacity2 = 0.2;
+var shadowKeyPenumbraOpacity2 = 0.14;
+var shadowAmbientShadowOpacity2 = 0.12;
+var shadows3 = ["none", createShadow2(0, 2, 1, -1, 0, 1, 1, 0, 0, 1, 3, 0), createShadow2(0, 3, 1, -2, 0, 2, 2, 0, 0, 1, 5, 0), createShadow2(0, 3, 3, -2, 0, 3, 4, 0, 0, 1, 8, 0), createShadow2(0, 2, 4, -1, 0, 4, 5, 0, 0, 1, 10, 0), createShadow2(0, 3, 5, -1, 0, 5, 8, 0, 0, 1, 14, 0), createShadow2(0, 3, 5, -1, 0, 6, 10, 0, 0, 1, 18, 0), createShadow2(0, 4, 5, -2, 0, 7, 10, 1, 0, 2, 16, 1), createShadow2(0, 5, 5, -3, 0, 8, 10, 1, 0, 3, 14, 2), createShadow2(0, 5, 6, -3, 0, 9, 12, 1, 0, 3, 16, 2), createShadow2(0, 6, 6, -3, 0, 10, 14, 1, 0, 4, 18, 3), createShadow2(0, 6, 7, -4, 0, 11, 15, 1, 0, 4, 20, 3), createShadow2(0, 7, 8, -4, 0, 12, 17, 2, 0, 5, 22, 4), createShadow2(0, 7, 8, -4, 0, 13, 19, 2, 0, 5, 24, 4), createShadow2(0, 7, 9, -4, 0, 14, 21, 2, 0, 5, 26, 4), createShadow2(0, 8, 9, -5, 0, 15, 22, 2, 0, 6, 28, 5), createShadow2(0, 8, 10, -5, 0, 16, 24, 2, 0, 6, 30, 5), createShadow2(0, 8, 11, -5, 0, 17, 26, 2, 0, 6, 32, 5), createShadow2(0, 9, 11, -5, 0, 18, 28, 2, 0, 7, 34, 6), createShadow2(0, 9, 12, -6, 0, 19, 29, 2, 0, 7, 36, 6), createShadow2(0, 10, 13, -6, 0, 20, 31, 3, 0, 8, 38, 7), createShadow2(0, 10, 13, -6, 0, 21, 33, 3, 0, 8, 40, 7), createShadow2(0, 10, 14, -6, 0, 22, 35, 3, 0, 8, 42, 7), createShadow2(0, 11, 14, -7, 0, 23, 36, 3, 0, 9, 44, 8), createShadow2(0, 11, 15, -7, 0, 24, 38, 3, 0, 9, 46, 8)];
+var shadows_default2 = shadows3;
+
+// node_modules/@material-ui/core/esm/styles/shape.js
+var shape3 = {
+  borderRadius: 4
+};
+var shape_default2 = shape3;
+
+// node_modules/@material-ui/system/node_modules/@babel/runtime/helpers/esm/typeof.js
+function _typeof3(o2) {
+  return _typeof3 = typeof Symbol == "function" && typeof Symbol.iterator == "symbol" ? function(o3) {
+    return typeof o3;
+  } : function(o3) {
+    return o3 && typeof Symbol == "function" && o3.constructor === Symbol && o3 !== Symbol.prototype ? "symbol" : typeof o3;
+  }, _typeof3(o2);
+}
+
+// node_modules/@material-ui/system/esm/responsivePropType.js
+var import_prop_types49 = __toESM(require_prop_types(), 1);
+var responsivePropType6 = import_prop_types49.default.oneOfType([import_prop_types49.default.number, import_prop_types49.default.string, import_prop_types49.default.object, import_prop_types49.default.array]);
+var responsivePropType_default2 = responsivePropType6;
+
+// node_modules/@material-ui/system/node_modules/@babel/runtime/helpers/esm/arrayLikeToArray.js
+function _arrayLikeToArray(arr, len) {
+  if (len == null || len > arr.length)
+    len = arr.length;
+  for (var i2 = 0, arr2 = new Array(len);i2 < len; i2++)
+    arr2[i2] = arr[i2];
+  return arr2;
+}
+
+// node_modules/@material-ui/system/node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js
+function _unsupportedIterableToArray(o2, minLen) {
+  if (!o2)
+    return;
+  if (typeof o2 === "string")
+    return _arrayLikeToArray(o2, minLen);
+  var n2 = Object.prototype.toString.call(o2).slice(8, -1);
+  if (n2 === "Object" && o2.constructor)
+    n2 = o2.constructor.name;
+  if (n2 === "Map" || n2 === "Set")
+    return Array.from(o2);
+  if (n2 === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n2))
+    return _arrayLikeToArray(o2, minLen);
+}
+
+// node_modules/@material-ui/system/esm/merge.js
+var merge6 = function(acc, item) {
+  if (!item) {
+    return acc;
+  }
+  return deepmerge2(acc, item, {
+    clone: false
+  });
+};
+var merge_default2 = merge6;
+
+// node_modules/@material-ui/system/esm/breakpoints.js
+function handleBreakpoints2(props, propValue, styleFromPropValue) {
+  if (true) {
+    if (!props.theme) {
+      console.error("Material-UI: You are calling a style function without a theme value.");
+    }
+  }
+  if (Array.isArray(propValue)) {
+    var themeBreakpoints = props.theme.breakpoints || defaultBreakpoints2;
+    return propValue.reduce(function(acc, item, index) {
+      acc[themeBreakpoints.up(themeBreakpoints.keys[index])] = styleFromPropValue(propValue[index]);
+      return acc;
+    }, {});
+  }
+  if (_typeof3(propValue) === "object") {
+    var _themeBreakpoints = props.theme.breakpoints || defaultBreakpoints2;
+    return Object.keys(propValue).reduce(function(acc, breakpoint) {
+      acc[_themeBreakpoints.up(breakpoint)] = styleFromPropValue(propValue[breakpoint]);
+      return acc;
+    }, {});
+  }
+  var output = styleFromPropValue(propValue);
+  return output;
+}
+var values3 = {
+  xs: 0,
+  sm: 600,
+  md: 960,
+  lg: 1280,
+  xl: 1920
+};
+var defaultBreakpoints2 = {
+  keys: ["xs", "sm", "md", "lg", "xl"],
+  up: function up(key) {
+    return "@media (min-width:".concat(values3[key], "px)");
+  }
 };
 
+// node_modules/@material-ui/system/node_modules/@babel/runtime/helpers/esm/arrayWithHoles.js
+function _arrayWithHoles(arr) {
+  if (Array.isArray(arr))
+    return arr;
+}
+
+// node_modules/@material-ui/system/node_modules/@babel/runtime/helpers/esm/iterableToArrayLimit.js
+function _iterableToArrayLimit(r5, l2) {
+  var t2 = r5 == null ? null : typeof Symbol != "undefined" && r5[Symbol.iterator] || r5["@@iterator"];
+  if (t2 != null) {
+    var e2, n2, i2, u2, a2 = [], f2 = true, o2 = false;
+    try {
+      if (i2 = (t2 = t2.call(r5)).next, l2 === 0) {
+        if (Object(t2) !== t2)
+          return;
+        f2 = false;
+      } else
+        for (;!(f2 = (e2 = i2.call(t2)).done) && (a2.push(e2.value), a2.length !== l2); f2 = true)
+          ;
+    } catch (r6) {
+      o2 = true, n2 = r6;
+    } finally {
+      try {
+        if (!f2 && t2["return"] != null && (u2 = t2["return"](), Object(u2) !== u2))
+          return;
+      } finally {
+        if (o2)
+          throw n2;
+      }
+    }
+    return a2;
+  }
+}
+
+// node_modules/@material-ui/system/node_modules/@babel/runtime/helpers/esm/nonIterableRest.js
+function _nonIterableRest() {
+  throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+}
+
+// node_modules/@material-ui/system/node_modules/@babel/runtime/helpers/esm/slicedToArray.js
+function _slicedToArray(arr, i2) {
+  return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i2) || _unsupportedIterableToArray(arr, i2) || _nonIterableRest();
+}
+
+// node_modules/@material-ui/system/esm/memoize.js
+function memoize7(fn) {
+  var cache3 = {};
+  return function(arg) {
+    if (cache3[arg] === undefined) {
+      cache3[arg] = fn(arg);
+    }
+    return cache3[arg];
+  };
+}
+
+// node_modules/@material-ui/system/esm/spacing.js
+function createUnarySpacing2(theme) {
+  var themeSpacing = theme.spacing || 8;
+  if (typeof themeSpacing === "number") {
+    return function(abs2) {
+      if (true) {
+        if (typeof abs2 !== "number") {
+          console.error("Material-UI: Expected spacing argument to be a number, got ".concat(abs2, "."));
+        }
+      }
+      return themeSpacing * abs2;
+    };
+  }
+  if (Array.isArray(themeSpacing)) {
+    return function(abs2) {
+      if (true) {
+        if (abs2 > themeSpacing.length - 1) {
+          console.error(["Material-UI: The value provided (".concat(abs2, ") overflows."), "The supported values are: ".concat(JSON.stringify(themeSpacing), "."), "".concat(abs2, " > ").concat(themeSpacing.length - 1, ", you need to add the missing values.")].join("\n"));
+        }
+      }
+      return themeSpacing[abs2];
+    };
+  }
+  if (typeof themeSpacing === "function") {
+    return themeSpacing;
+  }
+  if (true) {
+    console.error(["Material-UI: The `theme.spacing` value (".concat(themeSpacing, ") is invalid."), "It should be a number, an array or a function."].join("\n"));
+  }
+  return function() {
+    return;
+  };
+}
+var getValue2 = function(transformer, propValue) {
+  if (typeof propValue === "string" || propValue == null) {
+    return propValue;
+  }
+  var abs2 = Math.abs(propValue);
+  var transformed = transformer(abs2);
+  if (propValue >= 0) {
+    return transformed;
+  }
+  if (typeof transformed === "number") {
+    return -transformed;
+  }
+  return "-".concat(transformed);
+};
+var getStyleFromPropValue2 = function(cssProperties, transformer) {
+  return function(propValue) {
+    return cssProperties.reduce(function(acc, cssProperty) {
+      acc[cssProperty] = getValue2(transformer, propValue);
+      return acc;
+    }, {});
+  };
+};
+var spacing8 = function(props) {
+  var theme = props.theme;
+  var transformer = createUnarySpacing2(theme);
+  return Object.keys(props).map(function(prop) {
+    if (spacingKeys2.indexOf(prop) === -1) {
+      return null;
+    }
+    var cssProperties = getCssProperties2(prop);
+    var styleFromPropValue = getStyleFromPropValue2(cssProperties, transformer);
+    var propValue = props[prop];
+    return handleBreakpoints2(props, propValue, styleFromPropValue);
+  }).reduce(merge_default2, {});
+};
+var properties2 = {
+  m: "margin",
+  p: "padding"
+};
+var directions2 = {
+  t: "Top",
+  r: "Right",
+  b: "Bottom",
+  l: "Left",
+  x: ["Left", "Right"],
+  y: ["Top", "Bottom"]
+};
+var aliases2 = {
+  marginX: "mx",
+  marginY: "my",
+  paddingX: "px",
+  paddingY: "py"
+};
+var getCssProperties2 = memoize7(function(prop) {
+  if (prop.length > 2) {
+    if (aliases2[prop]) {
+      prop = aliases2[prop];
+    } else {
+      return [prop];
+    }
+  }
+  var _prop$split = prop.split(""), _prop$split2 = _slicedToArray(_prop$split, 2), a2 = _prop$split2[0], b2 = _prop$split2[1];
+  var property = properties2[a2];
+  var direction = directions2[b2] || "";
+  return Array.isArray(direction) ? direction.map(function(dir) {
+    return property + dir;
+  }) : [property + direction];
+});
+var spacingKeys2 = ["m", "mt", "mr", "mb", "ml", "mx", "my", "p", "pt", "pr", "pb", "pl", "px", "py", "margin", "marginTop", "marginRight", "marginBottom", "marginLeft", "marginX", "marginY", "padding", "paddingTop", "paddingRight", "paddingBottom", "paddingLeft", "paddingX", "paddingY"];
+spacing8.propTypes = spacingKeys2.reduce(function(obj, key) {
+  obj[key] = responsivePropType_default2;
+  return obj;
+}, {});
+spacing8.filterProps = spacingKeys2;
+
+// node_modules/@material-ui/core/esm/styles/createSpacing.js
+var warnOnce;
+function createSpacing3() {
+  var spacingInput = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 8;
+  if (spacingInput.mui) {
+    return spacingInput;
+  }
+  var transform = createUnarySpacing2({
+    spacing: spacingInput
+  });
+  var spacing9 = function spacing() {
+    for (var _len = arguments.length, args = new Array(_len), _key = 0;_key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+    if (true) {
+      if (!(args.length <= 4)) {
+        console.error("Material-UI: Too many arguments provided, expected between 0 and 4, got ".concat(args.length));
+      }
+    }
+    if (args.length === 0) {
+      return transform(1);
+    }
+    if (args.length === 1) {
+      return transform(args[0]);
+    }
+    return args.map(function(argument) {
+      if (typeof argument === "string") {
+        return argument;
+      }
+      var output = transform(argument);
+      return typeof output === "number" ? "".concat(output, "px") : output;
+    }).join(" ");
+  };
+  Object.defineProperty(spacing9, "unit", {
+    get: function get() {
+      if (true) {
+        if (!warnOnce || false) {
+          console.error(["Material-UI: theme.spacing.unit usage has been deprecated.", "It will be removed in v5.", "You can replace `theme.spacing.unit * y` with `theme.spacing(y)`.", "", "You can use the `https://github.com/mui-org/material-ui/tree/master/packages/material-ui-codemod/README.md#theme-spacing-api` migration helper to make the process smoother."].join("\n"));
+        }
+        warnOnce = true;
+      }
+      return spacingInput;
+    }
+  });
+  spacing9.mui = true;
+  return spacing9;
+}
+
+// node_modules/@material-ui/core/esm/styles/transitions.js
+var formatMs2 = function(milliseconds) {
+  return "".concat(Math.round(milliseconds), "ms");
+};
+var easing2 = {
+  easeInOut: "cubic-bezier(0.4, 0, 0.2, 1)",
+  easeOut: "cubic-bezier(0.0, 0, 0.2, 1)",
+  easeIn: "cubic-bezier(0.4, 0, 1, 1)",
+  sharp: "cubic-bezier(0.4, 0, 0.6, 1)"
+};
+var duration2 = {
+  shortest: 150,
+  shorter: 200,
+  short: 250,
+  standard: 300,
+  complex: 375,
+  enteringScreen: 225,
+  leavingScreen: 195
+};
+var transitions_default = {
+  easing: easing2,
+  duration: duration2,
+  create: function create() {
+    var props = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : ["all"];
+    var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+    var _options$duration = options.duration, durationOption = _options$duration === undefined ? duration2.standard : _options$duration, _options$easing = options.easing, easingOption = _options$easing === undefined ? easing2.easeInOut : _options$easing, _options$delay = options.delay, delay = _options$delay === undefined ? 0 : _options$delay, other = _objectWithoutProperties(options, ["duration", "easing", "delay"]);
+    if (true) {
+      var isString = function isString(value) {
+        return typeof value === "string";
+      };
+      var isNumber = function isNumber(value) {
+        return !isNaN(parseFloat(value));
+      };
+      if (!isString(props) && !Array.isArray(props)) {
+        console.error('Material-UI: Argument "props" must be a string or Array.');
+      }
+      if (!isNumber(durationOption) && !isString(durationOption)) {
+        console.error("Material-UI: Argument \"duration\" must be a number or a string but found ".concat(durationOption, "."));
+      }
+      if (!isString(easingOption)) {
+        console.error('Material-UI: Argument "easing" must be a string.');
+      }
+      if (!isNumber(delay) && !isString(delay)) {
+        console.error('Material-UI: Argument "delay" must be a number or a string.');
+      }
+      if (Object.keys(other).length !== 0) {
+        console.error("Material-UI: Unrecognized argument(s) [".concat(Object.keys(other).join(","), "]."));
+      }
+    }
+    return (Array.isArray(props) ? props : [props]).map(function(animatedProp) {
+      return "".concat(animatedProp, " ").concat(typeof durationOption === "string" ? durationOption : formatMs2(durationOption), " ").concat(easingOption, " ").concat(typeof delay === "string" ? delay : formatMs2(delay));
+    }).join(",");
+  },
+  getAutoHeightDuration: function getAutoHeightDuration2(height2) {
+    if (!height2) {
+      return 0;
+    }
+    var constant = height2 / 36;
+    return Math.round((4 + 15 * Math.pow(constant, 0.25) + constant / 5) * 10);
+  }
+};
+
+// node_modules/@material-ui/core/esm/styles/zIndex.js
+var zIndex3 = {
+  mobileStepper: 1000,
+  speedDial: 1050,
+  appBar: 1100,
+  drawer: 1200,
+  modal: 1300,
+  snackbar: 1400,
+  tooltip: 1500
+};
+var zIndex_default2 = zIndex3;
+
+// node_modules/@material-ui/core/esm/styles/createTheme.js
+var createTheme7 = function() {
+  var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var _options$breakpoints = options.breakpoints, breakpointsInput = _options$breakpoints === undefined ? {} : _options$breakpoints, _options$mixins = options.mixins, mixinsInput = _options$mixins === undefined ? {} : _options$mixins, _options$palette = options.palette, paletteInput = _options$palette === undefined ? {} : _options$palette, spacingInput = options.spacing, _options$typography = options.typography, typographyInput = _options$typography === undefined ? {} : _options$typography, other = _objectWithoutProperties(options, ["breakpoints", "mixins", "palette", "spacing", "typography"]);
+  var palette4 = createPalette3(paletteInput);
+  var breakpoints9 = createBreakpoints3(breakpointsInput);
+  var spacing9 = createSpacing3(spacingInput);
+  var muiTheme = deepmerge2({
+    breakpoints: breakpoints9,
+    direction: "ltr",
+    mixins: createMixins3(breakpoints9, spacing9, mixinsInput),
+    overrides: {},
+    palette: palette4,
+    props: {},
+    shadows: shadows_default2,
+    typography: createTypography3(palette4, typographyInput),
+    spacing: spacing9,
+    shape: shape_default2,
+    transitions: transitions_default,
+    zIndex: zIndex_default2
+  }, other);
+  for (var _len = arguments.length, args = new Array(_len > 1 ? _len - 1 : 0), _key = 1;_key < _len; _key++) {
+    args[_key - 1] = arguments[_key];
+  }
+  muiTheme = args.reduce(function(acc, argument) {
+    return deepmerge2(acc, argument);
+  }, muiTheme);
+  if (true) {
+    var pseudoClasses = ["checked", "disabled", "error", "focused", "focusVisible", "required", "expanded", "selected"];
+    var traverse = function traverse(node2, parentKey) {
+      var depth = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 1;
+      var key;
+      for (key in node2) {
+        var child = node2[key];
+        if (depth === 1) {
+          if (key.indexOf("Mui") === 0 && child) {
+            traverse(child, key, depth + 1);
+          }
+        } else if (pseudoClasses.indexOf(key) !== -1 && Object.keys(child).length > 0) {
+          if (true) {
+            console.error(["Material-UI: The `".concat(parentKey, "` component increases ") + "the CSS specificity of the `".concat(key, "` internal state."), "You can not override it like this: ", JSON.stringify(node2, null, 2), "", "Instead, you need to use the $ruleName syntax:", JSON.stringify({
+              root: _defineProperty({}, "&$".concat(key), child)
+            }, null, 2), "", "https://mui.com/r/pseudo-classes-guide"].join("\n"));
+          }
+          node2[key] = {};
+        }
+      }
+    };
+    traverse(muiTheme.overrides);
+  }
+  return muiTheme;
+};
+var createTheme_default3 = createTheme7;
+// src/styles/themes.js
+var themes = {
+  darkTheme: createTheme_default3({
+    root: {
+      "&$selected": {
+        color: "red"
+      }
+    },
+    palette: {
+      mode: "light",
+      primary: {
+        main: "#232323"
+      },
+      secondary: {
+        main: "#e0f2f1"
+      }
+    },
+    components: {
+      MuiDataGrid: {
+        styleOverrides: {
+          root: {
+            border: 1,
+            borderColor: exports_colors.primaryGrayMid,
+            borderStyle: "solid",
+            borderRadius: 10,
+            boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.25)",
+            backgroundColor: exports_colors.primaryGrayDark,
+            color: "#C1C2C5",
+            padding: 10
+          }
+        }
+      }
+    }
+  }),
+  lightTheme: createTheme_default3({
+    palette: {
+      root: {
+        "&$selected": {
+          main: "red",
+          primary: "red"
+        }
+      },
+      mode: "light",
+      primary: {
+        main: exports_colors.grey[200]
+      },
+      secondary: {
+        main: "#0D0D0D"
+      }
+    },
+    components: {
+      MuiDataGrid: {
+        styleOverrides: {
+          root: {
+            border: 1,
+            borderColor: exports_colors.primaryGrayMid,
+            borderStyle: "solid",
+            borderRadius: 10,
+            boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.25)",
+            backgroundColor: exports_colors.primaryGrayDark,
+            color: "#C1C2C5",
+            padding: 10
+          }
+        }
+      }
+    }
+  })
+};
+var themes_default = themes;
+
+// src/components/common/hooks/useCheckCurrentTheme.js
+var useCheckCurrentTheme_default = useCheckMobileScreen = () => {
+  const [currentTheme, setCurrentTheme] = import_react14.useState(themes_default.darkTheme);
+  const [darkMode, setDarkMode] = import_react14.useState(true);
+  const handleThemeSwitch = () => {
+    setDarkMode((was) => !was);
+  };
+  import_react14.useEffect(() => {
+    if (darkMode) {
+      setCurrentTheme(themes_default.darkTheme);
+    } else {
+      setCurrentTheme(themes_default.lightTheme);
+    }
+  }, [darkMode]);
+  return currentTheme;
+};
+
+// src/components/common/CustomTelephoneLink.jsx
+var jsx_dev_runtime8 = __toESM(require_jsx_dev_runtime(), 1);
+var number = "+7 (495) 391-41-96";
+function CustomTelephoneLink({ sx }) {
+  const currentTheme = useCheckCurrentTheme_default();
+  return jsx_dev_runtime8.jsxDEV(ThemeProvider5, {
+    theme: currentTheme,
+    children: jsx_dev_runtime8.jsxDEV(Typography_default, {
+      color: "secondary.main",
+      component: "a",
+      href: "tel:9851460477",
+      children: number
+    }, undefined, false, undefined, this)
+  }, undefined, false, undefined, this);
+}
+
 // src/components/delivery/DeliveryPage.jsx
-var jsx_dev_runtime13 = __toESM(require_jsx_dev_runtime(), 1);
+var jsx_dev_runtime9 = __toESM(require_jsx_dev_runtime(), 1);
 var adresses = [
   {
     title: "595695, \u041E\u043C\u0441\u043A\u0430\u044F \u043E\u0431\u043B\u0430\u0441\u0442\u044C, \u0433\u043E\u0440\u043E\u0434 \u041A\u0430\u0448\u0438\u0440\u0430, \u043F\u0440\u043E\u0435\u0437\u0434 \u0427\u0435\u0445\u043E\u0432\u0430, 52",
@@ -40849,25 +39950,25 @@ var adresses = [
     coord: [1, 2]
   }
 ];
-var DeliveryPage_default = DeliveryPage = function() {
-  const [selected, setSelected] = import_react14.useState(adresses[0]);
-  return jsx_dev_runtime13.jsxDEV(Grid_default, {
+function DeliveryPage() {
+  const [selected, setSelected] = import_react16.useState(adresses[0]);
+  return jsx_dev_runtime9.jsxDEV(Grid_default, {
     container: true,
     justifyItems: "center",
     marginBlockEnd: "100px",
     padding: 4,
     rowGap: "30px",
     children: [
-      jsx_dev_runtime13.jsxDEV(Grid_default, {
+      jsx_dev_runtime9.jsxDEV(Grid_default, {
         item: true,
         md: 12,
         xs: 12,
-        children: jsx_dev_runtime13.jsxDEV(Typography_default, {
+        children: jsx_dev_runtime9.jsxDEV(Typography_default, {
           fontSize: "1.5rem",
           children: "\u0421\u0430\u043C\u043E\u0432\u044B\u0432\u043E\u0437"
         }, undefined, false, undefined, this)
       }, undefined, false, undefined, this),
-      jsx_dev_runtime13.jsxDEV(Grid_default, {
+      jsx_dev_runtime9.jsxDEV(Grid_default, {
         item: true,
         md: 6,
         sx: {
@@ -40875,15 +39976,15 @@ var DeliveryPage_default = DeliveryPage = function() {
           height: "360px"
         },
         xs: 12,
-        children: jsx_dev_runtime13.jsxDEV(CustomYandexMap_default, {
+        children: jsx_dev_runtime9.jsxDEV(CustomYandexMap, {
           selected
         }, undefined, false, undefined, this)
       }, undefined, false, undefined, this),
-      jsx_dev_runtime13.jsxDEV(Grid_default, {
+      jsx_dev_runtime9.jsxDEV(Grid_default, {
         item: true,
         md: 6,
         xs: 12,
-        children: jsx_dev_runtime13.jsxDEV(List_default, {
+        children: jsx_dev_runtime9.jsxDEV(List_default, {
           sx: {
             border: 1,
             borderColor: "#ffffff",
@@ -40893,7 +39994,7 @@ var DeliveryPage_default = DeliveryPage = function() {
             maxHeight: 360,
             "& ul": { padding: 0 }
           },
-          children: adresses.map((adress, index) => jsx_dev_runtime13.jsxDEV(ListItemButton_default, {
+          children: adresses.map((adress, index) => jsx_dev_runtime9.jsxDEV(ListItemButton_default, {
             onClick: () => setSelected(adresses[index]),
             sx: {
               bgcolor: selected == adress ? alpha("#ffffff", 0.15) : "#000000",
@@ -40901,85 +40002,79 @@ var DeliveryPage_default = DeliveryPage = function() {
                 bgcolor: alpha("#ffffff", 0.15)
               }
             },
-            children: jsx_dev_runtime13.jsxDEV(Typography_default, {
+            children: jsx_dev_runtime9.jsxDEV(Typography_default, {
               children: adress.title
             }, undefined, false, undefined, this)
           }, index, false, undefined, this))
         }, undefined, false, undefined, this)
       }, undefined, false, undefined, this),
-      jsx_dev_runtime13.jsxDEV(Grid_default, {
+      jsx_dev_runtime9.jsxDEV(Grid_default, {
         item: true,
         md: 12,
         xs: 12,
-        children: jsx_dev_runtime13.jsxDEV(Typography_default, {
+        children: jsx_dev_runtime9.jsxDEV(Typography_default, {
           fontSize: "1.5rem",
           children: "\u0414\u043E\u0441\u0442\u0430\u0432\u043A\u0430 \u0434\u043E \u0434\u0432\u0435\u0440\u0438"
         }, undefined, false, undefined, this)
       }, undefined, false, undefined, this),
-      jsx_dev_runtime13.jsxDEV(Grid_default, {
+      jsx_dev_runtime9.jsxDEV(Grid_default, {
         alignItems: "center",
         component: Stack_default,
         item: true,
         md: 4,
         xs: 12,
-        children: jsx_dev_runtime13.jsxDEV(Typography_default, {
+        children: jsx_dev_runtime9.jsxDEV(Typography_default, {
           children: "\u041E\u0441\u0443\u0449\u0435\u0441\u0442\u0432\u043B\u044F\u0435\u0442\u0441\u044F \u042F\u043D\u0434\u0435\u043A\u0441 \u043A\u0443\u0440\u044C\u0435\u0440\u043E\u043C \u043F\u043E \u0432\u0441\u0435\u0439 \u041C\u043E\u0441\u043A\u0432\u0435"
         }, undefined, false, undefined, this)
       }, undefined, false, undefined, this),
-      jsx_dev_runtime13.jsxDEV(Grid_default, {
+      jsx_dev_runtime9.jsxDEV(Grid_default, {
         item: true,
         md: 12,
         xs: 12,
-        children: jsx_dev_runtime13.jsxDEV(Typography_default, {
+        children: jsx_dev_runtime9.jsxDEV(Typography_default, {
           fontSize: "1.5rem",
           children: "\u0421\u0432\u044F\u0436\u0438\u0442\u0435\u0441\u044C \u0441 \u043D\u0430\u043C\u0438"
         }, undefined, false, undefined, this)
       }, undefined, false, undefined, this),
-      jsx_dev_runtime13.jsxDEV(Grid_default, {
+      jsx_dev_runtime9.jsxDEV(Grid_default, {
         item: true,
         md: 12,
         xs: 12,
-        children: jsx_dev_runtime13.jsxDEV(Stack_default, {
+        children: jsx_dev_runtime9.jsxDEV(Stack_default, {
           direction: { xs: "column", md: "row" },
           fontSize: "1rem",
           spacing: 4,
           children: [
-            jsx_dev_runtime13.jsxDEV(Stack_default, {
+            jsx_dev_runtime9.jsxDEV(Stack_default, {
               alignItems: "center",
               direction: "row",
               children: [
-                jsx_dev_runtime13.jsxDEV(Phone_default, {
+                jsx_dev_runtime9.jsxDEV(Phone_default, {
                   sx: { marginRight: 2 }
                 }, undefined, false, undefined, this),
-                jsx_dev_runtime13.jsxDEV("a", {
-                  href: "tel:9851460477",
-                  style: {
-                    color: "blueviolet"
-                  },
-                  children: "+7 (985) 146-04-77"
-                }, undefined, false, undefined, this)
+                jsx_dev_runtime9.jsxDEV(CustomTelephoneLink, {}, undefined, false, undefined, this)
               ]
             }, undefined, true, undefined, this),
-            jsx_dev_runtime13.jsxDEV(Stack_default, {
+            jsx_dev_runtime9.jsxDEV(Stack_default, {
               alignItems: "center",
               direction: "row",
               children: [
-                jsx_dev_runtime13.jsxDEV(AccessTime_default, {
+                jsx_dev_runtime9.jsxDEV(AccessTime_default, {
                   sx: { marginRight: 2 }
                 }, undefined, false, undefined, this),
-                jsx_dev_runtime13.jsxDEV(Typography_default, {
+                jsx_dev_runtime9.jsxDEV(Typography_default, {
                   children: "\u0415\u0436\u0435\u0434\u043D\u0435\u0432\u043D\u043E \u0441 10:00 \u0434\u043E 20:00"
                 }, undefined, false, undefined, this)
               ]
             }, undefined, true, undefined, this),
-            jsx_dev_runtime13.jsxDEV(Stack_default, {
+            jsx_dev_runtime9.jsxDEV(Stack_default, {
               alignItems: "center",
               direction: "row",
               children: [
-                jsx_dev_runtime13.jsxDEV(Email_default, {
+                jsx_dev_runtime9.jsxDEV(Email_default, {
                   sx: { marginRight: 2 }
                 }, undefined, false, undefined, this),
-                jsx_dev_runtime13.jsxDEV(Typography_default, {
+                jsx_dev_runtime9.jsxDEV(Typography_default, {
                   children: "kraskovskiydm@gmail.com"
                 }, undefined, false, undefined, this)
               ]
@@ -40989,11 +40084,11 @@ var DeliveryPage_default = DeliveryPage = function() {
       }, undefined, false, undefined, this)
     ]
   }, undefined, true, undefined, this);
-};
+}
 
 // src/components/about/AboutUsPage.jsx
-var import_react15 = __toESM(require_react(), 1);
-var jsx_dev_runtime14 = __toESM(require_jsx_dev_runtime(), 1);
+var import_react17 = __toESM(require_react(), 1);
+var jsx_dev_runtime10 = __toESM(require_jsx_dev_runtime(), 1);
 var Item = styled_default2(Paper_default)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
   ...theme.typography.body2,
@@ -41002,112 +40097,104 @@ var Item = styled_default2(Paper_default)(({ theme }) => ({
   color: theme.palette.text.secondary,
   alignItems: "center"
 }));
-var AboutUsPage_default = AboutUsPage = function() {
-  return jsx_dev_runtime14.jsxDEV(Box_default, {
+function AboutUsPage() {
+  return jsx_dev_runtime10.jsxDEV(Box_default, {
     padding: 4,
     sx: { flexGrow: 1, marginBottom: "100px" },
-    children: jsx_dev_runtime14.jsxDEV(Grid_default, {
+    children: jsx_dev_runtime10.jsxDEV(Grid_default, {
       container: true,
       spacing: 2,
       children: [
-        jsx_dev_runtime14.jsxDEV(Grid_default, {
+        jsx_dev_runtime10.jsxDEV(Grid_default, {
           item: true,
           md: 6,
           xs: 12,
-          children: jsx_dev_runtime14.jsxDEV(Typography_default, {
+          children: jsx_dev_runtime10.jsxDEV(Typography_default, {
             fontSize: "1.5rem",
             children: "\u041A\u0442\u043E \u043C\u044B?"
           }, undefined, false, undefined, this)
         }, undefined, false, undefined, this),
-        jsx_dev_runtime14.jsxDEV(Grid_default, {
+        jsx_dev_runtime10.jsxDEV(Grid_default, {
           item: true,
           md: 12,
           xs: 12,
           children: [
-            jsx_dev_runtime14.jsxDEV(Typography_default, {
+            jsx_dev_runtime10.jsxDEV(Typography_default, {
               paragraph: true,
               children: "\u041C\u044B \u0434\u0438\u043D\u0430\u043C\u0438\u0447\u043D\u0430\u044F \u043A\u043E\u043C\u043F\u0430\u043D\u0438\u044F, \u043F\u0440\u0435\u0434\u043B\u0430\u0433\u0430\u044E\u0449\u0430\u044F \u0431\u043E\u043B\u0435\u0435 10 \u043F\u0440\u043E\u0444\u0435\u0441\u0441\u0438\u043E\u043D\u0430\u043B\u044C\u043D\u044B\u0445 \u0441\u0431\u043E\u0440\u043E\u043A \u043A\u043E\u043C\u043F\u044C\u044E\u0442\u0435\u0440\u043E\u0432 \u0434\u043B\u044F \u043B\u044E\u0431\u044B\u0445 \u0437\u0430\u0434\u0430\u0447. \u041D\u0430\u0448\u0430 \u043A\u043E\u043C\u0430\u043D\u0434\u0430 \u0441\u043E\u0441\u0442\u043E\u0438\u0442 \u0438\u0437 \u043E\u043F\u044B\u0442\u043D\u044B\u0445 \u0441\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442\u043E\u0432, \u0433\u0430\u0440\u0430\u043D\u0442\u0438\u0440\u0443\u044E\u0449\u0438\u0445 \u043A\u0430\u0447\u0435\u0441\u0442\u0432\u0435\u043D\u043D\u0443\u044E \u0441\u0431\u043E\u0440\u043A\u0443 \u0432 \u043A\u0440\u0430\u0442\u0447\u0430\u0439\u0448\u0438\u0435 \u0441\u0440\u043E\u043A\u0438."
             }, undefined, false, undefined, this),
-            jsx_dev_runtime14.jsxDEV(Typography_default, {
+            jsx_dev_runtime10.jsxDEV(Typography_default, {
               paragraph: true,
               children: "\u041C\u044B \u043F\u043E\u043D\u0438\u043C\u0430\u0435\u043C, \u0447\u0442\u043E \u0432\u0430\u0448\u0435 \u0432\u0440\u0435\u043C\u044F \u0446\u0435\u043D\u043D\u043E, \u043F\u043E\u044D\u0442\u043E\u043C\u0443 \u043C\u044B \u0441\u0442\u0440\u0435\u043C\u0438\u043C\u0441\u044F \u043E\u0431\u0435\u0441\u043F\u0435\u0447\u0438\u0442\u044C \u043F\u0440\u044F\u043C\u0443\u044E \u0441\u0432\u044F\u0437\u044C \u0441 \u043D\u0430\u0448\u0435\u0439 \u043A\u043E\u043C\u043F\u0430\u043D\u0438\u0435\u0439. \u0423 \u043D\u0430\u0441 \u043D\u0435\u0442 \u043F\u043E\u0441\u0440\u0435\u0434\u043D\u0438\u043A\u043E\u0432, \u0442\u043E\u043B\u044C\u043A\u043E \u043D\u0435\u043F\u043E\u0441\u0440\u0435\u0434\u0441\u0442\u0432\u0435\u043D\u043D\u043E\u0435 \u043E\u0431\u0449\u0435\u043D\u0438\u0435 \u0441 \u043D\u0430\u0448\u0435\u0439 \u0434\u0440\u0443\u0436\u0435\u043B\u044E\u0431\u043D\u043E\u0439 \u043A\u043E\u043C\u0430\u043D\u0434\u043E\u0439, \u0433\u043E\u0442\u043E\u0432\u043E\u0439 \u043F\u043E\u043C\u043E\u0447\u044C \u0438 \u043E\u0442\u0432\u0435\u0442\u0438\u0442\u044C \u043D\u0430 \u0432\u0441\u0435 \u0432\u0430\u0448\u0438 \u0432\u043E\u043F\u0440\u043E\u0441\u044B."
             }, undefined, false, undefined, this),
-            jsx_dev_runtime14.jsxDEV(Typography_default, {
+            jsx_dev_runtime10.jsxDEV(Typography_default, {
               paragraph: true,
               children: "\u0415\u0441\u043B\u0438 \u0432\u0430\u043C \u043D\u0443\u0436\u043D\u0430 \u043D\u0430\u0434\u0435\u0436\u043D\u0430\u044F \u0441\u0431\u043E\u0440\u043A\u0430 \u043A\u043E\u043C\u043F\u044C\u044E\u0442\u0435\u0440\u0430, \u0442\u043E GVG Tech Solutions - \u0432\u0430\u0448 \u0438\u0434\u0435\u0430\u043B\u044C\u043D\u044B\u0439 \u0432\u044B\u0431\u043E\u0440! \u041E\u0441\u0442\u0430\u0432\u044C\u0442\u0435 \u0441\u0432\u043E\u0438 \u0437\u0430\u044F\u0432\u043A\u0438 \u0441\u0435\u0439\u0447\u0430\u0441, \u0438 \u043D\u0430\u0448\u0430 \u043A\u043E\u043C\u0430\u043D\u0434\u0430 \u043F\u0440\u0438\u0441\u0442\u0443\u043F\u0438\u0442 \u043A \u0440\u0430\u0431\u043E\u0442\u0435 \u043D\u0430\u0434 \u0432\u0430\u0448\u0438\u043C \u0438\u0434\u0435\u0430\u043B\u044C\u043D\u044B\u043C \u043A\u043E\u043C\u043F\u044C\u044E\u0442\u0435\u0440\u043E\u043C. \uD83D\uDCAA"
             }, undefined, false, undefined, this)
           ]
         }, undefined, true, undefined, this),
-        jsx_dev_runtime14.jsxDEV(Grid_default, {
+        jsx_dev_runtime10.jsxDEV(Grid_default, {
           item: true,
           md: 12,
           xs: 12,
-          children: jsx_dev_runtime14.jsxDEV(Typography_default, {
+          children: jsx_dev_runtime10.jsxDEV(Typography_default, {
             fontSize: "1.5rem",
             children: "\u041A\u043E\u043D\u0442\u0430\u043A\u0442\u044B"
           }, undefined, false, undefined, this)
         }, undefined, false, undefined, this),
-        jsx_dev_runtime14.jsxDEV(Grid_default, {
+        jsx_dev_runtime10.jsxDEV(Grid_default, {
           alignItems: "center",
           component: Stack_default,
           item: true,
           md: 4,
           xs: 12,
           children: [
-            jsx_dev_runtime14.jsxDEV(Phone_default, {
+            jsx_dev_runtime10.jsxDEV(Phone_default, {
               sx: { marginRight: 2 }
             }, undefined, false, undefined, this),
-            jsx_dev_runtime14.jsxDEV(Box_default, {
-              children: jsx_dev_runtime14.jsxDEV("a", {
-                href: "tel:9851460477",
-                style: {
-                  color: "blueviolet"
-                },
-                children: "+7 (985) 146-04-77"
-              }, undefined, false, undefined, this)
-            }, undefined, false, undefined, this)
+            jsx_dev_runtime10.jsxDEV(CustomTelephoneLink, {}, undefined, false, undefined, this)
           ]
         }, undefined, true, undefined, this),
-        jsx_dev_runtime14.jsxDEV(Grid_default, {
+        jsx_dev_runtime10.jsxDEV(Grid_default, {
           alignItems: "center",
           component: Stack_default,
           item: true,
           md: 4,
           xs: 12,
           children: [
-            jsx_dev_runtime14.jsxDEV(AccessTime_default, {
+            jsx_dev_runtime10.jsxDEV(AccessTime_default, {
               sx: { marginRight: 2 }
             }, undefined, false, undefined, this),
-            jsx_dev_runtime14.jsxDEV(Box_default, {
+            jsx_dev_runtime10.jsxDEV(Box_default, {
               children: "\u0415\u0436\u0435\u0434\u043D\u0435\u0432\u043D\u043E \u0441 10:00 \u0434\u043E 20:00"
             }, undefined, false, undefined, this)
           ]
         }, undefined, true, undefined, this),
-        jsx_dev_runtime14.jsxDEV(Grid_default, {
+        jsx_dev_runtime10.jsxDEV(Grid_default, {
           alignItems: "center",
           component: Stack_default,
           item: true,
           md: 4,
           xs: 12,
           children: [
-            jsx_dev_runtime14.jsxDEV(Email_default, {
+            jsx_dev_runtime10.jsxDEV(Email_default, {
               sx: { marginRight: 2 }
             }, undefined, false, undefined, this),
-            jsx_dev_runtime14.jsxDEV(Box_default, {
+            jsx_dev_runtime10.jsxDEV(Box_default, {
               children: "kraskovskiydm@gmail.com"
             }, undefined, false, undefined, this)
           ]
         }, undefined, true, undefined, this),
-        jsx_dev_runtime14.jsxDEV(Grid_default, {
+        jsx_dev_runtime10.jsxDEV(Grid_default, {
           item: true,
           marginBottom: 12,
           md: 12,
           xs: 12,
           children: [
-            jsx_dev_runtime14.jsxDEV(Telegram_default, {
+            jsx_dev_runtime10.jsxDEV(Telegram_default, {
               sx: { marginRight: 2 }
             }, undefined, false, undefined, this),
-            jsx_dev_runtime14.jsxDEV(Instagram_default, {
+            jsx_dev_runtime10.jsxDEV(Instagram_default, {
               sx: { marginRight: 2 }
             }, undefined, false, undefined, this)
           ]
@@ -41115,46 +40202,131 @@ var AboutUsPage_default = AboutUsPage = function() {
       ]
     }, undefined, true, undefined, this)
   }, undefined, false, undefined, this);
-};
+}
 
 // src/components/offers/BuildsPage.jsx
-var import_react16 = __toESM(require_react(), 1);
-var jsx_dev_runtime15 = __toESM(require_jsx_dev_runtime(), 1);
-var BuildsPage_default = BuildsPage = function(props) {
-  return jsx_dev_runtime15.jsxDEV(Box_default, {
+var import_react18 = __toESM(require_react(), 1);
+var jsx_dev_runtime11 = __toESM(require_jsx_dev_runtime(), 1);
+var gradientAnimation = keyframes({
+  "0%": {
+    backgroundPosition: "100% 0%"
+  },
+  "100%": {
+    backgroundPosition: "-100% 0%"
+  }
+});
+var CustomCard = newStyled("div")({
+  "--card-height": "65vh",
+  "--card-width": "calc(var(--card-height) / 1.5)",
+  width: "var(--card-width)",
+  height: "var(--card-height)",
+  borderRadius: "8px",
+  background: "linear-gradient(to right, blue, purple, blue)",
+  backgroundSize: "200% 100%",
+  animation: `${gradientAnimation} 5s linear infinite`,
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  margin: 4
+});
+var CardContent5 = newStyled("div")({
+  "--card-height": "calc(65vh - 10px)",
+  "--card-width": "calc(var(--card-height) / 1.5 - 10px)",
+  width: "var(--card-width)",
+  height: "var(--card-height)",
+  borderRadius: "8px",
+  backgroundSize: "200% 100%",
+  backgroundColor: "#191c29",
+  display: "flex",
+  alignItems: "space-between",
+  flexDirection: "column",
+  cursor: "pointer",
+  fontFamily: "cursive"
+});
+function BuildsPage() {
+  const [builds, setBuilds] = import_react18.useState([]);
+  import_react18.useEffect(() => {
+    fetch("/api/get-builds").then((response) => response.json()).then((data) => {
+      setBuilds(data);
+      data.forEach((element) => {
+        console.log(element);
+      });
+    });
+  }, []);
+  return jsx_dev_runtime11.jsxDEV(Box_default, {
     padding: 4,
-    children: "Hello world"
+    sx: {
+      display: "flex",
+      flexWrap: "wrap",
+      flexDirection: "row",
+      justifyContent: "space-around"
+    },
+    children: builds.map((build, index) => jsx_dev_runtime11.jsxDEV(CustomCard, {
+      children: jsx_dev_runtime11.jsxDEV(CardContent5, {
+        children: [
+          jsx_dev_runtime11.jsxDEV(Typography_default, {
+            fontSize: "2em",
+            sx: {
+              justifyContent: "center",
+              alignItems: "center",
+              textAlign: "center",
+              display: "flex",
+              color: `rgb(88, 199, 250)`,
+              padding: 4,
+              height: "10%"
+            },
+            children: build.title
+          }, undefined, false, undefined, this),
+          jsx_dev_runtime11.jsxDEV(Box_default, {
+            sx: { width: "100%", height: "30%", backgroundColor: "blue" },
+            children: "Images"
+          }, undefined, false, undefined, this),
+          jsx_dev_runtime11.jsxDEV(Box_default, {
+            sx: { height: "50%" },
+            children: "Description"
+          }, undefined, false, undefined, this),
+          jsx_dev_runtime11.jsxDEV(Button_default, {
+            color: "success",
+            sx: {
+              margin: "10px 70px"
+            },
+            variant: "contained",
+            children: "\u0412 \u043A\u043E\u0440\u0437\u0438\u043D\u0443"
+          }, undefined, false, undefined, this)
+        ]
+      }, undefined, true, undefined, this)
+    }, index, false, undefined, this))
   }, undefined, false, undefined, this);
-};
+}
 
 // src/components/offers/ComponentsPage.jsx
-var import_react17 = __toESM(require_react(), 1);
-var jsx_dev_runtime16 = __toESM(require_jsx_dev_runtime(), 1);
+var import_react19 = __toESM(require_react(), 1);
+var jsx_dev_runtime12 = __toESM(require_jsx_dev_runtime(), 1);
 var ComponentsPage_default = ComponentsPage = function(props) {
-  return jsx_dev_runtime16.jsxDEV(Box_default, {
+  return jsx_dev_runtime12.jsxDEV(Box_default, {
     padding: 4,
     children: "COMPONENTS"
   }, undefined, false, undefined, this);
 };
 
 // src/components/offers/ConstructorPage.jsx
-var import_react18 = __toESM(require_react(), 1);
-var jsx_dev_runtime17 = __toESM(require_jsx_dev_runtime(), 1);
+var import_react20 = __toESM(require_react(), 1);
+var jsx_dev_runtime13 = __toESM(require_jsx_dev_runtime(), 1);
 var ConstructorPage_default = ConstructorPage = function(props) {
-  return jsx_dev_runtime17.jsxDEV(Box_default, {
+  return jsx_dev_runtime13.jsxDEV(Box_default, {
     padding: 4,
     children: "CONSTRUCTORS"
   }, undefined, false, undefined, this);
 };
 
 // src/components/common/hooks/useCheckMobileScreen.js
-var import_react19 = __toESM(require_react(), 1);
+var import_react21 = __toESM(require_react(), 1);
 var useCheckMobileScreen_default = useCheckMobileScreen = () => {
-  const [width2, setWidth] = import_react19.useState(window.innerWidth);
+  const [width2, setWidth] = import_react21.useState(window.innerWidth);
   const handleWindowSizeChange = () => {
     setWidth(window.innerWidth);
   };
-  import_react19.useEffect(() => {
+  import_react21.useEffect(() => {
     window.addEventListener("resize", handleWindowSizeChange);
     return () => {
       window.removeEventListener("resize", handleWindowSizeChange);
@@ -41164,28 +40336,153 @@ var useCheckMobileScreen_default = useCheckMobileScreen = () => {
 };
 
 // src/components/navbars/CustomAppBar.jsx
-var import_react25 = __toESM(require_react(), 1);
+var import_react29 = __toESM(require_react(), 1);
 
 // src/components/navbars/TopBar.jsx
+var import_react27 = __toESM(require_react(), 1);
+
+// src/components/common/CustomPopup.jsx
+var import_react22 = __toESM(require_react(), 1);
+var jsx_dev_runtime14 = __toESM(require_jsx_dev_runtime(), 1);
+function CustomPopupOptions({ setMouseOnPopup, actions }) {
+  const isMobile = useCheckMobileScreen_default();
+  const handleEnter = () => {
+    setMouseOnPopup(true);
+  };
+  const handleLeave = () => {
+    setMouseOnPopup(false);
+  };
+  const buttonGroupProps = {
+    orientation: isMobile ? "vertical" : "horizontal",
+    variant: "contained",
+    fullWidth: true
+  };
+  return jsx_dev_runtime14.jsxDEV(Box_default, {
+    onMouseEnter: handleEnter,
+    onMouseLeave: handleLeave,
+    sx: {
+      position: "fixed",
+      bottom: isMobile ? "56px" : "auto",
+      top: isMobile ? "auto" : "66px",
+      left: isMobile ? "12.5vw" : "25vw",
+      width: "50vw",
+      minHeight: "50px",
+      paddingInline: 0,
+      transform: "skew(-10deg)",
+      boxShadow: "0 0 8px black",
+      zIndex: 1e4
+    },
+    children: jsx_dev_runtime14.jsxDEV(ButtonGroup_default, {
+      ...buttonGroupProps,
+      sx: {
+        minHeight: "50px"
+      },
+      children: actions.map((action, index) => jsx_dev_runtime14.jsxDEV(Button_default, {
+        href: `${action.path}`,
+        sx: {
+          color: "secondary.main",
+          backgroundColor: "primary.main",
+          "&:hover": {
+            backgroundColor: "secondary.main",
+            color: "primary.main"
+          }
+        },
+        children: jsx_dev_runtime14.jsxDEV(Typography_default, {
+          sx: {
+            width: "100%",
+            textAlign: "center",
+            transform: "skew(10deg)"
+          },
+          variant: "p",
+          children: action.title
+        }, undefined, false, undefined, this)
+      }, index, false, undefined, this))
+    }, undefined, false, undefined, this)
+  }, undefined, false, undefined, this);
+}
+
+// src/components/navbars/LogoButton.jsx
 var import_react23 = __toESM(require_react(), 1);
+var jsx_dev_runtime15 = __toESM(require_jsx_dev_runtime(), 1);
+var theme = {
+  display: "inline-block",
+  maxWidth: "100%",
+  font: "1000 34px/34px 'Montserrat',sans-serif",
+  letterSpacing: ".1em",
+  textTransform: "uppercase",
+  cursor: "pointer",
+  transition: "all .5s",
+  "&:hover": {
+    md: { color: "blue" }
+  }
+};
+function LogoButton() {
+  const logoText = import_react23.useMemo(() => "GVG", []);
+  const [gradientDeg, setGradientDeg] = import_react23.useState(45);
+  const handleGoHome = import_react23.useCallback(() => {
+    navigate("/home");
+  }, []);
+  const navigate = useNavigate();
+  import_react23.useEffect(() => {
+    const interval = setInterval(() => {
+      setGradientDeg((grad) => (grad + 1) % 360);
+    }, 20);
+    return () => clearInterval(interval);
+  }, []);
+  return jsx_dev_runtime15.jsxDEV(Box_default, {
+    onClick: handleGoHome,
+    sx: {
+      cursor: "pointer",
+      display: "flex",
+      justifyContent: "start",
+      alignItems: "end",
+      paddingBottom: "5px",
+      paddingInline: "15px",
+      width: { xs: "20%", md: "15%" },
+      minWidth: "160px",
+      marginRight: "8px",
+      background: `-webkit-linear-gradient(${gradientDeg}deg, #e32fb1 0%, #39afd8 100%)`,
+      WebkitBackgroundClip: "text",
+      color: "transparent"
+    },
+    children: [
+      jsx_dev_runtime15.jsxDEV(Box_default, {
+        component: "img",
+        src: "/static/logos/icon.png",
+        sx: {
+          maxHeight: 81,
+          maxWidth: 61,
+          alignSelf: "end"
+        }
+      }, undefined, false, undefined, this),
+      [...logoText].map((ch, index) => jsx_dev_runtime15.jsxDEV(Typography_default, {
+        sx: theme,
+        children: ch
+      }, index, false, undefined, this))
+    ]
+  }, undefined, true, undefined, this);
+}
+
+// src/components/common/CustomCallButton.jsx
+var import_react25 = __toESM(require_react(), 1);
 
 // node_modules/material-ui-popup-state/es/index.mjs
-var import_prop_types48 = __toESM(require_prop_types(), 1);
+var import_prop_types50 = __toESM(require_prop_types(), 1);
 
 // node_modules/material-ui-popup-state/es/hooks.mjs
-var import_react20 = __toESM(require_react(), 1);
+var import_react24 = __toESM(require_react(), 1);
 
 // node_modules/material-ui-popup-state/es/useEvent.mjs
-var React81 = __toESM(require_react(), 1);
+var React84 = __toESM(require_react(), 1);
 function useEvent(handler) {
   if (typeof window === "undefined") {
     return handler;
   }
-  const handlerRef = React81.useRef(null);
-  React81.useLayoutEffect(() => {
+  const handlerRef = React84.useRef(null);
+  React84.useLayoutEffect(() => {
     handlerRef.current = handler;
   });
-  return React81.useCallback((...args) => {
+  return React84.useCallback((...args) => {
     var _handlerRef$current;
     (_handlerRef$current = handlerRef.current) === null || _handlerRef$current === undefined || _handlerRef$current.call(handlerRef, ...args);
   }, []);
@@ -41204,19 +40501,19 @@ function usePopupState({
   variant,
   disableAutoFocus
 }) {
-  const isMounted = import_react20.useRef(true);
-  import_react20.useEffect(() => {
+  const isMounted = import_react24.useRef(true);
+  import_react24.useEffect(() => {
     isMounted.current = true;
     return () => {
       isMounted.current = false;
     };
   }, []);
-  const [state, _setState] = import_react20.useState(initCoreState);
-  const setState = import_react20.useCallback((state2) => {
+  const [state, _setState] = import_react24.useState(initCoreState);
+  const setState = import_react24.useCallback((state2) => {
     if (isMounted.current)
       _setState(state2);
   }, []);
-  const setAnchorEl = import_react20.useCallback((anchorEl) => setState((state2) => ({
+  const setAnchorEl = import_react24.useCallback((anchorEl) => setState((state2) => ({
     ...state2,
     setAnchorElUsed: true,
     anchorEl: anchorEl !== null && anchorEl !== undefined ? anchorEl : undefined
@@ -41318,7 +40615,7 @@ function usePopupState({
       }
     });
   });
-  const setOpen = import_react20.useCallback((nextOpen, eventOrAnchorEl) => {
+  const setOpen = import_react24.useCallback((nextOpen, eventOrAnchorEl) => {
     if (nextOpen) {
       open(eventOrAnchorEl);
     } else {
@@ -41363,7 +40660,7 @@ function usePopupState({
       return state2;
     });
   });
-  const _setChildPopupState = import_react20.useCallback((_childPopupState) => setState((state2) => ({
+  const _setChildPopupState = import_react24.useCallback((_childPopupState) => setState((state2) => ({
     ...state2,
     _childPopupState
   })), []);
@@ -41430,6 +40727,34 @@ function bindPopover({
     }
   };
 }
+function bindMenu({
+  isOpen,
+  anchorEl,
+  anchorPosition,
+  close,
+  popupId,
+  onMouseLeave,
+  disableAutoFocus,
+  _openEventType
+}) {
+  const usePopoverPosition = _openEventType === "contextmenu";
+  return {
+    id: popupId,
+    anchorEl,
+    anchorPosition,
+    anchorReference: usePopoverPosition ? "anchorPosition" : "anchorEl",
+    open: isOpen,
+    onClose: close,
+    onMouseLeave,
+    ...disableAutoFocus && {
+      autoFocus: false,
+      disableAutoFocusItem: true,
+      disableAutoFocus: true,
+      disableEnforceFocus: true,
+      disableRestoreFocus: true
+    }
+  };
+}
 var getPopup = function(element, {
   popupId
 }) {
@@ -41490,1400 +40815,137 @@ function PopupState({
   return result != null ? result : null;
 }
 PopupState.propTypes = {
-  children: import_prop_types48.default.func.isRequired,
-  popupId: import_prop_types48.default.string,
-  variant: import_prop_types48.default.oneOf(["popover", "popper"]).isRequired,
-  parentPopupState: import_prop_types48.default.object,
-  disableAutoFocus: import_prop_types48.default.bool
+  children: import_prop_types50.default.func.isRequired,
+  popupId: import_prop_types50.default.string,
+  variant: import_prop_types50.default.oneOf(["popover", "popper"]).isRequired,
+  parentPopupState: import_prop_types50.default.object,
+  disableAutoFocus: import_prop_types50.default.bool
 };
 
-// src/components/common/CustomPopup.jsx
-var jsx_dev_runtime18 = __toESM(require_jsx_dev_runtime(), 1);
-var CustomPopup_default = CustomPopupOptions = function({ setMouseOnPopup, actions }) {
-  const isMobile = useCheckMobileScreen_default();
-  const handleEnter = () => {
-    setMouseOnPopup(true);
-  };
-  const handleLeave = () => {
-    setMouseOnPopup(false);
-  };
-  const buttonGroupProps = {
-    orientation: isMobile ? "vertical" : "horizontal",
-    variant: "contained",
-    fullWidth: true
-  };
-  return jsx_dev_runtime18.jsxDEV(Box_default, {
-    onMouseEnter: handleEnter,
-    onMouseLeave: handleLeave,
-    sx: {
-      position: "fixed",
-      bottom: { xs: "56px", md: "auto" },
-      top: { xs: "auto", md: "76px" },
-      left: { xs: "12.5vw", md: "25vw" },
-      width: "50vw",
-      minHeight: "50px",
-      paddingInline: 0,
-      transform: "skew(-10deg)",
-      zIndex: 1e4
-    },
-    children: jsx_dev_runtime18.jsxDEV(ButtonGroup_default, {
-      ...buttonGroupProps,
-      sx: {
-        minHeight: "50px"
-      },
-      children: actions.map((action, index) => jsx_dev_runtime18.jsxDEV(Button_default, {
-        href: `${action.path}`,
-        sx: {
-          color: "secondary.main",
-          backgroundColor: "primary.main",
-          "&:hover": {
-            backgroundColor: "secondary.main",
-            color: "primary.main"
-          }
-        },
-        children: jsx_dev_runtime18.jsxDEV(Typography_default, {
-          sx: {
-            width: "100%",
-            textAlign: "center",
-            transform: "skew(10deg)"
-          },
-          variant: "p",
-          children: action.title
-        }, undefined, false, undefined, this)
-      }, index, false, undefined, this))
+// src/components/common/CustomCallButton.jsx
+var jsx_dev_runtime16 = __toESM(require_jsx_dev_runtime(), 1);
+function CustomCallButton({ sx }) {
+  const currentTheme = useCheckCurrentTheme_default();
+  return jsx_dev_runtime16.jsxDEV(ThemeProvider5, {
+    theme: currentTheme,
+    children: jsx_dev_runtime16.jsxDEV(Box_default, {
+      sx,
+      children: jsx_dev_runtime16.jsxDEV(PopupState, {
+        popupId: "demo-popup-popover",
+        variant: "popover",
+        children: (popupState) => jsx_dev_runtime16.jsxDEV("div", {
+          children: [
+            jsx_dev_runtime16.jsxDEV(IconButton_default, {
+              sx: {
+                color: "secondary.main",
+                transition: "color 0.2s",
+                "&:hover": {
+                  color: "#2222ff"
+                }
+              },
+              ...bindTrigger(popupState),
+              children: jsx_dev_runtime16.jsxDEV(Phone_default, {}, undefined, false, undefined, this)
+            }, undefined, false, undefined, this),
+            jsx_dev_runtime16.jsxDEV(Popover_default, {
+              ...bindPopover(popupState),
+              anchorOrigin: {
+                vertical: "bottom",
+                horizontal: "center"
+              },
+              transformOrigin: {
+                vertical: "top",
+                horizontal: "center"
+              },
+              children: jsx_dev_runtime16.jsxDEV(Box_default, {
+                sx: { padding: 2, backgroundColor: "primary.main" },
+                children: jsx_dev_runtime16.jsxDEV(CustomTelephoneLink, {}, undefined, false, undefined, this)
+              }, undefined, false, undefined, this)
+            }, undefined, false, undefined, this)
+          ]
+        }, undefined, true, undefined, this)
+      }, undefined, false, undefined, this)
     }, undefined, false, undefined, this)
   }, undefined, false, undefined, this);
-};
-
-// src/components/navbars/LogoButton.jsx
-var import_react21 = __toESM(require_react(), 1);
-var jsx_dev_runtime19 = __toESM(require_jsx_dev_runtime(), 1);
-var theme = {
-  display: "inline-block",
-  maxWidth: "100%",
-  font: "1000 34px/34px 'Montserrat',sans-serif",
-  letterSpacing: ".1em",
-  textTransform: "uppercase",
-  cursor: "pointer",
-  transition: "0.2s",
-  "&:hover": {
-    md: { color: "#2222ff" }
-  }
-};
-function LogoButton() {
-  const logoText = import_react21.useMemo(() => "GVG", []);
-  const handleGoHome = import_react21.useCallback(() => {
-    navigate("/home");
-  }, []);
-  const navigate = useNavigate();
-  return jsx_dev_runtime19.jsxDEV(Box_default, {
-    onClick: handleGoHome,
-    sx: {
-      cursor: "pointer",
-      display: "flex",
-      justifyContent: "start",
-      alignItems: "end",
-      color: "secondary.main",
-      paddingBottom: "5px",
-      paddingInline: "15px",
-      width: "15%",
-      marginRight: "10%"
-    },
-    children: [
-      jsx_dev_runtime19.jsxDEV(Box_default, {
-        component: "img",
-        src: "/static/logos/icon.png",
-        sx: {
-          maxHeight: 81,
-          maxWidth: 61,
-          alignSelf: "end"
-        }
-      }, undefined, false, undefined, this),
-      [...logoText].map((ch, index) => jsx_dev_runtime19.jsxDEV(Typography_default, {
-        sx: theme,
-        children: ch
-      }, index, false, undefined, this))
-    ]
-  }, undefined, true, undefined, this);
 }
 
-// node_modules/tslib/tslib.es6.mjs
-function __spreadArray(to, from2, pack) {
-  if (pack || arguments.length === 2)
-    for (var i2 = 0, l2 = from2.length, ar;i2 < l2; i2++) {
-      if (ar || !(i2 in from2)) {
-        if (!ar)
-          ar = Array.prototype.slice.call(from2, 0, i2);
-        ar[i2] = from2[i2];
-      }
-    }
-  return to.concat(ar || Array.prototype.slice.call(from2));
+// src/components/navbars/MoreButton.jsx
+var import_react26 = __toESM(require_react(), 1);
+var jsx_dev_runtime17 = __toESM(require_jsx_dev_runtime(), 1);
+function MoreButton() {
+  return jsx_dev_runtime17.jsxDEV(PopupState, {
+    popupId: "demo-popup-menu",
+    variant: "popover",
+    children: (popupState) => jsx_dev_runtime17.jsxDEV(jsx_dev_runtime17.Fragment, {
+      children: [
+        jsx_dev_runtime17.jsxDEV(IconButton_default, {
+          variant: "contained",
+          ...bindTrigger(popupState),
+          children: jsx_dev_runtime17.jsxDEV(MoreHoriz_default, {
+            color: "secondary"
+          }, undefined, false, undefined, this)
+        }, undefined, false, undefined, this),
+        jsx_dev_runtime17.jsxDEV(Menu_default, {
+          ...bindMenu(popupState),
+          MenuListProps: {
+            sx: {
+              py: 0,
+              backgroundColor: "primary.main",
+              color: "secondary.main",
+              borderRadius: "4px",
+              border: 2,
+              borderColor: "#000000"
+            }
+          },
+          children: [
+            jsx_dev_runtime17.jsxDEV(MenuItem_default, {
+              onClick: popupState.close,
+              children: [
+                jsx_dev_runtime17.jsxDEV(Search_default, {
+                  sx: { paddingRight: "10px", fontSize: "24px" }
+                }, undefined, false, undefined, this),
+                jsx_dev_runtime17.jsxDEV(Typography_default, {
+                  children: "\u041F\u043E\u0438\u0441\u043A"
+                }, undefined, false, undefined, this)
+              ]
+            }, undefined, true, undefined, this),
+            jsx_dev_runtime17.jsxDEV(MenuItem_default, {
+              onClick: popupState.close,
+              children: [
+                jsx_dev_runtime17.jsxDEV(Shop_default, {
+                  sx: { paddingRight: "10px" }
+                }, undefined, false, undefined, this),
+                jsx_dev_runtime17.jsxDEV(Typography_default, {
+                  children: "\u041A\u043E\u0440\u0437\u0438\u043D\u0430"
+                }, undefined, false, undefined, this)
+              ]
+            }, undefined, true, undefined, this),
+            jsx_dev_runtime17.jsxDEV(MenuItem_default, {
+              onClick: popupState.close,
+              children: [
+                jsx_dev_runtime17.jsxDEV(Phone_default, {
+                  sx: { paddingRight: "10px" }
+                }, undefined, false, undefined, this),
+                jsx_dev_runtime17.jsxDEV(Typography_default, {
+                  children: "\u041D\u043E\u043C\u0435\u0440"
+                }, undefined, false, undefined, this)
+              ]
+            }, undefined, true, undefined, this)
+          ]
+        }, undefined, true, undefined, this)
+      ]
+    }, undefined, true, undefined, this)
+  }, undefined, false, undefined, this);
 }
-var __assign = function() {
-  __assign = Object.assign || function __assign(t2) {
-    for (var s2, i2 = 1, n2 = arguments.length;i2 < n2; i2++) {
-      s2 = arguments[i2];
-      for (var p2 in s2)
-        if (Object.prototype.hasOwnProperty.call(s2, p2))
-          t2[p2] = s2[p2];
-    }
-    return t2;
-  };
-  return __assign.apply(this, arguments);
-};
-
-// node_modules/styled-components/dist/styled-components.browser.esm.js
-var import_react22 = __toESM(require_react(), 1);
-var import_shallowequal = __toESM(require_shallowequal(), 1);
-
-// node_modules/stylis/src/Enum.js
-var MS2 = "-ms-";
-var MOZ2 = "-moz-";
-var WEBKIT2 = "-webkit-";
-var COMMENT2 = "comm";
-var RULESET2 = "rule";
-var DECLARATION2 = "decl";
-var IMPORT2 = "@import";
-var KEYFRAMES2 = "@keyframes";
-var LAYER2 = "@layer";
-
-// node_modules/stylis/src/Utility.js
-function hash3(value, length2) {
-  return charat2(value, 0) ^ 45 ? (((length2 << 2 ^ charat2(value, 0)) << 2 ^ charat2(value, 1)) << 2 ^ charat2(value, 2)) << 2 ^ charat2(value, 3) : 0;
-}
-function trim2(value) {
-  return value.trim();
-}
-function match2(value, pattern) {
-  return (value = pattern.exec(value)) ? value[0] : value;
-}
-function replace2(value, pattern, replacement) {
-  return value.replace(pattern, replacement);
-}
-function indexof2(value, search) {
-  return value.indexOf(search);
-}
-function charat2(value, index) {
-  return value.charCodeAt(index) | 0;
-}
-function substr2(value, begin, end) {
-  return value.slice(begin, end);
-}
-function strlen2(value) {
-  return value.length;
-}
-function sizeof2(value) {
-  return value.length;
-}
-function append2(value, array) {
-  return array.push(value), value;
-}
-function combine2(array, callback) {
-  return array.map(callback).join("");
-}
-function filter(array, pattern) {
-  return array.filter(function(value) {
-    return !match2(value, pattern);
-  });
-}
-var abs2 = Math.abs;
-var from2 = String.fromCharCode;
-var assign2 = Object.assign;
-
-// node_modules/stylis/src/Tokenizer.js
-function node2(value, root, parent, type, props, children, length2, siblings) {
-  return { value, root, parent, type, props, children, line: line2, column: column2, length: length2, return: "", siblings };
-}
-function copy2(root, props) {
-  return assign2(node2("", null, null, "", null, null, 0, root.siblings), root, { length: -root.length }, props);
-}
-function lift(root) {
-  while (root.root)
-    root = copy2(root.root, { children: [root] });
-  append2(root, root.siblings);
-}
-function char2() {
-  return character2;
-}
-function prev2() {
-  character2 = position2 > 0 ? charat2(characters2, --position2) : 0;
-  if (column2--, character2 === 10)
-    column2 = 1, line2--;
-  return character2;
-}
-function next2() {
-  character2 = position2 < length2 ? charat2(characters2, position2++) : 0;
-  if (column2++, character2 === 10)
-    column2 = 1, line2++;
-  return character2;
-}
-function peek2() {
-  return charat2(characters2, position2);
-}
-function caret2() {
-  return position2;
-}
-function slice2(begin, end) {
-  return substr2(characters2, begin, end);
-}
-function token2(type) {
-  switch (type) {
-    case 0:
-    case 9:
-    case 10:
-    case 13:
-    case 32:
-      return 5;
-    case 33:
-    case 43:
-    case 44:
-    case 47:
-    case 62:
-    case 64:
-    case 126:
-    case 59:
-    case 123:
-    case 125:
-      return 4;
-    case 58:
-      return 3;
-    case 34:
-    case 39:
-    case 40:
-    case 91:
-      return 2;
-    case 41:
-    case 93:
-      return 1;
-  }
-  return 0;
-}
-function alloc2(value) {
-  return line2 = column2 = 1, length2 = strlen2(characters2 = value), position2 = 0, [];
-}
-function dealloc2(value) {
-  return characters2 = "", value;
-}
-function delimit2(type) {
-  return trim2(slice2(position2 - 1, delimiter2(type === 91 ? type + 2 : type === 40 ? type + 1 : type)));
-}
-function whitespace2(type) {
-  while (character2 = peek2())
-    if (character2 < 33)
-      next2();
-    else
-      break;
-  return token2(type) > 2 || token2(character2) > 3 ? "" : " ";
-}
-function escaping2(index, count) {
-  while (--count && next2())
-    if (character2 < 48 || character2 > 102 || character2 > 57 && character2 < 65 || character2 > 70 && character2 < 97)
-      break;
-  return slice2(index, caret2() + (count < 6 && peek2() == 32 && next2() == 32));
-}
-function delimiter2(type) {
-  while (next2())
-    switch (character2) {
-      case type:
-        return position2;
-      case 34:
-      case 39:
-        if (type !== 34 && type !== 39)
-          delimiter2(character2);
-        break;
-      case 40:
-        if (type === 41)
-          delimiter2(type);
-        break;
-      case 92:
-        next2();
-        break;
-    }
-  return position2;
-}
-function commenter2(type, index) {
-  while (next2())
-    if (type + character2 === 47 + 10)
-      break;
-    else if (type + character2 === 42 + 42 && peek2() === 47)
-      break;
-  return "/*" + slice2(index, position2 - 1) + "*" + from2(type === 47 ? type : next2());
-}
-function identifier7(index) {
-  while (!token2(peek2()))
-    next2();
-  return slice2(index, position2);
-}
-var line2 = 1;
-var column2 = 1;
-var length2 = 0;
-var position2 = 0;
-var character2 = 0;
-var characters2 = "";
-
-// node_modules/stylis/src/Parser.js
-function compile2(value) {
-  return dealloc2(parse2("", null, null, null, [""], value = alloc2(value), 0, [0], value));
-}
-function parse2(value, root, parent, rule, rules, rulesets, pseudo, points, declarations) {
-  var index = 0;
-  var offset = 0;
-  var length3 = pseudo;
-  var atrule = 0;
-  var property = 0;
-  var previous = 0;
-  var variable = 1;
-  var scanning = 1;
-  var ampersand = 1;
-  var character3 = 0;
-  var type = "";
-  var props = rules;
-  var children = rulesets;
-  var reference = rule;
-  var characters3 = type;
-  while (scanning)
-    switch (previous = character3, character3 = next2()) {
-      case 40:
-        if (previous != 108 && charat2(characters3, length3 - 1) == 58) {
-          if (indexof2(characters3 += replace2(delimit2(character3), "&", "&\f"), "&\f") != -1)
-            ampersand = -1;
-          break;
-        }
-      case 34:
-      case 39:
-      case 91:
-        characters3 += delimit2(character3);
-        break;
-      case 9:
-      case 10:
-      case 13:
-      case 32:
-        characters3 += whitespace2(previous);
-        break;
-      case 92:
-        characters3 += escaping2(caret2() - 1, 7);
-        continue;
-      case 47:
-        switch (peek2()) {
-          case 42:
-          case 47:
-            append2(comment2(commenter2(next2(), caret2()), root, parent, declarations), declarations);
-            break;
-          default:
-            characters3 += "/";
-        }
-        break;
-      case 123 * variable:
-        points[index++] = strlen2(characters3) * ampersand;
-      case 125 * variable:
-      case 59:
-      case 0:
-        switch (character3) {
-          case 0:
-          case 125:
-            scanning = 0;
-          case 59 + offset:
-            if (ampersand == -1)
-              characters3 = replace2(characters3, /\f/g, "");
-            if (property > 0 && strlen2(characters3) - length3)
-              append2(property > 32 ? declaration2(characters3 + ";", rule, parent, length3 - 1, declarations) : declaration2(replace2(characters3, " ", "") + ";", rule, parent, length3 - 2, declarations), declarations);
-            break;
-          case 59:
-            characters3 += ";";
-          default:
-            append2(reference = ruleset2(characters3, root, parent, index, offset, rules, points, type, props = [], children = [], length3, rulesets), rulesets);
-            if (character3 === 123)
-              if (offset === 0)
-                parse2(characters3, root, reference, reference, props, rulesets, length3, points, children);
-              else
-                switch (atrule === 99 && charat2(characters3, 3) === 110 ? 100 : atrule) {
-                  case 100:
-                  case 108:
-                  case 109:
-                  case 115:
-                    parse2(value, reference, reference, rule && append2(ruleset2(value, reference, reference, 0, 0, rules, points, type, rules, props = [], length3, children), children), rules, children, length3, points, rule ? props : children);
-                    break;
-                  default:
-                    parse2(characters3, reference, reference, reference, [""], children, 0, points, children);
-                }
-        }
-        index = offset = property = 0, variable = ampersand = 1, type = characters3 = "", length3 = pseudo;
-        break;
-      case 58:
-        length3 = 1 + strlen2(characters3), property = previous;
-      default:
-        if (variable < 1) {
-          if (character3 == 123)
-            --variable;
-          else if (character3 == 125 && variable++ == 0 && prev2() == 125)
-            continue;
-        }
-        switch (characters3 += from2(character3), character3 * variable) {
-          case 38:
-            ampersand = offset > 0 ? 1 : (characters3 += "\f", -1);
-            break;
-          case 44:
-            points[index++] = (strlen2(characters3) - 1) * ampersand, ampersand = 1;
-            break;
-          case 64:
-            if (peek2() === 45)
-              characters3 += delimit2(next2());
-            atrule = peek2(), offset = length3 = strlen2(type = characters3 += identifier7(caret2())), character3++;
-            break;
-          case 45:
-            if (previous === 45 && strlen2(characters3) == 2)
-              variable = 0;
-        }
-    }
-  return rulesets;
-}
-function ruleset2(value, root, parent, index, offset, rules, points, type, props, children, length3, siblings) {
-  var post = offset - 1;
-  var rule = offset === 0 ? rules : [""];
-  var size = sizeof2(rule);
-  for (var i2 = 0, j2 = 0, k2 = 0;i2 < index; ++i2)
-    for (var x2 = 0, y2 = substr2(value, post + 1, post = abs2(j2 = points[i2])), z2 = value;x2 < size; ++x2)
-      if (z2 = trim2(j2 > 0 ? rule[x2] + " " + y2 : replace2(y2, /&\f/g, rule[x2])))
-        props[k2++] = z2;
-  return node2(value, root, parent, offset === 0 ? RULESET2 : type, props, children, length3, siblings);
-}
-function comment2(value, root, parent, siblings) {
-  return node2(value, root, parent, COMMENT2, from2(char2()), substr2(value, 2, -2), 0, siblings);
-}
-function declaration2(value, root, parent, length3, siblings) {
-  return node2(value, root, parent, DECLARATION2, substr2(value, 0, length3), substr2(value, length3 + 1, -1), length3, siblings);
-}
-
-// node_modules/stylis/src/Prefixer.js
-function prefix2(value, length3, children) {
-  switch (hash3(value, length3)) {
-    case 5103:
-      return WEBKIT2 + "print-" + value + value;
-    case 5737:
-    case 4201:
-    case 3177:
-    case 3433:
-    case 1641:
-    case 4457:
-    case 2921:
-    case 5572:
-    case 6356:
-    case 5844:
-    case 3191:
-    case 6645:
-    case 3005:
-    case 6391:
-    case 5879:
-    case 5623:
-    case 6135:
-    case 4599:
-    case 4855:
-    case 4215:
-    case 6389:
-    case 5109:
-    case 5365:
-    case 5621:
-    case 3829:
-      return WEBKIT2 + value + value;
-    case 4789:
-      return MOZ2 + value + value;
-    case 5349:
-    case 4246:
-    case 4810:
-    case 6968:
-    case 2756:
-      return WEBKIT2 + value + MOZ2 + value + MS2 + value + value;
-    case 5936:
-      switch (charat2(value, length3 + 11)) {
-        case 114:
-          return WEBKIT2 + value + MS2 + replace2(value, /[svh]\w+-[tblr]{2}/, "tb") + value;
-        case 108:
-          return WEBKIT2 + value + MS2 + replace2(value, /[svh]\w+-[tblr]{2}/, "tb-rl") + value;
-        case 45:
-          return WEBKIT2 + value + MS2 + replace2(value, /[svh]\w+-[tblr]{2}/, "lr") + value;
-      }
-    case 6828:
-    case 4268:
-    case 2903:
-      return WEBKIT2 + value + MS2 + value + value;
-    case 6165:
-      return WEBKIT2 + value + MS2 + "flex-" + value + value;
-    case 5187:
-      return WEBKIT2 + value + replace2(value, /(\w+).+(:[^]+)/, WEBKIT2 + "box-$1$2" + MS2 + "flex-$1$2") + value;
-    case 5443:
-      return WEBKIT2 + value + MS2 + "flex-item-" + replace2(value, /flex-|-self/g, "") + (!match2(value, /flex-|baseline/) ? MS2 + "grid-row-" + replace2(value, /flex-|-self/g, "") : "") + value;
-    case 4675:
-      return WEBKIT2 + value + MS2 + "flex-line-pack" + replace2(value, /align-content|flex-|-self/g, "") + value;
-    case 5548:
-      return WEBKIT2 + value + MS2 + replace2(value, "shrink", "negative") + value;
-    case 5292:
-      return WEBKIT2 + value + MS2 + replace2(value, "basis", "preferred-size") + value;
-    case 6060:
-      return WEBKIT2 + "box-" + replace2(value, "-grow", "") + WEBKIT2 + value + MS2 + replace2(value, "grow", "positive") + value;
-    case 4554:
-      return WEBKIT2 + replace2(value, /([^-])(transform)/g, "$1" + WEBKIT2 + "$2") + value;
-    case 6187:
-      return replace2(replace2(replace2(value, /(zoom-|grab)/, WEBKIT2 + "$1"), /(image-set)/, WEBKIT2 + "$1"), value, "") + value;
-    case 5495:
-    case 3959:
-      return replace2(value, /(image-set\([^]*)/, WEBKIT2 + "$1$`$1");
-    case 4968:
-      return replace2(replace2(value, /(.+:)(flex-)?(.*)/, WEBKIT2 + "box-pack:$3" + MS2 + "flex-pack:$3"), /s.+-b[^;]+/, "justify") + WEBKIT2 + value + value;
-    case 4200:
-      if (!match2(value, /flex-|baseline/))
-        return MS2 + "grid-column-align" + substr2(value, length3) + value;
-      break;
-    case 2592:
-    case 3360:
-      return MS2 + replace2(value, "template-", "") + value;
-    case 4384:
-    case 3616:
-      if (children && children.some(function(element, index) {
-        return length3 = index, match2(element.props, /grid-\w+-end/);
-      })) {
-        return ~indexof2(value + (children = children[length3].value), "span") ? value : MS2 + replace2(value, "-start", "") + value + MS2 + "grid-row-span:" + (~indexof2(children, "span") ? match2(children, /\d+/) : +match2(children, /\d+/) - +match2(value, /\d+/)) + ";";
-      }
-      return MS2 + replace2(value, "-start", "") + value;
-    case 4896:
-    case 4128:
-      return children && children.some(function(element) {
-        return match2(element.props, /grid-\w+-start/);
-      }) ? value : MS2 + replace2(replace2(value, "-end", "-span"), "span ", "") + value;
-    case 4095:
-    case 3583:
-    case 4068:
-    case 2532:
-      return replace2(value, /(.+)-inline(.+)/, WEBKIT2 + "$1$2") + value;
-    case 8116:
-    case 7059:
-    case 5753:
-    case 5535:
-    case 5445:
-    case 5701:
-    case 4933:
-    case 4677:
-    case 5533:
-    case 5789:
-    case 5021:
-    case 4765:
-      if (strlen2(value) - 1 - length3 > 6)
-        switch (charat2(value, length3 + 1)) {
-          case 109:
-            if (charat2(value, length3 + 4) !== 45)
-              break;
-          case 102:
-            return replace2(value, /(.+:)(.+)-([^]+)/, "$1" + WEBKIT2 + "$2-$3$1" + MOZ2 + (charat2(value, length3 + 3) == 108 ? "$3" : "$2-$3")) + value;
-          case 115:
-            return ~indexof2(value, "stretch") ? prefix2(replace2(value, "stretch", "fill-available"), length3, children) + value : value;
-        }
-      break;
-    case 5152:
-    case 5920:
-      return replace2(value, /(.+?):(\d+)(\s*\/\s*(span)?\s*(\d+))?(.*)/, function(_3, a2, b2, c2, d2, e2, f2) {
-        return MS2 + a2 + ":" + b2 + f2 + (c2 ? MS2 + a2 + "-span:" + (d2 ? e2 : +e2 - +b2) + f2 : "") + value;
-      });
-    case 4949:
-      if (charat2(value, length3 + 6) === 121)
-        return replace2(value, ":", ":" + WEBKIT2) + value;
-      break;
-    case 6444:
-      switch (charat2(value, charat2(value, 14) === 45 ? 18 : 11)) {
-        case 120:
-          return replace2(value, /(.+:)([^;\s!]+)(;|(\s+)?!.+)?/, "$1" + WEBKIT2 + (charat2(value, 14) === 45 ? "inline-" : "") + "box$3$1" + WEBKIT2 + "$2$3$1" + MS2 + "$2box$3") + value;
-        case 100:
-          return replace2(value, ":", ":" + MS2) + value;
-      }
-      break;
-    case 5719:
-    case 2647:
-    case 2135:
-    case 3927:
-    case 2391:
-      return replace2(value, "scroll-", "scroll-snap-") + value;
-  }
-  return value;
-}
-
-// node_modules/stylis/src/Serializer.js
-function serialize6(children, callback) {
-  var output = "";
-  for (var i2 = 0;i2 < children.length; i2++)
-    output += callback(children[i2], i2, children, callback) || "";
-  return output;
-}
-function stringify2(element, index, children, callback) {
-  switch (element.type) {
-    case LAYER2:
-      if (element.children.length)
-        break;
-    case IMPORT2:
-    case DECLARATION2:
-      return element.return = element.return || element.value;
-    case COMMENT2:
-      return "";
-    case KEYFRAMES2:
-      return element.return = element.value + "{" + serialize6(element.children, callback) + "}";
-    case RULESET2:
-      if (!strlen2(element.value = element.props.join(",")))
-        return "";
-  }
-  return strlen2(children = serialize6(element.children, callback)) ? element.return = element.value + "{" + children + "}" : "";
-}
-
-// node_modules/stylis/src/Middleware.js
-function middleware2(collection) {
-  var length3 = sizeof2(collection);
-  return function(element, index, children, callback) {
-    var output = "";
-    for (var i2 = 0;i2 < length3; i2++)
-      output += collection[i2](element, index, children, callback) || "";
-    return output;
-  };
-}
-function rulesheet2(callback) {
-  return function(element) {
-    if (!element.root) {
-      if (element = element.return)
-        callback(element);
-    }
-  };
-}
-function prefixer3(element, index, children, callback) {
-  if (element.length > -1) {
-    if (!element.return)
-      switch (element.type) {
-        case DECLARATION2:
-          element.return = prefix2(element.value, element.length, children);
-          return;
-        case KEYFRAMES2:
-          return serialize6([copy2(element, { value: replace2(element.value, "@", "@" + WEBKIT2) })], callback);
-        case RULESET2:
-          if (element.length)
-            return combine2(children = element.props, function(value) {
-              switch (match2(value, callback = /(::plac\w+|:read-\w+)/)) {
-                case ":read-only":
-                case ":read-write":
-                  lift(copy2(element, { props: [replace2(value, /:(read-\w+)/, ":" + MOZ2 + "$1")] }));
-                  lift(copy2(element, { props: [value] }));
-                  assign2(element, { props: filter(children, callback) });
-                  break;
-                case "::placeholder":
-                  lift(copy2(element, { props: [replace2(value, /:(plac\w+)/, ":" + WEBKIT2 + "input-$1")] }));
-                  lift(copy2(element, { props: [replace2(value, /:(plac\w+)/, ":" + MOZ2 + "$1")] }));
-                  lift(copy2(element, { props: [replace2(value, /:(plac\w+)/, MS2 + "input-$1")] }));
-                  lift(copy2(element, { props: [value] }));
-                  assign2(element, { props: filter(children, callback) });
-                  break;
-              }
-              return "";
-            });
-      }
-  }
-}
-
-// node_modules/styled-components/dist/styled-components.browser.esm.js
-var P2 = function(e2, t2, n2) {
-  return n2 === undefined && (n2 = N2), e2.theme !== n2.theme && e2.theme || t2 || n2.theme;
-};
-var A2 = function(e2) {
-  return e2.replace(C2, "-").replace(I2, "");
-};
-var R2 = function(e2) {
-  var t2, n2 = "";
-  for (t2 = Math.abs(e2);t2 > 52; t2 = t2 / 52 | 0)
-    n2 = D2(t2 % 52) + n2;
-  return (D2(t2 % 52) + n2).replace(O2, "$1-$2");
-};
-var x2 = function(e2) {
-  return R2(j2(e2) >>> 0);
-};
-var V2 = function(e2) {
-  return typeof e2 == "string" && e2 || e2.displayName || e2.name || "Component";
-};
-var F2 = function(e2) {
-  return typeof e2 == "string" && e2.charAt(0) === e2.charAt(0).toLowerCase();
-};
-var W2 = function(e2) {
-  return (("type" in (t2 = e2)) && t2.type.$$typeof) === $2 ? G2 : ("$$typeof" in e2) ? Y2[e2.$$typeof] : B2;
-  var t2;
-};
-var K2 = function(e2, t2, n2) {
-  if (typeof t2 != "string") {
-    if (Z2) {
-      var o3 = X2(t2);
-      o3 && o3 !== Z2 && K2(e2, o3, n2);
-    }
-    var r6 = H2(t2);
-    U2 && (r6 = r6.concat(U2(t2)));
-    for (var s3 = W2(e2), i3 = W2(t2), a3 = 0;a3 < r6.length; ++a3) {
-      var c3 = r6[a3];
-      if (!((c3 in L2) || n2 && n2[c3] || i3 && (c3 in i3) || s3 && (c3 in s3))) {
-        var l3 = J2(t2, c3);
-        try {
-          q2(e2, c3, l3);
-        } catch (e3) {
-        }
-      }
-    }
-  }
-  return e2;
-};
-var Q2 = function(e2) {
-  return typeof e2 == "function";
-};
-var ee = function(e2) {
-  return typeof e2 == "object" && ("styledComponentId" in e2);
-};
-var te = function(e2, t2) {
-  return e2 && t2 ? "".concat(e2, " ").concat(t2) : e2 || t2 || "";
-};
-var ne = function(e2, t2) {
-  if (e2.length === 0)
-    return "";
-  for (var n2 = e2[0], o3 = 1;o3 < e2.length; o3++)
-    n2 += t2 ? t2 + e2[o3] : e2[o3];
-  return n2;
-};
-var oe = function(e2) {
-  return e2 !== null && typeof e2 == "object" && e2.constructor.name === Object.name && !(("props" in e2) && e2.$$typeof);
-};
-var re = function(e2, t2, n2) {
-  if (n2 === undefined && (n2 = false), !n2 && !oe(e2) && !Array.isArray(e2))
-    return t2;
-  if (Array.isArray(t2))
-    for (var o3 = 0;o3 < t2.length; o3++)
-      e2[o3] = re(e2[o3], t2[o3]);
-  else if (oe(t2))
-    for (var o3 in t2)
-      e2[o3] = re(e2[o3], t2[o3]);
-  return e2;
-};
-var se = function(e2, t2) {
-  Object.defineProperty(e2, "toString", { value: t2 });
-};
-var ae = function() {
-  for (var e2 = [], t2 = 0;t2 < arguments.length; t2++)
-    e2[t2] = arguments[t2];
-  for (var n2 = e2[0], o3 = [], r6 = 1, s3 = e2.length;r6 < s3; r6 += 1)
-    o3.push(e2[r6]);
-  return o3.forEach(function(e3) {
-    n2 = n2.replace(/%[a-z]/, e3);
-  }), n2;
-};
-var ce = function(t2) {
-  for (var n2 = [], o3 = 1;o3 < arguments.length; o3++)
-    n2[o3 - 1] = arguments[o3];
-  return new Error(ae.apply(undefined, __spreadArray([ie[t2]], n2, false)).trim());
-};
-var Se = function() {
-  return typeof __webpack_nonce__ != "undefined" ? __webpack_nonce__ : null;
-};
-var Oe = function(e2, t2) {
-  return e2.map(function(e3) {
-    return e3.type === "rule" && (e3.value = "".concat(t2, " ").concat(e3.value), e3.value = e3.value.replaceAll(",", ",".concat(t2, " ")), e3.props = e3.props.map(function(e4) {
-      return "".concat(t2, " ").concat(e4);
-    })), Array.isArray(e3.children) && e3.type !== "@keyframes" && (e3.children = Oe(e3.children, t2)), e3;
-  });
-};
-var De = function(e2) {
-  var t2, n2, o3, r6 = e2 === undefined ? N2 : e2, s3 = r6.options, i3 = s3 === undefined ? N2 : s3, a3 = r6.plugins, c3 = a3 === undefined ? E2 : a3, l3 = function(e3, o4, r7) {
-    return r7 === n2 || r7.startsWith(n2) && r7.endsWith(n2) && r7.replaceAll(n2, "").length > 0 ? ".".concat(t2) : e3;
-  }, u3 = c3.slice();
-  u3.push(function(e3) {
-    e3.type === RULESET2 && e3.value.includes("&") && (e3.props[0] = e3.props[0].replace(Ie, n2).replace(o3, l3));
-  }), i3.prefix && u3.push(prefixer3), u3.push(stringify2);
-  var p3 = function(e3, r7, s4, a4) {
-    r7 === undefined && (r7 = ""), s4 === undefined && (s4 = ""), a4 === undefined && (a4 = "&"), t2 = a4, n2 = r7, o3 = new RegExp("\\".concat(n2, "\\b"), "g");
-    var c4 = e3.replace(Ae, ""), l4 = compile2(s4 || r7 ? "".concat(s4, " ").concat(r7, " { ").concat(c4, " }") : c4);
-    i3.namespace && (l4 = Oe(l4, i3.namespace));
-    var p4 = [];
-    return serialize6(l4, middleware2(u3.concat(rulesheet2(function(e4) {
-      return p4.push(e4);
-    })))), p4;
-  };
-  return p3.hash = c3.length ? c3.reduce(function(e3, t3) {
-    return t3.name || ce(15), k2(e3, t3.name);
-  }, 5381).toString() : "", p3;
-};
-var Ve = function() {
-  return import_react22.useContext(ke);
-};
-var Fe = function(e2) {
-  var t2 = import_react22.useState(e2.stylisPlugins), n2 = t2[0], r6 = t2[1], c3 = Ve().styleSheet, l3 = import_react22.useMemo(function() {
-    var t3 = c3;
-    return e2.sheet ? t3 = e2.sheet : e2.target && (t3 = t3.reconstructWithOptions({ target: e2.target }, false)), e2.disableCSSOMInjection && (t3 = t3.reconstructWithOptions({ useCSSOMInjection: false })), t3;
-  }, [e2.disableCSSOMInjection, e2.sheet, e2.target, c3]), u3 = import_react22.useMemo(function() {
-    return De({ options: { namespace: e2.namespace, prefix: e2.enableVendorPrefixes }, plugins: n2 });
-  }, [e2.enableVendorPrefixes, e2.namespace, n2]);
-  import_react22.useEffect(function() {
-    import_shallowequal.default(n2, e2.stylisPlugins) || r6(e2.stylisPlugins);
-  }, [e2.stylisPlugins]);
-  var d2 = import_react22.useMemo(function() {
-    return { shouldForwardProp: e2.shouldForwardProp, styleSheet: l3, stylis: u3 };
-  }, [e2.shouldForwardProp, l3, u3]);
-  return import_react22.default.createElement(ke.Provider, { value: d2 }, import_react22.default.createElement(xe.Provider, { value: u3 }, e2.children));
-};
-var ze = function(e2) {
-  for (var t2 = "", n2 = 0;n2 < e2.length; n2++) {
-    var o3 = e2[n2];
-    if (n2 === 1 && o3 === "-" && e2[0] === "-")
-      return e2;
-    $e(o3) ? t2 += "-" + o3.toLowerCase() : t2 += o3;
-  }
-  return t2.startsWith("ms-") ? "-" + t2 : t2;
-};
-var Ge = function(e2, t2, n2, o3) {
-  if (Be(e2))
-    return [];
-  if (ee(e2))
-    return [".".concat(e2.styledComponentId)];
-  if (Q2(e2)) {
-    if (!Q2(s3 = e2) || s3.prototype && s3.prototype.isReactComponent || !t2)
-      return [e2];
-    var r6 = e2(t2);
-    return typeof r6 != "object" || Array.isArray(r6) || r6 instanceof Me || oe(r6) || r6 === null || console.error("".concat(V2(e2), " is not a styled component and cannot be referred to via component selector. See https://www.styled-components.com/docs/advanced#referring-to-other-components for more details.")), Ge(r6, t2, n2, o3);
-  }
-  var s3;
-  return e2 instanceof Me ? n2 ? (e2.inject(n2, o3), [e2.getName(o3)]) : [e2] : oe(e2) ? Le(e2) : Array.isArray(e2) ? Array.prototype.concat.apply(E2, e2.map(function(e3) {
-    return Ge(e3, t2, n2, o3);
-  })) : [e2.toString()];
-};
-var Ye = function(e2) {
-  for (var t2 = 0;t2 < e2.length; t2 += 1) {
-    var n2 = e2[t2];
-    if (Q2(n2) && !ee(n2))
-      return false;
-  }
-  return true;
-};
-var Qe = function(e2, r6, s3) {
-  var i3 = ee(e2), a3 = e2, c3 = !F2(e2), p3 = r6.attrs, d2 = p3 === undefined ? E2 : p3, h2 = r6.componentId, f2 = h2 === undefined ? function(e3, t2) {
-    var n2 = typeof e3 != "string" ? "sc" : A2(e3);
-    Ze[n2] = (Ze[n2] || 0) + 1;
-    var o3 = "".concat(n2, "-").concat(x2("6.0.8" + n2 + Ze[n2]));
-    return t2 ? "".concat(t2, "-").concat(o3) : o3;
-  }(r6.displayName, r6.parentComponentId) : h2, m2 = r6.displayName, y2 = m2 === undefined ? function(e3) {
-    return F2(e3) ? "styled.".concat(e3) : "Styled(".concat(V2(e3), ")");
-  }(e2) : m2, v2 = r6.displayName && r6.componentId ? "".concat(A2(r6.displayName), "-").concat(r6.componentId) : r6.componentId || f2, g2 = i3 && a3.attrs ? a3.attrs.concat(d2).filter(Boolean) : d2, S2 = r6.shouldForwardProp;
-  if (i3 && a3.shouldForwardProp) {
-    var w2 = a3.shouldForwardProp;
-    if (r6.shouldForwardProp) {
-      var C2 = r6.shouldForwardProp;
-      S2 = function(e3, t2) {
-        return w2(e3, t2) && C2(e3, t2);
-      };
-    } else
-      S2 = w2;
-  }
-  var I2 = new qe(s3, v2, i3 ? a3.componentStyle : undefined);
-  function O2(e3, r7) {
-    return function(e4, r8, s4) {
-      var { attrs: i4, componentStyle: a4, defaultProps: c4, foldedComponentIds: p4, styledComponentId: d3, target: h3 } = e4, f3 = import_react22.default.useContext(He), m3 = Ve(), y3 = e4.shouldForwardProp || m3.shouldForwardProp;
-      import_react22.useDebugValue(d3);
-      var v3 = function(e5, n2, o3) {
-        for (var r9, s5 = __assign(__assign({}, n2), { className: undefined, theme: o3 }), i5 = 0;i5 < e5.length; i5 += 1) {
-          var a5 = Q2(r9 = e5[i5]) ? r9(s5) : r9;
-          for (var c5 in a5)
-            s5[c5] = c5 === "className" ? te(s5[c5], a5[c5]) : c5 === "style" ? __assign(__assign({}, s5[c5]), a5[c5]) : a5[c5];
-        }
-        return n2.className && (s5.className = te(s5.className, n2.className)), s5;
-      }(i4, r8, P2(r8, f3, c4) || N2), g3 = v3.as || h3, S3 = {};
-      for (var w3 in v3)
-        v3[w3] === undefined || w3[0] === "$" || w3 === "as" || w3 === "theme" || (w3 === "forwardedAs" ? S3.as = v3.forwardedAs : y3 && !y3(w3, g3) || (S3[w3] = v3[w3], y3 || false || isPropValid(w3) || Ke.has(w3) || !_3.has(g3) || (Ke.add(w3), console.warn('styled-components: it looks like an unknown prop "'.concat(w3, '" is being sent through to the DOM, which will likely trigger a React console error. If you would like automatic filtering of unknown props, you can opt-into that behavior via `<StyleSheetManager shouldForwardProp={...}>` (connect an API like `@emotion/is-prop-valid`) or consider using transient props (`$` prefix for automatic filtering.)')))));
-      var b2 = function(e5, t2) {
-        var n2 = Ve(), o3 = e5.generateAndInjectStyles(t2, n2.styleSheet, n2.stylis);
-        return import_react22.useDebugValue(o3), o3;
-      }(a4, v3);
-      e4.warnTooManyClasses && e4.warnTooManyClasses(b2);
-      var E2 = te(p4, d3);
-      return b2 && (E2 += " " + b2), v3.className && (E2 += " " + v3.className), S3[F2(g3) && !_3.has(g3) ? "class" : "className"] = E2, S3.ref = s4, import_react22.createElement(g3, S3);
-    }(D2, e3, r7);
-  }
-  O2.displayName = y2;
-  var D2 = import_react22.default.forwardRef(O2);
-  return D2.attrs = g2, D2.componentStyle = I2, D2.shouldForwardProp = S2, D2.displayName = y2, D2.foldedComponentIds = i3 ? te(a3.foldedComponentIds, a3.styledComponentId) : "", D2.styledComponentId = v2, D2.target = i3 ? a3.target : e2, Object.defineProperty(D2, "defaultProps", { get: function() {
-    return this._foldedDefaultProps;
-  }, set: function(e3) {
-    this._foldedDefaultProps = i3 ? function(e4) {
-      for (var t2 = [], n2 = 1;n2 < arguments.length; n2++)
-        t2[n2 - 1] = arguments[n2];
-      for (var o3 = 0, r7 = t2;o3 < r7.length; o3++)
-        re(e4, r7[o3], true);
-      return e4;
-    }({}, a3.defaultProps, e3) : e3;
-  } }), b2(y2, v2), D2.warnTooManyClasses = function(e3, t2) {
-    var n2 = {}, o3 = false;
-    return function(r7) {
-      if (!o3 && (n2[r7] = true, Object.keys(n2).length >= 200)) {
-        var s4 = t2 ? ' with the id of "'.concat(t2, '"') : "";
-        console.warn("Over ".concat(200, " classes were generated for component ").concat(e3).concat(s4, ".\n") + "Consider using the attrs method, together with a style object for frequently changed styles.\nExample:\n  const Component = styled.div.attrs(props => ({\n    style: {\n      background: props.background,\n    },\n  }))`width: 100%;`\n\n  <Component />"), o3 = true, n2 = {};
-      }
-    };
-  }(y2, v2), se(D2, function() {
-    return ".".concat(D2.styledComponentId);
-  }), c3 && K2(D2, e2, { attrs: true, componentStyle: true, displayName: true, foldedComponentIds: true, shouldForwardProp: true, styledComponentId: true, target: true }), D2;
-};
-var et2 = function(e2, t2) {
-  for (var n2 = [e2[0]], o3 = 0, r6 = t2.length;o3 < r6; o3 += 1)
-    n2.push(t2[o3], e2[o3 + 1]);
-  return n2;
-};
-var nt2 = function(t2) {
-  for (var n2 = [], o3 = 1;o3 < arguments.length; o3++)
-    n2[o3 - 1] = arguments[o3];
-  if (Q2(t2) || oe(t2)) {
-    var r6 = t2;
-    return tt2(Ge(et2(E2, __spreadArray([r6], n2, true))));
-  }
-  var s3 = t2;
-  return n2.length === 0 && s3.length === 1 && typeof s3[0] == "string" ? Ge(s3) : tt2(Ge(et2(s3, n2)));
-};
-var ot2 = function(n2, o3, r6) {
-  if (r6 === undefined && (r6 = N2), !o3)
-    throw ce(1, o3);
-  var s3 = function(t2) {
-    for (var s4 = [], i3 = 1;i3 < arguments.length; i3++)
-      s4[i3 - 1] = arguments[i3];
-    return n2(o3, r6, nt2.apply(undefined, __spreadArray([t2], s4, false)));
-  };
-  return s3.attrs = function(e2) {
-    return ot2(n2, o3, __assign(__assign({}, r6), { attrs: Array.prototype.concat(r6.attrs, e2).filter(Boolean) }));
-  }, s3.withConfig = function(e2) {
-    return ot2(n2, o3, __assign(__assign({}, r6), e2));
-  }, s3;
-};
-var f2 = typeof process != "undefined" && process.env !== undefined && (process.env.REACT_APP_SC_ATTR || process.env.SC_ATTR) || "data-styled";
-var y2 = typeof window != "undefined" && ("HTMLElement" in window);
-var v2 = Boolean(typeof SC_DISABLE_SPEEDY == "boolean" ? SC_DISABLE_SPEEDY : typeof process != "undefined" && process.env !== undefined && process.env.REACT_APP_SC_DISABLE_SPEEDY !== undefined && process.env.REACT_APP_SC_DISABLE_SPEEDY !== "" ? process.env.REACT_APP_SC_DISABLE_SPEEDY !== "false" && process.env.REACT_APP_SC_DISABLE_SPEEDY : typeof process != "undefined" && process.env !== undefined && process.env.SC_DISABLE_SPEEDY !== undefined && process.env.SC_DISABLE_SPEEDY !== "" ? process.env.SC_DISABLE_SPEEDY !== "false" && process.env.SC_DISABLE_SPEEDY : true);
-var S2 = /invalid hook call/i;
-var w2 = new Set;
-var b2 = function(t2, n2) {
-  if (true) {
-    var o3 = n2 ? ' with the id of "'.concat(n2, '"') : "", s3 = "The component ".concat(t2).concat(o3, " has been created dynamically.\n") + "You may see this warning because you've called styled inside another component.\nTo resolve this only create new StyledComponents outside of any render method and function component.", i3 = console.error;
-    try {
-      var a3 = true;
-      console.error = function(t3) {
-        for (var n3 = [], o4 = 1;o4 < arguments.length; o4++)
-          n3[o4 - 1] = arguments[o4];
-        S2.test(t3) ? (a3 = false, w2.delete(s3)) : i3.apply(undefined, __spreadArray([t3], n3, false));
-      }, import_react22.useRef(), a3 && !w2.has(s3) && (console.warn(s3), w2.add(s3));
-    } catch (e2) {
-      S2.test(e2.message) && w2.delete(s3);
-    } finally {
-      console.error = i3;
-    }
-  }
-};
-var E2 = Object.freeze([]);
-var N2 = Object.freeze({});
-var _3 = new Set(["a", "abbr", "address", "area", "article", "aside", "audio", "b", "base", "bdi", "bdo", "big", "blockquote", "body", "br", "button", "canvas", "caption", "cite", "code", "col", "colgroup", "data", "datalist", "dd", "del", "details", "dfn", "dialog", "div", "dl", "dt", "em", "embed", "fieldset", "figcaption", "figure", "footer", "form", "h1", "h2", "h3", "h4", "h5", "h6", "header", "hgroup", "hr", "html", "i", "iframe", "img", "input", "ins", "kbd", "keygen", "label", "legend", "li", "link", "main", "map", "mark", "menu", "menuitem", "meta", "meter", "nav", "noscript", "object", "ol", "optgroup", "option", "output", "p", "param", "picture", "pre", "progress", "q", "rp", "rt", "ruby", "s", "samp", "script", "section", "select", "small", "source", "span", "strong", "style", "sub", "summary", "sup", "table", "tbody", "td", "textarea", "tfoot", "th", "thead", "time", "tr", "track", "u", "ul", "use", "var", "video", "wbr", "circle", "clipPath", "defs", "ellipse", "foreignObject", "g", "image", "line", "linearGradient", "marker", "mask", "path", "pattern", "polygon", "polyline", "radialGradient", "rect", "stop", "svg", "text", "tspan"]);
-var C2 = /[!"#$%&'()*+,./:;<=>?@[\\\]^`{|}~-]+/g;
-var I2 = /(^-|-$)/g;
-var O2 = /(a)(d)/gi;
-var D2 = function(e2) {
-  return String.fromCharCode(e2 + (e2 > 25 ? 39 : 97));
-};
-var T2;
-var k2 = function(e2, t2) {
-  for (var n2 = t2.length;n2; )
-    e2 = 33 * e2 ^ t2.charCodeAt(--n2);
-  return e2;
-};
-var j2 = function(e2) {
-  return k2(5381, e2);
-};
-var M2 = typeof Symbol == "function" && Symbol.for;
-var $2 = M2 ? Symbol.for("react.memo") : 60115;
-var z2 = M2 ? Symbol.for("react.forward_ref") : 60112;
-var B2 = { childContextTypes: true, contextType: true, contextTypes: true, defaultProps: true, displayName: true, getDefaultProps: true, getDerivedStateFromError: true, getDerivedStateFromProps: true, mixins: true, propTypes: true, type: true };
-var L2 = { name: true, length: true, prototype: true, caller: true, callee: true, arguments: true, arity: true };
-var G2 = { $$typeof: true, compare: true, defaultProps: true, displayName: true, propTypes: true, type: true };
-var Y2 = ((T2 = {})[z2] = { $$typeof: true, render: true, defaultProps: true, displayName: true, propTypes: true }, T2[$2] = G2, T2);
-var q2 = Object.defineProperty;
-var H2 = Object.getOwnPropertyNames;
-var U2 = Object.getOwnPropertySymbols;
-var J2 = Object.getOwnPropertyDescriptor;
-var X2 = Object.getPrototypeOf;
-var Z2 = Object.prototype;
-var ie = { 1: "Cannot create styled-component for component: %s.\n\n", 2: "Can't collect styles once you've consumed a `ServerStyleSheet`'s styles! `ServerStyleSheet` is a one off instance for each server-side render cycle.\n\n- Are you trying to reuse it across renders?\n- Are you accidentally calling collectStyles twice?\n\n", 3: "Streaming SSR is only supported in a Node.js environment; Please do not try to call this method in the browser.\n\n", 4: "The `StyleSheetManager` expects a valid target or sheet prop!\n\n- Does this error occur on the client and is your target falsy?\n- Does this error occur on the server and is the sheet falsy?\n\n", 5: "The clone method cannot be used on the client!\n\n- Are you running in a client-like environment on the server?\n- Are you trying to run SSR on the client?\n\n", 6: "Trying to insert a new style tag, but the given Node is unmounted!\n\n- Are you using a custom target that isn't mounted?\n- Does your document not have a valid head element?\n- Have you accidentally removed a style tag manually?\n\n", 7: 'ThemeProvider: Please return an object from your "theme" prop function, e.g.\n\n```js\ntheme={() => ({})}\n```\n\n', 8: 'ThemeProvider: Please make your "theme" prop an object.\n\n', 9: "Missing document `<head>`\n\n", 10: "Cannot find a StyleSheet instance. Usually this happens if there are multiple copies of styled-components loaded at once. Check out this issue for how to troubleshoot and fix the common cases where this situation can happen: https://github.com/styled-components/styled-components/issues/1941#issuecomment-417862021\n\n", 11: "_This error was replaced with a dev-time warning, it will be deleted for v4 final._ [createGlobalStyle] received children which will not be rendered. Please use the component without passing children elements.\n\n", 12: "It seems you are interpolating a keyframe declaration (%s) into an untagged string. This was supported in styled-components v3, but is not longer supported in v4 as keyframes are now injected on-demand. Please wrap your string in the css\\`\\` helper which ensures the styles are injected correctly. See https://www.styled-components.com/docs/api#css\n\n", 13: "%s is not a styled component and cannot be referred to via component selector. See https://www.styled-components.com/docs/advanced#referring-to-other-components for more details.\n\n", 14: 'ThemeProvider: "theme" prop is required.\n\n', 15: "A stylis plugin has been supplied that is not named. We need a name for each plugin to be able to prevent styling collisions between different stylis configurations within the same app. Before you pass your plugin to `<StyleSheetManager stylisPlugins={[]}>`, please make sure each plugin is uniquely-named, e.g.\n\n```js\nObject.defineProperty(importedPlugin, 'name', { value: 'some-unique-name' });\n```\n\n", 16: "Reached the limit of how many styled components may be created at group %s.\nYou may only create up to 1,073,741,824 components. If you're creating components dynamically,\nas for instance in your render method then you may be running into this limitation.\n\n", 17: "CSSStyleSheet could not be found on HTMLStyleElement.\nHas styled-components' style tag been unmounted or altered by another script?\n", 18: "ThemeProvider: Please make sure your useTheme hook is within a `<ThemeProvider>`" };
-var le = function() {
-  function e2(e3) {
-    this.groupSizes = new Uint32Array(512), this.length = 512, this.tag = e3;
-  }
-  return e2.prototype.indexOfGroup = function(e3) {
-    for (var t2 = 0, n2 = 0;n2 < e3; n2++)
-      t2 += this.groupSizes[n2];
-    return t2;
-  }, e2.prototype.insertRules = function(e3, t2) {
-    if (e3 >= this.groupSizes.length) {
-      for (var n2 = this.groupSizes, o3 = n2.length, r6 = o3;e3 >= r6; )
-        if ((r6 <<= 1) < 0)
-          throw ce(16, "".concat(e3));
-      this.groupSizes = new Uint32Array(r6), this.groupSizes.set(n2), this.length = r6;
-      for (var s3 = o3;s3 < r6; s3++)
-        this.groupSizes[s3] = 0;
-    }
-    for (var i3 = this.indexOfGroup(e3 + 1), a3 = (s3 = 0, t2.length);s3 < a3; s3++)
-      this.tag.insertRule(i3, t2[s3]) && (this.groupSizes[e3]++, i3++);
-  }, e2.prototype.clearGroup = function(e3) {
-    if (e3 < this.length) {
-      var t2 = this.groupSizes[e3], n2 = this.indexOfGroup(e3), o3 = n2 + t2;
-      this.groupSizes[e3] = 0;
-      for (var r6 = n2;r6 < o3; r6++)
-        this.tag.deleteRule(n2);
-    }
-  }, e2.prototype.getGroup = function(e3) {
-    var t2 = "";
-    if (e3 >= this.length || this.groupSizes[e3] === 0)
-      return t2;
-    for (var n2 = this.groupSizes[e3], o3 = this.indexOfGroup(e3), r6 = o3 + n2, s3 = o3;s3 < r6; s3++)
-      t2 += "".concat(this.tag.getRule(s3)).concat("/*!sc*/\n");
-    return t2;
-  }, e2;
-}();
-var ue = new Map;
-var pe = new Map;
-var de = 1;
-var he = function(e2) {
-  if (ue.has(e2))
-    return ue.get(e2);
-  for (;pe.has(de); )
-    de++;
-  var t2 = de++;
-  if ((0 | t2) < 0 || t2 > 1073741824)
-    throw ce(16, "".concat(t2));
-  return ue.set(e2, t2), pe.set(t2, e2), t2;
-};
-var fe = function(e2, t2) {
-  ue.set(e2, t2), pe.set(t2, e2);
-};
-var me = "style[".concat(f2, "][").concat("data-styled-version", '="').concat("6.0.8", '"]');
-var ye = new RegExp("^".concat(f2, '\\.g(\\d+)\\[id="([\\w\\d-]+)"\\].*?"([^"]*)'));
-var ve = function(e2, t2, n2) {
-  for (var o3, r6 = n2.split(","), s3 = 0, i3 = r6.length;s3 < i3; s3++)
-    (o3 = r6[s3]) && e2.registerName(t2, o3);
-};
-var ge = function(e2, t2) {
-  for (var n2, o3 = ((n2 = t2.textContent) !== null && n2 !== undefined ? n2 : "").split("/*!sc*/\n"), r6 = [], s3 = 0, i3 = o3.length;s3 < i3; s3++) {
-    var a3 = o3[s3].trim();
-    if (a3) {
-      var c3 = a3.match(ye);
-      if (c3) {
-        var l3 = 0 | parseInt(c3[1], 10), u3 = c3[2];
-        l3 !== 0 && (fe(u3, l3), ve(e2, u3, c3[3]), e2.getTag().insertRules(l3, r6)), r6.length = 0;
-      } else
-        r6.push(a3);
-    }
-  }
-};
-var we = function(e2) {
-  var t2 = document.head, n2 = e2 || t2, o3 = document.createElement("style"), r6 = function(e3) {
-    var t3 = Array.from(e3.querySelectorAll("style[".concat(f2, "]")));
-    return t3[t3.length - 1];
-  }(n2), s3 = r6 !== undefined ? r6.nextSibling : null;
-  o3.setAttribute(f2, "active"), o3.setAttribute("data-styled-version", "6.0.8");
-  var i3 = Se();
-  return i3 && o3.setAttribute("nonce", i3), n2.insertBefore(o3, s3), o3;
-};
-var be = function() {
-  function e2(e3) {
-    this.element = we(e3), this.element.appendChild(document.createTextNode("")), this.sheet = function(e4) {
-      if (e4.sheet)
-        return e4.sheet;
-      for (var t2 = document.styleSheets, n2 = 0, o3 = t2.length;n2 < o3; n2++) {
-        var r6 = t2[n2];
-        if (r6.ownerNode === e4)
-          return r6;
-      }
-      throw ce(17);
-    }(this.element), this.length = 0;
-  }
-  return e2.prototype.insertRule = function(e3, t2) {
-    try {
-      return this.sheet.insertRule(t2, e3), this.length++, true;
-    } catch (e4) {
-      return false;
-    }
-  }, e2.prototype.deleteRule = function(e3) {
-    this.sheet.deleteRule(e3), this.length--;
-  }, e2.prototype.getRule = function(e3) {
-    var t2 = this.sheet.cssRules[e3];
-    return t2 && t2.cssText ? t2.cssText : "";
-  }, e2;
-}();
-var Ee = function() {
-  function e2(e3) {
-    this.element = we(e3), this.nodes = this.element.childNodes, this.length = 0;
-  }
-  return e2.prototype.insertRule = function(e3, t2) {
-    if (e3 <= this.length && e3 >= 0) {
-      var n2 = document.createTextNode(t2);
-      return this.element.insertBefore(n2, this.nodes[e3] || null), this.length++, true;
-    }
-    return false;
-  }, e2.prototype.deleteRule = function(e3) {
-    this.element.removeChild(this.nodes[e3]), this.length--;
-  }, e2.prototype.getRule = function(e3) {
-    return e3 < this.length ? this.nodes[e3].textContent : "";
-  }, e2;
-}();
-var Ne = function() {
-  function e2(e3) {
-    this.rules = [], this.length = 0;
-  }
-  return e2.prototype.insertRule = function(e3, t2) {
-    return e3 <= this.length && (this.rules.splice(e3, 0, t2), this.length++, true);
-  }, e2.prototype.deleteRule = function(e3) {
-    this.rules.splice(e3, 1), this.length--;
-  }, e2.prototype.getRule = function(e3) {
-    return e3 < this.length ? this.rules[e3] : "";
-  }, e2;
-}();
-var Pe = y2;
-var _e = { isServer: !y2, useCSSOMInjection: !v2 };
-var Ce = function() {
-  function e2(e3, n2, o3) {
-    e3 === undefined && (e3 = N2), n2 === undefined && (n2 = {});
-    var r6 = this;
-    this.options = __assign(__assign({}, _e), e3), this.gs = n2, this.names = new Map(o3), this.server = !!e3.isServer, !this.server && y2 && Pe && (Pe = false, function(e4) {
-      for (var t2 = document.querySelectorAll(me), n3 = 0, o4 = t2.length;n3 < o4; n3++) {
-        var r7 = t2[n3];
-        r7 && r7.getAttribute(f2) !== "active" && (ge(e4, r7), r7.parentNode && r7.parentNode.removeChild(r7));
-      }
-    }(this)), se(this, function() {
-      return function(e4) {
-        for (var t2 = e4.getTag(), n3 = t2.length, o4 = "", r7 = function(n4) {
-          var r8 = function(e5) {
-            return pe.get(e5);
-          }(n4);
-          if (r8 === undefined)
-            return "continue";
-          var s4 = e4.names.get(r8), i3 = t2.getGroup(n4);
-          if (s4 === undefined || i3.length === 0)
-            return "continue";
-          var a3 = "".concat(f2, ".g").concat(n4, '[id="').concat(r8, '"]'), c3 = "";
-          s4 !== undefined && s4.forEach(function(e5) {
-            e5.length > 0 && (c3 += "".concat(e5, ","));
-          }), o4 += "".concat(i3).concat(a3, '{content:"').concat(c3, '"}').concat("/*!sc*/\n");
-        }, s3 = 0;s3 < n3; s3++)
-          r7(s3);
-        return o4;
-      }(r6);
-    });
-  }
-  return e2.registerId = function(e3) {
-    return he(e3);
-  }, e2.prototype.reconstructWithOptions = function(n2, o3) {
-    return o3 === undefined && (o3 = true), new e2(__assign(__assign({}, this.options), n2), this.gs, o3 && this.names || undefined);
-  }, e2.prototype.allocateGSInstance = function(e3) {
-    return this.gs[e3] = (this.gs[e3] || 0) + 1;
-  }, e2.prototype.getTag = function() {
-    return this.tag || (this.tag = (e3 = function(e4) {
-      var { useCSSOMInjection: t2, target: n2 } = e4;
-      return e4.isServer ? new Ne(n2) : t2 ? new be(n2) : new Ee(n2);
-    }(this.options), new le(e3)));
-    var e3;
-  }, e2.prototype.hasNameForId = function(e3, t2) {
-    return this.names.has(e3) && this.names.get(e3).has(t2);
-  }, e2.prototype.registerName = function(e3, t2) {
-    if (he(e3), this.names.has(e3))
-      this.names.get(e3).add(t2);
-    else {
-      var n2 = new Set;
-      n2.add(t2), this.names.set(e3, n2);
-    }
-  }, e2.prototype.insertRules = function(e3, t2, n2) {
-    this.registerName(e3, t2), this.getTag().insertRules(he(e3), n2);
-  }, e2.prototype.clearNames = function(e3) {
-    this.names.has(e3) && this.names.get(e3).clear();
-  }, e2.prototype.clearRules = function(e3) {
-    this.getTag().clearGroup(he(e3)), this.clearNames(e3);
-  }, e2.prototype.clearTag = function() {
-    this.tag = undefined;
-  }, e2;
-}();
-var Ie = /&/g;
-var Ae = /^\s*\/\/.*$/gm;
-var Re = new Ce;
-var Te = De();
-var ke = import_react22.default.createContext({ shouldForwardProp: undefined, styleSheet: Re, stylis: Te });
-var je = ke.Consumer;
-var xe = import_react22.default.createContext(undefined);
-var Me = function() {
-  function e2(e3, t2) {
-    var n2 = this;
-    this.inject = function(e4, t3) {
-      t3 === undefined && (t3 = Te);
-      var o3 = n2.name + t3.hash;
-      e4.hasNameForId(n2.id, o3) || e4.insertRules(n2.id, o3, t3(n2.rules, o3, "@keyframes"));
-    }, this.name = e3, this.id = "sc-keyframes-".concat(e3), this.rules = t2, se(this, function() {
-      throw ce(12, String(n2.name));
-    });
-  }
-  return e2.prototype.getName = function(e3) {
-    return e3 === undefined && (e3 = Te), this.name + e3.hash;
-  }, e2;
-}();
-var $e = function(e2) {
-  return e2 >= "A" && e2 <= "Z";
-};
-var Be = function(e2) {
-  return e2 == null || e2 === false || e2 === "";
-};
-var Le = function(t2) {
-  var n2, o3, r6 = [];
-  for (var s3 in t2) {
-    var i3 = t2[s3];
-    t2.hasOwnProperty(s3) && !Be(i3) && (Array.isArray(i3) && i3.isCss || Q2(i3) ? r6.push("".concat(ze(s3), ":"), i3, ";") : oe(i3) ? r6.push.apply(r6, __spreadArray(__spreadArray(["".concat(s3, " {")], Le(i3), false), ["}"], false)) : r6.push("".concat(ze(s3), ": ").concat((n2 = s3, (o3 = i3) == null || typeof o3 == "boolean" || o3 === "" ? "" : typeof o3 != "number" || o3 === 0 || (n2 in unitlessKeys) || n2.startsWith("--") ? String(o3).trim() : "".concat(o3, "px")), ";")));
-  }
-  return r6;
-};
-var We = j2("6.0.8");
-var qe = function() {
-  function e2(e3, t2, n2) {
-    this.rules = e3, this.staticRulesId = "", this.isStatic = false, this.componentId = t2, this.baseHash = k2(We, t2), this.baseStyle = n2, Ce.registerId(t2);
-  }
-  return e2.prototype.generateAndInjectStyles = function(e3, t2, n2) {
-    var o3 = this.baseStyle ? this.baseStyle.generateAndInjectStyles(e3, t2, n2) : "";
-    if (this.isStatic && !n2.hash)
-      if (this.staticRulesId && t2.hasNameForId(this.componentId, this.staticRulesId))
-        o3 = te(o3, this.staticRulesId);
-      else {
-        var r6 = ne(Ge(this.rules, e3, t2, n2)), s3 = R2(k2(this.baseHash, r6) >>> 0);
-        if (!t2.hasNameForId(this.componentId, s3)) {
-          var i3 = n2(r6, ".".concat(s3), undefined, this.componentId);
-          t2.insertRules(this.componentId, s3, i3);
-        }
-        o3 = te(o3, s3), this.staticRulesId = s3;
-      }
-    else {
-      for (var a3 = k2(this.baseHash, n2.hash), c3 = "", l3 = 0;l3 < this.rules.length; l3++) {
-        var u3 = this.rules[l3];
-        if (typeof u3 == "string")
-          c3 += u3, a3 = k2(a3, u3);
-        else if (u3) {
-          var p3 = ne(Ge(u3, e3, t2, n2));
-          a3 = k2(a3, p3 + l3), c3 += p3;
-        }
-      }
-      if (c3) {
-        var d2 = R2(a3 >>> 0);
-        t2.hasNameForId(this.componentId, d2) || t2.insertRules(this.componentId, d2, n2(c3, ".".concat(d2), undefined, this.componentId)), o3 = te(o3, d2);
-      }
-    }
-    return o3;
-  }, e2;
-}();
-var He = import_react22.default.createContext(undefined);
-var Ue = He.Consumer;
-var Ze = {};
-var Ke = new Set;
-var tt2 = function(e2) {
-  return Object.assign(e2, { isCss: true });
-};
-var rt = function(e2) {
-  return ot2(Qe, e2);
-};
-var st2 = rt;
-_3.forEach(function(e2) {
-  st2[e2] = rt(e2);
-});
-var it = function() {
-  function e2(e3, t2) {
-    this.rules = e3, this.componentId = t2, this.isStatic = Ye(e3), Ce.registerId(this.componentId + 1);
-  }
-  return e2.prototype.createStyles = function(e3, t2, n2, o3) {
-    var r6 = o3(ne(Ge(this.rules, t2, n2, o3)), ""), s3 = this.componentId + e3;
-    n2.insertRules(s3, s3, r6);
-  }, e2.prototype.removeStyles = function(e3, t2) {
-    t2.clearRules(this.componentId + e3);
-  }, e2.prototype.renderStyles = function(e3, t2, n2, o3) {
-    e3 > 2 && Ce.registerId(this.componentId + e3), this.removeStyles(e3, n2), this.createStyles(e3, t2, n2, o3);
-  }, e2;
-}();
-var ut = function() {
-  function e2() {
-    var e3 = this;
-    this._emitSheetCSS = function() {
-      var t2 = e3.instance.toString(), n2 = Se(), o3 = ne([n2 && 'nonce="'.concat(n2, '"'), "".concat(f2, '="true"'), "".concat("data-styled-version", '="').concat("6.0.8", '"')].filter(Boolean), " ");
-      return "<style ".concat(o3, ">").concat(t2, "</style>");
-    }, this.getStyleTags = function() {
-      if (e3.sealed)
-        throw ce(2);
-      return e3._emitSheetCSS();
-    }, this.getStyleElement = function() {
-      var n2;
-      if (e3.sealed)
-        throw ce(2);
-      var r6 = ((n2 = {})[f2] = "", n2["data-styled-version"] = "6.0.8", n2.dangerouslySetInnerHTML = { __html: e3.instance.toString() }, n2), s3 = Se();
-      return s3 && (r6.nonce = s3), [import_react22.default.createElement("style", __assign({}, r6, { key: "sc-0-0" }))];
-    }, this.seal = function() {
-      e3.sealed = true;
-    }, this.instance = new Ce({ isServer: true }), this.sealed = false;
-  }
-  return e2.prototype.collectStyles = function(e3) {
-    if (this.sealed)
-      throw ce(2);
-    return import_react22.default.createElement(Fe, { sheet: this.instance }, e3);
-  }, e2.prototype.interleaveWithNodeStream = function(e3) {
-    throw ce(3);
-  }, e2;
-}();
-typeof navigator != "undefined" && navigator.product === "ReactNative" && console.warn("It looks like you've imported 'styled-components' on React Native.\nPerhaps you're looking to import 'styled-components/native'?\nRead more about this at https://www.styled-components.com/docs/basics#react-native");
-var dt = "__sc-".concat(f2, "__");
-typeof window != "undefined" && (window[dt] || (window[dt] = 0), window[dt] === 1 && console.warn("It looks like there are several instances of 'styled-components' initialized in this application. This may cause dynamic styles to not render properly, errors during the rehydration process, a missing theme prop, and makes your application bigger without good reason.\n\nSee https://s-c.sh/2BAXzed for more info."), window[dt] += 1);
 
 // src/components/navbars/TopBar.jsx
-var jsx_dev_runtime20 = __toESM(require_jsx_dev_runtime(), 1);
-var MaterialUISwitch = st2(Switch_default)(({ theme: theme2 }) => ({
-  width: 62,
-  height: 34,
-  padding: 7,
-  "& .MuiSwitch-switchBase": {
-    margin: 1,
-    padding: 0,
-    transform: "translateX(6px)",
-    "&.Mui-checked": {
-      color: "#fff",
-      transform: "translateX(22px)",
-      "& .MuiSwitch-thumb:before": {
-        backgroundImage: `url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 20 20"><path fill="${encodeURIComponent("#fff")}" d="M4.2 2.5l-.7 1.8-1.8.7 1.8.7.7 1.8.6-1.8L6.7 5l-1.9-.7-.6-1.8zm15 8.3a6.7 6.7 0 11-6.6-6.6 5.8 5.8 0 006.6 6.6z"/></svg>')`
-      },
-      "& + .MuiSwitch-track": {
-        opacity: 1,
-        backgroundColor: theme2.palette.mode === "dark" ? "#8796A5" : "#aab4be"
-      }
-    }
-  },
-  "& .MuiSwitch-thumb": {
-    backgroundColor: theme2.palette.mode === "dark" ? "#003892" : "#001e3c",
-    width: 32,
-    height: 32,
-    "&:before": {
-      content: "''",
-      position: "absolute",
-      width: "100%",
-      height: "100%",
-      left: 0,
-      top: 0,
-      backgroundRepeat: "no-repeat",
-      backgroundPosition: "center",
-      backgroundImage: `url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 20 20"><path fill="${encodeURIComponent("#fff")}" d="M9.305 1.667V3.75h1.389V1.667h-1.39zm-4.707 1.95l-.982.982L5.09 6.072l.982-.982-1.473-1.473zm10.802 0L13.927 5.09l.982.982 1.473-1.473-.982-.982zM10 5.139a4.872 4.872 0 00-4.862 4.86A4.872 4.872 0 0010 14.862 4.872 4.872 0 0014.86 10 4.872 4.872 0 0010 5.139zm0 1.389A3.462 3.462 0 0113.471 10a3.462 3.462 0 01-3.473 3.472A3.462 3.462 0 016.527 10 3.462 3.462 0 0110 6.528zM1.665 9.305v1.39h2.083v-1.39H1.666zm14.583 0v1.39h2.084v-1.39h-2.084zM5.09 13.928L3.616 15.4l.982.982 1.473-1.473-.982-.982zm9.82 0l-.982.982 1.473 1.473.982-.982-1.473-1.473zM9.305 16.25v2.083h1.389V16.25h-1.39z"/></svg>')`
-    }
-  },
-  "& .MuiSwitch-track": {
-    opacity: 1,
-    backgroundColor: theme2.palette.mode === "dark" ? "#8796A5" : "#aab4be",
-    borderRadius: 20 / 2
-  }
-}));
-function TopBar({ actions, offersActions, themeOptions }) {
-  const [hovered, setHovered] = import_react23.useState("");
-  const [mouseOnOffers, setMouseOnOffers] = import_react23.useState(false);
-  const [offersOpen, setOffersOpen] = import_react23.useState(false);
-  const [mouseOnPopup, setMouseOnPopup] = import_react23.useState(false);
+var jsx_dev_runtime18 = __toESM(require_jsx_dev_runtime(), 1);
+function TopBar({ actions, offersActions }) {
+  const [hovered, setHovered] = import_react27.useState("");
+  const [mouseOnOffers, setMouseOnOffers] = import_react27.useState(false);
+  const [offersOpen, setOffersOpen] = import_react27.useState(false);
+  const [mouseOnPopup, setMouseOnPopup] = import_react27.useState(false);
   const navigate = useNavigate();
-  import_react23.useEffect(() => {
+  import_react27.useEffect(() => {
     if (!mouseOnOffers && !mouseOnPopup) {
       const timer = setTimeout(() => {
         if (!mouseOnOffers && !mouseOnPopup) {
@@ -42914,7 +40976,7 @@ function TopBar({ actions, offersActions, themeOptions }) {
     navigate(action.path);
   };
   const isMobile = useCheckMobileScreen_default();
-  return jsx_dev_runtime20.jsxDEV(Toolbar_default, {
+  return jsx_dev_runtime18.jsxDEV(Toolbar_default, {
     style: {
       minHeight: 45
     },
@@ -42925,39 +40987,46 @@ function TopBar({ actions, offersActions, themeOptions }) {
       lineHeight: "29px"
     },
     children: [
-      jsx_dev_runtime20.jsxDEV(LogoButton, {}, undefined, false, undefined, this),
-      !isMobile ? jsx_dev_runtime20.jsxDEV(jsx_dev_runtime20.Fragment, {
+      jsx_dev_runtime18.jsxDEV(LogoButton, {}, undefined, false, undefined, this),
+      !isMobile ? jsx_dev_runtime18.jsxDEV(jsx_dev_runtime18.Fragment, {
         children: [
-          jsx_dev_runtime20.jsxDEV(Box_default, {
+          jsx_dev_runtime18.jsxDEV(ButtonGroup_default, {
+            color: "secondary",
             sx: {
               display: "flex",
               flexDirection: "row",
-              justifyContent: "space-around",
+              justifyContent: "start",
               height: "100%",
               width: "50%",
               paddingInline: "15px"
             },
-            children: actions.map((action, index) => jsx_dev_runtime20.jsxDEV(Typography_default, {
+            variant: "text",
+            children: actions.map((action, index) => jsx_dev_runtime18.jsxDEV(Button_default, {
               onClick: () => handleClickButton(action),
               onMouseEnter: () => handleEnterButton(action.path),
               onMouseLeave: () => handleLeaveButton(action.path),
               sx: {
+                padding: 0,
                 paddingInline: "20px",
                 color: hovered === action.path ? "#2222ff" : "secondary.main",
                 cursor: "pointer",
                 height: "100%",
-                transition: "all 0.5s"
+                width: "100%",
+                transition: "all 0.5s",
+                "&:hover": {
+                  backgroundColor: "transparent"
+                }
               },
               children: action.title
             }, index, false, undefined, this))
           }, undefined, false, undefined, this),
-          mouseOnOffers || mouseOnPopup || offersOpen ? jsx_dev_runtime20.jsxDEV(CustomPopup_default, {
+          mouseOnOffers || mouseOnPopup || offersOpen ? jsx_dev_runtime18.jsxDEV(CustomPopupOptions, {
             actions: offersActions,
             setMouseOnPopup
           }, undefined, false, undefined, this) : null
         ]
       }, undefined, true, undefined, this) : null,
-      jsx_dev_runtime20.jsxDEV(Box_default, {
+      jsx_dev_runtime18.jsxDEV(Box_default, {
         sx: {
           marginLeft: "auto",
           display: "flex",
@@ -42967,107 +41036,66 @@ function TopBar({ actions, offersActions, themeOptions }) {
           justifyContent: "center"
         },
         width: "25%",
-        children: [
-          jsx_dev_runtime20.jsxDEV(Typography_default, {
-            display: { xs: "none", lg: "flex" },
-            sx: { fontSize: "20px", fontWeight: "400" },
-            children: "TEL: 89851460477"
-          }, undefined, false, undefined, this),
-          jsx_dev_runtime20.jsxDEV(Box_default, {
-            display: { xs: "flex", lg: "none" },
-            children: jsx_dev_runtime20.jsxDEV(PopupState, {
-              popupId: "demo-popup-popover",
-              variant: "popover",
-              children: (popupState) => jsx_dev_runtime20.jsxDEV("div", {
-                children: [
-                  jsx_dev_runtime20.jsxDEV(IconButton_default, {
-                    sx: {
-                      color: "secondary.main",
-                      transition: "color 0.2s",
-                      "&:hover": {
-                        color: "#2222ff"
-                      }
-                    },
-                    ...bindTrigger(popupState),
-                    children: jsx_dev_runtime20.jsxDEV(Phone_default, {}, undefined, false, undefined, this)
-                  }, undefined, false, undefined, this),
-                  jsx_dev_runtime20.jsxDEV(Popover_default, {
-                    ...bindPopover(popupState),
-                    anchorOrigin: {
-                      vertical: "bottom",
-                      horizontal: "center"
-                    },
-                    transformOrigin: {
-                      vertical: "top",
-                      horizontal: "center"
-                    },
-                    children: jsx_dev_runtime20.jsxDEV(Typography_default, {
-                      sx: { p: 2 },
-                      children: jsx_dev_runtime20.jsxDEV("a", {
-                        href: "tel:9851460477",
-                        style: {
-                          color: "primary.secondary"
-                        },
-                        children: "+7 (985) 146-04-77"
-                      }, undefined, false, undefined, this)
-                    }, undefined, false, undefined, this)
-                  }, undefined, false, undefined, this)
-                ]
-              }, undefined, true, undefined, this)
+        children: !isMobile ? jsx_dev_runtime18.jsxDEV(Stack_default, {
+          direction: "row",
+          spacing: { xs: 1, md: 3 },
+          children: [
+            jsx_dev_runtime18.jsxDEV(CustomCallButton, {
+              sx: {}
+            }, undefined, false, undefined, this),
+            jsx_dev_runtime18.jsxDEV(IconButton_default, {
+              sx: {
+                paddingTop: 0,
+                paddingBottom: 0,
+                color: "secondary.main",
+                transition: "color 0.2s",
+                "&:hover": {
+                  color: "#2222ff"
+                }
+              },
+              children: jsx_dev_runtime18.jsxDEV(ShoppingBag_default, {}, undefined, false, undefined, this)
+            }, undefined, false, undefined, this),
+            jsx_dev_runtime18.jsxDEV(IconButton_default, {
+              sx: {
+                padding: 0,
+                color: "secondary.main",
+                transition: "color 0.2s",
+                "&:hover": {
+                  color: "#2222ff"
+                }
+              },
+              children: jsx_dev_runtime18.jsxDEV(Search_default, {}, undefined, false, undefined, this)
             }, undefined, false, undefined, this)
-          }, undefined, false, undefined, this),
-          jsx_dev_runtime20.jsxDEV(Stack_default, {
-            direction: "row",
-            spacing: 3,
-            sx: {},
-            children: [
-              jsx_dev_runtime20.jsxDEV(MaterialUISwitch, {
-                checked: themeOptions.darkMode,
-                onChange: themeOptions.handleThemeSwitch,
-                theme: themeOptions.theme
-              }, undefined, false, undefined, this),
-              jsx_dev_runtime20.jsxDEV(IconButton_default, {
-                sx: {
-                  paddingTop: 0,
-                  paddingBottom: 0,
-                  color: "secondary.main",
-                  transition: "color 0.2s",
-                  "&:hover": {
-                    color: "#2222ff"
-                  }
-                },
-                children: jsx_dev_runtime20.jsxDEV(ShoppingBag_default, {}, undefined, false, undefined, this)
-              }, undefined, false, undefined, this)
-            ]
-          }, undefined, true, undefined, this)
-        ]
-      }, undefined, true, undefined, this)
+          ]
+        }, undefined, true, undefined, this) : jsx_dev_runtime18.jsxDEV(MoreButton, {}, undefined, false, undefined, this)
+      }, undefined, false, undefined, this)
     ]
   }, undefined, true, undefined, this);
 }
 
 // src/components/navbars/BottomBar.jsx
-var import_react24 = __toESM(require_react(), 1);
-var jsx_dev_runtime21 = __toESM(require_jsx_dev_runtime(), 1);
+var import_react28 = __toESM(require_react(), 1);
+var jsx_dev_runtime19 = __toESM(require_jsx_dev_runtime(), 1);
 function BottomBar({ actions, offersActions }) {
-  const [selected, setSelected] = import_react24.useState(0);
-  const [mouseOnOffers, setMouseOnOffers] = import_react24.useState(false);
-  const [mouseOnPopup, setMouseOnPopup] = import_react24.useState(false);
+  const [selected, setSelected] = import_react28.useState(0);
+  const currentTheme = useCheckCurrentTheme_default();
+  const [mouseOnOffers, setMouseOnOffers] = import_react28.useState(false);
+  const [mouseOnPopup, setMouseOnPopup] = import_react28.useState(false);
   const navigate = useNavigate();
   const location = useLocation();
-  import_react24.useEffect(() => {
+  import_react28.useEffect(() => {
     var pathname = location.pathname;
     if (pathname[pathname.length - 1] === "/") {
       pathname = pathname.substring(0, pathname.length - 1);
     }
-    for (let i3 = 0;i3 < actions.length; i3 += 1) {
-      if (actions[i3].path == pathname) {
-        setSelected(i3);
+    for (let i2 = 0;i2 < actions.length; i2 += 1) {
+      if (actions[i2].path == pathname) {
+        setSelected(i2);
         return;
       }
     }
-    for (let i3 = 0;i3 < offersActions.length; i3 += 1) {
-      if (offersActions[i3].path == pathname) {
+    for (let i2 = 0;i2 < offersActions.length; i2 += 1) {
+      if (offersActions[i2].path == pathname) {
         setSelected(1);
         return;
       }
@@ -43082,9 +41110,10 @@ function BottomBar({ actions, offersActions }) {
       navigate(`${actions[newSelected].path}`);
     }
   };
-  return jsx_dev_runtime21.jsxDEV(jsx_dev_runtime21.Fragment, {
+  return jsx_dev_runtime19.jsxDEV(ThemeProvider5, {
+    theme: currentTheme,
     children: [
-      jsx_dev_runtime21.jsxDEV(BottomNavigation_default, {
+      jsx_dev_runtime19.jsxDEV(BottomNavigation_default, {
         onChange: handleSelect,
         showLabels: true,
         sx: {
@@ -43092,14 +41121,15 @@ function BottomBar({ actions, offersActions }) {
           position: "fixed",
           bottom: 0,
           left: 0,
+          backgroundColor: "primary.main",
           marginBottom: 0
         },
         value: selected,
-        children: actions.map((action, index) => jsx_dev_runtime21.jsxDEV(BottomNavigationAction_default, {
+        children: actions.map((action, index) => jsx_dev_runtime19.jsxDEV(BottomNavigationAction_default, {
           icon: action.icon,
           label: action.title,
-          color: "secondary.main",
           sx: {
+            color: "secondary.main",
             "& svg": {
               color: "secondary.main"
             },
@@ -43109,7 +41139,7 @@ function BottomBar({ actions, offersActions }) {
           }
         }, index, false, undefined, this))
       }, undefined, false, undefined, this),
-      mouseOnOffers || mouseOnPopup ? jsx_dev_runtime21.jsxDEV(CustomPopup_default, {
+      mouseOnOffers || mouseOnPopup ? jsx_dev_runtime19.jsxDEV(CustomPopupOptions, {
         actions: offersActions,
         setMouseOnPopup
       }, undefined, false, undefined, this) : null
@@ -43118,92 +41148,27 @@ function BottomBar({ actions, offersActions }) {
 }
 
 // src/components/navbars/CustomAppBar.jsx
-var jsx_dev_runtime22 = __toESM(require_jsx_dev_runtime(), 1);
-var darkTheme = createTheme_default2({
-  root: {
-    "&$selected": {
-      color: "red"
-    }
-  },
-  palette: {
-    mode: "dark",
-    primary: {
-      main: "#0D0D0D"
-    },
-    secondary: {
-      main: "#ffffff"
-    }
-  },
-  components: {
-    MuiDataGrid: {
-      styleOverrides: {
-        root: {
-          border: 1,
-          borderColor: exports_colors.primaryGrayMid,
-          borderStyle: "solid",
-          borderRadius: 10,
-          boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.25)",
-          backgroundColor: exports_colors.primaryGrayDark,
-          color: "#C1C2C5",
-          padding: 10
-        }
-      }
-    }
-  }
-});
-var lightTheme = createTheme_default2({
-  palette: {
-    root: {
-      "&$selected": {
-        main: "red",
-        primary: "red"
-      }
-    },
-    mode: "light",
-    primary: {
-      main: exports_colors.grey[200]
-    },
-    secondary: {
-      main: "#0D0D0D"
-    }
-  },
-  components: {
-    MuiDataGrid: {
-      styleOverrides: {
-        root: {
-          border: 1,
-          borderColor: exports_colors.primaryGrayMid,
-          borderStyle: "solid",
-          borderRadius: 10,
-          boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.25)",
-          backgroundColor: exports_colors.primaryGrayDark,
-          color: "#C1C2C5",
-          padding: 10
-        }
-      }
-    }
-  }
-});
+var jsx_dev_runtime20 = __toESM(require_jsx_dev_runtime(), 1);
 var actions = [
   {
     title: "\u0413\u043B\u0430\u0432\u043D\u0430\u044F",
     path: "/home",
-    icon: jsx_dev_runtime22.jsxDEV(Home_default, {}, undefined, false, undefined, this)
+    icon: jsx_dev_runtime20.jsxDEV(Home_default, {}, undefined, false, undefined, this)
   },
   {
     title: "\u0423\u0441\u043B\u0443\u0433\u0438",
     path: "/offers",
-    icon: jsx_dev_runtime22.jsxDEV(Computer_default, {}, undefined, false, undefined, this)
+    icon: jsx_dev_runtime20.jsxDEV(Computer_default, {}, undefined, false, undefined, this)
   },
   {
     title: "\u0414\u043E\u0441\u0442\u0430\u0432\u043A\u0430",
     path: "/delivery",
-    icon: jsx_dev_runtime22.jsxDEV(DeliveryDining_default, {}, undefined, false, undefined, this)
+    icon: jsx_dev_runtime20.jsxDEV(DeliveryDining_default, {}, undefined, false, undefined, this)
   },
   {
     title: "\u041E \u043D\u0430\u0441",
     path: "/about",
-    icon: jsx_dev_runtime22.jsxDEV(Info_default, {}, undefined, false, undefined, this)
+    icon: jsx_dev_runtime20.jsxDEV(Info_default, {}, undefined, false, undefined, this)
   }
 ];
 var offersActions = [
@@ -43221,50 +41186,33 @@ var offersActions = [
   }
 ];
 function CustomAppBar() {
-  const [currentTheme, setCurrentTheme] = import_react25.useState(lightTheme);
-  const [darkMode, setDarkMode] = import_react25.useState(true);
   const isMobile = useCheckMobileScreen_default();
-  const handleThemeSwitch = () => {
-    setDarkMode((was) => !was);
-  };
-  import_react25.useEffect(() => {
-    if (darkMode) {
-      setCurrentTheme(darkTheme);
-    } else {
-      setCurrentTheme(lightTheme);
-    }
-  }, [darkMode]);
-  return jsx_dev_runtime22.jsxDEV(ThemeProvider5, {
+  const currentTheme = useCheckCurrentTheme_default();
+  return jsx_dev_runtime20.jsxDEV(ThemeProvider5, {
     theme: currentTheme,
-    children: jsx_dev_runtime22.jsxDEV(AppBar_default, {
+    children: jsx_dev_runtime20.jsxDEV(AppBar_default, {
       position: "sticky",
       sx: {
         boxShadow: "0 0 2em black",
-        padding: "23px 0",
+        padding: "10px 0",
         bgcolor: "primary.main",
-        maxHeight: "90px",
+        maxHeight: "70px",
         justifyContent: "center"
       },
-      children: jsx_dev_runtime22.jsxDEV(Box_default, {
+      children: jsx_dev_runtime20.jsxDEV(Box_default, {
         sx: {
           position: "relative",
           marginRight: "auto",
           marginLeft: "auto",
           paddingInline: "15px",
-          width: "100%",
-          maxWidth: "1200px"
+          width: "100%"
         },
         children: [
-          jsx_dev_runtime22.jsxDEV(TopBar, {
+          jsx_dev_runtime20.jsxDEV(TopBar, {
             actions,
-            offersActions,
-            themeOptions: {
-              darkMode,
-              handleThemeSwitch,
-              theme: currentTheme
-            }
+            offersActions
           }, undefined, false, undefined, this),
-          isMobile ? jsx_dev_runtime22.jsxDEV(BottomBar, {
+          isMobile ? jsx_dev_runtime20.jsxDEV(BottomBar, {
             actions,
             offersActions
           }, undefined, false, undefined, this) : null
@@ -43274,61 +41222,296 @@ function CustomAppBar() {
   }, undefined, false, undefined, this);
 }
 
-// src/components/App.jsx
+// src/components/home/FooterSection/FooterSection.jsx
+var import_react34 = __toESM(require_react(), 1);
+
+// src/components/home/FooterSection/groups/AboutGroup.jsx
+var import_react30 = __toESM(require_react(), 1);
+var jsx_dev_runtime21 = __toESM(require_jsx_dev_runtime(), 1);
+function AboutGroup() {
+  return jsx_dev_runtime21.jsxDEV(Box_default, {
+    children: [
+      jsx_dev_runtime21.jsxDEV(Typography_default, {
+        sx: { paddingBottom: "10px" },
+        variant: "h4",
+        children: "\u041E \u043D\u0430\u0441"
+      }, undefined, false, undefined, this),
+      jsx_dev_runtime21.jsxDEV(Typography_default, {
+        children: "\u041C\u044B \u0434\u0438\u043D\u0430\u043C\u0438\u0447\u043D\u0430\u044F \u043A\u043E\u043C\u043F\u0430\u043D\u0438\u044F, \u043F\u0440\u0435\u0434\u043B\u0430\u0433\u0430\u044E\u0449\u0430\u044F \u0431\u043E\u043B\u0435\u0435 10 \u043F\u0440\u043E\u0444\u0435\u0441\u0441\u0438\u043E\u043D\u0430\u043B\u044C\u043D\u044B\u0445 \u0441\u0431\u043E\u0440\u043E\u043A \u043A\u043E\u043C\u043F\u044C\u044E\u0442\u0435\u0440\u043E\u0432 \u0434\u043B\u044F \u043B\u044E\u0431\u044B\u0445 \u0437\u0430\u0434\u0430\u0447. \u041D\u0430\u0448\u0430 \u043A\u043E\u043C\u0430\u043D\u0434\u0430 \u0441\u043E\u0441\u0442\u043E\u0438\u0442 \u0438\u0437 \u043E\u043F\u044B\u0442\u043D\u044B\u0445 \u0441\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442\u043E\u0432, \u0433\u0430\u0440\u0430\u043D\u0442\u0438\u0440\u0443\u044E\u0449\u0438\u0445 \u043A\u0430\u0447\u0435\u0441\u0442\u0432\u0435\u043D\u043D\u0443\u044E \u0441\u0431\u043E\u0440\u043A\u0443 \u0432 \u043A\u0440\u0430\u0442\u0447\u0430\u0439\u0448\u0438\u0435 \u0441\u0440\u043E\u043A\u0438."
+      }, undefined, false, undefined, this),
+      jsx_dev_runtime21.jsxDEV(Box_default, {
+        sx: {
+          width: "100%",
+          alignContent: "center",
+          textAlign: "center"
+        },
+        children: jsx_dev_runtime21.jsxDEV("img", {
+          alt: "GVG Tech Solutions",
+          loading: "lazy",
+          src: "/static/logos/gvgFull.png",
+          srcSet: "/static/logos/gvgFull.png",
+          style: { objectFit: "cover", width: "100px" }
+        }, undefined, false, undefined, this)
+      }, undefined, false, undefined, this)
+    ]
+  }, undefined, true, undefined, this);
+}
+
+// src/components/home/FooterSection/groups/HelpGroup.jsx
+var import_react31 = __toESM(require_react(), 1);
+var jsx_dev_runtime22 = __toESM(require_jsx_dev_runtime(), 1);
+function HelpGroup() {
+  return jsx_dev_runtime22.jsxDEV(Box_default, {
+    sx: { width: "100%" },
+    children: [
+      jsx_dev_runtime22.jsxDEV(Typography_default, {
+        sx: { paddingBottom: "10px" },
+        variant: "h4",
+        children: "\u041F\u043E\u0434\u0434\u0435\u0440\u0436\u043A\u0430"
+      }, undefined, false, undefined, this),
+      jsx_dev_runtime22.jsxDEV(Stack_default, {
+        direction: "column",
+        children: [
+          jsx_dev_runtime22.jsxDEV(Typography_default, {
+            component: Link,
+            style: { textDecoration: "none", color: "#ffffff" },
+            children: "\u0417\u0430\u0434\u0430\u0442\u044C \u0432\u043E\u043F\u0440\u043E\u0441 \u0432 \u0412\u041A"
+          }, undefined, false, undefined, this),
+          jsx_dev_runtime22.jsxDEV(Typography_default, {
+            component: Link,
+            style: { textDecoration: "none", color: "#ffffff" },
+            children: "\u0412\u043E\u043F\u0440\u043E\u0441\u044B \u043F\u043E \u0434\u043E\u0441\u0442\u0430\u0432\u043A\u0435"
+          }, undefined, false, undefined, this)
+        ]
+      }, undefined, true, undefined, this),
+      jsx_dev_runtime22.jsxDEV(Stack_default, {
+        direction: "row",
+        marginTop: 2,
+        children: [
+          jsx_dev_runtime22.jsxDEV(Telegram_default, {
+            sx: { marginRight: 2 }
+          }, undefined, false, undefined, this),
+          jsx_dev_runtime22.jsxDEV(Instagram_default, {
+            sx: { marginRight: 2 }
+          }, undefined, false, undefined, this),
+          jsx_dev_runtime22.jsxDEV(Box_default, {
+            alt: "vk",
+            component: "img",
+            src: "/static/logos/vk.png",
+            sx: {
+              height: 25,
+              width: 25
+            }
+          }, undefined, false, undefined, this)
+        ]
+      }, undefined, true, undefined, this)
+    ]
+  }, undefined, true, undefined, this);
+}
+
+// src/components/home/FooterSection/groups/ShopGroup.jsx
+var import_react32 = __toESM(require_react(), 1);
 var jsx_dev_runtime23 = __toESM(require_jsx_dev_runtime(), 1);
-function App() {
-  return jsx_dev_runtime23.jsxDEV(BrowserRouter, {
-    basename: "/",
-    children: jsx_dev_runtime23.jsxDEV(Box_default, {
+function ShopGroup() {
+  return jsx_dev_runtime23.jsxDEV(Box_default, {
+    sx: { width: "100%" },
+    children: [
+      jsx_dev_runtime23.jsxDEV(Typography_default, {
+        sx: { paddingBottom: "10px" },
+        variant: "h4",
+        children: "\u041C\u0430\u0433\u0430\u0437\u0438\u043D"
+      }, undefined, false, undefined, this),
+      jsx_dev_runtime23.jsxDEV(Stack_default, {
+        direction: "column",
+        children: [
+          jsx_dev_runtime23.jsxDEV(Typography_default, {
+            component: Link,
+            style: { textDecoration: "none", color: "#ffffff" },
+            children: "\u0421\u0431\u043E\u0440\u043A\u0438"
+          }, undefined, false, undefined, this),
+          jsx_dev_runtime23.jsxDEV(Typography_default, {
+            component: Link,
+            style: { textDecoration: "none", color: "#ffffff" },
+            children: "\u041A\u043E\u043C\u043F\u043B\u0435\u043A\u0442\u0443\u044E\u0449\u0438\u0435"
+          }, undefined, false, undefined, this),
+          jsx_dev_runtime23.jsxDEV(Typography_default, {
+            component: Link,
+            style: { textDecoration: "none", color: "#ffffff" },
+            children: "\u0418\u0433\u0440\u043E\u0432\u043E\u0439 \u043A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440"
+          }, undefined, false, undefined, this)
+        ]
+      }, undefined, true, undefined, this)
+    ]
+  }, undefined, true, undefined, this);
+}
+
+// src/components/home/FooterSection/groups/ContactGroup.jsx
+var import_react33 = __toESM(require_react(), 1);
+var jsx_dev_runtime24 = __toESM(require_jsx_dev_runtime(), 1);
+function ContuctGroup() {
+  return jsx_dev_runtime24.jsxDEV(Box_default, {
+    sx: { width: "100%" },
+    children: [
+      jsx_dev_runtime24.jsxDEV(Typography_default, {
+        sx: { paddingBottom: "10px" },
+        variant: "h4",
+        children: "\u0421\u0432\u044F\u0437\u0430\u0442\u044C\u0441\u044F \u0441 \u043D\u0430\u043C\u0438"
+      }, undefined, false, undefined, this),
+      jsx_dev_runtime24.jsxDEV(Stack_default, {
+        direction: "column",
+        children: [
+          jsx_dev_runtime24.jsxDEV(CustomTelephoneLink, {}, undefined, false, undefined, this),
+          jsx_dev_runtime24.jsxDEV(Typography_default, {
+            component: Link,
+            style: { textDecoration: "none", color: "#ffffff" },
+            children: "kraskovskiydm@gmail.com"
+          }, undefined, false, undefined, this)
+        ]
+      }, undefined, true, undefined, this),
+      jsx_dev_runtime24.jsxDEV(Box_default, {
+        sx: {
+          width: "100%",
+          marginTop: "40px"
+        },
+        children: jsx_dev_runtime24.jsxDEV(Button_default, {
+          color: "success",
+          sx: {
+            width: "100%",
+            height: "60px"
+          },
+          variant: "contained",
+          children: "\u041D\u0430\u043F\u0438\u0441\u0430\u0442\u044C \u043D\u0430\u043C"
+        }, undefined, false, undefined, this)
+      }, undefined, false, undefined, this)
+    ]
+  }, undefined, true, undefined, this);
+}
+
+// src/components/home/FooterSection/FooterSection.jsx
+var jsx_dev_runtime25 = __toESM(require_jsx_dev_runtime(), 1);
+var themed = createTheme_default2({
+  palette: {
+    primary: {
+      main: "#ffffff"
+    }
+  }
+});
+var items = [
+  {
+    component: jsx_dev_runtime25.jsxDEV(AboutGroup, {}, undefined, false, undefined, this)
+  },
+  {
+    component: jsx_dev_runtime25.jsxDEV(HelpGroup, {}, undefined, false, undefined, this)
+  },
+  {
+    component: jsx_dev_runtime25.jsxDEV(ShopGroup, {}, undefined, false, undefined, this)
+  },
+  {
+    component: jsx_dev_runtime25.jsxDEV(ContuctGroup, {}, undefined, false, undefined, this)
+  }
+];
+function FooterSection() {
+  return jsx_dev_runtime25.jsxDEV(ThemeProvider5, {
+    theme: themed,
+    children: jsx_dev_runtime25.jsxDEV(Box_default, {
       sx: {
-        backgroundColor: "#000000",
-        color: "#ffffff",
-        height: "100vh",
-        width: 1
+        width: "100%"
       },
       children: [
-        jsx_dev_runtime23.jsxDEV(CustomAppBar, {}, undefined, false, undefined, this),
-        jsx_dev_runtime23.jsxDEV(Box_default, {
-          children: jsx_dev_runtime23.jsxDEV(Routes, {
-            children: [
-              jsx_dev_runtime23.jsxDEV(Route, {
-                element: jsx_dev_runtime23.jsxDEV(HomePage_default, {}, undefined, false, undefined, this),
-                path: "home"
-              }, undefined, false, undefined, this),
-              jsx_dev_runtime23.jsxDEV(Route, {
-                path: "offers",
-                children: [
-                  jsx_dev_runtime23.jsxDEV(Route, {
-                    element: jsx_dev_runtime23.jsxDEV(BuildsPage_default, {}, undefined, false, undefined, this),
-                    path: "builds"
-                  }, undefined, false, undefined, this),
-                  jsx_dev_runtime23.jsxDEV(Route, {
-                    element: jsx_dev_runtime23.jsxDEV(ComponentsPage_default, {}, undefined, false, undefined, this),
-                    path: "components"
-                  }, undefined, false, undefined, this),
-                  jsx_dev_runtime23.jsxDEV(Route, {
-                    element: jsx_dev_runtime23.jsxDEV(ConstructorPage_default, {}, undefined, false, undefined, this),
-                    path: "constructor"
-                  }, undefined, false, undefined, this)
-                ]
-              }, undefined, true, undefined, this),
-              jsx_dev_runtime23.jsxDEV(Route, {
-                element: jsx_dev_runtime23.jsxDEV(DeliveryPage_default, {}, undefined, false, undefined, this),
-                path: "delivery"
-              }, undefined, false, undefined, this),
-              jsx_dev_runtime23.jsxDEV(Route, {
-                element: jsx_dev_runtime23.jsxDEV(AboutUsPage_default, {}, undefined, false, undefined, this),
-                path: "about"
-              }, undefined, false, undefined, this)
-            ]
-          }, undefined, true, undefined, this)
+        jsx_dev_runtime25.jsxDEV(Grid_default, {
+          columnGap: 10,
+          container: true,
+          rowGap: 5,
+          sx: {
+            alignContent: "center",
+            justifyContent: "center",
+            paddingTop: "10vh"
+          },
+          wrap: "wrap",
+          children: items.map((item, index) => jsx_dev_runtime25.jsxDEV(Grid_default, {
+            item: true,
+            sx: {
+              display: "flex",
+              justifyContent: "center",
+              border: 1,
+              borderColor: "black",
+              width: "300px",
+              paddingInline: 0
+            },
+            children: item.component
+          }, index, false, undefined, this))
+        }, undefined, false, undefined, this),
+        jsx_dev_runtime25.jsxDEV(Box_default, {
+          sx: {
+            position: "relative",
+            width: "100%",
+            textAlign: "center",
+            padding: "10px",
+            marginTop: "100px",
+            bottom: { xs: "60px", md: "0" }
+          },
+          children: 'Copyright \xA92023 "GVG Tech Solutions". All Rights Reserved'
         }, undefined, false, undefined, this)
       ]
     }, undefined, true, undefined, this)
   }, undefined, false, undefined, this);
 }
 
+// src/components/App.jsx
+var jsx_dev_runtime26 = __toESM(require_jsx_dev_runtime(), 1);
+function App() {
+  const currentTheme = useCheckCurrentTheme_default();
+  return jsx_dev_runtime26.jsxDEV(ThemeProvider5, {
+    theme: currentTheme,
+    children: jsx_dev_runtime26.jsxDEV(BrowserRouter, {
+      basename: "/",
+      children: jsx_dev_runtime26.jsxDEV(Box_default, {
+        color: "secondary.main",
+        children: [
+          jsx_dev_runtime26.jsxDEV(CustomAppBar, {}, undefined, false, undefined, this),
+          jsx_dev_runtime26.jsxDEV(Box_default, {
+            children: jsx_dev_runtime26.jsxDEV(Routes, {
+              children: [
+                jsx_dev_runtime26.jsxDEV(Route, {
+                  element: jsx_dev_runtime26.jsxDEV(HomePage, {}, undefined, false, undefined, this),
+                  path: "home"
+                }, undefined, false, undefined, this),
+                jsx_dev_runtime26.jsxDEV(Route, {
+                  path: "offers",
+                  children: [
+                    jsx_dev_runtime26.jsxDEV(Route, {
+                      element: jsx_dev_runtime26.jsxDEV(BuildsPage, {}, undefined, false, undefined, this),
+                      path: "builds"
+                    }, undefined, false, undefined, this),
+                    jsx_dev_runtime26.jsxDEV(Route, {
+                      element: jsx_dev_runtime26.jsxDEV(ComponentsPage_default, {}, undefined, false, undefined, this),
+                      path: "components"
+                    }, undefined, false, undefined, this),
+                    jsx_dev_runtime26.jsxDEV(Route, {
+                      element: jsx_dev_runtime26.jsxDEV(ConstructorPage_default, {}, undefined, false, undefined, this),
+                      path: "constructor"
+                    }, undefined, false, undefined, this)
+                  ]
+                }, undefined, true, undefined, this),
+                jsx_dev_runtime26.jsxDEV(Route, {
+                  element: jsx_dev_runtime26.jsxDEV(DeliveryPage, {}, undefined, false, undefined, this),
+                  path: "delivery"
+                }, undefined, false, undefined, this),
+                jsx_dev_runtime26.jsxDEV(Route, {
+                  element: jsx_dev_runtime26.jsxDEV(AboutUsPage, {}, undefined, false, undefined, this),
+                  path: "about"
+                }, undefined, false, undefined, this)
+              ]
+            }, undefined, true, undefined, this)
+          }, undefined, false, undefined, this),
+          jsx_dev_runtime26.jsxDEV(FooterSection, {}, undefined, false, undefined, this)
+        ]
+      }, undefined, true, undefined, this)
+    }, undefined, false, undefined, this)
+  }, undefined, false, undefined, this);
+}
+
 // src/index.jsx
-var jsx_dev_runtime24 = __toESM(require_jsx_dev_runtime(), 1);
+var jsx_dev_runtime27 = __toESM(require_jsx_dev_runtime(), 1);
 var appDiv = document.getElementById("app");
-import_react_dom2.render(jsx_dev_runtime24.jsxDEV(App, {}, undefined, false, undefined, this), appDiv);
+import_react_dom2.render(jsx_dev_runtime27.jsxDEV(App, {}, undefined, false, undefined, this), appDiv);

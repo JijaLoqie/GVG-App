@@ -1,18 +1,16 @@
 import React from "react"
-import { Box, Typography } from "@mui/material"
+import { Box } from "@mui/material"
 
 import HeaderSection from "./HeaderSection/HeaderSection"
 import ChooseSection from "./ChooseSection/ChooseSection"
 import ReviewSection from "./ReviewSection/ReviewSection"
-import FooterSection from "./FooterSection/FooterSection"
 
-export default HomePage = function() {
+export default function HomePage() {
   return (
     <Box>
       <HeaderSection />
       <ChooseSection />
       <ReviewSection />
-      <FooterSection />
     </Box>
   )
 }

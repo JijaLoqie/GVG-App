@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import React, { useEffect, useState } from "react"
 import {
   Circle as CircleIcon,
   CircleOutlined as CircleOutlinedIcon,
@@ -47,7 +47,7 @@ const sliderStyles = {
 
 const dotsContainerStyles = {
   position: "relative",
-  top: "65vh",
+  top: "80vh",
   display: "flex",
   justifyContent: "center",
   flexDirection: "row",
@@ -60,7 +60,7 @@ const dotStyle = {
 }
 const NEXT_SLIDE_TIMER = 5
 
-function ImageSlider({ items }) {
+export default function ImageSlider({ items }) {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [timeLeft, setTimeLeft] = useState(NEXT_SLIDE_TIMER)
 
@@ -134,4 +134,3 @@ function ImageSlider({ items }) {
   )
 }
 
-export default ImageSlider

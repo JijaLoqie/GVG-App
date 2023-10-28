@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo } from "react"
+import React, { useCallback, useEffect, useMemo, useState } from "react"
 import { Box, Typography } from "@mui/material"
 import { useNavigate } from "react-router-dom"
 
@@ -9,18 +9,27 @@ const theme = {
   letterSpacing: ".1em",
   textTransform: "uppercase",
   cursor: "pointer",
-  transition: "0.2s",
+  transition: "all .5s",
   "&:hover": {
-    md: { color: "#2222ff" },
+    md: { color: "blue" },
   },
 }
 
 export default function LogoButton() {
-	const logoText = useMemo(() => "GVG", [])
-	const handleGoHome = useCallback(() => {
-		navigate("/home")
-	}, [])
+  const logoText = useMemo(() => "GVG", [])
+  const [gradientDeg, setGradientDeg] = useState(45)
+  const handleGoHome = useCallback(() => {
+    navigate("/home")
+  }, [])
   const navigate = useNavigate()
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setGradientDeg(grad => (grad + 1)%360)
+    }, 20)
+    return () => clearInterval(interval)
+  }, [])
+
   return (
     <Box
       onClick={handleGoHome}
@@ -29,11 +38,15 @@ export default function LogoButton() {
         display: "flex",
         justifyContent: "start",
         alignItems: "end",
-        color: "secondary.main",
         paddingBottom: "5px",
         paddingInline: "15px",
-        width: "15%",
-        marginRight: "10%",
+        width: { xs: "20%", md: "15%" },
+        minWidth: "160px",
+        marginRight: "8px",
+
+        background: `-webkit-linear-gradient(${gradientDeg}deg, #e32fb1 0%, #39afd8 100%)`,
+        WebkitBackgroundClip: "text",
+        color: "transparent",
       }}
     >
       <Box
@@ -45,10 +58,14 @@ export default function LogoButton() {
           alignSelf: "end",
         }}
       />
-	  {
-		// eslint-disable-next-line react/no-array-index-key
-		[...logoText].map((ch, index) => <Typography key={index} sx={theme}>{ch}</Typography>)
-	  }
+      {
+        // eslint-disable-next-line react/no-array-index-key
+        [...logoText].map((ch, index) => (
+          <Typography key={index} sx={theme}>
+            {ch}
+          </Typography>
+        ))
+      }
     </Box>
   )
 }

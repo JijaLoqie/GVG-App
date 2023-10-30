@@ -5,7 +5,7 @@ import {
   KeyboardArrowLeft,
   KeyboardArrowRight,
 } from "@mui/icons-material"
-import { Box, Typography } from "@mui/material"
+import { Box } from "@mui/material"
 
 const slideStyles = {
   width: "100%",
@@ -60,7 +60,7 @@ const dotStyle = {
 }
 const NEXT_SLIDE_TIMER = 5
 
-export default function ImageSlider({ items }) {
+export default function ImageSlider({ items, scrollable }) {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [timeLeft, setTimeLeft] = useState(NEXT_SLIDE_TIMER)
 
@@ -102,7 +102,12 @@ export default function ImageSlider({ items }) {
 
   return (
     <Box sx={sliderStyles}>
-      <Box className="arrows">
+      <Box
+        className="arrows"
+        sx={{
+          visibility: scrollable ? "visible" : "hidden",
+        }}
+      >
         <Box onClick={goToPrevious} sx={leftArrowStyles}>
           <KeyboardArrowLeft />
         </Box>
@@ -111,10 +116,15 @@ export default function ImageSlider({ items }) {
         </Box>
       </Box>
       <Box sx={slideStylesWidthBackground}>
-        <Box sx={{ position: "absolute", bottom: "104px", left: "54px" }}>
+        {/* <Box sx={{ position: "absolute", bottom: "104px", left: "54px" }}>
           <Typography fontSize="1.5rem">{items[currentIndex].name}</Typography>
-        </Box>
-        <Box sx={dotsContainerStyles}>
+        </Box> */}
+        <Box
+          sx={{
+            ...dotsContainerStyles,
+            visibility: scrollable ? "visible" : "hidden",
+          }}
+        >
           {items.map((slide, slideIndex) => (
             <Box
               key={slideIndex}

@@ -1,4 +1,6 @@
-import { Box, Grid, List, ListItem, Stack, Typography } from "@mui/material"
+import React from 'react'
+
+import { Box, Grid, Typography } from "@mui/material"
 import ReviewCard from "./ReviewCard"
 
 const reviews = [
@@ -30,23 +32,17 @@ const reviews = [
   },
 ]
 
-export default ReviewSection = function() {
+export default function ReviewSection() {
   return (
     <Box
       sx={{
-        padding: 4,
+        padding: "24px",
         boxShadow:
           "inset 10px 0px 4em -4px #0d0d0d, inset 10px 0px 4em -4px #0d0d0d",
         backgroundImage: "linear-gradient(315deg, #191714 0%, #2234ae 74%)",
       }}
     >
-      <Typography
-        sx={{
-          textAlign: "center",
-          marginBottom: "10px",
-        }}
-        variant="h4"
-      >
+      <Typography textAlign="center" variant="h3">
         Что думают наши клиенты
       </Typography>
       <Grid
@@ -56,8 +52,8 @@ export default ReviewSection = function() {
         sx={{
           justifyContent: "center",
           alignContent: "center",
-
-          marginBottom: "200px",
+		  marginTop: "24px",
+          marginBottom: "100px",
         }}
         wrap="wrap"
       >

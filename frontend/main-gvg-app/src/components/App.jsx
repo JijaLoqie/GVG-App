@@ -7,9 +7,9 @@ import AboutUsPage from "./about/AboutUsPage"
 
 import { Box, ThemeProvider } from "@mui/material"
 
-import BuildsPage from "./offers/BuildsPage"
-import ComponentsPage from "./offers/ComponentsPage"
-import ConstructorPage from "./offers/ConstructorPage"
+import BuildsPage from "./offers/BuildsPage/BuildsPage"
+import ComponentsPage from "./offers/ComponentsPage/ComponentsPage"
+import ConstructorPage from "./offers/ConstructorPage/ConstructorPage"
 import CustomAppBar from './navbars/CustomAppBar'
 import FooterSection from './home/FooterSection/FooterSection'
 import useCheckCurrentTheme from './common/hooks/useCheckCurrentTheme'

@@ -23,11 +23,11 @@ export default function HeaderSection() {
   return (
     <Box position="relative">
       <Box sx={containerStyles}>
-        <ImageSlider items={items} />
+        <ImageSlider items={items} scrollable />
       </Box>
       <Typography
-        sx={{ position: "absolute", top: "24px", left: "24px" }}
-        variant="h2"
+        sx={{ position: "absolute", top: "35vh", right: "150px" }}
+        variant="h1"
       >
         Tech Solutions
       </Typography>

@@ -101,8 +101,6 @@ export default function ChooseSection() {
         md={12}
         sx={{
           padding: "10px 0",
-          boxShadow: "0 0 1em 1em #0d0d0d",
-          zIndex: "100",
         }}
         xs={12}
       >

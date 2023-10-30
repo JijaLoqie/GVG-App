@@ -1,12 +1,10 @@
-import React, { useState } from "react"
+import React from "react"
 
-import { YMaps, Map, Placemark, GeoObject } from "@pbe/react-yandex-maps"
+import { YMaps, Map, Placemark } from "@pbe/react-yandex-maps"
 
 
 
 export default function CustomYandexMap({ selected }) {
-  const [ymaps, setYmaps] = useState()
-  const [coords, setCoords] = useState([0, 0])
 
   return (
     <YMaps

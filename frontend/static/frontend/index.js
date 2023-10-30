@@ -23340,11 +23340,11 @@ var require_jsx_dev_runtime = __commonJS((exports, module) => {
 });
 
 // src/index.jsx
-var import_react36 = __toESM(require_react(), 1);
+var import_react41 = __toESM(require_react(), 1);
 var import_react_dom2 = __toESM(require_react_dom(), 1);
 
 // src/components/App.jsx
-var import_react35 = __toESM(require_react(), 1);
+var import_react40 = __toESM(require_react(), 1);
 
 // node_modules/react-router-dom/dist/index.js
 var React2 = __toESM(require_react(), 1);
@@ -25070,7 +25070,7 @@ var SCROLL_RESTORATION_STORAGE_KEY = "react-router-scroll-positions";
 var savedScrollPositions = {};
 
 // src/components/home/HomePage.jsx
-var import_react11 = __toESM(require_react(), 1);
+var import_react15 = __toESM(require_react(), 1);
 
 // node_modules/@mui/material/colors/index.js
 var exports_colors = {};
@@ -37732,7 +37732,7 @@ var dotStyle = {
   fontSize: "20px"
 };
 var NEXT_SLIDE_TIMER = 5;
-function ImageSlider({ items }) {
+function ImageSlider({ items, scrollable }) {
   const [currentIndex, setCurrentIndex] = import_react8.useState(0);
   const [timeLeft, setTimeLeft] = import_react8.useState(NEXT_SLIDE_TIMER);
   import_react8.useEffect(() => {
@@ -37774,6 +37774,9 @@ function ImageSlider({ items }) {
     children: [
       jsx_dev_runtime.jsxDEV(Box_default, {
         className: "arrows",
+        sx: {
+          visibility: scrollable ? "visible" : "hidden"
+        },
         children: [
           jsx_dev_runtime.jsxDEV(Box_default, {
             onClick: goToPrevious,
@@ -37789,24 +37792,18 @@ function ImageSlider({ items }) {
       }, undefined, true, undefined, this),
       jsx_dev_runtime.jsxDEV(Box_default, {
         sx: slideStylesWidthBackground,
-        children: [
-          jsx_dev_runtime.jsxDEV(Box_default, {
-            sx: { position: "absolute", bottom: "104px", left: "54px" },
-            children: jsx_dev_runtime.jsxDEV(Typography_default, {
-              fontSize: "1.5rem",
-              children: items[currentIndex].name
-            }, undefined, false, undefined, this)
-          }, undefined, false, undefined, this),
-          jsx_dev_runtime.jsxDEV(Box_default, {
-            sx: dotsContainerStyles,
-            children: items.map((slide, slideIndex) => jsx_dev_runtime.jsxDEV(Box_default, {
-              onClick: () => goToSlide(slideIndex),
-              style: dotStyle,
-              children: currentIndex == slideIndex ? jsx_dev_runtime.jsxDEV(Circle_default, {}, undefined, false, undefined, this) : jsx_dev_runtime.jsxDEV(CircleOutlined_default, {}, undefined, false, undefined, this)
-            }, slideIndex, false, undefined, this))
-          }, undefined, false, undefined, this)
-        ]
-      }, undefined, true, undefined, this)
+        children: jsx_dev_runtime.jsxDEV(Box_default, {
+          sx: {
+            ...dotsContainerStyles,
+            visibility: scrollable ? "visible" : "hidden"
+          },
+          children: items.map((slide, slideIndex) => jsx_dev_runtime.jsxDEV(Box_default, {
+            onClick: () => goToSlide(slideIndex),
+            style: dotStyle,
+            children: currentIndex == slideIndex ? jsx_dev_runtime.jsxDEV(Circle_default, {}, undefined, false, undefined, this) : jsx_dev_runtime.jsxDEV(CircleOutlined_default, {}, undefined, false, undefined, this)
+          }, slideIndex, false, undefined, this))
+        }, undefined, false, undefined, this)
+      }, undefined, false, undefined, this)
     ]
   }, undefined, true, undefined, this);
 }
@@ -37825,219 +37822,35 @@ function HeaderSection() {
       jsx_dev_runtime2.jsxDEV(Box_default, {
         sx: containerStyles,
         children: jsx_dev_runtime2.jsxDEV(ImageSlider, {
-          items: header_items_default
+          items: header_items_default,
+          scrollable: true
         }, undefined, false, undefined, this)
       }, undefined, false, undefined, this),
       jsx_dev_runtime2.jsxDEV(Typography_default, {
-        sx: { position: "absolute", top: "24px", left: "24px" },
-        variant: "h2",
+        sx: { position: "absolute", top: "35vh", right: "150px" },
+        variant: "h1",
         children: "Tech Solutions"
       }, undefined, false, undefined, this)
     ]
   }, undefined, true, undefined, this);
 }
 
-// src/components/home/ChooseSection/ChooseSection.jsx
+// src/components/home/ReviewSection/ReviewSection.jsx
 var import_react10 = __toESM(require_react(), 1);
-var jsx_dev_runtime3 = __toESM(require_jsx_dev_runtime(), 1);
-var games = [
-  {
-    img: "/static/games/dota2.jpg",
-    title: "Dota 2",
-    author: "swabdesign"
-  },
-  {
-    img: "/static/games/worldoftanks.jpg",
-    title: "World of tanks",
-    author: "Pavel Nekoranec"
-  },
-  {
-    img: "/static/games/warface.jpg",
-    title: "Warface",
-    author: "Jen P."
-  },
-  {
-    img: "/static/games/fortnite.png",
-    title: "Fortnite",
-    author: "Taylor Simpson"
-  },
-  {
-    img: "/static/games/escapefromtarkov.jpg",
-    title: "Escape From Tarkov",
-    author: "Hutomo Abrianto"
-  },
-  {
-    img: "/static/games/pubg.jpg",
-    title: "PUBG",
-    author: "Christian Mackie"
-  },
-  {
-    img: "/static/games/rust.jpg",
-    title: "Rust",
-    author: "Ben Kolde"
-  },
-  {
-    img: "/static/games/cyberpank.jpg",
-    title: "Cyberpunk 2077",
-    author: "Philipp Berndt"
-  },
-  {
-    img: "/static/games/csgo.jpg",
-    title: "CS:GO",
-    author: "Charles Deluvio"
-  },
-  {
-    img: "/static/games/apexlegend.webp",
-    title: "Apex Legend",
-    author: "Fi Bell"
-  },
-  {
-    img: "/static/games/overwatch2.jpeg",
-    title: "Overwatch",
-    author: "Douglas Sheppard"
-  },
-  {
-    img: "/static/games/minecraft.webp",
-    title: "Minecraft",
-    author: "Darren Richardson"
-  }
-];
-function ChooseSection() {
-  const navigate = useNavigate();
-  const [selectedGames, setSelectedGames] = import_react10.useState([]);
-  const handleSelectGame = (index) => {
-    if (selectedGames.includes(index)) {
-      setSelectedGames(selectedGames.filter((gameIndex) => gameIndex !== index));
-    } else {
-      setSelectedGames([...selectedGames, index]);
-    }
-  };
-  return jsx_dev_runtime3.jsxDEV(Grid_default, {
-    columnGap: 10,
-    component: "div",
-    container: true,
-    sx: {
-      backgroundColor: "#0d0d0d",
-      justifyContent: "center"
-    },
-    children: jsx_dev_runtime3.jsxDEV(Grid_default, {
-      item: true,
-      md: 12,
-      sx: {
-        padding: "10px 0",
-        boxShadow: "0 0 1em 1em #0d0d0d",
-        zIndex: "100"
-      },
-      xs: 12,
-      children: [
-        jsx_dev_runtime3.jsxDEV(Typography_default, {
-          textAlign: "center",
-          variant: "h4",
-          children: "\u0412\u044B\u0431\u0435\u0440\u0438\u0442\u0435 \u0438\u0433\u0440\u044B"
-        }, undefined, false, undefined, this),
-        jsx_dev_runtime3.jsxDEV(Box_default, {
-          component: "div",
-          id: "gradient",
-          style: {
-            backgroundColor: "#2234ae",
-            backgroundImage: "linear-gradient(315deg, #191714 0%, #2234ae 74%)",
-            boxShadow: "inset 0px 10px 4em -4px #0d0d0d, inset 0px -10px 4em -4px #0d0d0d"
-          },
-          sx: {
-            border: 2,
-            borderColor: "#000000",
-            backgroundColor: "#313131"
-          },
-          children: jsx_dev_runtime3.jsxDEV(ImageList_default, {
-            cols: games.length,
-            gap: 8,
-            sx: {
-              padding: "20px"
-            },
-            variant: "standard",
-            children: games.map((game, index) => jsx_dev_runtime3.jsxDEV(ImageListItem_default, {
-              onClick: () => handleSelectGame(index),
-              sx: {
-                boxShadow: `0 0 2em ${selectedGames.includes(index) ? "red" : "black"}`,
-                width: "250px",
-                maxHeight: "444px",
-                "&:hover": {
-                  md: {
-                    color: "gray",
-                    boxShadow: selectedGames.includes(index) ? "0 0 2em orange" : "0 0 1em #ffffff"
-                  }
-                }
-              },
-              children: [
-                jsx_dev_runtime3.jsxDEV("img", {
-                  alt: game.title,
-                  loading: "lazy",
-                  src: `${game.img}`,
-                  srcSet: `${game.img}`,
-                  style: { objectFit: "cover", height: "444px" }
-                }, undefined, false, undefined, this),
-                jsx_dev_runtime3.jsxDEV(ImageListItemBar_default, {
-                  position: "bottom",
-                  title: game.title
-                }, undefined, false, undefined, this)
-              ]
-            }, game.img, true, undefined, this))
-          }, undefined, false, undefined, this)
-        }, undefined, false, undefined, this),
-        jsx_dev_runtime3.jsxDEV(Box_default, {
-          onClick: () => navigate("/offers/constructor"),
-          sx: {
-            visibility: selectedGames.length > 0 ? "visible" : "hidden",
-            margin: "10px",
-            width: "50vw",
-            backgroundColor: selectedGames.length > 0 ? "blue" : "#0d0d0d",
-            color: selectedGames.length > 0 ? "#ffffff" : "#0d0d0d",
-            borderRadius: "10px",
-            marginInline: "auto",
-            transition: "all 0.3s",
-            "&:hover": {
-              backgroundColor: "lightblue",
-              boxShadow: "0 0 2em #ffffff",
-              color: "blue",
-              cursor: "pointer"
-            }
-          },
-          children: jsx_dev_runtime3.jsxDEV(Typography_default, {
-            sx: {
-              textAlign: "center",
-              padding: "10px"
-            },
-            children: "\u041F\u043E\u0441\u043C\u043E\u0442\u0440\u0435\u0442\u044C \u043B\u0443\u0447\u0448\u0438\u0435 \u043A\u043E\u043C\u043F\u044C\u044E\u0442\u0435\u0440\u044B \u0434\u043B\u044F \u044D\u0442\u0438\u0445 \u0438\u0433\u0440"
-          }, undefined, false, undefined, this)
-        }, undefined, false, undefined, this),
-        jsx_dev_runtime3.jsxDEV(Box_default, {
-          sx: {
-            width: "100%"
-          },
-          children: jsx_dev_runtime3.jsxDEV(Typography_default, {
-            textAlign: "center",
-            variant: "h4",
-            children: "\u041C\u044B \u0430\u043D\u0430\u043B\u0438\u0437\u0438\u0440\u0443\u0435\u043C \u0442\u0440\u0435\u0431\u043E\u0432\u0430\u043D\u0438\u044F \u043A \u0438\u0433\u0440\u0430\u043C \u0438 \u043F\u043E\u0434\u0431\u0438\u0440\u0430\u0435\u043C \u0434\u043B\u044F \u0432\u0430\u0441 \u043D\u0430\u0438\u0431\u043E\u043B\u0435\u0435 \u043F\u043E\u0434\u0445\u043E\u0434\u044F\u0449\u0438\u0435 \u0441\u0431\u043E\u0440\u043A\u0438"
-          }, undefined, false, undefined, this)
-        }, undefined, false, undefined, this)
-      ]
-    }, undefined, true, undefined, this)
-  }, undefined, false, undefined, this);
-}
 
 // src/components/home/ReviewSection/ReviewCard.jsx
-var React73 = __toESM(require_react(), 1);
-var jsx_dev_runtime4 = __toESM(require_jsx_dev_runtime(), 1);
+var React72 = __toESM(require_react(), 1);
+var jsx_dev_runtime3 = __toESM(require_jsx_dev_runtime(), 1);
 function ReviewCard({ reviewData }) {
-  const [expanded, setExpanded] = React73.useState(false);
+  const [expanded, setExpanded] = React72.useState(false);
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
-  return jsx_dev_runtime4.jsxDEV(Card_default, {
+  return jsx_dev_runtime3.jsxDEV(Card_default, {
     sx: { width: 345, height: "auto", boxShadow: "0 0 2em black" },
     children: [
-      jsx_dev_runtime4.jsxDEV(CardHeader_default, {
-        avatar: jsx_dev_runtime4.jsxDEV(Avatar_default, {
+      jsx_dev_runtime3.jsxDEV(CardHeader_default, {
+        avatar: jsx_dev_runtime3.jsxDEV(Avatar_default, {
           "aria-label": "recipe",
           sx: { bgcolor: red_default[500] },
           children: reviewData.shortName
@@ -38045,20 +37858,20 @@ function ReviewCard({ reviewData }) {
         subheader: reviewData.date,
         title: reviewData.name
       }, undefined, false, undefined, this),
-      jsx_dev_runtime4.jsxDEV(CardMedia_default, {
+      jsx_dev_runtime3.jsxDEV(CardMedia_default, {
         alt: "Paella dish",
         component: "img",
         height: "194",
         image: reviewData.photo
       }, undefined, false, undefined, this),
-      jsx_dev_runtime4.jsxDEV(CardContent_default, {
-        children: jsx_dev_runtime4.jsxDEV(Typography_default, {
+      jsx_dev_runtime3.jsxDEV(CardContent_default, {
+        children: jsx_dev_runtime3.jsxDEV(Typography_default, {
           color: "text.secondary",
           variant: "body2",
           children: reviewData.review
         }, undefined, false, undefined, this)
       }, undefined, false, undefined, this),
-      jsx_dev_runtime4.jsxDEV(CardActions_default, {
+      jsx_dev_runtime3.jsxDEV(CardActions_default, {
         disableSpacing: true
       }, undefined, false, undefined, this)
     ]
@@ -38066,7 +37879,7 @@ function ReviewCard({ reviewData }) {
 }
 
 // src/components/home/ReviewSection/ReviewSection.jsx
-var jsx_dev_runtime5 = __toESM(require_jsx_dev_runtime(), 1);
+var jsx_dev_runtime4 = __toESM(require_jsx_dev_runtime(), 1);
 var reviews = [
   {
     icon: "/static/reviews/icons/AB.jpg",
@@ -38093,33 +37906,31 @@ var reviews = [
     date: "1 \u044F\u043D\u0432\u0430\u0440\u044F, 1970"
   }
 ];
-var ReviewSection_default = ReviewSection = function() {
-  return jsx_dev_runtime5.jsxDEV(Box_default, {
+function ReviewSection() {
+  return jsx_dev_runtime4.jsxDEV(Box_default, {
     sx: {
-      padding: 4,
+      padding: "24px",
       boxShadow: "inset 10px 0px 4em -4px #0d0d0d, inset 10px 0px 4em -4px #0d0d0d",
       backgroundImage: "linear-gradient(315deg, #191714 0%, #2234ae 74%)"
     },
     children: [
-      jsx_dev_runtime5.jsxDEV(Typography_default, {
-        sx: {
-          textAlign: "center",
-          marginBottom: "10px"
-        },
-        variant: "h4",
+      jsx_dev_runtime4.jsxDEV(Typography_default, {
+        textAlign: "center",
+        variant: "h3",
         children: "\u0427\u0442\u043E \u0434\u0443\u043C\u0430\u044E\u0442 \u043D\u0430\u0448\u0438 \u043A\u043B\u0438\u0435\u043D\u0442\u044B"
       }, undefined, false, undefined, this),
-      jsx_dev_runtime5.jsxDEV(Grid_default, {
+      jsx_dev_runtime4.jsxDEV(Grid_default, {
         columnGap: 10,
         container: true,
         rowGap: 5,
         sx: {
           justifyContent: "center",
           alignContent: "center",
-          marginBottom: "200px"
+          marginTop: "24px",
+          marginBottom: "100px"
         },
         wrap: "wrap",
-        children: reviews.map((review, index) => jsx_dev_runtime5.jsxDEV(Grid_default, {
+        children: reviews.map((review, index) => jsx_dev_runtime4.jsxDEV(Grid_default, {
           item: true,
           sx: {
             display: "flex",
@@ -38128,35 +37939,398 @@ var ReviewSection_default = ReviewSection = function() {
             border: 1,
             borderColor: "black"
           },
-          children: jsx_dev_runtime5.jsxDEV(ReviewCard, {
+          children: jsx_dev_runtime4.jsxDEV(ReviewCard, {
             reviewData: review
           }, undefined, false, undefined, this)
         }, index, false, undefined, this))
       }, undefined, false, undefined, this)
     ]
   }, undefined, true, undefined, this);
+}
+
+// src/components/home/BuildsSection/BuildsSection.jsx
+var import_react14 = __toESM(require_react(), 1);
+
+// src/components/offers/BuildsPage/BuildsList.jsx
+var import_react13 = __toESM(require_react(), 1);
+
+// src/components/offers/BuildsPage/BuildCard.jsx
+var import_react12 = __toESM(require_react(), 1);
+
+// src/components/home/HeaderSection/SimpleImageSlider.jsx
+var import_react11 = __toESM(require_react(), 1);
+var jsx_dev_runtime5 = __toESM(require_jsx_dev_runtime(), 1);
+var CustomArrow = newStyled(Box_default)({
+  position: "absolute",
+  top: "50%",
+  transform: "translate(0, -50%)",
+  fontSize: "45px",
+  zIndex: 1,
+  cursor: "pointer",
+  borderRadius: "8px"
+});
+var slideStyles2 = {
+  width: "100%",
+  height: "100%",
+  backgroundSize: "cover",
+  backgroundPosition: "center",
+  transition: (theme) => theme.transitions.create("background", {
+    duration: theme.transitions.duration.standard
+  })
 };
+var sliderStyles2 = {
+  position: "relative",
+  height: "100%"
+};
+function SimpleImageSlider({ items, scrollable }) {
+  const CustomRightArrow = newStyled(CustomArrow)({
+    transition: "all 0.3s",
+    backgroundColor: scrollable ? "#00000099" : "#00000000",
+    color: scrollable ? "#D7FEDC" : "#00000000",
+    right: "8px"
+  });
+  const CustomLeftArrow = newStyled(CustomArrow)({
+    transition: "all 0.3s",
+    backgroundColor: scrollable ? "#00000099" : "#00000000",
+    color: scrollable ? "#D7FEDC" : "#00000000",
+    left: "8px"
+  });
+  const [currentIndex, setCurrentIndex] = import_react11.useState(0);
+  const goToPrevious = () => {
+    setCurrentIndex((oldIndex) => {
+      var newIndex = oldIndex - 1;
+      if (newIndex < 0) {
+        newIndex = items.length - 1;
+      }
+      return newIndex;
+    });
+  };
+  const goToNext = () => {
+    setCurrentIndex((currentIndex + 1) % items.length);
+  };
+  const slideStylesWidthBackground = {
+    ...slideStyles2,
+    backgroundImage: `url(${items[currentIndex].url})`,
+    backgroundSize: "cover"
+  };
+  return jsx_dev_runtime5.jsxDEV(Box_default, {
+    sx: sliderStyles2,
+    children: [
+      jsx_dev_runtime5.jsxDEV(Box_default, {
+        sx: {
+          visibility: scrollable ? "visible" : "hidden"
+        },
+        children: [
+          jsx_dev_runtime5.jsxDEV(CustomLeftArrow, {
+            onClick: goToPrevious,
+            children: jsx_dev_runtime5.jsxDEV(KeyboardArrowLeft_default, {}, undefined, false, undefined, this)
+          }, undefined, false, undefined, this),
+          jsx_dev_runtime5.jsxDEV(CustomRightArrow, {
+            onClick: goToNext,
+            children: jsx_dev_runtime5.jsxDEV(KeyboardArrowRight_default, {}, undefined, false, undefined, this)
+          }, undefined, false, undefined, this)
+        ]
+      }, undefined, true, undefined, this),
+      jsx_dev_runtime5.jsxDEV(Box_default, {
+        sx: slideStylesWidthBackground
+      }, undefined, false, undefined, this)
+    ]
+  }, undefined, true, undefined, this);
+}
+
+// src/components/offers/BuildsPage/BuildCard.jsx
+var jsx_dev_runtime6 = __toESM(require_jsx_dev_runtime(), 1);
+var gradientAnimation = keyframes({
+  "0%": {
+    backgroundPosition: "100% 0%"
+  },
+  "100%": {
+    backgroundPosition: "-100% 0%"
+  }
+});
+var CustomCard = newStyled("div")({
+  "--card-height": "65vh",
+  "--card-width": "calc(var(--card-height) / 1.5)",
+  width: "var(--card-width)",
+  height: "var(--card-height)",
+  borderRadius: "8px",
+  background: "linear-gradient(to right, blue, purple, blue)",
+  backgroundSize: "200% 100%",
+  animation: `${gradientAnimation} 5s linear infinite`,
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  margin: 4,
+  padding: 4,
+  fontFamily: "cursive"
+});
+var CardContent5 = newStyled("div")({
+  width: "100%",
+  height: "100%",
+  borderRadius: "8px",
+  backgroundColor: "#191c29",
+  display: "flex",
+  flexDirection: "column"
+});
+var CardTitle = newStyled("div")({
+  fontSize: "2em",
+  justifyContent: "center",
+  alignItems: "center",
+  textAlign: "center",
+  display: "flex",
+  color: `rgb(88, 199, 250)`,
+  padding: 4,
+  height: "10%"
+});
+var CardImages = newStyled("div")({
+  width: "100%",
+  height: "55%",
+  borderRadius: "8px"
+});
+var CardDescription = newStyled("div")({
+  height: "50%",
+  paddingTop: "20px",
+  paddingInline: "12px",
+  fontSize: "1.5rem",
+  fontWeight: "400"
+});
+var CardComponents = newStyled("div")({
+  width: "100%",
+  display: "flex",
+  justifyContent: "space-around"
+});
+var CardButtons = newStyled("div")({
+  width: "100%",
+  display: "flex",
+  justifyContent: "center"
+});
+var components = [
+  { name: "hdd", rus_name: "\u0416\u0451\u0441\u0442\u043A\u0438\u0439 \u0434\u0438\u0441\u043A", src: "/builds/parts/hdd.png" },
+  {
+    name: "ram",
+    rus_name: "\u041E\u043F\u0435\u0440\u0430\u0442\u0438\u0432\u043D\u0430\u044F \u043F\u0430\u043C\u044F\u0442\u044C",
+    src: "/builds/parts/ram.png"
+  },
+  {
+    name: "ssd",
+    rus_name: "SSD \u043D\u0430\u043A\u043E\u043F\u0438\u0442\u0435\u043B\u044C",
+    src: "/builds/parts/ssd.png"
+  },
+  {
+    name: "cpu",
+    rus_name: "\u041F\u0440\u043E\u0446\u0435\u0441\u0441\u043E\u0440",
+    src: "/builds/parts/cpu.png"
+  },
+  {
+    name: "graphics_card",
+    rus_name: "",
+    src: "/builds/parts/graphics-card.png"
+  }
+];
+function BuildCard({ build }) {
+  const [isHovered, setIsHovered] = import_react12.useState(false);
+  const navigate = useNavigate();
+  const [currentSelected, setCurrentSelected] = import_react12.useState(-1);
+  return jsx_dev_runtime6.jsxDEV(CustomCard, {
+    onMouseEnter: () => setIsHovered(true),
+    onMouseLeave: () => setIsHovered(false),
+    children: jsx_dev_runtime6.jsxDEV(CardContent5, {
+      children: [
+        jsx_dev_runtime6.jsxDEV(CardTitle, {
+          children: build.title
+        }, undefined, false, undefined, this),
+        jsx_dev_runtime6.jsxDEV(CardImages, {
+          children: [
+            jsx_dev_runtime6.jsxDEV(SimpleImageSlider, {
+              items: [
+                { url: "/static/builds/build1.jpg" },
+                { url: "/static/builds/build2.jpg" },
+                { url: "/static/builds/build3.jpg" }
+              ],
+              scrollable: isHovered
+            }, undefined, false, undefined, this),
+            jsx_dev_runtime6.jsxDEV(Box_default, {
+              onClick: () => navigate("/offers/constructor"),
+              sx: {
+                position: "relative",
+                top: "-30px",
+                visibility: isHovered ? "visible" : "hidden",
+                width: "50%",
+                height: "36.5px",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                margin: "10px",
+                backgroundColor: isHovered ? "#8778FC" : "#00000000",
+                color: isHovered ? "#D7FEDC" : "#00000000",
+                transition: "all 0.3s",
+                borderRadius: "10px",
+                marginInline: "auto",
+                "&:hover": {
+                  backgroundColor: "lightblue",
+                  boxShadow: "0 0 2em #D7FEDC",
+                  color: "blue",
+                  cursor: "pointer"
+                }
+              },
+              children: "\u041F\u043E\u0434\u0440\u043E\u0431\u043D\u0435\u0435"
+            }, undefined, false, undefined, this)
+          ]
+        }, undefined, true, undefined, this),
+        jsx_dev_runtime6.jsxDEV(CardDescription, {
+          children: currentSelected !== -1 ? jsx_dev_runtime6.jsxDEV(Box_default, {
+            sx: {
+              padding: 4,
+              transition: "all 0.3s",
+              borderRadius: "8px",
+              width: "100%",
+              height: "95%",
+              backgroundColor: "#D7FEDC",
+              color: "#000000"
+            },
+            children: jsx_dev_runtime6.jsxDEV(Box_default, {
+              sx: {
+                display: "flex",
+                flexDirection: "row"
+              },
+              children: [
+                jsx_dev_runtime6.jsxDEV(Box_default, {
+                  component: "img",
+                  height: "30px",
+                  marginRight: "30px",
+                  src: `../static${components[currentSelected].src}`,
+                  width: "30px"
+                }, undefined, false, undefined, this),
+                jsx_dev_runtime6.jsxDEV(Typography_default, {
+                  height: "100%",
+                  lineHeight: "2",
+                  children: build[components[currentSelected].name]
+                }, undefined, false, undefined, this)
+              ]
+            }, undefined, true, undefined, this)
+          }, undefined, false, undefined, this) : build.description
+        }, undefined, false, undefined, this),
+        jsx_dev_runtime6.jsxDEV(CardComponents, {
+          children: components.map((component, index) => jsx_dev_runtime6.jsxDEV(Box_default, {
+            onMouseEnter: () => setCurrentSelected(index),
+            onMouseLeave: () => setCurrentSelected(-1),
+            sx: {
+              transition: "all 0.1s",
+              width: "50px",
+              height: "50px",
+              bgcolor: "#D7FEDC",
+              borderRadius: "75px",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              "&:hover": {
+                backgroundColor: "lightblue",
+                boxShadow: "0 0 2em #D7FEDC",
+                color: "blue",
+                cursor: "pointer"
+              }
+            },
+            children: jsx_dev_runtime6.jsxDEV(Box_default, {
+              component: "img",
+              src: `../static${component.src}`,
+              width: "30px"
+            }, undefined, false, undefined, this)
+          }, index, false, undefined, this))
+        }, undefined, false, undefined, this),
+        jsx_dev_runtime6.jsxDEV(CardButtons, {
+          children: jsx_dev_runtime6.jsxDEV(Button_default, {
+            sx: {
+              transition: "all 0.3s",
+              margin: "10px 70px",
+              bgcolor: "#2600B1",
+              color: "#D7FEDC",
+              width: "50%",
+              "&:hover": {
+                backgroundColor: "lightblue",
+                boxShadow: "0 0 2em #D7FEDC",
+                color: "blue",
+                cursor: "pointer"
+              }
+            },
+            variant: "contained",
+            children: "\u0412 \u043A\u043E\u0440\u0437\u0438\u043D\u0443"
+          }, undefined, false, undefined, this)
+        }, undefined, false, undefined, this)
+      ]
+    }, undefined, true, undefined, this)
+  }, undefined, false, undefined, this);
+}
+
+// src/components/offers/BuildsPage/BuildsList.jsx
+var jsx_dev_runtime7 = __toESM(require_jsx_dev_runtime(), 1);
+function BuildsList() {
+  const [builds, setBuilds] = import_react13.useState([]);
+  import_react13.useEffect(() => {
+    fetch("/api/get-builds").then((response) => response.json()).then((data) => {
+      setBuilds(data);
+      data.forEach((element) => {
+        console.log(element);
+      });
+    });
+  }, []);
+  return jsx_dev_runtime7.jsxDEV(Box_default, {
+    children: jsx_dev_runtime7.jsxDEV(Box_default, {
+      padding: 4,
+      sx: {
+        display: "flex",
+        flexWrap: "wrap",
+        flexDirection: "row",
+        justifyContent: "space-around"
+      },
+      children: builds.map((build, index) => jsx_dev_runtime7.jsxDEV(BuildCard, {
+        build
+      }, index, false, undefined, this))
+    }, undefined, false, undefined, this)
+  }, undefined, false, undefined, this);
+}
+
+// src/components/home/BuildsSection/BuildsSection.jsx
+var jsx_dev_runtime8 = __toESM(require_jsx_dev_runtime(), 1);
+function BuildsSection() {
+  return jsx_dev_runtime8.jsxDEV(Box_default, {
+    sx: {
+      display: "flex",
+      flexDirection: "column",
+      paddingTop: "24px",
+      boxShadow: "0 0 1em 1em #0d0d0d",
+      zIndex: "100"
+    },
+    children: [
+      jsx_dev_runtime8.jsxDEV(Typography_default, {
+        textAlign: "center",
+        variant: "h3",
+        children: "\u041D\u0430\u0448\u0438 \u043B\u0443\u0447\u0448\u0438\u0435 \u0441\u0431\u043E\u0440\u043A\u0438"
+      }, undefined, false, undefined, this),
+      jsx_dev_runtime8.jsxDEV(BuildsList, {}, undefined, false, undefined, this)
+    ]
+  }, undefined, true, undefined, this);
+}
 
 // src/components/home/HomePage.jsx
-var jsx_dev_runtime6 = __toESM(require_jsx_dev_runtime(), 1);
+var jsx_dev_runtime9 = __toESM(require_jsx_dev_runtime(), 1);
 function HomePage() {
-  return jsx_dev_runtime6.jsxDEV(Box_default, {
+  return jsx_dev_runtime9.jsxDEV(Box_default, {
     children: [
-      jsx_dev_runtime6.jsxDEV(HeaderSection, {}, undefined, false, undefined, this),
-      jsx_dev_runtime6.jsxDEV(ChooseSection, {}, undefined, false, undefined, this),
-      jsx_dev_runtime6.jsxDEV(ReviewSection_default, {}, undefined, false, undefined, this)
+      jsx_dev_runtime9.jsxDEV(HeaderSection, {}, undefined, false, undefined, this),
+      jsx_dev_runtime9.jsxDEV(BuildsSection, {}, undefined, false, undefined, this),
+      jsx_dev_runtime9.jsxDEV(ReviewSection, {}, undefined, false, undefined, this)
     ]
   }, undefined, true, undefined, this);
 }
 
 // src/components/delivery/DeliveryPage.jsx
-var import_react16 = __toESM(require_react(), 1);
+var import_react20 = __toESM(require_react(), 1);
 
 // src/components/delivery/CustomYandexMap.jsx
-var import_react13 = __toESM(require_react(), 1);
+var import_react17 = __toESM(require_react(), 1);
 
 // node_modules/@pbe/react-yandex-maps/dist/react-yandex-maps.esm.js
-var import_react12 = __toESM(require_react(), 1);
+var import_react16 = __toESM(require_react(), 1);
 var r4 = function() {
   return r4 = Object.assign ? Object.assign.bind() : function(t2) {
     for (var e2 = 1;e2 < arguments.length; e2++) {
@@ -38170,7 +38344,7 @@ var r4 = function() {
 var d = function(e2, n2 = false, o2 = []) {
   return (i) => {
     const { width: c, height: l, modules: d2 = [], onLoad: h = u } = i, f = p(o2.concat(d2)), y = !n2 || !!f, b = a(i, m);
-    return import_react12.useEffect(() => f ? h(f) : undefined, [f]), y ? import_react12.default.createElement(e2, r4({ ymaps: f }, b)) : import_react12.default.createElement("div", { style: { width: c, height: l } });
+    return import_react16.useEffect(() => f ? h(f) : undefined, [f]), y ? import_react16.default.createElement(e2, r4({ ymaps: f }, b)) : import_react16.default.createElement("div", { style: { width: c, height: l } });
   };
 };
 var v = function(t2) {
@@ -38217,17 +38391,17 @@ var a = (t2, e2) => {
     e2.indexOf(o2) === -1 && (n2[o2] = t2[o2]);
   return n2;
 };
-var i = import_react12.default.createContext(null);
-var c = import_react12.default.createContext(null);
-var l = (e2) => (n2) => import_react12.default.createElement(c.Consumer, null, (o2) => import_react12.default.createElement(e2, r4({ parent: o2 }, n2)));
+var i = import_react16.default.createContext(null);
+var c = import_react16.default.createContext(null);
+var l = (e2) => (n2) => import_react16.default.createElement(c.Consumer, null, (o2) => import_react16.default.createElement(e2, r4({ parent: o2 }, n2)));
 var p = (t2 = []) => {
-  const [r5, a2] = import_react12.useState(false), c2 = import_react12.useRef(t2), l2 = (() => {
-    const t3 = import_react12.useContext(i);
+  const [r5, a2] = import_react16.useState(false), c2 = import_react16.useRef(t2), l2 = (() => {
+    const t3 = import_react16.useContext(i);
     if (t3 === null)
       throw new Error("Couldn't find Yandex.Maps API in the context. Make sure that hook useYMaps is inside <YMaps /> provider");
     return t3;
   })(), p2 = l2.getApi();
-  return import_react12.useEffect(() => {
+  return import_react16.useEffect(() => {
     l2.load().then(() => Promise.all(c2.current.map(l2.loadModule))).then(() => a2(true));
   }, []), r5 && p2 ? p2 : null;
 };
@@ -38237,7 +38411,7 @@ var m = ["onLoad", "onError", "modules", "apiLoader"];
 var h = typeof window != "undefined";
 var f = { lang: "ru_RU", load: "", ns: "", mode: "release" };
 var y = (e2) => {
-  const { version: n2 = "2.1", enterprise: r5 = false, query: a2 = { lang: "ru_RU", load: "", ns: "" }, preload: c2 = false, children: l2 } = e2, p2 = import_react12.useRef(((t2) => {
+  const { version: n2 = "2.1", enterprise: r5 = false, query: a2 = { lang: "ru_RU", load: "", ns: "" }, preload: c2 = false, children: l2 } = e2, p2 = import_react16.useRef(((t2) => {
     const { query: e3 = f } = t2, n3 = Date.now().toString(32), o2 = e3.ns || "", s2 = "__yandex-maps-api-onload__$$" + n3, r6 = "__yandex-maps-api-onerror__$$" + n3, a3 = h ? window : {}, i2 = {};
     let c3;
     const l3 = () => o2 ? a3[o2] : c3, p3 = () => {
@@ -38276,14 +38450,14 @@ var y = (e2) => {
       }, n4);
     }) };
   })({ version: n2, enterprise: r5, query: a2, preload: c2 }));
-  return import_react12.useEffect(() => {
+  return import_react16.useEffect(() => {
     c2 && p2.current.load();
-  }, [p2.current]), import_react12.default.createElement(i.Provider, { value: p2.current }, l2);
+  }, [p2.current]), import_react16.default.createElement(i.Provider, { value: p2.current }, l2);
 };
 var b = /^on(?=[A-Z])/;
 var E = (t2) => "default" + t2.charAt(0).toUpperCase() + t2.slice(1);
 
-class P extends import_react12.default.Component {
+class P extends import_react16.default.Component {
   constructor(t2) {
     super(t2), this.state = { error: null, errorInfo: null };
   }
@@ -38296,9 +38470,9 @@ class P extends import_react12.default.Component {
     return this.state.error ? null : this.props.children;
   }
 }
-var x = (e2) => ({ onError: n2, ...o2 }) => import_react12.default.createElement(P, { onError: n2 }, import_react12.default.createElement(e2, o2));
+var x = (e2) => ({ onError: n2, ...o2 }) => import_react16.default.createElement(P, { onError: n2 }, import_react16.default.createElement(e2, o2));
 
-class M extends import_react12.default.Component {
+class M extends import_react16.default.Component {
   constructor() {
     super(), this.instance = null, this.state = { instance: null }, this._parentElement = null, this._getRef = (t2) => {
       this._parentElement = t2;
@@ -38315,7 +38489,7 @@ class M extends import_react12.default.Component {
   }
   render() {
     const e2 = w(this.props), n2 = v(this.props), o2 = a(n2, ["_events", "state", "defaultState", "options", "defaultOptions", "instanceRef", "ymaps", "children", "width", "height", "style", "className"]);
-    return import_react12.default.createElement(c.Provider, { value: this.state.instance }, import_react12.default.createElement("div", r4({ ref: this._getRef }, e2, o2), this.props.children));
+    return import_react16.default.createElement(c.Provider, { value: this.state.instance }, import_react16.default.createElement("div", r4({ ref: this._getRef }, e2, o2), this.props.children));
   }
   static mountObject(t2, e2, n2) {
     const { instanceRef: o2, _events: s2 } = v(n2), r5 = new e2(t2, _2(n2, "state"), _2(n2, "options"));
@@ -38341,7 +38515,7 @@ class M extends import_react12.default.Component {
 var k = x(d(M, true, ["Map"]));
 k.defaultProps = { width: 320, height: 240 };
 
-class S extends import_react12.default.Component {
+class S extends import_react16.default.Component {
   constructor() {
     super(), this.state = { instance: null }, this._parentElement = null, this._getRef = (t2) => {
       this._parentElement = t2;
@@ -38358,7 +38532,7 @@ class S extends import_react12.default.Component {
   }
   render() {
     const e2 = w(this.props);
-    return import_react12.default.createElement("div", r4({ ref: this._getRef }, e2));
+    return import_react16.default.createElement("div", r4({ ref: this._getRef }, e2));
   }
   static mountObject(t2, e2, n2) {
     const { instanceRef: o2, _events: s2 } = v(n2), r5 = _2(n2, "point"), a2 = _2(n2, "locateOptions"), i2 = _2(n2, "options");
@@ -38391,7 +38565,7 @@ class S extends import_react12.default.Component {
 var T = x(d(S, true, ["panorama.isSupported", "panorama.locate", "panorama.createPlayer", "panorama.Player"]));
 T.defaultProps = { width: 320, height: 240 };
 
-class U extends import_react12.default.Component {
+class U extends import_react16.default.Component {
   constructor() {
     super(), this.state = { instance: null }, this.instance = null;
   }
@@ -38406,7 +38580,7 @@ class U extends import_react12.default.Component {
     U.unmountControl(this.instance, this.props);
   }
   render() {
-    return import_react12.default.createElement(c.Provider, { value: this.state.instance }, this.props.children);
+    return import_react16.default.createElement(c.Provider, { value: this.state.instance }, this.props.children);
   }
   static mountControl(t2, e2) {
     const { instanceRef: n2, parent: o2, lazy: s2, _events: r5 } = v(e2), a2 = new t2({ data: _2(e2, "data"), options: _2(e2, "options"), state: _2(e2, "state"), mapTypes: _2(e2, "mapTypes"), lazy: s2 });
@@ -38444,21 +38618,21 @@ class U extends import_react12.default.Component {
     t2 !== null && (Object.keys(s2).forEach((e3) => O(t2, e3, s2[e3])), o2.controls && typeof o2.controls.remove == "function" ? o2.controls.remove(t2) : o2.remove && typeof o2.remove == "function" && o2.remove(t2), R(n2));
   }
 }
-var D = x(l(d((e2) => import_react12.default.createElement(U, r4({}, e2, { name: "Button" })), true, ["control.Button"])));
-var B = x(l(d((e2) => import_react12.default.createElement(U, r4({}, e2, { name: "FullscreenControl" })), true, ["control.FullscreenControl"])));
-var A = x(l(d((e2) => import_react12.default.createElement(U, r4({}, e2, { name: "GeolocationControl" })), true, ["control.GeolocationControl"])));
-var L = x(l(d((e2) => import_react12.default.createElement(U, r4({}, e2, { name: "ListBox" })), true, ["control.ListBox"])));
-var $ = x(l(d((e2) => import_react12.default.createElement(U, r4({}, e2, { name: "ListBoxItem" })), true, ["control.ListBoxItem"])));
-var N = x(l(d((e2) => import_react12.default.createElement(U, r4({}, e2, { name: "RouteButton" })), true, ["control.RouteButton"])));
-var Z = x(l(d((e2) => import_react12.default.createElement(U, r4({}, e2, { name: "RouteEditor" })), true, ["control.RouteEditor"])));
-var z = x(l(d((e2) => import_react12.default.createElement(U, r4({}, e2, { name: "RoutePanel" })), true, ["control.RoutePanel"])));
-var G = x(l(d((e2) => import_react12.default.createElement(U, r4({}, e2, { name: "RulerControl" })), true, ["control.RulerControl"])));
-var I = x(l(d((e2) => import_react12.default.createElement(U, r4({}, e2, { name: "SearchControl" })), true, ["control.SearchControl"])));
-var W = x(l(d((e2) => import_react12.default.createElement(U, r4({}, e2, { name: "TrafficControl" })), true, ["control.TrafficControl"])));
-var F = x(l(d((e2) => import_react12.default.createElement(U, r4({}, e2, { name: "TypeSelector" })), true, ["control.TypeSelector"])));
-var q = x(l(d((e2) => import_react12.default.createElement(U, r4({}, e2, { name: "ZoomControl" })), true, ["control.ZoomControl"])));
+var D = x(l(d((e2) => import_react16.default.createElement(U, r4({}, e2, { name: "Button" })), true, ["control.Button"])));
+var B = x(l(d((e2) => import_react16.default.createElement(U, r4({}, e2, { name: "FullscreenControl" })), true, ["control.FullscreenControl"])));
+var A = x(l(d((e2) => import_react16.default.createElement(U, r4({}, e2, { name: "GeolocationControl" })), true, ["control.GeolocationControl"])));
+var L = x(l(d((e2) => import_react16.default.createElement(U, r4({}, e2, { name: "ListBox" })), true, ["control.ListBox"])));
+var $ = x(l(d((e2) => import_react16.default.createElement(U, r4({}, e2, { name: "ListBoxItem" })), true, ["control.ListBoxItem"])));
+var N = x(l(d((e2) => import_react16.default.createElement(U, r4({}, e2, { name: "RouteButton" })), true, ["control.RouteButton"])));
+var Z = x(l(d((e2) => import_react16.default.createElement(U, r4({}, e2, { name: "RouteEditor" })), true, ["control.RouteEditor"])));
+var z = x(l(d((e2) => import_react16.default.createElement(U, r4({}, e2, { name: "RoutePanel" })), true, ["control.RoutePanel"])));
+var G = x(l(d((e2) => import_react16.default.createElement(U, r4({}, e2, { name: "RulerControl" })), true, ["control.RulerControl"])));
+var I = x(l(d((e2) => import_react16.default.createElement(U, r4({}, e2, { name: "SearchControl" })), true, ["control.SearchControl"])));
+var W = x(l(d((e2) => import_react16.default.createElement(U, r4({}, e2, { name: "TrafficControl" })), true, ["control.TrafficControl"])));
+var F = x(l(d((e2) => import_react16.default.createElement(U, r4({}, e2, { name: "TypeSelector" })), true, ["control.TypeSelector"])));
+var q = x(l(d((e2) => import_react16.default.createElement(U, r4({}, e2, { name: "ZoomControl" })), true, ["control.ZoomControl"])));
 
-class Y extends import_react12.default.Component {
+class Y extends import_react16.default.Component {
   constructor() {
     super(), this.state = { instance: null }, this.instance = null;
   }
@@ -38473,7 +38647,7 @@ class Y extends import_react12.default.Component {
     Y.unmountObject(this.instance, this.props);
   }
   render() {
-    return import_react12.default.createElement(c.Provider, { value: this.state.instance }, this.props.children);
+    return import_react16.default.createElement(c.Provider, { value: this.state.instance }, this.props.children);
   }
   static mountObject(t2, e2) {
     const { instanceRef: n2, parent: o2, _events: s2 } = v(e2), r5 = new t2(_2(e2, "options"));
@@ -38501,7 +38675,7 @@ class Y extends import_react12.default.Component {
 }
 var V = x(l(d(Y, true, ["Clusterer"])));
 
-class H extends import_react12.default.Component {
+class H extends import_react16.default.Component {
   constructor() {
     super(), this.state = { instance: null };
   }
@@ -38560,7 +38734,7 @@ class H extends import_react12.default.Component {
 }
 var J = x(l(d(H, true, ["ObjectManager"])));
 
-class K extends import_react12.default.Component {
+class K extends import_react16.default.Component {
   constructor() {
     super(), this.state = { instance: null }, this.instance = null;
   }
@@ -38615,23 +38789,21 @@ var Q = { modifyConstructor(t2) {
   }
   return e2.prototype = t2.prototype, e2;
 } };
-var X = x(l(d((e2) => import_react12.default.createElement(K, r4({}, e2, { name: "GeoObject", dangerZone: Q })), true, ["GeoObject"])));
-var tt = x(l(d((e2) => import_react12.default.createElement(K, r4({}, e2, { name: "Circle" })), true, ["Circle"])));
-var et = x(l(d((e2) => import_react12.default.createElement(K, r4({}, e2, { name: "Placemark" })), true, ["Placemark"])));
-var nt = x(l(d((e2) => import_react12.default.createElement(K, r4({}, e2, { name: "Polygon" })), true, ["Polygon"])));
-var ot = x(l(d((e2) => import_react12.default.createElement(K, r4({}, e2, { name: "Polyline" })), true, ["Polyline"])));
-var st = x(l(d((e2) => import_react12.default.createElement(K, r4({}, e2, { name: "Rectangle" })), true, ["Rectangle"])));
+var X = x(l(d((e2) => import_react16.default.createElement(K, r4({}, e2, { name: "GeoObject", dangerZone: Q })), true, ["GeoObject"])));
+var tt = x(l(d((e2) => import_react16.default.createElement(K, r4({}, e2, { name: "Circle" })), true, ["Circle"])));
+var et = x(l(d((e2) => import_react16.default.createElement(K, r4({}, e2, { name: "Placemark" })), true, ["Placemark"])));
+var nt = x(l(d((e2) => import_react16.default.createElement(K, r4({}, e2, { name: "Polygon" })), true, ["Polygon"])));
+var ot = x(l(d((e2) => import_react16.default.createElement(K, r4({}, e2, { name: "Polyline" })), true, ["Polyline"])));
+var st = x(l(d((e2) => import_react16.default.createElement(K, r4({}, e2, { name: "Rectangle" })), true, ["Rectangle"])));
 
 // src/components/delivery/CustomYandexMap.jsx
-var jsx_dev_runtime7 = __toESM(require_jsx_dev_runtime(), 1);
+var jsx_dev_runtime10 = __toESM(require_jsx_dev_runtime(), 1);
 function CustomYandexMap({ selected }) {
-  const [ymaps, setYmaps] = import_react13.useState();
-  const [coords, setCoords] = import_react13.useState([0, 0]);
-  return jsx_dev_runtime7.jsxDEV(y, {
-    onApiAvaliable: (ymaps2) => {
-      setYmaps(ymaps2);
+  return jsx_dev_runtime10.jsxDEV(y, {
+    onApiAvaliable: (ymaps) => {
+      setYmaps(ymaps);
     },
-    children: jsx_dev_runtime7.jsxDEV(k, {
+    children: jsx_dev_runtime10.jsxDEV(k, {
       height: "100%",
       modules: [
         "geocode",
@@ -38644,7 +38816,7 @@ function CustomYandexMap({ selected }) {
         controls: ["zoomControl", "fullscreenControl"]
       },
       width: "100%",
-      children: jsx_dev_runtime7.jsxDEV(et, {
+      children: jsx_dev_runtime10.jsxDEV(et, {
         geometry: selected.coord,
         modules: ["geoObject.addon.balloon"],
         properties: {
@@ -38656,10 +38828,10 @@ function CustomYandexMap({ selected }) {
 }
 
 // src/components/common/CustomTelephoneLink.jsx
-var import_react15 = __toESM(require_react(), 1);
+var import_react19 = __toESM(require_react(), 1);
 
 // src/components/common/hooks/useCheckCurrentTheme.js
-var import_react14 = __toESM(require_react(), 1);
+var import_react18 = __toESM(require_react(), 1);
 
 // node_modules/@material-ui/core/esm/colors/common.js
 var common3 = {
@@ -39891,12 +40063,12 @@ var themes_default = themes;
 
 // src/components/common/hooks/useCheckCurrentTheme.js
 var useCheckCurrentTheme_default = useCheckMobileScreen = () => {
-  const [currentTheme, setCurrentTheme] = import_react14.useState(themes_default.darkTheme);
-  const [darkMode, setDarkMode] = import_react14.useState(true);
+  const [currentTheme, setCurrentTheme] = import_react18.useState(themes_default.darkTheme);
+  const [darkMode, setDarkMode] = import_react18.useState(true);
   const handleThemeSwitch = () => {
     setDarkMode((was) => !was);
   };
-  import_react14.useEffect(() => {
+  import_react18.useEffect(() => {
     if (darkMode) {
       setCurrentTheme(themes_default.darkTheme);
     } else {
@@ -39907,13 +40079,13 @@ var useCheckCurrentTheme_default = useCheckMobileScreen = () => {
 };
 
 // src/components/common/CustomTelephoneLink.jsx
-var jsx_dev_runtime8 = __toESM(require_jsx_dev_runtime(), 1);
+var jsx_dev_runtime11 = __toESM(require_jsx_dev_runtime(), 1);
 var number = "+7 (495) 391-41-96";
 function CustomTelephoneLink({ sx }) {
   const currentTheme = useCheckCurrentTheme_default();
-  return jsx_dev_runtime8.jsxDEV(ThemeProvider5, {
+  return jsx_dev_runtime11.jsxDEV(ThemeProvider5, {
     theme: currentTheme,
-    children: jsx_dev_runtime8.jsxDEV(Typography_default, {
+    children: jsx_dev_runtime11.jsxDEV(Typography_default, {
       color: "secondary.main",
       component: "a",
       href: "tel:9851460477",
@@ -39923,7 +40095,7 @@ function CustomTelephoneLink({ sx }) {
 }
 
 // src/components/delivery/DeliveryPage.jsx
-var jsx_dev_runtime9 = __toESM(require_jsx_dev_runtime(), 1);
+var jsx_dev_runtime12 = __toESM(require_jsx_dev_runtime(), 1);
 var adresses = [
   {
     title: "595695, \u041E\u043C\u0441\u043A\u0430\u044F \u043E\u0431\u043B\u0430\u0441\u0442\u044C, \u0433\u043E\u0440\u043E\u0434 \u041A\u0430\u0448\u0438\u0440\u0430, \u043F\u0440\u043E\u0435\u0437\u0434 \u0427\u0435\u0445\u043E\u0432\u0430, 52",
@@ -39951,24 +40123,24 @@ var adresses = [
   }
 ];
 function DeliveryPage() {
-  const [selected, setSelected] = import_react16.useState(adresses[0]);
-  return jsx_dev_runtime9.jsxDEV(Grid_default, {
+  const [selected, setSelected] = import_react20.useState(adresses[0]);
+  return jsx_dev_runtime12.jsxDEV(Grid_default, {
     container: true,
     justifyItems: "center",
     marginBlockEnd: "100px",
     padding: 4,
     rowGap: "30px",
     children: [
-      jsx_dev_runtime9.jsxDEV(Grid_default, {
+      jsx_dev_runtime12.jsxDEV(Grid_default, {
         item: true,
         md: 12,
         xs: 12,
-        children: jsx_dev_runtime9.jsxDEV(Typography_default, {
+        children: jsx_dev_runtime12.jsxDEV(Typography_default, {
           fontSize: "1.5rem",
           children: "\u0421\u0430\u043C\u043E\u0432\u044B\u0432\u043E\u0437"
         }, undefined, false, undefined, this)
       }, undefined, false, undefined, this),
-      jsx_dev_runtime9.jsxDEV(Grid_default, {
+      jsx_dev_runtime12.jsxDEV(Grid_default, {
         item: true,
         md: 6,
         sx: {
@@ -39976,15 +40148,15 @@ function DeliveryPage() {
           height: "360px"
         },
         xs: 12,
-        children: jsx_dev_runtime9.jsxDEV(CustomYandexMap, {
+        children: jsx_dev_runtime12.jsxDEV(CustomYandexMap, {
           selected
         }, undefined, false, undefined, this)
       }, undefined, false, undefined, this),
-      jsx_dev_runtime9.jsxDEV(Grid_default, {
+      jsx_dev_runtime12.jsxDEV(Grid_default, {
         item: true,
         md: 6,
         xs: 12,
-        children: jsx_dev_runtime9.jsxDEV(List_default, {
+        children: jsx_dev_runtime12.jsxDEV(List_default, {
           sx: {
             border: 1,
             borderColor: "#ffffff",
@@ -39994,7 +40166,7 @@ function DeliveryPage() {
             maxHeight: 360,
             "& ul": { padding: 0 }
           },
-          children: adresses.map((adress, index) => jsx_dev_runtime9.jsxDEV(ListItemButton_default, {
+          children: adresses.map((adress, index) => jsx_dev_runtime12.jsxDEV(ListItemButton_default, {
             onClick: () => setSelected(adresses[index]),
             sx: {
               bgcolor: selected == adress ? alpha("#ffffff", 0.15) : "#000000",
@@ -40002,79 +40174,79 @@ function DeliveryPage() {
                 bgcolor: alpha("#ffffff", 0.15)
               }
             },
-            children: jsx_dev_runtime9.jsxDEV(Typography_default, {
+            children: jsx_dev_runtime12.jsxDEV(Typography_default, {
               children: adress.title
             }, undefined, false, undefined, this)
           }, index, false, undefined, this))
         }, undefined, false, undefined, this)
       }, undefined, false, undefined, this),
-      jsx_dev_runtime9.jsxDEV(Grid_default, {
+      jsx_dev_runtime12.jsxDEV(Grid_default, {
         item: true,
         md: 12,
         xs: 12,
-        children: jsx_dev_runtime9.jsxDEV(Typography_default, {
+        children: jsx_dev_runtime12.jsxDEV(Typography_default, {
           fontSize: "1.5rem",
           children: "\u0414\u043E\u0441\u0442\u0430\u0432\u043A\u0430 \u0434\u043E \u0434\u0432\u0435\u0440\u0438"
         }, undefined, false, undefined, this)
       }, undefined, false, undefined, this),
-      jsx_dev_runtime9.jsxDEV(Grid_default, {
+      jsx_dev_runtime12.jsxDEV(Grid_default, {
         alignItems: "center",
         component: Stack_default,
         item: true,
         md: 4,
         xs: 12,
-        children: jsx_dev_runtime9.jsxDEV(Typography_default, {
+        children: jsx_dev_runtime12.jsxDEV(Typography_default, {
           children: "\u041E\u0441\u0443\u0449\u0435\u0441\u0442\u0432\u043B\u044F\u0435\u0442\u0441\u044F \u042F\u043D\u0434\u0435\u043A\u0441 \u043A\u0443\u0440\u044C\u0435\u0440\u043E\u043C \u043F\u043E \u0432\u0441\u0435\u0439 \u041C\u043E\u0441\u043A\u0432\u0435"
         }, undefined, false, undefined, this)
       }, undefined, false, undefined, this),
-      jsx_dev_runtime9.jsxDEV(Grid_default, {
+      jsx_dev_runtime12.jsxDEV(Grid_default, {
         item: true,
         md: 12,
         xs: 12,
-        children: jsx_dev_runtime9.jsxDEV(Typography_default, {
+        children: jsx_dev_runtime12.jsxDEV(Typography_default, {
           fontSize: "1.5rem",
           children: "\u0421\u0432\u044F\u0436\u0438\u0442\u0435\u0441\u044C \u0441 \u043D\u0430\u043C\u0438"
         }, undefined, false, undefined, this)
       }, undefined, false, undefined, this),
-      jsx_dev_runtime9.jsxDEV(Grid_default, {
+      jsx_dev_runtime12.jsxDEV(Grid_default, {
         item: true,
         md: 12,
         xs: 12,
-        children: jsx_dev_runtime9.jsxDEV(Stack_default, {
+        children: jsx_dev_runtime12.jsxDEV(Stack_default, {
           direction: { xs: "column", md: "row" },
           fontSize: "1rem",
           spacing: 4,
           children: [
-            jsx_dev_runtime9.jsxDEV(Stack_default, {
+            jsx_dev_runtime12.jsxDEV(Stack_default, {
               alignItems: "center",
               direction: "row",
               children: [
-                jsx_dev_runtime9.jsxDEV(Phone_default, {
+                jsx_dev_runtime12.jsxDEV(Phone_default, {
                   sx: { marginRight: 2 }
                 }, undefined, false, undefined, this),
-                jsx_dev_runtime9.jsxDEV(CustomTelephoneLink, {}, undefined, false, undefined, this)
+                jsx_dev_runtime12.jsxDEV(CustomTelephoneLink, {}, undefined, false, undefined, this)
               ]
             }, undefined, true, undefined, this),
-            jsx_dev_runtime9.jsxDEV(Stack_default, {
+            jsx_dev_runtime12.jsxDEV(Stack_default, {
               alignItems: "center",
               direction: "row",
               children: [
-                jsx_dev_runtime9.jsxDEV(AccessTime_default, {
+                jsx_dev_runtime12.jsxDEV(AccessTime_default, {
                   sx: { marginRight: 2 }
                 }, undefined, false, undefined, this),
-                jsx_dev_runtime9.jsxDEV(Typography_default, {
+                jsx_dev_runtime12.jsxDEV(Typography_default, {
                   children: "\u0415\u0436\u0435\u0434\u043D\u0435\u0432\u043D\u043E \u0441 10:00 \u0434\u043E 20:00"
                 }, undefined, false, undefined, this)
               ]
             }, undefined, true, undefined, this),
-            jsx_dev_runtime9.jsxDEV(Stack_default, {
+            jsx_dev_runtime12.jsxDEV(Stack_default, {
               alignItems: "center",
               direction: "row",
               children: [
-                jsx_dev_runtime9.jsxDEV(Email_default, {
+                jsx_dev_runtime12.jsxDEV(Email_default, {
                   sx: { marginRight: 2 }
                 }, undefined, false, undefined, this),
-                jsx_dev_runtime9.jsxDEV(Typography_default, {
+                jsx_dev_runtime12.jsxDEV(Typography_default, {
                   children: "kraskovskiydm@gmail.com"
                 }, undefined, false, undefined, this)
               ]
@@ -40087,8 +40259,8 @@ function DeliveryPage() {
 }
 
 // src/components/about/AboutUsPage.jsx
-var import_react17 = __toESM(require_react(), 1);
-var jsx_dev_runtime10 = __toESM(require_jsx_dev_runtime(), 1);
+var import_react21 = __toESM(require_react(), 1);
+var jsx_dev_runtime13 = __toESM(require_jsx_dev_runtime(), 1);
 var Item = styled_default2(Paper_default)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
   ...theme.typography.body2,
@@ -40098,103 +40270,103 @@ var Item = styled_default2(Paper_default)(({ theme }) => ({
   alignItems: "center"
 }));
 function AboutUsPage() {
-  return jsx_dev_runtime10.jsxDEV(Box_default, {
+  return jsx_dev_runtime13.jsxDEV(Box_default, {
     padding: 4,
     sx: { flexGrow: 1, marginBottom: "100px" },
-    children: jsx_dev_runtime10.jsxDEV(Grid_default, {
+    children: jsx_dev_runtime13.jsxDEV(Grid_default, {
       container: true,
       spacing: 2,
       children: [
-        jsx_dev_runtime10.jsxDEV(Grid_default, {
+        jsx_dev_runtime13.jsxDEV(Grid_default, {
           item: true,
           md: 6,
           xs: 12,
-          children: jsx_dev_runtime10.jsxDEV(Typography_default, {
+          children: jsx_dev_runtime13.jsxDEV(Typography_default, {
             fontSize: "1.5rem",
             children: "\u041A\u0442\u043E \u043C\u044B?"
           }, undefined, false, undefined, this)
         }, undefined, false, undefined, this),
-        jsx_dev_runtime10.jsxDEV(Grid_default, {
+        jsx_dev_runtime13.jsxDEV(Grid_default, {
           item: true,
           md: 12,
           xs: 12,
           children: [
-            jsx_dev_runtime10.jsxDEV(Typography_default, {
+            jsx_dev_runtime13.jsxDEV(Typography_default, {
               paragraph: true,
               children: "\u041C\u044B \u0434\u0438\u043D\u0430\u043C\u0438\u0447\u043D\u0430\u044F \u043A\u043E\u043C\u043F\u0430\u043D\u0438\u044F, \u043F\u0440\u0435\u0434\u043B\u0430\u0433\u0430\u044E\u0449\u0430\u044F \u0431\u043E\u043B\u0435\u0435 10 \u043F\u0440\u043E\u0444\u0435\u0441\u0441\u0438\u043E\u043D\u0430\u043B\u044C\u043D\u044B\u0445 \u0441\u0431\u043E\u0440\u043E\u043A \u043A\u043E\u043C\u043F\u044C\u044E\u0442\u0435\u0440\u043E\u0432 \u0434\u043B\u044F \u043B\u044E\u0431\u044B\u0445 \u0437\u0430\u0434\u0430\u0447. \u041D\u0430\u0448\u0430 \u043A\u043E\u043C\u0430\u043D\u0434\u0430 \u0441\u043E\u0441\u0442\u043E\u0438\u0442 \u0438\u0437 \u043E\u043F\u044B\u0442\u043D\u044B\u0445 \u0441\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442\u043E\u0432, \u0433\u0430\u0440\u0430\u043D\u0442\u0438\u0440\u0443\u044E\u0449\u0438\u0445 \u043A\u0430\u0447\u0435\u0441\u0442\u0432\u0435\u043D\u043D\u0443\u044E \u0441\u0431\u043E\u0440\u043A\u0443 \u0432 \u043A\u0440\u0430\u0442\u0447\u0430\u0439\u0448\u0438\u0435 \u0441\u0440\u043E\u043A\u0438."
             }, undefined, false, undefined, this),
-            jsx_dev_runtime10.jsxDEV(Typography_default, {
+            jsx_dev_runtime13.jsxDEV(Typography_default, {
               paragraph: true,
               children: "\u041C\u044B \u043F\u043E\u043D\u0438\u043C\u0430\u0435\u043C, \u0447\u0442\u043E \u0432\u0430\u0448\u0435 \u0432\u0440\u0435\u043C\u044F \u0446\u0435\u043D\u043D\u043E, \u043F\u043E\u044D\u0442\u043E\u043C\u0443 \u043C\u044B \u0441\u0442\u0440\u0435\u043C\u0438\u043C\u0441\u044F \u043E\u0431\u0435\u0441\u043F\u0435\u0447\u0438\u0442\u044C \u043F\u0440\u044F\u043C\u0443\u044E \u0441\u0432\u044F\u0437\u044C \u0441 \u043D\u0430\u0448\u0435\u0439 \u043A\u043E\u043C\u043F\u0430\u043D\u0438\u0435\u0439. \u0423 \u043D\u0430\u0441 \u043D\u0435\u0442 \u043F\u043E\u0441\u0440\u0435\u0434\u043D\u0438\u043A\u043E\u0432, \u0442\u043E\u043B\u044C\u043A\u043E \u043D\u0435\u043F\u043E\u0441\u0440\u0435\u0434\u0441\u0442\u0432\u0435\u043D\u043D\u043E\u0435 \u043E\u0431\u0449\u0435\u043D\u0438\u0435 \u0441 \u043D\u0430\u0448\u0435\u0439 \u0434\u0440\u0443\u0436\u0435\u043B\u044E\u0431\u043D\u043E\u0439 \u043A\u043E\u043C\u0430\u043D\u0434\u043E\u0439, \u0433\u043E\u0442\u043E\u0432\u043E\u0439 \u043F\u043E\u043C\u043E\u0447\u044C \u0438 \u043E\u0442\u0432\u0435\u0442\u0438\u0442\u044C \u043D\u0430 \u0432\u0441\u0435 \u0432\u0430\u0448\u0438 \u0432\u043E\u043F\u0440\u043E\u0441\u044B."
             }, undefined, false, undefined, this),
-            jsx_dev_runtime10.jsxDEV(Typography_default, {
+            jsx_dev_runtime13.jsxDEV(Typography_default, {
               paragraph: true,
               children: "\u0415\u0441\u043B\u0438 \u0432\u0430\u043C \u043D\u0443\u0436\u043D\u0430 \u043D\u0430\u0434\u0435\u0436\u043D\u0430\u044F \u0441\u0431\u043E\u0440\u043A\u0430 \u043A\u043E\u043C\u043F\u044C\u044E\u0442\u0435\u0440\u0430, \u0442\u043E GVG Tech Solutions - \u0432\u0430\u0448 \u0438\u0434\u0435\u0430\u043B\u044C\u043D\u044B\u0439 \u0432\u044B\u0431\u043E\u0440! \u041E\u0441\u0442\u0430\u0432\u044C\u0442\u0435 \u0441\u0432\u043E\u0438 \u0437\u0430\u044F\u0432\u043A\u0438 \u0441\u0435\u0439\u0447\u0430\u0441, \u0438 \u043D\u0430\u0448\u0430 \u043A\u043E\u043C\u0430\u043D\u0434\u0430 \u043F\u0440\u0438\u0441\u0442\u0443\u043F\u0438\u0442 \u043A \u0440\u0430\u0431\u043E\u0442\u0435 \u043D\u0430\u0434 \u0432\u0430\u0448\u0438\u043C \u0438\u0434\u0435\u0430\u043B\u044C\u043D\u044B\u043C \u043A\u043E\u043C\u043F\u044C\u044E\u0442\u0435\u0440\u043E\u043C. \uD83D\uDCAA"
             }, undefined, false, undefined, this)
           ]
         }, undefined, true, undefined, this),
-        jsx_dev_runtime10.jsxDEV(Grid_default, {
+        jsx_dev_runtime13.jsxDEV(Grid_default, {
           item: true,
           md: 12,
           xs: 12,
-          children: jsx_dev_runtime10.jsxDEV(Typography_default, {
+          children: jsx_dev_runtime13.jsxDEV(Typography_default, {
             fontSize: "1.5rem",
             children: "\u041A\u043E\u043D\u0442\u0430\u043A\u0442\u044B"
           }, undefined, false, undefined, this)
         }, undefined, false, undefined, this),
-        jsx_dev_runtime10.jsxDEV(Grid_default, {
+        jsx_dev_runtime13.jsxDEV(Grid_default, {
           alignItems: "center",
           component: Stack_default,
           item: true,
           md: 4,
           xs: 12,
           children: [
-            jsx_dev_runtime10.jsxDEV(Phone_default, {
+            jsx_dev_runtime13.jsxDEV(Phone_default, {
               sx: { marginRight: 2 }
             }, undefined, false, undefined, this),
-            jsx_dev_runtime10.jsxDEV(CustomTelephoneLink, {}, undefined, false, undefined, this)
+            jsx_dev_runtime13.jsxDEV(CustomTelephoneLink, {}, undefined, false, undefined, this)
           ]
         }, undefined, true, undefined, this),
-        jsx_dev_runtime10.jsxDEV(Grid_default, {
+        jsx_dev_runtime13.jsxDEV(Grid_default, {
           alignItems: "center",
           component: Stack_default,
           item: true,
           md: 4,
           xs: 12,
           children: [
-            jsx_dev_runtime10.jsxDEV(AccessTime_default, {
+            jsx_dev_runtime13.jsxDEV(AccessTime_default, {
               sx: { marginRight: 2 }
             }, undefined, false, undefined, this),
-            jsx_dev_runtime10.jsxDEV(Box_default, {
+            jsx_dev_runtime13.jsxDEV(Box_default, {
               children: "\u0415\u0436\u0435\u0434\u043D\u0435\u0432\u043D\u043E \u0441 10:00 \u0434\u043E 20:00"
             }, undefined, false, undefined, this)
           ]
         }, undefined, true, undefined, this),
-        jsx_dev_runtime10.jsxDEV(Grid_default, {
+        jsx_dev_runtime13.jsxDEV(Grid_default, {
           alignItems: "center",
           component: Stack_default,
           item: true,
           md: 4,
           xs: 12,
           children: [
-            jsx_dev_runtime10.jsxDEV(Email_default, {
+            jsx_dev_runtime13.jsxDEV(Email_default, {
               sx: { marginRight: 2 }
             }, undefined, false, undefined, this),
-            jsx_dev_runtime10.jsxDEV(Box_default, {
+            jsx_dev_runtime13.jsxDEV(Box_default, {
               children: "kraskovskiydm@gmail.com"
             }, undefined, false, undefined, this)
           ]
         }, undefined, true, undefined, this),
-        jsx_dev_runtime10.jsxDEV(Grid_default, {
+        jsx_dev_runtime13.jsxDEV(Grid_default, {
           item: true,
           marginBottom: 12,
           md: 12,
           xs: 12,
           children: [
-            jsx_dev_runtime10.jsxDEV(Telegram_default, {
+            jsx_dev_runtime13.jsxDEV(Telegram_default, {
               sx: { marginRight: 2 }
             }, undefined, false, undefined, this),
-            jsx_dev_runtime10.jsxDEV(Instagram_default, {
+            jsx_dev_runtime13.jsxDEV(Instagram_default, {
               sx: { marginRight: 2 }
             }, undefined, false, undefined, this)
           ]
@@ -40204,48 +40376,12 @@ function AboutUsPage() {
   }, undefined, false, undefined, this);
 }
 
-// src/components/offers/BuildsPage.jsx
-var import_react18 = __toESM(require_react(), 1);
-var jsx_dev_runtime11 = __toESM(require_jsx_dev_runtime(), 1);
-var gradientAnimation = keyframes({
-  "0%": {
-    backgroundPosition: "100% 0%"
-  },
-  "100%": {
-    backgroundPosition: "-100% 0%"
-  }
-});
-var CustomCard = newStyled("div")({
-  "--card-height": "65vh",
-  "--card-width": "calc(var(--card-height) / 1.5)",
-  width: "var(--card-width)",
-  height: "var(--card-height)",
-  borderRadius: "8px",
-  background: "linear-gradient(to right, blue, purple, blue)",
-  backgroundSize: "200% 100%",
-  animation: `${gradientAnimation} 5s linear infinite`,
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-  margin: 4
-});
-var CardContent5 = newStyled("div")({
-  "--card-height": "calc(65vh - 10px)",
-  "--card-width": "calc(var(--card-height) / 1.5 - 10px)",
-  width: "var(--card-width)",
-  height: "var(--card-height)",
-  borderRadius: "8px",
-  backgroundSize: "200% 100%",
-  backgroundColor: "#191c29",
-  display: "flex",
-  alignItems: "space-between",
-  flexDirection: "column",
-  cursor: "pointer",
-  fontFamily: "cursive"
-});
+// src/components/offers/BuildsPage/BuildsPage.jsx
+var import_react22 = __toESM(require_react(), 1);
+var jsx_dev_runtime14 = __toESM(require_jsx_dev_runtime(), 1);
 function BuildsPage() {
-  const [builds, setBuilds] = import_react18.useState([]);
-  import_react18.useEffect(() => {
+  const [builds, setBuilds] = import_react22.useState([]);
+  import_react22.useEffect(() => {
     fetch("/api/get-builds").then((response) => response.json()).then((data) => {
       setBuilds(data);
       data.forEach((element) => {
@@ -40253,80 +40389,238 @@ function BuildsPage() {
       });
     });
   }, []);
-  return jsx_dev_runtime11.jsxDEV(Box_default, {
-    padding: 4,
-    sx: {
-      display: "flex",
-      flexWrap: "wrap",
-      flexDirection: "row",
-      justifyContent: "space-around"
-    },
-    children: builds.map((build, index) => jsx_dev_runtime11.jsxDEV(CustomCard, {
-      children: jsx_dev_runtime11.jsxDEV(CardContent5, {
-        children: [
-          jsx_dev_runtime11.jsxDEV(Typography_default, {
-            fontSize: "2em",
-            sx: {
-              justifyContent: "center",
-              alignItems: "center",
-              textAlign: "center",
-              display: "flex",
-              color: `rgb(88, 199, 250)`,
-              padding: 4,
-              height: "10%"
-            },
-            children: build.title
-          }, undefined, false, undefined, this),
-          jsx_dev_runtime11.jsxDEV(Box_default, {
-            sx: { width: "100%", height: "30%", backgroundColor: "blue" },
-            children: "Images"
-          }, undefined, false, undefined, this),
-          jsx_dev_runtime11.jsxDEV(Box_default, {
-            sx: { height: "50%" },
-            children: "Description"
-          }, undefined, false, undefined, this),
-          jsx_dev_runtime11.jsxDEV(Button_default, {
-            color: "success",
-            sx: {
-              margin: "10px 70px"
-            },
-            variant: "contained",
-            children: "\u0412 \u043A\u043E\u0440\u0437\u0438\u043D\u0443"
-          }, undefined, false, undefined, this)
-        ]
-      }, undefined, true, undefined, this)
-    }, index, false, undefined, this))
+  return jsx_dev_runtime14.jsxDEV(Box_default, {
+    children: jsx_dev_runtime14.jsxDEV(Box_default, {
+      padding: 4,
+      sx: {
+        display: "flex",
+        flexWrap: "wrap",
+        flexDirection: "row",
+        justifyContent: "space-around"
+      },
+      children: builds.map((build, index) => jsx_dev_runtime14.jsxDEV(BuildCard, {
+        build
+      }, index, false, undefined, this))
+    }, undefined, false, undefined, this)
   }, undefined, false, undefined, this);
 }
 
-// src/components/offers/ComponentsPage.jsx
-var import_react19 = __toESM(require_react(), 1);
-var jsx_dev_runtime12 = __toESM(require_jsx_dev_runtime(), 1);
-var ComponentsPage_default = ComponentsPage = function(props) {
-  return jsx_dev_runtime12.jsxDEV(Box_default, {
+// src/components/offers/ComponentsPage/ComponentsPage.jsx
+var import_react23 = __toESM(require_react(), 1);
+var jsx_dev_runtime15 = __toESM(require_jsx_dev_runtime(), 1);
+function ComponentsPage() {
+  return jsx_dev_runtime15.jsxDEV(Box_default, {
     padding: 4,
     children: "COMPONENTS"
   }, undefined, false, undefined, this);
-};
+}
 
-// src/components/offers/ConstructorPage.jsx
-var import_react20 = __toESM(require_react(), 1);
-var jsx_dev_runtime13 = __toESM(require_jsx_dev_runtime(), 1);
-var ConstructorPage_default = ConstructorPage = function(props) {
-  return jsx_dev_runtime13.jsxDEV(Box_default, {
-    padding: 4,
-    children: "CONSTRUCTORS"
+// src/components/offers/ConstructorPage/ConstructorPage.jsx
+var import_react25 = __toESM(require_react(), 1);
+
+// src/components/home/ChooseSection/ChooseSection.jsx
+var import_react24 = __toESM(require_react(), 1);
+var jsx_dev_runtime16 = __toESM(require_jsx_dev_runtime(), 1);
+var games = [
+  {
+    img: "/static/games/dota2.jpg",
+    title: "Dota 2",
+    author: "swabdesign"
+  },
+  {
+    img: "/static/games/worldoftanks.jpg",
+    title: "World of tanks",
+    author: "Pavel Nekoranec"
+  },
+  {
+    img: "/static/games/warface.jpg",
+    title: "Warface",
+    author: "Jen P."
+  },
+  {
+    img: "/static/games/fortnite.png",
+    title: "Fortnite",
+    author: "Taylor Simpson"
+  },
+  {
+    img: "/static/games/escapefromtarkov.jpg",
+    title: "Escape From Tarkov",
+    author: "Hutomo Abrianto"
+  },
+  {
+    img: "/static/games/pubg.jpg",
+    title: "PUBG",
+    author: "Christian Mackie"
+  },
+  {
+    img: "/static/games/rust.jpg",
+    title: "Rust",
+    author: "Ben Kolde"
+  },
+  {
+    img: "/static/games/cyberpank.jpg",
+    title: "Cyberpunk 2077",
+    author: "Philipp Berndt"
+  },
+  {
+    img: "/static/games/csgo.jpg",
+    title: "CS:GO",
+    author: "Charles Deluvio"
+  },
+  {
+    img: "/static/games/apexlegend.webp",
+    title: "Apex Legend",
+    author: "Fi Bell"
+  },
+  {
+    img: "/static/games/overwatch2.jpeg",
+    title: "Overwatch",
+    author: "Douglas Sheppard"
+  },
+  {
+    img: "/static/games/minecraft.webp",
+    title: "Minecraft",
+    author: "Darren Richardson"
+  }
+];
+function ChooseSection() {
+  const navigate = useNavigate();
+  const [selectedGames, setSelectedGames] = import_react24.useState([]);
+  const handleSelectGame = (index) => {
+    if (selectedGames.includes(index)) {
+      setSelectedGames(selectedGames.filter((gameIndex) => gameIndex !== index));
+    } else {
+      setSelectedGames([...selectedGames, index]);
+    }
+  };
+  return jsx_dev_runtime16.jsxDEV(Grid_default, {
+    columnGap: 10,
+    component: "div",
+    container: true,
+    sx: {
+      backgroundColor: "#0d0d0d",
+      justifyContent: "center"
+    },
+    children: jsx_dev_runtime16.jsxDEV(Grid_default, {
+      item: true,
+      md: 12,
+      sx: {
+        padding: "10px 0"
+      },
+      xs: 12,
+      children: [
+        jsx_dev_runtime16.jsxDEV(Typography_default, {
+          textAlign: "center",
+          variant: "h4",
+          children: "\u0412\u044B\u0431\u0435\u0440\u0438\u0442\u0435 \u0438\u0433\u0440\u044B"
+        }, undefined, false, undefined, this),
+        jsx_dev_runtime16.jsxDEV(Box_default, {
+          component: "div",
+          id: "gradient",
+          style: {
+            backgroundColor: "#2234ae",
+            backgroundImage: "linear-gradient(315deg, #191714 0%, #2234ae 74%)",
+            boxShadow: "inset 0px 10px 4em -4px #0d0d0d, inset 0px -10px 4em -4px #0d0d0d"
+          },
+          sx: {
+            border: 2,
+            borderColor: "#000000",
+            backgroundColor: "#313131"
+          },
+          children: jsx_dev_runtime16.jsxDEV(ImageList_default, {
+            cols: games.length,
+            gap: 8,
+            sx: {
+              padding: "20px"
+            },
+            variant: "standard",
+            children: games.map((game, index) => jsx_dev_runtime16.jsxDEV(ImageListItem_default, {
+              onClick: () => handleSelectGame(index),
+              sx: {
+                boxShadow: `0 0 2em ${selectedGames.includes(index) ? "red" : "black"}`,
+                width: "250px",
+                maxHeight: "444px",
+                "&:hover": {
+                  md: {
+                    color: "gray",
+                    boxShadow: selectedGames.includes(index) ? "0 0 2em orange" : "0 0 1em #ffffff"
+                  }
+                }
+              },
+              children: [
+                jsx_dev_runtime16.jsxDEV("img", {
+                  alt: game.title,
+                  loading: "lazy",
+                  src: `${game.img}`,
+                  srcSet: `${game.img}`,
+                  style: { objectFit: "cover", height: "444px" }
+                }, undefined, false, undefined, this),
+                jsx_dev_runtime16.jsxDEV(ImageListItemBar_default, {
+                  position: "bottom",
+                  title: game.title
+                }, undefined, false, undefined, this)
+              ]
+            }, game.img, true, undefined, this))
+          }, undefined, false, undefined, this)
+        }, undefined, false, undefined, this),
+        jsx_dev_runtime16.jsxDEV(Box_default, {
+          onClick: () => navigate("/offers/constructor"),
+          sx: {
+            visibility: selectedGames.length > 0 ? "visible" : "hidden",
+            margin: "10px",
+            width: "50vw",
+            backgroundColor: selectedGames.length > 0 ? "blue" : "#0d0d0d",
+            color: selectedGames.length > 0 ? "#ffffff" : "#0d0d0d",
+            borderRadius: "10px",
+            marginInline: "auto",
+            transition: "all 0.3s",
+            "&:hover": {
+              backgroundColor: "lightblue",
+              boxShadow: "0 0 2em #ffffff",
+              color: "blue",
+              cursor: "pointer"
+            }
+          },
+          children: jsx_dev_runtime16.jsxDEV(Typography_default, {
+            sx: {
+              textAlign: "center",
+              padding: "10px"
+            },
+            children: "\u041F\u043E\u0441\u043C\u043E\u0442\u0440\u0435\u0442\u044C \u043B\u0443\u0447\u0448\u0438\u0435 \u043A\u043E\u043C\u043F\u044C\u044E\u0442\u0435\u0440\u044B \u0434\u043B\u044F \u044D\u0442\u0438\u0445 \u0438\u0433\u0440"
+          }, undefined, false, undefined, this)
+        }, undefined, false, undefined, this),
+        jsx_dev_runtime16.jsxDEV(Box_default, {
+          sx: {
+            width: "100%"
+          },
+          children: jsx_dev_runtime16.jsxDEV(Typography_default, {
+            textAlign: "center",
+            variant: "h4",
+            children: "\u041C\u044B \u0430\u043D\u0430\u043B\u0438\u0437\u0438\u0440\u0443\u0435\u043C \u0442\u0440\u0435\u0431\u043E\u0432\u0430\u043D\u0438\u044F \u043A \u0438\u0433\u0440\u0430\u043C \u0438 \u043F\u043E\u0434\u0431\u0438\u0440\u0430\u0435\u043C \u0434\u043B\u044F \u0432\u0430\u0441 \u043D\u0430\u0438\u0431\u043E\u043B\u0435\u0435 \u043F\u043E\u0434\u0445\u043E\u0434\u044F\u0449\u0438\u0435 \u0441\u0431\u043E\u0440\u043A\u0438"
+          }, undefined, false, undefined, this)
+        }, undefined, false, undefined, this)
+      ]
+    }, undefined, true, undefined, this)
   }, undefined, false, undefined, this);
-};
+}
+
+// src/components/offers/ConstructorPage/ConstructorPage.jsx
+var jsx_dev_runtime17 = __toESM(require_jsx_dev_runtime(), 1);
+function ConstructorPage() {
+  return jsx_dev_runtime17.jsxDEV(Box_default, {
+    padding: 4,
+    children: jsx_dev_runtime17.jsxDEV(ChooseSection, {}, undefined, false, undefined, this)
+  }, undefined, false, undefined, this);
+}
 
 // src/components/common/hooks/useCheckMobileScreen.js
-var import_react21 = __toESM(require_react(), 1);
+var import_react26 = __toESM(require_react(), 1);
 var useCheckMobileScreen_default = useCheckMobileScreen = () => {
-  const [width2, setWidth] = import_react21.useState(window.innerWidth);
+  const [width2, setWidth] = import_react26.useState(window.innerWidth);
   const handleWindowSizeChange = () => {
     setWidth(window.innerWidth);
   };
-  import_react21.useEffect(() => {
+  import_react26.useEffect(() => {
     window.addEventListener("resize", handleWindowSizeChange);
     return () => {
       window.removeEventListener("resize", handleWindowSizeChange);
@@ -40336,14 +40630,14 @@ var useCheckMobileScreen_default = useCheckMobileScreen = () => {
 };
 
 // src/components/navbars/CustomAppBar.jsx
-var import_react29 = __toESM(require_react(), 1);
+var import_react34 = __toESM(require_react(), 1);
 
 // src/components/navbars/TopBar.jsx
-var import_react27 = __toESM(require_react(), 1);
+var import_react32 = __toESM(require_react(), 1);
 
 // src/components/common/CustomPopup.jsx
-var import_react22 = __toESM(require_react(), 1);
-var jsx_dev_runtime14 = __toESM(require_jsx_dev_runtime(), 1);
+var import_react27 = __toESM(require_react(), 1);
+var jsx_dev_runtime18 = __toESM(require_jsx_dev_runtime(), 1);
 function CustomPopupOptions({ setMouseOnPopup, actions }) {
   const isMobile = useCheckMobileScreen_default();
   const handleEnter = () => {
@@ -40357,7 +40651,7 @@ function CustomPopupOptions({ setMouseOnPopup, actions }) {
     variant: "contained",
     fullWidth: true
   };
-  return jsx_dev_runtime14.jsxDEV(Box_default, {
+  return jsx_dev_runtime18.jsxDEV(Box_default, {
     onMouseEnter: handleEnter,
     onMouseLeave: handleLeave,
     sx: {
@@ -40372,12 +40666,12 @@ function CustomPopupOptions({ setMouseOnPopup, actions }) {
       boxShadow: "0 0 8px black",
       zIndex: 1e4
     },
-    children: jsx_dev_runtime14.jsxDEV(ButtonGroup_default, {
+    children: jsx_dev_runtime18.jsxDEV(ButtonGroup_default, {
       ...buttonGroupProps,
       sx: {
         minHeight: "50px"
       },
-      children: actions.map((action, index) => jsx_dev_runtime14.jsxDEV(Button_default, {
+      children: actions.map((action, index) => jsx_dev_runtime18.jsxDEV(Button_default, {
         href: `${action.path}`,
         sx: {
           color: "secondary.main",
@@ -40387,7 +40681,7 @@ function CustomPopupOptions({ setMouseOnPopup, actions }) {
             color: "primary.main"
           }
         },
-        children: jsx_dev_runtime14.jsxDEV(Typography_default, {
+        children: jsx_dev_runtime18.jsxDEV(Typography_default, {
           sx: {
             width: "100%",
             textAlign: "center",
@@ -40402,8 +40696,8 @@ function CustomPopupOptions({ setMouseOnPopup, actions }) {
 }
 
 // src/components/navbars/LogoButton.jsx
-var import_react23 = __toESM(require_react(), 1);
-var jsx_dev_runtime15 = __toESM(require_jsx_dev_runtime(), 1);
+var import_react28 = __toESM(require_react(), 1);
+var jsx_dev_runtime19 = __toESM(require_jsx_dev_runtime(), 1);
 var theme = {
   display: "inline-block",
   maxWidth: "100%",
@@ -40417,19 +40711,19 @@ var theme = {
   }
 };
 function LogoButton() {
-  const logoText = import_react23.useMemo(() => "GVG", []);
-  const [gradientDeg, setGradientDeg] = import_react23.useState(45);
-  const handleGoHome = import_react23.useCallback(() => {
+  const logoText = import_react28.useMemo(() => "GVG", []);
+  const [gradientDeg, setGradientDeg] = import_react28.useState(45);
+  const handleGoHome = import_react28.useCallback(() => {
     navigate("/home");
   }, []);
   const navigate = useNavigate();
-  import_react23.useEffect(() => {
+  import_react28.useEffect(() => {
     const interval = setInterval(() => {
       setGradientDeg((grad) => (grad + 1) % 360);
     }, 20);
     return () => clearInterval(interval);
   }, []);
-  return jsx_dev_runtime15.jsxDEV(Box_default, {
+  return jsx_dev_runtime19.jsxDEV(Box_default, {
     onClick: handleGoHome,
     sx: {
       cursor: "pointer",
@@ -40446,7 +40740,7 @@ function LogoButton() {
       color: "transparent"
     },
     children: [
-      jsx_dev_runtime15.jsxDEV(Box_default, {
+      jsx_dev_runtime19.jsxDEV(Box_default, {
         component: "img",
         src: "/static/logos/icon.png",
         sx: {
@@ -40455,7 +40749,7 @@ function LogoButton() {
           alignSelf: "end"
         }
       }, undefined, false, undefined, this),
-      [...logoText].map((ch, index) => jsx_dev_runtime15.jsxDEV(Typography_default, {
+      [...logoText].map((ch, index) => jsx_dev_runtime19.jsxDEV(Typography_default, {
         sx: theme,
         children: ch
       }, index, false, undefined, this))
@@ -40464,25 +40758,25 @@ function LogoButton() {
 }
 
 // src/components/common/CustomCallButton.jsx
-var import_react25 = __toESM(require_react(), 1);
+var import_react30 = __toESM(require_react(), 1);
 
 // node_modules/material-ui-popup-state/es/index.mjs
 var import_prop_types50 = __toESM(require_prop_types(), 1);
 
 // node_modules/material-ui-popup-state/es/hooks.mjs
-var import_react24 = __toESM(require_react(), 1);
+var import_react29 = __toESM(require_react(), 1);
 
 // node_modules/material-ui-popup-state/es/useEvent.mjs
-var React84 = __toESM(require_react(), 1);
+var React89 = __toESM(require_react(), 1);
 function useEvent(handler) {
   if (typeof window === "undefined") {
     return handler;
   }
-  const handlerRef = React84.useRef(null);
-  React84.useLayoutEffect(() => {
+  const handlerRef = React89.useRef(null);
+  React89.useLayoutEffect(() => {
     handlerRef.current = handler;
   });
-  return React84.useCallback((...args) => {
+  return React89.useCallback((...args) => {
     var _handlerRef$current;
     (_handlerRef$current = handlerRef.current) === null || _handlerRef$current === undefined || _handlerRef$current.call(handlerRef, ...args);
   }, []);
@@ -40501,19 +40795,19 @@ function usePopupState({
   variant,
   disableAutoFocus
 }) {
-  const isMounted = import_react24.useRef(true);
-  import_react24.useEffect(() => {
+  const isMounted = import_react29.useRef(true);
+  import_react29.useEffect(() => {
     isMounted.current = true;
     return () => {
       isMounted.current = false;
     };
   }, []);
-  const [state, _setState] = import_react24.useState(initCoreState);
-  const setState = import_react24.useCallback((state2) => {
+  const [state, _setState] = import_react29.useState(initCoreState);
+  const setState = import_react29.useCallback((state2) => {
     if (isMounted.current)
       _setState(state2);
   }, []);
-  const setAnchorEl = import_react24.useCallback((anchorEl) => setState((state2) => ({
+  const setAnchorEl = import_react29.useCallback((anchorEl) => setState((state2) => ({
     ...state2,
     setAnchorElUsed: true,
     anchorEl: anchorEl !== null && anchorEl !== undefined ? anchorEl : undefined
@@ -40615,7 +40909,7 @@ function usePopupState({
       }
     });
   });
-  const setOpen = import_react24.useCallback((nextOpen, eventOrAnchorEl) => {
+  const setOpen = import_react29.useCallback((nextOpen, eventOrAnchorEl) => {
     if (nextOpen) {
       open(eventOrAnchorEl);
     } else {
@@ -40660,7 +40954,7 @@ function usePopupState({
       return state2;
     });
   });
-  const _setChildPopupState = import_react24.useCallback((_childPopupState) => setState((state2) => ({
+  const _setChildPopupState = import_react29.useCallback((_childPopupState) => setState((state2) => ({
     ...state2,
     _childPopupState
   })), []);
@@ -40823,19 +41117,19 @@ PopupState.propTypes = {
 };
 
 // src/components/common/CustomCallButton.jsx
-var jsx_dev_runtime16 = __toESM(require_jsx_dev_runtime(), 1);
+var jsx_dev_runtime20 = __toESM(require_jsx_dev_runtime(), 1);
 function CustomCallButton({ sx }) {
   const currentTheme = useCheckCurrentTheme_default();
-  return jsx_dev_runtime16.jsxDEV(ThemeProvider5, {
+  return jsx_dev_runtime20.jsxDEV(ThemeProvider5, {
     theme: currentTheme,
-    children: jsx_dev_runtime16.jsxDEV(Box_default, {
+    children: jsx_dev_runtime20.jsxDEV(Box_default, {
       sx,
-      children: jsx_dev_runtime16.jsxDEV(PopupState, {
+      children: jsx_dev_runtime20.jsxDEV(PopupState, {
         popupId: "demo-popup-popover",
         variant: "popover",
-        children: (popupState) => jsx_dev_runtime16.jsxDEV("div", {
+        children: (popupState) => jsx_dev_runtime20.jsxDEV("div", {
           children: [
-            jsx_dev_runtime16.jsxDEV(IconButton_default, {
+            jsx_dev_runtime20.jsxDEV(IconButton_default, {
               sx: {
                 color: "secondary.main",
                 transition: "color 0.2s",
@@ -40844,9 +41138,9 @@ function CustomCallButton({ sx }) {
                 }
               },
               ...bindTrigger(popupState),
-              children: jsx_dev_runtime16.jsxDEV(Phone_default, {}, undefined, false, undefined, this)
+              children: jsx_dev_runtime20.jsxDEV(Phone_default, {}, undefined, false, undefined, this)
             }, undefined, false, undefined, this),
-            jsx_dev_runtime16.jsxDEV(Popover_default, {
+            jsx_dev_runtime20.jsxDEV(Popover_default, {
               ...bindPopover(popupState),
               anchorOrigin: {
                 vertical: "bottom",
@@ -40856,9 +41150,9 @@ function CustomCallButton({ sx }) {
                 vertical: "top",
                 horizontal: "center"
               },
-              children: jsx_dev_runtime16.jsxDEV(Box_default, {
+              children: jsx_dev_runtime20.jsxDEV(Box_default, {
                 sx: { padding: 2, backgroundColor: "primary.main" },
-                children: jsx_dev_runtime16.jsxDEV(CustomTelephoneLink, {}, undefined, false, undefined, this)
+                children: jsx_dev_runtime20.jsxDEV(CustomTelephoneLink, {}, undefined, false, undefined, this)
               }, undefined, false, undefined, this)
             }, undefined, false, undefined, this)
           ]
@@ -40869,22 +41163,22 @@ function CustomCallButton({ sx }) {
 }
 
 // src/components/navbars/MoreButton.jsx
-var import_react26 = __toESM(require_react(), 1);
-var jsx_dev_runtime17 = __toESM(require_jsx_dev_runtime(), 1);
+var import_react31 = __toESM(require_react(), 1);
+var jsx_dev_runtime21 = __toESM(require_jsx_dev_runtime(), 1);
 function MoreButton() {
-  return jsx_dev_runtime17.jsxDEV(PopupState, {
+  return jsx_dev_runtime21.jsxDEV(PopupState, {
     popupId: "demo-popup-menu",
     variant: "popover",
-    children: (popupState) => jsx_dev_runtime17.jsxDEV(jsx_dev_runtime17.Fragment, {
+    children: (popupState) => jsx_dev_runtime21.jsxDEV(jsx_dev_runtime21.Fragment, {
       children: [
-        jsx_dev_runtime17.jsxDEV(IconButton_default, {
+        jsx_dev_runtime21.jsxDEV(IconButton_default, {
           variant: "contained",
           ...bindTrigger(popupState),
-          children: jsx_dev_runtime17.jsxDEV(MoreHoriz_default, {
+          children: jsx_dev_runtime21.jsxDEV(MoreHoriz_default, {
             color: "secondary"
           }, undefined, false, undefined, this)
         }, undefined, false, undefined, this),
-        jsx_dev_runtime17.jsxDEV(Menu_default, {
+        jsx_dev_runtime21.jsxDEV(Menu_default, {
           ...bindMenu(popupState),
           MenuListProps: {
             sx: {
@@ -40897,35 +41191,35 @@ function MoreButton() {
             }
           },
           children: [
-            jsx_dev_runtime17.jsxDEV(MenuItem_default, {
+            jsx_dev_runtime21.jsxDEV(MenuItem_default, {
               onClick: popupState.close,
               children: [
-                jsx_dev_runtime17.jsxDEV(Search_default, {
+                jsx_dev_runtime21.jsxDEV(Search_default, {
                   sx: { paddingRight: "10px", fontSize: "24px" }
                 }, undefined, false, undefined, this),
-                jsx_dev_runtime17.jsxDEV(Typography_default, {
+                jsx_dev_runtime21.jsxDEV(Typography_default, {
                   children: "\u041F\u043E\u0438\u0441\u043A"
                 }, undefined, false, undefined, this)
               ]
             }, undefined, true, undefined, this),
-            jsx_dev_runtime17.jsxDEV(MenuItem_default, {
+            jsx_dev_runtime21.jsxDEV(MenuItem_default, {
               onClick: popupState.close,
               children: [
-                jsx_dev_runtime17.jsxDEV(Shop_default, {
+                jsx_dev_runtime21.jsxDEV(Shop_default, {
                   sx: { paddingRight: "10px" }
                 }, undefined, false, undefined, this),
-                jsx_dev_runtime17.jsxDEV(Typography_default, {
+                jsx_dev_runtime21.jsxDEV(Typography_default, {
                   children: "\u041A\u043E\u0440\u0437\u0438\u043D\u0430"
                 }, undefined, false, undefined, this)
               ]
             }, undefined, true, undefined, this),
-            jsx_dev_runtime17.jsxDEV(MenuItem_default, {
+            jsx_dev_runtime21.jsxDEV(MenuItem_default, {
               onClick: popupState.close,
               children: [
-                jsx_dev_runtime17.jsxDEV(Phone_default, {
+                jsx_dev_runtime21.jsxDEV(Phone_default, {
                   sx: { paddingRight: "10px" }
                 }, undefined, false, undefined, this),
-                jsx_dev_runtime17.jsxDEV(Typography_default, {
+                jsx_dev_runtime21.jsxDEV(Typography_default, {
                   children: "\u041D\u043E\u043C\u0435\u0440"
                 }, undefined, false, undefined, this)
               ]
@@ -40938,14 +41232,14 @@ function MoreButton() {
 }
 
 // src/components/navbars/TopBar.jsx
-var jsx_dev_runtime18 = __toESM(require_jsx_dev_runtime(), 1);
+var jsx_dev_runtime22 = __toESM(require_jsx_dev_runtime(), 1);
 function TopBar({ actions, offersActions }) {
-  const [hovered, setHovered] = import_react27.useState("");
-  const [mouseOnOffers, setMouseOnOffers] = import_react27.useState(false);
-  const [offersOpen, setOffersOpen] = import_react27.useState(false);
-  const [mouseOnPopup, setMouseOnPopup] = import_react27.useState(false);
+  const [hovered, setHovered] = import_react32.useState("");
+  const [mouseOnOffers, setMouseOnOffers] = import_react32.useState(false);
+  const [offersOpen, setOffersOpen] = import_react32.useState(false);
+  const [mouseOnPopup, setMouseOnPopup] = import_react32.useState(false);
   const navigate = useNavigate();
-  import_react27.useEffect(() => {
+  import_react32.useEffect(() => {
     if (!mouseOnOffers && !mouseOnPopup) {
       const timer = setTimeout(() => {
         if (!mouseOnOffers && !mouseOnPopup) {
@@ -40976,7 +41270,7 @@ function TopBar({ actions, offersActions }) {
     navigate(action.path);
   };
   const isMobile = useCheckMobileScreen_default();
-  return jsx_dev_runtime18.jsxDEV(Toolbar_default, {
+  return jsx_dev_runtime22.jsxDEV(Toolbar_default, {
     style: {
       minHeight: 45
     },
@@ -40987,10 +41281,10 @@ function TopBar({ actions, offersActions }) {
       lineHeight: "29px"
     },
     children: [
-      jsx_dev_runtime18.jsxDEV(LogoButton, {}, undefined, false, undefined, this),
-      !isMobile ? jsx_dev_runtime18.jsxDEV(jsx_dev_runtime18.Fragment, {
+      jsx_dev_runtime22.jsxDEV(LogoButton, {}, undefined, false, undefined, this),
+      !isMobile ? jsx_dev_runtime22.jsxDEV(jsx_dev_runtime22.Fragment, {
         children: [
-          jsx_dev_runtime18.jsxDEV(ButtonGroup_default, {
+          jsx_dev_runtime22.jsxDEV(ButtonGroup_default, {
             color: "secondary",
             sx: {
               display: "flex",
@@ -41001,7 +41295,7 @@ function TopBar({ actions, offersActions }) {
               paddingInline: "15px"
             },
             variant: "text",
-            children: actions.map((action, index) => jsx_dev_runtime18.jsxDEV(Button_default, {
+            children: actions.map((action, index) => jsx_dev_runtime22.jsxDEV(Button_default, {
               onClick: () => handleClickButton(action),
               onMouseEnter: () => handleEnterButton(action.path),
               onMouseLeave: () => handleLeaveButton(action.path),
@@ -41020,13 +41314,13 @@ function TopBar({ actions, offersActions }) {
               children: action.title
             }, index, false, undefined, this))
           }, undefined, false, undefined, this),
-          mouseOnOffers || mouseOnPopup || offersOpen ? jsx_dev_runtime18.jsxDEV(CustomPopupOptions, {
+          mouseOnOffers || mouseOnPopup || offersOpen ? jsx_dev_runtime22.jsxDEV(CustomPopupOptions, {
             actions: offersActions,
             setMouseOnPopup
           }, undefined, false, undefined, this) : null
         ]
       }, undefined, true, undefined, this) : null,
-      jsx_dev_runtime18.jsxDEV(Box_default, {
+      jsx_dev_runtime22.jsxDEV(Box_default, {
         sx: {
           marginLeft: "auto",
           display: "flex",
@@ -41036,14 +41330,14 @@ function TopBar({ actions, offersActions }) {
           justifyContent: "center"
         },
         width: "25%",
-        children: !isMobile ? jsx_dev_runtime18.jsxDEV(Stack_default, {
+        children: !isMobile ? jsx_dev_runtime22.jsxDEV(Stack_default, {
           direction: "row",
           spacing: { xs: 1, md: 3 },
           children: [
-            jsx_dev_runtime18.jsxDEV(CustomCallButton, {
+            jsx_dev_runtime22.jsxDEV(CustomCallButton, {
               sx: {}
             }, undefined, false, undefined, this),
-            jsx_dev_runtime18.jsxDEV(IconButton_default, {
+            jsx_dev_runtime22.jsxDEV(IconButton_default, {
               sx: {
                 paddingTop: 0,
                 paddingBottom: 0,
@@ -41053,9 +41347,9 @@ function TopBar({ actions, offersActions }) {
                   color: "#2222ff"
                 }
               },
-              children: jsx_dev_runtime18.jsxDEV(ShoppingBag_default, {}, undefined, false, undefined, this)
+              children: jsx_dev_runtime22.jsxDEV(ShoppingBag_default, {}, undefined, false, undefined, this)
             }, undefined, false, undefined, this),
-            jsx_dev_runtime18.jsxDEV(IconButton_default, {
+            jsx_dev_runtime22.jsxDEV(IconButton_default, {
               sx: {
                 padding: 0,
                 color: "secondary.main",
@@ -41064,26 +41358,26 @@ function TopBar({ actions, offersActions }) {
                   color: "#2222ff"
                 }
               },
-              children: jsx_dev_runtime18.jsxDEV(Search_default, {}, undefined, false, undefined, this)
+              children: jsx_dev_runtime22.jsxDEV(Search_default, {}, undefined, false, undefined, this)
             }, undefined, false, undefined, this)
           ]
-        }, undefined, true, undefined, this) : jsx_dev_runtime18.jsxDEV(MoreButton, {}, undefined, false, undefined, this)
+        }, undefined, true, undefined, this) : jsx_dev_runtime22.jsxDEV(MoreButton, {}, undefined, false, undefined, this)
       }, undefined, false, undefined, this)
     ]
   }, undefined, true, undefined, this);
 }
 
 // src/components/navbars/BottomBar.jsx
-var import_react28 = __toESM(require_react(), 1);
-var jsx_dev_runtime19 = __toESM(require_jsx_dev_runtime(), 1);
+var import_react33 = __toESM(require_react(), 1);
+var jsx_dev_runtime23 = __toESM(require_jsx_dev_runtime(), 1);
 function BottomBar({ actions, offersActions }) {
-  const [selected, setSelected] = import_react28.useState(0);
+  const [selected, setSelected] = import_react33.useState(0);
   const currentTheme = useCheckCurrentTheme_default();
-  const [mouseOnOffers, setMouseOnOffers] = import_react28.useState(false);
-  const [mouseOnPopup, setMouseOnPopup] = import_react28.useState(false);
+  const [mouseOnOffers, setMouseOnOffers] = import_react33.useState(false);
+  const [mouseOnPopup, setMouseOnPopup] = import_react33.useState(false);
   const navigate = useNavigate();
   const location = useLocation();
-  import_react28.useEffect(() => {
+  import_react33.useEffect(() => {
     var pathname = location.pathname;
     if (pathname[pathname.length - 1] === "/") {
       pathname = pathname.substring(0, pathname.length - 1);
@@ -41110,10 +41404,10 @@ function BottomBar({ actions, offersActions }) {
       navigate(`${actions[newSelected].path}`);
     }
   };
-  return jsx_dev_runtime19.jsxDEV(ThemeProvider5, {
+  return jsx_dev_runtime23.jsxDEV(ThemeProvider5, {
     theme: currentTheme,
     children: [
-      jsx_dev_runtime19.jsxDEV(BottomNavigation_default, {
+      jsx_dev_runtime23.jsxDEV(BottomNavigation_default, {
         onChange: handleSelect,
         showLabels: true,
         sx: {
@@ -41125,7 +41419,7 @@ function BottomBar({ actions, offersActions }) {
           marginBottom: 0
         },
         value: selected,
-        children: actions.map((action, index) => jsx_dev_runtime19.jsxDEV(BottomNavigationAction_default, {
+        children: actions.map((action, index) => jsx_dev_runtime23.jsxDEV(BottomNavigationAction_default, {
           icon: action.icon,
           label: action.title,
           sx: {
@@ -41139,7 +41433,7 @@ function BottomBar({ actions, offersActions }) {
           }
         }, index, false, undefined, this))
       }, undefined, false, undefined, this),
-      mouseOnOffers || mouseOnPopup ? jsx_dev_runtime19.jsxDEV(CustomPopupOptions, {
+      mouseOnOffers || mouseOnPopup ? jsx_dev_runtime23.jsxDEV(CustomPopupOptions, {
         actions: offersActions,
         setMouseOnPopup
       }, undefined, false, undefined, this) : null
@@ -41148,27 +41442,27 @@ function BottomBar({ actions, offersActions }) {
 }
 
 // src/components/navbars/CustomAppBar.jsx
-var jsx_dev_runtime20 = __toESM(require_jsx_dev_runtime(), 1);
+var jsx_dev_runtime24 = __toESM(require_jsx_dev_runtime(), 1);
 var actions = [
   {
     title: "\u0413\u043B\u0430\u0432\u043D\u0430\u044F",
     path: "/home",
-    icon: jsx_dev_runtime20.jsxDEV(Home_default, {}, undefined, false, undefined, this)
+    icon: jsx_dev_runtime24.jsxDEV(Home_default, {}, undefined, false, undefined, this)
   },
   {
     title: "\u0423\u0441\u043B\u0443\u0433\u0438",
     path: "/offers",
-    icon: jsx_dev_runtime20.jsxDEV(Computer_default, {}, undefined, false, undefined, this)
+    icon: jsx_dev_runtime24.jsxDEV(Computer_default, {}, undefined, false, undefined, this)
   },
   {
     title: "\u0414\u043E\u0441\u0442\u0430\u0432\u043A\u0430",
     path: "/delivery",
-    icon: jsx_dev_runtime20.jsxDEV(DeliveryDining_default, {}, undefined, false, undefined, this)
+    icon: jsx_dev_runtime24.jsxDEV(DeliveryDining_default, {}, undefined, false, undefined, this)
   },
   {
     title: "\u041E \u043D\u0430\u0441",
     path: "/about",
-    icon: jsx_dev_runtime20.jsxDEV(Info_default, {}, undefined, false, undefined, this)
+    icon: jsx_dev_runtime24.jsxDEV(Info_default, {}, undefined, false, undefined, this)
   }
 ];
 var offersActions = [
@@ -41188,9 +41482,9 @@ var offersActions = [
 function CustomAppBar() {
   const isMobile = useCheckMobileScreen_default();
   const currentTheme = useCheckCurrentTheme_default();
-  return jsx_dev_runtime20.jsxDEV(ThemeProvider5, {
+  return jsx_dev_runtime24.jsxDEV(ThemeProvider5, {
     theme: currentTheme,
-    children: jsx_dev_runtime20.jsxDEV(AppBar_default, {
+    children: jsx_dev_runtime24.jsxDEV(AppBar_default, {
       position: "sticky",
       sx: {
         boxShadow: "0 0 2em black",
@@ -41199,7 +41493,7 @@ function CustomAppBar() {
         maxHeight: "70px",
         justifyContent: "center"
       },
-      children: jsx_dev_runtime20.jsxDEV(Box_default, {
+      children: jsx_dev_runtime24.jsxDEV(Box_default, {
         sx: {
           position: "relative",
           marginRight: "auto",
@@ -41208,11 +41502,11 @@ function CustomAppBar() {
           width: "100%"
         },
         children: [
-          jsx_dev_runtime20.jsxDEV(TopBar, {
+          jsx_dev_runtime24.jsxDEV(TopBar, {
             actions,
             offersActions
           }, undefined, false, undefined, this),
-          isMobile ? jsx_dev_runtime20.jsxDEV(BottomBar, {
+          isMobile ? jsx_dev_runtime24.jsxDEV(BottomBar, {
             actions,
             offersActions
           }, undefined, false, undefined, this) : null
@@ -41223,29 +41517,29 @@ function CustomAppBar() {
 }
 
 // src/components/home/FooterSection/FooterSection.jsx
-var import_react34 = __toESM(require_react(), 1);
+var import_react39 = __toESM(require_react(), 1);
 
 // src/components/home/FooterSection/groups/AboutGroup.jsx
-var import_react30 = __toESM(require_react(), 1);
-var jsx_dev_runtime21 = __toESM(require_jsx_dev_runtime(), 1);
+var import_react35 = __toESM(require_react(), 1);
+var jsx_dev_runtime25 = __toESM(require_jsx_dev_runtime(), 1);
 function AboutGroup() {
-  return jsx_dev_runtime21.jsxDEV(Box_default, {
+  return jsx_dev_runtime25.jsxDEV(Box_default, {
     children: [
-      jsx_dev_runtime21.jsxDEV(Typography_default, {
+      jsx_dev_runtime25.jsxDEV(Typography_default, {
         sx: { paddingBottom: "10px" },
         variant: "h4",
         children: "\u041E \u043D\u0430\u0441"
       }, undefined, false, undefined, this),
-      jsx_dev_runtime21.jsxDEV(Typography_default, {
+      jsx_dev_runtime25.jsxDEV(Typography_default, {
         children: "\u041C\u044B \u0434\u0438\u043D\u0430\u043C\u0438\u0447\u043D\u0430\u044F \u043A\u043E\u043C\u043F\u0430\u043D\u0438\u044F, \u043F\u0440\u0435\u0434\u043B\u0430\u0433\u0430\u044E\u0449\u0430\u044F \u0431\u043E\u043B\u0435\u0435 10 \u043F\u0440\u043E\u0444\u0435\u0441\u0441\u0438\u043E\u043D\u0430\u043B\u044C\u043D\u044B\u0445 \u0441\u0431\u043E\u0440\u043E\u043A \u043A\u043E\u043C\u043F\u044C\u044E\u0442\u0435\u0440\u043E\u0432 \u0434\u043B\u044F \u043B\u044E\u0431\u044B\u0445 \u0437\u0430\u0434\u0430\u0447. \u041D\u0430\u0448\u0430 \u043A\u043E\u043C\u0430\u043D\u0434\u0430 \u0441\u043E\u0441\u0442\u043E\u0438\u0442 \u0438\u0437 \u043E\u043F\u044B\u0442\u043D\u044B\u0445 \u0441\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442\u043E\u0432, \u0433\u0430\u0440\u0430\u043D\u0442\u0438\u0440\u0443\u044E\u0449\u0438\u0445 \u043A\u0430\u0447\u0435\u0441\u0442\u0432\u0435\u043D\u043D\u0443\u044E \u0441\u0431\u043E\u0440\u043A\u0443 \u0432 \u043A\u0440\u0430\u0442\u0447\u0430\u0439\u0448\u0438\u0435 \u0441\u0440\u043E\u043A\u0438."
       }, undefined, false, undefined, this),
-      jsx_dev_runtime21.jsxDEV(Box_default, {
+      jsx_dev_runtime25.jsxDEV(Box_default, {
         sx: {
           width: "100%",
           alignContent: "center",
           textAlign: "center"
         },
-        children: jsx_dev_runtime21.jsxDEV("img", {
+        children: jsx_dev_runtime25.jsxDEV("img", {
           alt: "GVG Tech Solutions",
           loading: "lazy",
           src: "/static/logos/gvgFull.png",
@@ -41258,43 +41552,43 @@ function AboutGroup() {
 }
 
 // src/components/home/FooterSection/groups/HelpGroup.jsx
-var import_react31 = __toESM(require_react(), 1);
-var jsx_dev_runtime22 = __toESM(require_jsx_dev_runtime(), 1);
+var import_react36 = __toESM(require_react(), 1);
+var jsx_dev_runtime26 = __toESM(require_jsx_dev_runtime(), 1);
 function HelpGroup() {
-  return jsx_dev_runtime22.jsxDEV(Box_default, {
+  return jsx_dev_runtime26.jsxDEV(Box_default, {
     sx: { width: "100%" },
     children: [
-      jsx_dev_runtime22.jsxDEV(Typography_default, {
+      jsx_dev_runtime26.jsxDEV(Typography_default, {
         sx: { paddingBottom: "10px" },
         variant: "h4",
         children: "\u041F\u043E\u0434\u0434\u0435\u0440\u0436\u043A\u0430"
       }, undefined, false, undefined, this),
-      jsx_dev_runtime22.jsxDEV(Stack_default, {
+      jsx_dev_runtime26.jsxDEV(Stack_default, {
         direction: "column",
         children: [
-          jsx_dev_runtime22.jsxDEV(Typography_default, {
+          jsx_dev_runtime26.jsxDEV(Typography_default, {
             component: Link,
             style: { textDecoration: "none", color: "#ffffff" },
             children: "\u0417\u0430\u0434\u0430\u0442\u044C \u0432\u043E\u043F\u0440\u043E\u0441 \u0432 \u0412\u041A"
           }, undefined, false, undefined, this),
-          jsx_dev_runtime22.jsxDEV(Typography_default, {
+          jsx_dev_runtime26.jsxDEV(Typography_default, {
             component: Link,
             style: { textDecoration: "none", color: "#ffffff" },
             children: "\u0412\u043E\u043F\u0440\u043E\u0441\u044B \u043F\u043E \u0434\u043E\u0441\u0442\u0430\u0432\u043A\u0435"
           }, undefined, false, undefined, this)
         ]
       }, undefined, true, undefined, this),
-      jsx_dev_runtime22.jsxDEV(Stack_default, {
+      jsx_dev_runtime26.jsxDEV(Stack_default, {
         direction: "row",
         marginTop: 2,
         children: [
-          jsx_dev_runtime22.jsxDEV(Telegram_default, {
+          jsx_dev_runtime26.jsxDEV(Telegram_default, {
             sx: { marginRight: 2 }
           }, undefined, false, undefined, this),
-          jsx_dev_runtime22.jsxDEV(Instagram_default, {
+          jsx_dev_runtime26.jsxDEV(Instagram_default, {
             sx: { marginRight: 2 }
           }, undefined, false, undefined, this),
-          jsx_dev_runtime22.jsxDEV(Box_default, {
+          jsx_dev_runtime26.jsxDEV(Box_default, {
             alt: "vk",
             component: "img",
             src: "/static/logos/vk.png",
@@ -41310,31 +41604,31 @@ function HelpGroup() {
 }
 
 // src/components/home/FooterSection/groups/ShopGroup.jsx
-var import_react32 = __toESM(require_react(), 1);
-var jsx_dev_runtime23 = __toESM(require_jsx_dev_runtime(), 1);
+var import_react37 = __toESM(require_react(), 1);
+var jsx_dev_runtime27 = __toESM(require_jsx_dev_runtime(), 1);
 function ShopGroup() {
-  return jsx_dev_runtime23.jsxDEV(Box_default, {
+  return jsx_dev_runtime27.jsxDEV(Box_default, {
     sx: { width: "100%" },
     children: [
-      jsx_dev_runtime23.jsxDEV(Typography_default, {
+      jsx_dev_runtime27.jsxDEV(Typography_default, {
         sx: { paddingBottom: "10px" },
         variant: "h4",
         children: "\u041C\u0430\u0433\u0430\u0437\u0438\u043D"
       }, undefined, false, undefined, this),
-      jsx_dev_runtime23.jsxDEV(Stack_default, {
+      jsx_dev_runtime27.jsxDEV(Stack_default, {
         direction: "column",
         children: [
-          jsx_dev_runtime23.jsxDEV(Typography_default, {
+          jsx_dev_runtime27.jsxDEV(Typography_default, {
             component: Link,
             style: { textDecoration: "none", color: "#ffffff" },
             children: "\u0421\u0431\u043E\u0440\u043A\u0438"
           }, undefined, false, undefined, this),
-          jsx_dev_runtime23.jsxDEV(Typography_default, {
+          jsx_dev_runtime27.jsxDEV(Typography_default, {
             component: Link,
             style: { textDecoration: "none", color: "#ffffff" },
             children: "\u041A\u043E\u043C\u043F\u043B\u0435\u043A\u0442\u0443\u044E\u0449\u0438\u0435"
           }, undefined, false, undefined, this),
-          jsx_dev_runtime23.jsxDEV(Typography_default, {
+          jsx_dev_runtime27.jsxDEV(Typography_default, {
             component: Link,
             style: { textDecoration: "none", color: "#ffffff" },
             children: "\u0418\u0433\u0440\u043E\u0432\u043E\u0439 \u043A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440"
@@ -41346,34 +41640,34 @@ function ShopGroup() {
 }
 
 // src/components/home/FooterSection/groups/ContactGroup.jsx
-var import_react33 = __toESM(require_react(), 1);
-var jsx_dev_runtime24 = __toESM(require_jsx_dev_runtime(), 1);
+var import_react38 = __toESM(require_react(), 1);
+var jsx_dev_runtime28 = __toESM(require_jsx_dev_runtime(), 1);
 function ContuctGroup() {
-  return jsx_dev_runtime24.jsxDEV(Box_default, {
+  return jsx_dev_runtime28.jsxDEV(Box_default, {
     sx: { width: "100%" },
     children: [
-      jsx_dev_runtime24.jsxDEV(Typography_default, {
+      jsx_dev_runtime28.jsxDEV(Typography_default, {
         sx: { paddingBottom: "10px" },
         variant: "h4",
         children: "\u0421\u0432\u044F\u0437\u0430\u0442\u044C\u0441\u044F \u0441 \u043D\u0430\u043C\u0438"
       }, undefined, false, undefined, this),
-      jsx_dev_runtime24.jsxDEV(Stack_default, {
+      jsx_dev_runtime28.jsxDEV(Stack_default, {
         direction: "column",
         children: [
-          jsx_dev_runtime24.jsxDEV(CustomTelephoneLink, {}, undefined, false, undefined, this),
-          jsx_dev_runtime24.jsxDEV(Typography_default, {
+          jsx_dev_runtime28.jsxDEV(CustomTelephoneLink, {}, undefined, false, undefined, this),
+          jsx_dev_runtime28.jsxDEV(Typography_default, {
             component: Link,
             style: { textDecoration: "none", color: "#ffffff" },
             children: "kraskovskiydm@gmail.com"
           }, undefined, false, undefined, this)
         ]
       }, undefined, true, undefined, this),
-      jsx_dev_runtime24.jsxDEV(Box_default, {
+      jsx_dev_runtime28.jsxDEV(Box_default, {
         sx: {
           width: "100%",
           marginTop: "40px"
         },
-        children: jsx_dev_runtime24.jsxDEV(Button_default, {
+        children: jsx_dev_runtime28.jsxDEV(Button_default, {
           color: "success",
           sx: {
             width: "100%",
@@ -41388,7 +41682,7 @@ function ContuctGroup() {
 }
 
 // src/components/home/FooterSection/FooterSection.jsx
-var jsx_dev_runtime25 = __toESM(require_jsx_dev_runtime(), 1);
+var jsx_dev_runtime29 = __toESM(require_jsx_dev_runtime(), 1);
 var themed = createTheme_default2({
   palette: {
     primary: {
@@ -41398,27 +41692,27 @@ var themed = createTheme_default2({
 });
 var items = [
   {
-    component: jsx_dev_runtime25.jsxDEV(AboutGroup, {}, undefined, false, undefined, this)
+    component: jsx_dev_runtime29.jsxDEV(AboutGroup, {}, undefined, false, undefined, this)
   },
   {
-    component: jsx_dev_runtime25.jsxDEV(HelpGroup, {}, undefined, false, undefined, this)
+    component: jsx_dev_runtime29.jsxDEV(HelpGroup, {}, undefined, false, undefined, this)
   },
   {
-    component: jsx_dev_runtime25.jsxDEV(ShopGroup, {}, undefined, false, undefined, this)
+    component: jsx_dev_runtime29.jsxDEV(ShopGroup, {}, undefined, false, undefined, this)
   },
   {
-    component: jsx_dev_runtime25.jsxDEV(ContuctGroup, {}, undefined, false, undefined, this)
+    component: jsx_dev_runtime29.jsxDEV(ContuctGroup, {}, undefined, false, undefined, this)
   }
 ];
 function FooterSection() {
-  return jsx_dev_runtime25.jsxDEV(ThemeProvider5, {
+  return jsx_dev_runtime29.jsxDEV(ThemeProvider5, {
     theme: themed,
-    children: jsx_dev_runtime25.jsxDEV(Box_default, {
+    children: jsx_dev_runtime29.jsxDEV(Box_default, {
       sx: {
         width: "100%"
       },
       children: [
-        jsx_dev_runtime25.jsxDEV(Grid_default, {
+        jsx_dev_runtime29.jsxDEV(Grid_default, {
           columnGap: 10,
           container: true,
           rowGap: 5,
@@ -41428,7 +41722,7 @@ function FooterSection() {
             paddingTop: "10vh"
           },
           wrap: "wrap",
-          children: items.map((item, index) => jsx_dev_runtime25.jsxDEV(Grid_default, {
+          children: items.map((item, index) => jsx_dev_runtime29.jsxDEV(Grid_default, {
             item: true,
             sx: {
               display: "flex",
@@ -41441,7 +41735,7 @@ function FooterSection() {
             children: item.component
           }, index, false, undefined, this))
         }, undefined, false, undefined, this),
-        jsx_dev_runtime25.jsxDEV(Box_default, {
+        jsx_dev_runtime29.jsxDEV(Box_default, {
           sx: {
             position: "relative",
             width: "100%",
@@ -41458,53 +41752,53 @@ function FooterSection() {
 }
 
 // src/components/App.jsx
-var jsx_dev_runtime26 = __toESM(require_jsx_dev_runtime(), 1);
+var jsx_dev_runtime30 = __toESM(require_jsx_dev_runtime(), 1);
 function App() {
   const currentTheme = useCheckCurrentTheme_default();
-  return jsx_dev_runtime26.jsxDEV(ThemeProvider5, {
+  return jsx_dev_runtime30.jsxDEV(ThemeProvider5, {
     theme: currentTheme,
-    children: jsx_dev_runtime26.jsxDEV(BrowserRouter, {
+    children: jsx_dev_runtime30.jsxDEV(BrowserRouter, {
       basename: "/",
-      children: jsx_dev_runtime26.jsxDEV(Box_default, {
+      children: jsx_dev_runtime30.jsxDEV(Box_default, {
         color: "secondary.main",
         children: [
-          jsx_dev_runtime26.jsxDEV(CustomAppBar, {}, undefined, false, undefined, this),
-          jsx_dev_runtime26.jsxDEV(Box_default, {
-            children: jsx_dev_runtime26.jsxDEV(Routes, {
+          jsx_dev_runtime30.jsxDEV(CustomAppBar, {}, undefined, false, undefined, this),
+          jsx_dev_runtime30.jsxDEV(Box_default, {
+            children: jsx_dev_runtime30.jsxDEV(Routes, {
               children: [
-                jsx_dev_runtime26.jsxDEV(Route, {
-                  element: jsx_dev_runtime26.jsxDEV(HomePage, {}, undefined, false, undefined, this),
+                jsx_dev_runtime30.jsxDEV(Route, {
+                  element: jsx_dev_runtime30.jsxDEV(HomePage, {}, undefined, false, undefined, this),
                   path: "home"
                 }, undefined, false, undefined, this),
-                jsx_dev_runtime26.jsxDEV(Route, {
+                jsx_dev_runtime30.jsxDEV(Route, {
                   path: "offers",
                   children: [
-                    jsx_dev_runtime26.jsxDEV(Route, {
-                      element: jsx_dev_runtime26.jsxDEV(BuildsPage, {}, undefined, false, undefined, this),
+                    jsx_dev_runtime30.jsxDEV(Route, {
+                      element: jsx_dev_runtime30.jsxDEV(BuildsPage, {}, undefined, false, undefined, this),
                       path: "builds"
                     }, undefined, false, undefined, this),
-                    jsx_dev_runtime26.jsxDEV(Route, {
-                      element: jsx_dev_runtime26.jsxDEV(ComponentsPage_default, {}, undefined, false, undefined, this),
+                    jsx_dev_runtime30.jsxDEV(Route, {
+                      element: jsx_dev_runtime30.jsxDEV(ComponentsPage, {}, undefined, false, undefined, this),
                       path: "components"
                     }, undefined, false, undefined, this),
-                    jsx_dev_runtime26.jsxDEV(Route, {
-                      element: jsx_dev_runtime26.jsxDEV(ConstructorPage_default, {}, undefined, false, undefined, this),
+                    jsx_dev_runtime30.jsxDEV(Route, {
+                      element: jsx_dev_runtime30.jsxDEV(ConstructorPage, {}, undefined, false, undefined, this),
                       path: "constructor"
                     }, undefined, false, undefined, this)
                   ]
                 }, undefined, true, undefined, this),
-                jsx_dev_runtime26.jsxDEV(Route, {
-                  element: jsx_dev_runtime26.jsxDEV(DeliveryPage, {}, undefined, false, undefined, this),
+                jsx_dev_runtime30.jsxDEV(Route, {
+                  element: jsx_dev_runtime30.jsxDEV(DeliveryPage, {}, undefined, false, undefined, this),
                   path: "delivery"
                 }, undefined, false, undefined, this),
-                jsx_dev_runtime26.jsxDEV(Route, {
-                  element: jsx_dev_runtime26.jsxDEV(AboutUsPage, {}, undefined, false, undefined, this),
+                jsx_dev_runtime30.jsxDEV(Route, {
+                  element: jsx_dev_runtime30.jsxDEV(AboutUsPage, {}, undefined, false, undefined, this),
                   path: "about"
                 }, undefined, false, undefined, this)
               ]
             }, undefined, true, undefined, this)
           }, undefined, false, undefined, this),
-          jsx_dev_runtime26.jsxDEV(FooterSection, {}, undefined, false, undefined, this)
+          jsx_dev_runtime30.jsxDEV(FooterSection, {}, undefined, false, undefined, this)
         ]
       }, undefined, true, undefined, this)
     }, undefined, false, undefined, this)
@@ -41512,6 +41806,6 @@ function App() {
 }
 
 // src/index.jsx
-var jsx_dev_runtime27 = __toESM(require_jsx_dev_runtime(), 1);
+var jsx_dev_runtime31 = __toESM(require_jsx_dev_runtime(), 1);
 var appDiv = document.getElementById("app");
-import_react_dom2.render(jsx_dev_runtime27.jsxDEV(App, {}, undefined, false, undefined, this), appDiv);
+import_react_dom2.render(jsx_dev_runtime31.jsxDEV(App, {}, undefined, false, undefined, this), appDiv);

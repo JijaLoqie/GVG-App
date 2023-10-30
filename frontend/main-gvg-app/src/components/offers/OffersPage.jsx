@@ -1,6 +1,6 @@
-import { Box } from "@mui/material"
 import React from "react"
+import { Box } from "@mui/material"
 
-export default OffersPage = function(props) {
+export default function OffersPage() {
   return <Box padding={4}>OFFERS</Box>
 }

@@ -26,7 +26,13 @@ export default function HeaderSection() {
         <ImageSlider items={items} scrollable />
       </Box>
       <Typography
-        sx={{ position: "absolute", top: "35vh", right: "150px" }}
+        sx={{
+          position: "absolute",
+          top: { xs: "10vh", md: "35vh" },
+          right: "24px",
+          fontWeight: "800",
+          fontSize: { xs: "4rem", md: "6rem" },
+        }}
         variant="h1"
       >
         Tech Solutions

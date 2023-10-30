@@ -37827,7 +37827,13 @@ function HeaderSection() {
         }, undefined, false, undefined, this)
       }, undefined, false, undefined, this),
       jsx_dev_runtime2.jsxDEV(Typography_default, {
-        sx: { position: "absolute", top: "35vh", right: "150px" },
+        sx: {
+          position: "absolute",
+          top: { xs: "10vh", md: "35vh" },
+          right: "24px",
+          fontWeight: "800",
+          fontSize: { xs: "4rem", md: "6rem" }
+        },
         variant: "h1",
         children: "Tech Solutions"
       }, undefined, false, undefined, this)

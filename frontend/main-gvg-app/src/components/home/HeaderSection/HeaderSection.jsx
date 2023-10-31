@@ -3,16 +3,6 @@ import React from "react"
 import items from "./header_items.json"
 import ImageSlider from "./ImageSlider"
 
-// var items = [
-//   {
-//     name: "Random Name #1",
-//     description: "Probably the most random thing you have ever seen!",
-//   },
-//   {
-//     name: "Random Name #2",
-//     description: "Hello World!",
-//   },
-// ];
 
 const containerStyles = {
   width: "100%",

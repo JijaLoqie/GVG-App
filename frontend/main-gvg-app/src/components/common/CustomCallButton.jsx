@@ -36,7 +36,15 @@ export default function CustomCallButton({ sx }) {
                   horizontal: "center",
                 }}
               >
-                <Box sx={{ padding: 2, backgroundColor: "primary.main" }}>
+                <Box
+                  sx={{
+                    padding: 2,
+                    backgroundColor: "primary.main",
+                    borderRadius: "4px",
+                    border: 2,
+                    borderColor: "#000000",
+                  }}
+                >
                   <CustomTelephoneLink />
                 </Box>
               </Popover>

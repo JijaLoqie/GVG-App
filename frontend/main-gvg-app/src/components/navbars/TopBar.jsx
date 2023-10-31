@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 
-import { Search, ShoppingBag as ShoppingBagIcon } from "@mui/icons-material"
+import { ShoppingBag as ShoppingBagIcon } from "@mui/icons-material"
 import {
   Box,
   Stack,
@@ -15,6 +15,7 @@ import LogoButton from "./LogoButton"
 import useCheckMobileScreen from "../common/hooks/useCheckMobileScreen"
 import CustomCallButton from "../common/CustomCallButton"
 import MoreButton from "./MoreButton"
+import CustomSearch from '../common/CustomSearch'
 
 
 export default function TopBar({ actions, offersActions }) {
@@ -146,18 +147,7 @@ export default function TopBar({ actions, offersActions }) {
               <ShoppingBagIcon />
             </IconButton>
 
-            <IconButton
-              sx={{
-                padding: 0,
-                color: "secondary.main",
-                transition: "color 0.2s",
-                "&:hover": {
-                  color: "#2222ff",
-                },
-              }}
-            >
-              <Search />
-            </IconButton>
+            <CustomSearch />
           </Stack>
         ) : (
           <MoreButton />

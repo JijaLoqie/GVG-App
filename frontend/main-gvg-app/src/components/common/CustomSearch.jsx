@@ -1,23 +1,21 @@
+import React, { useState } from "react"
+
 import { Search as SearchIcon } from "@mui/icons-material"
-
-import { styled, alpha } from "@mui/material/styles"
-
+import { styled } from "@mui/material/styles"
 import { InputBase } from "@mui/material"
 
 const Search = styled("div")(({ theme }) => ({
-  position: "relative",
+  cursor: "pointer",
+  display: "flex",
+  flexDirection: "row",
   borderRadius: theme.shape.borderRadius,
-  "&:hover": {
-    backgroundColor: alpha(theme.palette.common.white, 0.25),
-  },
-  marginLeft: theme.spacing(1),
-  width: "auto",
+
 }))
 
 const SearchIconWrapper = styled("div")(({ theme }) => ({
   padding: theme.spacing(0, 2),
-  height: "100%",
-  position: "absolute",
+  height: "40px",
+  width: "40px",
   pointerEvents: "none",
   display: "flex",
   alignItems: "center",
@@ -27,29 +25,26 @@ const SearchIconWrapper = styled("div")(({ theme }) => ({
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
   color: "inherit",
   "& .MuiInputBase-input": {
-    padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
-    paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-    transition: theme.transitions.create("width"),
-    width: "0px",
+    transition: theme.transitions.create(["padding", "width", "borderBottom"]),
+    width: "0",
+    padding: "0",
+    borderBottom: "2px solid rgb(212, 212, 212)",
     "&:focus": {
-      width: "15ch",
-      borderRadius: theme.shape.borderRadius,
-      backgroundColor: alpha(theme.palette.common.white, 0.25),
+      padding: theme.spacing(1, 1, 1, 0),
+      paddingLeft: `calc(1em + ${theme.spacing(4)})`,
+      width: "100px",
     },
   },
 }))
 
-export default CustomSearch = function() {
+export default function CustomSearch() {
+	const [textField, setTextField] = useState()
   return (
-    <Search>
+    <Search onClick={() => textField?.focus()}>
       <SearchIconWrapper>
         <SearchIcon />
       </SearchIconWrapper>
-      <StyledInputBase
-        color="#ffffff"
-        inputProps={{ "aria-label": "search" }}
-      />
+      <StyledInputBase inputRef={(el) => setTextField(el)} />
     </Search>
   )
 }

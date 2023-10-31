@@ -1,8 +1,9 @@
 import React, { useState } from "react"
-import { Box, Button, Typography, keyframes } from "@mui/material"
+import { Box, Button, IconButton, Typography, keyframes } from "@mui/material"
 import styled from "@emotion/styled"
 import { useNavigate } from "react-router-dom"
 import SimpleImageSlider from "../../home/HeaderSection/SimpleImageSlider"
+import { Close } from "@mui/icons-material"
 
 const gradientAnimation = keyframes({
   "0%": {
@@ -99,6 +100,11 @@ export default function BuildCard({ build }) {
   const [isHovered, setIsHovered] = useState(false)
   const navigate = useNavigate()
   const [currentSelected, setCurrentSelected] = useState(-1)
+
+  const toggleComponentInfo = (index) => {
+    setCurrentSelected((current) => (current === index ? -1 : index))
+  }
+
   return (
     <CustomCard
       onMouseEnter={() => setIsHovered(true)}
@@ -147,9 +153,12 @@ export default function BuildCard({ build }) {
           {currentSelected !== -1 ? (
             <Box
               sx={{
-                padding: 4,
                 transition: "all 0.3s",
                 borderRadius: "8px",
+
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "end",
 
                 width: "100%",
                 height: "95%",
@@ -157,16 +166,24 @@ export default function BuildCard({ build }) {
                 color: "#000000",
               }}
             >
+              <IconButton
+                onClick={() => setCurrentSelected(-1)}
+                sx={{ width: "50px", height: "50px" }}
+              >
+                <Close />
+              </IconButton>
               <Box
                 sx={{
+                  paddingInline: 4,
                   display: "flex",
                   flexDirection: "row",
+                  width: "100%",
                 }}
               >
                 <Box
                   component="img"
                   height="30px"
-                  marginRight="30px"
+                  marginRight="15px"
                   src={`../static${components[currentSelected].src}`}
                   width="30px"
                 />
@@ -183,13 +200,14 @@ export default function BuildCard({ build }) {
           {components.map((component, index) => (
             <Box
               key={index}
-              onMouseEnter={() => setCurrentSelected(index)}
-              onMouseLeave={() => setCurrentSelected(-1)}
+              onClick={() => toggleComponentInfo(index)}
               sx={{
-                transition: "all 0.1s",
+                transition: "all 0.5s",
                 width: "50px",
                 height: "50px",
                 bgcolor: "#D7FEDC",
+                boxShadow:
+                  currentSelected === index ? "0 0 2em #D7FEDC" : "none",
                 borderRadius: "75px",
                 display: "flex",
                 justifyContent: "center",
@@ -213,11 +231,12 @@ export default function BuildCard({ build }) {
         <CardButtons>
           <Button
             sx={{
+              margin: "20px",
               transition: "all 0.3s",
-              margin: "10px 70px",
               bgcolor: "#2600B1",
               color: "#D7FEDC",
               width: "50%",
+			  paddingTop: "6px",
               "&:hover": {
                 backgroundColor: "lightblue",
                 boxShadow: "0 0 2em #D7FEDC",

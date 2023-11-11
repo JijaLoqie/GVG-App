@@ -61,30 +61,15 @@ export default function TopBar({ actions, offersActions }) {
   }
   const isMobile = useCheckMobileScreen()
   return (
-    <Toolbar
-      style={{
-        minHeight: 45,
-      }}
-      sx={{
-        minHeight: 45,
-        marginInline: "-15px",
-        fontSize: "16px",
-        lineHeight: "29px",
-      }}
+    <Toolbar style={{ minHeight: 45, }}
+      sx={{ minHeight: 45, marginInline: "-15px", fontSize: "16px", lineHeight: "29px", }}
     >
       <LogoButton />
       {!isMobile ? (
         <>
           <ButtonGroup
             color="secondary"
-            sx={{
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "start",
-              height: "100%",
-              width: "50%",
-              paddingInline: "15px",
-            }}
+            sx={{ display: "flex", flexDirection: "row", justifyContent: "start", height: "100%", width: "50%", maxWidth: 600, paddingInline: "15px", }}
             variant="text"
           >
             {actions.map((action, index) => (
@@ -93,14 +78,7 @@ export default function TopBar({ actions, offersActions }) {
                 onClick={() => handleClickButton(action)}
                 onMouseEnter={() => handleEnterButton(action.path)}
                 onMouseLeave={() => handleLeaveButton(action.path)}
-                sx={{
-                  padding: 0,
-                  paddingInline: "20px",
-                  color: hovered === action.path ? "#2222ff" : "secondary.main",
-                  cursor: "pointer",
-                  height: "100%",
-				  width: "100%",
-                  transition: "all 0.5s",
+                sx={{ padding: 0, paddingInline: "20px", color: hovered === action.path ? "#2222ff" : "secondary.main", cursor: "pointer", height: "100%", width: "100%", transition: "all 0.5s",
                   "&:hover": {
                     backgroundColor: "transparent",
                   },
@@ -119,14 +97,7 @@ export default function TopBar({ actions, offersActions }) {
         </>
       ) : null}
       <Box
-        sx={{
-          marginLeft: "auto",
-          display: "flex",
-          alignItems: "end",
-          flexDirection: "column",
-          color: "secondary.main",
-          justifyContent: "center",
-        }}
+        sx={{ marginLeft: "auto", display: "flex", alignItems: "end", flexDirection: "column", color: "secondary.main", justifyContent: "center", }}
         width="25%"
       >
         {!isMobile ? (
@@ -134,15 +105,7 @@ export default function TopBar({ actions, offersActions }) {
             {/* CallButton */}
             <CustomCallButton sx={{}} />
             <IconButton
-              sx={{
-                paddingTop: 0,
-                paddingBottom: 0,
-                color: "secondary.main",
-                transition: "color 0.2s",
-                "&:hover": {
-                  color: "#2222ff",
-                },
-              }}
+              sx={{ paddingTop: 0, paddingBottom: 0, color: "secondary.main", transition: "color 0.2s", "&:hover": { color: "#2222ff", }, }}
             >
               <ShoppingBagIcon />
             </IconButton>

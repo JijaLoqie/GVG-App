@@ -1,22 +1,21 @@
-from django.contrib import admin
-from django.urls import path, include
+from django.urls import path
+from django.views.generic import TemplateView
 from .views import index, redirect_index
 
+
 urlpatterns = [
-        path('', redirect_index),
-        path('home/', index),
+    path('', redirect_index),
+    path('home/', index),
 
-        path('offers/', index),
-        path('offers/constructor', index),
-        path('offers/components', index),
-        path('offers/builds', index),
+    path('offers/', index),
+    path('offers/constructor', index),
+    path('offers/components', index),
+    path('offers/builds', index),
 
-        path('delivery/', index),
+    path('component/<int:id>', index),
+    path('build/<int:id>', index),
 
-        path('about/', index),
+    path('delivery/', index),
+
+    path('about/', index),
 ]
-
-
-
-
-

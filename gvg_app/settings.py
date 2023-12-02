@@ -27,15 +27,17 @@ REACT_APP_DIR = FRONTEND_DIR / 'source-react'
 SECRET_KEY = 'django-insecure-h9a^!)0(s+)sl%8q8$9e*l*zeq8l7$6c*0xrz_@+)bo2z9_$xv'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
 
 INSTALLED_APPS = [
     'frontend.apps.FrontendConfig',
+    'builds.apps.BuildsConfig',
+    'components.apps.ComponentsConfig',
 
     'django.contrib.admin',
     'django.contrib.auth',
@@ -43,6 +45,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
+    'rest_framework',
+    'sortedm2m',
 ]
 
 MIDDLEWARE = [

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { Box, Typography } from "@mui/material"
 import { BuildCard } from "./BuildCard"
+import { loadBuildList } from "./BuildLoader"
 
 export function BuildsList({ filter }) {
   const [builds, setBuilds] = useState([])
@@ -12,19 +13,7 @@ export function BuildsList({ filter }) {
     )
   }, [builds, filter.name])
   useEffect(() => {
-//      fetch("/api/get-builds")
-//        .then((response) => response.json())
-//        .then((data) => {
-//          setBuilds(data)
-//          data.forEach((element) => {
-//            console.log(element)
-//          })
-//        })
-    setBuilds([
-      {id: 123, description: "Компьютер один"},
-      {id: 234, description: "Компьютер второй"},
-      {id: 345, description: "Комьютер триии"},
-    ])
+    loadBuildList(setBuilds)
   }, [])
 
   return (

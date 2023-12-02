@@ -1,7 +1,7 @@
 import { Box } from "@mui/material";
 import { useEffect, useState } from "react";
-import { getComponentList } from "../../stuff/components/ComponentLoader";
-import { getBuildList } from "../../stuff/builds/BuildLoader";
+import { getRecomendedComponentList } from "../../stuff/components/ComponentLoader";
+import { getRecomendedBuildList } from "../../stuff/builds/BuildLoader";
 import { ComponentCard } from "../../stuff/components/ComponentCard";
 
 const handleMouseMove = (e) => {
@@ -15,14 +15,14 @@ const handleMouseMove = (e) => {
   }
 };
 
-export function RecommendedList({ key }) {
+export function RecommendedList({ keyFilter }) {
   const [stuffList, setStuffList] = useState([])
 
   useEffect(() => {
-    const components = getComponentList() 
-    const builds = getBuildList() 
+    const components = getRecomendedComponentList() 
+    const builds = getRecomendedBuildList() 
     setStuffList([...components])
-  }, [key])
+  }, [keyFilter])
   return (
     <Box sx={{
       display: "flex",

@@ -21,7 +21,7 @@ export function getComponentIconPathByType(searchType) {
   return null
 }
 export function ComponentTypeIcon({ type, ...props }) {
-  const iconPath = components.filter(component => component.type === type)[0]?.path 
+  const iconPath = components.filter(component => component.type === type)[0]?.path ?? "/static/builds/parts/other.png"
 
   return (
     <Box {...props} component="img" height="30px" marginRight="15px" src={`${iconPath}`} width="30px" />

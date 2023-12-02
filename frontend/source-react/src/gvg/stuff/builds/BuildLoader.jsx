@@ -1,41 +1,32 @@
-const builds = [
-  { id: "123", name: "Build #1", icon: "", description: "Description of build 1", 
-    componentsInfo: [{type: "hdd", name: "name of component 1 (bool)", description: "description of component" },
-    {type: "ram", name: "name of component 1 (str)", description: "description of component" }, {type: "ssd", name: "name of component 1 (int)", description: "description of component" }] },
-  { id: "234", name: "Build #2", icon: "", description: "Description of build 2", 
-    componentsInfo: [{type: "ram", name: "name of component 1 (str)", description: "description of component" }] },
-  { id: "345", name: "Build #3", icon: "", description: "Description of build 3", 
-    componentsInfo: [{type: "ssd", name: "name of component 1 (int)", description: "description of component" }] },
-  { id: "456", name: "Build #4", icon: "", description: "Description of build 4", 
-    componentsInfo: [{type: "cpu", name: "name of component 1 (float)", description: "description of component" }] },
-  { id: "567", name: "Build #5", icon: "", description: "Description of build 5", 
-    componentsInfo: [{type: "graphics_card", name: "name of component 1 (enum)", description: "description of component" }] },
+export function getBuildById(buildId) {
+  var buildFound = []
 
-];
-const dumbBuilds = {
-  "123": builds[0],
-  "234": builds[1],
-  "345": builds[2],
-  "456": builds[3],
-  "567": builds[4],
-  "678": builds[5],
-}
-
-export async function getBuildById(buildId) {
-  if (!(buildId in dumbBuilds)) {
-    throw Error("Build not found")
+  loadBuildList((data) => {
+    console.log(data[0].id === Number(buildId))
+    buildFound = data.filter(build => Number(build.id) == Number(buildId))
+    console.log(buildFound.length)
+  })
+  if (buildFound.length === 0) {
+    return {name: "unknown", description: "no description", price: "404"}
   } else {
-    return await dumbBuilds[buildId]
+    return buildFound[0]
   }
 }
 
 
 export async function BuildLoader({ params }) {
-  const build = await getBuildById(params.buildId);
+  const build = getBuildById(params.buildId);
   return { build };
 }
 
 
-export function getBuildList() {
-  return builds
+export function loadBuildList(handlerFill) {
+  fetch("/builds/api/get-builds").then((data) => {
+    return data.json()
+  }).then(data => {
+    handlerFill(data)
+  })
+}
+export function getRecomendedBuildList() {
+  return ''
 }

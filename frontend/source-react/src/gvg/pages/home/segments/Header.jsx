@@ -31,7 +31,7 @@ export function Header() {
           width: {xs: "100%", md: "600px"},
           padding: "32px",
           borderRadius: "24px",
-          
+
         }}>
           <Typography variant="h2">GVG Tech Solutions</Typography>
           <Typography>Оставьте свои заявки сейчас, и наша команда приступит к работе над вашим идеальным компьютером. 💪</Typography>

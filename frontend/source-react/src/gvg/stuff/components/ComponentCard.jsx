@@ -58,8 +58,6 @@ const CardBorder = styled("div")((_) => ({
 
 
 export function ComponentCard({ componentItem }) {
-  const iconPath = useMemo(() => getComponentIconPathByType(componentItem.type), [componentItem.type])
-
   return (
     <Link to={`/component/${componentItem.id}`}>
       <CustomPaper className="card">
@@ -77,10 +75,10 @@ export function ComponentCard({ componentItem }) {
           </Box>
           <Box sx={{ alignItems: "center", display: "flex", flexGrow: 1, justifyContent: "flex-start", padding: "0px 20px", }} >
             <Box sx={{ display: "flex", flexDirection: "row", gap: "10px", }} >
-              <ComponentTypeIcon type={componentItem.type} />
+              <ComponentTypeIcon type={componentItem.component_type} />
               <Box sx={{ alignItems: "flex-start", display: "flex", flexDirection: "column" }} >
                 <Typography color="text.main" fontSize="1.1em" lineHeight="20px" m="0" >
-                  {componentItem.name}
+                  {componentItem.title}
                 </Typography>
                 <Typography fontSize="0.85em" marginTop="8px" >
                   {componentItem.description}

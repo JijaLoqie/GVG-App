@@ -41,7 +41,17 @@ export async function ComponentLoader({ params }) {
 
 
 
-export function getComponentList() {
+export function loadComponentList(handlerFill) {
+  fetch("/components/api/get-components").then((data) => {
+    return data.json()
+  }).then(data => {
+    handlerFill(data)
+  })
+  return components
+}
+
+
+export function getRecomendedComponentList() {
   return components
 }
 

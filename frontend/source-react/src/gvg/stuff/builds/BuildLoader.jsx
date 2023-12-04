@@ -1,22 +1,35 @@
-export function getBuildById(buildId) {
+export async function getBuildById(buildId) {
   var buildFound = []
-
-  loadBuildList((data) => {
-    console.log(data[0].id === Number(buildId))
-    buildFound = data.filter(build => Number(build.id) == Number(buildId))
-    console.log(buildFound.length)
-  })
-  if (buildFound.length === 0) {
-    return {name: "unknown", description: "no description", price: "404"}
-  } else {
-    return buildFound[0]
-  }
+  return fetch(`/builds/api/get-build-by-id/${buildId}`).then((data) => {
+    return data.json()
+  }).then(data => {
+      buildFound = data
+      if (buildFound['Room not found']) {
+        console.log("sadasdas")
+        return {title: "unknown", description: "no description", price: "404"}
+      } else {
+        return buildFound
+      }
+    })
 }
-
+const typeVariants = [
+  { name: "hdd", rus_name: "Жёсткий диск", src: "/builds/parts/hdd.png" },
+  { name: "ram", rus_name: "Оперативная память", src: "/builds/parts/ram.png", },
+  { name: "ssd", rus_name: "SSD накопитель", src: "/builds/parts/ssd.png", },
+  { name: "cpu", rus_name: "Процессор", src: "/builds/parts/cpu.png", },
+  { name: "graphics_card", rus_name: "Видеокарта", src: "/builds/parts/graphics-card.png", },
+]
 
 export async function BuildLoader({ params }) {
-  const build = getBuildById(params.buildId);
-  return { build };
+  const build = await getBuildById(params.buildId);
+  var buildParams = []
+  
+  typeVariants.forEach(typeVariant => {
+    if (build[typeVariant.name]) {
+      buildParams.push({type: typeVariant.rus_name, name: build[typeVariant.name]})
+    }
+  }) 
+  return { build, params: buildParams };
 }
 
 

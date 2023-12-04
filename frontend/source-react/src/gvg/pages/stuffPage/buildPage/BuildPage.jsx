@@ -7,12 +7,13 @@ import { RecommendedList } from "../RecomendedList";
 export function BuildPage() {
   const [buildsInfo, setBuildsInfo] = useState([])
 
-  const { build } = useLoaderData()
+  const { build, params } = useLoaderData()
 
 
   useEffect(() => {
-    setBuildsInfo(build.params ?? [])
-  }, [build])
+    console.log(params)
+    setBuildsInfo(params ?? [])
+  }, [params])
   return (
     <Box sx={{display: "flex", flexDirection: "column", alignItems: "center", marginTop: "24px",}}>
       <Grid container sx={{ maxWidth: "1200px", width: "100%", minHeight: "70vh", color: "text.main" }}>
@@ -27,23 +28,20 @@ export function BuildPage() {
           <Box sx={{width: "100%", padding: "24px", paddingTop: "0"}}>
             <Box marginBottom="24px">
               <Typography textAlign="center" variant="h3">
-                {build.name}
+                {build?.title}
               </Typography>
             </Box>
             <Box >
               <Typography variant="body" sx={{marginTop: "480px"}}>
-                {build.description}
+                {build?.description}
               </Typography>
             </Box>
             <Box sx={{
               display: "flex", flexDirection: "row", alignItems: "center",
-              borderTop: "1px solid white",
-              borderBottom: "1px solid white",
-              marginY: "24px",
-              paddingY: "12px",
-              textAlign: "center",
+              borderTop: "1px solid white", borderBottom: "1px solid white",
+              marginY: "24px", paddingY: "12px", textAlign: "center",
             }}>
-              <Typography>Цена: 90000</Typography>
+              <Typography>Цена: {build?.price}</Typography>
               <Button
                 sx={{ marginInline: "20px", transition: "all 0.3s", bgcolor: "#2600B1", color: "#D7FEDC", paddingTop: "6px",
                   "&:hover": { backgroundColor: "lightblue", boxShadow: "0 0 1em #D7FEDC", color: "blue", cursor: "pointer", },
@@ -52,13 +50,12 @@ export function BuildPage() {
               >
                 В корзину
               </Button>
-              <Button variant="outlined"
-                color= "background"
+              <Button variant="outlined" color= "background" fontSize="0.85em"
                 sx={{
                   color:"rgba(255, 255, 255, 0.5)",
-                  "&:hover": {
-                    border: "1px solid white",
-                  }}} fontSize="0.85em" >
+                  "&:hover": { border: "1px solid white",
+                  }}}
+              >
                 Заказать в 1 клик
               </Button>
             </Box>
@@ -67,17 +64,17 @@ export function BuildPage() {
                 Характеристики
               </Typography>
               <Box>
-                {buildsInfo.map((build, index) => (
+                {buildsInfo.map((buildParam, index) => (
                   <Box key={index} sx={{
                     marginTop: "8px",
                     display: "flex",
                     flexDirection: {xs: "column", md: "row"}, justifyContent: "stretch",
                   }}>
                     <Box sx={{ minWidth: "10%", bgcolor: "text.main", color: "black", padding: "12px", fontSize: "1.5rem", }}>
-                      {build.type}
+                      {buildParam.type}
                     </Box>
                     <Box sx={{ flex: 1, bgcolor: "gray", color: "text.main", padding: "12px", fontSize: "1.5rem", }}>
-                      {build.name}
+                      {buildParam.name}
                     </Box>
                   </Box>
                 ))}

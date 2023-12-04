@@ -31,8 +31,8 @@ class ComponentById(APIView):
     lookup_variable = "id"
     serializer_class = ComponentSerializer
 
-    def get(self, request, format=None):
-        componentId: int = request.GET.get(self.lookup_variable)
+    def get(self, request, id: int, format=None):
+        componentId: int = id
   
         if componentId == None:
             return Response({'Bad Request': 'Invalid data. Need component_it'}, status=status.HTTP_400_BAD_REQUEST)

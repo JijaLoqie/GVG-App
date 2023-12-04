@@ -55,7 +55,6 @@ export function ImageSlider() {
     <Box className="arrows" sx={{
       position: "absolute",
       top: "40%",
-      cursor: "pointer",
       display: "flex",
       justifyContent: "space-between",
       width: "100%",
@@ -71,11 +70,10 @@ export function ImageSlider() {
     <Box>
       <Box
         sx={{
-          position: "relative",
-          top: "90vh",
-          display: "flex",
-          justifyContent: "center",
-          flexDirection: "row",
+          position:"absolute",
+          bottom: "25px",
+          width: "100%",
+          display: "flex", justifyContent: "center", flexDirection: "row",
         }}
       >
         {image_list.map((slidePath, index) => (
@@ -83,8 +81,7 @@ export function ImageSlider() {
             <Box sx={{
               cursor: "pointer",
               transform: "skew(40deg)",
-              width: "60px",
-              height: "3px",
+              width: "60px", height: "3px",
               margin: "0",
               transition: "backgroundColor 300ms",
               bgcolor: slidePath === image_list[imageIndex] ? "accent.main" : "text.main",

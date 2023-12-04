@@ -27,7 +27,7 @@ REACT_APP_DIR = FRONTEND_DIR / 'source-react'
 SECRET_KEY = 'django-insecure-h9a^!)0(s+)sl%8q8$9e*l*zeq8l7$6c*0xrz_@+)bo2z9_$xv'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 

@@ -16,30 +16,33 @@ const components = [
     params: [{type: "param_name_1", name: "param_value_1" }] },
 
 ];
-const dumbComponents = {
-  "123": components[0],
-  "234": components[1],
-  "345": components[2],
-  "456": components[3],
-  "567": components[4],
-  "678": components[5],
-}
-
-export async function getComponentById(componentId) {
-  if (!(componentId in dumbComponents)) {
-    throw Error("Component not found")
-  } else {
-    return await dumbComponents[componentId]
-  }
-}
-
 
 export async function ComponentLoader({ params }) {
-  const component = await getComponentById(params.componentId);
-  return { component };
+  const componentResult = await getComponentById(params.componentId);
+  var result = []
+  
+//    typeVariants.forEach(typeVariant => {
+//      if (componentResult[typeVariant.name]) {
+//        result.push({type: typeVariant.rus_name, name: componentResult[typeVariant.name]})
+//      }
+//    }) 
+  return { componentResult, params: result };
 }
 
 
+export async function getComponentById(componentId) {
+  var result = []
+  return fetch(`/components/api/get-component-by-id/${componentId}`).then((data) => {
+    return data.json()
+  }).then(data => {
+      result = data
+      if (result['Room not found']) {
+        return {title: "unknown", description: "no description", price: "404"}
+      } else {
+        return result
+      }
+    })
+}
 
 export function loadComponentList(handlerFill) {
   fetch("/components/api/get-components").then((data) => {
@@ -47,11 +50,10 @@ export function loadComponentList(handlerFill) {
   }).then(data => {
     handlerFill(data)
   })
-  return components
 }
 
 
 export function getRecomendedComponentList() {
-  return components
+  return ''
 }
 

@@ -23,10 +23,20 @@ const items = [
   },
 ]
 
+
+
+
+
+
+
 export default function Footer() {
   return (
     <Box
-      sx={{marginTop: "auto", bgcolor: "secondary.main", width: "100%", }}
+      sx={{
+        borderTop: '5px solid',
+        borderImageSlice: 1,
+        borderImageSource: `linear-gradient(to left, ${['red', 'blue'].join(',')})`,
+        marginTop: "auto", bgcolor: "background.main", width: "100%", }}
     >
       <Grid columnGap={10} container rowGap={5} wrap="wrap"
         sx={{ alignContent: "center", justifyContent: "center", paddingTop: "10vh", }}

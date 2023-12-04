@@ -31,8 +31,8 @@ class BuildById(APIView):
     lookup_variable = "id"
     serializer_class = BuildSerializer
 
-    def get(self, request, format=None):
-        buildId: int = request.GET.get(self.lookup_variable)
+    def get(self, request, id: int, format=None):
+        buildId: int = id
   
         if buildId == None:
             return Response({'Bad Request': 'Invalid data. Need build_it'}, status=status.HTTP_400_BAD_REQUEST)

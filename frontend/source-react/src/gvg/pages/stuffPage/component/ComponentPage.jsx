@@ -7,12 +7,12 @@ import { RecommendedList } from "../RecomendedList";
 export function ComponentPage() {
   const [componentsInfo, setComponentsInfo] = useState([])
 
-  const { component } = useLoaderData()
+  const { component, params } = useLoaderData()
 
 
   useEffect(() => {
-    setComponentsInfo(component.params)
-  }, [component])
+    setComponentsInfo(params)
+  }, [params])
   return (
     <Box sx={{display: "flex", flexDirection: "column", alignItems: "center", marginTop: "24px",}}>
       <Grid container sx={{ maxWidth: "1200px", width: "100%", minHeight: "70vh", color: "text.main" }}>
@@ -27,12 +27,12 @@ export function ComponentPage() {
           <Box sx={{width: "100%", padding: "24px", paddingTop: "0"}}>
             <Box marginBottom="24px">
               <Typography textAlign="center" variant="h3">
-                {component.name}
+                {component?.title}
               </Typography>
             </Box>
             <Box >
               <Typography variant="body" sx={{marginTop: "480px"}}>
-                {component.description}
+                {component?.description}
               </Typography>
             </Box>
             <Box sx={{

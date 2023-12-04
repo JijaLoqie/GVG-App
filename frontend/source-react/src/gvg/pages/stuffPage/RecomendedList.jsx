@@ -24,19 +24,9 @@ export function RecommendedList({ keyFilter }) {
     setStuffList([...components])
   }, [keyFilter])
   return (
-    <Box sx={{
-      display: "flex",
-      justifyContent: "start",
-      overflowX: "scroll",
-      minWidth: "100%",
-      height: "100%",
-    }}>
+    <Box sx={{ display: "flex", justifyContent: "start", overflowX: "scroll", minWidth: "100%", height: "100%", }}>
       {stuffList.map((stuff, index) => (
-        <Box key={index}
-          onMouseMove={handleMouseMove}
-          sx={{
-          }}
-        >
+        <Box key={index} onMouseMove={handleMouseMove} sx={{ }} >
           <ComponentCard componentItem={stuff} />
         </Box>
       ))}

@@ -33,6 +33,7 @@ export async function BuildLoader({ params }) {
 }
 
 
+
 export function loadBuildList(handlerFill) {
   fetch("/builds/api/get-builds").then((data) => {
     return data.json()

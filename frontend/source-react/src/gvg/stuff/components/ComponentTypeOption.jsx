@@ -20,7 +20,7 @@ export function ComponentTypeOption({ handleClick, shortName, name, selected }) 
     }}
       onClick={handleClick}
     >
-      {name}
+      <Typography>{name}</Typography>
     </Box>
   ) 
 }

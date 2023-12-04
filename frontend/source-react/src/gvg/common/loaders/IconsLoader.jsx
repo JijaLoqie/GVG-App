@@ -1,5 +1,4 @@
-import { Box } from "@mui/material"
-
+import { ReactComponent as HddLogo } from "./hdd.svg"
 const components = [
   { type: "hdd", rus_type: "Жёсткий диск", path: "/static/builds/parts/hdd.svg" },
   { type: "ram", rus_type: "Оперативная память", path: "/static/builds/parts/ram.svg", },
@@ -24,6 +23,6 @@ export function ComponentTypeIcon({ type, ...props }) {
   const iconPath = components.filter(component => component.type === type)[0]?.path ?? "/static/builds/parts/other.png"
 
   return (
-    <Box {...props} component="img" height="30px" marginRight="15px" src={`${iconPath}`} width="30px" />
+    <HddLogo />
   )
 }

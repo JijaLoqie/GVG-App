@@ -11,7 +11,6 @@ export function BuildPage() {
 
 
   useEffect(() => {
-    console.log(params)
     setBuildsInfo(params ?? [])
   }, [params])
   return (
@@ -53,7 +52,8 @@ export function BuildPage() {
               <Button variant="outlined" color= "background" fontSize="0.85em"
                 sx={{
                   color:"rgba(255, 255, 255, 0.5)",
-                  "&:hover": { border: "1px solid white",
+                  "&:hover": {
+                    border: "1px solid white",
                   }}}
               >
                 Заказать в 1 клик

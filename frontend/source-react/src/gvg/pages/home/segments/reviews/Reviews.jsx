@@ -17,7 +17,7 @@ export function Reviews() {
       borderTop: '5px solid',
       borderImageSlice: 1,
       borderImageSource: `linear-gradient(to left, ${['red', 'blue'].join(',')})`,
-      minHeight: "70vh",
+      minHeight: "80vh",
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
@@ -34,8 +34,8 @@ export function Reviews() {
         height: {xs:"auto", md:"427px"},
         alignItems: "center",
       }}>
-        {reviews.map((review) => (
-          <ReviewCard review={review} />
+        {reviews.map((review, index) => (
+          <ReviewCard key={index}review={review} />
         ))}
       </Box>
 

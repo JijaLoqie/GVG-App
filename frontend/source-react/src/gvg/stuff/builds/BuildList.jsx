@@ -3,6 +3,21 @@ import { Box, Typography } from "@mui/material"
 import { BuildCard } from "./BuildCard"
 import { loadBuildList } from "./BuildLoader"
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 export function BuildsList({ filter }) {
   const [builds, setBuilds] = useState([])
   const [filteredBuilds, setFilteredBuilds] = useState([])
@@ -10,6 +25,7 @@ export function BuildsList({ filter }) {
     setFilteredBuilds(
       builds
         .filter((build) => build.description.toLowerCase().includes(filter.name.toLowerCase()))
+
     )
   }, [builds, filter.name])
   useEffect(() => {

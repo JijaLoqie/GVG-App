@@ -1,35 +1,3 @@
-const components = [
-  { id: "123", type:"hdd", name: "Component #1", icon: "", description: "Description of component 1", 
-    params: [
-      {type: "param_name_1", name: "param_value_1" },
-      {type: "param_name_2", name: "param_value_2" },
-      {type: "param_name_3", name: "param_value_3" },
-      {type: "param_name_4", name: "param_value_4" },
-    ] },
-  { id: "234", type:"hdd", name: "Component #2", icon: "", description: "Description of component 2", 
-    params: [{type: "param_name_1", name: "param_value_1" }] },
-  { id: "345", type:"hdd", name: "Component #3", icon: "", description: "Description of component 3", 
-    params: [{type: "param_name_1", name: "param_value_1" }] },
-  { id: "456", type:"hdd", name: "Component #4", icon: "", description: "Description of component 4", 
-    params: [{type: "param_name_1", name: "param_value_1" }] },
-  { id: "567", type:"hdd", name: "Component #5", icon: "", description: "Description of component 5", 
-    params: [{type: "param_name_1", name: "param_value_1" }] },
-
-];
-
-export async function ComponentLoader({ params }) {
-  const componentResult = await getComponentById(params.componentId);
-  var result = []
-  
-//    typeVariants.forEach(typeVariant => {
-//      if (componentResult[typeVariant.name]) {
-//        result.push({type: typeVariant.rus_name, name: componentResult[typeVariant.name]})
-//      }
-//    }) 
-  return { componentResult, params: result };
-}
-
-
 export async function getComponentById(componentId) {
   var result = []
   return fetch(`/components/api/get-component-by-id/${componentId}`).then((data) => {
@@ -43,6 +11,33 @@ export async function getComponentById(componentId) {
       }
     })
 }
+
+
+
+
+const convertParameters = (data) => {
+  return data.split(';').map((element => {
+    var pair = element.split(": ")
+    return {rus_name: pair[0], value: pair[1]}
+  }))
+}
+
+
+
+
+
+export async function ComponentLoader({ params }) {
+  const componentResult = await getComponentById(params.componentId);
+  var componentParams = convertParameters(componentResult.params)
+  .map(componentParameter => {
+    return {rus_name: componentParameter.rus_name, value: componentParameter.value}
+  })
+  .filter(pair => { return pair.value !== undefined })
+
+  return { componentResult, params: componentParams };
+}
+
+
 
 export function loadComponentList(handlerFill) {
   fetch("/components/api/get-components").then((data) => {

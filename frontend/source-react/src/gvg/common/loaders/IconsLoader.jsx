@@ -1,5 +1,11 @@
-import { ReactComponent as HddLogo } from "./hdd.svg"
-const components = [
+import HddLogo from "./hdd.svg?react"
+import SSDLogo from "./ssd.svg?react"
+import CpuLogo from "./cpu.svg?react"
+import GraphicsLogo from "./graphics-card.svg?react"
+import RamLogo from "./ram.svg?react"
+import OtherLogo from "./other.png?react"
+import { GridView } from "@mui/icons-material"
+const component = [
   { type: "hdd", rus_type: "Жёсткий диск", path: "/static/builds/parts/hdd.svg" },
   { type: "ram", rus_type: "Оперативная память", path: "/static/builds/parts/ram.svg", },
   { type: "ssd", rus_type: "SSD накопитель", path: "/static/builds/parts/ssd.svg", },
@@ -7,12 +13,13 @@ const components = [
   { type: "graphics_card", rus_type: "Видеокарта", path: "/static/builds/parts/graphics-card.svg", },
 ]
 
+
 export function getComponentList() {
-  return components
+  return component
 }
 
 export function getComponentIconPathByType(searchType) {
-  for (const component of components) {
+  for (const component of component) {
     if (component.type === searchType) {
       return component.path
     }
@@ -20,9 +27,19 @@ export function getComponentIconPathByType(searchType) {
   return null
 }
 export function ComponentTypeIcon({ type, ...props }) {
-  const iconPath = components.filter(component => component.type === type)[0]?.path ?? "/static/builds/parts/other.png"
 
-  return (
-    <HddLogo />
-  )
+  switch(type) {
+    case 'hdd':
+      return <HddLogo {...props} />
+    case 'ram':
+      return <RamLogo {...props} />
+    case 'ssd':
+      return <SSDLogo {...props} />
+    case 'cpu':
+      return <CpuLogo {...props} />
+    case 'graphics_card':
+      return <GraphicsLogo {...props} />
+    default:
+      return <GridView {...props}/>
+  }
 }

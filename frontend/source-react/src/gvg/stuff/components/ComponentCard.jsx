@@ -1,6 +1,5 @@
-
 import styled from "@emotion/styled";
-import { Box, SvgIcon, Typography } from "@mui/material";
+import { Box, Button, SvgIcon, Typography } from "@mui/material";
 import { customPalette, themes } from "../../common/styles/themes";
 import { Link, useNavigate } from "react-router-dom";
 import { ComponentTypeIcon, getComponentIconPathByType } from "../../common/loaders/IconsLoader";
@@ -8,16 +7,16 @@ import { useEffect } from "react";
 
 const CustomPaper = styled("div")((theme) => ({
   height: "312px",
-  width: "383px",
+  width: "30%",
   backgroundColor: "rgba(255,255,255, 0.1)",
-  margin: "8px",
   cursor: "pointer",
   position: "relative",
   borderRadius: "10px",
-  transition: "fill 500ms",
   fill: customPalette.text,
+  transition: "all 300ms",
   "&:hover": {
     fill: customPalette.accent,
+    color: customPalette.accent,
   },
   "&::before": {
     content: '""',
@@ -31,7 +30,7 @@ const CustomPaper = styled("div")((theme) => ({
     zIndex: 3,
 
     opacity: 0,
-    transition: "opacity 500ms",
+    transition: "opacity 300ms",
   },
   "&:hover::before": {
     opacity: 1,
@@ -52,43 +51,81 @@ const CardBorder = styled("div")((_) => ({
   width: "100%",
   zIndex: 1,
 
-  transition: "opacity 500ms",
+  transition: "opacity 300ms",
 }));
 
 
 export function ComponentCard({ componentItem }) {
-  useEffect(() => {
-    console.log(componentItem?.image)
-  }, [])
+
   return (
-    <Link to={`/component/${componentItem.id}`}>
       <CustomPaper className="card">
+
         <CardBorder/>
         <Box sx={{
           position: "absolute",
           backgroundColor: "secondary.main", borderRadius: "inherit",
           display: "flex", flexDirection: "column", flexGrow: 1,
+          alignItems:"center",
           inset: "1px", padding: "10px", zIndex: 2,
         }} >
-          <Box sx={{
-            alignItems: "center", display: "flex", minHeight: "200px", justifyContent: "center", overflow: "hidden",
-          }} >
-            <img alt="Image" src={componentItem.image} style={{ width: "80%", }} />
+          <ComponentTypeIcon type={componentItem.component_type}
+            style={{
+              borderTopLeftRadius: "8px",
+              borderBottomRightRadius: "8px",
+              border: "1px solid #ffffff31",
+              padding: "8px",
+              paddingBottom: "12px",
+              position: "absolute", right: "0", bottom: "0",
+              width: "30px", height: "30px",
+              zIndex: 10,
+            }}/>
+          <Box sx={{ height: "80%",
+            display: "flex", justifyContent: "center", alignItems: "start"}}
+          >
+            <img alt="Image" src={componentItem.image} style={{ maxHeight: "90%", width: "100%", }} />
           </Box>
-          <Box sx={{ alignItems: "center", display: "flex", flexGrow: 1, justifyContent: "flex-start", padding: "0px 20px", }} >
-            <Box sx={{ display: "flex", flexDirection: "row", gap: "10px", }} >
-              <ComponentTypeIcon type={componentItem.component_type} />
-              <Box sx={{ alignItems: "flex-start", display: "flex", flexDirection: "column" }} >
-                <Typography color="text.main" fontSize="1.1em" lineHeight="20px" m="0" >
-                  {componentItem.title}
-                </Typography>
-              </Box>
-            </Box>
+          <Typography color="text.main" fontSize="1.1em" lineHeight="20px" m="0" >
+            {componentItem.title}
+          </Typography>
+        </Box>
+        <Box sx={{
+          zIndex: 1000,
+          position: "absolute", up: "0", right: "0",
+          display: "flex", alignItems: "center", justifyContent: "center",
+        }}>
+          <Box sx={{
+            padding: "1px",
+            paddingInline: "12px",
+            borderTopRightRadius: "8px",
+            borderBottomLeftRadius: "8px",
+            border: "1px solid #ffffff31",
+          }}>
+            <Typography variant="body2" sx={{ "&:hover": { color: "text.main", },
+              color: "gray", textDecoration: "underline"}}>{componentItem.id}</Typography>
+          </Box>
+        </Box>
+        <Box sx={{
+          zIndex: 100,
+          position: "absolute", bottom: "0",
+          display: "flex", alignItems: "center", justifyContent: "center",
+          color: "text.main",
+        }}>
+          <Box sx={{
+            padding: "8px", paddingBottom: "12px",
+            borderTopRightRadius: "8px",
+            borderBottomLeftRadius: "8px",
+            border: "1px solid #ffffff31",
+            "&:hover": {
+              color: "primary.main",
+            }
+          }}>
+            <Typography>{componentItem.price} ₽</Typography>
           </Box>
         </Box>
       </CustomPaper>
-    </Link>
   );
 }
 
 
+//            
+//            

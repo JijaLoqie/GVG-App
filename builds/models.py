@@ -37,21 +37,22 @@ class Build(models.Model):
 
     
     video = models.FileField(_("Видео"), upload_to='builds/videos/', blank=True)
-    image_list = SortedManyToManyField("Images", blank=True, related_name="builds")
 
     
     def __str__(self):
         return self.title
 
 
-class Images(models.Model):
+class BuildImage(models.Model):
     class Meta:
         verbose_name = "Изобрежение"
         verbose_name_plural = "Изобажения" 
-        
-    image = models.ImageField(_("Фото"), upload_to="static/builds")
-    image_title = models.CharField(_("Название"), max_length=40)
+        ordering = ('order_id',)
+
+    order_id = models.IntegerField(_("Порядковый номер"))
+    build = models.ForeignKey(Build, on_delete=models.CASCADE, related_name="BuildImage")
+    path = models.ImageField(_("Фото"), blank=False, upload_to="static/builds")
     
     
     def __str__(self):
-        return self.image_title
+        return str(self.path)

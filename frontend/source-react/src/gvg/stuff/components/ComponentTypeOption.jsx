@@ -15,6 +15,7 @@ export function ComponentTypeOption({ handleClick, shortName, name, selected }) 
       padding: "12px",
       marginTop: "12px",
       marginInline: "12px",
+      border: {xs:"2px solid #ffffff", md: "none"},
       bgcolor: selected ? "accent.main" : "transparent",
       color: selected ? "secondary.main" : "text.main",
     }}

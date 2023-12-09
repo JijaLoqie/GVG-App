@@ -24,10 +24,19 @@ export function ComponentTypes({ handleUpdate }) {
   }
 
   return (
-    <Box paddingY="12px" sx={{ display: "block", flexDirection: "column",  bgcolor: "#ffffff11", borderRadius: "10px"}}>
-        {typeVariants.map((typeVariant, index) => (
+    <Box paddingY="12px" sx={{
+      position: {xs: "relative", md:"sticky"},
+      top: {xs: 0, md: "90px"},
+      display: "flex", flexWrap: "wrap",
+      flexDirection: {xs: "row", md:"column"},
+      bgcolor: {xs: "#000", md:"#ffffff11"},
+      borderRadius: "10px",
+
+      minWidth: "inherit", width: "inherit", maxWidth: "inherit",
+    }}>
+      {typeVariants.map((typeVariant, index) => (
         <ComponentTypeOption key={index} name={typeVariant.rus_name} handleClick={() => handleChangeType(typeVariant.name)} shortName={typeVariant.name} selected={selectedType === typeVariant.name} />
-        ))}
+      ))}
     </Box>
   )
 }

@@ -32,7 +32,7 @@ export default function Navbar() {
   return (
     <AppBar
       sx={{
-        position: "sticky", top: 0, boxShadow: "0 0 2em black", padding: "10px 0", bgcolor: "secondary.main", maxHeight: "70px", justifyContent: "center",
+        position: "sticky", top: 0, boxShadow: "0 0 2em black", padding: "10px 0", bgcolor: "background.main", maxHeight: "70px", justifyContent: "center",
       }}
     >
       <Box sx={{ position: "relative", marginRight: "auto", marginLeft: "auto", paddingInline: "15px", width: "100%", }} >

@@ -1,39 +1,18 @@
-import { useMemo, useState } from "react"
+import { useEffect, useMemo, useState } from "react"
 import { Box, Button, IconButton, Typography, keyframes } from "@mui/material"
 import styled from "@emotion/styled"
-import { Link, useNavigate } from "react-router-dom"
-import { Close } from "@mui/icons-material"
-import SimpleSlider from "./SimpleSlider"
-import { getComponentList } from "../../common/loaders/IconsLoader"
-
-const gradientAnimation = keyframes({
-  "0%": { backgroundPosition: "100% 0%", },
-  "100%": { backgroundPosition: "-100% 0%", },
-})
-
-const CustomCard = styled("div")({
-  "--card-height": "65vh",
-  "--card-width": "calc(var(--card-height) / 1.5)",
-  width: "var(--card-width)", height: "var(--card-height)",
-  borderRadius: "8px", background: "linear-gradient(to right, blue, purple, blue)", backgroundSize: "200% 100%",
-  animation: `${gradientAnimation} 5s linear infinite`,
-  display: "flex", justifyContent: "center", alignItems: "center",
-  margin: 4, padding: 4,
-  fontFamily: "cursive",
-})
+import { SimpleSlider } from "./SimpleSlider"
+import { ComponentTypeIcon, getComponentPartsList } from "../../common/loaders/IconsLoader"
+import { customPalette } from "../../common/styles/themes"
 
 
-const CardDescription = styled("div")({ height: "50%", paddingTop: "20px", paddingInline: "12px", fontSize: "1.5rem", fontWeight: "400", })
-
-const CardComponents = styled("div")({ width: "100%", display: "flex", justifyContent: "space-around", })
-
-const CardButtons = styled("div")({ width: "100%", display: "flex", justifyContent: "center", })
 
 
 export function BuildCard({ build }) {
-  const components = useMemo(getComponentList, [])
+  const components = useMemo(getComponentPartsList, [])
+
   const [isHovered, setIsHovered] = useState(false)
-  const navigate = useNavigate()
+
   const [currentSelected, setCurrentSelected] = useState(-1)
 
   const toggleComponentInfo = (index) => {
@@ -41,89 +20,67 @@ export function BuildCard({ build }) {
   }
 
   return (
-    <CustomCard
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+    <Box onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}
+      sx={{
+        "--card-width": "calc(100% - 30px)", "--card-height": "500px",
+        width: "var(--card-width)", minHeight: "var(--card-height)",
+        display: "flex",
+        bgcolor: "background.main",
+        borderRadius: "12px",
+        fontFamily: "cursive",
+      }}
     >
-      <Box sx={{ width: "100%", height: "100%", borderRadius: "8px", backgroundColor: "secondary.main", display: "flex", flexDirection: "column", }}>
-        <Box sx={{ width: "100%", height: "100%", borderRadius: "8px", }}>
-          <SimpleSlider
-            scrollable={isHovered}
-            items={[
-              { url: "/static/builds/build1.jpg" },
-              { url: "/static/builds/build2.jpg" },
-              { url: "/static/builds/build3.jpg" },
-            ]}
-          />
-          <Box component={Link} to={`/build/${build.id}`}
-            sx={{ position: "relative", top: "-30px", visibility: isHovered ? "visible" : "hidden",
-              width: "50%", height: "36.5px",
-              display: "flex", justifyContent: "center", alignItems: "center", margin: "10px",
-              backgroundColor: isHovered ? "#8778FC" : "#00000000", color: isHovered ? "#D7FEDC" : "#00000000",
-              borderRadius: "8px", marginInline: "auto", transition: "all 0.3s",
-              "&:hover": { backgroundColor: "lightblue", boxShadow: "0 0 1em #D7FEDC", color: "blue", cursor: "pointer", },
-            }}
-          >
-            Подробнее
+      <Box sx={{ width: "40%", height: "100%",
+        borderInline: "6px solid black",
+      }}>
+        <SimpleSlider items={build.build_images} scrollable={true} />
+      </Box>
+      <Box sx={{ width: "60%", height: "100%",
+        display: "flex", flexDirection: "column", alignItems: "center",
+        paddingInline: "12px",
+      }}>
+        <Typography variant="h4" sx={{
+          textAlign: 'center',
+          padding: "24px",
+          borderBottom: `1px solid ${customPalette.text}`,
+        }}>{build.title}</Typography>
+        <Box sx={{
+          height: '20%', width: "100%",
+          display: "flex",
+          margin: "24px",
+          paddingTop: 0,
+        }}>
+          O lolololo lolo lo lolololo looo
+        </Box>
+        <Box sx={{ width: "100%", height: "100%", display: "flex", flexDirection: "row", justifyContent: "start", alignItems: 'center', gap:"34px" }}>
+          <Box sx={{ height: "100%", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
+            <Typography color="accent.main">{build.price} ₽</Typography>
+            {build.old_price !== undefined ? <Typography color="primary.main"><strike>{build.old_price} ₽</strike></Typography> : null}
+          </Box>
+          <Box sx={{ height: "100%", display: "flex", flexDirection: "row", gap: "8px", justifyContent: "center", alignItems: "center" }}>
+            <Button variant="contained" color="primary"> Добавить в корзину </Button>
+            <Button variant="outlined" color="accent"> Заказать в 1 клик </Button>
           </Box>
         </Box>
-        <CardDescription>
-          {currentSelected !== -1 ? (
-            <Box
-              sx={{ transition: "all 0.3s", borderRadius: "8px", display: "flex", flexDirection: "column", alignItems: "end", width: "100%", height: "95%", backgroundColor: "#D7FEDC", color: "#000000", }}
-            >
-              <IconButton
-                onClick={() => setCurrentSelected(-1)}
-                sx={{ width: "50px", height: "50px" }}
-              >
-                <Close />
-              </IconButton>
-              <Box
-                sx={{ paddingInline: 4, display: "flex", flexDirection: "row", width: "100%", }}
-              >
-                <Box component="img" height="30px" marginRight="15px" src={`${components[currentSelected].path}`} width="30px" />
-                <Typography height="100%" lineHeight="2">
-                  {build[components[currentSelected].type]}
-                </Typography>
-              </Box>
-            </Box>
-          ) : (
-              build.description
-            )}
-        </CardDescription>
-        <CardComponents>
+        <Box sx={{ height: "100%", width: "100%", display: "flex", alignItems: "end", paddingBottom: "24px",justifyContent: "space-between" }}>
           {components.map((component, index) => (
-            <Box key={index} onClick={() => toggleComponentInfo(index)}
-              sx={{ transition: "all 0.3s", width: "50px", height: "50px",
-                bgcolor: "#D7FEDC",
-                boxShadow: currentSelected === index ? "0 0 1px #D7FEDC" : "none",
-                borderRadius: "75px", display: "flex", justifyContent: "center", alignItems: "center",
-                "&:hover": { backgroundColor: "lightblue", boxShadow: "0 0 1em #D7FEDC", color: "blue", cursor: "pointer", },
-              }}
-            >
-              <Box component="img" src={`${component.path}`} width="30px" />
+            <Box key={index} sx={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center",
+              padding: "10px",
+              borderRadius: "15px",
+              transition: "all 300ms",
+              "&:hover": {
+                boxShadow: "0 0 8px white",
+              }
+            }}>
+              <ComponentTypeIcon type={component.type} width="30px" height="30px" fill={customPalette.text} />
+              <Typography>{component.rus_type}</Typography>
+              <Typography color="accent.main">{build[component.type]}</Typography>
             </Box>
           ))}
-        </CardComponents>
-        <CardButtons>
-          <Button variant="contained"
-            sx={{ height: "60px", transition: "all 0.3s", margin: "10px", bgcolor: "#2600B1", color: "#D7FEDC", width: "50%", paddingTop: "6px",
-              "&:hover": { backgroundColor: "lightblue", boxShadow: "0 0 1em #D7FEDC", color: "blue", cursor: "pointer", },
-            }}
-          >
-            В корзину
-          </Button>
-          <Button variant="outlined" fontSize="0.85em"
-            color= "background"
-            sx={{ height: "60px", width: "50%", margin: "10px", color:"rgba(255, 255, 255, 0.5)",
-              "&:hover": {
-                border: "1px solid white",
-              }}}
-          >
-            Заказать в 1 клик
-          </Button>
-        </CardButtons>
+        </Box>
+
       </Box>
-    </CustomCard>
+
+    </Box>
   )
 }

@@ -41,6 +41,16 @@ export function loadBuildList(handlerFill) {
     handlerFill(data)
   })
 }
-export function getRecomendedBuildList() {
-  return ''
+
+async function loadRecommendedBuildList() {
+  return await fetch("/builds/api/get-recommended").then((data) => {
+    return data.json()
+  }).then(data => {
+      return data
+    })
+}
+
+
+export function getRecommendedBuilds() {
+  return loadRecommendedBuildList()
 }

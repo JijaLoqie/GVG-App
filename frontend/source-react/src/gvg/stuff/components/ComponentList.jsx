@@ -18,80 +18,32 @@ const handleMouseMove = (e) => {
 
 
 
-export function ComponentList({ filter }) {
-  const [components, setComponents] = useState([])
+export function ComponentList({ components, filter }) {
   const [filteredComponents, setFilteredComponents] = useState([])
+
   useEffect(() => {
     setFilteredComponents(
-      components
+      [
+        ...components,
+      ]
         .filter((componentItem) => componentItem.title.toLowerCase().includes(filter.name.toLowerCase()))
         .filter((componentItem) => componentItem.component_type.includes(filter.type))
         .slice(filter.limitKey*filter.listSize, (filter.limitKey+1)*filter.listSize)
     )
-  }, [components, filter.name, filter.type])
-  useEffect(() => {
-    loadComponentList(setComponents)
-  }, [])
+  }, [components, filter])
+
 
   return (
-    <Box sx={{ position: "relative", display: "flex", width: "100%",}}>
+    <Box sx={{ position: "relative", paddingTop: "30px", paddingBottom: "150px", display: "flex", width: "100%",}}>
         <Box onMouseMove={handleMouseMove}
-          sx={{ position: "absolute", justifyContent: "center", minWidth: "100%", display: "flex", flexDirection: "row", flexWrap: "wrap", gap: "12px" }}
+          sx={{ justifyContent: "center", minWidth: "100%", display: "flex", flexDirection: "row", flexWrap: "wrap", gap: "12px" }}
         >
-          {filteredComponents.length !== 0 ? filteredComponents.map((componentItem, index) => (
+          {filteredComponents.length !== 0 ? [ ...filteredComponents, ].map((componentItem, index) => (
             <ComponentCard componentItem={componentItem} key={index} />
           )) : (
               <Box sx={{ width: "100%", padding: "24px", color: "text.main", textAlign: 'center',
                 display: "flex", flexDirection: "column", justifyContent: "center", alignItems: 'center',
               }}>
-                <Typography variant="h3">По данному запросу ничего не найдено</Typography>
-                <SentimentVeryDissatisfied sx={{width: "100px", height:"100px"}} /> 
-              </Box>
-            )
-          }
-          {filteredComponents.length !== 0 ? filteredComponents.map((componentItem, index) => (
-            <ComponentCard componentItem={componentItem} key={index} />
-          ))
-            : (
-              <Box
-                sx={{
-                  width: "100%", padding: "24px",
-                  color: "text.main",
-                  display: "flex", flexDirection: "column", justifyContent: "center", alignItems: 'center',
-                  textAlign: 'center',
-                }}>
-                <Typography variant="h3">По данному запросу ничего не найдено</Typography>
-                <SentimentVeryDissatisfied sx={{width: "100px", height:"100px"}} /> 
-              </Box>
-            )
-          }
-          {filteredComponents.length !== 0 ? filteredComponents.map((componentItem, index) => (
-            <ComponentCard componentItem={componentItem} key={index} />
-          ))
-            : (
-              <Box
-                sx={{
-                  width: "100%", padding: "24px",
-                  color: "text.main",
-                  display: "flex", flexDirection: "column", justifyContent: "center", alignItems: 'center',
-                  textAlign: 'center',
-                }}>
-                <Typography variant="h3">По данному запросу ничего не найдено</Typography>
-                <SentimentVeryDissatisfied sx={{width: "100px", height:"100px"}} /> 
-              </Box>
-            )
-          }
-          {filteredComponents.length !== 0 ? filteredComponents.map((componentItem, index) => (
-            <ComponentCard componentItem={componentItem} key={index} />
-          ))
-            : (
-              <Box
-                sx={{
-                  width: "100%", padding: "24px",
-                  color: "text.main",
-                  display: "flex", flexDirection: "column", justifyContent: "center", alignItems: 'center',
-                  textAlign: 'center',
-                }}>
                 <Typography variant="h3">По данному запросу ничего не найдено</Typography>
                 <SentimentVeryDissatisfied sx={{width: "100px", height:"100px"}} /> 
               </Box>

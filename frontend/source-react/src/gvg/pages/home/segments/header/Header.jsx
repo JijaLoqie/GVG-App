@@ -31,26 +31,20 @@ export function Header() {
                   padding: "20px 30px",
                   borderRadius: "8px",
 
-
-                  borderTop: "1px solid #fff",
-                  boxShadow: `0 5px 8px #002851, 0 8px 0 #002851,
--2px 1px 0 #003872, 2px 1px 0 #003872, 0px 8px 10px #000, 0 10px 30px #1b1b1b`,
+                  boxShadow: `0 1px 1px #000, 0 1px 0 #000, -2px 1px 0 #000, 2px 1px 0 #000, 0px 1px 10px #000, 0 10px 10px #000`,
+                  borderTop: "1px solid #ffffff99",
 
 
                   font: "bold 24px 'Trebuchet Ms', helvetica",
                   textDecoration: "none",
                   transition:"all 500ms",
-                  "&:hover": {
-                    boxShadow: `0 1px 1px #000, 0 1px 0 #000, -2px 1px 0 #000, 2px 1px 0 #000, 0px 1px 10px #000, 0 10px 10px #000`,
-                  borderTop: "1px solid #ffffff99",
-                  }
                 }}
               >
                 <Typography
                   fontSize="1em"
                   style={{
-                    background: "-webkit-linear-gradient(45deg, #5d56d0 30%, #eb23ab 60%)",
-                    webkitBackgroundClip: "text",
+                    background: "-webkit-linear-gradient(45deg, #eb23ab 10%, #5d56d0 95%)",
+                    WebkitBackgroundClip: "text",
                     WebkitTextFillColor: "transparent",
                   }}
 

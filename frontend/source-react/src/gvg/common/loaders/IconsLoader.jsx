@@ -5,7 +5,7 @@ import GraphicsLogo from "./graphics-card.svg?react"
 import RamLogo from "./ram.svg?react"
 import OtherLogo from "./other.png?react"
 import { GridView } from "@mui/icons-material"
-const component = [
+const componentTypes = [
   { type: "hdd", rus_type: "Жёсткий диск", path: "/static/builds/parts/hdd.svg" },
   { type: "ram", rus_type: "Оперативная память", path: "/static/builds/parts/ram.svg", },
   { type: "ssd", rus_type: "SSD накопитель", path: "/static/builds/parts/ssd.svg", },
@@ -14,12 +14,12 @@ const component = [
 ]
 
 
-export function getComponentList() {
-  return component
+export function getComponentPartsList() {
+  return componentTypes
 }
 
 export function getComponentIconPathByType(searchType) {
-  for (const component of component) {
+  for (const component of componentTypes) {
     if (component.type === searchType) {
       return component.path
     }

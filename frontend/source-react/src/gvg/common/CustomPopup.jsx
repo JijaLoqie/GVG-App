@@ -46,10 +46,10 @@ export default function CustomPopup({ setMouseOnPopup, actions }) {
             sx={{
               paddingTop: isMobile ? "16px" : "inherit",
               paddingBottom: isMobile ? "16px" : "inherit",
-              color: "primary.main",
+              color: "text.main",
               backgroundColor: "secondary.main",
               "&:hover": {
-                backgroundColor: "primary.main",
+                backgroundColor: "accent.main",
                 color: "secondary.main",
               },
             }}

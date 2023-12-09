@@ -4,22 +4,7 @@ import { BuildCard } from "./BuildCard"
 import { loadBuildList } from "./BuildLoader"
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-export function BuildsList({ filter }) {
-  const [builds, setBuilds] = useState([])
+export function BuildsList({ builds, filter }) {
   const [filteredBuilds, setFilteredBuilds] = useState([])
   useEffect(() => {
     setFilteredBuilds(
@@ -28,19 +13,20 @@ export function BuildsList({ filter }) {
 
     )
   }, [builds, filter.name])
-  useEffect(() => {
-    loadBuildList(setBuilds)
-  }, [])
 
   return (
-    <Box>
+    <Box sx={{
+      width: "100%",
+      maxWidth: "1500px",
+      minHeight: "50vh",
+    }}>
       <Box
-        padding={4}
+        paddingBottom={4}
         sx={{
-          display: "flex",
-          flexWrap: "wrap",
-          flexDirection: "row",
-          justifyContent: "space-around",
+          width: "100%",
+          position: "relative",
+          display: "flex", flexWrap: "wrap", flexDirection: "row", justifyContent: 'space-around', 
+          gap: "12px",
         }}
       >
         {filteredBuilds.length !== 0 ? filteredBuilds.map((build, index) => (

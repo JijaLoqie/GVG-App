@@ -23,6 +23,7 @@ def _get_build_by_id(id):
 
 
 class Builds(generics.ListAPIView):
+
     queryset = _get_builds()
     serializer_class = BuildSerializer
 
@@ -42,3 +43,10 @@ class BuildById(APIView):
             return Response(data, status=status.HTTP_200_OK)
         else:
             return Response({'Room not found': 'Invalid Room Code'}, status=status.HTTP_404_NOT_FOUND)
+
+
+
+class RecomendedBuilds(generics.ListAPIView):
+
+    queryset = _get_builds()
+    serializer_class = BuildSerializer

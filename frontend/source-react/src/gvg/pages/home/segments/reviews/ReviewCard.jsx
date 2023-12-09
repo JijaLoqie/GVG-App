@@ -22,7 +22,7 @@ export function ReviewCard({review}) {
         sx={{ paddingBottom: "12px"}}
         style={{
           background: "-webkit-linear-gradient(45deg, #FE6B8B 30%, #FF8E53 60%)",
-          webkitBackgroundClip: "text",
+          WebkitBackgroundClip: "text",
           WebkitTextFillColor: "transparent",
         }}>
         {review.name}

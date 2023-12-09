@@ -5,9 +5,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { ComponentTypeIcon, getComponentIconPathByType } from "../../common/loaders/IconsLoader";
 import { useEffect } from "react";
 
-const CustomPaper = styled("div")((theme) => ({
+const CustomPaper = styled(Box)((theme) => ({
   height: "312px",
-  width: "30%",
   backgroundColor: "rgba(255,255,255, 0.1)",
   cursor: "pointer",
   position: "relative",
@@ -58,7 +57,12 @@ const CardBorder = styled("div")((_) => ({
 export function ComponentCard({ componentItem }) {
 
   return (
-      <CustomPaper className="card">
+    <CustomPaper className="card" sx={{
+      flexGrow: 1,
+      minWidth: "350px",
+      maxWidth: "350px",
+    }}>
+
 
         <CardBorder/>
         <Box sx={{
@@ -116,7 +120,7 @@ export function ComponentCard({ componentItem }) {
             borderBottomLeftRadius: "8px",
             border: "1px solid #ffffff31",
             "&:hover": {
-              color: "primary.main",
+              color: "accent.main",
             }
           }}>
             <Typography>{componentItem.price} ₽</Typography>

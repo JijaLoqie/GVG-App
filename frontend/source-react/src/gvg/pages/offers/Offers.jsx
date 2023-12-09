@@ -3,7 +3,11 @@ import { Outlet } from "react-router-dom";
 
 export function Offers() {
   return (
-    <Box sx={{padding: "24px"}}>
+    <Box sx={{
+      display: "flex",
+      flexDirection: "column",
+      padding: "24px"
+    }}>
       <Outlet />
     </Box>
   )

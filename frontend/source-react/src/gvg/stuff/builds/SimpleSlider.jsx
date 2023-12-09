@@ -1,50 +1,10 @@
 import { useState } from "react"
 import { KeyboardArrowLeft, KeyboardArrowRight } from "@mui/icons-material"
-import { Box } from "@mui/material"
+import { Box, IconButton } from "@mui/material"
 import styled from "@emotion/styled"
 
-const CustomArrow = styled(Box)({
-  position: "absolute",
-  top: "50%",
-  transform: "translate(0, -50%)",
 
-  fontSize: "45px",
-  zIndex: 1,
-  cursor: "pointer",
-  borderRadius: "8px",
-})
-
-const slideStyles = {
-  width: "100%",
-  height: "100%",
-  backgroundSize: "cover",
-  backgroundPosition: "center",
-  borderRadius: "8px 8px 0 0",
-  transition: (theme) =>
-    theme.transitions.create("background", {
-      duration: theme.transitions.duration.standard,
-    }),
-}
-
-const sliderStyles = {
-}
-
-export default function SimpleSlider({ items, scrollable }) {
-  const CustomRightArrow = styled(CustomArrow)({
-	transition: "all 0.3s",
-    backgroundColor: scrollable ? "#00000099" : "#00000000",
-    color: scrollable ? "#D7FEDC" : "#00000000",
-
-    right: "8px",
-  })
-  const CustomLeftArrow = styled(CustomArrow)({
-    transition: "all 0.3s",
-    backgroundColor: scrollable ? "#00000099" : "#00000000",
-    color: scrollable ? "#D7FEDC" : "#00000000",
-
-    left: "8px",
-  })
-
+export function SimpleSlider({ items, scrollable }) {
   const [currentIndex, setCurrentIndex] = useState(0)
 
   const goToPrevious = () => {
@@ -59,22 +19,59 @@ export default function SimpleSlider({ items, scrollable }) {
   const goToNext = () => {
     setCurrentIndex((currentIndex + 1) % items.length)
   }
-  const slideStylesWidthBackground = {
-    ...slideStyles,
-    backgroundImage: `url(${items[currentIndex].url})`,
-  }
 
   return (
     <Box sx={{ position: "relative", height: "100%", }}>
-      <Box sx={{ visibility: scrollable ? "visible" : "hidden", }} >
-        <CustomLeftArrow onClick={goToPrevious}>
-          <KeyboardArrowLeft />
-        </CustomLeftArrow>
-        <CustomRightArrow onClick={goToNext}>
-          <KeyboardArrowRight />
-        </CustomRightArrow>
+      <Box sx={{ position: "absolute", bottom: "12px", left: "50%",
+        transform: "translate(-50%, 0)", height: "30px",
+        display: 'flex',
+        zIndex: 5,
+      }} >
+        <IconButton sx={{
+          bgcolor: "#00000088",
+          borderRadius: 0,
+          borderRight: "1px solid white",
+          borderTopLeftRadius: "32px",
+          borderBottomLeftRadius: "32px",
+        }} onClick={goToPrevious}>
+          <KeyboardArrowLeft color="text" />
+        </IconButton>
+        <IconButton sx={{
+          bgcolor: "#00000088",
+          borderRadius: 0,
+          borderTopRightRadius: "32px",
+          borderBottomRightRadius: "32px",
+        }} onClick={goToNext}>
+          <KeyboardArrowRight color="text"/>
+        </IconButton>
       </Box>
-      <Box sx={slideStylesWidthBackground} />
+
+      <Box sx={{
+        position: 'absolute',
+        width: "100%", height: "100%",
+        borderRadius: "inherit",
+        transition: "all 300ms", 
+
+        backgroundImage: `url(${items[currentIndex].path})`,
+
+        backgroundSize: "contain",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center",
+        boxShadow: "inset 0 0 80px black",
+        zIndex: 3,
+      }}/>
+      <Box sx={{
+        width: "100%", height: "100%",
+        borderRadius: "inherit",
+        transition: "all 300ms", 
+
+        backgroundImage: `url(${items[currentIndex].path})`,
+        filter: "blur(2px)",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        boxShadow: "inset 0 0 80px black",
+        zIndex: 3,
+      }}/>
     </Box>
   )
 }

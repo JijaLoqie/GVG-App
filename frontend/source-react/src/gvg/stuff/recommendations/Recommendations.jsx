@@ -1,6 +1,6 @@
 import { Box, Typography } from "@mui/material";
-import { getRecommendedStuff } from "./RecomendationsLoader";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { getRecommendedStuff } from "./RecommendationsLoader";
 
 export function Recommendations() {
   const [recommendedStuff, setRecommendedStuff] = useState([])

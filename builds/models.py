@@ -1,7 +1,7 @@
 from django.db import models
-from django.utils.translation import gettext_lazy as _
 from sortedm2m.fields import SortedManyToManyField
-from django.utils.html import format_html
+
+from django.utils.translation import gettext_lazy as _
 
 class Build(models.Model):
     """Сборка компьютера (Товар)"""
@@ -41,6 +41,16 @@ class Build(models.Model):
     
     def __str__(self):
         return self.title
+
+class RecommendedBuild(models.Model):
+    class Meta:
+        verbose_name = "Рекомендация сборки"
+        verbose_name_plural = "Рекомендации сборок"
+
+
+    title = models.CharField(_("Название"), max_length=100)
+    build_list = SortedManyToManyField(Build, blank=True, related_name="recommended_builds")
+    
 
 
 class BuildImage(models.Model):

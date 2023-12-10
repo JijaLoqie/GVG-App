@@ -1,16 +1,15 @@
-from logging import log
 from django.contrib import admin
 from django.utils.html import format_html
 
-from .models import Build, BuildImage
+from .models import Build, BuildImage, RecommendedBuild
 
 
-class ImageInline(admin.TabularInline):  
-    model = BuildImage  
+class ImageInline(admin.TabularInline):
+    model = BuildImage
     
-    extra = 0  # Определите количество дополнительных форм для добавления картинок
+    extra = 0
 	
-    
+
     def render_image(self, instance):
         if instance.path:
             return format_html('<img srcSet="{}" width="200" />'.format(instance.path.url))
@@ -26,7 +25,38 @@ class ImageInline(admin.TabularInline):
     
 
 class BuildsAdmin(admin.ModelAdmin):
-    inlines = [ImageInline]  # Включите инлайн ImageInline
+    inlines = [ImageInline]
+
+
+
+
+
+
+ 
+
+class BuildInline(admin.TabularInline):
+    model = RecommendedBuild.build_list.through
+
+    extra = 0
+
+
+
+class RecommendedBuildsAdmin(admin.ModelAdmin):
+    inlines = [BuildInline]
+
+
+
+
+
+
 
 
 admin.site.register(Build, BuildsAdmin)
+
+admin.site.register(RecommendedBuild, RecommendedBuildsAdmin)
+
+
+
+
+
+

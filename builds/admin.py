@@ -31,19 +31,21 @@ class BuildsAdmin(admin.ModelAdmin):
 
 
 
+class BuildInline(admin.TabularInline):
+    model = Build
+
+    extra = 0
+
+    fields = ('id', 'title',)
+    readonly_fields = ('id', 'title')
 
  
 
-class BuildInline(admin.TabularInline):
-    model = RecommendedBuild.build_list.through
-
-    extra = 0
 
 
 
 class RecommendedBuildsAdmin(admin.ModelAdmin):
     inlines = [BuildInline]
-
 
 
 

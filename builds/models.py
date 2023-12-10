@@ -1,10 +1,9 @@
 from django.db import models
-from sortedm2m.fields import SortedManyToManyField
-
 from django.utils.translation import gettext_lazy as _
 
 class Build(models.Model):
     """Сборка компьютера (Товар)"""
+
 
     class Meta:
         db_table = "build"
@@ -38,6 +37,7 @@ class Build(models.Model):
     
     video = models.FileField(_("Видео"), upload_to='builds/videos/', blank=True)
 
+    recomendation_queue = models.ForeignKey("RecommendedBuild", blank=True, null=True, on_delete=models.SET_NULL, verbose_name=_("Рекомендательный лист"))
     
     def __str__(self):
         return self.title
@@ -49,7 +49,6 @@ class RecommendedBuild(models.Model):
 
 
     title = models.CharField(_("Название"), max_length=100)
-    build_list = SortedManyToManyField(Build, blank=True, related_name="recommended_builds")
     
 
 

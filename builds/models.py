@@ -37,7 +37,7 @@ class Build(models.Model):
     
     video = models.FileField(_("Видео"), upload_to='builds/videos/', blank=True)
 
-    recomendation_queue = models.ForeignKey("RecommendedBuild", blank=True, null=True, on_delete=models.SET_NULL, verbose_name=_("Рекомендательный лист"))
+    recomendation_queue = models.ForeignKey("RecommendedBuild", blank=True, null=True, on_delete=models.SET_NULL, verbose_name=_("Рекомендательный лист"), related_name="recommended_build")
     
     def __str__(self):
         return self.title

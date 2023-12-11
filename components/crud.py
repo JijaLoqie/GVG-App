@@ -10,7 +10,7 @@ from components.models import Component
 from components.serializers import ComponentSerializer
 
 
-def _get_components():
+def _get_components(recommended=False):
     return Component.objects.all()
 
 

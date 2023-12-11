@@ -6,12 +6,15 @@ from rest_framework.response import Response
 from django.contrib.auth.admin import UserAdmin
 from django.contrib import admin
 
-from builds.models import Build
-from builds.serializers import BuildSerializer
+from builds.models import Build, RecommendedBuild
+from builds.serializers import BuildSerializer, RecommendedBuildSerializer
 
 
-def _get_builds():
-    return Build.objects.all()
+def _get_builds(recommended=False):
+    if recommended:
+        return RecommendedBuild.objects.all()
+    else:
+        return Build.objects.all()
 
 
 def _get_build_by_id(id):
@@ -20,6 +23,12 @@ def _get_build_by_id(id):
         return build
     except Build.DoesNotExist:
         return None
+
+
+class RecommendedBuilds(generics.ListAPIView):
+
+    queryset = _get_builds(recommended=True)
+    serializer_class = RecommendedBuildSerializer
 
 
 class Builds(generics.ListAPIView):
@@ -44,9 +53,3 @@ class BuildById(APIView):
         else:
             return Response({'Room not found': 'Invalid Room Code'}, status=status.HTTP_404_NOT_FOUND)
 
-
-
-class RecomendedBuilds(generics.ListAPIView):
-
-    queryset = _get_builds()
-    serializer_class = BuildSerializer

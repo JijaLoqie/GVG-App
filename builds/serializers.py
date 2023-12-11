@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import Build, BuildImage
+from .models import Build, BuildImage, RecommendedBuild
 
 class ImageSerializer(serializers.ModelSerializer):
     class Meta:
@@ -18,3 +18,15 @@ class BuildSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         return Build.objects.create(**validated_data)
+
+
+class RecommendedBuildSerializer(serializers.ModelSerializer):
+    builds = BuildSerializer(source="recommended_build", required=False, many=True, read_only=True)
+
+    class Meta:
+        model = RecommendedBuild
+        fields = ('id', 'title', 'builds')
+
+
+    def create(self, validated_data):
+        return RecommendedBuild.objects.create(**validated_data)

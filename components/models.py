@@ -1,5 +1,4 @@
 from django.db import models
-
 from django.utils.translation import gettext_lazy as _
 
 class Component(models.Model):
@@ -38,12 +37,38 @@ class Component(models.Model):
     
     
     video = models.FileField(_("Видео"), upload_to='static/components/videos/', blank=True)
-    image = models.ImageField("Фото", upload_to='static/components/', blank=True)
     params = models.TextField(_("Параметры"), default="")
 
 
     
+    recomendation_queue = models.ForeignKey("RecommendedComponent", blank=True, null=True, on_delete=models.SET_NULL, verbose_name=_("Рекомендательный лист"))
     def __str__(self):
         return self.title
 
 
+
+class RecommendedComponent(models.Model):
+    class Meta:
+        verbose_name = "Рекомендация компонентов"
+        verbose_name_plural = "Рекомендации компонентов"
+
+
+    title = models.CharField(_("Название"), max_length=100)
+
+
+
+
+
+class ComponentImage(models.Model):
+    class Meta:
+        verbose_name = "Изображение"
+        verbose_name_plural = "Изобажения" 
+        ordering = ('order_id',)
+
+    order_id = models.IntegerField(_("Порядковый номер"))
+    component = models.ForeignKey(Component, on_delete=models.CASCADE, related_name="ComponentImage")
+    path = models.ImageField(_("Фото"), blank=False, upload_to="static/components/")
+    
+    
+    def __str__(self):
+        return str(self.path)

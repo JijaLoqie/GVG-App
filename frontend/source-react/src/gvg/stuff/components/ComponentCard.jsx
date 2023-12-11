@@ -1,9 +1,9 @@
 import styled from "@emotion/styled";
 import { Box, Button, SvgIcon, Typography } from "@mui/material";
 import { customPalette, themes } from "../../common/styles/themes";
-import { Link, useNavigate } from "react-router-dom";
+
 import { ComponentTypeIcon, getComponentIconPathByType } from "../../common/loaders/IconsLoader";
-import { useEffect } from "react";
+
 
 const CustomPaper = styled(Box)((theme) => ({
   height: "312px",
@@ -54,82 +54,77 @@ const CardBorder = styled("div")((_) => ({
 }));
 
 
-export function ComponentCard({ componentItem }) {
+export function ComponentCard({ componentItem, recommended }) {
 
   return (
-    <CustomPaper className="card" sx={{
-      flexGrow: 1,
-      minWidth: "350px",
-      maxWidth: "350px",
-    }}>
+    <CustomPaper className="card" sx={{ flexGrow: 1, minWidth: "350px", maxWidth: "350px", }}>
+      <CardBorder/>
+      <Box sx={{
+        border: recommended ? '5px solid' : 'none', borderImageSlice: 1,
+        borderImageSource: `linear-gradient(to left, ${['red', 'blue'].join(',')})`,
 
 
-        <CardBorder/>
-        <Box sx={{
-          position: "absolute",
-          backgroundColor: "secondary.main", borderRadius: "inherit",
-          display: "flex", flexDirection: "column", flexGrow: 1,
-          alignItems:"center",
-          inset: "1px", padding: "10px", zIndex: 2,
-        }} >
-          <ComponentTypeIcon type={componentItem.component_type}
-            style={{
-              borderTopLeftRadius: "8px",
-              borderBottomRightRadius: "8px",
-              border: "1px solid #ffffff31",
-              padding: "8px",
-              paddingBottom: "12px",
-              position: "absolute", right: "0", bottom: "0",
-              width: "30px", height: "30px",
-              zIndex: 10,
-            }}/>
-          <Box sx={{ height: "80%",
-            display: "flex", justifyContent: "center", alignItems: "start"}}
-          >
-            <img alt="Image" src={componentItem.image} style={{ maxHeight: "90%", width: "100%", }} />
-          </Box>
-          <Typography color="text.main" fontSize="1.1em" lineHeight="20px" m="0" >
-            {componentItem.title}
-          </Typography>
-        </Box>
-        <Box sx={{
-          zIndex: 1000,
-          position: "absolute", up: "0", right: "0",
-          display: "flex", alignItems: "center", justifyContent: "center",
-        }}>
-          <Box sx={{
-            padding: "1px",
-            paddingInline: "12px",
-            borderTopRightRadius: "8px",
-            borderBottomLeftRadius: "8px",
+        position: "absolute",
+        backgroundColor: "secondary.main", borderRadius: "inherit",
+        display: "flex", flexDirection: "column", flexGrow: 1,
+        alignItems:"center",
+        inset: "1px", padding: "10px", zIndex: 2,
+      }} >
+        <ComponentTypeIcon type={componentItem.component_type}
+          style={{
+            borderTopLeftRadius: "8px",
+            borderBottomRightRadius: "8px",
             border: "1px solid #ffffff31",
-          }}>
-            <Typography variant="body2" sx={{ "&:hover": { color: "text.main", },
-              color: "gray", textDecoration: "underline"}}>{componentItem.id}</Typography>
-          </Box>
+            padding: "8px",
+            paddingBottom: "12px",
+            position: "absolute", right: "0", bottom: "0",
+            width: "30px", height: "30px",
+            zIndex: 10,
+          }}/>
+        <Box sx={{ height: "80%",
+          display: "flex", justifyContent: "center", alignItems: "start"}}
+        >
+          <img alt="Image" src={componentItem.image} style={{ maxHeight: "90%", width: "100%", }} />
         </Box>
+        <Typography color="text.main" fontSize="1.1em" lineHeight="20px" m="0" >
+          {componentItem.title}
+        </Typography>
+      </Box>
+      <Box sx={{
+        display: "flex", alignItems: "center", justifyContent: "center",
+        position: "absolute", up: "0", right: "0",
+        zIndex: 1000,
+      }}>
         <Box sx={{
-          zIndex: 100,
-          position: "absolute", bottom: "0",
-          display: "flex", alignItems: "center", justifyContent: "center",
-          color: "text.main",
+          padding: "1px",
+          paddingInline: "12px",
+          borderTopRightRadius: "8px",
+          borderBottomLeftRadius: "8px",
+          border: "1px solid #ffffff31",
         }}>
-          <Box sx={{
-            padding: "8px", paddingBottom: "12px",
-            borderTopRightRadius: "8px",
-            borderBottomLeftRadius: "8px",
-            border: "1px solid #ffffff31",
-            "&:hover": {
-              color: "accent.main",
-            }
-          }}>
-            <Typography>{componentItem.price} ₽</Typography>
-          </Box>
+          <Typography variant="body2" sx={{ "&:hover": { color: "text.main", },
+            color: "gray", textDecoration: "underline"}}>{componentItem.id}</Typography>
         </Box>
-      </CustomPaper>
+      </Box>
+      <Box sx={{
+        display: "flex", alignItems: "center", justifyContent: "center",
+        position: "absolute", bottom: "0",
+        color: "text.main",
+        zIndex: 100,
+      }}>
+        <Box sx={{
+          padding: "8px", paddingBottom: "12px",
+          borderTopRightRadius: "8px",
+          borderBottomLeftRadius: "8px",
+          border: "1px solid #ffffff31",
+          "&:hover": {
+            color: "accent.main",
+          }
+        }}>
+          <Typography>{componentItem.price} ₽</Typography>
+        </Box>
+      </Box>
+    </CustomPaper>
   );
 }
 
-
-//            
-//            

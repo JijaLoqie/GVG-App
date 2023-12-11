@@ -5,7 +5,6 @@ export async function getBuildById(buildId) {
   }).then(data => {
       buildFound = data
       if (buildFound['Room not found']) {
-        console.log("sadasdas")
         return {title: "unknown", description: "no description", price: "404"}
       } else {
         return buildFound

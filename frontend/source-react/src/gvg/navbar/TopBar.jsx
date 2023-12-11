@@ -62,7 +62,8 @@ export default function TopBar({ actions, offerActions }) {
   const isMobile = useCheckMobileScreen()
   return (
     <Toolbar style={{ minHeight: 45, }}
-      sx={{ minHeight: 45, fontSize: "16px", lineHeight: "29px", }}
+      sx={{
+        minHeight: 45, fontSize: "16px", lineHeight: "29px", }}
     >
       <LogoButton />
       {!isMobile ? (

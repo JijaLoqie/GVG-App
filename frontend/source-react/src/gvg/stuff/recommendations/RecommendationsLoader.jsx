@@ -2,18 +2,9 @@ import { getRecommendedComponents } from "../components/ComponentLoader"
 import { getRecommendedBuilds } from "../builds/BuildLoader"
 
 
-export function getRecommendedComponentList() {
-  return getRecommendedComponents()
-}
-
-export function getRecommendedBuildList() {
-  return getRecommendedBuilds()
-}
-
-
-export function getRecommendedStuff(typeStuff) {
-  const components = getRecommendedComponentList()
-  const builds = getRecommendedBuildList()
+export async function getRecommendedStuff(typeStuff) {
+  const components = await getRecommendedComponents()
+  const builds = await getRecommendedBuilds()
   
   switch (typeStuff) {
     case "components":

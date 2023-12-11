@@ -56,7 +56,7 @@ async function loadRecommendedComponentList() {
 }
 
 
-export function getRecommendedComponents() {
-  return loadRecommendedComponentList()
+export async function getRecommendedComponents() {
+  return await loadRecommendedComponentList()
 }
 

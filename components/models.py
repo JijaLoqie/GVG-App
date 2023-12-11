@@ -53,7 +53,11 @@ class RecommendedComponent(models.Model):
         verbose_name_plural = "Рекомендации компонентов"
 
 
+    code = models.CharField(_("Кодовое слово"), max_length=10 )
     title = models.CharField(_("Название"), max_length=100)
+    
+    def __str__(self):
+        return self.title
 
 
 

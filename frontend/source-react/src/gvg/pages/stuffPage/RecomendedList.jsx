@@ -1,7 +1,8 @@
 import { Box } from "@mui/material";
 import { useEffect, useState } from "react";
 import { ComponentCard } from "../../stuff/components/ComponentCard";
-import { getRecommendedBuildList, getRecommendedComponentList } from "../../stuff/recommendations/RecommendationsLoader";
+import { getRecommendedComponents } from "../../stuff/components/ComponentLoader";
+import { getRecommendedBuilds } from "../../stuff/builds/BuildLoader";
 
 const handleMouseMove = (e) => {
   for (const card of document.getElementsByClassName("card")) {
@@ -17,9 +18,9 @@ const handleMouseMove = (e) => {
 export function RecommendedList({ keyFilter }) {
   const [stuffList, setStuffList] = useState([])
 
-  useEffect(() => {
-    const components = getRecommendedComponentList() 
-    const builds = getRecommendedBuildList() 
+  useEffect(async () => {
+    const components = await getRecommendedComponents() 
+    const builds = await getRecommendedBuilds() 
     setStuffList([...components])
   }, [keyFilter])
   return (

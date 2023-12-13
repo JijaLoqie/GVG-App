@@ -45,7 +45,7 @@ async function loadRecommendedBuildList() {
   return await fetch("/builds/api/get-recommended").then((data) => {
     return data.json()
   }).then(data => {
-      return data
+      return data[0].builds
     })
 }
 

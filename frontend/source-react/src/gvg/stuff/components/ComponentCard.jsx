@@ -10,7 +10,7 @@ const CustomPaper = styled(Box)((theme) => ({
   backgroundColor: "rgba(255,255,255, 0.1)",
   cursor: "pointer",
   position: "relative",
-  borderRadius: "10px",
+  borderRadius: "6px",
   fill: customPalette.text,
   transition: "all 300ms",
   "&:hover": {
@@ -57,13 +57,11 @@ const CardBorder = styled("div")((_) => ({
 export function ComponentCard({ componentItem, recommended }) {
 
   return (
-    <CustomPaper className="card" sx={{ flexGrow: 1, minWidth: "350px", maxWidth: "350px", }}>
+    <CustomPaper className="card" sx={{ 
+      boxShadow: "0 0 8px gold",
+      flexGrow: 1, minWidth: "350px", maxWidth: "350px", }}>
       <CardBorder/>
       <Box sx={{
-        border: recommended ? '5px solid' : 'none', borderImageSlice: 1,
-        borderImageSource: `linear-gradient(to left, ${['red', 'blue'].join(',')})`,
-
-
         position: "absolute",
         backgroundColor: "secondary.main", borderRadius: "inherit",
         display: "flex", flexDirection: "column", flexGrow: 1,

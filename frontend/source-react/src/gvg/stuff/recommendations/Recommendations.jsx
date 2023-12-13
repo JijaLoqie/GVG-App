@@ -2,6 +2,7 @@ import { Box, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import { getRecommendedStuff } from "./RecommendationsLoader";
 import { ComponentList } from "../components/ComponentList";
+import { RecommendationList } from "./RecommendationList";
 
 export function Recommendations() {
   const [recommendedStuff, setRecommendedStuff] = useState([])
@@ -16,15 +17,16 @@ export function Recommendations() {
   return (
     <Box sx={{
       paddingTop: "24px",
-      width: "100%", height: "50vh",
+      width: "100%",
 
       borderTop: '5px solid', borderImageSlice: 1,
       borderImageSource: `linear-gradient(to left, ${['red', 'blue'].join(',')})`,
 
-      display: "flex", alignItems: "start", justifyContent: "center",
+      display: "flex", alignItems: "center", justifyContent: "start", flexDirection: 'column',
       gap: "10px",
     }}>
-      <ComponentList components={recommendedStuff} recommended={true} />
+      <Typography variant="h4" color="text">Хит сезона</Typography>
+      <RecommendationList items={recommendedStuff} />
     </Box>
   )
 }

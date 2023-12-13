@@ -8,7 +8,7 @@ import { customPalette } from "../../common/styles/themes"
 
 
 
-export function BuildCard({ build }) {
+export function BuildCard({ build, premium }) {
   const components = useMemo(getComponentPartsList, [])
 
   const [isHovered, setIsHovered] = useState(false)
@@ -27,6 +27,7 @@ export function BuildCard({ build }) {
         display: "flex",
         bgcolor: "background.main",
         borderRadius: "12px",
+        boxShadow: "rgba(50, 50, 93, 0.7) 0px 0px 1000px 0px, rgba(0, 0, 0, 0.1) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset",
         fontFamily: "cursive",
       }}
     >
@@ -55,7 +56,7 @@ export function BuildCard({ build }) {
         <Box sx={{ width: "100%", height: "100%", display: "flex", flexDirection: "row", justifyContent: "start", alignItems: 'center', gap:"34px" }}>
           <Box sx={{ height: "100%", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
             <Typography color="accent.main">{build.price} ₽</Typography>
-            {build.old_price !== undefined ? <Typography color="primary.main"><strike>{build.old_price} ₽</strike></Typography> : null}
+            {build.old_price != undefined ? <Typography color="primary.main"><strike>{build.old_price} ₽</strike></Typography> : null}
           </Box>
           <Box sx={{ height: "100%", display: "flex", flexDirection: "row", gap: "8px", justifyContent: "center", alignItems: "center" }}>
             <Button variant="contained" color="primary"> Добавить в корзину </Button>

@@ -3,8 +3,8 @@ import { getRecommendedBuilds } from "../builds/BuildLoader"
 
 
 export async function getRecommendedStuff(typeStuff) {
-  const components = await getRecommendedComponents()
-  const builds = await getRecommendedBuilds()
+  const components = await getRecommendedComponents() ?? []
+  const builds = await getRecommendedBuilds() ?? []
   
   switch (typeStuff) {
     case "components":

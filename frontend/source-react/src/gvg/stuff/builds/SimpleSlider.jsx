@@ -1,7 +1,6 @@
 import { useState } from "react"
 import { KeyboardArrowLeft, KeyboardArrowRight } from "@mui/icons-material"
 import { Box, IconButton } from "@mui/material"
-import styled from "@emotion/styled"
 
 
 export function SimpleSlider({ items, scrollable }) {
@@ -54,7 +53,7 @@ export function SimpleSlider({ items, scrollable }) {
 
         backgroundImage: `url(${items[currentIndex].path})`,
 
-        backgroundSize: "contain",
+        backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
         boxShadow: "inset 0 0 80px black",

@@ -7,10 +7,10 @@ const createColor = (mainColor) => augmentColor({ color: { main: mainColor } });
 
 export const customPalette = {
   text: "#E8EFF6",
-  background: "#191A1B",
-  primary: "#5D56D0",
-  secondary: "#563179",
-  accent: "#EB23AB",
+  background: "#111111",
+  primary: "#c0ff01",
+  secondary: "#333333",
+  accent: "#9074ff",
 };
 
 const customMuiPalette = {

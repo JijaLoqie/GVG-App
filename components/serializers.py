@@ -10,17 +10,16 @@ class ImageSerializer(serializers.ModelSerializer):
 
 
 class ComponentSerializer(serializers.ModelSerializer):
-
-    component_images = ImageSerializer(source="ComponentImage", required=False, many=True, read_only=True)
+    images = ImageSerializer(source="ComponentImage", required=False, many=True, read_only=True)
 
     class Meta:
         model = Component
-        fields = ('id', 'title', 'component_type', 'description', 'price', 'old_price', 'status', 'recomendation_queue', 'params', 'component_images')
+        fields = ('id', 'title', 'component_type', 'description', 'price', 'old_price', 'status', 'recomendation_queue', 'params', 'images')
 
 
 
 class RecommendedComponentSerializer(serializers.ModelSerializer):
-    builds = ComponentSerializer(source="recommended_component", required=False, many=True, read_only=True)
+    components = ComponentSerializer(source="recommended_component", required=False, many=True, read_only=True)
 
     class Meta:
         model = RecommendedComponent

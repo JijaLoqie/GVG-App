@@ -1,8 +1,9 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 import { Search as SearchIcon } from "@mui/icons-material"
 import { styled } from "@mui/material/styles"
 import { InputBase } from "@mui/material"
+import { PopupSearch } from "./search/PopupSearch"
 
 const Search = styled("div")(({ theme }) => ({
   cursor: "pointer",
@@ -38,12 +39,22 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 export default function CustomSearch() {
 	const [textField, setTextField] = useState()
+	const [focused, setFocused] = useState(false)
+	const [textValue, setTextValue] = useState("")
+
+
+
   return (
-    <Search onClick={() => textField?.focus()} sx ={{ color: "text.main", transition: "color 0.2s", "&:hover": {color: "accent.main"}}}>
-      <SearchIconWrapper>
-        <SearchIcon />
-      </SearchIconWrapper>
-      <StyledInputBase inputRef={(el) => setTextField(el)} sx={{color: "text.main", }}/>
-    </Search>
+    <>
+      <Search
+        onClick={() => textField?.focus()} onFocus={() => {setFocused(true)}} onBlur={() => {setFocused(false)}}
+        sx ={{ color: "text.main", transition: "color 0.2s", "&:hover": {color: "accent.main"}}}>
+        {focused && textValue !== "" ? <PopupSearch filter={{title: textValue}}/> : null}
+        <SearchIconWrapper>
+          <SearchIcon />
+        </SearchIconWrapper>
+        <StyledInputBase onChange={(value) => {setTextValue(value.target.value)}} inputRef={(el) => {setTextField(el)}} sx={{color: "text.main", }}/>
+      </Search>
+    </>
   )
 }

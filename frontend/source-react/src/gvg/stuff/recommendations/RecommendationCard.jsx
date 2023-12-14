@@ -7,18 +7,14 @@ import { ComponentTypeIcon, getComponentPartsList } from "../../common/loaders/I
 
 export function RecommendationCard({item}) {
   const [cardOpened, setCardOpened] = useState(false)
-  const [parameters, setParameters] = useState([])
   const components = useMemo(getComponentPartsList, [])
 
-  useEffect(() => {
-    setParameters()
-
-
-  }, [item])
   return (
     <Box sx={{
       bgcolor: "background.main",
-      width: "400px",
+      minWidth: "400px",
+      width: "33%",
+      maxWidth: "400px",
       height: "550px",
 
       boxShadow: "rgba(50, 50, 93, 0.7) 0px 0px 1000px 0px, rgba(0, 0, 0, 0.1) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset",
@@ -35,7 +31,7 @@ export function RecommendationCard({item}) {
         minHeight: cardOpened ? "100px" : "400px", maxHeight: "100px",
         boxShadow: "inset 0 0 8px black",
       }}>
-        <SimpleSlider items={item.build_images} />
+        <SimpleSlider items={item.images} />
       </Box>
       <Box sx={{ display: "flex", justifyContent: "center", width: "100%", height: "10px", bgcolor: "background.main", }}>
         <Box
@@ -58,7 +54,12 @@ export function RecommendationCard({item}) {
       <Box sx={{
         display: "flex", justifyContent: "space-around", alignItems: "center",
         width: "100%", height: "100px",
-        bgcolor: 'secondary.main', borderRadius: "inherit",
+        borderRadius: "inherit",
+
+        backgroundImage: "-webkit-linear-gradient(rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.5) )",
+        backgroundImage:"-moz-linear-gradient(rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.5))",
+        backgroundImage: "-o-linear-gradient(rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.5))",
+        backgroundImage: "linear-gradient(rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.5))",
         padding: "6px",
         paddingTop: "12px",
         boxShadow: "0 0 8px black",

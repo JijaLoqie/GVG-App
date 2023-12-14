@@ -53,7 +53,7 @@ export function SimpleSlider({ items, scrollable }) {
 
         backgroundImage: `url(${items[currentIndex].path})`,
 
-        backgroundSize: "cover",
+        backgroundSize: "contain",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
         boxShadow: "inset 0 0 80px black",

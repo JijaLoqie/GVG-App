@@ -6,12 +6,15 @@ from rest_framework.response import Response
 from django.contrib.auth.admin import UserAdmin
 from django.contrib import admin
 
-from components.models import Component
-from components.serializers import ComponentSerializer
+from components.models import Component, RecommendedComponent
+from components.serializers import ComponentSerializer, RecommendedComponentSerializer
 
 
 def _get_components(recommended=False):
-    return Component.objects.all()
+    if recommended:
+        return RecommendedComponent.objects.all()
+    else:
+        return Component.objects.all()
 
 
 def _get_component_by_id(id):
@@ -25,6 +28,13 @@ def _get_component_by_id(id):
 class Components(generics.ListAPIView):
     queryset = _get_components()
     serializer_class = ComponentSerializer
+
+
+
+class RecommendedComponents(generics.ListAPIView):
+    queryset = _get_components(recommended=True)
+    serializer_class = RecommendedComponentSerializer
+
 
 
 class ComponentById(APIView):

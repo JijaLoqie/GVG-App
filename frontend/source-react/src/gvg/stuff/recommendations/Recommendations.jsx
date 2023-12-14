@@ -5,12 +5,16 @@ import { ComponentList } from "../components/ComponentList";
 import { RecommendationList } from "./RecommendationList";
 
 export function Recommendations() {
-  const [recommendedStuff, setRecommendedStuff] = useState([])
+  const [recommendedBuilds, setRecommendedBuilds] = useState([])
+  const [recommendedComponents, setRecommendedComponents] = useState([])
 
   useEffect(() => {
-    const type_stuff  = "all"
-    getRecommendedStuff(type_stuff).then( data => {
-      setRecommendedStuff(data)
+    getRecommendedStuff("builds").then(data => {
+      setRecommendedBuilds(data)
+    })
+    getRecommendedStuff("components").then(data => {
+      console.log(data)
+      setRecommendedComponents(data)
     })
   }, [])
 
@@ -25,8 +29,7 @@ export function Recommendations() {
       display: "flex", alignItems: "center", justifyContent: "start", flexDirection: 'column',
       gap: "10px",
     }}>
-      <Typography variant="h4" color="text">Хит сезона</Typography>
-      <RecommendationList items={recommendedStuff} />
+      <RecommendationList buildItems={recommendedBuilds} componentItems={recommendedComponents} />
     </Box>
   )
 }

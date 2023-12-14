@@ -46,26 +46,6 @@ export function About() {
             приступит к работе над вашим идеальным компьютером. 💪
           </Typography>
         </Grid>
-
-        <Grid item md={12} xs={12}>
-          <Typography fontSize="1.5rem">Контакты</Typography>
-        </Grid>
-        <Grid alignItems="center" component={Stack} item md={4} xs={12}>
-          <PhoneIcon sx={{ marginRight: 2 }} />
-          <CustomTelephoneLink />
-        </Grid>
-        <Grid alignItems="center" component={Stack} item md={4} xs={12}>
-          <AccessTimeIcon sx={{ marginRight: 2 }} />
-          <Box>Ежедневно с 10:00 до 20:00</Box>
-        </Grid>
-        <Grid alignItems="center" component={Stack} item md={4} xs={12}>
-          <EmailIcon sx={{ marginRight: 2 }} />
-          <Box>kraskovskiydm@gmail.com</Box>
-        </Grid>
-        <Grid item marginBottom={12} md={12} xs={12}>
-          <TelegramIcon sx={{ marginRight: 2 }} />
-          <InstagramIcon sx={{ marginRight: 2 }} />
-        </Grid>
       </Grid>
     </Box>
   )

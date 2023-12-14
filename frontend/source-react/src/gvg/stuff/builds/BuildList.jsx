@@ -9,7 +9,7 @@ export function BuildsList({ builds, filter }) {
   useEffect(() => {
     setFilteredBuilds(
       builds
-        .filter((build) => build.description.toLowerCase().includes(filter.name.toLowerCase()))
+        .filter((build) => build.title.toLowerCase().includes(filter.name.toLowerCase()))
 
     )
   }, [builds, filter.name])

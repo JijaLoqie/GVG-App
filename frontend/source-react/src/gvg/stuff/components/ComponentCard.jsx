@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import { Box, Button, SvgIcon, Typography } from "@mui/material";
 import { customPalette, themes } from "../../common/styles/themes";
+import { useNavigate } from "react-router-dom";
 
 import { ComponentTypeIcon, getComponentIconPathByType } from "../../common/loaders/IconsLoader";
 
@@ -55,15 +56,15 @@ const CardBorder = styled("div")((_) => ({
 
 
 export function ComponentCard({ componentItem, recommended }) {
+  const navigate = useNavigate()
 
   return (
-    <CustomPaper className="card" sx={{ 
-      boxShadow: "0 0 8px gold",
+    <CustomPaper className="card" onMouseDown={() => navigate(`/component/${componentItem.id}`)} sx={{ 
       flexGrow: 1, minWidth: "350px", maxWidth: "350px", }}>
       <CardBorder/>
       <Box sx={{
         position: "absolute",
-        backgroundColor: "secondary.main", borderRadius: "inherit",
+        backgroundColor: "background.main", borderRadius: "inherit",
         display: "flex", flexDirection: "column", flexGrow: 1,
         alignItems:"center",
         inset: "1px", padding: "10px", zIndex: 2,
@@ -82,7 +83,7 @@ export function ComponentCard({ componentItem, recommended }) {
         <Box sx={{ height: "80%",
           display: "flex", justifyContent: "center", alignItems: "start"}}
         >
-          <img alt="Image" src={componentItem.image} style={{ maxHeight: "90%", width: "100%", }} />
+          <img alt="Image" src={componentItem.images[0].path} style={{ maxHeight: "90%", width: "100%", }} />
         </Box>
         <Typography color="text.main" fontSize="1.1em" lineHeight="20px" m="0" >
           {componentItem.title}

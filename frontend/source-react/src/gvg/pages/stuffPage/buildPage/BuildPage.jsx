@@ -1,18 +1,16 @@
 import { Box, Button, Grid, Typography } from "@mui/material";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { CustomStuffSlider } from "../../../common/CustomStuffSlider";
-import { RecommendedList } from "../RecomendedList";
+import { ComponentTypeIcon, getComponentPartsList } from "../../../common/loaders/IconsLoader";
+import { customPalette } from "../../../common/styles/themes";
 
 export function BuildPage() {
-  const [buildsInfo, setBuildsInfo] = useState([])
+  const buildsInfo = useMemo(getComponentPartsList, [])
 
   const { build, params } = useLoaderData()
 
 
-  useEffect(() => {
-    setBuildsInfo(params ?? [])
-  }, [params])
   return (
     <Box sx={{display: "flex", flexDirection: "column", alignItems: "center", marginTop: "24px",}}>
       <Grid container sx={{ maxWidth: "1200px", width: "100%", minHeight: "70vh", color: "text.main" }}>
@@ -20,7 +18,7 @@ export function BuildPage() {
           <Box
             sx={{ width: "100%", height: {xs: "300px", md: "100%"}, maxHeight: "600px", boxShadow: "inset 0 0 2rem black" }}
           >
-            <CustomStuffSlider />
+            <CustomStuffSlider images={build.images} />
           </Box>
         </Grid>
         <Grid item xs={12} md={6} sx={{display: 'flex'}}>
@@ -63,19 +61,21 @@ export function BuildPage() {
               <Typography variant="h4">
                 Характеристики
               </Typography>
-              <Box>
-                {buildsInfo.map((buildParam, index) => (
-                  <Box key={index} sx={{
-                    marginTop: "8px",
-                    display: "flex",
-                    flexDirection: {xs: "column", md: "row"}, justifyContent: "stretch",
+              <Box sx={{ height: "110%", width: "100%", display: "flex", flexDirection: "column", alignItems: "stretch", paddingBottom: "24px",justifyContent: "space-between" }}>
+                {buildsInfo.map((buildPartInfo, index) => (
+                  <Box key={index} sx={{ display: "flex", flexDirection: "row", justifyContent: "space-between", alignItems: "center",
+                    padding: "8px",
+                    borderRadius: "15px",
+                    transition: "all 300ms",
+                    "&:hover": {
+                      boxShadow: "0 0 8px white",
+                    }
                   }}>
-                    <Box sx={{ minWidth: "10%", bgcolor: "text.main", color: "black", padding: "12px", fontSize: "1.5rem", }}>
-                      {buildParam.type}
+                    <Box sx={{display: "flex", flexDirection: "row", alignItems: "center", gap: "12px"}}>
+                      <ComponentTypeIcon type={buildPartInfo.type} width="30px" height="30px" fill={customPalette.text} />
+                      <Typography>{buildPartInfo.rus_type}</Typography>
                     </Box>
-                    <Box sx={{ flex: 1, bgcolor: "gray", color: "text.main", padding: "12px", fontSize: "1.5rem", }}>
-                      {buildParam.name}
-                    </Box>
+                    <Typography color="accent.main">{build[buildPartInfo.type]}</Typography>
                   </Box>
                 ))}
               </Box>
@@ -87,7 +87,6 @@ export function BuildPage() {
         <Typography variant="h4" p="24px" pt="12px">
           Рекомендуемые товары
         </Typography>
-        <RecommendedList keyFilter={null} />
       </Box>
     </Box>
   )

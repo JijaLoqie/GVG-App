@@ -41,7 +41,7 @@ class Component(models.Model):
 
 
     
-    recomendation_queue = models.ForeignKey("RecommendedComponent", blank=True, null=True, on_delete=models.SET_NULL, verbose_name=_("Рекомендательный лист"))
+    recomendation_queue = models.ForeignKey("RecommendedComponent", blank=True, null=True, on_delete=models.SET_NULL, verbose_name=_("Рекомендательный лист"), related_name="recommended_component")
     def __str__(self):
         return self.title
 

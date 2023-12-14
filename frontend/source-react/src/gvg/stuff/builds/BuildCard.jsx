@@ -10,78 +10,121 @@ import { customPalette } from "../../common/styles/themes"
 
 export function BuildCard({ build, premium }) {
   const components = useMemo(getComponentPartsList, [])
-
-  const [isHovered, setIsHovered] = useState(false)
-
-  const [currentSelected, setCurrentSelected] = useState(-1)
-
-  const toggleComponentInfo = (index) => {
-    setCurrentSelected((current) => (current === index ? -1 : index))
-  }
+  const [selectedComponentInfo, setSelectedComponentInfo] = useState(-1)
 
   return (
     <Box onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}
       sx={{
-        "--card-width": "calc(100% - 30px)", "--card-height": "500px",
-        width: "var(--card-width)", minHeight: "var(--card-height)",
-        display: "flex",
-        bgcolor: "background.main",
-        borderRadius: "12px",
+        "--card-width": "calc(100% - 30px)",
+        "--card-height": "500px",
         boxShadow: "rgba(50, 50, 93, 0.7) 0px 0px 1000px 0px, rgba(0, 0, 0, 0.1) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset",
-        fontFamily: "cursive",
+        width: "var(--card-width)", minHeight: "var(--card-height)",
+        display: "flex", bgcolor: "background.main",
+        borderRadius: "12px", fontFamily: "cursive",
       }}
     >
-      <Box sx={{ width: "40%", height: "100%",
-        borderInline: "6px solid black",
-      }}>
-        <SimpleSlider items={build.build_images} scrollable={true} />
+      <Box sx={{ width: "40%", height: "100%", borderInline: "6px solid black", borderRadius: "inherit" }}>
+        <SimpleSlider items={build.images} scrollable={true} />
       </Box>
-      <Box sx={{ width: "60%", height: "100%",
-        display: "flex", flexDirection: "column", alignItems: "center",
-        paddingInline: "12px",
+
+
+
+      <Box sx={{
+        position: "relative",
+        width: "60%", height: "100%",
+        display: "flex", flexDirection: "column", justifyContent: "start", alignItems: "stretch", paddingInline: "12px",
       }}>
         <Typography variant="h4" sx={{
-          textAlign: 'center',
-          padding: "24px",
-          borderBottom: `1px solid ${customPalette.text}`,
-        }}>{build.title}</Typography>
-        <Box sx={{
-          height: '20%', width: "100%",
-          display: "flex",
-          margin: "24px",
-          paddingTop: 0,
+          display: "flex", justifyContent: "center",
+          textAlign: 'center', padding: "24px", borderBottom: `1px solid ${customPalette.text}`,
         }}>
-          O lolololo lolo lo lolololo looo
-        </Box>
-        <Box sx={{ width: "100%", height: "100%", display: "flex", flexDirection: "row", justifyContent: "start", alignItems: 'center', gap:"34px" }}>
-          <Box sx={{ height: "100%", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
-            <Typography color="accent.main">{build.price} ₽</Typography>
-            {build.old_price != undefined ? <Typography color="primary.main"><strike>{build.old_price} ₽</strike></Typography> : null}
+          {build.title}
+        </Typography>
+
+        <Box sx={{
+          width: {xs:"100%", md:"100%"},
+        }}>
+          <Box sx={{ width: "100%", display: "flex", margin: "24px", paddingTop: 0, }}>
+            {build.description}
           </Box>
-          <Box sx={{ height: "100%", display: "flex", flexDirection: "row", gap: "8px", justifyContent: "center", alignItems: "center" }}>
-            <Button variant="contained" color="primary"> Добавить в корзину </Button>
-            <Button variant="outlined" color="accent"> Заказать в 1 клик </Button>
-          </Box>
-        </Box>
-        <Box sx={{ height: "100%", width: "100%", display: "flex", alignItems: "end", paddingBottom: "24px",justifyContent: "space-between" }}>
-          {components.map((component, index) => (
-            <Box key={index} sx={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center",
-              padding: "10px",
-              borderRadius: "15px",
-              transition: "all 300ms",
-              "&:hover": {
-                boxShadow: "0 0 8px white",
-              }
+          <Box sx={{
+            paddingTop: "24px",
+            width: "100%",
+            display: "flex", flexDirection: "column", justifyContent: "start",
+            alignItems: 'start', gap:"12px" 
+          }}>
+            <Box sx={{
+              display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center",
+              width: "50%",
+              border: "1px solid white",
+              padding: "12px",
+              borderRadius: "8px",
             }}>
-              <ComponentTypeIcon type={component.type} width="30px" height="30px" fill={customPalette.text} />
-              <Typography>{component.rus_type}</Typography>
+              <Typography color="primary.main">{build.price} ₽</Typography>
+              {build.old_price != undefined ? <Typography color="accent.main"><strike>{build.old_price} ₽</strike></Typography> : null}
+            </Box>
+            <Box sx={{
+              display: "flex", flexDirection: "row", alignItems: "center",
+              borderTop: "1px solid white", borderBottom: "1px solid white",
+              marginY: "24px", paddingY: "12px", textAlign: "center",
+              width: "100%",
+            }}>
+              <Button
+                sx={{ marginInline: "20px", transition: "all 0.3s", bgcolor: "#2600B1", color: "#D7FEDC", paddingTop: "6px",
+                  "&:hover": { backgroundColor: "lightblue", boxShadow: "0 0 1em #D7FEDC", color: "blue", cursor: "pointer", },
+                }}
+                variant="contained"
+              >
+                В корзину
+              </Button>
+              <Button variant="outlined" color= "background" fontSize="0.85em"
+                sx={{
+                  color:"rgba(255, 255, 255, 0.5)",
+                  "&:hover": {
+                    border: "1px solid white",
+                  }}}
+              >
+                Заказать в 1 клик
+              </Button>
+            </Box>
+          </Box>
+
+        </Box>
+        <Box sx={{
+          marginTop: "12px",
+          overflowX: "scroll",
+          width: "100%", height: "100%",
+          position: "relative",
+          paddingBottom: "24px",
+          display: "flex", justifyContent: "center", alignItems: "end",
+          flexWrap: "wrap",
+        }}>
+          {components.map((component, index) => (
+            <Box key={index}
+              onClick={() => setSelectedComponentInfo(was => was !== index ? index : -1)}
+              sx={{
+                display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center",
+                transition: "all 300ms", "&:hover": {boxShadow: "0 0 8px white", },
+                padding: "10px",
+                overflow: "visible",
+                borderRadius: "6",
+                cursor: "pointer",
+                flex: selectedComponentInfo === index ? 2 : 1,
+              }}
+              style={{
+                whiteSpace: 'nowrap',
+                overflow: 'hidden',
+                textOverflow: 'ellipsis'
+              }}
+            >
+              <ComponentTypeIcon type={component.type} width="20px" height="20px" fill={customPalette.text} />
+              <Typography variant="body2">{component.rus_type}</Typography>
               <Typography color="accent.main">{build[component.type]}</Typography>
             </Box>
           ))}
         </Box>
 
       </Box>
-
     </Box>
   )
 }

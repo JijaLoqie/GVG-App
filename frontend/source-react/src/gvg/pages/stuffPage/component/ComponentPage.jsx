@@ -2,7 +2,7 @@ import { Box, Button, Grid, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { CustomStuffSlider } from "../../../common/CustomStuffSlider";
-import { RecommendedList } from "../RecomendedList";
+
 
 export function ComponentPage() {
   const [componentsInfo, setComponentsInfo] = useState([])
@@ -20,7 +20,7 @@ export function ComponentPage() {
           <Box
             sx={{ width: "100%", height: {xs: "300px", md: "100%"}, maxHeight: "600px", boxShadow: "inset 0 0 2rem black" }}
           >
-            <CustomStuffSlider />
+            <CustomStuffSlider images={componentResult.images} />
           </Box>
         </Grid>
         <Grid item xs={12} md={6} sx={{display: 'flex'}}>
@@ -87,7 +87,6 @@ export function ComponentPage() {
         <Typography variant="h4" p="24px" pt="12px">
           Рекомендуемые товары
         </Typography>
-        <RecommendedList keyFilter={null} />
       </Box>
     </Box>
   )

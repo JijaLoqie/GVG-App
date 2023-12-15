@@ -4,7 +4,7 @@ export async function getBuildById(buildId) {
     return data.json()
   }).then(data => {
       buildFound = data
-      if (buildFound['Room not found']) {
+      if (buildFound['Build not found']) {
         return {title: "unknown", description: "no description", price: "404"}
       } else {
         return buildFound

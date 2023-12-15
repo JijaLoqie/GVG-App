@@ -4,7 +4,7 @@ export async function getComponentById(componentId) {
     return data.json()
   }).then(data => {
       result = data
-      if (result['Room not found']) {
+      if (result['Component not found']) {
         return {title: "unknown", description: "no description", price: "404"}
       } else {
         return result
@@ -15,26 +15,10 @@ export async function getComponentById(componentId) {
 
 
 
-const convertParameters = (data) => {
-  return data.split(';').map((element => {
-    var pair = element.split(": ")
-    return {rus_name: pair[0], value: pair[1]}
-  }))
-}
-
-
-
-
-
 export async function ComponentLoader({ params }) {
   const componentResult = await getComponentById(params.componentId);
-  var componentParams = convertParameters(componentResult.params)
-  .map(componentParameter => {
-    return {rus_name: componentParameter.rus_name, value: componentParameter.value}
-  })
-  .filter(pair => { return pair.value !== undefined })
 
-  return { componentResult, params: componentParams };
+  return { componentResult };
 }
 
 

@@ -83,7 +83,7 @@ export function ComponentCard({ componentItem, recommended }) {
         <Box sx={{ height: "80%",
           display: "flex", justifyContent: "center", alignItems: "start"}}
         >
-          <img alt="Image" src={componentItem.images[0].path} style={{ maxHeight: "90%", width: "100%", }} />
+          <img alt="Image" src={componentItem.images[0]?.path} style={{ maxHeight: "90%", width: "100%", }} />
         </Box>
         <Typography color="text.main" fontSize="1.1em" lineHeight="20px" m="0" >
           {componentItem.title}

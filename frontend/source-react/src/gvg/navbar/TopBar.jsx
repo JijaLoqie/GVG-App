@@ -8,6 +8,7 @@ import {
   IconButton,
   ButtonGroup,
   Button,
+  Badge,
 } from "@mui/material"
 import CustomPopup from "../common/CustomPopup"
 import { useNavigate } from "react-router-dom"
@@ -16,9 +17,11 @@ import { useCheckMobileScreen } from "../common/hooks/useCheckMobileScreen"
 import CustomCallButton from "../common/CustomCallButton"
 import MoreButton from "./MoreButton"
 import CustomSearch from '../common/CustomSearch'
+import { useCartItems } from "../common/hooks/useCartItems"
 
 
 export default function TopBar({ actions, offerActions }) {
+  const {cartItems} = useCartItems()
   const [hovered, setHovered] = useState("")
   const [mouseOnOffers, setMouseOnOffers] = useState(false)
   const [offersOpen, setOffersOpen] = useState(false)
@@ -102,9 +105,20 @@ export default function TopBar({ actions, offerActions }) {
         <Stack direction="row" spacing={{ xs: 1, md: 3 }}>
           <CustomCallButton sx={{}} />
           <IconButton
+            onClick={() => navigate("/cart")}
             sx={{ paddingTop: 0, paddingBottom: 0, color: "text.main", transition: "color 0.2s", "&:hover": { color: "accent.main", }, }}
           >
-            <ShoppingBagIcon />
+            <Badge badgeContent={cartItems.length} color="primary" sx={{
+              '& .MuiBadge-badge': {
+                right: -3,
+                top: 13,
+                border: `2px solid white`,
+                padding: '0 4px',
+              },
+            }}
+            >
+              <ShoppingBagIcon />
+            </Badge>
           </IconButton>
 
           { !isMobile && <CustomSearch />}

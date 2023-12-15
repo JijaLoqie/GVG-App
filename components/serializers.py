@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import Component, ComponentImage, RecommendedComponent
+from .models import Component, ComponentImage, ComponentParameter, RecommendedComponent
 
 
 class ImageSerializer(serializers.ModelSerializer):
@@ -9,8 +9,15 @@ class ImageSerializer(serializers.ModelSerializer):
         fields = ('path',)
 
 
+class ComponentParamsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ComponentParameter
+        fields = ('parameter_name', 'parameter_value')
+
+
 class ComponentSerializer(serializers.ModelSerializer):
     images = ImageSerializer(source="ComponentImage", required=False, many=True, read_only=True)
+    params = ComponentParamsSerializer(source="ComponentParameter", required=False, many=True, read_only=True)
 
     class Meta:
         model = Component

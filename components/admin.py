@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.utils.html import format_html
 
-from .models import Component, ComponentImage, RecommendedComponent
+from .models import Component, ComponentImage, ComponentParameter, RecommendedComponent
 
 
 class ImageInline(admin.TabularInline):
@@ -22,10 +22,17 @@ class ImageInline(admin.TabularInline):
     readonly_fields = ('render_image',)
     
     
+class ParameterInline(admin.TabularInline):
+    model = ComponentParameter
+    
+    extra = 0
+	
+
+    fields = ( 'parameter_name', 'parameter_value')
     
 
 class ComponentAdmin(admin.ModelAdmin):
-    inlines = [ImageInline]
+    inlines = [ImageInline, ParameterInline]
 
 
 

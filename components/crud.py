@@ -51,4 +51,4 @@ class ComponentById(APIView):
             data = ComponentSerializer(component).data
             return Response(data, status=status.HTTP_200_OK)
         else:
-            return Response({'Room not found': 'Invalid Room Code'}, status=status.HTTP_404_NOT_FOUND)
+            return Response({'Component not found': 'Invalid Component Code'}, status=status.HTTP_404_NOT_FOUND)

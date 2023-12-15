@@ -14,7 +14,7 @@ export function CustomStuffSlider({images}) {
 
   return (
       <Box
-        sx={{ position: "relative", width: "100%", height: "100%", backgroundImage: `url(${images[selectedIndex].path})`, backgroundSize: "cover", backgroundPosition: "center", }}
+        sx={{ position: "relative", width: "100%", height: "100%", backgroundImage: `url(${images[selectedIndex]?.path})`, backgroundSize: "cover", backgroundPosition: "center", }}
         onMouseEnter={() => setIsShowList(true)}
         onMouseLeave={() => setIsShowList(false)}
       >

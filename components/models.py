@@ -37,7 +37,6 @@ class Component(models.Model):
     
     
     video = models.FileField(_("Видео"), upload_to='static/components/videos/', blank=True)
-    params = models.TextField(_("Параметры"), default="")
 
 
     
@@ -76,3 +75,19 @@ class ComponentImage(models.Model):
     
     def __str__(self):
         return str(self.path)
+
+
+
+class ComponentParameter(models.Model):
+    class Meta:
+        verbose_name = "Характеристика"
+        verbose_name_plural = "Характеристики" 
+
+
+    component = models.ForeignKey(Component, on_delete=models.CASCADE, related_name="ComponentParameter")
+    parameter_name = models.CharField(_("Название характеристики"), max_length=100)
+    parameter_value = models.CharField(_("Значение"), max_length=100)
+    
+    
+    def __str__(self):
+        return str(self.parameter_name)

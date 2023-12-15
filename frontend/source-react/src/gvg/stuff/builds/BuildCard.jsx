@@ -4,16 +4,18 @@ import styled from "@emotion/styled"
 import { SimpleSlider } from "./SimpleSlider"
 import { ComponentTypeIcon, getComponentPartsList } from "../../common/loaders/IconsLoader"
 import { customPalette } from "../../common/styles/themes"
+import { useCartItems } from "../../common/hooks/useCartItems"
 
 
 
 
 export function BuildCard({ build, premium }) {
+  const { addCartItem } = useCartItems()
   const components = useMemo(getComponentPartsList, [])
   const [selectedComponentInfo, setSelectedComponentInfo] = useState(-1)
 
   return (
-    <Box onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}
+    <Box
       sx={{
         "--card-width": "calc(100% - 30px)",
         "--card-height": "500px",
@@ -74,6 +76,7 @@ export function BuildCard({ build, premium }) {
                   "&:hover": { backgroundColor: "lightblue", boxShadow: "0 0 1em #D7FEDC", color: "blue", cursor: "pointer", },
                 }}
                 variant="contained"
+                onClick={() => addCartItem("build", build.id)}
               >
                 В корзину
               </Button>

@@ -39,6 +39,30 @@ class CartItems(APIView):
 
 
 
+class DeleteCartItem(APIView):
+
+    def post(self, request, format=None):
+        if not self.request.session.exists(self.request.session.session_key):
+            self.request.session.create()
+
+
+
+        try:
+            cart_item_id = request.data['cart_item_id']
+        except Exception as e:
+            return Response(e, status=status.HTTP_400_BAD_REQUEST)
+
+        
+        queryset = CartItem.objects.filter(id=cart_item_id)
+
+        if queryset.exists():
+            cart_item = queryset[0]
+            cart_item.delete()
+            return Response(CartItemSerializer(cart_item).data, status=status.HTTP_200_OK)
+        else:
+            return Response("No such cart item", status.HTTP_404_NOT_FOUND)
+
+
 
 class AddCartItem(APIView):
     serializer_class = AddCartItemSerializer
@@ -46,7 +70,6 @@ class AddCartItem(APIView):
     def post(self, request, format=None):
         if not self.request.session.exists(self.request.session.session_key):
             self.request.session.create()
-
 
         try:
             product_type = request.data['product_type']
@@ -71,9 +94,11 @@ class AddCartItem(APIView):
             if componentset.exists():
                 component = componentset[0]
                 cart_item.component_id = component
-                if CartItem.objects.filter(component_id=component).exists():
+                if not CartItem.objects.filter(component_id=component).exists():
                     cart_item.save()
-                return Response(ComponentSerializer(component), status=status.HTTP_200_OK)
+                else:
+                    return Response("This build already added!", status=status.HTTP_304_NOT_MODIFIED)
+                return Response(ComponentSerializer(component).data, status=status.HTTP_200_OK)
             else:
                 return Response("No such component!")
 
@@ -82,8 +107,11 @@ class AddCartItem(APIView):
             if buildset.exists():
                 build = buildset[0]
                 cart_item.build_id = build
-                if CartItem.objects.filter(build_id=build).exists():
+                if not CartItem.objects.filter(build_id=build).exists():
                     cart_item.save()
+                else:
+                    return Response("This build already added!", status=status.HTTP_304_NOT_MODIFIED)
+
                 return Response(BuildSerializer(build).data, status=status.HTTP_200_OK)
             else:
                 return Response("No such build!", status=status.HTTP_400_BAD_REQUEST)

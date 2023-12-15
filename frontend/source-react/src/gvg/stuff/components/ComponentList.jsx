@@ -28,6 +28,7 @@ export function ComponentList({ components, filter, recommended }) {
       ]
         .filter((componentItem) => componentItem.title.toLowerCase().includes(filter?.name.toLowerCase()))
         .filter((componentItem) => componentItem.component_type.includes(filter?.type))
+      .toSorted(filter.sorterKey === "PriceIncrease" ? (a, b) => a.price - b.price : (a, b) => b.price - a.price)
         .slice(filter?.limitKey*filter?.listSize, (filter?.limitKey+1)*filter?.listSize)
         : components
     )

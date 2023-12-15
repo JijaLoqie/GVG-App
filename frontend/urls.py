@@ -18,4 +18,5 @@ urlpatterns = [
     path('delivery/', index),
 
     path('about/', index),
+    path('cart/', index),
 ]

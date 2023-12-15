@@ -22,17 +22,14 @@ export function PopupSearch({filter}) {
 
 
   return (
-    <Box sx={{
-      position: "absolute",
-      display: "flex", flexDirection: "column", justifyContent: "start", alignItems: "stretch",
+    <Box sx={{ position: "absolute", top: "60px", right: "30px",
       minWidth: "100px", minHeight: "100px",
-      top: "60px", right: "30px",
-      bgcolor: "background.main",
-      border: `2px solid ${customPalette.secondary}`,
+      display: "flex", flexDirection: "column", justifyContent: "start", alignItems: "stretch",
+      bgcolor: "background.main", border: `2px solid ${customPalette.secondary}`,
     }}>
       {filteredProducts.length !== 0 ? filteredProducts.map((product, index) => (
         <Box key={index}
-          onMouseDown={() => {navigate(`build/${product.id}`)}}
+          onMouseDown={() => {navigate(`${product["component_type"] ? "component" : "build"}/${product.id}`)}}
           sx={{
           display: "flex", flexDirection: "row", justifyContent: "start", alignItems: "center",
           gap: "12px",

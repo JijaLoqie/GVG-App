@@ -5,6 +5,8 @@ import { ComponentList } from "../../../stuff/components/ComponentList";
 import { ComponentTypes } from "../../../stuff/components/ComponentsTypes";
 import { loadComponentList } from "../../../stuff/components/ComponentLoader";
 import { CustomPaginator } from "../../../common/CustomPaginator";
+import { ParametersFilter } from "../../../stuff/components/ParametersFilter";
+import { ComponentSorterKey } from "../../../stuff/components/ComponentSorterKey";
 
 
 
@@ -17,6 +19,7 @@ export function Components() {
   const [searchValue, setSearchValue] = useState("")
   const [limitKey, setLimitKey] = useState(0) 
   const [typeValue, setTypeValue] = useState("")
+  const [sorterKey, setSorterKey] = useState("None")
 
   useEffect(() => {
     setLimitKey(0)
@@ -43,6 +46,7 @@ export function Components() {
           bgcolor: "#ffffff11", borderRadius: "10px",
           zIndex: "1000",
         }}>
+          <ComponentSorterKey handleUpdate={setSorterKey} />
           <ComponentTypes handleUpdate={setTypeValue}/>
         </Box>
         <Box sx={{ position: "relative",
@@ -51,7 +55,7 @@ export function Components() {
           marginLeft: "8px",
         }}>
           <CustomGlobalSearch handleUpdate={setSearchValue} /> 
-          <ComponentList components={components2} filter={{name: searchValue, type: typeValue, limitKey: limitKey, listSize: 15}}/>
+          <ComponentList components={components2} filter={{name: searchValue, type: typeValue, limitKey: limitKey, listSize: 15, sorterKey: sorterKey}}/>
           <CustomPaginator handleUpdate={setLimitKey} pagesLength={Math.ceil((components2.length)/15)} />
         </Box>
       </Box>

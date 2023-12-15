@@ -51,5 +51,5 @@ class BuildById(APIView):
             data = BuildSerializer(build).data
             return Response(data, status=status.HTTP_200_OK)
         else:
-            return Response({'Room not found': 'Invalid Room Code'}, status=status.HTTP_404_NOT_FOUND)
+            return Response({'Build not found': 'Invalid Build Code'}, status=status.HTTP_404_NOT_FOUND)
 

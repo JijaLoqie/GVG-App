@@ -19,6 +19,7 @@ import { BuildPage } from './gvg/pages/stuffPage/buildPage/BuildPage.jsx'
 import { ComponentPage } from './gvg/pages/stuffPage/component/ComponentPage.jsx'
 import { BuildLoader } from './gvg/stuff/builds/BuildLoader.jsx'
 import { ComponentLoader } from './gvg/stuff/components/ComponentLoader.jsx'
+import { CartPage } from './gvg/pages/cart/CartPage.jsx'
 
 const router = createBrowserRouter([
   {
@@ -82,15 +83,19 @@ const router = createBrowserRouter([
           <About/>
         ),
       },
+      {
+        path: "cart",
+        element: (
+          <CartPage/>
+        ),
+      },
     ]
   },
 ]);
 
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
     <ThemeProvider theme={themes.darkTheme}>
       <RouterProvider router={router} />
     </ThemeProvider>
-  </React.StrictMode>
 );

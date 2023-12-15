@@ -2,17 +2,15 @@ import { Box, Button, Grid, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { CustomStuffSlider } from "../../../common/CustomStuffSlider";
+import { useCartItems } from "../../../common/hooks/useCartItems";
 
 
 export function ComponentPage() {
-  const [componentsInfo, setComponentsInfo] = useState([])
+  const { addCartItem } = useCartItems()
 
-  const { componentResult, params } = useLoaderData()
+  const { componentResult } = useLoaderData()
 
 
-  useEffect(() => {
-    setComponentsInfo(params ?? [])
-  }, [params, componentResult])
   return (
     <Box sx={{display: "flex", flexDirection: "column", alignItems: "center", marginTop: "24px",}}>
       <Grid container sx={{ maxWidth: "1200px", width: "100%", minHeight: "70vh", color: "text.main" }}>
@@ -42,6 +40,7 @@ export function ComponentPage() {
             }}>
               <Typography>Цена: {componentResult?.price}</Typography>
               <Button
+                onClick={() => addCartItem("component", componentResult.id)}
                 sx={{ marginInline: "20px", transition: "all 0.3s", bgcolor: "#2600B1", color: "#D7FEDC", paddingTop: "6px",
                   "&:hover": { backgroundColor: "lightblue", boxShadow: "0 0 1em #D7FEDC", color: "blue", cursor: "pointer", },
                 }}
@@ -63,19 +62,20 @@ export function ComponentPage() {
               <Typography variant="h4">
                 Характеристики
               </Typography>
-              <Box>
-                {componentsInfo.map((componentResult, index) => (
-                  <Box key={index} sx={{
-                    marginTop: "8px",
-                    display: "flex",
-                    flexDirection: {xs: "column", md: "row"}, justifyContent: "stretch",
+              <Box sx={{ height: "110%", width: "100%", display: "flex", flexDirection: "column", alignItems: "stretch", paddingBottom: "24px",justifyContent: "space-between" }}>
+                {componentResult.params.map((componentParameter, index) => (
+                  <Box key={index} sx={{ display: "flex", flexDirection: "row", justifyContent: "space-between", alignItems: "center",
+                    padding: "8px",
+                    borderRadius: "15px",
+                    transition: "all 300ms",
+                    "&:hover": {
+                      boxShadow: "0 0 8px white",
+                    }
                   }}>
-                    <Box sx={{ minWidth: "10%", bgcolor: "text.main", color: "black", padding: "12px", fontSize: "1.5rem", }}>
-                      {componentResult.rus_name}
+                    <Box sx={{display: "flex", flexDirection: "row", alignItems: "center", gap: "12px"}}>
+                      <Typography>{componentParameter.parameter_name}</Typography>
                     </Box>
-                    <Box sx={{ flex: 1, bgcolor: "gray", color: "text.main", padding: "12px", fontSize: "1.5rem", }}>
-                      {componentResult.value}
-                    </Box>
+                    <Typography color="accent.main">{componentParameter.parameter_value}</Typography>
                   </Box>
                 ))}
               </Box>

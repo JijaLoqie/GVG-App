@@ -20,7 +20,6 @@ export function Recommendations() {
 
   return (
     <Box sx={{
-      paddingTop: "24px",
       width: "100%",
 
       borderTop: '5px solid', borderImageSlice: 1,

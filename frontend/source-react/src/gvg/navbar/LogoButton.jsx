@@ -1,6 +1,8 @@
 import { useCallback, useEffect, useMemo, useState } from "react"
 import { Box, Typography } from "@mui/material"
 import { useNavigate } from "react-router-dom"
+import { useCheckTranslation } from "../common/hooks/useCheckTranslation"
+import { Sensors } from "@mui/icons-material"
 
 
 const logoIcon = 'icon.png'
@@ -25,8 +27,15 @@ const theme = {
 }
 
 export default function LogoButton() {
-  const logoText = useMemo(() => "GVG", [])
+  const [translationEnabled, translationLink] = useCheckTranslation()
+
+
+
+
+
+  const logoText = useState("GVG")
   const [gradientDeg, setGradientDeg] = useState(45)
+
   const handleGoHome = () => {
     navigate("/home")
   }
@@ -40,20 +49,32 @@ export default function LogoButton() {
   }, [])
 
   return (
-    <Box
-      onClick={handleGoHome}
-      sx={{ cursor: "pointer", display: "flex", justifyContent: "start", alignItems: "end", paddingBottom: "5px", paddingInline: "15px", width: { xs: "20%", md: "15%" }, minWidth: "160px", marginRight: "8px", background: `-webkit-linear-gradient(${gradientDeg}deg, #e32fb1 0%, #39afd8 100%)`, WebkitBackgroundClip: "text", color: "transparent", }}
-    >
-      <Box component="img"
-        src={logoIconPath}
-        sx={{ maxHeight: 81, maxWidth: 61, alignSelf: "end"}}
-      />
-      {
-        [...logoText].map((ch, index) => (
-          <Typography key={index} sx={theme}>
-            {ch}
-          </Typography>
-        ))
+    <Box sx={{display: "flex"}}>
+      <Box
+        onClick={handleGoHome}
+        sx={{ cursor: "pointer", display: "flex", justifyContent: "start", alignItems: "end", paddingBottom: "5px", width: { xs: "20%", md: "15%" }, minWidth: "160px", background: `-webkit-linear-gradient(${gradientDeg}deg, #e32fb1 0%, #39afd8 100%)`, WebkitBackgroundClip: "text", color: "transparent", }}
+      >
+        <Box component="img"
+          src={logoIconPath}
+          sx={{ maxHeight: 81, maxWidth: 61, alignSelf: "end"}}
+        />
+        {
+          [...logoText].map((ch, index) => (
+            <Typography key={index} sx={theme}>
+              {ch}
+            </Typography>
+          ))
+        }
+      </Box>
+      { translationEnabled ? (
+        <Box sx={{display: "flex", alignItems: "center"}}>
+          <Box sx={{ display: "flex", alignItems: "center", gap: "4px",
+            bgcolor: "red", color: "white", height: "20px", borderRadius: "4px", padding: "6px",
+          }}>
+            <Sensors />
+            <Typography variant="body2">Live</Typography>
+          </Box>
+        </Box>) : null
       }
     </Box>
   )

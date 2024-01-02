@@ -1,6 +1,7 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, alpha } from "@mui/material";
 import { useEffect, useState } from "react";
 import { ReviewCard } from "./ReviewCard";
+import { customPalette } from "../../../../common/styles/themes";
 
 export function Reviews() {
   const [reviews, setReviews] = useState([])
@@ -14,6 +15,7 @@ export function Reviews() {
   }, [])
   return (
     <Box sx={{
+        bgcolor: alpha(`${customPalette.background}`, '0.85'),
       borderTop: '5px solid',
       borderImageSlice: 1,
       borderImageSource: `linear-gradient(to left, ${['red', 'blue'].join(',')})`,
@@ -21,7 +23,6 @@ export function Reviews() {
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
-      bgcolor: "background.main",
       boxShadow: "inset 0em -1.5em 3em black"
     }}>
       <Typography pt="12px" pb="24px" sx={{fontSize: {xs:25, md:40}, color: "text.main"}}> Наши первые клиенты </Typography>

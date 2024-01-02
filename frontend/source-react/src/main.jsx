@@ -20,6 +20,7 @@ import { ComponentPage } from './gvg/pages/stuffPage/component/ComponentPage.jsx
 import { BuildLoader } from './gvg/stuff/builds/BuildLoader.jsx'
 import { ComponentLoader } from './gvg/stuff/components/ComponentLoader.jsx'
 import { CartPage } from './gvg/pages/cart/CartPage.jsx'
+import { OrderPage } from './gvg/pages/order/OrderPage.jsx'
 
 const router = createBrowserRouter([
   {
@@ -87,6 +88,12 @@ const router = createBrowserRouter([
         path: "cart",
         element: (
           <CartPage/>
+        ),
+      },
+      {
+        path: "order",
+        element: (
+          <OrderPage/>
         ),
       },
     ]

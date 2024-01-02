@@ -1,16 +1,17 @@
 import { Box, Button, Typography } from "@mui/material";
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { useCartItems } from "../../common/hooks/useCartItems";
 import { getBuildById } from "../../stuff/builds/BuildLoader";
 import { getComponentById } from "../../stuff/components/ComponentLoader";
 import { CartItem } from "./CartItem";
+import { useNavigate } from "react-router-dom";
 
 export function CartPage() {
   const { cartItems, removeCartItem } = useCartItems()
   const [builds, setBuilds] = useState([])
   const [components, setComponents] = useState([])
   const [finalSum, setFinalSum] = useState(0)
+  const navigate = useNavigate()
 
   useEffect(() => {
     const buildLinks = cartItems.filter(cartItem => cartItem.type_item === "build")
@@ -49,7 +50,6 @@ export function CartPage() {
     if (cartItem !== undefined) {
       removeCartItem(cartItem.id)
     }
-
   }
 
 
@@ -95,7 +95,7 @@ export function CartPage() {
             }}>
               <Typography sx={{fontWeight: "900", color: "background.main"}}>{finalSum} ₽</Typography>
             </Box>
-            <Button variant="contained"> Заказать </Button>
+            <Button variant="contained" onClick={() => navigate("/order/")}> Заказать </Button>
           </Box>
         </Box>
       </Box>

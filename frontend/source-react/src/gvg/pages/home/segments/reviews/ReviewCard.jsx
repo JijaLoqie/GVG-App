@@ -6,7 +6,7 @@ export function ReviewCard({review}) {
       width: {xs: "90vw", md:"300px"},
       margin: "10px",
       height: {xs: "200px", md: "400px"},
-      backgroundColor: "#ffffff11",
+      backgroundColor: "background.main",
       borderRadius: "10px",
       border: "1px solid #ffffff22",
       padding: "36px 24px",

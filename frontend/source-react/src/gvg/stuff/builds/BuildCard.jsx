@@ -1,18 +1,17 @@
-import { useEffect, useMemo, useState } from "react"
 import { Box, Button, IconButton, Typography, keyframes } from "@mui/material"
-import styled from "@emotion/styled"
 import { SimpleSlider } from "./SimpleSlider"
 import { ComponentTypeIcon, getComponentPartsList } from "../../common/loaders/IconsLoader"
 import { customPalette } from "../../common/styles/themes"
-import { useCartItems } from "../../common/hooks/useCartItems"
+import { useState } from "react"
+import { useDispatch } from "react-redux"
 
 
+const componentParts = getComponentPartsList()
 
 
 export function BuildCard({ build, premium }) {
-  const { addCartItem } = useCartItems()
-  const components = useMemo(getComponentPartsList, [])
   const [selectedComponentInfo, setSelectedComponentInfo] = useState(-1)
+  const dispatch = useDispatch()
 
   return (
     <Box
@@ -76,7 +75,7 @@ export function BuildCard({ build, premium }) {
                   "&:hover": { backgroundColor: "lightblue", boxShadow: "0 0 1em #D7FEDC", color: "blue", cursor: "pointer", },
                 }}
                 variant="contained"
-                onClick={() => addCartItem("build", build.id)}
+                onClick={() => dispatch({type: "buy", payload: {type: "build", id: build.id}})}
               >
                 В корзину
               </Button>
@@ -102,7 +101,7 @@ export function BuildCard({ build, premium }) {
           display: "flex", justifyContent: "center", alignItems: "end",
           flexWrap: "wrap",
         }}>
-          {components.map((component, index) => (
+          {componentParts.map((component, index) => (
             <Box key={index}
               onClick={() => setSelectedComponentInfo(was => was !== index ? index : -1)}
               sx={{

@@ -7,7 +7,6 @@ export function Home() {
   return (
     <Box>
       <Header />
-
       <Recommendations />
       <Reviews />
     </Box>

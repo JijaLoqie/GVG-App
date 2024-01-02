@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client'
 import { ThemeProvider } from '@emotion/react'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
-import {themes} from "./gvg/common/styles/themes.js"
+import { themes } from "./gvg/common/styles/themes.js"
 
 import "./index.css"
 import { App } from './gvg/App.jsx'
@@ -21,17 +21,22 @@ import { BuildLoader } from './gvg/stuff/builds/BuildLoader.jsx'
 import { ComponentLoader } from './gvg/stuff/components/ComponentLoader.jsx'
 import { CartPage } from './gvg/pages/cart/CartPage.jsx'
 
+import { CssBaseline } from '@mui/material'
+import { PersistGate } from 'redux-persist/integration/react'
+import { persistor, rootStore } from './store.js'
+import { Provider } from 'react-redux'
+
 const router = createBrowserRouter([
   {
     path: "/",
     errorElement: <BaseError />,
-    element: ( 
+    element: (
       <App />
     ),
     children: [
       {
-        path: "home",
-        element: ( 
+        index: true,
+        element: (
           <Home />
         ),
       },
@@ -43,19 +48,19 @@ const router = createBrowserRouter([
         children: [
           {
             path: "builds",
-            element: ( 
+            element: (
               <Builds />
             ),
           },
           {
             path: "components",
-            element: ( 
+            element: (
               <Components />
             ),
           },
           {
             path: "constructor",
-            element: ( 
+            element: (
               <Constructor />
             ),
           },
@@ -80,13 +85,13 @@ const router = createBrowserRouter([
       {
         path: "about",
         element: (
-          <About/>
+          <About />
         ),
       },
       {
         path: "cart",
         element: (
-          <CartPage/>
+          <CartPage />
         ),
       },
     ]
@@ -95,7 +100,12 @@ const router = createBrowserRouter([
 
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-    <ThemeProvider theme={themes.darkTheme}>
-      <RouterProvider router={router} />
-    </ThemeProvider>
+  <ThemeProvider theme={themes.darkTheme}>
+    <CssBaseline />
+    <Provider store={rootStore}>
+      <PersistGate loading={null} persistor={persistor}>
+        <RouterProvider router={router} />
+      </PersistGate>
+    </Provider>
+  </ThemeProvider>
 );

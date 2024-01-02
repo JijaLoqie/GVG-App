@@ -2,13 +2,13 @@ import { Box, Button, Grid, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { CustomStuffSlider } from "../../../common/CustomStuffSlider";
-import { useCartItems } from "../../../common/hooks/useCartItems";
+import { useDispatch } from "react-redux";
 
 
 export function ComponentPage() {
-  const { addCartItem } = useCartItems()
 
   const { componentResult } = useLoaderData()
+  const dispatch = useDispatch()
 
 
   return (
@@ -40,7 +40,7 @@ export function ComponentPage() {
             }}>
               <Typography>Цена: {componentResult?.price}</Typography>
               <Button
-                onClick={() => addCartItem("component", componentResult.id)}
+                onClick={() => dispatch({type: "buy", payload: {productType: "component", productId: componentResult.id}})}
                 sx={{ marginInline: "20px", transition: "all 0.3s", bgcolor: "#2600B1", color: "#D7FEDC", paddingTop: "6px",
                   "&:hover": { backgroundColor: "lightblue", boxShadow: "0 0 1em #D7FEDC", color: "blue", cursor: "pointer", },
                 }}

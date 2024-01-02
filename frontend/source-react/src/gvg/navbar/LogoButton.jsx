@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from "react"
+import { useEffect, useMemo, useState } from "react"
 import { Box, Typography } from "@mui/material"
 import { useNavigate } from "react-router-dom"
 
@@ -12,7 +12,7 @@ const logoIconPath = `/static/logos/${logoIcon}`
 
 
 
-const theme = {
+const customStyle = {
   display: "inline-block",
   maxWidth: "100%",
   font: "1000 34px/34px 'Montserrat',sans-serif",
@@ -28,7 +28,7 @@ export default function LogoButton() {
   const logoText = useMemo(() => "GVG", [])
   const [gradientDeg, setGradientDeg] = useState(45)
   const handleGoHome = () => {
-    navigate("/home")
+    navigate("/")
   }
   const navigate = useNavigate()
 
@@ -50,7 +50,7 @@ export default function LogoButton() {
       />
       {
         [...logoText].map((ch, index) => (
-          <Typography key={index} sx={theme}>
+          <Typography key={index} sx={customStyle}>
             {ch}
           </Typography>
         ))

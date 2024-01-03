@@ -1,8 +1,11 @@
-import { useCallback, useEffect, useMemo, useState } from "react"
+import { useEffect, useMemo, useState } from "react"
 import { Box, Typography } from "@mui/material"
 import { useNavigate } from "react-router-dom"
+
 import { useCheckTranslation } from "../common/hooks/useCheckTranslation"
 import { Sensors } from "@mui/icons-material"
+
+import { useDispatch } from "react-redux"
 
 
 const logoIcon = 'icon.png'
@@ -14,7 +17,7 @@ const logoIconPath = `/static/logos/${logoIcon}`
 
 
 
-const theme = {
+const customStyle = {
   display: "inline-block",
   maxWidth: "100%",
   font: "1000 34px/34px 'Montserrat',sans-serif",
@@ -37,7 +40,7 @@ export default function LogoButton() {
   const [gradientDeg, setGradientDeg] = useState(45)
 
   const handleGoHome = () => {
-    navigate("/home")
+    navigate("/")
   }
   const navigate = useNavigate()
 

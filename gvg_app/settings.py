@@ -37,7 +37,6 @@ INSTALLED_APPS = [
     'frontend.apps.FrontendConfig',
     'builds.apps.BuildsConfig',
     'components.apps.ComponentsConfig',
-    'carts.apps.CartsConfig',
 
     'django.contrib.admin',
     'django.contrib.auth',

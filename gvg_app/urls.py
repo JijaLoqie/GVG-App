@@ -23,5 +23,4 @@ urlpatterns = [
     path("", include("frontend.urls")),
     path("builds/", include("builds.urls")),
     path("components/", include("components.urls")),
-    path("carts/", include("carts.urls")),
 ]

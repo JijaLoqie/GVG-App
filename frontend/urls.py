@@ -4,9 +4,7 @@ from .views import index, redirect_index
 
 
 urlpatterns = [
-    path('', redirect_index),
-    path('home/', index),
-
+    path('', index),
     path('offers/', index),
     path('offers/constructor', index),
     path('offers/components', index),

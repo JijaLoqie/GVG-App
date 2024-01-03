@@ -27,6 +27,7 @@ const customMuiPalette = {
 export const themes = {
   darkTheme: createTheme({
     palette: {
+      mode: "dark",
       primary: customMuiPalette.primary,
       secondary: customMuiPalette.secondary,
       background: customMuiPalette.background,

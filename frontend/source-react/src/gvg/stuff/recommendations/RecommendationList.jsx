@@ -36,7 +36,6 @@ export function RecommendationList({buildItems, componentItems}) {
         padding: '24px',
         paddingInline: "60px",
         overflowX: "scroll",
-        overflowY: "hidden",
         boxShadow: "inset 0 0 9px 10px black",
       }}>
         {buildItems?.map((item, index) => <RecommendationCard item={item} key={index} />)}
@@ -53,10 +52,8 @@ export function RecommendationList({buildItems, componentItems}) {
       <Box onMouseMove={handleMouseMove} sx={{
         bgcolor: alpha(`${customPalette.background}`, '0.85'),
         display: "flex", justifyContent: {xs:"start",md:"start"}, flexDirection: "row",
-        gap: "48px",
-        overflowX: "scroll",
-        overflowY: "hidden",
-        padding: '24px',
+        width: "95vw", gap: "48px", padding: '24px', marginBottom: "24px",
+        overflowX: "scroll", overflowY: "hidden",
         boxShadow: "inset 0 0 9px 10px black",
       }}>
         {componentItems?.map((item, index) => <ComponentCard key={index} componentItem={item} recommended={true} />)}

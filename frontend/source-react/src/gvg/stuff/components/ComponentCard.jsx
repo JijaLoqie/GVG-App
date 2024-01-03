@@ -59,14 +59,15 @@ export function ComponentCard({ componentItem, recommended }) {
   const navigate = useNavigate()
 
   return (
-    <CustomPaper className="card" onMouseDown={() => navigate(`/component/${componentItem.id}`)} sx={{ 
-      flexGrow: 1, minWidth: "350px", maxWidth: "350px", }}>
-      <CardBorder/>
+    <CustomPaper className="card" onMouseDown={() => navigate(`/component/${componentItem.id}`)} sx={{
+      flexGrow: 1, minWidth: "350px", maxWidth: "350px",
+    }}>
+      <CardBorder />
       <Box sx={{
         position: "absolute",
         backgroundColor: "background.main", borderRadius: "inherit",
         display: "flex", flexDirection: "column", flexGrow: 1,
-        alignItems:"center",
+        alignItems: "center",
         inset: "1px", padding: "10px", zIndex: 2,
       }} >
         <ComponentTypeIcon type={componentItem.component_type}
@@ -79,9 +80,11 @@ export function ComponentCard({ componentItem, recommended }) {
             position: "absolute", right: "0", bottom: "0",
             width: "30px", height: "30px",
             zIndex: 10,
-          }}/>
-        <Box sx={{ height: "80%",
-          display: "flex", justifyContent: "center", alignItems: "start"}}
+          }} />
+        <Box sx={{
+          height: "80%",
+          display: "flex", justifyContent: "center", alignItems: "start"
+        }}
         >
           <img alt="Image" src={componentItem.images[0]?.path} style={{ maxHeight: "90%", width: "100%", }} />
         </Box>
@@ -101,8 +104,10 @@ export function ComponentCard({ componentItem, recommended }) {
           borderBottomLeftRadius: "8px",
           border: "1px solid #ffffff31",
         }}>
-          <Typography variant="body2" sx={{ "&:hover": { color: "text.main", },
-            color: "gray", textDecoration: "underline"}}>{componentItem.id}</Typography>
+          <Typography variant="body2" sx={{
+            "&:hover": { color: "text.main", },
+            color: "gray", textDecoration: "underline"
+          }}>{componentItem.id}</Typography>
         </Box>
       </Box>
       <Box sx={{

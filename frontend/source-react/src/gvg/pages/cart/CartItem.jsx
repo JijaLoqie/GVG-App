@@ -1,14 +1,16 @@
 import { Add, Remove } from "@mui/icons-material";
 import { Box, Button, IconButton, Typography } from "@mui/material";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { getBuildById } from "../../stuff/builds/BuildLoader";
 import { getComponentById } from "../../stuff/components/ComponentLoader";
+import { useSnackbar } from "notistack";
 
 export function CartItem({ productInfo }) {
   const navigate = useNavigate()
   const dispatch = useDispatch()
+  const { enqueueSnackbar } = useSnackbar()
 
   const [product, setProduct] = useState(null)
   const [quantity, setQuantity] = useState(productInfo.quantity)
@@ -22,7 +24,7 @@ export function CartItem({ productInfo }) {
 
     if (type === "build") {
       getBuildById(id).then((result) => {
-        setProduct({ ...result, type: type})
+        setProduct({ ...result, type: type })
       })
     }
     if (type === "component") {
@@ -32,6 +34,24 @@ export function CartItem({ productInfo }) {
     }
   }, [productInfo])
 
+  const changeQuantity = useCallback((operationType, product) => {
+    if (operationType === "buy" && quantity === 5) {
+      let variant = "error"
+      enqueueSnackbar("Максимум 5 товаров одного вида!", { variant })
+    } else {
+      console.log(operationType)
+      dispatch({ type: operationType, payload: { type: product.type, id: product.id } })
+      if (operationType === "remove" && quantity === 1 || operationType === "remove-all") {
+        let variant = "success"
+        enqueueSnackbar("Товар удалён из корзины", { variant })
+      }
+    }
+
+  }, [quantity])
+
+
+
+
   if (product === null) {
     return (
       <Box
@@ -40,8 +60,8 @@ export function CartItem({ productInfo }) {
           display: "flex", flexDirection: "row", justifyContent: "stretch", alignItems: "center",
           width: "100%", height: "200px",
           gap: "12px", borderBottom: "1px solid white",
+          paddingLeft: 4,
         }}>
-        loading...
       </Box>
     )
   }
@@ -84,12 +104,12 @@ export function CartItem({ productInfo }) {
         gap: "24px", paddingRight: "24px",
       }}>
         <Box sx={{ display: "flex", alignItems: "center", bgcolor: "secondary.main" }}>
-          <IconButton onClick={() => dispatch({ type: "remove", payload: { productType: product.type, productId: product.id } })} color="text"><Remove /></IconButton>
+          <IconButton onClick={() => changeQuantity("remove", productInfo)} color="text"><Remove /></IconButton>
           <Typography>{quantity}</Typography>
-          <IconButton onClick={() => dispatch({ type: "buy", payload: { productType: product.type, productId: product.id } })} color="text"><Add /></IconButton>
+          <IconButton onClick={() => changeQuantity("buy", productInfo)} color="text"><Add /></IconButton>
         </Box>
         <Typography color="primary">{product.price} ₽</Typography>
-        <Button color="error" onClick={() => dispatch({ type: "remove-all", payload: { productType: product.type, productId: product.id } })}>Убрать</Button>
+        <Button color="error" onClick={() => changeQuantity("remove-all", productInfo)}>Убрать</Button>
       </Box>
     </Box>
   )

@@ -3,9 +3,16 @@ import { Badge, IconButton } from "@mui/material";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
+
+const getSize = (products) => {
+  const result = products.reduce((partialSum, product) => partialSum + product.quantity, 0)
+
+  return result
+}
+
 export function CartButton() {
   const navigate = useNavigate()
-  const cartSize = useSelector(state => state.carts.products?.length ?? 0)
+  const cartSize = useSelector(state => getSize(state.carts.products ?? []))
 
   return (
     <IconButton

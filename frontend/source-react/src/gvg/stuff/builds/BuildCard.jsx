@@ -4,6 +4,7 @@ import { ComponentTypeIcon, getComponentPartsList } from "../../common/loaders/I
 import { customPalette } from "../../common/styles/themes"
 import { useState } from "react"
 import { useDispatch } from "react-redux"
+import BuyButton from "../../common/components/buttons/BuyButton"
 
 
 const componentParts = getComponentPartsList()
@@ -11,7 +12,6 @@ const componentParts = getComponentPartsList()
 
 export function BuildCard({ build, premium }) {
   const [selectedComponentInfo, setSelectedComponentInfo] = useState(-1)
-  const dispatch = useDispatch()
 
   return (
     <Box
@@ -43,7 +43,7 @@ export function BuildCard({ build, premium }) {
         </Typography>
 
         <Box sx={{
-          width: {xs:"100%", md:"100%"},
+          width: { xs: "100%", md: "100%" },
         }}>
           <Box sx={{ width: "100%", display: "flex", margin: "24px", paddingTop: 0, }}>
             {build.description}
@@ -52,7 +52,7 @@ export function BuildCard({ build, premium }) {
             paddingTop: "24px",
             width: "100%",
             display: "flex", flexDirection: "column", justifyContent: "start",
-            alignItems: 'start', gap:"12px" 
+            alignItems: 'start', gap: "12px"
           }}>
             <Box sx={{
               display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center",
@@ -70,21 +70,23 @@ export function BuildCard({ build, premium }) {
               marginY: "24px", paddingY: "12px", textAlign: "center",
               width: "100%",
             }}>
-              <Button
-                sx={{ marginInline: "20px", transition: "all 0.3s", bgcolor: "#2600B1", color: "#D7FEDC", paddingTop: "6px",
+              <BuyButton
+                productInfo={{ type: "build", id: build.id, price: build.price }}
+                sx={{
+                  marginInline: "20px", transition: "all 0.3s", bgcolor: "#2600B1", color: "#D7FEDC", paddingTop: "6px",
                   "&:hover": { backgroundColor: "lightblue", boxShadow: "0 0 1em #D7FEDC", color: "blue", cursor: "pointer", },
                 }}
                 variant="contained"
-                onClick={() => dispatch({type: "buy", payload: {type: "build", id: build.id}})}
               >
                 В корзину
-              </Button>
-              <Button variant="outlined" color= "background" fontSize="0.85em"
+              </BuyButton>
+              <Button variant="outlined" color="background" fontSize="0.85em"
                 sx={{
-                  color:"rgba(255, 255, 255, 0.5)",
+                  color: "rgba(255, 255, 255, 0.5)",
                   "&:hover": {
                     border: "1px solid white",
-                  }}}
+                  }
+                }}
               >
                 Заказать в 1 клик
               </Button>
@@ -106,7 +108,7 @@ export function BuildCard({ build, premium }) {
               onClick={() => setSelectedComponentInfo(was => was !== index ? index : -1)}
               sx={{
                 display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center",
-                transition: "all 300ms", "&:hover": {boxShadow: "0 0 8px white", },
+                transition: "all 300ms", "&:hover": { boxShadow: "0 0 8px white", },
                 padding: "10px",
                 overflow: "visible",
                 borderRadius: "6",

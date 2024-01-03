@@ -21,10 +21,9 @@ export function RecommendationList({buildItems, componentItems}) {
         width: "95vw",
         gap: "48px",
         padding: '24px',
-        paddingInline: "60px",
+        marginInline: "60px",
         marginBottom: "24px",
         overflowX: "scroll",
-        overflowY: "hidden",
         boxShadow: "inset 0 0 9px 10px black",
       }}>
         {buildItems?.map((item, index) => <RecommendationCard item={item} key={index} />)}
@@ -32,11 +31,8 @@ export function RecommendationList({buildItems, componentItems}) {
       <Typography variant="h4" color="text">Хит сезона</Typography>
       <Box onMouseMove={handleMouseMove} sx={{
         display: "flex", justifyContent: {xs:"start",md:"start"}, flexDirection: "row",
-        gap: "48px",
-        width: "95vw",
-        overflowX: "scroll",
-        overflowY: "hidden",
-        padding: '24px', marginBottom: "24px",
+        width: "95vw", gap: "48px", padding: '24px', marginBottom: "24px",
+        overflowX: "scroll", overflowY: "hidden",
         boxShadow: "inset 0 0 9px 10px black",
         zIndex: "100",
       }}>

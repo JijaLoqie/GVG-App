@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'frontend.apps.FrontendConfig',
     'builds.apps.BuildsConfig',
     'components.apps.ComponentsConfig',
+    'tg_bot.apps.TgBotConfig',
 
     'django.contrib.admin',
     'django.contrib.auth',
@@ -154,3 +155,8 @@ INTERNAL_IPS = glob_list([
     'localhost',
     '127.0.0.1',
 ])
+
+
+
+TG_TOKEN = '6348270078:AAFHpKV7z6ugNWE3kZuEh-zCgOnqGuN5Ols'
+TG_PROXY_URL = 'http://103.47.93.207:1080'

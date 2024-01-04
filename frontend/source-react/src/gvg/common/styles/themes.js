@@ -28,11 +28,12 @@ export const themes = {
   darkTheme: createTheme({
     palette: {
       mode: "dark",
-      primary: customMuiPalette.primary,
-      secondary: customMuiPalette.secondary,
-      background: customMuiPalette.background,
-      text: customMuiPalette.text,
-      accent: customMuiPalette.accent,
+      ...customMuiPalette,
     },
+    typography: {
+      caption: {
+        color: "#999999",
+      }
+    }
   }),
 };

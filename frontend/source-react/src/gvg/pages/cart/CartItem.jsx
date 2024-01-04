@@ -3,48 +3,28 @@ import { Box, Button, IconButton, Typography } from "@mui/material";
 import { useCallback, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { getBuildById } from "../../stuff/builds/BuildLoader";
-import { getComponentById } from "../../stuff/components/ComponentLoader";
 import { useSnackbar } from "notistack";
+import useProduct from "../../common/hooks/useProduct";
 
 export function CartItem({ productInfo }) {
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const { enqueueSnackbar } = useSnackbar()
+  const product = useProduct(productInfo)
 
-  const [product, setProduct] = useState(null)
   const [quantity, setQuantity] = useState(productInfo.quantity)
 
-  useEffect(() => {
-    const id = productInfo.id
-    const type = productInfo.type
-    const newQuantity = productInfo.quantity
-
-    setQuantity(newQuantity)
-
-    if (type === "build") {
-      getBuildById(id).then((result) => {
-        setProduct({ ...result, type: type })
-      })
-    }
-    if (type === "component") {
-      getComponentById(id).then((result) => {
-        setProduct({ ...result, type: type })
-      })
-    }
-  }, [productInfo])
-
   const changeQuantity = useCallback((operationType, product) => {
-    if (operationType === "buy" && quantity === 5) {
+    if (operationType === "buy" && quantity === 3) {
       let variant = "error"
-      enqueueSnackbar("Максимум 5 товаров одного вида!", { variant })
+      enqueueSnackbar("Максимум 3 товара одного вида!", { variant })
     } else {
-      console.log(operationType)
       dispatch({ type: operationType, payload: { type: product.type, id: product.id } })
       if (operationType === "remove" && quantity === 1 || operationType === "remove-all") {
         let variant = "success"
         enqueueSnackbar("Товар удалён из корзины", { variant })
       }
+      setQuantity(was => operationType === "buy" ? was + 1 : was - 1)
     }
 
   }, [quantity])

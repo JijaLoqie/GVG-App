@@ -71,7 +71,7 @@ export function BuildCard({ build, premium }) {
               width: "100%",
             }}>
               <BuyButton
-                productInfo={{ type: "build", id: build.id, price: build.price }}
+                product={{ type: "build", ...build }}
                 sx={{
                   marginInline: "20px", transition: "all 0.3s", bgcolor: "#2600B1", color: "#D7FEDC", paddingTop: "6px",
                   "&:hover": { backgroundColor: "lightblue", boxShadow: "0 0 1em #D7FEDC", color: "blue", cursor: "pointer", },

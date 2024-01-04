@@ -78,7 +78,7 @@ export function RecommendationCard({ item }) {
         <Box sx={{ height: "100%", display: "flex", flexDirection: "column", gap: "8px", justifyContent: "center", alignItems: "right" }}>
           <BuyButton
             variant="contained"
-            productInfo={{ type: "build", id: item.id, price: item.price }}
+            product={{ type: "build", ...item }}
           />
 
           <Button variant="outlined" color="accent"> Заказать в 1 клик </Button>

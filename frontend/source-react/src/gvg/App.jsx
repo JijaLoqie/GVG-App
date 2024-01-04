@@ -20,6 +20,7 @@ export function App() {
       </SnackbarProvider>
       <Footer />
     </Box>
+
   );
 }
 

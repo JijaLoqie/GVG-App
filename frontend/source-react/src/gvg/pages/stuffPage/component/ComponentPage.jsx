@@ -36,7 +36,7 @@ export function ComponentPage() {
             }}>
               <Typography>Цена: {componentResult?.price}</Typography>
               <BuyButton
-                productInfo={{ type: "component", id: componentResult.id, price: componentResult.price }}
+                product={{ type: "component", ...componentResult }}
                 sx={{
                   marginInline: "20px", transition: "all 0.3s", bgcolor: "#2600B1", color: "#D7FEDC", paddingTop: "6px",
                   "&:hover": { backgroundColor: "lightblue", boxShadow: "0 0 1em #D7FEDC", color: "blue", cursor: "pointer", },

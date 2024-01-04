@@ -9,7 +9,6 @@ import { useDispatch, useSelector } from "react-redux";
 
 const getSum = (products) => {
   const result = products.reduce((partialSum, product) => partialSum + product.price * product.quantity, 0)
-
   return result
 }
 
@@ -17,14 +16,11 @@ export function CartPage() {
   const products = useSelector(state => state.carts.products ?? [])
   const finalSum = useSelector(state => getSum(state.carts.products ?? []))
   const dispatch = useDispatch()
-  const navigate = useNavigate()
 
   if (products.length === 0) {
     return (
       <Box sx={{
-        display: "grid",
-        placeItems: "center",
-        height: "80vh",
+        display: "grid", placeItems: "center", height: "80vh",
       }}>
         <Paper variant="outlined" sx={{
           minHeight: "50vh",
@@ -53,10 +49,8 @@ export function CartPage() {
         padding: 4
       }}>
       <Grid item xs={9}>
-        <Paper variant="outlined" sx={{
+        <Paper variant="outlined" sx={{ display: "flex", flexDirection: "column",
           minHeight: "100vh",
-          display: "flex",
-          flexDirection: "column"
         }}>
           {products.map((productInfo, index) => (
             <CartItem key={index} productInfo={productInfo} />
@@ -92,7 +86,8 @@ export function CartPage() {
               flex: 1,
               display: "grid", placeItems: "center",
             }}>
-              <Button variant="contained" color="success" sx={{
+              <Button component={Link} to="/order"
+                variant="contained" color="success" sx={{
                 "&.MuiButton-contained": {
                   padding: "10px 62px",
                 }
@@ -103,7 +98,7 @@ export function CartPage() {
         </Paper>
 
       </Grid>
-      <Button color="error" onClick={() => dispatch({type: "clear"})}>Отчистить</Button>
+      <Button color="error" onClick={() => dispatch({ type: "clear" })}>Отчистить</Button>
 
     </Grid>
   )

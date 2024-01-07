@@ -9,7 +9,7 @@ const CartReducer = (state = {}, action = {}) => {
       if (existing !== -1) {
         products[existing] = { ...products[existing], quantity: products[existing].quantity + 1 }
       } else {
-        products.push(({ quantity: 1, ...action.payload }))
+        products.push(({ ...action.payload, quantity: 1 }))
       }
       return {
         ...state,

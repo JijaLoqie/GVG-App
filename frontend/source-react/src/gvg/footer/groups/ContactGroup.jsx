@@ -6,6 +6,7 @@ import {
 } from "@mui/material"
 import { Link } from "react-router-dom"
 import CustomTelephoneLink from "../../common/CustomTelephoneLink"
+import ContactUsButton from "../../common/components/buttons/ContactUsButton"
 
 export default function ContuctGroup() {
   return (
@@ -28,16 +29,7 @@ export default function ContuctGroup() {
           marginTop: "40px",
         }}
       >
-        <Button
-          color="success"
-          sx={{
-            width: "100%",
-            height: "60px",
-          }}
-          variant="contained"
-        >
-          Написать нам
-        </Button>
+        <ContactUsButton>Написать нам</ContactUsButton>
       </Box>
     </Box>
   )

@@ -2,6 +2,7 @@ import { Box, Button, Grid, Typography } from "@mui/material";
 import { useLoaderData } from "react-router-dom";
 import { CustomStuffSlider } from "../../../common/CustomStuffSlider";
 import BuyButton from "../../../common/components/buttons/BuyButton";
+import OneClickOrderButton from "../../../common/components/buttons/OneClickOrderButton";
 
 
 export function ComponentPage() {
@@ -45,7 +46,8 @@ export function ComponentPage() {
               >
                 В корзину
               </BuyButton>
-              <Button variant="outlined" fontSize="0.85em" color="background"
+              <OneClickOrderButton variant="outlined" color="background" fontSize="0.85em"
+                productInfo={{ type: "component", ...componentResult }}
                 sx={{
                   color: "rgba(255, 255, 255, 0.5)",
                   "&:hover": {
@@ -54,7 +56,7 @@ export function ComponentPage() {
                 }}
               >
                 Заказать в 1 клик
-              </Button>
+              </OneClickOrderButton>
             </Box>
             <Box>
               <Typography variant="h4">

@@ -1,14 +1,27 @@
 import { Box, Button, Divider, Paper, Stack, Tab, Tabs, Typography, alpha } from "@mui/material";
-import { useEffect, useState } from "react";
 import ContactForm from "../../common/components/forms/ContactForm";
-import { customPalette } from "../../common/styles/themes";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import OrderProductInfo from "./OrderProductInfo";
 import { Link } from "react-router-dom";
+import { useSnackbar } from "notistack";
 
 
 export function OrderPage({ }) {
   const productInfos = useSelector(state => state.carts.products ?? [])
+  const { enqueueSnackbar } = useSnackbar()
+  const dispatch = useDispatch()
+
+  const onOrderCartProducts = (success) => {
+    if (success) {
+      let variant = "success"
+      let textMessage = "Вы сделали заказ! Скоро мы с вами свяжемся"
+      enqueueSnackbar(textMessage, { variant })
+      dispatch({ type: "clear" })
+    } else {
+      let variant = "error"
+      enqueueSnackbar("Произошла ошика! Попробуйте позже или напишите нам", { variant })
+    }
+  }
 
   return (
     <Paper square variant="outlined" sx={{
@@ -18,12 +31,12 @@ export function OrderPage({ }) {
       gap: 8,
     }}>
       <Box sx={{
-        width: "100%", height: "100%",
+        height: "100%",
         width: "200px",
         flex: 2,
       }}>
         <Typography variant="h4" textAlign="center" mb={4}>Оставь нам свои контактные данные</Typography>
-        <ContactForm />
+        <ContactForm parentHandleSubmit={onOrderCartProducts} />
       </Box>
 
       <Paper elevation={0} sx={{

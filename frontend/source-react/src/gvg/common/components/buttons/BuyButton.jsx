@@ -23,7 +23,7 @@ function BuyButton({ product, ...otherProps }) {
       let variant = "error"
       enqueueSnackbar("Максимум 3 товара одного вида!", { variant })
     } else {
-      dispatch({ type: "buy", payload: { title: product.title, type: product.type, id: product.id, price: product.price } })
+      dispatch({ type: "buy", payload: { id: product.id, title: product.title, type: product.type, price: product.price } })
       let variant = "success"
       enqueueSnackbar("Товар добавлен в корзину", { variant })
     }

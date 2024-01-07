@@ -3,14 +3,15 @@ import { SimpleSlider } from "./SimpleSlider"
 import { ComponentTypeIcon, getComponentPartsList } from "../../common/loaders/IconsLoader"
 import { customPalette } from "../../common/styles/themes"
 import { useState } from "react"
-import { useDispatch } from "react-redux"
 import BuyButton from "../../common/components/buttons/BuyButton"
+import OneClickOrderButton from "../../common/components/buttons/OneClickOrderButton"
 
 
 const componentParts = getComponentPartsList()
 
 
 export function BuildCard({ build, premium }) {
+
   const [selectedComponentInfo, setSelectedComponentInfo] = useState(-1)
 
   return (
@@ -80,16 +81,9 @@ export function BuildCard({ build, premium }) {
               >
                 В корзину
               </BuyButton>
-              <Button variant="outlined" color="background" fontSize="0.85em"
-                sx={{
-                  color: "rgba(255, 255, 255, 0.5)",
-                  "&:hover": {
-                    border: "1px solid white",
-                  }
-                }}
-              >
-                Заказать в 1 клик
-              </Button>
+              <OneClickOrderButton
+                productInfo={{ type: "build", ...build }}
+                color="warning"> Заказать в 1 клик </OneClickOrderButton>
             </Box>
           </Box>
 
@@ -115,11 +109,7 @@ export function BuildCard({ build, premium }) {
                 cursor: "pointer",
                 flex: selectedComponentInfo === index ? 2 : 1,
               }}
-              style={{
-                whiteSpace: 'nowrap',
-                overflow: 'hidden',
-                textOverflow: 'ellipsis'
-              }}
+              style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}
             >
               <ComponentTypeIcon type={component.type} width="20px" height="20px" fill={customPalette.text} />
               <Typography variant="body2">{component.rus_type}</Typography>

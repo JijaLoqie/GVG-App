@@ -2,7 +2,7 @@ import { Typography, Paper, CircularProgress, Box } from "@mui/material"
 import { Link, useNavigate } from "react-router-dom"
 import useProduct from "../../common/hooks/useProduct"
 
-function OrderProductInfo({ product, variant }) {
+function OrderProductInfo({ product, variant, ...otherProps }) {
   const realProduct = useProduct(product)
 
   if (product === null) {
@@ -22,6 +22,7 @@ function OrderProductInfo({ product, variant }) {
         minHeight: "90px",
         display: "flex", flexDirection: "row", justifyContent: "space-between",
       }}
+      {...otherProps}
     >
       <Box sx={{
         display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "start",

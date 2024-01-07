@@ -1,3 +1,6 @@
+import requests
+import json
+
 from django.core.management.base import BaseCommand
 from django.db.utils import settings
 from loguru import logger
@@ -29,21 +32,23 @@ async def do_echo(update: Update, context: CallbackContext):
 async def do_start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await context.bot.send_message(update.effective_chat.id, text="Here will be dragons")
 
+@log_errors
+async def send_dragons(application):
+    await application.bot.send_message(618853011, text="Here will be dragons")
+
 
 
 class Command(BaseCommand):
     help = "Телеграм-бот"
 
     def handle(self, *args, **options):
-        # 1 -- подключение
-        application = ApplicationBuilder().token(settings.TG_TOKEN).build()
 
-        # 2 -- обработчики
-        start_handler = CommandHandler("start", do_start)
-        message_handler = MessageHandler(filters.TEXT, do_echo)
-        application.add_handler(start_handler)
-        application.add_handler(message_handler)
 
-        # 3 -- бесконченая работа на сервере
-        application.run_polling()
-        logger.debug("HELLO WORLD")
+        token = settings.TG_TOKEN
+        chat_id = 618853011
+
+        URL = 'https://api.telegram.org/bot' + token + '/sendMessage'
+        data = {'chat_id': chat_id, 'text': 'Dragons',}
+        r = requests.post(URL, data=data)
+
+        logger.debug(r.json())

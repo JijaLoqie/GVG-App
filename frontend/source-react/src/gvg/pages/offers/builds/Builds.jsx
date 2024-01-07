@@ -10,7 +10,7 @@ export function Builds() {
   useEffect(() => {
     loadBuildList(setBuilds)
   }, [])
-  useEffect(() => {console.log(builds)},[builds])
+
   return (
     <Box sx={{ width: "100%", display: "flex", justifyContent: "center"}}>
       <Box sx={{ width: "100%", display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column"}}>

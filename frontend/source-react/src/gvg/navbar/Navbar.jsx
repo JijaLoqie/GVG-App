@@ -17,7 +17,7 @@ import { useCheckMobileScreen } from "../common/hooks/useCheckMobileScreen.js"
 const actions = [
   { title: "Главная", path: "/", icon: <HomeIcon />, },
   { title: "Услуги", path: "/offers", icon: <ComputerIcon />, },
-  { title: "Доставка", path: "/delivery", icon: <DeliveryDiningIcon />, },
+  { title: "Доставка", path: "/order", icon: <DeliveryDiningIcon />, },
   { title: "О нас", path: "/about", icon: <InfoIcon />, },
 ]
 

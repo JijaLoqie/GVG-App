@@ -4,6 +4,8 @@ import { useLoaderData } from "react-router-dom";
 import { CustomStuffSlider } from "../../../common/CustomStuffSlider";
 import { ComponentTypeIcon, getComponentPartsList } from "../../../common/loaders/IconsLoader";
 import { customPalette } from "../../../common/styles/themes";
+import OneClickOrderButton from "../../../common/components/buttons/OneClickOrderButton";
+import BuyButton from "../../../common/components/buttons/BuyButton";
 
 export function BuildPage() {
   const buildsInfo = useMemo(getComponentPartsList, [])
@@ -12,24 +14,24 @@ export function BuildPage() {
 
 
   return (
-    <Box sx={{display: "flex", flexDirection: "column", alignItems: "center", marginTop: "24px",}}>
+    <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", marginTop: "24px", }}>
       <Grid container sx={{ maxWidth: "1200px", width: "100%", minHeight: "70vh", color: "text.main" }}>
         <Grid item xs={12} md={6}>
           <Box
-            sx={{ width: "100%", height: {xs: "300px", md: "100%"}, maxHeight: "600px", boxShadow: "inset 0 0 2rem black" }}
+            sx={{ width: "100%", height: { xs: "300px", md: "100%" }, maxHeight: "600px", boxShadow: "inset 0 0 2rem black" }}
           >
             <CustomStuffSlider images={build.images} />
           </Box>
         </Grid>
-        <Grid item xs={12} md={6} sx={{display: 'flex'}}>
-          <Box sx={{width: "100%", padding: "24px", paddingTop: "0"}}>
+        <Grid item xs={12} md={6} sx={{ display: 'flex' }}>
+          <Box sx={{ width: "100%", padding: "24px", paddingTop: "0" }}>
             <Box marginBottom="24px">
               <Typography textAlign="center" variant="h3">
                 {build?.title}
               </Typography>
             </Box>
             <Box >
-              <Typography variant="body" sx={{marginTop: "480px"}}>
+              <Typography variant="body" sx={{ marginTop: "480px" }}>
                 {build?.description}
               </Typography>
             </Box>
@@ -39,31 +41,36 @@ export function BuildPage() {
               marginY: "24px", paddingY: "12px", textAlign: "center",
             }}>
               <Typography>Цена: {build?.price}</Typography>
-              <Button
-                sx={{ marginInline: "20px", transition: "all 0.3s", bgcolor: "#2600B1", color: "#D7FEDC", paddingTop: "6px",
+              <BuyButton
+                product={{ type: "build", ...build }}
+                sx={{
+                  marginInline: "20px", transition: "all 0.3s", bgcolor: "#2600B1", color: "#D7FEDC", paddingTop: "6px",
                   "&:hover": { backgroundColor: "lightblue", boxShadow: "0 0 1em #D7FEDC", color: "blue", cursor: "pointer", },
                 }}
                 variant="contained"
               >
                 В корзину
-              </Button>
-              <Button variant="outlined" color= "background" fontSize="0.85em"
+              </BuyButton>
+              <OneClickOrderButton variant="outlined" color="background" fontSize="0.85em"
+                productInfo={{ type: "build", ...build }}
                 sx={{
-                  color:"rgba(255, 255, 255, 0.5)",
+                  color: "rgba(255, 255, 255, 0.5)",
                   "&:hover": {
                     border: "1px solid white",
-                  }}}
+                  }
+                }}
               >
                 Заказать в 1 клик
-              </Button>
+              </OneClickOrderButton>
             </Box>
             <Box>
               <Typography variant="h4">
                 Характеристики
               </Typography>
-              <Box sx={{ height: "110%", width: "100%", display: "flex", flexDirection: "column", alignItems: "stretch", paddingBottom: "24px",justifyContent: "space-between" }}>
+              <Box sx={{ height: "110%", width: "100%", display: "flex", flexDirection: "column", alignItems: "stretch", paddingBottom: "24px", justifyContent: "space-between" }}>
                 {buildsInfo.map((buildPartInfo, index) => (
-                  <Box key={index} sx={{ display: "flex", flexDirection: "row", justifyContent: "space-between", alignItems: "center",
+                  <Box key={index} sx={{
+                    display: "flex", flexDirection: "row", justifyContent: "space-between", alignItems: "center",
                     padding: "8px",
                     borderRadius: "15px",
                     transition: "all 300ms",
@@ -71,7 +78,7 @@ export function BuildPage() {
                       boxShadow: "0 0 8px white",
                     }
                   }}>
-                    <Box sx={{display: "flex", flexDirection: "row", alignItems: "center", gap: "12px"}}>
+                    <Box sx={{ display: "flex", flexDirection: "row", alignItems: "center", gap: "12px" }}>
                       <ComponentTypeIcon type={buildPartInfo.type} width="30px" height="30px" fill={customPalette.text} />
                       <Typography>{buildPartInfo.rus_type}</Typography>
                     </Box>
@@ -83,7 +90,7 @@ export function BuildPage() {
           </Box>
         </Grid>
       </Grid>
-      <Box sx={{width: "100%", height: "100%", borderTop: "1px solid white", paddingBottom: "48px"}}>
+      <Box sx={{ width: "100%", height: "100%", borderTop: "1px solid white", paddingBottom: "48px" }}>
         <Typography variant="h4" p="24px" pt="12px">
           Рекомендуемые товары
         </Typography>

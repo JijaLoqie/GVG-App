@@ -4,7 +4,7 @@ import { Button, Typography, useMediaQuery } from "@mui/material";
 import { useSnackbar } from "notistack";
 import { useDispatch, useSelector } from "react-redux";
 
-function BuyButton({ productInfo, ...otherProps }) {
+function BuyButton({ product, ...otherProps }) {
   const dispatch = useDispatch()
 
   const theme = useTheme();
@@ -14,17 +14,16 @@ function BuyButton({ productInfo, ...otherProps }) {
   const { enqueueSnackbar } = useSnackbar()
 
   const productLink = useSelector(state => (state.carts.products ?? [])
-    .find(item => item.id === productInfo.id && item.type === productInfo.type))
+    .find(item => item.id === product.id && item.type === product.type))
 
 
 
   const handleClick = () => {
-    console.log(theme.breakpoints.up("xs"))
-    if (productLink && productLink.quantity >= 5) {
+    if (productLink && productLink.quantity >= 3) {
       let variant = "error"
-      enqueueSnackbar("Максимум 5 товаров одного вида!", { variant })
+      enqueueSnackbar("Максимум 3 товара одного вида!", { variant })
     } else {
-      dispatch({ type: "buy", payload: productInfo })
+      dispatch({ type: "buy", payload: { id: product.id, title: product.title, type: product.type, price: product.price } })
       let variant = "success"
       enqueueSnackbar("Товар добавлен в корзину", { variant })
     }

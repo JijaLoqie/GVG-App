@@ -98,7 +98,7 @@ const router = createBrowserRouter([
       {
         path: "order",
         element: (
-          <OrderPage/>
+          <OrderPage />
         ),
       },
     ]

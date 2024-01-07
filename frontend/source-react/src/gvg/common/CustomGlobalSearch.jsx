@@ -1,5 +1,5 @@
 import { Close } from "@mui/icons-material";
-import { Box, IconButton, InputBase } from "@mui/material";
+import { Box, Chip, IconButton, InputBase } from "@mui/material";
 import { useEffect, useRef, useState } from "react";
 
 export function CustomGlobalSearch({ handleUpdate, isFastSearch }) {
@@ -42,7 +42,7 @@ export function CustomGlobalSearch({ handleUpdate, isFastSearch }) {
           placeholder="Поиск по названию"
           onChange={handleChange}
         ></InputBase>
-        { !isFastSearch ?
+        {!isFastSearch ?
           <Box sx={{
             cursor: "pointer",
             width: "100px",
@@ -64,19 +64,12 @@ export function CustomGlobalSearch({ handleUpdate, isFastSearch }) {
           >&#x027A4;</Box>
           : null}
       </Box>
-      {fixedValue.length !== 0 ? (<Box sx={{
-        marginTop: "10px",
-        alignSelf: "start",
-        padding: "6px 16px",
-        borderRadius: "10px",
-        marginInline: "10px",
-        textAlign: "center",
-        bgcolor: "accent.main",
-        color: "secondary.main",
-      }}>
-        {fixedValue}
-        <IconButton onClick={clearSearch}><Close /></IconButton>
-      </Box>) : null}
-    </Box> 
+      <Box sx={{ width: "100%", p: 2 }}>
+        {fixedValue.length !== 0 ? (
+          <Chip label={fixedValue} onDelete={clearSearch} color="primary" />
+        ) : null}
+      </Box>
+
+    </Box>
   )
 }

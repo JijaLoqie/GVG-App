@@ -1,0 +1,9 @@
+Django==3.2.12
+loguru==0.7.0
+python-telegram-bot==20.7
+requests==2.31.0
+django-cleanup
+djangorestframework
+django-sortedm2m
+pillow
+whitenoise

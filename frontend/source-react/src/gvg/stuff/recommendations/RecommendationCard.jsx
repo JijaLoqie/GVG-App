@@ -10,7 +10,6 @@ import BuyButton from "../../common/components/buttons/BuyButton";
 export function RecommendationCard({ item }) {
   const [cardOpened, setCardOpened] = useState(false)
   const components = useMemo(getComponentPartsList, [])
-  const dispatch = useDispatch()
 
   return (
     <Box sx={{

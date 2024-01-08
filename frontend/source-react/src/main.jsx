@@ -5,7 +5,6 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 import { themes } from "./gvg/common/styles/themes.js"
 
-import "./index.css"
 import { App } from './gvg/App.jsx'
 import { BaseError } from './gvg/pages/errors/BaseError.jsx'
 import { Home } from './gvg/pages/home/Home.jsx'

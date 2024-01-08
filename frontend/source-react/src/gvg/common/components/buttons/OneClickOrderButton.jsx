@@ -5,10 +5,6 @@ import { useEffect } from "react";
 function OneClickOrderButton({ children, productInfo, ...otherProps }) {
   const dispatch = useDispatch()
 
-  useEffect(() => {
-    console.log(productInfo)
-  }, [productInfo])
-
   return (
     <Button
       onClick={() => {

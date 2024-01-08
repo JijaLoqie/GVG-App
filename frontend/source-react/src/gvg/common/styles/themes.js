@@ -26,6 +26,21 @@ const customMuiPalette = {
 
 export const themes = {
   darkTheme: createTheme({
+    components: {
+      MuiStack: {
+        defaultProps: {
+          direction: "row",
+        },
+        styleOverrides: {
+          root: {
+            justifyContent: "center",
+            alignItems: "center",
+            textAlign: "center",
+            flexWrap: "wrap",
+          }
+        },
+      }
+    },
     palette: {
       mode: "dark",
       ...customMuiPalette,

@@ -32,8 +32,13 @@ function BuyButton({ product, ...otherProps }) {
   return (
     <Button
       onClick={handleClick}
+      sx={{
+        marginInline: "20px", transition: "all 0.3s", bgcolor: "#2600B1", color: "#D7FEDC", paddingTop: "6px",
+        "&:hover": { backgroundColor: "lightblue", boxShadow: "0 0 1em #D7FEDC", color: "blue", cursor: "pointer", },
+      }}
       endIcon={isSmallScreen ? null : <ShoppingCart />}
-      {...otherProps}>
+      {...otherProps}
+    >
 
       {productLink === undefined ? (<Typography>В корзину</Typography>)
         : (<Typography>Добавить ещё</Typography>)}

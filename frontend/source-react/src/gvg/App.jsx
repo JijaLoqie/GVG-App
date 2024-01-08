@@ -16,6 +16,7 @@ export function App() {
     <Box sx={{
       boxSizing: "border-box",
       maxWidth: "100%",
+      overflow: "auto"
     }}>
       <Navbar />
       <SnackbarProvider maxSnack={3}>

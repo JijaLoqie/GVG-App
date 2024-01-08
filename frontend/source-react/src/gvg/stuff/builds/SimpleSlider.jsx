@@ -20,8 +20,9 @@ export function SimpleSlider({ items, scrollable }) {
   }
 
   return (
-    <Box sx={{ position: "relative", height: "100%", }}>
-      <Box sx={{ position: "absolute", bottom: "12px", left: "50%",
+    <Box sx={{ position: "relative", width: "100%", minHeight: "200px", height: "100%" }}>
+      <Box sx={{
+        position: "absolute", bottom: "12px", left: "50%",
         transform: "translate(-50%, 0)", height: "30px",
         display: 'flex',
         zIndex: 5,
@@ -41,7 +42,7 @@ export function SimpleSlider({ items, scrollable }) {
           borderTopRightRadius: "32px",
           borderBottomRightRadius: "32px",
         }} onClick={goToNext}>
-          <KeyboardArrowRight color="text"/>
+          <KeyboardArrowRight color="text" />
         </IconButton>
       </Box>
 
@@ -49,7 +50,7 @@ export function SimpleSlider({ items, scrollable }) {
         position: 'absolute',
         width: "100%", height: "100%",
         borderRadius: "inherit",
-        transition: "all 300ms", 
+        transition: "all 300ms",
 
         backgroundImage: `url(${items[currentIndex].path})`,
 
@@ -58,11 +59,11 @@ export function SimpleSlider({ items, scrollable }) {
         backgroundPosition: "center",
         boxShadow: "inset 0 0 80px black",
         zIndex: 3,
-      }}/>
+      }} />
       <Box sx={{
         width: "100%", height: "100%",
         borderRadius: "inherit",
-        transition: "all 300ms", 
+        transition: "all 300ms",
 
         backgroundImage: `url(${items[currentIndex].path})`,
         filter: "blur(2px)",
@@ -70,7 +71,7 @@ export function SimpleSlider({ items, scrollable }) {
         backgroundPosition: "center",
         boxShadow: "inset 0 0 80px black",
         zIndex: 3,
-      }}/>
+      }} />
     </Box>
   )
 }

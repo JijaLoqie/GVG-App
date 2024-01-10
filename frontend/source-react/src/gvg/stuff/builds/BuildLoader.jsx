@@ -3,13 +3,13 @@ export async function getBuildById(buildId) {
   return fetch(`/builds/api/get-build-by-id/${buildId}`).then((data) => {
     return data.json()
   }).then(data => {
-      buildFound = data
-      if (buildFound['Build not found']) {
-        return {title: "unknown", description: "no description", price: "404"}
-      } else {
-        return buildFound
-      }
-    })
+    buildFound = data
+    if (buildFound['Build not found']) {
+      return { title: "unknown", description: "no description", price: "404" }
+    } else {
+      return buildFound
+    }
+  })
 }
 const typeVariants = [
   { name: "hdd", rus_name: "Жёсткий диск", src: "/builds/parts/hdd.png" },
@@ -22,12 +22,12 @@ const typeVariants = [
 export async function BuildLoader({ params }) {
   const build = await getBuildById(params.buildId);
   var buildParams = []
-  
+
   typeVariants.forEach(typeVariant => {
     if (build[typeVariant.name]) {
-      buildParams.push({type: typeVariant.rus_name, name: build[typeVariant.name]})
+      buildParams.push({ type: typeVariant.rus_name, name: build[typeVariant.name] })
     }
-  }) 
+  })
   return { build, params: buildParams };
 }
 
@@ -41,15 +41,20 @@ export function loadBuildList(handlerFill) {
   })
 }
 
-async function loadRecommendedBuildList() {
+let recommendedBuilds = null
+
+export async function loadRecommendedBuildList() {
   return await fetch("/builds/api/get-recommended").then((data) => {
     return data.json()
   }).then(data => {
-      return data[0].builds
-    })
+    return data[0].builds
+  })
 }
 
 
 export function getRecommendedBuilds() {
-  return loadRecommendedBuildList()
+  if (recommendedBuilds === null) {
+    recommendedBuilds = loadRecommendedBuildList()
+  }
+  return recommendedBuilds
 }

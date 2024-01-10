@@ -4,14 +4,15 @@ import { Outlet, } from "react-router-dom";
 import Footer from "./footer/Footer";
 import Navbar from "./navbar/Navbar";
 import { SnackbarProvider } from "notistack";
-import { useSelector } from "react-redux";
-import { OrderBackdrop } from "./pages/order/OrderBackdrop";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 
 
 export function App() {
-  const isOpenOrderBackdrop = useSelector(state => (state.order.isOpen ?? false))
-
-
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch({ type: "updateRecommended" })
+  }, [])
   return (
     <Box sx={{
       boxSizing: "border-box",
@@ -22,7 +23,6 @@ export function App() {
       <SnackbarProvider maxSnack={3}>
         <Box flex={1}>
           <Outlet />
-          <OrderBackdrop isOpen={isOpenOrderBackdrop} />
         </Box>
       </SnackbarProvider>
       <Footer />

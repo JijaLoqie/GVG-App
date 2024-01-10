@@ -12,7 +12,6 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist'
-import OrderBackdropReducer from './gvg/common/reducers/OrderBackdropReducer'
 
 const persistConfig = {
   key: 'root',
@@ -24,7 +23,6 @@ const persistedReducer = persistReducer(persistConfig, CartReducer)
 export const rootStore = configureStore({
   reducer: {
     carts: persistedReducer,
-    order: OrderBackdropReducer
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

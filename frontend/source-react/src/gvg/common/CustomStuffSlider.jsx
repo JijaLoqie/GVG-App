@@ -6,7 +6,7 @@ import { useCheckMobileScreen } from "./hooks/useCheckMobileScreen"
 
 const FORCE_SHOW = true
 
-export function CustomStuffSlider({images}) {
+export function CustomStuffSlider({ images }) {
   const [isShowList, setIsShowList] = useState(false)
   const isMobile = useCheckMobileScreen()
 
@@ -24,19 +24,19 @@ export function CustomStuffSlider({images}) {
       onMouseEnter={() => setIsShowList(true)}
       onMouseLeave={() => setIsShowList(false)}
     >
-      {isShowList || isMobile || FORCE_SHOW ? ( <Box
-        sx={{ position: "absolute", width: "100%", bottom: "10px", height: "110px", bgcolor: "#00000099", display: "flex",}}
+      {isShowList || isMobile || FORCE_SHOW ? (<Box
+        sx={{ position: "absolute", width: "100%", bottom: "10px", height: "110px", bgcolor: "#00000099", display: "flex", }}
       >
         <ImageList cols={5} gap={8}
           sx={{ marginInline: "12px", width: "100%", heigth: "100%", }}
         >
           {images.map((imageUrl, index) => (
-            <ImageListItem key={index} onClick={() => {setSelectedIndex(index)}} sx={{"&:hover": {border: "1px solid white"}}}>
-              <img src={`${imageUrl.path}?auto=format&fit=crop`} style={{height: "0", border: (index == selectedIndex) ? "2px solid white" : "none"}}/>
+            <ImageListItem key={index} onClick={() => { setSelectedIndex(index) }} sx={{ "&:hover": { border: "1px solid white" } }}>
+              <img src={`${imageUrl.path}?auto=format&fit=crop`} style={{ height: "0", border: (index == selectedIndex) ? "2px solid white" : "none" }} />
             </ImageListItem>
           ))}
         </ImageList>
-      </Box> ) : null}
+      </Box>) : null}
     </Box>
   )
 }

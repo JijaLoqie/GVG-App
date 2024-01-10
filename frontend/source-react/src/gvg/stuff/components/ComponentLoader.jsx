@@ -3,23 +3,18 @@ export async function getComponentById(componentId) {
   return fetch(`/components/api/get-component-by-id/${componentId}`).then((data) => {
     return data.json()
   }).then(data => {
-      result = data
-      if (result['Component not found']) {
-        return {title: "unknown", description: "no description", price: "404"}
-      } else {
-        return result
-      }
-    })
+    result = data
+    if (result['Component not found']) {
+      return { title: "unknown", description: "no description", price: "404" }
+    } else {
+      return result
+    }
+  })
 }
 
 
 
-
-export async function ComponentLoader({ params }) {
-  const componentResult = await getComponentById(params.componentId);
-
-  return { componentResult };
-}
+let recommendedComponents = null
 
 
 
@@ -31,16 +26,19 @@ export function loadComponentList(handlerFill) {
   })
 }
 
-async function loadRecommendedComponentList() {
+export async function loadRecommendedComponentList() {
   return await fetch("/components/api/get-recommended").then((data) => {
     return data.json()
   }).then(data => {
-      return data[0]?.components
-    })
+    return data[0]?.components
+  })
 }
 
 
 export async function getRecommendedComponents() {
-  return await loadRecommendedComponentList()
+  if (recommendedComponents === null) {
+    recommendedComponents = loadRecommendedComponentList()
+  }
+  return await recommendedComponents
 }
 

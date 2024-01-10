@@ -4,28 +4,34 @@ import { ComponentTypeIcon, getComponentPartsList } from "../../common/loaders/I
 import { customPalette } from "../../common/styles/themes"
 import BuyButton from "../../common/components/buttons/BuyButton"
 import OneClickOrderButton from "../../common/components/buttons/OneClickOrderButton"
+import { useState } from "react"
 
 
 const componentParts = getComponentPartsList()
 
 
-export function BuildCard({ build }) {
+export function BuildCard({ build, forceShrink = false }) {
   return (
     <Paper variant="outlined" square
       sx={{
         width: "calc(100% - 30px)",
         minWidth: "300px",
+        transition: "all 300ms",
         fontFamily: "cursive",
         boxShadow:
           "rgba(50, 50, 93, 0.7) 0px 0px 1000px 0px, rgba(0, 0, 0, 0.1) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset",
+        overflow: "hidden",
       }}
     >
-      <Grid container>
-        <Grid item xs={12} md={5}>
+      <Grid container height="100%">
+        <Grid item xs={12} md={forceShrink ? 12 : 5} sx={{
+          transition: "all 300ms",
+          minHeight: "350px",
+        }}>
           <SimpleSlider items={build.images} scrollable={true} />
         </Grid>
-        <Grid item xs={12} md={7}>
-          <Box p={3} textAlign="center">
+        <Grid item xs={12} md={forceShrink ? 12 : 7} >
+          <Box p={3} height="100%" display="flex" flexDirection="column" textAlign="center">
             <Typography gutterBottom variant="h4">
               {build.title}
             </Typography>
@@ -33,15 +39,14 @@ export function BuildCard({ build }) {
             <Box flex={1}>
               <Typography paragraph sx={{
                 pt: 2,
-                textAlign: "start"
               }}>
                 {build.description}
               </Typography>
               <Box direction="column" alignItems="start">
                 {componentParts.map((component, index) => (
-                  <Paper variant="outlined" key={index} sx={{
+                  <Paper square variant="outlined" key={index} sx={{
                     display: "flex",
-                    flexDirection: { xs: "column", md: "row" },
+                    flexDirection: "",
                     justifyContent: "space-between",
                     alignItems: { xs: "start", md: "center" },
                     flexWrap: "wrap",
@@ -74,15 +79,12 @@ export function BuildCard({ build }) {
               </Box>
             </Box>
             <Paper elevation={7} sx={{
-              mt: 3, p: 2, gap: 1,
-              display: "flex", alignItems: "center", justifyContent: "center",
-              flexWrap: "wrap",
+              mt: 3, p: 2,
             }}>
               <Paper variant="outlined" sx={{
-                p: 2,
-                display: "flex",
-                flexDirection: "row",
-                gap: 1,
+                display: "flex", flexDirection: "column", justifyContent: "center",
+                height: "60px",
+                mb: 2,
               }}>
                 <Typography color="primary.main">{build.price} ₽</Typography>
                 {build.old_price != undefined

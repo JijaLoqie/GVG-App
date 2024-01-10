@@ -1,4 +1,4 @@
-Django==3.2.12
+Django==3.2.23
 loguru==0.7.0
 python-telegram-bot==20.7
 requests==2.31.0

@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
 
-import { Outlet, } from "react-router-dom";
+import { Outlet, ScrollRestoration, } from "react-router-dom";
 import Footer from "./footer/Footer";
 import Navbar from "./navbar/Navbar";
 import { SnackbarProvider } from "notistack";
@@ -13,6 +13,7 @@ export function App() {
   useEffect(() => {
     dispatch({ type: "updateRecommended" })
   }, [])
+
   return (
     <Box sx={{
       boxSizing: "border-box",
@@ -26,6 +27,7 @@ export function App() {
         </Box>
       </SnackbarProvider>
       <Footer />
+      <ScrollRestoration />
     </Box>
 
   );

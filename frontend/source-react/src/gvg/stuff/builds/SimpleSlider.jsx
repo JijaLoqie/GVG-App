@@ -21,30 +21,33 @@ export function SimpleSlider({ items, scrollable }) {
 
   return (
     <Box sx={{ position: "relative", width: "100%", minHeight: "200px", height: "100%" }}>
-      <Box sx={{
-        position: "absolute", bottom: "12px", left: "50%",
-        transform: "translate(-50%, 0)", height: "30px",
-        display: 'flex',
-        zIndex: 5,
-      }} >
-        <IconButton sx={{
-          bgcolor: "#00000088",
-          borderRadius: 0,
-          borderRight: "1px solid white",
-          borderTopLeftRadius: "32px",
-          borderBottomLeftRadius: "32px",
-        }} onClick={goToPrevious}>
-          <KeyboardArrowLeft color="text" />
-        </IconButton>
-        <IconButton sx={{
-          bgcolor: "#00000088",
-          borderRadius: 0,
-          borderTopRightRadius: "32px",
-          borderBottomRightRadius: "32px",
-        }} onClick={goToNext}>
-          <KeyboardArrowRight color="text" />
-        </IconButton>
-      </Box>
+      {scrollable ? (
+        <Box sx={{
+          position: "absolute", bottom: "12px", left: "50%",
+          transform: "translate(-50%, 0)", height: "30px",
+          display: 'flex',
+          zIndex: 5,
+        }} >
+          <IconButton sx={{
+            bgcolor: "#00000088",
+            borderRadius: 0,
+            borderRight: "1px solid white",
+            borderTopLeftRadius: "32px",
+            borderBottomLeftRadius: "32px",
+          }} onClick={goToPrevious}>
+            <KeyboardArrowLeft color="text" />
+          </IconButton>
+          <IconButton sx={{
+            bgcolor: "#00000088",
+            borderRadius: 0,
+            borderTopRightRadius: "32px",
+            borderBottomRightRadius: "32px",
+          }} onClick={goToNext}>
+            <KeyboardArrowRight color="text" />
+          </IconButton>
+        </Box>
+
+      ) : null}
 
       <Box sx={{
         position: 'absolute',

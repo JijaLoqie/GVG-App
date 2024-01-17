@@ -1,11 +1,9 @@
 
-import { Box, Button, ButtonGroup, Grid, Paper, Stack, Typography, alpha } from "@mui/material";
-import { useEffect, useState } from "react";
-import { getBuildById } from "../../stuff/builds/BuildLoader";
-import { getComponentById } from "../../stuff/components/ComponentLoader";
+import { Box, Button, Container, Grid, Paper, Stack, Typography, alpha } from "@mui/material";
 import { CartItem } from "./CartItem";
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import { customPalette } from "../../common/styles/themes";
 
 const getSum = (products) => {
   const result = products.reduce((partialSum, product) => partialSum + product.price * product.quantity, 0)
@@ -26,7 +24,8 @@ export function CartPage() {
           minHeight: "50vh",
           display: "flex", justifyContent: "center", alignItems: "center",
           flexDirection: "column",
-          padding: 15
+          textAlign: "center",
+          p: 1
         }}>
           <Typography variant="h1"> 🛒 </Typography>
           <Typography variant="h2"> Корзина пуста </Typography>
@@ -42,64 +41,48 @@ export function CartPage() {
   }
 
   return (
-    <Grid container spacing={2}
-      sx={{
-        minHeight: "100vh",
-        boxSizing: "border-box",
-        padding: 4
-      }}>
-      <Grid item xs={9}>
-        <Paper variant="outlined" sx={{ display: "flex", flexDirection: "column",
-          minHeight: "100vh",
-        }}>
-          {products.map((productInfo, index) => (
-            <CartItem key={index} productInfo={productInfo} />
-          ))}
-        </Paper>
-      </Grid>
-
-      <Grid item xs={3}>
-        <Paper variant="outlined" sx={{
-          minHeight: "100vh",
-        }}>
-          <Box sx={{
-            position: "sticky",
-            top: "100px",
-            border: "1px solid #ffffff77",
-            width: "100%", height: "200px",
-            textAlign: "center",
-            display: "flex", flexDirection: "column"
-          }}>
-            <Typography variant="h5">
-              Итоговая стоимость:
-            </Typography>
-            <Box sx={{
-              mt: 1,
-              boxShadow: "inset 0 0 36px black",
-              bgcolor: alpha("#f1f", 0.5),
-              width: "100%", height: "50px",
-              display: "grid", placeItems: "center",
+    <Container maxWidth="lg">
+      <Grid container spacing={2} p={2}>
+        <Grid item xs={12} sm={3}>
+          <Paper variant="outlined" sx={{ minHeight: { sx: "auto", md: "100vh" }, }}>
+            <Stack spacing={1} sx={{
+              position: "static", top: "90px",
+              border: `1px solid ${customPalette.text}`,
+              width: "100%", height: "200px",
+              textAlign: "center",
             }}>
-              <Typography> {finalSum} ₽ </Typography>
-            </Box>
-            <Box sx={{
-              flex: 1,
-              display: "grid", placeItems: "center",
-            }}>
-              <Button component={Link} to="/order"
-                variant="contained" color="success" sx={{
-                "&.MuiButton-contained": {
-                  padding: "10px 62px",
-                }
-              }}> Заказать </Button>
-            </Box>
-          </Box>
+              <Typography fontSize={20}>
+                Итоговая стоимость:
+              </Typography>
+              <Box sx={{
+                boxShadow: "inset 0 0 36px black", bgcolor: alpha(customPalette.accent, 0.5),
+                display: "grid", placeItems: "center", height: "50px",
+              }}>
+                <Typography> {finalSum} ₽ </Typography>
+              </Box>
+              <Box sx={{
+                flex: 1,
+                display: "grid", placeItems: "center",
+              }}>
+                <Button component={Link} to="/order"
+                  variant="contained" color="accent" sx={{
+                  }}> Заказать </Button>
+              </Box>
+            </Stack>
 
-        </Paper>
+          </Paper>
 
-      </Grid>
-      <Button color="error" onClick={() => dispatch({ type: "clear" })}>Отчистить</Button>
+        </Grid>
+        <Grid item xs={12} sm={9}>
+          <Paper variant="outlined" sx={{ minHeight: { sx: "auto", md: "100vh" }, }}>
+            {products.map((productInfo, index) => (
+              <CartItem key={index} productInfo={productInfo} />
+            ))}
+          </Paper>
+        </Grid>
+        <Button color="error" onClick={() => dispatch({ type: "clear" })}>Отчистить</Button>
 
-    </Grid>
+      </Grid >
+    </Container>
   )
 }

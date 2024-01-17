@@ -29,10 +29,10 @@ export function OrderPage({ }) {
       display: "flex", flexDirection: "row",
       flexWrap: "wrap",
       gap: 8,
+      rowGap: 2,
     }}>
       <Box sx={{
-        height: "100%",
-        width: "200px",
+        height: "100%", width: "200px",
         flex: 2,
       }}>
         <Typography variant="h4" textAlign="center" mb={4}>Оставь нам свои контактные данные</Typography>
@@ -43,7 +43,7 @@ export function OrderPage({ }) {
         minWidth: "200px",
         width: "100%", height: "100%",
         display: "flex", flexDirection: "column",
-        overflow: "scroll",
+        overflowY: "auto",
         flex: 1,
       }}>
         <Typography variant="h5" textAlign="center" mb={4} >Ваша корзина</Typography>

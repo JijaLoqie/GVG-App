@@ -27,7 +27,7 @@ REACT_APP_DIR = FRONTEND_DIR / 'source-react'
 SECRET_KEY = 'django-insecure-h9a^!)0(s+)sl%8q8$9e*l*zeq8l7$6c*0xrz_@+)bo2z9_$xv'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
@@ -117,7 +117,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru-RU'
 
 TIME_ZONE = 'UTC'
 
@@ -160,3 +160,6 @@ INTERNAL_IPS = glob_list([
 
 TG_TOKEN = '6348270078:AAFHpKV7z6ugNWE3kZuEh-zCgOnqGuN5Ols'
 TG_PROXY_URL = 'http://103.47.93.207:1080'
+
+
+

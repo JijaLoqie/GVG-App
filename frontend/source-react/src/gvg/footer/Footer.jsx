@@ -1,6 +1,7 @@
 import {
   Box,
   Grid,
+  Stack,
 } from "@mui/material"
 import AboutGroup from "./groups/AboutGroup"
 import HelpGroup from "./groups/HelpGroup"
@@ -33,24 +34,29 @@ export default function Footer() {
   return (
     <Box
       sx={{
+        p: 3,
         borderTop: '5px solid',
         borderImageSlice: 1,
         borderImageSource: `linear-gradient(to left, ${['red', 'blue'].join(',')})`,
-        marginTop: "auto", bgcolor: "background.main", width: "100%", }}
+      }}
     >
-      <Grid columnGap={10} container rowGap={5} wrap="wrap"
-        sx={{ alignContent: "center", justifyContent: "center", paddingTop: "10vh", }}
+      <Stack direction="row" spacing={3} rowGap={3}
+        sx={{
+          alignContent: "center",
+          justifyContent: "center",
+          flexWrap: "wrap"
+        }}
       >
         {items.map((item, index) => (
-          <Grid item key={index}
+          <Box key={index}
             sx={{ display: "flex", justifyContent: "center", width: "300px", paddingInline: 0, }}
           >
             {item.component}
-          </Grid>
+          </Box>
         ))}
-      </Grid>
+      </Stack>
       <Box
-        sx={{ position: "relative", width: "100%", textAlign: "center", padding: "10px", marginTop: "100px", }}
+        sx={{ position: "relative", width: "100%", textAlign: "center", p: { xs: 4, md: 0 }, mt: 4 }}
       >
         Copyright ©2023 "GVG Tech Solutions". All Rights Reserved
       </Box>

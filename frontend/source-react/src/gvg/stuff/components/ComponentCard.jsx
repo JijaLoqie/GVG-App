@@ -7,7 +7,6 @@ import { ComponentTypeIcon, getComponentIconPathByType } from "../../common/load
 
 
 const CustomPaper = styled(Box)((theme) => ({
-  height: "312px",
   backgroundColor: "rgba(255,255,255, 0.1)",
   cursor: "pointer",
   position: "relative",
@@ -55,13 +54,15 @@ const CardBorder = styled("div")((_) => ({
 }));
 
 
-export function ComponentCard({ componentItem, recommended }) {
+export function ComponentCard({ componentItem, recommended, ...otherProps }) {
   const navigate = useNavigate()
 
   return (
     <CustomPaper className="card" onMouseDown={() => navigate(`/component/${componentItem.id}`)} sx={{
-      flexGrow: 1, minWidth: "350px", maxWidth: "350px",
-    }}>
+      flexGrow: 1,
+    }}
+      {...otherProps}
+    >
       <CardBorder />
       <Box sx={{
         position: "absolute",

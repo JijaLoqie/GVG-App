@@ -21,21 +21,6 @@ export default function AboutGroup() {
         компьютеров для любых задач. Наша команда состоит из опытных
         специалистов, гарантирующих качественную сборку в кратчайшие сроки.
       </Typography>
-      <Box
-        sx={{
-          width: "100%",
-          alignContent: "center",
-          textAlign: "center",
-        }}
-      >
-        <img
-          alt="GVG Tech Solutions"
-          loading="lazy"
-          src={fullLogoIconPath}
-          srcSet={fullLogoIconPath}
-          style={{ objectFit: "cover", width: "100px" }}
-        />
-      </Box>
     </Box>
   )
 }

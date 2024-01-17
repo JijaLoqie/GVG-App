@@ -22,15 +22,23 @@ export function ComponentList({ components, filter, recommended, ...otherProps }
   const [filteredComponents, setFilteredComponents] = useState([])
 
   useEffect(() => {
-    setFilteredComponents(filter ?
-      [
-        ...components,
-      ]
-        .filter((componentItem) => componentItem.title.toLowerCase().includes(filter?.name.toLowerCase()))
-        .filter((componentItem) => componentItem.component_type.includes(filter?.type))
-        .toSorted(filter.sorterKey === "PriceIncrease" ? (a, b) => a.price - b.price : (a, b) => b.price - a.price)
-        .slice(filter?.limitKey * filter?.listSize, (filter?.limitKey + 1) * filter?.listSize)
-      : components
+    setFilteredComponents((old) => {
+      if (filter) {
+        let filtered = [
+          ...components,
+        ].filter((componentItem) => componentItem.title.toLowerCase().includes(filter.name.toLowerCase()))
+          .filter((componentItem) => !!filter.types[componentItem.component_type])
+        if (filter.sorterKey === "Price") {
+          filtered = filtered.toSorted(filter.sorterIncrease ? (a, b) => a.price - b.price : (a, b) => b.price - a.price)
+        } else if (filter.sorterKey === "Name") {
+          filtered = filtered.toSorted(filter.sorterIncrease ? (a, b) => a.title.localeCompare(b.title) : (a, b) => !a.title.localeCompare(b.title))
+        }
+        return filtered.slice(filter.limitKey * filter.listSize, (filter.limitKey + 1) * filter.listSize)
+
+      } else {
+        return components
+      }
+    }
     )
   }, [components, filter])
 
@@ -41,7 +49,10 @@ export function ComponentList({ components, filter, recommended, ...otherProps }
       {...otherProps}
     >
       {filteredComponents.length !== 0 ? [...filteredComponents,].map((componentItem, index) => (
-        <ComponentCard componentItem={componentItem} key={index} recommended={recommended} />
+        <ComponentCard componentItem={componentItem} key={index} recommended={recommended} sx={{
+          width: { xs: "95%", sm: "45%", md: "30%" },
+          height: { xs: "300px", sm: "300px", md: "300px" },
+        }} />
       )) : (
         <Box sx={{
           width: "100%", padding: "24px", color: "text.main", textAlign: 'center',

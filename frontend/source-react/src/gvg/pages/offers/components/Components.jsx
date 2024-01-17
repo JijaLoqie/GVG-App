@@ -1,4 +1,4 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Container, Grid, Paper, Stack, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import { CustomGlobalSearch } from "../../../common/CustomGlobalSearch";
 import { ComponentList } from "../../../stuff/components/ComponentList";
@@ -17,7 +17,7 @@ export function Components() {
 
 
   const [searchValue, setSearchValue] = useState("")
-  const [limitKey, setLimitKey] = useState(0) 
+  const [limitKey, setLimitKey] = useState(0)
   const [typeValue, setTypeValue] = useState("")
   const [sorterKey, setSorterKey] = useState("None")
 
@@ -30,35 +30,55 @@ export function Components() {
   useEffect(() => {
     setComponents2([
       ...components,
+      ...components,
+      ...components,
+      ...components,
+      ...components,
+      ...components,
+      ...components,
+      ...components,
+      ...components,
+      ...components,
+      ...components,
+      ...components,
+      ...components,
+      ...components,
     ])
   }, [components])
 
   return (
-    <Box sx={{
-      display: "flex", justifyContent: "center",
-    }}>
-      <Box sx={{ display: "flex", flexDirection: {xs: "column", md: "row"},
-        width: "1500px",
-        height: "100%",
-      }}>
-        <Box sx={{
-          width: {xs: "100%", md: "268.5px"}, minWidth: {xs: "100%", md: "268.5px"}, maxWidth: {xs: "100%", md: "268.5px"},
-          bgcolor: "#ffffff11", borderRadius: "10px",
-          zIndex: "1000",
-        }}>
-          <ComponentSorterKey handleUpdate={setSorterKey} />
-          <ComponentTypes handleUpdate={setTypeValue}/>
-        </Box>
-        <Box sx={{ position: "relative",
-          flexGrow: 1, minHeight: "50vh", bgcolor: "#ffffff11", borderRadius: "10px",
-          display: 'flex', flexDirection: "column", alignItems: "center",
-          marginLeft: "8px",
-        }}>
-          <CustomGlobalSearch handleUpdate={setSearchValue} /> 
-          <ComponentList components={components2} filter={{name: searchValue, type: typeValue, limitKey: limitKey, listSize: 15, sorterKey: sorterKey}}/>
-          <CustomPaginator handleUpdate={setLimitKey} pagesLength={Math.ceil((components2.length)/15)} />
-        </Box>
-      </Box>
-    </Box>
+    <Stack alignItems="center">
+      <CustomGlobalSearch handleUpdate={setSearchValue} sx={{
+        boxShadow: "rgba(50, 50, 93, 0.7) 0px 0px 1000px 0px, rgba(0, 0, 0, 0.1) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset",
+        width: "100%",
+      }} />
+      <Grid container>
+        <Grid item xs={4}>
+          <Stack spacing={2}>
+            <Paper elevation={1} sx={{
+              width: "100%",
+              height: "75px"
+            }}>
+              <Typography variant="h4">Сортировать по (цена / алфавит / ?): toggle buttons </Typography>
+            </Paper>
+            <Paper elevation={7} sx={{
+              width: "100%",
+              height: "75px"
+            }}>
+              <Typography variant="h4"> Искать по (тип товара): radio buttons/checkboxes</Typography>
+            </Paper>
+            <Paper elevation={1} sx={{
+              width: "100%",
+              height: "75px"
+            }}>
+              <Typography variant="h4">Конкретные характеристики (??): Autocompletes, selects</Typography>
+            </Paper>
+          </Stack>
+        </Grid>
+        <Grid item xs={8}>
+          <ComponentList components={components2} filter={{ name: searchValue, type: typeValue, limitKey: limitKey, listSize: 15, sorterKey: sorterKey }} />
+        </Grid>
+      </Grid>
+    </Stack>
   )
 }

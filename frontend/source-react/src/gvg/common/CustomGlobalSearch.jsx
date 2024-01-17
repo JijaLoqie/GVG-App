@@ -1,8 +1,7 @@
-import { Close } from "@mui/icons-material";
 import { Box, Chip, IconButton, InputBase } from "@mui/material";
 import { useEffect, useRef, useState } from "react";
 
-export function CustomGlobalSearch({ handleUpdate, isFastSearch }) {
+export function CustomGlobalSearch({ handleUpdate, isFastSearch, ...otherProps }) {
   const [value, setValue] = useState("")
   const [fixedValue, setFixedValue] = useState("")
 
@@ -25,8 +24,7 @@ export function CustomGlobalSearch({ handleUpdate, isFastSearch }) {
   }
 
   return (
-    <Box onKeyDown={(event) => { if (event.key === "Enter") { handleClick() } }}
-      sx={{ marginTop: "24px", width: "100%", maxWidth: "1200px", height: "110px", display: "flex", flexDirection: "column", justifyContent: "start", alignItems: "center", }}>
+    <>
       <Box sx={{ width: "100%", maxWidth: "1200px", display: "flex", flexDirection: "row", justifyContent: "stretch", }}>
         <InputBase sx={{
           width: "100%",
@@ -69,7 +67,6 @@ export function CustomGlobalSearch({ handleUpdate, isFastSearch }) {
           <Chip label={fixedValue} onDelete={clearSearch} color="primary" />
         ) : null}
       </Box>
-
-    </Box>
+    </>
   )
 }

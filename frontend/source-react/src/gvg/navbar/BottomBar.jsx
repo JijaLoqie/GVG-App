@@ -31,7 +31,7 @@ export default function BottomBar({ actions, offerActions }) {
         return
       }
     }
-  }, [location, actions,offerActions])
+  }, [location, actions, offerActions])
 
   const handleSelect = (target, newSelected) => {
     setSelected(newSelected)
@@ -48,7 +48,7 @@ export default function BottomBar({ actions, offerActions }) {
     <BottomNavigation
       onChange={handleSelect}
       showLabels
-      sx={{ width: "100%", position: "fixed", bottom: 0, left: 0, backgroundColor: "secondary.main", marginBottom: 0, }}
+      sx={{ width: "100%", position: "fixed", bottom: 0, left: 0, backgroundColor: "background.light", marginBottom: 0, }}
       value={selected}
     >
       {actions.map((action, index) => (
@@ -56,12 +56,14 @@ export default function BottomBar({ actions, offerActions }) {
           icon={action.icon}
           key={index}
           label={action.title}
-          sx={{ color: "text.main",
+          sx={{
+            color: "text.main",
             "& svg": { color: "text.main", },
-            "& .Mui-selected": { color: "accent.main", }, }}
+            "& .Mui-selected": { color: "accent.main", },
+          }}
         />
       ))}
-      {mouseOnOffers && <CustomPopup setMouseOnPopup={() => console.log()} actions={offerActions}/>}
+      {mouseOnOffers && <CustomPopup actions={offerActions} />}
     </BottomNavigation>
   )
 }

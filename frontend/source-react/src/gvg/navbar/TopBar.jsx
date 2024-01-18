@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react"
 
-import { ShoppingBag as ShoppingBagIcon } from "@mui/icons-material"
 import {
-  Box,
   Stack,
   Toolbar,
   ButtonGroup,
@@ -59,16 +57,13 @@ export default function TopBar({ actions, offerActions }) {
   }
   const isMobile = useCheckMobileScreen()
   return (
-    <Toolbar style={{ minHeight: 45, }}
-      sx={{
-        minHeight: 45, fontSize: "16px", lineHeight: "29px", }}
-    >
+    <Toolbar >
       <LogoButton />
       {!isMobile ? (
         <>
           <ButtonGroup
             color="text"
-            sx={{ display: "flex", flexDirection: "row", justifyContent: "start", height: "100%", width: "50%", maxWidth: 600, paddingInline: "15px", }}
+            sx={{ width: "50%", maxWidth: 600, paddingInline: "15px", }}
             variant="text"
           >
             {actions.map((action, index) => (
@@ -77,8 +72,9 @@ export default function TopBar({ actions, offerActions }) {
                 onClick={() => handleClickButton(action)}
                 onMouseEnter={() => handleEnterButton(action.path)}
                 onMouseLeave={() => handleLeaveButton(action.path)}
-                sx={{ padding: 0, paddingInline: "20px", color: hovered === action.path ? "#2222ff" : "text.main", cursor: "pointer", height: "100%", width: "100%", transition: "all 0.5s",
-                  "&:hover": { backgroundColor: "transparent", },
+                sx={{
+                  color: hovered === action.path ? "accent.main" : "text.main",
+                  width: "100%", "&:hover": { backgroundColor: "transparent", },
                 }}
               >
                 {action.title}
@@ -93,17 +89,13 @@ export default function TopBar({ actions, offerActions }) {
           ) : null}
         </>
       ) : null}
-      <Box
-        sx={{ marginLeft: "auto", display: "flex", alignItems: "end", flexDirection: "column", color: "text.main", justifyContent: "center", }}
-        width="25%"
-      >
+      <Stack sx={{ marginLeft: "auto", alignItems: "end", }} >
         <Stack direction="row" spacing={{ xs: 1, md: 3 }}>
-          <CustomCallButton sx={{}} />
+          <CustomCallButton />
           <CartButton />
-
-          { !isMobile && <CustomSearch />}
+          {!isMobile && <CustomSearch />}
         </Stack>
-      </Box>
+      </Stack>
     </Toolbar>
   )
 }

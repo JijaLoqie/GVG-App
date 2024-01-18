@@ -33,14 +33,14 @@ export default function Navbar() {
     <AppBar
       sx={{
         position: "sticky", top: 0, boxShadow: "0 0 2em black", padding: "10px 0", bgcolor: "background.main", maxHeight: "70px", justifyContent: "center",
-      borderBottom: '5px solid', borderImageSlice: 1,
-      borderImageSource: `linear-gradient(to left, ${['red', 'blue'].join(',')})`,
+        borderBottom: '5px solid', borderImageSlice: 1,
+        borderImageSource: `linear-gradient(to left, ${['red', 'blue'].join(',')})`,
       }}
     >
       <Box sx={{ position: "relative", marginRight: "auto", marginLeft: "auto", paddingInline: "15px", width: "100%", }} >
         <TopBar actions={actions} offerActions={offerActions} />
         {isMobile ? (
-          <BottomBar actions={actions} offerActions={offerActions}/>
+          <BottomBar actions={actions} offerActions={offerActions} />
         ) : null}
       </Box>
     </AppBar>

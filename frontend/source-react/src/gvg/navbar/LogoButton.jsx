@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from "react"
 import { Box, Typography } from "@mui/material"
 import { useNavigate } from "react-router-dom"
 
-import { useCheckTranslation } from "../common/hooks/useCheckTranslation"
+import { translationInfo } from "../common/hooks/useCheckTranslation"
 import { Sensors } from "@mui/icons-material"
 
 const logoIcon = 'icon.png'
@@ -10,8 +10,8 @@ const logoIcon = 'icon.png'
 const logoIconPath = `/static/logos/${logoIcon}`
 
 export default function LogoButton() {
-  const [translationEnabled, translationLink] = useCheckTranslation()
-  const [ logoText, ] = useState("GVG")
+  const { enabled } = translationInfo
+  const [logoText,] = useState("GVG")
   const [gradientDeg, setGradientDeg] = useState(45)
 
   const handleGoHome = () => {
@@ -55,7 +55,7 @@ export default function LogoButton() {
           ))
         }
       </Box>
-      {translationEnabled ? (
+      {enabled ? (
         <Box sx={{ display: "flex", alignItems: "center" }}>
           <Box sx={{
             display: "flex", alignItems: "center", gap: "4px",

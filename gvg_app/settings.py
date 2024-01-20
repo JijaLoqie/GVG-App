@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'builds.apps.BuildsConfig',
     'components.apps.ComponentsConfig',
     'tg_bot.apps.TgBotConfig',
+    'configs.apps.ConfigsConfig',
 
     'django.contrib.admin',
     'django.contrib.auth',

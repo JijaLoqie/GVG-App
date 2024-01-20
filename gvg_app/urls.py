@@ -24,6 +24,7 @@ urlpatterns = [
     path("", include("frontend.urls")),
     path("builds/", include("builds.urls")),
     path("components/", include("components.urls")),
+    path("configs/", include("configs.urls")),
 
     path("order_products", OrderInTelegram.as_view())
 ]

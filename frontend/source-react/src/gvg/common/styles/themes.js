@@ -13,6 +13,9 @@ export const customPalette = {
   accent: "#9074ff",
 };
 
+
+
+
 const customMuiPalette = {
   text: createColor(customPalette.text),
   background: createColor(customPalette.background),
@@ -37,3 +40,37 @@ export const themes = {
     }
   }),
 };
+const updateCustomMuiPalette = () => {
+  customMuiPalette.text = createColor(customPalette.text)
+  customMuiPalette.background = createColor(customPalette.background)
+  customMuiPalette.primary = createColor(customPalette.primary)
+  customMuiPalette.secondary = createColor(customPalette.secondary)
+  customMuiPalette.accent = createColor(customPalette.accent)
+}
+
+const updateThemes = () => {
+  themes.darkTheme = createTheme({
+    palette: {
+      mode: "dark",
+      ...customMuiPalette,
+    },
+    typography: {
+      caption: {
+        color: "#999999",
+      }
+    }
+  })
+}
+
+
+export const updateCustomPalette = (newPalette) => {
+  if (newPalette) {
+    customPalette.text = newPalette.text
+    customPalette.background = newPalette.background
+    customPalette.primary = newPalette.primary
+    customPalette.secondary = newPalette.secondary
+    customPalette.accent = newPalette.accent
+  }
+  updateCustomMuiPalette()
+  updateThemes()
+}

@@ -1,9 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { ThemeProvider } from '@emotion/react'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-
-import { themes } from "./gvg/common/styles/themes.js"
 
 import { App } from './gvg/App.jsx'
 import Home, { homeLoader } from './gvg/pages/home/Home.jsx'
@@ -20,10 +17,10 @@ import { BuildLoader } from './gvg/stuff/builds/BuildLoader.jsx'
 import { CartPage } from './gvg/pages/cart/CartPage.jsx'
 import { OrderPage } from './gvg/pages/order/OrderPage.jsx'
 
-import { CssBaseline } from '@mui/material'
 import { PersistGate } from 'redux-persist/integration/react'
 import { persistor, rootStore } from './store.js'
 import { Provider } from 'react-redux'
+import { appLoader } from './gvg/common/loaders/appLoader.jsx'
 
 const router = createBrowserRouter([
   {
@@ -32,6 +29,7 @@ const router = createBrowserRouter([
     element: (
       <App />
     ),
+    loader: appLoader,
     children: [
       {
         index: true,
@@ -104,12 +102,9 @@ const router = createBrowserRouter([
 
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <ThemeProvider theme={themes.darkTheme}>
-    <CssBaseline />
-    <Provider store={rootStore}>
-      <PersistGate loading={null} persistor={persistor}>
-        <RouterProvider router={router} />
-      </PersistGate>
-    </Provider>
-  </ThemeProvider>
+  <Provider store={rootStore}>
+    <PersistGate loading={null} persistor={persistor}>
+      <RouterProvider router={router} />
+    </PersistGate>
+  </Provider>
 );

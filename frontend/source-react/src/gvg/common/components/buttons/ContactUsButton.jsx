@@ -1,26 +1,43 @@
 import { Button, Typography, useMediaQuery } from "@mui/material";
-import { useSnackbar } from "notistack";
+import { enqueueSnackbar, useSnackbar } from "notistack";
 import { useDispatch, useSelector } from "react-redux";
+import { OrderBackdrop } from "../../../pages/order/OrderBackdrop";
+import { useState } from "react";
 
 function ContactUsButton({ children, ...otherProps }) {
-  const dispatch = useDispatch()
+  const [isOpen, setOpen] = useState(false)
 
-  const handleClick = () => {
-    dispatch({ type: "open" })
+  const handleClick = (success) => {
+    setOpen(was => !was)
+    if (success === null) {
+      return
+    }
+
+    if (success) {
+      var variant = "success"
+      var textMessage = "Скоро мы с вами свяжемся!"
+    } else {
+      var variant = "error"
+      var textMessage = "Скоро мы с вами свяжемся!"
+    }
+    enqueueSnackbar(textMessage, { variant })
   }
 
   return (
-    <Button
-      onClick={handleClick}
-      color="success"
-      sx={{
-        width: "100%",
-        height: "60px",
-      }}
-      variant="contained"
-    >
-      {children}
-    </Button>
+    <>
+      <Button
+        onClick={() => handleClick(null)}
+        color="success"
+        sx={{
+          width: "100%",
+          height: "60px",
+        }}
+        variant="contained"
+      >
+        {children}
+      </Button>
+      <OrderBackdrop isOpen={isOpen} handleClose={handleClick} />
+    </>
   )
 }
 

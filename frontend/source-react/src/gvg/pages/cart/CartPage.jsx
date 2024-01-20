@@ -75,8 +75,8 @@ export function CartPage() {
         </Grid>
         <Grid item xs={12} sm={9}>
           <Paper variant="outlined" sx={{ minHeight: { sx: "auto", md: "100vh" }, }}>
-            {products.map((productInfo, index) => (
-              <CartItem key={index} productInfo={productInfo} />
+            {products.map((productInfo) => (
+              <CartItem key={`${productInfo.type}-${productInfo.id}`} productInfo={productInfo} />
             ))}
           </Paper>
         </Grid>

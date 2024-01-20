@@ -1,4 +1,4 @@
-import { Box, Button, Input, Stack, Radio, RadioGroup, TextField, Typography, alpha, FormControlLabel, Divider, Paper } from "@mui/material"
+import { Box, Button, Input, Stack, Radio, RadioGroup, TextField, Typography, alpha, FormControlLabel, Divider, Paper, Alert } from "@mui/material"
 import parsePhoneNumberFromString from "libphonenumber-js"
 import { useForm } from "react-hook-form"
 import { useEffect, useState } from "react";
@@ -25,6 +25,7 @@ function ContactForm({ parentHandleSubmit, concreteProducts, ...otherProps }) {
   const [deliveryOption, setDeliveryOption] = useState('contact');
   const [canSubmit, setCanSubmit] = useState(false)
   const [captcha, setCaptcha] = useState(null)
+  const [statusFinal, setStatusFinal] = useState(null)
   const {
     register,
     handleSubmit,
@@ -60,16 +61,21 @@ function ContactForm({ parentHandleSubmit, concreteProducts, ...otherProps }) {
     })
       .then((response) => {
         parentHandleSubmit && parentHandleSubmit(response.ok)
-        console.log(response)
+      }).finally(() => {
+        setCanSubmit(false)
+        setStatusFinal({ state: "success", text: "Отправлено!" })
       });
 
   }
 
 
   useEffect(() => {
-    setCanSubmit(Object.keys(errors).length === 0 && captcha !== null)
+    setStatusFinal(Object.keys(errors).length !== 0 ? { state: "error", text: "Введите все поля корректно!" } : null)
+  }, [errors])
 
-  }, [captcha, errors])
+  useEffect(() => {
+    setCanSubmit(captcha !== null && statusFinal?.state !== "success")
+  }, [captcha, statusFinal])
 
   const normalizePhoneNumber = (value) => {
     const phoneNumber = parsePhoneNumberFromString(value)
@@ -83,18 +89,21 @@ function ContactForm({ parentHandleSubmit, concreteProducts, ...otherProps }) {
 
   return (
     <Box {...otherProps}>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form id="contacts" onSubmit={handleSubmit(onSubmit)}>
         <Stack spacing={2}>
           <TextField
+            autoComplete="section-blue shipping name"
             label="Фамилия Имя Отчество *" {...register("name", { required: true })}
           />
           <TextField
+            autoComplete="section-blue shipping phone"
             label="Телефон *" {...register("number", { required: true })}
             onChange={event => {
               event.target.value = normalizePhoneNumber(event.target.value)
             }}
           />
           <TextField
+            autoComplete="section-blue shipping email"
             label="Email *" {...register("email", { required: true })}
           />
           {errors.exampleRequired && <span>This field is required</span>}
@@ -116,7 +125,10 @@ function ContactForm({ parentHandleSubmit, concreteProducts, ...otherProps }) {
                   sitekey="6LfYLUYpAAAAAJM9ItmEuRXGmsUDK6p0gGQnFryp"
                   onChange={captchaCheck}
                 />
-                <Button variant="outlined" size="large" type="submit" disabled={!canSubmit}> Отправить </Button>
+                <Stack direction="row" spacing={2}>
+                  <Button aria-label="contacts" variant="outlined" size="large" type="submit" disabled={!canSubmit}> Отправить </Button>
+                  {statusFinal ? <Alert severity={statusFinal.state}>{statusFinal.text}</Alert> : null}
+                </Stack>
               </>
             ) : (
               <>
@@ -128,7 +140,7 @@ function ContactForm({ parentHandleSubmit, concreteProducts, ...otherProps }) {
           </Paper>
         </Stack>
       </form>
-    </Box>
+    </Box >
   )
 }
 

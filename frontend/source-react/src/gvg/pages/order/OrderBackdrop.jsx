@@ -27,7 +27,11 @@ export function OrderBackdrop({ isOpen, handleClose, productInfo }) {
             <OrderProductInfo product={{ quantity: 1, ...productInfo }} />
           </Box>
         ) : null}
-        <ContactForm parentHandleSubmit={handleClose} concreteProducts={[{ id: productInfo.id, title: productInfo.title, type: productInfo.type, quantity: 1 },]} sx={{ p: 4 }} />
+        <ContactForm parentHandleSubmit={handleClose} concreteProducts={
+          productInfo ? ([
+            { id: productInfo.id, title: productInfo.title, type: productInfo.type, quantity: 1 },
+          ]) : null
+        } sx={{ p: 4 }} />
       </Paper>
     </Backdrop>
   )

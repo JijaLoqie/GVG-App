@@ -87,7 +87,12 @@ export function CartItem({ productInfo }) {
             <IconButton onClick={() => changeQuantity("buy", productInfo)} color="text"><Add /></IconButton>
           </Stack>
 
-          <Typography textAlign="center" color="primary">{product.price} ₽</Typography>
+          <Box display="flex" flexWrap="wrap" gap={1}>
+            <Typography color="primary" variant="body2">{quantity * product.price} ₽  </Typography>
+            {product.quantity !== 1 ? (
+              <Typography variant="caption"> ({quantity} шт * {product.price} ₽) </Typography>) : null
+            }
+          </Box>
         </Stack>
         <RemoveCartItemButton action={() => changeQuantity("remove-all", productInfo)} />
       </Stack>

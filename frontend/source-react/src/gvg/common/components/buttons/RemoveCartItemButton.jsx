@@ -15,7 +15,7 @@ export function RemoveCartItemButton({ action }) {
     <>
       {
         (smallScreen) ? (
-          <IconButton color="error">
+          <IconButton color="error" onClick={action}>
             <Delete />
           </IconButton >
         ) : (

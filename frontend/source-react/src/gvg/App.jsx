@@ -4,15 +4,9 @@ import { Outlet, ScrollRestoration, } from "react-router-dom";
 import Footer from "./footer/Footer";
 import Navbar from "./navbar/Navbar";
 import { SnackbarProvider } from "notistack";
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
 
 
 export function App() {
-  const dispatch = useDispatch()
-  useEffect(() => {
-    dispatch({ type: "updateRecommended" })
-  }, [])
 
   return (
     <Box sx={{
@@ -21,7 +15,7 @@ export function App() {
       overflow: "auto"
     }}>
       <Navbar />
-      <SnackbarProvider maxSnack={3}>
+      <SnackbarProvider maxSnack={3} autoHideDuration={2000} >
         <Box flex={1}>
           <Outlet />
         </Box>

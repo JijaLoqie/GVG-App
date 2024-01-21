@@ -10,7 +10,6 @@ from configs.serializers import ColorsSerializer, TranslationSerializer
 class TranslationsInfoView(generics.ListAPIView):
 
     queryset = Translation.objects.all()
-    logger.debug(queryset[0].enabled)
     serializer_class = TranslationSerializer
 
 

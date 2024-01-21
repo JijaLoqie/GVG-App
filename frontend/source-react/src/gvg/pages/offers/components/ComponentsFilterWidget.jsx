@@ -59,7 +59,7 @@ export function ComponentsFilterWidget({ params, onUpdate }) {
       }}>
         <Accordion
           sx={{ flex: 1 }}
-          typesExpanded={typesExpanded} onChange={() => setTypesExpanded(was => !was)}>
+          onChange={() => setTypesExpanded(was => !was)}>
           <AccordionSummary expandIcon={
             <Button>
               <ExpandMore />
@@ -112,14 +112,12 @@ export function ComponentsFilterWidget({ params, onUpdate }) {
         </Paper>
 
         <Paper sx={{
-          flex: 1,
-          minHeight: "75px",
-          display: "flex",
-          alignItems: "center",
+          flex: 1, minHeight: "75px",
+          display: "flex", alignItems: "center",
         }}>
           <Accordion
             sx={{ width: "100%" }}
-            typesExpanded={typesExpanded} onChange={() => setTypesExpanded(was => !was)}>
+            onChange={() => setTypesExpanded(was => !was)}>
             <AccordionSummary expandIcon={
               <Button>
                 <ExpandMore />

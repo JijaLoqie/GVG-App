@@ -38,13 +38,12 @@ export default function Footer() {
         borderTop: '5px solid',
         borderImageSlice: 1,
         borderImageSource: `linear-gradient(to left, ${['red', 'blue'].join(',')})`,
+        bgcolor: "background.main",
       }}
     >
       <Stack direction="row" spacing={3} rowGap={3}
         sx={{
-          alignContent: "center",
-          justifyContent: "center",
-          flexWrap: "wrap"
+          alignContent: "center", justifyContent: "center", flexWrap: "wrap"
         }}
       >
         {items.map((item, index) => (

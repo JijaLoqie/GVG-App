@@ -2,7 +2,6 @@ import { useEffect, useState } from "react"
 import { Box, Typography } from "@mui/material"
 import { ComponentCard } from "./ComponentCard"
 import { SentimentVeryDissatisfied } from "@mui/icons-material";
-import { loadComponentList } from "./ComponentLoader";
 
 
 const handleMouseMove = (e) => {
@@ -46,8 +45,10 @@ export function ComponentList({ setupParams, components, filter, recommended, ..
         setupParams(uniqueParams)
 
         let filteredWithParams = filtered.filter(
-          (component) => filter.filteredParams.every(unqieParamId => component.params.some(({ parameter_name, parameter_value }) => { console.log(`${key}-${value}`); return unqieParamId === `${key}-${value}` })))
-        console.log(filter.filteredParams)
+          (component) => filter.filteredParams.every(
+            unqieParamId => component.params.some(
+              ({ parameter_name, parameter_value }) => { return unqieParamId === `${parameter_name}-${parameter_value}` })))
+
         return filteredWithParams.slice(filter.limitKey * filter.listSize, (filter.limitKey + 1) * filter.listSize)
 
       } else {
@@ -55,7 +56,7 @@ export function ComponentList({ setupParams, components, filter, recommended, ..
       }
     }
     )
-  }, [components, filter])
+  }, [components, filter, setupParams])
 
 
   return (
@@ -74,8 +75,8 @@ export function ComponentList({ setupParams, components, filter, recommended, ..
           width: "100%", p: 3, color: "text.main", textAlign: 'center',
           display: "flex", flexDirection: "column", justifyContent: "center", alignItems: 'center',
         }}>
+            <Typography variant="h2"> 💢 </Typography>
           <Typography variant="h3">По данному запросу ничего не найдено</Typography>
-          <SentimentVeryDissatisfied sx={{ width: "100px", height: "100px" }} />
         </Box>
       )
       }

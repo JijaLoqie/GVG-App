@@ -1,18 +1,16 @@
 from django.shortcuts import render
 from rest_framework import generics
 
+from loguru import logger
 from configs.models import Colors, Translation
 
 from configs.serializers import ColorsSerializer, TranslationSerializer
-
-# Create your views here.
-
-
 
 
 class TranslationsInfoView(generics.ListAPIView):
 
     queryset = Translation.objects.all()
+    logger.debug(queryset[0].enabled)
     serializer_class = TranslationSerializer
 
 

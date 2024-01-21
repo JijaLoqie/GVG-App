@@ -1,8 +1,8 @@
-import { createTheme } from "@mui/material";
+import { alpha, createTheme } from "@mui/material";
 
 const { palette } = createTheme();
 const { augmentColor } = palette;
-const createColor = (mainColor) => augmentColor({ color: { main: mainColor } });
+const createColor = (mainColor) => augmentColor({ color: { main: mainColor, transparent: alpha(mainColor, 0.9) } });
 
 
 export const customPalette = {

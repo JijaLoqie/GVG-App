@@ -1,4 +1,4 @@
-import { translationInfo, updateTranslationsInfo } from "../hooks/useCheckTranslation"
+import { updateTranslationsInfo } from "../hooks/useCheckTranslation"
 import { updateCustomPalette } from "../styles/themes"
 import { getColorsInfo, getTranslationsInfo } from "./configsLoader"
 
@@ -7,7 +7,7 @@ export const appLoader = async () => {
   const colorsInfo = await getColorsInfo()
 
   updateCustomPalette(colorsInfo)
-  updateTranslationsInfo(translationInfo)
+  updateTranslationsInfo(translationsInfo)
 
   return { colorsInfo, translationsInfo }
 }

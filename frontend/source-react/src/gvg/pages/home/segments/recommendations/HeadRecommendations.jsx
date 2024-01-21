@@ -8,7 +8,7 @@ function HeadRecommendations({ recommendationsInfo }) {
   const [components, setComponents] = useState(recommendationsInfo?.components ?? [])
 
   return (
-    <Stack p={{ xs: 0, md: 2 }}>
+    <Stack p={{ xs: 0, md: 2 }} bgcolor={"background.transparent"}>
       <Typography textAlign="center" variant="h3" p={2}>Вот они, красавцы</Typography>
       <Paper variant="outlined">
         <Stack spacing={2} p={{ xs: 0, md: 2 }}

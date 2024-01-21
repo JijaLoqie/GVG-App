@@ -5,7 +5,6 @@ import { translationInfo } from "../../../../common/hooks/useCheckTranslation";
 
 export function Header() {
   const { enabled } = translationInfo
-  console.log(enabled)
 
   return (
     <Box sx={{ position: "relative", width: "100%", height: { xs: "50vh", md: "95vh" } }}>

@@ -62,9 +62,7 @@ export function Components() {
         </Grid>
         <Grid item xs={12} sm={12}>
           <Stack alignItems="center" justifyContent="space-between" height="100%" spacing={4} pb={4}>
-            <ComponentList setupParams={(newParams) => {
-              setParams(newParams)
-            }} components={components2} filter={filters} />
+            <ComponentList setupParams={setParams} components={components2} filter={filters} />
             <Pagination count={Math.ceil((components2.length) / 15)} page={limitKey + 1} onChange={(_, value) => {
               setLimitKey(value - 1)
               window.scrollTo(0, 0)

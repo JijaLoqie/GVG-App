@@ -23,7 +23,7 @@ const vkIconPath = `/static/logos/${vkIcon}`
 export default function HelpGroup() {
   return (
     <Box sx={{ width: "100%" }}>
-      <Typography sx={{ paddingBottom: "10px" }} variant="h4">
+      <Typography sx={{ pb: 8 }} variant="h4">
         Поддержка
       </Typography>
       <Stack direction="column">
@@ -42,12 +42,12 @@ export default function HelpGroup() {
           Вопросы по доставке
         </Typography>
       </Stack>
-      <Stack direction="row" marginTop={2}>
+      <Stack direction="row" spacing={2} marginTop={2}>
         <IconButton>
-          <TelegramIcon sx={{ color: "text.main", marginRight: 2 }} />
+          <TelegramIcon sx={{ color: "text.main" }} />
         </IconButton>
         <IconButton>
-          <InstagramIcon sx={{ color: "text.main", marginRight: 2 }} />
+          <InstagramIcon sx={{ color: "text.main" }} />
         </IconButton>
         <IconButton href="https://vk.com/gvgtechsolutions">
           <Box alt="vk" component="img"

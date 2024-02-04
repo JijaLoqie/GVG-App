@@ -12,7 +12,6 @@ const CustomPaper = styled(Box)((theme) => ({
   position: "relative",
   borderRadius: "6px",
   fill: customPalette.text,
-  transition: "all 300ms",
   "&:hover": {
     fill: customPalette.accent,
     color: customPalette.accent,
@@ -66,22 +65,24 @@ export function ComponentCard({ componentItem, recommended, ...otherProps }) {
       <CardBorder />
       <Box sx={{
         position: "absolute",
-        backgroundColor: "background.main", borderRadius: "inherit",
-        display: "flex", flexDirection: "column", flexGrow: 1,
+        backgroundColor: "background.main",
+        display: "flex",
+        flexDirection: "column",
         alignItems: "center",
-        inset: "1px", padding: "10px", zIndex: 2,
+        padding: 1,
+        inset: "1px",
+        zIndex: 2,
       }} >
-        <ComponentTypeIcon type={componentItem.component_type}
-          style={{
-            borderTopLeftRadius: "8px",
-            borderBottomRightRadius: "8px",
-            border: "1px solid #ffffff31",
-            padding: "8px",
-            paddingBottom: "12px",
+        <Box
+          sx={{
             position: "absolute", right: "0", bottom: "0",
-            width: "30px", height: "30px",
             zIndex: 10,
-          }} />
+            p: 2,
+            pb: 1,
+          }}
+        >
+          <ComponentTypeIcon type={componentItem.component_type} width="30px" height="30px" />
+        </Box>
         <Box sx={{
           height: "80%",
           display: "flex", justifyContent: "center", alignItems: "start"
@@ -89,9 +90,9 @@ export function ComponentCard({ componentItem, recommended, ...otherProps }) {
         >
           <img alt="Image" src={componentItem.images[0]?.path} style={{ maxHeight: "90%", width: "100%", }} />
         </Box>
-        <Typography color="text.main" fontSize="1.1em" lineHeight="20px" m="0" >
-          {componentItem.title}
-        </Typography>
+
+        <Typography fontSize="1.1em"> {componentItem.title} </Typography>
+
       </Box>
       <Box sx={{
         display: "flex", alignItems: "center", justifyContent: "center",
@@ -118,13 +119,11 @@ export function ComponentCard({ componentItem, recommended, ...otherProps }) {
         zIndex: 100,
       }}>
         <Box sx={{
-          padding: "8px", paddingBottom: "12px",
+          p: 1,
           borderTopRightRadius: "8px",
           borderBottomLeftRadius: "8px",
           border: "1px solid #ffffff31",
-          "&:hover": {
-            color: "accent.main",
-          }
+          "&:hover": { color: "accent.main", }
         }}>
           <Typography>{componentItem.price} ₽</Typography>
         </Box>

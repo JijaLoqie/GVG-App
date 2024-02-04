@@ -11,9 +11,8 @@ import { Delivery } from './gvg/pages/delivery/Delivery.jsx'
 import { Components } from './gvg/pages/offers/components/Components.jsx'
 import { Constructor } from './gvg/pages/offers/constructor/Constructor.jsx'
 import { Offers } from './gvg/pages/offers/Offers.jsx'
-import { BuildPage } from './gvg/pages/stuffPage/buildPage/BuildPage.jsx'
 import ComponentPage, { componentLoader } from './gvg/pages/stuffPage/component/ComponentPage.jsx'
-import { BuildLoader } from './gvg/stuff/builds/BuildLoader.jsx'
+import BuildPage, { buildLoader } from './gvg/pages/stuffPage/buildPage/BuildPage.jsx'
 import { CartPage } from './gvg/pages/cart/CartPage.jsx'
 import { OrderPage } from './gvg/pages/order/OrderPage.jsx'
 
@@ -65,7 +64,7 @@ const router = createBrowserRouter([
       {
         path: "build/:buildId",
         element: <BuildPage />,
-        loader: BuildLoader,
+        loader: buildLoader,
       },
       {
         path: "component/:componentId",

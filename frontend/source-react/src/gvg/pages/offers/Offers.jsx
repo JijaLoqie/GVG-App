@@ -1,13 +1,15 @@
-import { Container } from "@mui/material";
+import { Box, Container } from "@mui/material";
 import { Outlet } from "react-router-dom";
 
 export function Offers() {
   return (
-    <Container sx={{
-      maxWidth: "1700px", mt: 4,
+    <Box sx={{
+      margin: "auto",
+      maxWidth: "1800px", mt: 4,
+      pb: 6,
     }}
     >
       <Outlet />
-    </Container >
+    </Box >
   )
 }

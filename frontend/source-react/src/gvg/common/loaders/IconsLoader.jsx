@@ -6,11 +6,15 @@ import RamLogo from "./ram.svg?react"
 import OtherLogo from "./other.png?react"
 import { GridView } from "@mui/icons-material"
 const componentTypes = [
-  { type: "hdd", rus_type: "Жёсткий диск", path: "/static/builds/parts/hdd.svg" },
-  { type: "ram", rus_type: "Оперативная память", path: "/static/builds/parts/ram.svg", },
-  { type: "ssd", rus_type: "SSD накопитель", path: "/static/builds/parts/ssd.svg", },
-  { type: "cpu", rus_type: "Процессор", path: "/static/builds/parts/cpu.svg", },
   { type: "graphics_card", rus_type: "Видеокарта", path: "/static/builds/parts/graphics-card.svg", },
+  { type: "cpu", rus_type: "Процессор", path: "/static/builds/parts/cpu.svg", },
+  { type: "ram", rus_type: "Оперативная память", path: "/static/builds/parts/ram.svg", },
+  { type: "motherboard", rus_type: "Материнская плата", path: "/static/builds/parts/hdd.svg" },
+  { type: "hdd", rus_type: "Жёсткий диск", path: "/static/builds/parts/hdd.svg" },
+  { type: "ssd", rus_type: "SSD накопитель", path: "/static/builds/parts/ssd.svg", },
+  { type: "power_supply", rus_type: "Блок питания", path: "/static/builds/parts/hdd.svg" },
+  { type: "body", rus_type: "Корпус", path: "/static/builds/parts/hdd.svg" },
+  { type: "cpu_cooler", rus_type: "Куллер", path: "/static/builds/parts/hdd.svg" },
 ]
 
 
@@ -28,7 +32,7 @@ export function getComponentIconPathByType(searchType) {
 }
 export function ComponentTypeIcon({ type, ...props }) {
 
-  switch(type) {
+  switch (type) {
     case 'hdd':
       return <HddLogo {...props} />
     case 'ram':
@@ -40,6 +44,6 @@ export function ComponentTypeIcon({ type, ...props }) {
     case 'graphics_card':
       return <GraphicsLogo {...props} />
     default:
-      return <GridView {...props}/>
+      return <GridView {...props} />
   }
 }

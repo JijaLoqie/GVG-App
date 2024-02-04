@@ -15,7 +15,6 @@ export function OrderBackdrop({ isOpen, handleClose, productInfo }) {
         }}>
         <Paper elevation={3} square sx={{
           display: "flex", justifyContent: "end",
-          bgcolor: "secondary.main"
         }}>
           <IconButton color="primary" onClick={() => handleClose(null)}>
             <Close />

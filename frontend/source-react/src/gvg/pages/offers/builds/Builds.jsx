@@ -12,11 +12,9 @@ export function Builds() {
   }, [])
 
   return (
-    <Box sx={{ width: "100%", display: "flex", justifyContent: "center"}}>
-      <Box sx={{ width: "100%", display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column"}}>
-        <CustomGlobalSearch handleUpdate={setSearchValue} isFastSearch={true}/>
-        <BuildsList builds={builds} filter={{name: searchValue}}/>
-      </Box>
-    </Box>
+    <>
+      <CustomGlobalSearch handleUpdate={setSearchValue} isFastSearch={true} />
+      <BuildsList builds={builds} filter={{ name: searchValue }} />
+    </>
   );
 }

@@ -1,112 +1,39 @@
-import { Divider, Grid, Paper, Box, Typography } from "@mui/material"
+import { Paper, Box, Typography, Stack, Button } from "@mui/material"
 import { SimpleSlider } from "./SimpleSlider"
-import { ComponentTypeIcon, getComponentPartsList } from "../../common/loaders/IconsLoader"
-import { customPalette } from "../../common/styles/themes"
-import BuyButton from "../../common/components/buttons/BuyButton"
-import OneClickOrderButton from "../../common/components/buttons/OneClickOrderButton"
-import { useState } from "react"
+import { getComponentPartsList } from "../../common/loaders/IconsLoader"
+import { ComponentRowInfo } from "../../widgets/BuildCard"
+import { ShowMoreButton } from "../../common/components/buttons/ShowMoreButton"
+import { ProductActions } from "../../widgets/ProductActions"
 
 
-const componentParts = getComponentPartsList()
+const componentParts = getComponentPartsList().slice(0, 5)
 
 
-export function BuildCard({ build, forceShrink = false }) {
+export function BuildCard({ build }) {
   return (
-    <Paper variant="outlined" square
-      sx={{
-        width: "calc(100% - 30px)",
-        minWidth: "300px",
-        transition: "all 300ms",
-        fontFamily: "cursive",
-        boxShadow:
-          "rgba(50, 50, 93, 0.7) 0px 0px 1000px 0px, rgba(0, 0, 0, 0.1) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset",
-        overflow: "hidden",
-      }}
-    >
-      <Grid container height="100%">
-        <Grid item xs={12} md={forceShrink ? 12 : 5} sx={{
-          transition: "all 300ms",
-          minHeight: "350px",
-        }}>
-          <SimpleSlider items={build.images} scrollable={true} />
-        </Grid>
-        <Grid item xs={12} md={forceShrink ? 12 : 7} >
-          <Box p={3} height="100%" display="flex" flexDirection="column" textAlign="center">
-            <Typography gutterBottom variant="h4">
-              {build.title}
-            </Typography>
-            <Divider flexItem />
-            <Box flex={1}>
-              <Typography paragraph sx={{
-                pt: 2,
-              }}>
-                {build.description}
-              </Typography>
-              <Box direction="column" alignItems="start">
-                {componentParts.map((component, index) => (
-                  <Paper square variant="outlined" key={index} sx={{
-                    display: "flex",
-                    flexDirection: "",
-                    justifyContent: "space-between",
-                    alignItems: { xs: "start", md: "center" },
-                    flexWrap: "wrap",
-                    transition: "all 300ms",
-                    "&:hover": {
-                      bgcolor: "secondary.main"
-                    },
-                    p: 1, cursor: "pointer",
-                  }}>
-                    <Box sx={{
-                      gap: 1,
-                      display: "flex",
-                      justifyContent: "start",
-                      alignItems: "center",
-                    }}>
-                      <ComponentTypeIcon type={component.type} width={30} height={30} fill={customPalette.text} />
-                      <Typography>{component.rus_type}</Typography>
-                    </Box>
-                    <Typography color="accent.main"
-                      sx={{
-                        whiteSpace: "wrap",
-                        overflow: "hidden",
-                        textOverflow: "ellipsis",
-                      }}
-                    >
-                      {build[component.type]}
-                    </Typography>
-                  </Paper>
-                ))}
-              </Box>
-            </Box>
-            <Paper elevation={7} sx={{
-              mt: 3, p: 2,
-            }}>
-              <Paper variant="outlined" sx={{
-                display: "flex", flexDirection: "column", justifyContent: "center",
-                height: "60px",
-                mb: 2,
-              }}>
-                <Typography color="primary.main">{build.price} ₽</Typography>
-                {build.old_price != undefined
-                  ? <Typography color="accent.main"><strike>{build.old_price} ₽ </strike></Typography>
-                  : null}
-              </Paper>
-              <BuyButton
-                product={{ type: "build", ...build }}
-                variant="contained"
-              >
-                В корзину
-              </BuyButton>
-              <OneClickOrderButton
-                productInfo={{ type: "build", ...build }}
-                color="warning"
-              >
-                Заказать в 1 клик
-              </OneClickOrderButton>
-            </Paper>
-          </Box>
-        </Grid>
-      </Grid>
-    </Paper>
+    <Paper variant="outlined" sx={{
+      flex: 1, display: "flex", flexDirection: "column",
+      maxWidth: "700px", minWidth: { xs: "300px", sm: "500px" },
+      p: 2,
+    }}>
+      <SimpleSlider items={build.images} scrollable={true} />
+
+      <Typography gutterBottom variant="h4" pt={2} pl={1}>
+        {build.title}
+      </Typography>
+      <Typography paragraph pt={2}>
+        {build.description}
+      </Typography>
+
+      <Stack sx={{ alignItems: "center" }}>
+        {componentParts.map((componentMetaInfo, index) => (
+          <ComponentRowInfo componentMetaInfo={componentMetaInfo} value={build[componentMetaInfo.type]} key={index} />
+        ))}
+        <ShowMoreButton productType="build" productId={build.id} />
+      </Stack>
+
+      <ProductActions product={build} productType="build" />
+    </Paper >
   )
 }
+

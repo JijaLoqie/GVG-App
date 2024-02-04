@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react"
-import { Box, Typography } from "@mui/material"
+import { useEffect, useReducer, useState } from "react"
+import { Box } from "@mui/material"
 import { ComponentCard } from "./ComponentCard"
-import { SentimentVeryDissatisfied } from "@mui/icons-material";
+import { NothingFound } from "../../widgets/NothingFound";
+import { useDispatch, useSelector } from "react-redux";
 
 
 const handleMouseMove = (e) => {
@@ -17,7 +18,9 @@ const handleMouseMove = (e) => {
 
 
 
-export function ComponentList({ setupParams, components, filter, recommended, ...otherProps }) {
+export function ComponentList({ components, recommended, ...otherProps }) {
+  const filter = useSelector(state => state.filter.filter)
+  const dispatch = useDispatch()
   const [filteredComponents, setFilteredComponents] = useState([])
 
   useEffect(() => {
@@ -42,42 +45,36 @@ export function ComponentList({ setupParams, components, filter, recommended, ..
             uniqueParams[componentParameter.parameter_name].add(componentParameter.parameter_value)
           });
         });
-        setupParams(uniqueParams)
+        dispatch({ type: "setupParams", payload: uniqueParams })
 
         let filteredWithParams = filtered.filter(
-          (component) => filter.filteredParams.every(
+          (component) => filter.params.every(
             unqieParamId => component.params.some(
               ({ parameter_name, parameter_value }) => { return unqieParamId === `${parameter_name}-${parameter_value}` })))
 
-        return filteredWithParams.slice(filter.limitKey * filter.listSize, (filter.limitKey + 1) * filter.listSize)
+        return filteredWithParams.slice(filter.limitKey * 15, (filter.limitKey + 1) * 15)
 
       } else {
         return components
       }
     }
     )
-  }, [components, filter, setupParams])
+  }, [components, filter, dispatch])
 
 
   return (
     <Box onMouseMove={handleMouseMove}
-      sx={{ justifyContent: "center", minWidth: "100%", display: "flex", flexDirection: "row", flexWrap: "wrap", gap: 2 }}
+      sx={{ pt: 4, justifyContent: "center", minWidth: "100%", display: "flex", flexDirection: "row", flexWrap: "wrap", gap: 2 }}
       {...otherProps}
     >
       {filteredComponents.length !== 0 ? [...filteredComponents,].map((componentItem, index) => (
         <ComponentCard componentItem={componentItem} key={index} recommended={recommended} sx={{
-          width: { xs: "95%", sm: "45%", md: "30%" },
-          maxWidth: "400px",
-          height: { xs: "300px", sm: "300px", md: "300px" },
+          flex: 1,
+          minWidth: "300px",
+          height: "300px",
         }} />
       )) : (
-        <Box sx={{
-          width: "100%", p: 3, color: "text.main", textAlign: 'center',
-          display: "flex", flexDirection: "column", justifyContent: "center", alignItems: 'center',
-        }}>
-            <Typography variant="h2"> 💢 </Typography>
-          <Typography variant="h3">По данному запросу ничего не найдено</Typography>
-        </Box>
+        <NothingFound />
       )
       }
     </Box>

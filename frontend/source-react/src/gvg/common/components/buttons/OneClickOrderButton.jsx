@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button } from "@mui/material";
+import { Button, Link, Typography } from "@mui/material";
 import { useSnackbar } from "notistack";
 import { OrderBackdrop } from "../../../pages/order/OrderBackdrop";
 
@@ -25,14 +25,17 @@ function OneClickOrderButton({ children, productInfo, ...otherProps }) {
 
   return (
     <>
-      <Button
+      <Link
+        sx={{
+          "&:hover": {
+            cursor: "pointer",
+          },
+        }}
         onClick={() => {
           setOpen(true)
         }}
         {...otherProps}
-      >
-        {children}
-      </Button>
+      >{children}</Link>
       <OrderBackdrop isOpen={isOpen} handleClose={handleClose} productInfo={productInfo} />
     </>
   )

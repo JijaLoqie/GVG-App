@@ -123,7 +123,7 @@ export function Delivery() {
           </Stack>
           <Stack alignItems="center" direction="row">
             <EmailIcon sx={{ marginRight: 2 }} />
-            <Typography>kraskovskiydm@gmail.com</Typography>
+            <Typography>gvgcompany1@gmail.com</Typography>
           </Stack>
         </Stack>
       </Grid>

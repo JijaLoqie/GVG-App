@@ -20,7 +20,7 @@ export default function ContuctGroup() {
           component={Link}
           style={{ textDecoration: "none", color: "#ffffff" }}
         >
-          kraskovskiydm@gmail.com
+          gvgcompany1@gmail.com
         </Typography>
       </Stack>
       <Box

@@ -12,6 +12,7 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist'
+import FilterReducer from './gvg/features/filters/models/FilterReducer'
 
 const persistConfig = {
   key: 'root',
@@ -23,12 +24,11 @@ const persistedReducer = persistReducer(persistConfig, CartReducer)
 export const rootStore = configureStore({
   reducer: {
     carts: persistedReducer,
+    filter: FilterReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
-      serializableCheck: {
-        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-      },
+      serializableCheck: false,
     }),
 })
 

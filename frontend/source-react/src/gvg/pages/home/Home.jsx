@@ -10,7 +10,7 @@ function Home() {
   const { builds, components } = useLoaderData()
 
   return (
-    <Box>
+    <Box bgcolor={"background.transparent"}>
       <Header />
       <HeadRecommendations recommendationsInfo={{ builds: builds, components: components }} />
       <Reviews />

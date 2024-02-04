@@ -1,92 +1,54 @@
-import { Box, Button, Grid, Typography } from "@mui/material";
-import { useEffect, useMemo, useState } from "react";
+import { Box, Divider, Grid, Typography } from "@mui/material";
 import { useLoaderData } from "react-router-dom";
 import { CustomStuffSlider } from "../../../common/CustomStuffSlider";
-import { ComponentTypeIcon, getComponentPartsList } from "../../../common/loaders/IconsLoader";
-import { customPalette } from "../../../common/styles/themes";
-import OneClickOrderButton from "../../../common/components/buttons/OneClickOrderButton";
-import BuyButton from "../../../common/components/buttons/BuyButton";
+import { getComponentPartsList } from "../../../common/loaders/IconsLoader";
+import { ComponentRowInfo } from "../../../widgets/BuildCard";
+import { getBuildById } from "../../../stuff/builds/BuildLoader";
+import { getRecommendedComponents } from "../../../stuff/components/ComponentLoader";
+import { ComponentList } from "../../../stuff/components/ComponentList";
+import { ProductActions } from "../../../widgets/ProductActions";
 
-export function BuildPage() {
-  const buildsInfo = useMemo(getComponentPartsList, [])
 
-  const { build, params } = useLoaderData()
+const componentParts = getComponentPartsList()
+
+function BuildPage() {
+
+  const { build, recommended } = useLoaderData()
 
 
   return (
-    <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", marginTop: "24px", }}>
+    <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", mt: 3, }}>
       <Grid container sx={{ maxWidth: "1200px", width: "100%", minHeight: "70vh", color: "text.main" }}>
         <Grid item xs={12} md={6}>
           <Box
-            sx={{ width: "100%", height: { xs: "300px", md: "100%" }, maxHeight: "600px", boxShadow: "inset 0 0 2rem black" }}
+            sx={{ height: "50vh", boxShadow: "inset 0 0 2rem black" }}
           >
             <CustomStuffSlider images={build.images} />
           </Box>
         </Grid>
-        <Grid item xs={12} md={6} sx={{ display: 'flex' }}>
-          <Box sx={{ width: "100%", padding: "24px", paddingTop: "0" }}>
-            <Box marginBottom="24px">
-              <Typography textAlign="center" variant="h3">
-                {build?.title}
-              </Typography>
-            </Box>
-            <Box >
-              <Typography variant="body" sx={{ marginTop: "480px" }}>
-                {build?.description}
-              </Typography>
-            </Box>
-            <Box sx={{
-              display: "flex", flexDirection: "row", alignItems: "center",
-              borderTop: "1px solid white", borderBottom: "1px solid white",
-              marginY: "24px", paddingY: "12px", textAlign: "center",
-            }}>
-              <Typography>Цена: {build?.price}</Typography>
-              <BuyButton
-                product={{ type: "build", ...build }}
-                sx={{
-                  marginInline: "20px", transition: "all 0.3s", bgcolor: "#2600B1", color: "#D7FEDC", paddingTop: "6px",
-                  "&:hover": { backgroundColor: "lightblue", boxShadow: "0 0 1em #D7FEDC", color: "blue", cursor: "pointer", },
-                }}
-                variant="contained"
-              >
-                В корзину
-              </BuyButton>
-              <OneClickOrderButton variant="outlined" color="background" fontSize="0.85em"
-                productInfo={{ type: "build", ...build }}
-                sx={{
-                  color: "rgba(255, 255, 255, 0.5)",
-                  "&:hover": {
-                    border: "1px solid white",
-                  }
-                }}
-              >
-                Заказать в 1 клик
-              </OneClickOrderButton>
-            </Box>
-            <Box>
-              <Typography variant="h4">
-                Характеристики
-              </Typography>
-              <Box sx={{ height: "110%", width: "100%", display: "flex", flexDirection: "column", alignItems: "stretch", paddingBottom: "24px", justifyContent: "space-between" }}>
-                {buildsInfo.map((buildPartInfo, index) => (
-                  <Box key={index} sx={{
-                    display: "flex", flexDirection: "row", justifyContent: "space-between", alignItems: "center",
-                    padding: "8px",
-                    borderRadius: "15px",
-                    transition: "all 300ms",
-                    "&:hover": {
-                      boxShadow: "0 0 8px white",
-                    }
-                  }}>
-                    <Box sx={{ display: "flex", flexDirection: "row", alignItems: "center", gap: "12px" }}>
-                      <ComponentTypeIcon type={buildPartInfo.type} width="30px" height="30px" fill={customPalette.text} />
-                      <Typography>{buildPartInfo.rus_type}</Typography>
-                    </Box>
-                    <Typography color="accent.main">{build[buildPartInfo.type]}</Typography>
-                  </Box>
-                ))}
-              </Box>
-            </Box>
+        <Grid item xs={12} md={6} p={2}>
+          <Box mb={3}>
+            <Typography textAlign="center" variant="h3">
+              {build?.title}
+            </Typography>
+          </Box>
+          <Divider />
+          <Box my={3}>
+            <Typography>
+              {build?.description}
+            </Typography>
+          </Box>
+          <ProductActions product={build} productType="build" />
+
+        </Grid>
+        <Grid item xs={12}>
+          <Typography variant="h4">
+            Характеристики
+          </Typography>
+          <Box pb={2}>
+            {componentParts.map((buildPartInfo, index) => (
+              <ComponentRowInfo componentMetaInfo={buildPartInfo} value={build[buildPartInfo.type]} key={index} />
+            ))}
           </Box>
         </Grid>
       </Grid>
@@ -94,8 +56,20 @@ export function BuildPage() {
         <Typography variant="h4" p="24px" pt="12px">
           Рекомендуемые товары
         </Typography>
+        <ComponentList components={recommended} />
       </Box>
     </Box>
   )
 }
 
+export default BuildPage
+
+
+export const buildLoader = async ({ params }) => {
+  const build = await getBuildById(params.buildId);
+  const recommended = await getRecommendedComponents()
+
+  return { build, recommended: recommended };
+
+
+}

@@ -1,100 +1,58 @@
-import { Box, Button, Container, Grid, Paper, Stack, Typography } from "@mui/material";
+import { Box, Divider, Grid, Typography } from "@mui/material";
 import { useLoaderData } from "react-router-dom";
 import { CustomStuffSlider } from "../../../common/CustomStuffSlider";
-import BuyButton from "../../../common/components/buttons/BuyButton";
-import OneClickOrderButton from "../../../common/components/buttons/OneClickOrderButton";
 import { getComponentById, getRecommendedComponents } from "../../../stuff/components/ComponentLoader";
 import { ComponentList } from "../../../stuff/components/ComponentList";
+import { ProductActions } from "../../../widgets/ProductActions";
+import { ComponentRowInfo } from "../../../widgets/BuildCard";
 
 
 function ComponentPage() {
-  const { componentResult, recommended } = useLoaderData()
+  const { component, recommended } = useLoaderData()
 
   return (
-    <Stack>
-      <Stack direction={{ xs: "column", md: "row" }} m={4} alignItems={{ xs: "stretch", md: "start" }}>
-        <Box sx={{
-          width: "100%",
-          maxWidth: 600, minWidth: 300,
-          height: { xs: 300, md: 600 },
-        }}>
-          <CustomStuffSlider images={componentResult.images} />
-        </Box>
-        <Box sx={{ padding: 3, pt: 0 }}>
-          <Typography variant="h3"
-            style={{
-              background: "-webkit-linear-gradient(45deg, #FE6B8B 30%, #FF8E53 60%)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-            }}
+    <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", mt: 3, }}>
+      <Grid container sx={{ maxWidth: "1200px", width: "100%", minHeight: "70vh", color: "text.main" }}>
+        <Grid item xs={12} md={6}>
+          <Box
+            sx={{ height: "50vh", boxShadow: "inset 0 0 2rem black" }}
           >
-            {componentResult?.title}
-          </Typography>
-          <Box>
-            <Box sx={{ display: "flex", flexDirection: "column", alignItems: "stretch", paddingBottom: "24px", justifyContent: "space-between" }}>
-              {componentResult.params.map((componentParameter, index) => (
-                <Paper square variant="outlined" key={index} sx={{
-                  display: "flex", justifyContent: "space-between",
-                  alignItems: { xs: "start", md: "center" },
-                  flexWrap: "wrap",
-                  transition: "all 300ms",
-                  "&:hover": {
-                    bgcolor: "secondary.main"
-                  },
-                  p: 1, cursor: "pointer",
-                }}>
-                  <Box sx={{ display: "flex", flexDirection: "row", alignItems: "center", gap: "12px" }}>
-                    <Typography>{componentParameter.parameter_name}</Typography>
-                  </Box>
-                  <Typography color="accent.main">{componentParameter.parameter_value}</Typography>
-                </Paper>
-              ))}
-            </Box>
+            <CustomStuffSlider images={component.images} />
           </Box>
-          <Typography paragraph>
-            {componentResult?.description}
+        </Grid>
+        <Grid item xs={12} md={6} p={2}>
+          <Box mb={3}>
+            <Typography textAlign="center" variant="h3">
+              {component?.title}
+            </Typography>
+          </Box>
+          <Divider />
+          <Box my={3}>
+            <Typography>
+              {component?.description}
+            </Typography>
+          </Box>
+          <ProductActions product={component} productType={"component"} />
+
+        </Grid>
+        <Grid item xs={12}>
+          <Typography variant="h4">
+            Характеристики
           </Typography>
-          <Paper elevation={7} sx={{
-            mt: 3, p: 2,
-          }}>
-            <Stack>
-              <Paper variant="outlined" sx={{
-                display: "flex", flexDirection: "column", justifyContent: "center",
-                height: "60px",
-                pl: 1,
-              }}>
-                <Typography color="primary.main">{componentResult.price} ₽</Typography>
-                {componentResult.old_price != undefined
-                  ? <Typography color="accent.main"><strike>{componentResult.old_price} ₽ </strike></Typography>
-                  : null}
-              </Paper>
-              <Box pt={1}
-                pl="2px"
-              >
-                <BuyButton
-                  product={{ type: "component", ...componentResult }}
-                  variant="contained"
-                >
-                  В корзину
-                </BuyButton>
-                <OneClickOrderButton
-                  productInfo={{ type: "component", ...componentResult }}
-                  color="warning"
-                >
-                  Заказать в 1 клик
-                </OneClickOrderButton>
-              </Box>
-            </Stack>
-          </Paper>
-        </Box>
-      </Stack>
-      <Stack sx={{ borderTop: "1px solid white", p: 4 }}>
-        <Typography variant="h4" p={3}>
+          <Box pb={2}>
+            {component?.params.map((row, index) => (
+              <ComponentRowInfo componentMetaInfo={row.parameter_name} value={row.parameter_value} key={index} />
+            ))}
+          </Box>
+        </Grid>
+      </Grid>
+      <Box sx={{ width: "100%", height: "100%", borderTop: "1px solid white", paddingBottom: "48px" }}>
+        <Typography variant="h4" p="24px" pt="12px">
           Рекомендуемые товары
         </Typography>
         <ComponentList components={recommended} />
-      </Stack>
-    </Stack>
+      </Box>
+    </Box>
   )
 }
 
@@ -105,8 +63,9 @@ export default ComponentPage
 
 
 export const componentLoader = async ({ params }) => {
-  const componentResult = await getComponentById(params.componentId);
+  const component = await getComponentById(params.componentId);
   const recommended = await getRecommendedComponents()
 
-  return { componentResult, recommended: recommended.filter((item) => item.id != params.componentId) };
+  return { component, recommended: recommended.filter((item) => item.id != params.componentId) };
 }
+

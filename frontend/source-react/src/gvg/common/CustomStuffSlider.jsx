@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useCheckMobileScreen } from "./hooks/useCheckMobileScreen"
 
 
-const FORCE_SHOW = true
+const FORCE_SHOW = false
 
 export function CustomStuffSlider({ images }) {
   const [isShowList, setIsShowList] = useState(false)
@@ -25,14 +25,14 @@ export function CustomStuffSlider({ images }) {
       onMouseLeave={() => setIsShowList(false)}
     >
       {isShowList || isMobile || FORCE_SHOW ? (<Box
-        sx={{ position: "absolute", width: "100%", bottom: "10px", height: "110px", bgcolor: "#00000099", display: "flex", }}
+        sx={{ position: "absolute", width: "100%", bottom: "0", height: "30%", bgcolor: "#00000099", display: "flex", }}
       >
         <ImageList cols={5} gap={8}
           sx={{ marginInline: "12px", width: "100%", heigth: "100%", }}
         >
-          {images.map((imageUrl, index) => (
+          {images.map((image, index) => (
             <ImageListItem key={index} onClick={() => { setSelectedIndex(index) }} sx={{ "&:hover": { border: "1px solid white" } }}>
-              <img src={`${imageUrl.path}?auto=format&fit=crop`} style={{ height: "0", border: (index == selectedIndex) ? "2px solid white" : "none" }} />
+              <img src={`${image.path}?auto=format&fit=crop`} style={{ height: "0", border: (index == selectedIndex) ? "2px solid white" : "none" }} />
             </ImageListItem>
           ))}
         </ImageList>

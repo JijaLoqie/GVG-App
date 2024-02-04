@@ -1,29 +1,27 @@
-import { Paper, Stack, Typography } from "@mui/material"
-import { useEffect, useState } from "react"
-import { BuildCard } from "../../../../stuff/builds/BuildCard"
+import { Box, Typography } from "@mui/material"
+import { useState } from "react"
 import { ComponentList } from "../../../../stuff/components/ComponentList"
+import { BuildsList } from "../../../../stuff/builds/BuildList"
 
 function HeadRecommendations({ recommendationsInfo }) {
   const [builds, setBuilds] = useState(recommendationsInfo?.builds ?? [])
   const [components, setComponents] = useState(recommendationsInfo?.components ?? [])
 
   return (
-    <Stack p={{ xs: 0, md: 2 }} bgcolor={"background.transparent"}>
-      <Typography textAlign="center" variant="h3" p={2}>Вот они, красавцы</Typography>
-      <Paper variant="outlined">
-        <Stack spacing={2} p={{ xs: 0, md: 2 }}
-          sx={{
-            boxShadow: "inset 0 0 81px black"
-          }}
-          alignItems={{ xs: "center", md: "stretch" }}
-          direction={{ xs: "column", md: "row" }}>
-          {builds.map((build, _) => <BuildCard key={build.id} build={build} forceShrink />)}
-        </Stack>
-      </Paper >
-      <Typography textAlign="center" variant="h3" p={2}>Хиты сезона</Typography>
+    <Box bgcolor={"background.transparent"} sx={{
+      maxWidth: "1800px",
+      m: "auto",
+      pb: 6,
+    }}
+    >
+
+      <Typography variant="h3" pt={3} textAlign="center" gutterBottom>Вот они, красавцы</Typography>
+      <BuildsList builds={builds} filter={null} />
+
+      <Typography variant="h3" pt={3} textAlign="center" gutterBottom>Хиты сезона</Typography>
       <ComponentList components={components} />
 
-    </Stack >
+    </Box>
   )
 
 }

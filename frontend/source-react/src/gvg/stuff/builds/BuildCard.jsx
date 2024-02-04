@@ -21,8 +21,9 @@ export function BuildCard({ build }) {
       <Typography gutterBottom variant="h4" pt={2} pl={1}>
         {build.title}
       </Typography>
-      <Typography paragraph pt={2}>
+      <Typography paragraph pt={2} height="100px">
         {build.description}
+        {build.id === 1 && build.description}
       </Typography>
 
       <Stack sx={{ alignItems: "center" }}>

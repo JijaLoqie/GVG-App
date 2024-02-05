@@ -24,7 +24,7 @@ export function ComponentRowInfo({ componentMetaInfo, value }) {
         </Box>
         <Box sx={{
           p: 1,
-          maskImage: !expanded ? "linear-gradient(180deg, #000 30%, transparent 89%)" : "linear-gradient(180deg, #000 99%, transparent)",
+          maskImage: !expanded ? "linear-gradient(180deg, #000 40%, transparent 89%)" : "linear-gradient(180deg, #000 99%, transparent)",
         }}>
           <Typography sx={{
             minWidth: "10px",
@@ -33,9 +33,6 @@ export function ComponentRowInfo({ componentMetaInfo, value }) {
             color: "secondary.main",
           }} > {value}</Typography>
         </Box>
-        <IconButton sx={{ ml: "auto", height: "100%",}} >
-          <ExpandMore />
-        </IconButton>
       </Stack>
     </Paper >
 

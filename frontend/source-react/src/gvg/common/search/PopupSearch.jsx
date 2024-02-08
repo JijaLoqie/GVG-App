@@ -36,7 +36,7 @@ export function PopupSearch({filter}) {
           padding: "24px 96px 24px 6px",
           borderBottom: "1px solid white",
         }}>
-          <img alt="Image" src={product.images[0].path} style={{ maxHeight: "100px", width: "50px", }} />
+          <img alt="Image" src={product.images[0]?.path} style={{ maxHeight: "100px", width: "50px", }} />
           <Typography>{product.title}</Typography>
         </Box>
       )) : (

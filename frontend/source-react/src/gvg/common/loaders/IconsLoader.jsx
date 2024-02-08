@@ -25,7 +25,7 @@ export function getComponentPartsList() {
 export function getComponentIconPathByType(searchType) {
   for (const component of componentTypes) {
     if (component.type === searchType) {
-      return component.path
+      return component?.path
     }
   }
   return null

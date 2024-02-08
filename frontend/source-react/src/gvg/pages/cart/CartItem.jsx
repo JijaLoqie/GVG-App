@@ -65,7 +65,7 @@ export function CartItem({ productInfo }) {
           display: "grid", placeItems: "center"
         }}>
         {product ? (
-          <img alt="Image" src={product?.images[0].path} style={{ maxHeight: "100%", width: "100%", }} />
+          <img alt="Image" src={product?.images[0]?.path} style={{ maxHeight: "100%", width: "100%", }} />
         ) : (
           <CircularProgress />
         )}

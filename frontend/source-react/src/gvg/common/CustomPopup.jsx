@@ -41,7 +41,7 @@ export default function CustomPopup({ setMouseOnPopup, actions }) {
       >
         {actions.map((action, index) => (
           <Button
-            href={`${action.path}`}
+            href={`${action?.path}`}
             key={index}
             sx={{
               paddingTop: isMobile ? "16px" : "inherit",

@@ -33,7 +33,7 @@ export function SimpleSlider({ items, scrollable }) {
         transition: "all 300ms",
         zIndex: 3,
 
-        backgroundImage: `url(${items[currentIndex].path})`,
+        backgroundImage: `url(${items[currentIndex]?.path})`,
         backgroundSize: "contain",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",

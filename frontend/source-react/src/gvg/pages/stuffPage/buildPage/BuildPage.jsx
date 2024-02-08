@@ -1,4 +1,4 @@
-import { Box, Divider, Grid, Typography } from "@mui/material";
+import { Box, Divider, Grid, Container, Typography } from "@mui/material";
 import { useLoaderData } from "react-router-dom";
 import { CustomStuffSlider } from "../../../common/CustomStuffSlider";
 import { getComponentPartsList } from "../../../common/loaders/IconsLoader";
@@ -7,6 +7,7 @@ import { getBuildById } from "../../../stuff/builds/BuildLoader";
 import { getRecommendedComponents } from "../../../stuff/components/ComponentLoader";
 import { ComponentList } from "../../../stuff/components/ComponentList";
 import { ProductActions } from "../../../widgets/ProductActions";
+import { ComponentRecomeneddedList } from "../../../stuff/components/ComponentRecommendedList";
 
 
 const componentParts = getComponentPartsList()
@@ -52,12 +53,15 @@ function BuildPage() {
           </Box>
         </Grid>
       </Grid>
-      <Box sx={{ width: "100%", height: "100%", borderTop: "1px solid white", paddingBottom: "48px" }}>
-        <Typography variant="h4" p="24px" pt="12px">
-          Рекомендуемые товары
-        </Typography>
-        <ComponentList components={recommended} />
-      </Box>
+      {
+        recommended ? (
+          <Box sx={{ maxWidth: "1200px", width: "100%", height: "100%", borderTop: "1px solid white", paddingBottom: "48px" }}>
+            <Typography variant="h4" p="24px" pt="12px">
+              Рекомендуемые товары
+            </Typography>
+            <ComponentRecomeneddedList components={recommended} />
+          </Box>) : null
+      }
     </Box>
   )
 }

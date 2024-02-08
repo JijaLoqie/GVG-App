@@ -31,11 +31,6 @@ export function Components() {
   useEffect(() => {
     setComponents2([
       ...components,
-      ...components,
-      ...components,
-      ...components,
-      ...components,
-      ...components,
     ])
   }, [components])
 

@@ -68,11 +68,7 @@ export function ComponentList({ components, recommended, ...otherProps }) {
       {...otherProps}
     >
       {filteredComponents.length !== 0 ? [...filteredComponents,].map((componentItem, index) => (
-        <ComponentCard componentItem={componentItem} key={index} recommended={recommended} sx={{
-          flex: 1,
-          minWidth: "300px",
-          height: "300px",
-        }} />
+        <ComponentCard componentItem={componentItem} key={index} recommended={recommended} />
       )) : (
         <NothingFound />
       )

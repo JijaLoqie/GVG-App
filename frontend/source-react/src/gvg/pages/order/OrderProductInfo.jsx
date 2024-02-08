@@ -44,7 +44,7 @@ function OrderProductInfo({ product, variant, ...otherProps }) {
       </Box>
       <Box sx={{ boxShadow: "0 0 8px black", height: "100px", width: "100px", display: "grid", placeItems: "center" }}>
         {realProduct?.images ? (
-          <img alt="Image" src={realProduct?.images[0].path} style={{ maxHeight: "100%", maxWidth: "100%", }} />
+          <img alt="Image" src={realProduct?.images[0]?.path} style={{ maxHeight: "100%", maxWidth: "100%", }} />
         ) : (
           <CircularProgress />
         )}

@@ -32,7 +32,7 @@ export function CustomStuffSlider({ images }) {
         >
           {images.map((image, index) => (
             <ImageListItem key={index} onClick={() => { setSelectedIndex(index) }} sx={{ "&:hover": { border: "1px solid white" } }}>
-              <img src={`${image.path}?auto=format&fit=crop`} style={{ height: "0", border: (index == selectedIndex) ? "2px solid white" : "none" }} />
+              <img src={`${image?.path}?auto=format&fit=crop`} style={{ height: "0", border: (index == selectedIndex) ? "2px solid white" : "none" }} />
             </ImageListItem>
           ))}
         </ImageList>

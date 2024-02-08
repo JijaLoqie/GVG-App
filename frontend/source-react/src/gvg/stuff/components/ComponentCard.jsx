@@ -53,12 +53,15 @@ const CardBorder = styled("div")((_) => ({
 }));
 
 
-export function ComponentCard({ componentItem, recommended, ...otherProps }) {
+export function ComponentCard({ componentItem, ...otherProps }) {
   const navigate = useNavigate()
 
   return (
     <CustomPaper className="card" onMouseDown={() => navigate(`/component/${componentItem.id}`)} sx={{
       flexGrow: 1,
+      flex: 1,
+      minWidth: "300px", maxWidth: "300px",
+      height: "300px", width: "300px",
     }}
       {...otherProps}
     >

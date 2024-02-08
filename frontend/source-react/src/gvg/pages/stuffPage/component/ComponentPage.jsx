@@ -1,10 +1,11 @@
-import { Box, Divider, Grid, Typography } from "@mui/material";
+import { Box, Container, Divider, Grid, Typography } from "@mui/material";
 import { useLoaderData } from "react-router-dom";
 import { CustomStuffSlider } from "../../../common/CustomStuffSlider";
 import { getComponentById, getRecommendedComponents } from "../../../stuff/components/ComponentLoader";
 import { ComponentList } from "../../../stuff/components/ComponentList";
 import { ProductActions } from "../../../widgets/ProductActions";
 import { ComponentRowInfo } from "../../../widgets/BuildCard";
+import { ComponentRecomeneddedList } from "../../../stuff/components/ComponentRecommendedList";
 
 
 function ComponentPage() {
@@ -46,12 +47,16 @@ function ComponentPage() {
           </Box>
         </Grid>
       </Grid>
-      <Box sx={{ width: "100%", height: "100%", borderTop: "1px solid white", paddingBottom: "48px" }}>
-        <Typography variant="h4" p="24px" pt="12px">
-          Рекомендуемые товары
-        </Typography>
-        <ComponentList components={recommended} />
-      </Box>
+      {
+
+        recommended ? (
+          <Box sx={{ maxWidth: "1200px", width: "100%", height: "100%", borderTop: "1px solid white", paddingBottom: "48px" }}>
+            <Typography variant="h4" p="24px" pt="12px">
+              Рекомендуемые товары
+            </Typography>
+            <ComponentRecomeneddedList components={recommended} />
+          </Box>) : null
+      }
     </Box>
   )
 }
@@ -66,6 +71,6 @@ export const componentLoader = async ({ params }) => {
   const component = await getComponentById(params.componentId);
   const recommended = await getRecommendedComponents()
 
-  return { component, recommended: recommended.filter((item) => item.id != params.componentId) };
+  return { component, recommended: recommended?.filter((item) => item.id != params.componentId) };
 }
 

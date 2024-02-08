@@ -18,10 +18,10 @@ export function BuildCard({ build }) {
     }}>
       <SimpleSlider items={build.images} scrollable={true} />
 
-      <Typography gutterBottom variant="h4" pt={2} pl={1} height="80px">
+      <Typography gutterBottom variant="h4" pt={2} pl={1} height={{ xs: "auto", sm: "80px" }}>
         {build.title}
       </Typography>
-      <Typography paragraph pt={2} height="100px">
+      <Typography paragraph pt={2} height={{ xs: "auto", sm: "80px" }}>
         {build.description}
         {build.id === 1 && build.description}
       </Typography>

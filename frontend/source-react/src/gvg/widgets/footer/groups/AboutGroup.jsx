@@ -1,18 +1,8 @@
 import { Box, Typography } from "@mui/material"
 
-
-const fullLogoIcon = 'gvgFull.png'
-
-
-
-const fullLogoIconPath = `/static/logos/${fullLogoIcon}`
-
-
-
-
-export default function AboutGroup() {
+export default function AboutGroup({ ...otherProps }) {
   return (
-    <Box>
+    <Box {...otherProps}>
       <Typography sx={{ paddingBottom: "10px" }} variant="h4">
         О нас
       </Typography>

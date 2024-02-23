@@ -6,12 +6,12 @@ import {
   ButtonGroup,
   Button,
 } from "@mui/material"
-import CustomPopup from "../common/CustomPopup"
-import { useNavigate } from "react-router-dom"
+import CustomPopup from "../../common/CustomPopup"
+import { useLocation, useNavigate } from "react-router-dom"
 import LogoButton from "./LogoButton"
-import { useCheckMobileScreen } from "../common/hooks/useCheckMobileScreen"
-import CustomCallButton from "../common/CustomCallButton"
-import CustomSearch from '../common/CustomSearch'
+import { useCheckMobileScreen } from "../../common/hooks/useCheckMobileScreen"
+import CustomCallButton from "../../common/CustomCallButton"
+import CustomSearch from '../../common/CustomSearch'
 import { CartButton } from "./CartButton"
 
 export default function TopBar({ actions, offerActions }) {

@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 import { BottomNavigation, BottomNavigationAction } from "@mui/material"
 
 import { useLocation, useNavigate } from "react-router-dom"
-import CustomPopup from "../common/CustomPopup"
+import CustomPopup from "../../common/CustomPopup"
 
 export default function BottomBar({ actions, offerActions }) {
   const [selected, setSelected] = useState(0)

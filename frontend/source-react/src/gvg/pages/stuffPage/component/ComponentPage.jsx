@@ -42,7 +42,7 @@ function ComponentPage() {
           </Typography>
           <Box pb={2}>
             {component?.params.map((row, index) => (
-              <ComponentRowInfo componentMetaInfo={row.parameter_name} value={row.parameter_value} key={index} />
+              <ComponentRowInfo componentMetaInfo={{ type: "nothing", rus_type: row.parameter_name }} value={row.parameter_value} fullExpanded={true} key={index} />
             ))}
           </Box>
         </Grid>

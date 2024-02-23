@@ -7,7 +7,6 @@ import {
 import { Link } from "react-router-dom"
 import {
   Telegram as TelegramIcon,
-  Instagram as InstagramIcon,
 } from "@mui/icons-material"
 
 
@@ -20,10 +19,10 @@ const vkIconPath = `/static/logos/${vkIcon}`
 
 
 
-export default function HelpGroup() {
+export default function HelpGroup({ ...otherProps }) {
   return (
-    <Box sx={{ width: "100%" }}>
-      <Typography sx={{ pb: 8 }} variant="h4">
+    <Box {...otherProps}>
+      <Typography gutterBottom variant="h4">
         Поддержка
       </Typography>
       <Stack direction="column">
@@ -45,9 +44,6 @@ export default function HelpGroup() {
       <Stack direction="row" spacing={2} marginTop={2}>
         <IconButton>
           <TelegramIcon sx={{ color: "text.main" }} />
-        </IconButton>
-        <IconButton>
-          <InstagramIcon sx={{ color: "text.main" }} />
         </IconButton>
         <IconButton href="https://vk.com/gvgtechsolutions">
           <Box alt="vk" component="img"

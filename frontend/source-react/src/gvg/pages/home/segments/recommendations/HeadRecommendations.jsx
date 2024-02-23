@@ -2,6 +2,7 @@ import { Box, Typography } from "@mui/material"
 import { useState } from "react"
 import { ComponentList } from "../../../../stuff/components/ComponentList"
 import { BuildsList } from "../../../../stuff/builds/BuildList"
+import { ComponentRecomeneddedList } from "../../../../stuff/components/ComponentRecommendedList"
 
 function HeadRecommendations({ recommendationsInfo }) {
   const [builds, setBuilds] = useState(recommendationsInfo?.builds ?? [])
@@ -19,7 +20,7 @@ function HeadRecommendations({ recommendationsInfo }) {
       <BuildsList builds={builds} filter={null} />
 
       <Typography variant="h3" pt={3} textAlign="center" gutterBottom>Хиты сезона</Typography>
-      <ComponentList components={components} />
+      <ComponentRecomeneddedList components={components} />
 
     </Box>
   )

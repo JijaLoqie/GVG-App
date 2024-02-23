@@ -1,10 +1,12 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { KeyboardArrowLeft, KeyboardArrowRight } from "@mui/icons-material"
 import { Box, IconButton } from "@mui/material"
 
 
 export function SimpleSlider({ items, scrollable }) {
   const [currentIndex, setCurrentIndex] = useState(0)
+
+
 
   const goToPrevious = () => {
     setCurrentIndex((oldIndex) => {
@@ -20,12 +22,18 @@ export function SimpleSlider({ items, scrollable }) {
   }
 
   return (
-    <Box sx={{
+    <Box sx={(theme) => ({
       position: "relative",
       width: "100%",
       height: 300,
       textAlign: "center",
-    }}>
+      backgroundImage: `linear-gradient(45deg, transparent, ${theme.palette.background.main} 99%)`,
+      bgcolor: "background.light",
+      transition: "all 300ms",
+      "&:hover": {
+        bgcolor: "accent.dark",
+      }
+    })}>
       <Box sx={{
         position: 'absolute',
         width: "100%", height: "100%",

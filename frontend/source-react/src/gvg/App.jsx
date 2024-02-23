@@ -1,8 +1,8 @@
 import { Box, CssBaseline, ThemeProvider } from "@mui/material";
 
 import { Outlet, ScrollRestoration, } from "react-router-dom";
-import Footer from "./footer/Footer";
-import Navbar from "./navbar/Navbar";
+import Footer from "./widgets/footer/Footer";
+import Navbar from "./widgets/navbar/Navbar";
 import { SnackbarProvider } from "notistack";
 import { themes } from "./common/styles/themes";
 
@@ -15,14 +15,16 @@ export function App() {
       <Box sx={{
         boxSizing: "border-box",
         maxWidth: "100%",
-        overflow: "auto"
+        overflow: "auto",
+        display: "flex",
+        flexDirection: "column",
       }}>
         <Navbar />
-        <SnackbarProvider maxSnack={3} autoHideDuration={2000} >
-          <Box flex={1}>
+        <Box sx={{ flex: 1, display: "flex", flexDirection: "column" }}>
+          <SnackbarProvider maxSnack={3} autoHideDuration={2000} >
             <Outlet />
-          </Box>
-        </SnackbarProvider>
+          </SnackbarProvider>
+        </Box>
         <Footer />
         <ScrollRestoration />
       </Box>

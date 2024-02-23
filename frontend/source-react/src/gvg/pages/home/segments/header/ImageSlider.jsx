@@ -4,16 +4,17 @@ import { useEffect, useState } from "react";
 
 
 const image_list = [
-  "https://i.imgur.com/GCtNWVC.jpg", 
+  "https://i.imgur.com/GCtNWVC.jpg",
   "https://i.imgur.com/Lo8X4aZ.jpg",
   "https://i.imgur.com/aEnveR4.jpg",
+  "https://imgur.com/a/8r7KlX0"
 ]
 
 //    "https://i.imgur.com/lHVClA2.png",
 //
 const NEXT_SLIDE_TIMER = 15
 
-export function ImageSlider({arrows}) {
+export function ImageSlider({ arrows }) {
   const [imageIndex, setImageIndex] = useState(0)
   const [timeLeft, setTimeLeft] = useState(NEXT_SLIDE_TIMER)
 
@@ -69,7 +70,7 @@ export function ImageSlider({arrows}) {
           width: "100%",
         }}>
           <IconButton onClick={scrollPrev} color="text">
-            <KeyboardArrowLeft fontSize="large"/>
+            <KeyboardArrowLeft fontSize="large" />
           </IconButton>
           <IconButton onClick={scrollNext} color="text">
             <KeyboardArrowRight fontSize="large" />
@@ -79,7 +80,7 @@ export function ImageSlider({arrows}) {
       <Box>
         <Box
           sx={{
-            position:"absolute",
+            position: "absolute",
             bottom: "25px",
             width: "100%",
             display: "flex", justifyContent: "center", flexDirection: "row",
@@ -101,4 +102,5 @@ export function ImageSlider({arrows}) {
         </Box>
       </Box>
     </Box>
-  )}
+  )
+}

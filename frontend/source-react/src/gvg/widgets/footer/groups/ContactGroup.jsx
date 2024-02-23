@@ -5,12 +5,12 @@ import {
   Stack,
 } from "@mui/material"
 import { Link } from "react-router-dom"
-import CustomTelephoneLink from "../../common/CustomTelephoneLink"
-import ContactUsButton from "../../common/components/buttons/ContactUsButton"
+import CustomTelephoneLink from "../../../common/CustomTelephoneLink"
+import ContactUsButton from "../../../common/components/buttons/ContactUsButton"
 
 export default function ContuctGroup() {
   return (
-    <Box sx={{ width: "100%" }}>
+    <Box>
       <Typography sx={{ paddingBottom: "10px" }} variant="h4">
         Связаться с нами
       </Typography>

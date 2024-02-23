@@ -48,7 +48,7 @@ export function ComponentList({ components, recommended, ...otherProps }) {
         dispatch({ type: "setupParams", payload: uniqueParams })
 
         let filteredWithParams = filtered.filter(
-          (component) => filter.params.every(
+          (component) => filter.params.length === 0 || filter.params.some(
             unqieParamId => component.params.some(
               ({ parameter_name, parameter_value }) => { return unqieParamId === `${parameter_name}-${parameter_value}` })))
 

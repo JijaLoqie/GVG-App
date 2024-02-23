@@ -5,9 +5,9 @@ import {
 } from "@mui/material"
 import { Link } from "react-router-dom"
 
-export default function ShopGroup() {
+export default function ShopGroup({ ...otherProps }) {
   return (
-    <Box sx={{ width: "100%" }}>
+    <Box {...otherProps}>
       <Typography sx={{ paddingBottom: "10px" }} variant="h4">
         Магазин
       </Typography>

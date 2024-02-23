@@ -48,7 +48,7 @@ function BuildPage() {
           </Typography>
           <Box pb={2}>
             {componentParts.map((buildPartInfo, index) => (
-              <ComponentRowInfo componentMetaInfo={buildPartInfo} value={build[buildPartInfo.type]} key={index} />
+              <ComponentRowInfo componentMetaInfo={buildPartInfo} value={build[buildPartInfo.type]} fullExpanded key={index} />
             ))}
           </Box>
         </Grid>

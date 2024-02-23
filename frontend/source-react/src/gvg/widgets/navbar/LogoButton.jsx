@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from "react"
 import { Box, Typography } from "@mui/material"
 import { useNavigate } from "react-router-dom"
 
-import { translationInfo } from "../common/hooks/useCheckTranslation"
+import { translationInfo } from "../../common/hooks/useCheckTranslation"
 import { Sensors } from "@mui/icons-material"
 
 const logoIcon = 'icon.png'

@@ -11,7 +11,7 @@ import {
 import TopBar from "./TopBar.jsx"
 import BottomBar from "./BottomBar.jsx"
 
-import { useCheckMobileScreen } from "../common/hooks/useCheckMobileScreen.js"
+import { useCheckMobileScreen } from "../../common/hooks/useCheckMobileScreen.js"
 
 
 const actions = [

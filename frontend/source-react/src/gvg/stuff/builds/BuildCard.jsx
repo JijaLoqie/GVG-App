@@ -4,12 +4,14 @@ import { getComponentPartsList } from "../../common/loaders/IconsLoader"
 import { ComponentRowInfo } from "../../widgets/BuildCard"
 import { ShowMoreButton } from "../../common/components/buttons/ShowMoreButton"
 import { ProductActions } from "../../widgets/ProductActions"
+import { useCheckMobileScreen } from "../../common/hooks/useCheckMobileScreen"
 
 
 const componentParts = getComponentPartsList().slice(0, 5)
 
 
 export function BuildCard({ build }) {
+  const isMobile = useCheckMobileScreen()
   return (
     <Paper variant="outlined" sx={{
       flex: 1, display: "flex", flexDirection: "column",
@@ -28,7 +30,7 @@ export function BuildCard({ build }) {
 
       <Stack sx={{ alignItems: "center" }}>
         {componentParts.map((componentMetaInfo, index) => (
-          <ComponentRowInfo componentMetaInfo={componentMetaInfo} value={build[componentMetaInfo.type]} key={index} />
+          <ComponentRowInfo componentMetaInfo={componentMetaInfo} value={build[componentMetaInfo.type]} fullExpanded={isMobile} key={index} />
         ))}
         <ShowMoreButton productType="build" productId={build.id} />
       </Stack>

@@ -24,7 +24,7 @@ export default function CustomPopup({ setMouseOnPopup, actions }) {
         position: "fixed",
         bottom: isMobile ? "56px" : "auto",
         top: isMobile ? "auto" : "66px",
-        left: isMobile ? "12.5vw" : "25vw",
+        left: isMobile ? "12.5vw" : "20vw",
         width: "50vw",
         minHeight: "50px",
         paddingInline: 0,
@@ -35,6 +35,7 @@ export default function CustomPopup({ setMouseOnPopup, actions }) {
     >
       <ButtonGroup
         {...buttonGroupProps}
+        color="background"
         sx={{
           minHeight: "50px",
         }}
@@ -46,12 +47,8 @@ export default function CustomPopup({ setMouseOnPopup, actions }) {
             sx={{
               paddingTop: isMobile ? "16px" : "inherit",
               paddingBottom: isMobile ? "16px" : "inherit",
-              color: "text.main",
-              backgroundColor: "secondary.main",
-              "&:hover": {
-                backgroundColor: "accent.main",
-                color: "secondary.main",
-              },
+              backgroundColor: "background.light",
+              "&:hover": { backgroundColor: "accent.dark" },
             }}
           >
             <Typography
@@ -60,7 +57,6 @@ export default function CustomPopup({ setMouseOnPopup, actions }) {
                 textAlign: "center",
                 transform: "skew(10deg)",
               }}
-              variant="p"
             >
               {action.title}
             </Typography>

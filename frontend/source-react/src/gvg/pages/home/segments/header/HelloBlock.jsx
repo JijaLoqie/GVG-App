@@ -1,8 +1,8 @@
 import { Box, Typography, alpha } from "@mui/material";
-import { HandyButton } from "./HandyButton";
 import { TranslationWidget } from "./TranslationWidget";
 import { useCheckMobileScreen } from "../../../../common/hooks/useCheckMobileScreen";
 import { translationInfo } from "../../../../common/hooks/useCheckTranslation";
+import { SpecialBuildButton } from "../../../../features/buttons/SpecialBuildButton";
 
 export function HelloBlock() {
   const { enabled, link } = translationInfo
@@ -25,19 +25,19 @@ export function HelloBlock() {
         display: "flex",
         flexDirection: enabled ? "row" : "column",
         maxHeight: "45%",
-        padding: { xs: "10px", md: "32px" },
+        padding: { xs: 1, md: 2 },
         margin: "12px",
 
       }}>
         {!isMobile || !enabled ? (
-          <Box sx={{ maxWidth: "600px" }}>
+          <Box sx={{ maxWidth: "600px", textAlign: "center" }}>
             <Typography sx={{ fontSize: { xs: 30, md: 50 }, color: "text.main" }}>GVG Tech Solutions</Typography>
             <Typography sx={{ paddingBottom: "10px", color: "text.main" }}>
-              Оставьте свои заявки сейчас, и наша команда приступит к работе над вашим идеальным компьютером. 💪
+              Оставьте свои заявки сейчас, и наша команда приступит к работе над вашим идеальным компьютером.
             </Typography>
           </Box>) : null}
-        <Box sx={{ flex: 1, display: "flex", justifyContent: { xs: "center", md: enabled ? "end" : "center" }, alignItems: "center" }}>
-          <HandyButton />
+        <Box sx={{ pt: 2, flex: 1, display: "flex", justifyContent: { xs: "center", md: enabled ? "end" : "center" }, alignItems: "center" }}>
+          <SpecialBuildButton />
         </Box>
       </Box>
     </Box>

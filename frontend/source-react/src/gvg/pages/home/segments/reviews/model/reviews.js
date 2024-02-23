@@ -1,8 +1,8 @@
 export const reviews =
   [
     {
-      name: "Reviewer 1",
-      review: "TThis is a goood build I bought!This is a goood build I bought!This is a goood build I bought!This is a goood build I bought!his is a goood build I bought! # 1",
+      name: "Пользователь",
+      review: "Выражаю свою благодарность магазину за помощь в выборе моего нового игрового компьютера! Сборка просто летает, и все новейшие игры идут на ультра настройках. Особая благодарность консультанту Глебу за терпение и профессиональные рекомендации. Однозначно буду рекомендовать магазин друзьям!",
       images: [
         {
           path: "/static/builds/build1.jpg",
@@ -10,8 +10,8 @@ export const reviews =
       ],
     },
     {
-      name: "Reviewer 2",
-      review: "TTThis is a goooThis is a goood build I bought!This is a goood build I bought!This is a goood build I bought!This is a goood build I bought!his is a goood build I bought! # 2",
+      name: "Пользователь",
+      review: "Недавно купил игровой комп в этом магазине, и это был прекрасный опыт. Менеджеры помогли подобрать комплектующие именно под мои запросы и бюджет. Цены весьма демократичные, а качество сборки отличное. Игры запускаются мгновенно, и работают без задержек. Спасибо за вашу работу!",
       images: [
         {
           path: "/static/builds/build3.jpg",
@@ -26,8 +26,8 @@ export const reviews =
     },
 
     {
-      name: "Reviewer 3",
-      review: "TThis is a goood build I bought!This is a goood build I bought!This is a goood build I bought!This is a goood build I bought!his is a goood build I bought! # 2",
+      name: "Пользователь",
+      review: "Спасибо ребятам! Приобрёл здесь игровой компьютер, и уже месяц не могу оторваться от экрана. Отдельная благодарность Георгу за ценные советы по обслуживанию и настройке. Упаковали все надежно, доставили быстро. Компьютер работает без вопросов, рекомендую.",
       images: [
         {
           path: "/static/builds/build2.jpg",
